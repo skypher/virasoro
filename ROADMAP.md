@@ -52,23 +52,44 @@ coefficientwise in `q`.
   recursive residue.
 - `tools/audit_grade10_confluence.py`: exact Kac slopes, residue constants,
   grade-ten fusion factorization, generic-recursion evaluation of the second
-  crossing scalar, and finite simple-pole term. It does not independently
-  construct the 42-by-42 fixed-`c` crossing form.
+  crossing scalar, and finite simple-pole term (confluence side).
 - `tools/audit_confluent_recursion.py`: independent replay of the shifted
   Laurent recursion at grade two and the first two collision moments at
   grade four.
+- `tools/audit_direct_principal_parts.py`: definition-side checks.  Exact
+  reconstruction of `H_N`, `N <= 7`, as rational functions of the internal
+  weight at two sample external weights, verifying the grade-3 and grade-4
+  residue theorems, the complete grade-7 principal part (including the
+  explicit `Theta_7`), the pole-order claims below grade 7, the grade <= 4
+  collision-moment table, closed forms of `Q_4^E`, `Q_5^E`, and the
+  intrinsic `gamma_7 = -700700` from an independent engine
+  (`tools/direct_reconstruction.py`).
+- `tools/audit_grade10_direct.py` (run via `make audit-deep`, ~10 min):
+  the direct 42-by-42 computation at grade ten — kernel dimension 32,
+  determinant valuation 33, the level-8/level-6 residues, closed forms of
+  `Q_8`, `Q_6`, and the complete grade-ten principal part including
+  `gamma_10 = -1121229484375/192` and the explicit `Theta_10`.
+- `tools/audit_stocco_comparison.py`: the imported identities (6.1) and
+  (6.1a) at sample points, and agreement with Stocco's pole-free
+  numerators — orders 2 and 3 identically in `b`, order 4 at the Ising
+  point (`--full` also checks order 4 at generic points).
 - `tools/audit_ising_characters.py`: the three irreducible Ising character
-  expansions through grade 15.
+  expansions through grade 30, BGG side cross-checked against an
+  independent free-fermion count.
 - `paper.pdf`: clean build with no undefined references, layout
   warnings, or compilation errors.
 
 Install the exact symbolic dependency with
-`python3 -m pip install -r requirements-audit.txt`, run all checks with
-`make audit`, and rebuild the manuscript with `make pdf`.
+`python3 -m pip install -r requirements-audit.txt`, run the standard checks
+with `make audit`, the slow grade-ten direct check with `make audit-deep`,
+and rebuild the manuscript with `make pdf`.
 
 ## Supplementary extension
 
 An explicit all-depth identification of every local Smith layer with every
 term of the Ising embedding diagrams would strengthen the
 representation-theoretic interpretation, but it is not used as a premise
-of the finite recursion or the all-order equality theorem.
+of the finite recursion or the all-order equality theorem.  The grade-ten
+principal part is now verified directly against the inverse-Shapovalov
+definition; an independent symbolic construction of the grade-ten second
+crossing form itself remains a natural further audit.

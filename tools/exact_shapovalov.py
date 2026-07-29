@@ -214,8 +214,9 @@ def main():
     args = parser.parse_args()
     if not 0 <= args.max_level <= 3:
         parser.error(
-            "the symbolic Python path is restricted to levels 0..3; "
-            "higher coefficient generation must use the parallel C++ path"
+            "the fully symbolic path is restricted to levels 0..3; "
+            "higher levels are exercised by the exact reconstruction in "
+            "tools/direct_reconstruction.py and its audit scripts"
         )
 
     f_coefficients, reduced_coefficients = h_coefficients(args.max_level)
