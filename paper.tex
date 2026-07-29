@@ -5,7 +5,11 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \hypersetup{pdftitle={A pole-free torus one-point Virasoro-block
-recursion at c=1/2 via exact algebraic confluence}}
+recursion at c=1/2 via exact algebraic confluence},
+pdfkeywords={Virasoro algebra, conformal blocks, torus one-point block,
+Zamolodchikov recursion, minimal models, Ising model}}
+
+\numberwithin{equation}{section}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -51,6 +55,12 @@ second, larger test.  As a separate quotient consistency check, the
 corresponding BGG resolutions reproduce the three Ising characters.
 \end{abstract}
 
+\noindent\textit{Keywords:} Virasoro algebra; conformal blocks; torus
+one-point block; Zamolodchikov recursion; minimal models; Ising model.
+
+\smallskip
+\noindent\textit{MSC 2020:} 17B68; 17B10; 81T40.
+
 \section{Introduction}
 
 Residue recursions for Virasoro blocks originate with Zamolodchikov's
@@ -93,9 +103,35 @@ collision classes.  Each class has a regular sum, and its fixed-\(c\)
 coefficients are finite constant terms of finite Laurent sums.  The shifted
 recursion decreases the remaining grade, while a recursive valuation
 majorant supplies an a priori finite jet budget.
-Theorem~\ref{thm:all-order-recursion}
-proves that this construction equals the inverse-Shapovalov definition at
-every power of \(q\).
+
+In the notation of
+Sections~\ref{sec:partial-fractions}--\ref{sec:all-order}, the main
+result reads: for every grade \(N\geq1\),
+\[
+ H_N\!\left(\tfrac12,\Delta,d\right)
+ =\sum_{n\geq0}\ \sum_{k=1}^{M_{n,N}}
+ \frac{A_{n,k,N}(d)}{(\Delta-\lambda_n)^k},
+\qquad
+ A_{n,k,N}(d)
+ =\operatorname{CT}_t
+ \sum_{a\in{\mathcal C}_{n,N}}
+ R_a(t)\,S_{a,N-\ell_a}(t)\,\delta_a(t)^{k-1},
+\]
+where \(H_N\) is the \(N\)-th eta-reduced block coefficient,
+\(\lambda_n\) runs over the Ising degenerate weights,
+\({\mathcal C}_{n,N}\) is the finite class of Kac labels \((r,s)\) with
+\(rs\leq N\) whose weight collides at \(\lambda_n\), \(t=b-b_0\) is the
+exact Coulomb-gas germ, \(R_a\) and \(\delta_a=h_a-\lambda_n\) are the
+generic residue coefficient and the weight gap of the label \(a\),
+\(S_{a,M}\) is the shifted Laurent block of
+Definition~\ref{def:shifted-laurent}, \(\operatorname{CT}_t\) extracts
+the constant term of a Laurent germ, and \(M_{n,N}\) is the finite
+structural pole bound of Definition~\ref{def:collision-moments}.  Every
+ingredient is a finite jet of an explicit rational function of \(b\).
+Theorem~\ref{thm:all-order-recursion} proves this identity: the
+constant-term moments on the right are exactly the partial-fraction
+coefficients of the inverse-Shapovalov block, at every power of
+\(q\).
 
 The local calculations exhibit how the algebraic confluence records
 Virasoro embedding geometry.  The earliest collision is the transverse
@@ -205,6 +241,33 @@ and \(\operatorname*{Res}_{\Delta=\lambda}f\) for the coefficient of
 \((\Delta-\lambda)^{-1}\).
 \end{remark}
 
+\begin{remark}[Symbol families]\label{rem:symbols}
+For reference, the following letters serve more than one family, always
+distinguished by their subscripts and context.
+The letter \(e_i\) denotes local Smith exponents
+(Section~\ref{sec:smith}); \(e_j\), used only inside the proofs of
+Lemma~\ref{lem:large-weight} and
+Proposition~\ref{prop:generic-recursion}, denotes the coefficients of
+the Euler product \(\prod_{m\geq1}(1-q^m)\); \(e=(u,v)\) is a Kac label
+in Section~\ref{sec:all-order}; and
+\(\varepsilon_a=\ord_t\delta_a\) is the collision order of
+Definition~\ref{def:collision-moments}.  The calligraphic
+\({\mathcal A}_{r,s},{\mathcal P}_{r,s},{\mathcal R}_{r,s}\) are the
+generic residue data of Definition~\ref{def:generic-residue}, whereas
+\(A_{n,k,N}\) are the fixed-\(c\) partial-fraction coefficients of
+Theorem~\ref{thm:partial-fractions} and \(\widetilde A_{n,k,N}\) the
+collision moments of Definition~\ref{def:collision-moments}; the two
+are identified in Theorem~\ref{thm:all-order-recursion}.
+\(\rho_N\) is the torus matrix of Definition~\ref{def:matrices}, while
+\(\rho_e\) in Lemma~\ref{lem:shifted-valuation-bound} is a valuation
+bound; similarly \(p(N)\) counts partitions, while \(p_{a,e}\) in
+Lemma~\ref{lem:precision-budget} is a precision offset.  Finally,
+\(b\) is the Coulomb-gas parameter, \(b_\chi\) the crossing scalar of
+Lemma~\ref{lem:singular-crossing}, and \(\beta\) a crossing form;
+Stocco's \(\beta=b^2\) occurs only in
+Remark~\ref{rem:stocco-comparison}.
+\end{remark}
+
 \section{Ising resonance classes}
 
 \begin{definition}[Ising Kac weights]
@@ -246,14 +309,13 @@ or
 \begin{proof}
 The equality of the two weights is equivalent to
 \[
- 4r'-3s'=\varepsilon(4r-3s)
+ 4r'-3s'=\pm(4r-3s).
 \]
-for some \(\varepsilon\in\{1,-1\}\).
-If \(\varepsilon=1\), then
+If the sign is \(+\), then
 \(4(r'-r)=3(s'-s)\).  Since \(\gcd(3,4)=1\), there is an
 \(\ell\in\mathbb Z\) with
 \((r'-r,s'-s)=(3\ell,4\ell)\).
-If \(\varepsilon=-1\), then
+If the sign is \(-\), then
 \(4(r'+r)=3(s'+s)\), and the same coprimality argument gives
 \((r'+r,s'+s)=(3\ell,4\ell)\).
 The converse follows by direct substitution.
@@ -348,21 +410,22 @@ gives the second limit.
 \end{proof}
 
 \begin{theorem}[Finite coefficientwise pole expansion]\label{thm:partial-fractions}
-At \(c=1/2\), \(H_0=1\), and for every \(N\geq1\) there are coefficients
-\(a_{n,k,N}(d)\in\mathbb Q[d]\), only finitely many of them nonzero,
+At \(c=1/2\), \(H_0=1\), and for every \(N\geq1\) there are unique
+coefficients
+\(A_{n,k,N}(d)\in\mathbb Q[d]\), only finitely many of them nonzero,
 such that
 \[
  H_N\left(\frac12,\Delta,d\right)
  =\sum_{\substack{n\geq0\\
        \exists\,r,s>0:\ rs\leq N,\ |4r-3s|=n}}
    \ \sum_{k\geq1}
-   \frac{a_{n,k,N}(d)}{(\Delta-\lambda_n)^k}.
+   \frac{A_{n,k,N}(d)}{(\Delta-\lambda_n)^k}.
 \]
-The largest \(k\) with \(a_{n,k,N}\neq0\) is the pole multiplicity
-denoted \(m_{n,N}\) in Definition~\ref{def:collision-moments} below.
+The largest \(k\) with \(A_{n,k,N}\neq0\) is the multiplicity of the
+pole of \(H_N\) at \(\lambda_n\).
 In particular, setting
 \[
- A_{n,k}(d;q)=\sum_{N\geq1}a_{n,k,N}(d)q^N
+ A_{n,k}(d;q)=\sum_{N\geq1}A_{n,k,N}(d)q^N
 \]
 gives a coefficientwise locally finite expansion
 \[
@@ -391,13 +454,16 @@ Since \(H_N\) is a finite integer linear combination of
 \(F_0,\ldots,F_N\), it has the same pole containment.
 Lemma~\ref{lem:large-weight} shows that \(H_N\) tends to zero at infinity
 for \(N\geq1\), so its partial-fraction expansion has no polynomial part.
+Such an expansion is unique, because a proper rational function is the
+sum of its principal parts at its finite poles.
 All matrix entries have rational coefficients at \(c=1/2\), and their
 dependence on \(d\) is polynomial; hence the partial-fraction coefficients
 belong to \(\mathbb Q[d]\).  Local finiteness follows from
 Corollary~\ref{cor:local-finite}.
 \end{proof}
 
-\section{Local Smith exponents and transverse collisions}\label{sec:smith}
+\section{Local Smith exponents, transverse collisions, and the first
+residues}\label{sec:smith}
 
 \begin{lemma}[Pole order from local invariant factors]\label{lem:smith}
 Let \(R=\mathbb C[[x]]\), and let \(G(x)\in M_m(R)\) have nonzero
@@ -697,7 +763,7 @@ are singular.  At level \(3\),
 \]
 and the local Smith exponents are \((0,1,1)\).  With the
 \(L_{-1}^{\ell}\)-coefficient normalized to \(1\), their crossing scalars
-and torus matrix elements are
+are
 \[
  b_{\xi_2}=\frac{28}{9},\qquad
  b_{\xi_3}=-\frac{105}{8},
@@ -711,7 +777,7 @@ and the level-three crossing form in the ordered basis
  \frac{28}{9}G_1(1/2,5/2)&0\\0&-105/8
  \end{pmatrix}.
 \]
-Moreover,
+Moreover, the diagonal torus matrix elements are
 \[
  E_2(d):=\langle\xi_2|V_d(1)|\xi_2\rangle
  =\frac{d(d-1)(3d-14)(3d-5)}9,
@@ -773,7 +839,7 @@ Every quantity on the right is evaluated directly at \(c=1/2\).
 The block-diagonal crossing form in
 Proposition~\ref{prop:first-collision} has highest-weight inverse scalars
 \(9/28\) and \(-8/105\).
-Propositions~\ref{prop:transverse-residue} and
+Proposition~\ref{prop:transverse-residue} and
 Lemma~\ref{lem:singular-factorization} therefore give
 \[
  \operatorname*{Res}_{\Delta=1/2}F_2=\frac9{28}E_2,
@@ -781,8 +847,11 @@ Lemma~\ref{lem:singular-factorization} therefore give
  \operatorname*{Res}_{\Delta=1/2}F_3
  =\frac9{28}E_2F_1(1/2,5/2,d)-\frac8{105}E_3.
 \]
-Since the Euler product gives
-\(\operatorname*{Res}H_3=\operatorname*{Res}(F_3-F_2)\), the result
+The Euler product gives \(H_3=F_3-F_2-F_1\); since
+\(G_1(1/2,\Delta)=(2\Delta)\), the coefficient \(F_1\) is regular at
+\(\Delta=\tfrac12\), so
+\(\operatorname*{Res}_{\Delta=1/2}H_3
+=\operatorname*{Res}_{\Delta=1/2}(F_3-F_2)\).  The result
 follows from \(H_1=F_1-F_0\).
 \end{proof}
 
@@ -807,26 +876,10 @@ Consequently, \(G_4(1/2,\Delta)^{-1}\), \(F_4(1/2,\Delta,d)\), and
 \end{proposition}
 
 \begin{proof}
-Direct Virasoro commutation gives
-\begin{center}
-\resizebox{\textwidth}{!}{$
-G_4=
-\begin{pmatrix}
-8\Delta+\frac52&14\Delta&24\Delta+\frac32&36\Delta&120\Delta\\
-14\Delta&12\Delta^2+14\Delta&30\Delta&40\Delta^2+20\Delta&
-192\Delta^2+48\Delta\\
-24\Delta+\frac32&30\Delta&32\Delta^2+36\Delta+\frac{17}{8}&
-48\Delta^2+51\Delta&216\Delta^2+144\Delta\\
-36\Delta&40\Delta^2+20\Delta&48\Delta^2+51\Delta&
-32\Delta^3+118\Delta^2+33\Delta&
-288\Delta^3+336\Delta^2+96\Delta\\
-120\Delta&192\Delta^2+48\Delta&216\Delta^2+144\Delta&
-288\Delta^3+336\Delta^2+96\Delta&
-384\Delta^4+1152\Delta^3+1056\Delta^2+288\Delta
-\end{pmatrix}
-$}
-\end{center}
-Its determinant is the displayed polynomial.  At \(\Delta=1/16\), the
+Direct Virasoro commutation gives the \(5\times5\) Gram matrix
+\(G_4(1/2,\Delta)\) recorded in Appendix~\ref{app:gram}.
+Its determinant is the polynomial displayed in the statement.  At
+\(\Delta=1/16\), the
 upper-left \(2\times2\) minor has determinant \(2\), while the following
 three independent vectors lie in the kernel:
 \[
@@ -909,7 +962,8 @@ are the columns
  \begin{pmatrix}-3/2\\-3/2\\0\\-3/4\\1\end{pmatrix},\qquad
  \begin{pmatrix}-1/4\\11/6\\49/144\\-25/6\\1\end{pmatrix}.
 \]
-Multiplication by the displayed matrix \(G_4(1/2,h_0)\) gives zero.
+Multiplication by the matrix \(G_4(1/2,h_0)\) of
+Appendix~\ref{app:gram} gives zero.
 They are independent, and Proposition~\ref{prop:spin-collision} gives
 nullity three, proving the kernel identity.
 
@@ -1000,7 +1054,7 @@ Throughout the confluence calculations,
 Put \(\Lambda^2=(b+b^{-1})^2-4d\), and define
 \[
  \begin{split}
- {\cal P}_{r,s}(b,d)
+ {\mathcal P}_{r,s}(b,d)
  =\prod_{\substack{1\leq k\leq2r-1\\k\ {\rm odd}}}
   \prod_{\substack{1\leq l\leq2s-1\\l\ {\rm odd}}}
  &\frac{\Lambda^2-(kb+lb^{-1})^2}{4}\\
@@ -1010,14 +1064,14 @@ Put \(\Lambda^2=(b+b^{-1})^2-4d\), and define
 \]
 and
 \[
- {\cal A}_{r,s}(b)
+ {\mathcal A}_{r,s}(b)
  =\frac12
  \prod_{\substack{1-r\leq p\leq r,\ 1-s\leq q\leq s\\
  (p,q)\neq(0,0),(r,s)}}
  (pb+qb^{-1})^{-1},\qquad
- {\cal R}_{r,s}(b,d)={\cal A}_{r,s}(b){\cal P}_{r,s}(b,d).
+ {\mathcal R}_{r,s}(b,d)={\mathcal A}_{r,s}(b){\mathcal P}_{r,s}(b,d).
 \]
-For generic \(b\), \({\cal R}_{r,s}\) is the residue coefficient in the
+For generic \(b\), \({\mathcal R}_{r,s}\) is the residue coefficient in the
 eta-reduced torus recursion, stated as
 Proposition~\ref{prop:generic-recursion} below.
 \end{definition}
@@ -1027,24 +1081,22 @@ Proposition~\ref{prop:generic-recursion} below.
 The formula is equations (7)--(9) of
 \cite[Section~3]{HadaszJaskolskiSuchanek2010}; the recursion was
 conjectured in \cite{Poghossian2009}.  The product
-\({\cal P}_{r,s}\) is the product of the two torus fusion polynomials of
+\({\mathcal P}_{r,s}\) is the product of the two torus fusion polynomials of
 \cite{HadaszJaskolskiSuchanek2010}, written without choosing a square
 root of \(\Lambda^2\).  In that normalization the singular vector has
 \(L_{-1}^{rs}\)-coefficient \(1\).  Two identities at generic \(b\) are
 imported from that literature rather than rederived here.  First, with
 \(\chi_{r,s}(b)\) the normalized singular vector and \(b_{\chi}\) the
 crossing scalar of Lemma~\ref{lem:singular-crossing},
-\[
- b_{\chi_{r,s}(b)}={\cal A}_{r,s}(b)^{-1};
-\tag{6.1a}\label{eq:crossing-normalization}
-\]
+\begin{equation}\label{eq:crossing-normalization}
+ b_{\chi_{r,s}(b)}={\mathcal A}_{r,s}(b)^{-1};
+\end{equation}
 this is the classical norm-derivative formula behind Zamolodchikov-type
 residues \cite{Zamolodchikov1987,HadaszJaskolskiSuchanek2010}.  Second,
-\[
+\begin{equation}\label{eq:fusion-normalization}
  \langle\chi_{r,s}(b)|V_d(1)|\chi_{r,s}(b)\rangle
- ={\cal P}_{r,s}(b,d);
-\tag{6.1}\label{eq:fusion-normalization}
-\]
+ ={\mathcal P}_{r,s}(b,d);
+\end{equation}
 this is the content of the residue computation in
 \cite[Section~3]{HadaszJaskolskiSuchanek2010} and is \emph{not} a
 one-line consequence of the Ward recursion.  Both sides of each identity
@@ -1100,7 +1152,7 @@ Fix \(N\geq1\).  For all \(b\) outside a finite set of algebraic values,
 \[
  H_N(c(b),\Delta,d)
  =\sum_{\substack{a=(r,s)\in\mathbb Z_{>0}^2\\ \ell_a=rs\leq N}}
- \frac{{\cal R}_{r,s}(b,d)}{\Delta-h_{r,s}(b)}\,
+ \frac{{\mathcal R}_{r,s}(b,d)}{\Delta-h_{r,s}(b)}\,
  H_{N-\ell_a}\bigl(c(b),h_{r,s}(b)+rs,d\bigr)
 \]
 as an identity of rational functions of \(\Delta\), polynomial in
@@ -1128,17 +1180,17 @@ and every positive local Smith exponent equals \(1\); hence
 Proposition~\ref{prop:transverse-residue} applies.  By
 Lemma~\ref{lem:singular-crossing}, the crossing form on this kernel is
 \(b_{\chi}\,G_{N-rs}(c,z_{r,s})\), which is nondegenerate because
-\(z_{r,s}\) is non-degenerate and, by
+\(z_{r,s}\) is not a degenerate weight and, by
 \eqref{eq:crossing-normalization},
-\(b_\chi^{-1}={\cal A}_{r,s}(b)\neq0\).  Taking the trace of the residue of
+\(b_\chi^{-1}={\mathcal A}_{r,s}(b)\neq0\).  Taking the trace of the residue of
 \(G_N^{-1}\) against \(\rho_N\) and factoring the pulled-back torus form
 by Lemma~\ref{lem:singular-factorization} and
 \eqref{eq:fusion-normalization} gives
 \[
  \operatorname*{Res}_{\Delta=h_{r,s}(b)}F_N(c,\Delta,d)
- ={\cal A}_{r,s}(b)\,{\cal P}_{r,s}(b,d)\,
+ ={\mathcal A}_{r,s}(b)\,{\mathcal P}_{r,s}(b,d)\,
  F_{N-rs}(c,z_{r,s},d)
- ={\cal R}_{r,s}(b,d)\,F_{N-rs}(c,z_{r,s},d).
+ ={\mathcal R}_{r,s}(b,d)\,F_{N-rs}(c,z_{r,s},d).
 \]
 The difference between \(F_N\) and the sum of these principal parts has
 no finite pole, hence is a polynomial in \(\Delta\); it is bounded as
@@ -1147,7 +1199,7 @@ constant \(p(N)\):
 \[
  F_N(c,\Delta,d)
  =p(N)+\sum_{\ell_a\leq N}
- \frac{{\cal R}_a(b,d)}{\Delta-h_a(b)}F_{N-\ell_a}(c,z_a,d).
+ \frac{{\mathcal R}_a(b,d)}{\Delta-h_a(b)}F_{N-\ell_a}(c,z_a,d).
 \]
 Finally, multiply by the Euler coefficients \(e_j\) and sum.  The
 generating identity in the proof of Lemma~\ref{lem:large-weight} gives
@@ -1157,7 +1209,7 @@ shifted \(H\)-coefficients:
  H_N(c,\Delta,d)
  =\delta_{N,0}
  +\sum_{\ell_a\leq N}
- \frac{{\cal R}_a(b,d)}{\Delta-h_a(b)}H_{N-\ell_a}(c,z_a,d).
+ \frac{{\mathcal R}_a(b,d)}{\Delta-h_a(b)}H_{N-\ell_a}(c,z_a,d).
 \]
 For \(N\geq1\) this is the displayed recursion.
 \end{proof}
@@ -1297,8 +1349,8 @@ application of Lemma~\ref{lem:smith} proves the Smith and pole bounds.
 \label{thm:grade-seven-principal-part}
 Define
 \[
- E_5(d)={\cal P}_{1,5}(b_0,d),\qquad
- E_4(d)={\cal P}_{4,1}(b_0,d).
+ E_5(d)={\mathcal P}_{1,5}(b_0,d),\qquad
+ E_4(d)={\mathcal P}_{4,1}(b_0,d).
 \]
 Explicitly,
 \[
@@ -1311,7 +1363,11 @@ Explicitly,
  d(d-20)(d-13)(d-11)(d-6)(d-1)
  (3d-14)(3d-5),
 \]
-and \(E_2E_5=E_3E_4\).  Put
+and \(E_2E_5=E_3E_4\).  The subscripts of \(E_5\) and \(E_4\) record the
+relative levels of the child singular vectors \(\phi_5\) and \(\phi_4\)
+of Proposition~\ref{prop:grade-seven-smith}, in parallel with the
+parent-module elements \(E_2,E_3\) of
+Proposition~\ref{prop:first-collision}.  Put
 \[
  Q_5^E(d)=
  \left.\frac{\partial}{\partial z}
@@ -1341,9 +1397,9 @@ polynomial
  \Theta_7(d)=
  \sum_{(\kappa,\tau)=(\alpha,\mu),(\beta,\nu)}
  \left(
- \frac{\dot{\cal R}_\kappa{\cal R}_\tau+
-       {\cal R}_\kappa\dot{\cal R}_\tau}{\dot\delta_\kappa}
- -\frac{{\cal R}_\kappa{\cal R}_\tau\ddot\delta_\kappa}
+ \frac{\dot{\mathcal R}_\kappa{\mathcal R}_\tau+
+       {\mathcal R}_\kappa\dot{\mathcal R}_\tau}{\dot\delta_\kappa}
+ -\frac{{\mathcal R}_\kappa{\mathcal R}_\tau\ddot\delta_\kappa}
  {2\dot\delta_\kappa^2}
  \right)_{b=b_0}.
 \]
@@ -1399,7 +1455,7 @@ Direct evaluation of the residue products and Kac slopes gives
 \[
  \begin{array}{c|rrrr}
  (r,s)&(2,1)&(1,3)&(1,5)&(4,1)\\ \hline
- {\cal A}_{r,s}(b_0)&
+ {\mathcal A}_{r,s}(b_0)&
  9/28&-8/105&-1/102375&3/61600
  \end{array}
 \]
@@ -1413,8 +1469,8 @@ and
 Either path therefore expresses the coefficient produced jointly by their
 cancelled \(t^{-1}\) parts:
 \[
- \frac5{11}{\cal A}_{2,1}{\cal A}_{1,5}
- =\frac5{13}{\cal A}_{1,3}{\cal A}_{4,1}
+ \frac5{11}{\mathcal A}_{2,1}{\mathcal A}_{1,5}
+ =\frac5{13}{\mathcal A}_{1,3}{\mathcal A}_{4,1}
  =-\frac1{700700}.
 \]
 This agrees with the intrinsic inverse second crossing scalar
@@ -1518,7 +1574,7 @@ Let \(b_0=2i/\sqrt3\), so \(c(b_0)=1/2\).  Then
 \[
  \begin{array}{c|cccc}
  (r,s)&(1,2)&(2,2)&(4,2)&(1,6)\\ \hline
- {\cal A}_{r,s}(b_0)&
+ {\mathcal A}_{r,s}(b_0)&
  -4/7&648/13475&48/32035128125&-8/320945625 .
  \end{array}
 \]
@@ -1531,14 +1587,14 @@ If a dot denotes \(d/db\) at \(b_0\), then
 \]
 and
 \[
- \frac15{\cal A}_{1,2}{\cal A}_{4,2}
- =\frac17{\cal A}_{2,2}{\cal A}_{1,6}
+ \frac15{\mathcal A}_{1,2}{\mathcal A}_{4,2}
+ =\frac17{\mathcal A}_{2,2}{\mathcal A}_{1,6}
  =-\frac{192}{1121229484375}.
 \]
 Moreover,
 \[
  \begin{split}
- {\cal P}_{4,2}(b_0,d)
+ {\mathcal P}_{4,2}(b_0,d)
  =\frac1{20736}&d(d-20)(d-13)(d-11)(d-6)(d-1)\\
  {}\times&(2d-57)(2d-35)(2d-15)(2d-7)(2d-5)(2d-1)\\
  {}\times&(3d-14)(3d-5)(6d-55)(6d-1),
@@ -1546,15 +1602,15 @@ Moreover,
 \]
 \[
  \begin{split}
- {\cal P}_{1,6}(b_0,d)
+ {\mathcal P}_{1,6}(b_0,d)
  =\frac1{64}&d(d-20)(d-13)(d-11)(d-6)(d-1)\\
  {}\times&(2d-57)(2d-35)(2d-15)(2d-7)(2d-5)(2d-1),
  \end{split}
 \]
 and
 \[
- P_2(d){\cal P}_{4,2}(b_0,d)
- =P_4(d){\cal P}_{1,6}(b_0,d).
+ P_2(d){\mathcal P}_{4,2}(b_0,d)
+ =P_4(d){\mathcal P}_{1,6}(b_0,d).
 \]
 \end{lemma}
 
@@ -1573,8 +1629,8 @@ derivatives are
  \end{array}
 \]
 These four values give the two slope ratios.  Multiplication of the four
-displayed \({\cal A}\)-values gives the common nested residue.
-Factoring the two \({\cal P}\)-products over \(\mathbb Q[d]\) gives the
+displayed \({\mathcal A}\)-values gives the common nested residue.
+Factoring the two \({\mathcal P}\)-products over \(\mathbb Q[d]\) gives the
 last three identities.
 \end{proof}
 
@@ -1595,8 +1651,8 @@ Define
 \]
 They are the explicit polynomials
 \[
- P_8^{(33/16)}(d)={\cal P}_{4,2}(b_0,d),\qquad
- P_6^{(65/16)}(d)={\cal P}_{1,6}(b_0,d)
+ P_8^{(33/16)}(d)={\mathcal P}_{4,2}(b_0,d),\qquad
+ P_6^{(65/16)}(d)={\mathcal P}_{1,6}(b_0,d)
 \]
 listed in Lemma~\ref{lem:grade-ten-constants}.
 Write
@@ -1641,8 +1697,8 @@ Cramer's rule then shows that the normalized rational families
 identity
 \eqref{eq:fusion-normalization} specializes to
 \[
- P_8^{(33/16)}={\cal P}_{4,2}(b_0,d),\qquad
- P_6^{(65/16)}={\cal P}_{1,6}(b_0,d).
+ P_8^{(33/16)}={\mathcal P}_{4,2}(b_0,d),\qquad
+ P_6^{(65/16)}={\mathcal P}_{1,6}(b_0,d).
 \]
 
 Let \(K_1=\ker G_0=(U_2+U_4)_{10}\), and let \(\beta_1\) be its first
@@ -1707,8 +1763,8 @@ double-pole coefficient can be written using the
 \[
  \frac{\dot h_{1,2}-\dot h_{2,2}}
  {\dot h_{1,2}-\dot h_{4,2}}\,
- {\cal A}_{1,2}(b_0){\cal A}_{4,2}(b_0)
- P_2(d)P_8^{(33/16)}(d)
+ {\mathcal A}_{1,2}(b_0){\mathcal A}_{4,2}(b_0)
+ P_2(d)P_8^{(33/16)}(d).
 \]
 Lemma~\ref{lem:grade-ten-constants} evaluates this scalar coefficient as
 \(-192/1121229484375\).  Rewriting the same combined coefficient using the
@@ -1802,10 +1858,10 @@ Only the \(\alpha\)- and \(\beta\)-terms of the generic recursion can
 develop a pole at \(\Delta=h_0\).  Their numerators at grade ten are
 \[
  C_\alpha(b)
- ={\cal R}_\alpha(b,d)
+ ={\mathcal R}_\alpha(b,d)
  H_8(c(b),z_\alpha(b),d),\qquad
  C_\beta(b)
- ={\cal R}_\beta(b,d)
+ ={\mathcal R}_\beta(b,d)
  H_6(c(b),z_\beta(b),d).
 \]
 At \((b_0,z_\alpha(b_0))\), the level-eight shifted block has one
@@ -1815,31 +1871,31 @@ that point.  The analogous statement holds for the level-six block and
 \[
  \begin{aligned}
  H_8(c(b),z_\alpha(b),d)
- &=\frac{{\cal R}_\mu(b,d)}{\delta_\alpha(b)}
+ &=\frac{{\mathcal R}_\mu(b,d)}{\delta_\alpha(b)}
    +Q_8(d)+O(t),\\
  H_6(c(b),z_\beta(b),d)
- &=\frac{{\cal R}_\nu(b,d)}{\delta_\beta(b)}
+ &=\frac{{\mathcal R}_\nu(b,d)}{\delta_\beta(b)}
    +Q_6(d)+O(t).
  \end{aligned}
 \]
 
 For either nested pair \((\kappa,\tau)\), expansion of
-\({\cal R}_\kappa{\cal R}_\tau/\delta_\kappa\) gives finite term
+\({\mathcal R}_\kappa{\mathcal R}_\tau/\delta_\kappa\) gives finite term
 \[
  T_{\kappa,\tau}
  =
- \frac{\dot{\cal R}_\kappa{\cal R}_\tau
-       +{\cal R}_\kappa\dot{\cal R}_\tau}
+ \frac{\dot{\mathcal R}_\kappa{\mathcal R}_\tau
+       +{\mathcal R}_\kappa\dot{\mathcal R}_\tau}
       {\dot\delta_\kappa}
  -
- \frac{{\cal R}_\kappa{\cal R}_\tau\ddot\delta_\kappa}
+ \frac{{\mathcal R}_\kappa{\mathcal R}_\tau\ddot\delta_\kappa}
       {2\dot\delta_\kappa^2},
 \]
 where every undotted factor on the right is evaluated at \(b_0\).
 The two \(t^{-1}\) terms cancel because
 \[
- \frac{{\cal R}_\alpha{\cal R}_\mu}{\dot\delta_\alpha}
- +\frac{{\cal R}_\beta{\cal R}_\nu}{\dot\delta_\beta}=0;
+ \frac{{\mathcal R}_\alpha{\mathcal R}_\mu}{\dot\delta_\alpha}
+ +\frac{{\mathcal R}_\beta{\mathcal R}_\nu}{\dot\delta_\beta}=0;
 \]
 this is Lemma~\ref{lem:grade-ten-constants} together with
 \(P_2P_8=P_4P_6\).
@@ -1853,14 +1909,14 @@ at \(t=0\), the cancelled \(t^{-1}\) numerator produces the \(y^{-2}\)
 coefficient
 \[
  \frac{\dot h_\alpha-\dot h_\beta}{\dot\delta_\alpha}
- {\cal R}_\alpha(b_0,d){\cal R}_\mu(b_0,d)
+ {\mathcal R}_\alpha(b_0,d){\mathcal R}_\mu(b_0,d)
  =
  -\frac{192}{1121229484375}P_2(d)P_8^{(33/16)}(d).
 \]
 The \(y^{-1}\) coefficient is
 \[
- {\cal R}_\alpha(b_0,d)Q_8(d)
- +{\cal R}_\beta(b_0,d)Q_6(d)
+ {\mathcal R}_\alpha(b_0,d)Q_8(d)
+ +{\mathcal R}_\beta(b_0,d)Q_6(d)
  +T_{\alpha,\mu}+T_{\beta,\nu}.
 \]
 The first two residue constants are
@@ -1922,7 +1978,7 @@ the agreement with the pole-free expressions of \cite{Stocco2022}
 discussed in Section~\ref{sec:low-grade-output}.
 \end{remark}
 
-\section{All-order confluent recursion}
+\section{All-order confluent recursion}\label{sec:all-order}
 
 \begin{definition}[Shifted Laurent recursion]\label{def:shifted-laurent}
 Let \(t=b-b_0\), and work in
@@ -1934,7 +1990,7 @@ where \(d\) is transcendental: \(K\) is the rational-function field in
 For a positive Kac label \(a=(r,s)\), write
 \[
  \ell_a=rs,\qquad h_a(t)=h_{r,s}(b_0+t),\qquad
- R_a(t)={\cal R}_{r,s}(b_0+t,d),\qquad z_a(t)=h_a(t)+\ell_a.
+ R_a(t)={\mathcal R}_{r,s}(b_0+t,d),\qquad z_a(t)=h_a(t)+\ell_a.
 \]
 Define shifted Laurent coefficients recursively by
 \[
@@ -1996,23 +2052,23 @@ sets involved are finite because \(\ell_e\leq M\).
 \begin{definition}[Collision moments]\label{def:collision-moments}
 For \(N\geq1\), set
 \[
- {\cal C}_{n,N}
+ {\mathcal C}_{n,N}
  =\{a=(r,s)\in\mathbb Z_{>0}^2:
        \ell_a\leq N,\ |4r-3s|=n\}.
 \]
-For \(a\in{\cal C}_{n,N}\), define
+For \(a\in{\mathcal C}_{n,N}\), define
 \[
  B_{a,N}(t)=R_a(t)S_{a,N-\ell_a}(t),\qquad
  \delta_a(t)=h_a(t)-\lambda_n.
 \]
 If \(\delta_a\not\equiv0\) and \(B_{a,N}\not\equiv0\), put
 \[
- e_a=\ord_t\delta_a,\qquad
+ \varepsilon_a=\ord_t\delta_a,\qquad
  v_{a,N}=\max\{0,-\ord_tB_{a,N}\}.
 \]
 If \(\delta_a\not\equiv0\) and \(B_{a,N}\equiv0\), put
-\(e_a=\ord_t\delta_a\) and \(v_{a,N}=0\).  If
-\(\delta_a\equiv0\), set \(e_a=\infty\) and \(v_{a,N}=0\).
+\(\varepsilon_a=\ord_t\delta_a\) and \(v_{a,N}=0\).  If
+\(\delta_a\equiv0\), set \(\varepsilon_a=\infty\) and \(v_{a,N}=0\).
 Define also the a priori numerator bound
 \[
  \widehat v_{a,N}=\rho_a+W_{a,N-\ell_a}.
@@ -2024,38 +2080,39 @@ Lemma~\ref{lem:shifted-valuation-bound} gives
 Define the exact finite structural pole bound
 \[
  M_{n,N}=
- \max_{a\in{\cal C}_{n,N}}
+ \max_{a\in{\mathcal C}_{n,N}}
  \begin{cases}
- 1+\lfloor v_{a,N}/e_a\rfloor,&e_a<\infty,\\
- 1,&e_a=\infty,
+ 1+\lfloor v_{a,N}/\varepsilon_a\rfloor,&\varepsilon_a<\infty,\\
+ 1,&\varepsilon_a=\infty,
  \end{cases}
 \]
 and its a priori majorant
 \[
  \widehat M_{n,N}=
- \max_{a\in{\cal C}_{n,N}}
+ \max_{a\in{\mathcal C}_{n,N}}
  \begin{cases}
-  1+\lfloor \widehat v_{a,N}/e_a\rfloor,&e_a<\infty,\\
-  1,&e_a=\infty.
+  1+\lfloor \widehat v_{a,N}/\varepsilon_a\rfloor,&\varepsilon_a<\infty,\\
+  1,&\varepsilon_a=\infty.
  \end{cases}
 \]
 Thus \(M_{n,N}\leq\widehat M_{n,N}\).  The former can be sharpened after
 the exact rational germs have been computed, while the latter bounds the
 number of moments before those cancellations are simplified.
-For \(1\leq k\leq M_{n,N}\), define
+For \(1\leq k\leq M_{n,N}\), define the \emph{collision moments}
 \[
- A_{n,k,N}(d)
+ \widetilde A_{n,k,N}(d)
  =\operatorname{CT}_{t}
- \sum_{a\in{\cal C}_{n,N}}
+ \sum_{a\in{\mathcal C}_{n,N}}
  B_{a,N}(t)\delta_a(t)^{k-1}.
 \]
 Here \(\operatorname{CT}_t\) denotes the coefficient of \(t^0\) in a
-Laurent series.  Empty collision classes contribute zero.  The actual
-pole multiplicity at grade \(N\) is
+Laurent series.  Empty collision classes contribute zero.  Put
 \[
- m_{n,N}=\max\bigl(\{k:A_{n,k,N}\neq0\}\cup\{0\}\bigr),
+ m_{n,N}=\max\bigl(\{k:\widetilde A_{n,k,N}\neq0\}\cup\{0\}\bigr).
 \]
-and satisfies \(m_{n,N}\leq M_{n,N}\).
+It satisfies \(m_{n,N}\leq M_{n,N}\), and
+Theorem~\ref{thm:all-order-recursion} identifies it with the exact
+multiplicity of the pole of \(H_N\) at \(\lambda_n\).
 \end{definition}
 
 \begin{lemma}[Backward Laurent-precision budget]
@@ -2067,12 +2124,11 @@ Put
 \]
 Suppose \(S_{a,M}\) is required through the coefficient of \(t^U\).
 For its \(e\)-summand it is sufficient to know
-\[
- D_{a,e}\quad\hbox{through }t^{\,U+W_{e,M-\ell_e}},
+\begin{equation}\label{eq:precision-propagation}
+ D_{a,e}\quad\text{through }t^{\,U+W_{e,M-\ell_e}},
 \qquad
- S_{e,M-\ell_e}\quad\hbox{through }t^{\,U+p_{a,e}}.
-\tag{8.1}\label{eq:precision-propagation}
-\]
+ S_{e,M-\ell_e}\quad\text{through }t^{\,U+p_{a,e}}.
+\end{equation}
 Iterating these requests down the strictly grade-decreasing recursion tree
 produces a finite a priori upper precision at every node.
 
@@ -2108,9 +2164,10 @@ term.
 \label{lem:separated-pole-cancellation}
 Let \(\mu_1,\ldots,\mu_s\) be distinct, and let
 \[
- f_j(t,\Delta)\in K((t))(\Delta)
+ f_j(t,\Delta)\in K(\Delta)((t)),
  \]
-have a finite lower \(t\)-valuation.  Suppose that every \(t\)-coefficient
+that is, a Laurent series in \(t\) whose coefficients are rational
+functions of \(\Delta\).  Suppose that every \(t\)-coefficient
 of \(f_j\) is a proper rational function of \(\Delta\) whose finite poles,
 if any, lie only at \(\Delta=\mu_j\).  If
 \(\sum_{j=1}^s f_j(t,\Delta)\) has no negative power of \(t\), then neither
@@ -2129,24 +2186,29 @@ this for the finitely many possible negative exponents proves the claim.
 For every \(N\geq1\),
 \[
  H_N(1/2,\Delta,d)
- =\sum_{\substack{n\geq0\\{\cal C}_{n,N}\neq\varnothing}}
+ =\sum_{\substack{n\geq0\\{\mathcal C}_{n,N}\neq\varnothing}}
    \sum_{k=1}^{M_{n,N}}
-   \frac{A_{n,k,N}(d)}{(\Delta-\lambda_n)^k}.
+   \frac{\widetilde A_{n,k,N}(d)}{(\Delta-\lambda_n)^k}.
 \]
 The sums and every constant-term calculation are finite,
-\(A_{n,k,N}(d)\in\mathbb Q[d]\), and the recursion in
+\(\widetilde A_{n,k,N}(d)\in\mathbb Q[d]\), and the recursion in
 Definitions~\ref{def:shifted-laurent}--\ref{def:collision-moments}
-terminates after grades strictly below \(N\).  Moreover
+terminates after grades strictly below \(N\).  In particular, by the
+uniqueness in Theorem~\ref{thm:partial-fractions}, the collision
+moments are the partial-fraction coefficients of the block,
+\[
+ \widetilde A_{n,k,N}=A_{n,k,N},
+\]
+and \(m_{n,N}\) is the exact multiplicity of the pole of \(H_N\) at
+\(\lambda_n\).  Moreover
 \[
  m_{n,N}\leq M_{n,N}\leq\widehat M_{n,N},
 \]
 where \(\widehat M_{n,N}\) is computed before simplifying cancellations
 inside the shifted blocks.  The backward rule of
 Lemma~\ref{lem:precision-budget} supplies a finite truncation order for every
-intermediate Laurent germ.  Consequently, with
-\[
- A_{n,k}(d;q)=\sum_{N\geq1}A_{n,k,N}(d)q^N,
-\]
+intermediate Laurent germ.  Consequently, with \(A_{n,k}(d;q)\) as in
+Theorem~\ref{thm:partial-fractions},
 one has the coefficientwise locally finite identity
 \[
  H_\Delta^{(1/2)}(d\mid q)
@@ -2172,12 +2234,11 @@ Induction on \(M\) in the same recursion gives
  S_{a,M}(t)=H_M(c(b),z_a(t),d)
 \]
 for generic \(b\).  Thus
-\[
+\begin{equation}\label{eq:generic-grouped}
  H_N(c(b),\Delta,d)
  =\sum_{\ell_a\leq N}
  \frac{B_{a,N}(t)}{\Delta-h_a(t)}.
-\tag{8.2}\label{eq:generic-grouped}
-\]
+\end{equation}
 All sums are finite.
 
 Fix \(N\), and choose \(\Delta\) outside the finite set of Ising Kac
@@ -2194,15 +2255,15 @@ each negative \(t\)-coefficient vanishes as a rational function of
 Group its right-hand side according to the distinct limits
 \(\lambda_n\):
 \[
- {\cal G}_{n,N}(t,\Delta)
- =\sum_{a\in{\cal C}_{n,N}}
+ {\mathcal G}_{n,N}(t,\Delta)
+ =\sum_{a\in{\mathcal C}_{n,N}}
  \frac{B_{a,N}(t)}{\Delta-h_a(t)}.
 \]
-Every \(t\)-coefficient of \({\cal G}_{n,N}\) is a proper rational
+Every \(t\)-coefficient of \({\mathcal G}_{n,N}\) is a proper rational
 function of \(\Delta\) with its only possible finite pole at
 \(\Delta=\lambda_n\).  The sum over \(n\) is analytic in \(t\), as just
 proved.  Lemma~\ref{lem:separated-pole-cancellation} therefore shows that
-each \({\cal G}_{n,N}\) is separately regular in \(t\).  Hence every
+each \({\mathcal G}_{n,N}\) is separately regular in \(t\).  Hence every
 collision class has a finite algebraic confluent value.
 
 Put \(x=\Delta-\lambda_n\).  In the formal expansion at \(x=\infty\),
@@ -2215,12 +2276,12 @@ Taking \(\operatorname{CT}_t\) after summing the collision class shows
 that the coefficient of \(x^{-k}\) is exactly
 \[
  \operatorname{CT}_t
- \sum_{a\in{\cal C}_{n,N}}
+ \sum_{a\in{\mathcal C}_{n,N}}
  B_{a,N}(t)\delta_a(t)^{k-1}
- =A_{n,k,N}(d).
+ =\widetilde A_{n,k,N}(d).
 \]
 If \(\delta_a\not\equiv0\), then the summand has positive \(t\)-valuation
-whenever \(k>1+\lfloor v_{a,N}/e_a\rfloor\), so its constant term
+whenever \(k>1+\lfloor v_{a,N}/\varepsilon_a\rfloor\), so its constant term
 vanishes.  If \(\delta_a\equiv0\), it vanishes identically for \(k>1\).
 This proves the bound \(M_{n,N}\), the finiteness of the pole sum, and
 the finite-jet nature of every constant-term calculation.  Independently
@@ -2230,7 +2291,7 @@ of cancellations, Lemma~\ref{lem:shifted-valuation-bound} replaces
 propagates the required upper precision backward through the finite
 recursion tree, fixing a finite jet budget before the exact germs are
 simplified.  In particular, since
-\(\ord_t\delta_a=e_a>0\), only finitely many terms of the formal
+\(\ord_t\delta_a=\varepsilon_a>0\), only finitely many terms of the formal
 \(x^{-1}\)-expansion can contribute to \(\operatorname{CT}_t\); this
 justifies interchanging the constant term with that expansion.
 The confluent
@@ -2243,9 +2304,13 @@ Every \(R_a(t)\) is polynomial in \(d\) with coefficients rational in
 Therefore every collision moment is polynomial in \(d\).
 Equation~\eqref{eq:generic-grouped} and the analyticity argument identify
 the resulting rational function with the specialized inverse-Shapovalov
-coefficient.  The latter has rational coefficients at \(c=1/2\);
+coefficient; by the uniqueness in
+Theorem~\ref{thm:partial-fractions}, this gives
+\(\widetilde A_{n,k,N}=A_{n,k,N}\), and \(m_{n,N}\) is the exact pole
+multiplicity of \(H_N\) at \(\lambda_n\).  The specialized coefficient
+has rational coefficients at \(c=1/2\);
 uniqueness of its partial fractions improves
-\(A_{n,k,N}\in K[d]\) to \(A_{n,k,N}\in\mathbb Q[d]\).
+\(\widetilde A_{n,k,N}\in K[d]\) to \(\widetilde A_{n,k,N}\in\mathbb Q[d]\).
 Finally, local finiteness in \(q\) is
 Corollary~\ref{cor:local-finite}, completing the all-order identity.
 \end{proof}
@@ -2261,7 +2326,7 @@ Theorems~\ref{thm:spin-recursive-residue} and
 \end{corollary}
 
 \begin{proof}
-At \(N=3\), the class \({\cal C}_{5,3}\) consists of
+At \(N=3\), the class \({\mathcal C}_{5,3}\) consists of
 \((2,1)\) and \((1,3)\).  Its first moment is
 \[
  \frac9{28}E_2(d)H_1(1/2,5/2,d)-\frac8{105}E_3(d),
@@ -2271,7 +2336,7 @@ nested shifted poles \((2,1)\to(1,5)\) and
 \((1,3)\to(4,1)\).  Its first two moments are the simple- and double-pole
 coefficients of Theorem~\ref{thm:grade-seven-principal-part}.
 
-At \(N=4\), the class \({\cal C}_{2,4}\) consists of
+At \(N=4\), the class \({\mathcal C}_{2,4}\) consists of
 \((1,2)\) and \((2,2)\), and both \(B\)-terms are regular at \(t=0\).
 Its first moment is
 \[
@@ -2283,9 +2348,9 @@ while all higher moments vanish.
 At \(N=10\), the same spin collision class has
 \[
  B_{(1,2),10}
- ={\cal R}_{1,2}H_8(c(b),h_{1,2}+2,d),\qquad
+ ={\mathcal R}_{1,2}H_8(c(b),h_{1,2}+2,d),\qquad
  B_{(2,2),10}
- ={\cal R}_{2,2}H_6(c(b),h_{2,2}+4,d).
+ ={\mathcal R}_{2,2}H_6(c(b),h_{2,2}+4,d).
 \]
 Their zeroth and first collision moments are exactly the two Laurent
 coefficients computed in the proof of
@@ -2300,8 +2365,9 @@ Through grade four, every pole of the Ising block is simple:
 \(m_{n,N}=1\) for all classes with \(N\leq4\), by
 Proposition~\ref{prop:no-earlier-double-pole}.  The complete list of
 nonzero collision moments through grade four, computed from
-Definition~\ref{def:collision-moments} and factored over
-\(\mathbb Q[d]\), is
+Definition~\ref{def:collision-moments}, equal to the partial-fraction
+coefficients \(A_{n,k,N}\) by Theorem~\ref{thm:all-order-recursion},
+and factored over \(\mathbb Q[d]\), is
 \[
  \begin{aligned}
  A_{1,1,1}&=\tfrac12\,d(d-1),\\[2pt]
@@ -2329,7 +2395,7 @@ The entries are consistent with the local theorems:
 \(A_{5,1,3}\) is the residue of
 Theorem~\ref{thm:first-recursive-residue}, \(A_{2,1,4}\) is the
 polynomial of Theorem~\ref{thm:spin-recursive-residue}, and
-\(A_{13,1,4}={\cal A}_{4,1}(b_0){\cal P}_{4,1}(b_0,d)\).  All entries
+\(A_{13,1,4}={\mathcal A}_{4,1}(b_0){\mathcal P}_{4,1}(b_0,d)\).  All entries
 are verified against the inverse-Shapovalov definition by
 \path{tools/audit_direct_principal_parts.py}.
 
@@ -2350,7 +2416,11 @@ exact arithmetic that his order-two and order-three numerators
 reproduce the generic blocks \(H_2\) and \(H_3\) of
 Definition~\ref{def:matrices} identically in \(b\), and that his
 order-four numerator reproduces \(H_4\) at sample values of \(b\) and
-at \(b=b_0\); see \path{tools/audit_stocco_comparison.py}.  In
+at \(b=b_0\); see \path{tools/audit_stocco_comparison.py}.  (The
+identical-in-\(b\) comparison was run only through order three because
+of the cost of expanding the order-four rational functions; the sampled
+order-four check includes the specialization \(b=b_0\) used in this
+paper.)  In
 particular, specializing his expressions at \(\beta=b_0^2=-4/3\)
 reproduces the \(N\leq4\) table above.  At \(c=1/2\), collided labels
 make his denominator vanish to higher order (for instance
@@ -2377,14 +2447,15 @@ Ising trace; the latter requires taking the quotient by the radical.
 
 \begin{proof}
 In Definition~\ref{def:generic-residue}, the factor with \(k=l=1\)
-in \({\cal P}_{r,s}(b,0)\) is
+in \({\mathcal P}_{r,s}(b,0)\) is
 \[
  \frac{(b+b^{-1})^2-(b+b^{-1})^2}{4}=0.
 \]
 Hence every generic residue \(R_a(t)\) vanishes identically at \(d=0\).
 Definitions~\ref{def:shifted-laurent} and
 \ref{def:collision-moments} then give
-\(A_{n,k,N}(0)=0\) for every \(N\geq1\).
+\(\widetilde A_{n,k,N}(0)=0\), hence \(A_{n,k,N}(0)=0\), for every
+\(N\geq1\).
 Equivalently, in the inverse-Shapovalov definition the identity insertion
 has \(\rho_N=G_N\), so \(F_N=p(N)\) and eta reduction gives \(H=1\).
 \end{proof}
@@ -2513,6 +2584,50 @@ valuations are inserted.  Making that extension uniform in \(p,p'\), and
 finding an intrinsic fixed-central-charge recursion that eliminates the
 formal deformation altogether, remain open directions.
 
+\section*{Code availability}
+
+All exact-arithmetic audit scripts cited in the text are distributed
+with this paper as ancillary files: the eight
+\path{tools/audit_*.py} scripts described in
+Remarks~\ref{rem:imported} and~\ref{rem:audit-scope} and in the
+character-replay remark, together with the shared library modules
+\path{tools/exact_shapovalov.py} and
+\path{tools/direct_reconstruction.py} on which they depend.  All
+computations use exact rational arithmetic (Python~3 with SymPy;
+the pinned dependency is listed in
+\path{requirements-audit.txt}).  Running \texttt{make audit} replays
+every check except the direct grade-ten reconstruction, which the
+slower target \texttt{make audit-deep} adds.
+
+\appendix
+
+\section{The level-four Gram matrix at
+\texorpdfstring{\(c=1/2\)}{c=1/2}}\label{app:gram}
+
+In the ordered PBW basis
+\((L_{-4},\,L_{-3}L_{-1},\,L_{-2}^2,\,L_{-2}L_{-1}^2,\,L_{-1}^4)
+\lvert\Delta\rangle\) of Proposition~\ref{prop:spin-collision}, direct
+Virasoro commutation gives
+\begin{center}
+\resizebox{\textwidth}{!}{$
+G_4=
+\begin{pmatrix}
+8\Delta+\frac52&14\Delta&24\Delta+\frac32&36\Delta&120\Delta\\
+14\Delta&12\Delta^2+14\Delta&30\Delta&40\Delta^2+20\Delta&
+192\Delta^2+48\Delta\\
+24\Delta+\frac32&30\Delta&32\Delta^2+36\Delta+\frac{17}{8}&
+48\Delta^2+51\Delta&216\Delta^2+144\Delta\\
+36\Delta&40\Delta^2+20\Delta&48\Delta^2+51\Delta&
+32\Delta^3+118\Delta^2+33\Delta&
+288\Delta^3+336\Delta^2+96\Delta\\
+120\Delta&192\Delta^2+48\Delta&216\Delta^2+144\Delta&
+288\Delta^3+336\Delta^2+96\Delta&
+384\Delta^4+1152\Delta^3+1056\Delta^2+288\Delta
+\end{pmatrix}
+$}
+\end{center}
+at \(c=1/2\).
+
 \begin{thebibliography}{99}
 
 \bibitem{Zamolodchikov1984}
@@ -2556,9 +2671,7 @@ JHEP \textbf{04} (2019) 018,
 \bibitem{IoharaKoga2011}
 K.~Iohara and Y.~Koga,
 \emph{Representation Theory of the Virasoro Algebra},
-Springer Monographs in Mathematics, Springer (2011),
-Theorem~4.2, Propositions~5.1 and~5.4, Figure~5.4, and
-Theorems~6.3 and~6.9.
+Springer Monographs in Mathematics, Springer (2011).
 
 \bibitem{HadaszJaskolskiSuchanek2010}
 L.~Hadasz, Z.~Jask\'olski and P.~Suchanek,

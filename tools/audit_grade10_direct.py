@@ -9,7 +9,7 @@ definition, and verifies:
   * dim ker G_10(1/2, 1/16) = 32 and the determinant valuation 33
     (Proposition "Grade-ten Smith profile");
   * the residues of H_8 at 33/16 and H_6 at 65/16 against the generic
-    residue constants (equation (6.1) normalization at levels 8 and 6);
+    residue constants (equation (6.2) normalization at levels 8 and 6);
   * the closed forms of the finite parts Q_8 and Q_6;
   * both Laurent coefficients of H_10 at 1/16, i.e. the complete
     principal part of Theorem "Finite recursive grade-ten principal
