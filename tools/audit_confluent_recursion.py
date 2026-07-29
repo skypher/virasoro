@@ -127,12 +127,12 @@ def main():
         + sp.Rational(648, 13475) * p4
     )
     check_equal(
-        "first collision moment at level 4",
+        "spin collision moment at level 4",
         first_moment,
         expected_first,
     )
     check_equal(
-        "vanishing second collision moment at level 4",
+        "vanishing second spin-collision moment at level 4",
         second_moment,
         0,
     )

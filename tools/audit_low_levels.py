@@ -196,9 +196,9 @@ def main():
     )
     if crossing != expected_crossing:
         raise AssertionError(
-            f"first-collision crossing form mismatch:\n{crossing}"
+            f"spin-collision crossing form mismatch:\n{crossing}"
         )
-    print("PASS first-collision derivative crossing form", flush=True)
+    print("PASS spin-collision derivative crossing form", flush=True)
 
     _, _, vertex_two = level_matrices(2)
     _, _, vertex_four = level_matrices(4)

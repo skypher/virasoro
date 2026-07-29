@@ -1,0 +1,14 @@
+PYTHON ?= python3
+
+.PHONY: audit pdf
+
+audit:
+	$(PYTHON) tools/audit_first_resonances.py
+	$(PYTHON) tools/audit_low_levels.py
+	$(PYTHON) tools/audit_grade10_confluence.py
+	$(PYTHON) tools/audit_confluent_recursion.py
+	$(PYTHON) tools/audit_ising_characters.py
+
+pdf:
+	pdflatex -interaction=nonstopmode -halt-on-error paper.tex
+	pdflatex -interaction=nonstopmode -halt-on-error paper.tex
