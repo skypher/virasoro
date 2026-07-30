@@ -148,9 +148,9 @@ def main():
     }
     if repeated_classes != expected_repeated:
         raise AssertionError(
-            f"unexpected collision classes below grade 7: {repeated_classes}"
+            f"unexpected collision classes below level 7: {repeated_classes}"
         )
-    print("PASS exhaustive collision classes below grade 7", flush=True)
+    print("PASS exhaustive collision classes below level 7", flush=True)
 
     child_gap_checks = (
         (sp.Rational(33, 16), 7),

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Direct verification of the principal-part theorems through grade seven.
+"""Direct verification of the principal-part theorems through level seven.
 
 Unlike the confluence replays, this script tests the paper's closed
 formulas against the inverse-Shapovalov definition itself: it
@@ -10,13 +10,13 @@ collision points.  Verified here:
   * displayed Gram determinants and matrices (levels 2, 3, 4);
   * the singular vectors, crossing scalars, embedding diamond, and the
     intrinsic second crossing scalar gamma_7 = -700700;
-  * Theorem "First fixed-c recursive residue" (grade 3);
-  * Theorem "Spin-sector fixed-c recursive principal part" (grade 4),
+  * Theorem "First fixed-c recursive residue" (level 3);
+  * Theorem "Spin-sector fixed-c recursive principal part" (level 4),
     including the explicit degree-8 polynomial;
   * Proposition "No earlier nontransverse pole" (pole orders, N <= 6);
-  * Theorem "First nontransverse fixed-c principal part" (grade 7),
+  * Theorem "First nontransverse fixed-c principal part" (level 7),
     both Laurent coefficients, with the explicit Theta_7 polynomial;
-  * the grade <= 4 collision-moment table of the paper;
+  * the level <= 4 collision-moment table of the paper;
   * closed forms of the finite parts Q_4^E and Q_5^E.
 """
 
@@ -240,7 +240,7 @@ def laurent_checks(dval):
           * (3 * d - 5) * (6 * d - 55) * (6 * d - 1) / 1296)
 
     laurent3 = laurent_H(3, Fr(1, 2))
-    check("grade-3 residue theorem",
+    check("level-3 residue theorem",
           laurent3.get(-1) == Fr(9, 28) * e2 * value_H(1, Fr(5, 2))
           - Fr(8, 105) * e3)
 
@@ -250,9 +250,9 @@ def laurent_checks(dval):
     explicit = (d * (d - 1) * (2 * d - 7) * (2 * d - 1)
                 * (248 * d**4 - 5752 * d**3 + 25274 * d**2
                    - 33630 * d + 5775) / 40425)
-    check("grade-4 residue theorem (recursive form)",
+    check("level-4 residue theorem (recursive form)",
           laurent4.get(-1) == recursive)
-    check("grade-4 residue theorem (explicit polynomial)",
+    check("level-4 residue theorem (explicit polynomial)",
           recursive == explicit)
 
     simple = True
@@ -262,9 +262,9 @@ def laurent_checks(dval):
             worst = min([k for k in laurent if laurent[k] != 0], default=0)
             if worst < -1:
                 simple = False
-    check("no double pole through grade 6", simple)
+    check("no double pole through level 6", simple)
 
-    # grade <= 4 collision-moment table
+    # level <= 4 collision-moment table
     table = {
         (1, 1): d * (d - 1) / 2,
         (1, 2): d**2 * (d - 1)**2 / 4,
@@ -295,9 +295,9 @@ def laurent_checks(dval):
             residue = laurent.get(-1, Fr(0))
             if residue != table.get((n, level), Fr(0)):
                 table_ok = False
-    check("grade <= 4 collision-moment table", table_ok)
+    check("level <= 4 collision-moment table", table_ok)
 
-    # grade 7: complete principal part with explicit Theta_7
+    # level 7: complete principal part with explicit Theta_7
     theta7 = (-(d**2 * (d - 1)**2 * (2 * d - 15) * (2 * d - 7)
                 * (2 * d - 5) * (2 * d - 1) * (3 * d - 14) * (3 * d - 5))
               * (84001 * d**4 - 3376370 * d**3 + 44478887 * d**2
@@ -312,12 +312,12 @@ def laurent_checks(dval):
     check("closed form of Q_5^E", peval(pnorm(tuple(Q5_CLOSED)), d) == q5)
 
     laurent7 = laurent_H(7, Fr(1, 2))
-    check("grade-7 double-pole coefficient",
+    check("level-7 double-pole coefficient",
           laurent7.get(-2) == -e2 * e5 / 700700)
-    check("grade-7 simple-pole coefficient (with explicit Theta_7)",
+    check("level-7 simple-pole coefficient (with explicit Theta_7)",
           laurent7.get(-1)
           == Fr(9, 28) * e2 * q5 - Fr(8, 105) * e3 * q4 + theta7)
-    check("grade-7 pole order exactly 2",
+    check("level-7 pole order exactly 2",
           min(laurent7) == -2 and laurent7[-2] != 0)
 
 

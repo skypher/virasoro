@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Exact replay of the three eta-reduced Ising quotient characters.
 
-The BGG (Rocha-Caridi) numerators are expanded through grade 30 and the
+The BGG (Rocha-Caridi) numerators are expanded through level 30 and the
 resulting graded dimensions of L(1/2,h) are compared against an
 independent free-fermion computation: the spin module is counted by
 partitions into distinct positive integers, and the vacuum and energy
@@ -39,11 +39,11 @@ def bgg_dimensions(m, m_prime, maximum):
     eta_reduced = numerator(m, m_prime, maximum)
     return [
         sum(
-            coefficient * int(partition(grade - exponent))
+            coefficient * int(partition(level - exponent))
             for exponent, coefficient in eta_reduced.items()
-            if exponent <= grade
+            if exponent <= level
         )
-        for grade in range(maximum + 1)
+        for level in range(maximum + 1)
     ]
 
 
@@ -65,8 +65,8 @@ def fermion_dimensions(sector, maximum):
             table[total][0] += table[total - part][1]
             table[total][1] += table[total - part][0]
     if sector == "NS-even":
-        return [table[2 * grade][0] for grade in range(maximum + 1)]
-    return [table[2 * grade + 1][1] for grade in range(maximum + 1)]
+        return [table[2 * level][0] for level in range(maximum + 1)]
+    return [table[2 * level + 1][1] for level in range(maximum + 1)]
 
 
 def main():
@@ -78,7 +78,7 @@ def main():
                 f"{name}: BGG dimensions {bgg} != fermionic {fermionic}"
             )
         print(
-            f"PASS {name} Ising character through grade {MAXIMUM} "
+            f"PASS {name} Ising character through level {MAXIMUM} "
             "(BGG vs free fermion)",
             flush=True,
         )

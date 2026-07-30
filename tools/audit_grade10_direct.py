@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Direct 42x42 verification of the grade-ten principal-part theorem.
+"""Direct 42x42 verification of the level-ten principal-part theorem.
 
 This is the slow, definition-side audit (roughly ten minutes): it
 reconstructs H_N (N <= 10) exactly as rational functions of the internal
@@ -7,12 +7,13 @@ weight at a sample external weight, directly from the inverse-Shapovalov
 definition, and verifies:
 
   * dim ker G_10(1/2, 1/16) = 32 and the determinant valuation 33
-    (Proposition "Grade-ten Smith profile");
+    (Proposition "Level-ten Smith profile");
   * the residues of H_8 at 33/16 and H_6 at 65/16 against the generic
-    residue constants (equation (6.2) normalization at levels 8 and 6);
+    residue constants (the fusion-normalization identity of the paper,
+    applied at levels 8 and 6);
   * the closed forms of the finite parts Q_8 and Q_6;
   * both Laurent coefficients of H_10 at 1/16, i.e. the complete
-    principal part of Theorem "Finite recursive grade-ten principal
+    principal part of Theorem "Finite recursive level-ten principal
     part", including the value gamma_10 = -1121229484375/192 and the
     explicit polynomial Theta_10;
   * pole orders of H_7..H_10 at every lambda_n, n < 24 (double poles
@@ -180,13 +181,13 @@ def main():
           peval(pnorm(tuple(Q6_CLOSED)), d) == laurent6.get(0, Fr(0)))
 
     laurent10 = laurent_H(10, Fr(1, 16))
-    check("grade-10 double-pole coefficient (gamma_10)",
+    check("level-10 double-pole coefficient (gamma_10)",
           laurent10.get(-2) == Fr(-192, 1121229484375) * p2 * p42)
     predicted = (Fr(-4, 7) * p2 * laurent8.get(0, Fr(0))
                  + Fr(648, 13475) * p4 * laurent6.get(0, Fr(0)) + theta10)
-    check("grade-10 simple-pole coefficient (with explicit Theta_10)",
+    check("level-10 simple-pole coefficient (with explicit Theta_10)",
           laurent10.get(-1) == predicted)
-    check("grade-10 pole order exactly 2",
+    check("level-10 pole order exactly 2",
           min(laurent10) == -2 and laurent10[-2] != 0)
 
     # pole orders of H_7..H_10 everywhere: double poles exactly in the

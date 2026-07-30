@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact low-grade replay of the all-order collision-moment recursion."""
+"""Exact low-level replay of the all-order collision-moment recursion."""
 
 from functools import lru_cache
 
@@ -57,16 +57,16 @@ def labels(maximum_level):
 
 
 @lru_cache(maxsize=None)
-def shifted(r, s, grade):
-    if grade == 0:
+def shifted(r, s, level):
+    if level == 0:
         return sp.Integer(1)
     source_weight = kac_weight(r, s) + r * s
     result = sp.Integer(0)
-    for u, v in labels(grade):
-        level = u * v
+    for u, v in labels(level):
+        child_level = u * v
         result += (
             residue(u, v)
-            * shifted(u, v, grade - level)
+            * shifted(u, v, level - child_level)
             / (source_weight - kac_weight(u, v))
         )
     return sp.cancel(result)

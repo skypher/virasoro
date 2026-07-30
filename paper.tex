@@ -3,7 +3,10 @@
 \usepackage[a4paper,margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{graphicx}
+\usepackage{tikz}
 \usepackage{hyperref}
+% Referee copy: uncomment the next line for line numbers.
+% \usepackage{lineno}\linenumbers
 \hypersetup{pdftitle={A pole-free torus one-point Virasoro-block
 recursion at c=1/2 via exact algebraic confluence},
 pdfkeywords={Virasoro algebra, conformal blocks, torus one-point block,
@@ -33,26 +36,30 @@ at \(c=\frac12\) via exact algebraic confluence}
 \maketitle
 
 \begin{abstract}
-We construct a coefficientwise finite confluence formula for the eta-reduced
-torus one-point Virasoro block at the Ising central charge.  Degenerate
-weights and their collision classes are classified exactly.  At every grade,
-generic Kac recursion terms are grouped by their common Ising weight, and
-each fixed-central-charge Laurent coefficient is an exact collision moment:
-the constant term of a finite sum of Laurent germs.  A valuation bound proves
-that only finitely many moments occur, an a priori recursive majorant gives a
-finite jet budget, and a grade-decreasing shifted recursion computes them.
-The Laurent parameter is an exact algebraic device, not a numerical
-regularization.  Rational continuation and partial-fraction
-uniqueness prove coefficientwise equality with the inverse-Shapovalov
-definition to all orders in \(q\).  Local Smith and crossing-form results
-identify the representation-theoretic meaning of the moments.  The earliest
+We prove an exact, finite, pole-free residue recursion for the
+eta-reduced torus one-point Virasoro block at the Ising central charge
+\(c=\tfrac12\), and we prove that it reproduces the inverse-Shapovalov
+definition of the block coefficient by coefficient to all orders in
+\(q\).  Degenerate weights and their collision classes are classified
+exactly.  At every level, generic Kac recursion terms are grouped by
+their common Ising weight, and each fixed-central-charge Laurent
+coefficient is an exact collision moment: the constant term of a finite
+sum of Laurent germs in the deformation parameter \(t=b-b_0\).  A
+valuation bound proves that only finitely many moments occur, an a
+priori recursive majorant gives a finite jet budget, and a
+level-decreasing shifted recursion computes them.  The Laurent
+parameter is an exact algebraic device, not a numerical regularization.
+Local Smith and crossing-form results identify the
+representation-theoretic meaning of the moments.  The earliest
 collision occurs at level three, in the class of the energy weight
-\(\Delta=\tfrac12\), and its embedding diamond produces the first double
-pole at grade seven.  Both its residue and
-its complete principal part are given by finite fixed-\(c\) formulas.  The
-spin-module collision at grade four and its grade-ten diamond provide a
-second, larger test.  As a separate quotient consistency check, the
+\(\Delta=\tfrac12\), and its embedding diamond produces the first
+double pole at level seven; both its residue and its complete principal
+part are given by finite fixed-\(c\) formulas.  The spin-module
+collision at level four and its level-ten diamond provide a second,
+larger test.  As a separate quotient consistency check, the
 corresponding BGG resolutions reproduce the three Ising characters.
+All computations are verified in exact rational arithmetic by ancillary
+audit scripts.
 \end{abstract}
 
 \noindent\textit{Keywords:} Virasoro algebra; conformal blocks; torus
@@ -98,16 +105,16 @@ construction uses the formal germ \(b=b_0+t\) to combine generic summands
 before taking a constant term.  It therefore produces an exact formula at
 fixed \(c\), but is not an intrinsic recursion that avoids an off-critical
 deformation altogether.  No numerical \(\varepsilon\)-limit is taken.
-At every grade we partition the generic Kac summands into their exact Ising
+At every level we partition the generic Kac summands into their exact Ising
 collision classes.  Each class has a regular sum, and its fixed-\(c\)
 coefficients are finite constant terms of finite Laurent sums.  The shifted
-recursion decreases the remaining grade, while a recursive valuation
+recursion decreases the remaining level, while a recursive valuation
 majorant supplies an a priori finite jet budget.
 
 In the notation of
 Sections~\ref{sec:partial-fractions}--\ref{sec:all-order}, the main
-result reads: for every grade \(N\geq1\),
-\[
+result reads: for every level \(N\geq1\),
+\begin{equation}\label{eq:intro-main}
  H_N\!\left(\tfrac12,\Delta,d\right)
  =\sum_{n\geq0}\ \sum_{k=1}^{M_{n,N}}
  \frac{A_{n,k,N}(d)}{(\Delta-\lambda_n)^k},
@@ -116,7 +123,7 @@ result reads: for every grade \(N\geq1\),
  =\operatorname{CT}_t
  \sum_{a\in{\mathcal C}_{n,N}}
  R_a(t)\,S_{a,N-\ell_a}(t)\,\delta_a(t)^{k-1},
-\]
+\end{equation}
 where \(H_N\) is the \(N\)-th eta-reduced block coefficient,
 \(\lambda_n\) runs over the Ising degenerate weights,
 \({\mathcal C}_{n,N}\) is the finite class of Kac labels \((r,s)\) with
@@ -138,15 +145,53 @@ Virasoro embedding geometry.  The earliest collision is the transverse
 energy-module collision at level three; its two branches first meet at level
 seven and create the first double pole.  The fixed-\(c\) formulas are
 Theorems~\ref{thm:first-recursive-residue} and
-\ref{thm:grade-seven-principal-part}.  The spin-module collision at level
+\ref{thm:level-seven-principal-part}.  The spin-module collision at level
 four and its larger level-ten diamond are treated in
 Theorems~\ref{thm:spin-recursive-residue} and
-\ref{thm:grade-ten-principal-part}.  Finally,
+\ref{thm:level-ten-principal-part}.  Finally,
 Theorem~\ref{thm:ising-characters} distinguishes the Verma identity
-specialization from the irreducible quotient and records the three standard
+specialization from the irreducible quotient
+(Proposition~\ref{prop:identity-verma}) and records the three standard
 Ising characters as a separate BGG consistency check.
 
-\section{Blocks and the reduced series}
+The paper is organized as follows.
+Section~\ref{sec:blocks} defines the block and its eta reduction and
+collects notation; the symbol families are indexed in
+Remarks~\ref{rem:notation} and~\ref{rem:symbols}.
+Section~\ref{sec:resonance} classifies the Ising collision classes.
+Section~\ref{sec:partial-fractions} proves the finite coefficientwise
+partial-fraction expansion, and Section~\ref{sec:smith} develops the
+local Smith and crossing-form toolkit and computes the transverse
+collisions at levels three and four.
+Section~\ref{sec:generic-data} recalls the generic residue data and
+proves the generic torus recursion.
+Section~\ref{sec:all-order} contains the main theorem, the all-order
+pole-free recursion (Theorem~\ref{thm:all-order-recursion}).
+Sections~\ref{sec:energy-diamond} and~\ref{sec:spin-diamond} work out
+the two embedding diamonds---the energy diamond with its first double
+pole at level seven, and the spin diamond at level ten;
+Corollary~\ref{cor:recover-low-confluence} identifies these local
+computations with the corresponding collision moments, and
+Table~\ref{tab:local-summary} summarizes them.
+Section~\ref{sec:low-level-output} lists the explicit output through
+level four and compares it with the expressions of Stocco;
+Section~\ref{sec:irreducible} treats the irreducible specialization and
+the Ising characters; and Section~\ref{sec:scope} discusses scope and
+open directions.
+
+A word on the status of computations.  Several local statements rest on
+finite exact-rational calculations: PBW commutation, Ward recursion,
+determinants, kernels, and crossing forms.  Every such calculation is
+replayed in exact arithmetic by the ancillary audit scripts described
+in Remark~\ref{rem:audit-scope} and in the Code availability section;
+no step of any proof depends on floating-point arithmetic.  The one
+quantity not reconstructed symbolically by an independent script is the
+level-ten second crossing form itself; its scalar \(\gamma_{10}\) is
+obtained in Theorem~\ref{thm:level-ten-leading} by comparison with the
+confluence and is verified directly against the inverse-Shapovalov
+definition by \path{tools/audit_grade10_direct.py}.
+
+\section{Blocks and the reduced series}\label{sec:blocks}
 
 \begin{definition}[Virasoro Verma module]
 The Virasoro algebra has generators \(L_n\), \(n\in\mathbb Z\), and central
@@ -230,8 +275,10 @@ polynomials in \(c\) and \(\Delta\).
 \end{proof}
 
 \begin{remark}[Terminology and notation]\label{rem:notation}
-The words ``level'' and ``grade'' are used interchangeably for the
-\(L_0\)-offset \(N\).  By Lemma~\ref{lem:polynomial-entries} and
+The \(L_0\)-offset \(N\) of a graded component is called its
+\emph{level}.  For a positive Kac label \(a=(r,s)\), we write
+\(\ell_a=rs\) for the level of its singular vector.
+By Lemma~\ref{lem:polynomial-entries} and
 Cramer's rule, each \(F_N\) and \(H_N\) is a rational function of
 \((c,\Delta)\) and a polynomial in \(d\); note \(H_0=1\).  For a rational
 function \(f\) of \(\Delta\) and a point \(\lambda\), we write
@@ -266,9 +313,19 @@ Lemma~\ref{lem:precision-budget} is a precision offset.  Finally,
 Lemma~\ref{lem:singular-crossing}, and \(\beta\) a crossing form;
 Stocco's \(\beta=b^2\) occurs only in
 Remark~\ref{rem:stocco-comparison}.
+In the proofs of Theorems~\ref{thm:level-seven-principal-part}
+and~\ref{thm:level-ten-principal-part}, the letters
+\(\alpha,\beta,\mu,\nu\) abbreviate the four Kac labels of the
+corresponding embedding diamond and denote different labels in the two
+proofs; in particular, \(\beta\) is there a Kac label, not a crossing
+form.  Finally, the torus elements \(E_2,E_3\) of
+Proposition~\ref{prop:first-collision} are indexed by the levels of the
+parent singular vectors \(\xi_2,\xi_3\), whereas \(E_4,E_5\) of
+Theorem~\ref{thm:level-seven-principal-part} are indexed by the
+relative levels of the child vectors \(\phi_4,\phi_5\).
 \end{remark}
 
-\section{Ising resonance classes}
+\section{Ising resonance classes}\label{sec:resonance}
 
 \begin{definition}[Ising Kac weights]
 For arbitrary central charge, write \(\Delta_{r,s}(c)\) for the standard
@@ -818,9 +875,7 @@ Finally,
 and direct multiplication by \(\partial_\Delta G_3|_{\Delta=1/2}\)
 gives the displayed level-three crossing matrix.  The Ward recursion of
 Lemma~\ref{lem:polynomial-entries} gives the two displayed torus
-polynomials.  All computations in this proof are exact rational
-calculations and are replayed by
-\path{tools/audit_first_resonances.py}.
+polynomials.
 \end{proof}
 
 \begin{theorem}[First fixed-\(c\) recursive residue]
@@ -1038,7 +1093,7 @@ Proposition~\ref{prop:spin-singular-data} and the level-two coefficient
 from the inverse Shapovalov matrix gives the second displayed expression.
 \end{proof}
 
-\section{Generic residue data and the first nontransverse diamond}
+\section{Generic residue data at the Ising point}\label{sec:generic-data}
 
 \begin{definition}[Generic residue data used for algebraic confluence]
 \label{def:generic-residue}
@@ -1170,9 +1225,9 @@ degenerate weight of level at most \(N\).
 
 Fix such a \(b\), write \(c=c(b)\), and fix a label \(a=(r,s)\) with
 \(rs\leq N\).  By distinctness, \(h_{r,s}(b)\) lies on no other Kac
-divisor of level at most \(N\), so the grade-\(N\) Kac determinant has
+divisor of level at most \(N\), so the level-\(N\) Kac determinant has
 valuation exactly \(p(N-rs)\) at \(\Delta=h_{r,s}(b)\).  The
-grade-\(N\) image of the injective singular embedding
+level-\(N\) image of the injective singular embedding
 \(j_{\chi_{r,s}(b)}\) is a \(p(N-rs)\)-dimensional subspace of the
 kernel of the specialized Gram matrix.  By Lemma~\ref{lem:smith} the
 nullity is at most the valuation, so the kernel is exactly that image,
@@ -1213,770 +1268,6 @@ shifted \(H\)-coefficients:
 \]
 For \(N\geq1\) this is the displayed recursion.
 \end{proof}
-
-\begin{proposition}[First nontransverse Smith layer]
-\label{prop:grade-seven-smith}
-Let \(h_E=1/2\), and let \(U_2,U_3\) be the submodules generated by
-\(\xi_2,\xi_3\) in Proposition~\ref{prop:first-collision}.  Their first
-intersection is generated at total level \(7\) by a normalized singular
-vector \(\xi_7\).  More explicitly, the normalized child singular vectors
-are
-\[
- \begin{split}
- \phi_5={}&\bigl(
- L_{-1}^5-15L_{-2}L_{-1}^3+36L_{-2}^2L_{-1}
- +\tfrac{99}{4}L_{-3}L_{-1}^2\\
- &\hspace{17mm}-45L_{-3}L_{-2}-54L_{-4}L_{-1}
- +45L_{-5}\bigr)|\tfrac52\rangle ,
- \end{split}
-\]
-\[
- \phi_4=\bigl(
- L_{-1}^4-\tfrac{40}{3}L_{-2}L_{-1}^2+16L_{-2}^2
- +\tfrac{88}{3}L_{-3}L_{-1}-\tfrac{152}{3}L_{-4}
- \bigr)|\tfrac72\rangle ,
-\]
-and
-\[
- \xi_7=j_{\xi_2}(\phi_5)=j_{\xi_3}(\phi_4).
-\]
-The \(15\) local Smith exponents of
-\(G_7(1/2,h_E+x)\) are
-\[
- (0^{\,4},1^{\,10},2).
-\]
-For the second crossing form of
-Proposition~\ref{prop:two-step-residue}, normalized by the displayed
-\(\xi_7\),
-\[
- \gamma_7=-700700.
-\]
-\end{proposition}
-
-\begin{proof}
-The two child highest weights are
-\[
- h_E+2=\frac52=\lambda_{11},\qquad
- h_E+3=\frac72=\lambda_{13}.
-\]
-Their first singular vectors have relative levels \(5\) and \(4\), with
-labels \((1,5)\) and \((4,1)\), respectively.  Direct Virasoro commutation
-checks the two displayed vectors.  Their images are nonzero singular
-vectors at total level \(7\); uniqueness and their common
-\(L_{-1}^7\)-coefficient \(1\) prove the displayed equality.  The embedding
-diagram in \cite[Proposition~5.4 and Figure~5.4]{IoharaKoga2011} also shows
-that there is no earlier intersection and that the radical is the sum of
-the two singular submodules.
-
-At grade \(7\), the radical therefore has dimension
-\[
- p(5)+p(4)-1=7+5-1=11.
-\]
-The only Kac labels of weight \(1/2\) and level at most \(7\) are
-\((2,1)\) and \((1,3)\), so the determinant valuation is
-\[
- p(5)+p(4)=12.
-\]
-The Smith exponents are consequently
-\((0^4,1^{10},2)\).
-
-For completeness, the second crossing scalar can be obtained without an
-off-critical deformation.  In the level-seven PBW basis, form
-\[
- G_7(1/2,h_E+x)=G_0+xG_1+x^2G_2+O(x^3),
-\]
-solve \(G_0v_1=-G_1\xi_7\), and evaluate
-\[
- \xi_7^{\mathsf T}(G_2\xi_7+G_1v_1).
-\]
-Exact PBW commutation gives \(-700700\).  Choice-independence follows from
-Proposition~\ref{prop:two-step-residue}.  This \(15\times15\) fixed-\(c\)
-calculation is replayed independently in
-\path{tools/audit_first_resonances.py}.
-\end{proof}
-
-\begin{proposition}[No earlier nontransverse pole]
-\label{prop:no-earlier-double-pole}
-For every \(N<7\) and every finite internal weight, all local Smith
-exponents of \(G_N(1/2,\Delta)\) are at most \(1\).  Consequently
-\(G_N^{-1}\), \(F_N\), and \(H_N\) have at most simple poles in \(\Delta\).
-Together with Proposition~\ref{prop:grade-seven-smith}, this proves that the
-double pole at \(\Delta=1/2\) and grade \(7\) is the first double pole of the
-Ising Verma block.
-\end{proposition}
-
-\begin{proof}
-For a Kac weight represented by only one label \(a=(r,s)\) with
-\(\ell_a\leq N\), injectivity of the singular-vector embedding gives a
-radical of dimension \(p(N-\ell_a)\).  This equals the valuation contributed
-by that label to the Kac determinant.  Lemma~\ref{lem:smith} therefore makes
-all corresponding positive Smith exponents equal to \(1\).
-
-It remains to inspect repeated labels.  Proposition~\ref{prop:collisions},
-or direct enumeration of \(rs\leq6\), shows that the complete list of
-repeated classes below grade \(7\) is
-\[
-\begin{array}{c|c|c}
-\text{weight}&\text{labels}&\text{singular levels}\\ \hline
-\lambda_5=\frac12 &(2,1),(1,3)&2,3\\
-\lambda_2=\frac1{16}&(1,2),(2,2)&2,4\\
-\lambda_1=0&(1,1),(2,3)&1,6 .
-\end{array}
-\]
-The two energy branches have no intersection below grade \(7\) by
-Proposition~\ref{prop:grade-seven-smith}.
-
-For the spin class, the child highest weights along the level-two and
-level-four branches are \(33/16\) and \(65/16\).  Their Kac determinants
-have no zero below relative levels \(8\) and \(6\), respectively.  A first
-intersection below grade \(7\) would be singular; injectivity would pull it
-back along the level-two branch to a singular vector of relative level at
-most \(4\), which is impossible.
-
-For the vacuum class, the level-one branch is generated by
-\(L_{-1}|0\rangle\) and has child highest weight \(1\).  The Kac determinant
-of \(M(1/2,1)\) has no zero through relative level \(5\).  Hence the
-level-six singular vector cannot lie in the level-one branch, since its
-preimage would be singular at relative level \(5\).
-
-Thus, at every repeated weight and every \(N<7\), the relevant singular
-submodules have zero intersection.  The radical dimension is therefore the
-sum \(\sum_a p(N-\ell_a)\), exactly the Kac-determinant valuation.  A final
-application of Lemma~\ref{lem:smith} proves the Smith and pole bounds.
-\end{proof}
-
-\begin{theorem}[First nontransverse fixed-\(c\) principal part]
-\label{thm:grade-seven-principal-part}
-Define
-\[
- E_5(d)={\mathcal P}_{1,5}(b_0,d),\qquad
- E_4(d)={\mathcal P}_{4,1}(b_0,d).
-\]
-Explicitly,
-\[
- E_5(d)=\frac1{16}
- d(d-20)(d-13)(d-11)(d-6)(d-1)
- (2d-15)(2d-7)(2d-5)(2d-1),
-\]
-\[
- E_4(d)=\frac1{9}
- d(d-20)(d-13)(d-11)(d-6)(d-1)
- (3d-14)(3d-5),
-\]
-and \(E_2E_5=E_3E_4\).  The subscripts of \(E_5\) and \(E_4\) record the
-relative levels of the child singular vectors \(\phi_5\) and \(\phi_4\)
-of Proposition~\ref{prop:grade-seven-smith}, in parallel with the
-parent-module elements \(E_2,E_3\) of
-Proposition~\ref{prop:first-collision}.  Put
-\[
- Q_5^E(d)=
- \left.\frac{\partial}{\partial z}
- \{(z-\tfrac52)H_5(1/2,z,d)\}\right|_{z=5/2},
-\]
-\[
- Q_4^E(d)=
- \left.\frac{\partial}{\partial z}
- \{(z-\tfrac72)H_4(1/2,z,d)\}\right|_{z=7/2}.
-\]
-These are lower-grade finite parts.  They can be obtained directly from the
-fixed-\(c\) inverse-Shapovalov matrices, or recursively from
-Theorem~\ref{thm:all-order-recursion}.
-For
-\[
- \alpha=(2,1),\quad\beta=(1,3),\quad
- \mu=(1,5),\quad\nu=(4,1),
-\]
-let
-\[
- \delta_\alpha=h_\alpha+2-h_\mu,\qquad
- \delta_\beta=h_\beta+3-h_\nu,
-\]
-and, with dots denoting \(d/db\) at \(b_0\), define the explicit finite
-polynomial
-\[
- \Theta_7(d)=
- \sum_{(\kappa,\tau)=(\alpha,\mu),(\beta,\nu)}
- \left(
- \frac{\dot{\mathcal R}_\kappa{\mathcal R}_\tau+
-       {\mathcal R}_\kappa\dot{\mathcal R}_\tau}{\dot\delta_\kappa}
- -\frac{{\mathcal R}_\kappa{\mathcal R}_\tau\ddot\delta_\kappa}
- {2\dot\delta_\kappa^2}
- \right)_{b=b_0}.
-\]
-Explicitly,
-\[
- \begin{split}
- \Theta_7(d)={}&-\frac{d^2(d-1)^2
- (2d-15)(2d-7)(2d-5)(2d-1)(3d-14)(3d-5)}
- {2164322160000}\\
- &\quad\times
- \bigl(84001d^4-3376370d^3+44478887d^2\\
- &\qquad\quad
- -209562838d+205096320\bigr).
- \end{split}
-\]
-Then
-\[
- \begin{split}
- \PP_{\Delta=1/2}H_7(1/2,\Delta,d)
- ={}&-\frac{E_2(d)E_5(d)}
- {700700\,(\Delta-\tfrac12)^2}\\
- &+\frac{
- \frac9{28}E_2(d)Q_5^E(d)
- -\frac8{105}E_3(d)Q_4^E(d)+\Theta_7(d)}
- {\Delta-\tfrac12}.
- \end{split}
-\]
-This is the earliest double pole of the Ising block.
-\end{theorem}
-
-\begin{proof}
-Two remarks fix the logical status of the argument.  First, the
-identification of the confluent Laurent expansion below with the
-fixed-\(c\) Laurent coefficients of \(H_7\) is the grade-seven instance
-of the rational-continuation argument proved in
-Theorem~\ref{thm:all-order-recursion}, exactly as invoked for grade ten
-in Theorem~\ref{thm:grade-ten-leading}; nothing in the proof of
-Theorem~\ref{thm:all-order-recursion} depends on the present theorem.
-Second, the double-pole coefficient also has an intrinsic derivation
-that avoids the confluence altogether:
-Propositions~\ref{prop:two-step-residue}
-and~\ref{prop:grade-seven-smith} give
-\([x^{-2}]G_7(1/2,\tfrac12+x)^{-1}=\xi_7\xi_7^{\mathsf T}/\gamma_7\),
-Lemma~\ref{lem:singular-factorization} applied along either branch of
-the diamond gives
-\(\langle\xi_7|V_d(1)|\xi_7\rangle=E_2E_5=E_3E_4\), and
-multiplication by the Euler product does not affect the
-\(x^{-2}\) coefficient at grade seven because all lower grades have at
-most simple poles by Proposition~\ref{prop:no-earlier-double-pole}.
-
-Equation~\eqref{eq:fusion-normalization} gives the four fusion polynomials.
-Direct evaluation of the residue products and Kac slopes gives
-\[
- \begin{array}{c|rrrr}
- (r,s)&(2,1)&(1,3)&(1,5)&(4,1)\\ \hline
- {\mathcal A}_{r,s}(b_0)&
- 9/28&-8/105&-1/102375&3/61600
- \end{array}
-\]
-and
-\[
- \frac{\dot h_{2,1}-\dot h_{1,3}}
- {\dot h_{2,1}-\dot h_{1,5}}=\frac5{11},\qquad
- \frac{\dot h_{1,3}-\dot h_{2,1}}
- {\dot h_{1,3}-\dot h_{4,1}}=\frac5{13}.
-\]
-Either path therefore expresses the coefficient produced jointly by their
-cancelled \(t^{-1}\) parts:
-\[
- \frac5{11}{\mathcal A}_{2,1}{\mathcal A}_{1,5}
- =\frac5{13}{\mathcal A}_{1,3}{\mathcal A}_{4,1}
- =-\frac1{700700}.
-\]
-This agrees with the intrinsic inverse second crossing scalar
-\(\gamma_7^{-1}\) from Proposition~\ref{prop:grade-seven-smith}.
-
-Expanding the two outer recursion terms at
-\(\Delta=1/2\), their cancelled \(t^{-1}\) numerators give the displayed
-double pole.  Their finite parts are respectively
-\[
- \frac9{28}E_2Q_5^E+T_{\alpha,\mu},\qquad
- -\frac8{105}E_3Q_4^E+T_{\beta,\nu},
-\]
-where the two \(T\)'s are precisely the summands defining \(\Theta_7\).
-Differentiating the finite products of
-Definition~\ref{def:generic-residue} and factoring over \(\mathbb Q[d]\)
-gives the displayed explicit polynomial form of \(\Theta_7\).
-This proves the complete principal part.  Its global minimality in grade is
-Proposition~\ref{prop:no-earlier-double-pole}.
-\end{proof}
-
-\section{The spin-module grade-ten diamond}
-
-\begin{proposition}[Grade-ten Smith profile at \(\Delta=1/16\)]
-\label{prop:grade-ten-smith}
-Let \(h_0=1/16\), and let
-\[
- U_2=U(\Vir_-)\chi_2,\qquad U_4=U(\Vir_-)\chi_4
-\]
-be the two singular submodules of \(M(1/2,h_0)\) from
-Proposition~\ref{prop:spin-singular-data}.  Their first intersection is
-generated at total level \(10\) by a singular vector \(\chi_{10}\), and
-\[
- \dim\ker G_{10}(1/2,h_0)=32.
-\]
-The \(42\) local Smith exponents of
-\(G_{10}(1/2,h_0+x)\) are
-\[
- \bigl(0^{\,10},1^{\,31},2\bigr).
-\]
-In particular, the inverse Shapovalov matrix has a nonzero rank-one
-coefficient at order \(x^{-2}\).
-\end{proposition}
-
-\begin{proof}
-The weight \(h_0\) is the interior Ising weight labelled by \((1,2)\), so
-it is in Class \(R^+\), Case \(1+\), in the classification of
-\cite[Section~5.1.4]{IoharaKoga2011}.
-The commutative embedding diagram in
-\cite[Proposition~5.4 and Figure~5.4]{IoharaKoga2011} describes the two
-branches and their successive intersections.  The identification of the
-first Jantzen layer with their sum, hence with the maximal proper
-submodule, is
-\cite[Theorem~6.3(i) and equation~(6.3)]{IoharaKoga2011}.
-
-The two highest weights are
-\[
- h_0+2=\frac{33}{16}=\lambda_{10},\qquad
- h_0+4=\frac{65}{16}=\lambda_{14}.
-\]
-The first singular vector inside \(U_2\) has relative level \(8\), with
-Kac label \((4,2)\), and the first singular vector inside \(U_4\) has
-relative level \(6\), with Kac label \((1,6)\).  Both therefore have total
-level \(10\) and weight
-\[
- h_0+10=\frac{161}{16}=\lambda_{22}.
-\]
-The embeddings are injective by
-\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011}.
-Their two images are proportional by uniqueness of a singular vector at a
-fixed level, \cite[Proposition~5.1]{IoharaKoga2011}.  Hence the
-level-ten intersection is one dimensional.  There is no earlier
-intersection: a vector at the first intersection grade would be singular,
-whereas the Kac determinant for \(M(1/2,33/16)\), respectively
-\(M(1/2,65/16)\), has no zero below relative level \(8\), respectively
-\(6\).
-
-The grade-ten radical is the grade-ten part of \(U_2+U_4\).  Since
-\[
- p(8)=22,\qquad p(6)=11,
-\]
-and the intersection has dimension one at this grade,
-\[
- \dim\ker G_{10}(1/2,h_0)=22+11-1=32.
-\]
-By Proposition~\ref{prop:collisions}, the only positive Kac labels with
-\(\Delta_{r,s}=h_0\) and \(rs\leq10\) are \((1,2)\) and \((2,2)\).
-The Kac determinant formula therefore gives
-\[
- \ord_x\det G_{10}(1/2,h_0+x)
- =p(8)+p(6)=33.
-\]
-There are \(p(10)=42\) Smith exponents, exactly \(32\) of them are
-positive, and their sum is \(33\).  Thus \(31\) positive exponents equal
-\(1\), one equals \(2\), and the remaining \(10\) vanish.
-Lemma~\ref{lem:smith} gives the final assertion.
-\end{proof}
-
-\begin{lemma}[Exact constants of the grade-ten confluence]
-\label{lem:grade-ten-constants}
-Let \(b_0=2i/\sqrt3\), so \(c(b_0)=1/2\).  Then
-\[
- \begin{array}{c|cccc}
- (r,s)&(1,2)&(2,2)&(4,2)&(1,6)\\ \hline
- {\mathcal A}_{r,s}(b_0)&
- -4/7&648/13475&48/32035128125&-8/320945625 .
- \end{array}
-\]
-If a dot denotes \(d/db\) at \(b_0\), then
-\[
- \frac{\dot h_{1,2}-\dot h_{2,2}}
- {\dot h_{1,2}-\dot h_{4,2}}=\frac15,\qquad
- \frac{\dot h_{2,2}-\dot h_{1,2}}
- {\dot h_{2,2}-\dot h_{1,6}}=\frac17,
-\]
-and
-\[
- \frac15{\mathcal A}_{1,2}{\mathcal A}_{4,2}
- =\frac17{\mathcal A}_{2,2}{\mathcal A}_{1,6}
- =-\frac{192}{1121229484375}.
-\]
-Moreover,
-\[
- \begin{split}
- {\mathcal P}_{4,2}(b_0,d)
- =\frac1{20736}&d(d-20)(d-13)(d-11)(d-6)(d-1)\\
- {}\times&(2d-57)(2d-35)(2d-15)(2d-7)(2d-5)(2d-1)\\
- {}\times&(3d-14)(3d-5)(6d-55)(6d-1),
- \end{split}
-\]
-\[
- \begin{split}
- {\mathcal P}_{1,6}(b_0,d)
- =\frac1{64}&d(d-20)(d-13)(d-11)(d-6)(d-1)\\
- {}\times&(2d-57)(2d-35)(2d-15)(2d-7)(2d-5)(2d-1),
- \end{split}
-\]
-and
-\[
- P_2(d){\mathcal P}_{4,2}(b_0,d)
- =P_4(d){\mathcal P}_{1,6}(b_0,d).
-\]
-\end{lemma}
-
-\begin{proof}
-Substitute \(b_0=2i/\sqrt3\) in the finite products of
-Definition~\ref{def:generic-residue}.  Direct differentiation gives
-\[
- c(b_0)=\frac12,\qquad c'(b_0)=\frac{7i\sqrt3}{2}\neq0,
-\]
-so \(b-b_0\) is a valid local deformation parameter.  The Kac-weight
-derivatives are
-\[
- \begin{array}{c|rrrr}
- (r,s)&(1,2)&(2,2)&(4,2)&(1,6)\\ \hline
- 16\dot h_{r,s}/(i\sqrt3)&9&-7&-71&105 .
- \end{array}
-\]
-These four values give the two slope ratios.  Multiplication of the four
-displayed \({\mathcal A}\)-values gives the common nested residue.
-Factoring the two \({\mathcal P}\)-products over \(\mathbb Q[d]\) gives the
-last three identities.
-\end{proof}
-
-\begin{theorem}[Leading double-pole coefficient at grade ten]
-\label{thm:grade-ten-leading}
-Normalize all singular vectors by setting their \(L_{-1}^{\ell}\)
-coefficient equal to \(1\).  Let
-\(\psi_8\in M(1/2,33/16)\) and
-\(\psi_6\in M(1/2,65/16)\) be the singular vectors of levels \(8\) and
-\(6\), respectively.  Then
-\[
- \chi_{10}=j_{\chi_2}(\psi_8)=j_{\chi_4}(\psi_6).
-\]
-Define
-\[
- P_8^{(33/16)}(d)=\langle\psi_8|V_d(1)|\psi_8\rangle,\qquad
- P_6^{(65/16)}(d)=\langle\psi_6|V_d(1)|\psi_6\rangle .
-\]
-They are the explicit polynomials
-\[
- P_8^{(33/16)}(d)={\mathcal P}_{4,2}(b_0,d),\qquad
- P_6^{(65/16)}(d)={\mathcal P}_{1,6}(b_0,d)
-\]
-listed in Lemma~\ref{lem:grade-ten-constants}.
-Write
-\[
- G_{10}(1/2,h_0+x)=G_0+xG_1+x^2G_2+O(x^3),
-\]
-choose \(v_1\) with
-\[
- G_0v_1=-G_1\chi_{10},
-\]
-and set
-\[
- \gamma_{10}
- =\chi_{10}^{\mathsf T}(G_2\chi_{10}+G_1v_1).
-\]
-Then it is independent of the choice of \(v_1\), and
-\[
- \gamma_{10}=-\frac{1121229484375}{192}.
-\]
-Consequently,
-\[
- \lim_{\Delta\to h_0}
- (\Delta-h_0)^2H_{10}(1/2,\Delta,d)
- =\frac{P_2(d)P_8^{(33/16)}(d)}{\gamma_{10}}
- =\frac{P_4(d)P_6^{(65/16)}(d)}{\gamma_{10}}.
-\]
-This is an intrinsic fixed-\(c\) expression for the spin-module
-nontransverse Laurent coefficient.
-\end{theorem}
-
-\begin{proof}
-The two compositions in the first display are nonzero singular vectors of
-total level \(10\).  Proposition~5.1 of \cite{IoharaKoga2011} makes them
-proportional.  Their \(L_{-1}^{10}\) coefficients are both \(1\), so they
-are equal.
-The Kac determinants of the child modules of highest weights \(33/16\) and
-\(65/16\) have no zero below levels \(8\) and \(6\), respectively.
-Consequently the standard \(L_{-1}^{\ell}\)-normalized singular-vector
-recursion has a nonsingular coefficient system at every preceding grade.
-Cramer's rule then shows that the normalized rational families
-\(\psi_8(b)\) and \(\psi_6(b)\) are regular at \(b_0\).  Hence the rational
-identity
-\eqref{eq:fusion-normalization} specializes to
-\[
- P_8^{(33/16)}={\mathcal P}_{4,2}(b_0,d),\qquad
- P_6^{(65/16)}={\mathcal P}_{1,6}(b_0,d).
-\]
-
-Let \(K_1=\ker G_0=(U_2+U_4)_{10}\), and let \(\beta_1\) be its first
-crossing form.  By Lemma~\ref{lem:singular-crossing}, the restriction of
-\(\beta_1\) to \(U_2\) is the scalar \(b_{\chi_2}\) times the
-Shapovalov form on \(M(1/2,33/16)\).  Since \(\psi_8\) is singular,
-\(\beta_1(\chi_{10},U_2)=0\).  The same argument through \(U_4\) gives
-\(\beta_1(\chi_{10},U_4)=0\).  Therefore
-\(\chi_{10}\in K_2=\ker\beta_1\).
-
-Proposition~\ref{prop:grade-ten-smith} shows that exactly one Smith
-exponent is at least \(2\).  The unconditional Smith-layer count in
-Proposition~\ref{prop:two-step-residue} therefore shows that \(K_2\) is
-spanned by \(\chi_{10}\).  Since that exponent is exactly \(2\), the same
-proposition shows that its second crossing form is the nonzero scalar
-\(\gamma_{10}\), and gives
-\[
- [x^{-2}]G_{10}(1/2,h_0+x)^{-1}
- =\frac{\chi_{10}\chi_{10}^{\mathsf T}}{\gamma_{10}}.
-\]
-Taking the trace against the specialized torus matrix yields
-\[
- [x^{-2}]F_{10}(1/2,h_0+x,d)
- =\frac{\langle\chi_{10}|V_d(1)|\chi_{10}\rangle}{\gamma_{10}}.
-\]
-For \(N<10\), the two singular submodules have zero intersection at grade
-\(N\).  Thus the radical dimension is
-\[
- p(N-2)+p(N-4),
-\]
-with \(p(k)=0\) for \(k<0\), and this equals the Kac-determinant valuation.
-Lemma~\ref{lem:smith} therefore shows that all lower-level Smith exponents
-at \(h_0\) are at most one.  Multiplication by the Euler product consequently
-does not alter the \(x^{-2}\) coefficient at grade \(10\).  Finally,
-Lemma~\ref{lem:singular-factorization}, applied along either side of the
-embedding diamond, gives
-\[
- \langle\chi_{10}|V_d(1)|\chi_{10}\rangle
- =P_2(d)P_8^{(33/16)}(d)
- =P_4(d)P_6^{(65/16)}(d).
-\]
-The Gram matrices and the normalized singular-vector coefficients are
-rational at \(c=1/2\), so the defining linear system gives
-\(\gamma_{10}\in\mathbb Q\).  It remains to evaluate this intrinsic scalar.
-Apply the generic recursion of Definition~\ref{def:generic-residue}
-algebraically near \(b_0\).  This comparison with the fixed-\(c\)
-coefficient is justified directly by rational continuation: for
-\(\Delta\) away from the finite grade-ten Kac set, the inverse-Shapovalov
-coefficient is regular in \(t=b-b_0\) and equals the generic recursion on
-the punctured neighborhood.  After the resonant paths are combined, their
-constant term is therefore the specialized coefficient on that open set.
-Both sides are rational in \(\Delta\), so the equality, including the
-coefficient of \((\Delta-h_0)^{-2}\), holds identically.  This is the
-grade-ten instance of the general argument in
-Theorem~\ref{thm:all-order-recursion} and does not use the value of
-\(\gamma_{10}\).
-
-The two nested paths have opposite
-\(t^{-1}\) numerator coefficients.  After their cancellation, the resulting
-double-pole coefficient can be written using the
-\((1,2)\to(4,2)\) path as
-\[
- \frac{\dot h_{1,2}-\dot h_{2,2}}
- {\dot h_{1,2}-\dot h_{4,2}}\,
- {\mathcal A}_{1,2}(b_0){\mathcal A}_{4,2}(b_0)
- P_2(d)P_8^{(33/16)}(d).
-\]
-Lemma~\ref{lem:grade-ten-constants} evaluates this scalar coefficient as
-\(-192/1121229484375\).  Rewriting the same combined coefficient using the
-other path gives the equal expression with slope ratio \(1/7\); the two
-expressions are alternatives, not additive contributions.  Comparison
-with the already proved intrinsic coefficient
-\(P_2P_8/\gamma_{10}\) yields the displayed value of \(\gamma_{10}\).
-\end{proof}
-
-\begin{theorem}[Finite recursive grade-ten principal part]
-\label{thm:grade-ten-principal-part}
-Define the finite shifted-block parts
-\[
- Q_8(d)=
- \left.
- \frac{\partial}{\partial z}
- \left\{(z-\tfrac{33}{16})H_8(1/2,z,d)\right\}
- \right|_{z=33/16}
-\]
-and
-\[
- Q_6(d)=
- \left.
- \frac{\partial}{\partial z}
- \left\{(z-\tfrac{65}{16})H_6(1/2,z,d)\right\}
- \right|_{z=65/16}.
-\]
-These lower-grade finite parts are computable from the fixed-\(c\)
-inverse-Shapovalov matrices.  Alternatively, one may use the finite
-recursion in Theorem~\ref{thm:all-order-recursion}.  Their definitions
-require no off-critical numerical limit.
-Put
-\[
- \begin{split}
- \Theta_{10}(d)
- ={}&-\frac{
- d^2(d-1)^2(2d-7)^2(2d-1)^2
- (3d-14)(3d-5)(6d-55)(6d-1)}
- {552735279561465000000}\\
- &\quad\times
- \bigl(
- 424640464d^8-41506307104d^7+1664502727528d^6\\
- &\qquad
- -35552058801520d^5+438148123547677d^4
- -3142854705332170d^3\\
- &\qquad
- +12488401942129875d^2-23870935242348750d
- +14566042731240000
- \bigr).
- \end{split}
-\]
-Then the entire principal part of the level-ten reduced coefficient at
-\(\Delta=h_0=1/16\) is
-\[
- \begin{split}
- \PP_{\Delta=h_0}H_{10}(1/2,\Delta,d)
- ={}&
- -\frac{192\,P_2(d)P_8^{(33/16)}(d)}
- {1121229484375\,(\Delta-h_0)^2}\\
- &+
- \frac{
- -\frac47P_2(d)Q_8(d)
- +\frac{648}{13475}P_4(d)Q_6(d)
- +\Theta_{10}(d)}
- {\Delta-h_0}.
- \end{split}
-\]
-Every term on the right is finite and is evaluated at \(c=1/2\).  Thus
-this is a complete finite recursive formula for the principal part.
-Closed forms of the finite-part polynomials \(Q_8\) and \(Q_6\) (of
-degrees \(16\) and \(12\) in \(d\), with unwieldy rational
-coefficients) are recorded in machine-readable form, and verified
-against the inverse-Shapovalov definition, in
-\path{tools/audit_grade10_direct.py}; see
-Remark~\ref{rem:audit-scope}.
-\end{theorem}
-
-\begin{proof}
-Let \(t=b-b_0\), and abbreviate the four labels
-\[
- \alpha=(1,2),\quad \beta=(2,2),\quad
- \mu=(4,2),\quad \nu=(1,6).
-\]
-Set
-\[
- z_\alpha=h_\alpha+2,\qquad z_\beta=h_\beta+4,\qquad
- \delta_\alpha=z_\alpha-h_\mu,\qquad
- \delta_\beta=z_\beta-h_\nu.
-\]
-Only the \(\alpha\)- and \(\beta\)-terms of the generic recursion can
-develop a pole at \(\Delta=h_0\).  Their numerators at grade ten are
-\[
- C_\alpha(b)
- ={\mathcal R}_\alpha(b,d)
- H_8(c(b),z_\alpha(b),d),\qquad
- C_\beta(b)
- ={\mathcal R}_\beta(b,d)
- H_6(c(b),z_\beta(b),d).
-\]
-At \((b_0,z_\alpha(b_0))\), the level-eight shifted block has one
-transverse pole, labelled by \(\mu\), and no other Kac divisor through
-that point.  The analogous statement holds for the level-six block and
-\(\nu\).  Therefore the definitions of \(Q_8,Q_6\) give
-\[
- \begin{aligned}
- H_8(c(b),z_\alpha(b),d)
- &=\frac{{\mathcal R}_\mu(b,d)}{\delta_\alpha(b)}
-   +Q_8(d)+O(t),\\
- H_6(c(b),z_\beta(b),d)
- &=\frac{{\mathcal R}_\nu(b,d)}{\delta_\beta(b)}
-   +Q_6(d)+O(t).
- \end{aligned}
-\]
-
-For either nested pair \((\kappa,\tau)\), expansion of
-\({\mathcal R}_\kappa{\mathcal R}_\tau/\delta_\kappa\) gives finite term
-\[
- T_{\kappa,\tau}
- =
- \frac{\dot{\mathcal R}_\kappa{\mathcal R}_\tau
-       +{\mathcal R}_\kappa\dot{\mathcal R}_\tau}
-      {\dot\delta_\kappa}
- -
- \frac{{\mathcal R}_\kappa{\mathcal R}_\tau\ddot\delta_\kappa}
-      {2\dot\delta_\kappa^2},
-\]
-where every undotted factor on the right is evaluated at \(b_0\).
-The two \(t^{-1}\) terms cancel because
-\[
- \frac{{\mathcal R}_\alpha{\mathcal R}_\mu}{\dot\delta_\alpha}
- +\frac{{\mathcal R}_\beta{\mathcal R}_\nu}{\dot\delta_\beta}=0;
-\]
-this is Lemma~\ref{lem:grade-ten-constants} together with
-\(P_2P_8=P_4P_6\).
-
-Write \(y=\Delta-h_0\).  Expanding
-\[
- \frac{C_\alpha(b)}{\Delta-h_\alpha(b)}
- +\frac{C_\beta(b)}{\Delta-h_\beta(b)}
-\]
-at \(t=0\), the cancelled \(t^{-1}\) numerator produces the \(y^{-2}\)
-coefficient
-\[
- \frac{\dot h_\alpha-\dot h_\beta}{\dot\delta_\alpha}
- {\mathcal R}_\alpha(b_0,d){\mathcal R}_\mu(b_0,d)
- =
- -\frac{192}{1121229484375}P_2(d)P_8^{(33/16)}(d).
-\]
-The \(y^{-1}\) coefficient is
-\[
- {\mathcal R}_\alpha(b_0,d)Q_8(d)
- +{\mathcal R}_\beta(b_0,d)Q_6(d)
- +T_{\alpha,\mu}+T_{\beta,\nu}.
-\]
-The first two residue constants are
-\(-4P_2/7\) and \(648P_4/13475\).
-Differentiating the finite products in
-Definition~\ref{def:generic-residue} and factoring over
-\(\mathbb Q[d]\) gives
-\[
- T_{\alpha,\mu}+T_{\beta,\nu}=\Theta_{10}(d).
-\]
-Substitution proves the stated principal part.
-\end{proof}
-
-\begin{remark}[Exact replay and its scope]\label{rem:audit-scope}
-The PBW commutation, Ward recursion, determinant, rank, and null-vector
-checks for the spin collision in Propositions~\ref{prop:spin-collision} and
-\ref{prop:spin-singular-data}, as well as every residue identity in
-Theorem~\ref{thm:spin-recursive-residue}, are replayed by
-\path{tools/audit_low_levels.py}.  The computation uses exact rational
-arithmetic.  The singular vectors, fusion polynomials, \(15\times15\) Gram
-matrix, Smith-layer dimensions, and intrinsic second crossing scalar for
-the earlier energy-module grade-three and grade-seven resonances are
-replayed by \path{tools/audit_first_resonances.py}.  The same script
-enumerates every repeated Kac class below grade seven and verifies the
-child-module determinant gaps used in
-Proposition~\ref{prop:no-earlier-double-pole}.  The Kac slopes, four
-generic residue constants, fusion
-factorization, generic-recursion evaluation of \(\gamma_{10}\), and
-polynomial \(\Theta_{10}\) are replayed by
-\path{tools/audit_grade10_confluence.py}.  The shifted Laurent
-recursion and its first two collision moments are independently replayed
-by \path{tools/audit_confluent_recursion.py}.
-The grade-ten confluence script checks the algebraic confluence
-calculation; it does not construct the \(42\times42\) Gram matrix,
-\(\chi_{10}\), or the second crossing form independently.  The Smith
-profile at grade ten follows from the determinant and embedding-diagram
-argument in Proposition~\ref{prop:grade-ten-smith}.
-
-Two further scripts test the principal-part theorems directly against
-the inverse-Shapovalov definition rather than against the confluence
-algebra.  \path{tools/audit_direct_principal_parts.py} reconstructs
-\(H_N\), \(N\leq7\), exactly as rational functions of \(\Delta\) at
-sample external weights and verifies
-Theorems~\ref{thm:first-recursive-residue}
-and~\ref{thm:spin-recursive-residue}, the complete grade-seven
-principal part of Theorem~\ref{thm:grade-seven-principal-part}
-including the explicit \(\Theta_7\), the pole-order claims of
-Proposition~\ref{prop:no-earlier-double-pole}, the table of
-Section~\ref{sec:low-grade-output}, and the closed forms of
-\(Q_4^E,Q_5^E\).  \path{tools/audit_grade10_direct.py} performs the
-analogous direct \(42\times42\) computation at grade ten: it verifies
-the kernel dimension and determinant valuation of
-Proposition~\ref{prop:grade-ten-smith} and the complete principal part
-of Theorem~\ref{thm:grade-ten-principal-part}, including the value of
-\(\gamma_{10}\) and the closed forms of \(Q_8,Q_6\).  Finally,
-\path{tools/audit_stocco_comparison.py} verifies the imported
-identities of Remark~\ref{rem:imported} at a generic sample point and
-the agreement with the pole-free expressions of \cite{Stocco2022}
-discussed in Section~\ref{sec:low-grade-output}.
-\end{remark}
 
 \section{All-order confluent recursion}\label{sec:all-order}
 
@@ -2039,7 +1330,7 @@ denominator factors.
 \end{lemma}
 
 \begin{proof}
-The assertion is clear for \(M=0\).  If it holds at lower grades, the
+The assertion is clear for \(M=0\).  If it holds at lower levels, the
 \(e\)-summand in Definition~\ref{def:shifted-laurent} has valuation at least
 \[
  -\rho_e-\sigma_{a,e}-W_{e,M-\ell_e}.
@@ -2099,12 +1390,12 @@ Thus \(M_{n,N}\leq\widehat M_{n,N}\).  The former can be sharpened after
 the exact rational germs have been computed, while the latter bounds the
 number of moments before those cancellations are simplified.
 For \(1\leq k\leq M_{n,N}\), define the \emph{collision moments}
-\[
+\begin{equation}\label{eq:collision-moments}
  \widetilde A_{n,k,N}(d)
  =\operatorname{CT}_{t}
  \sum_{a\in{\mathcal C}_{n,N}}
  B_{a,N}(t)\delta_a(t)^{k-1}.
-\]
+\end{equation}
 Here \(\operatorname{CT}_t\) denotes the coefficient of \(t^0\) in a
 Laurent series.  Empty collision classes contribute zero.  Put
 \[
@@ -2129,10 +1420,10 @@ For its \(e\)-summand it is sufficient to know
 \qquad
  S_{e,M-\ell_e}\quad\text{through }t^{\,U+p_{a,e}}.
 \end{equation}
-Iterating these requests down the strictly grade-decreasing recursion tree
+Iterating these requests down the strictly level-decreasing recursion tree
 produces a finite a priori upper precision at every node.
 
-In particular, to compute every collision moment at grade \(N\), it is
+In particular, to compute every collision moment at level \(N\), it is
 sufficient for each \(a\) to compute \(R_a\) through \(t^{W_{a,N-\ell_a}}\),
 \(S_{a,N-\ell_a}\) through \(t^{\rho_a}\), and
 \(\delta_a^{\,k-1}\) through \(t^{\widehat v_{a,N}}\).  Thus the valuation
@@ -2151,7 +1442,7 @@ no coefficient of the second factor above degree \(U+p_{a,e}\) can occur;
 the second means that no coefficient of the first factor above degree
 \(U+W_{e,M-\ell_e}\) can occur.  This proves
 \eqref{eq:precision-propagation}.  The recursion tree is finite because the
-remaining grade decreases along every edge.
+remaining level decreases along every edge.
 
 For \(B_{a,N}=R_aS_{a,N-\ell_a}\) through degree zero, the same product
 argument gives the stated precisions \(W_{a,N-\ell_a}\) and \(\rho_a\).
@@ -2184,16 +1475,16 @@ this for the finitely many possible negative exponents proves the claim.
 \begin{theorem}[Pole-free Ising recursion and all-order equality]
 \label{thm:all-order-recursion}
 For every \(N\geq1\),
-\[
+\begin{equation}\label{eq:pole-free-recursion}
  H_N(1/2,\Delta,d)
  =\sum_{\substack{n\geq0\\{\mathcal C}_{n,N}\neq\varnothing}}
    \sum_{k=1}^{M_{n,N}}
    \frac{\widetilde A_{n,k,N}(d)}{(\Delta-\lambda_n)^k}.
-\]
+\end{equation}
 The sums and every constant-term calculation are finite,
 \(\widetilde A_{n,k,N}(d)\in\mathbb Q[d]\), and the recursion in
 Definitions~\ref{def:shifted-laurent}--\ref{def:collision-moments}
-terminates after grades strictly below \(N\).  In particular, by the
+terminates after levels strictly below \(N\).  In particular, by the
 uniqueness in Theorem~\ref{thm:partial-fractions}, the collision
 moments are the partial-fraction coefficients of the block,
 \[
@@ -2242,7 +1533,7 @@ for generic \(b\).  Thus
 All sums are finite.
 
 Fix \(N\), and choose \(\Delta\) outside the finite set of Ising Kac
-weights occurring at grade \(N\).  By
+weights occurring at level \(N\).  By
 Lemma~\ref{lem:polynomial-entries}, the inverse-Shapovalov expression is
 analytic in \(t\) near zero: its specialized Gram determinant is nonzero
 at this \(\Delta\).  Equation~\eqref{eq:generic-grouped}, initially valid
@@ -2315,14 +1606,766 @@ Finally, local finiteness in \(q\) is
 Corollary~\ref{cor:local-finite}, completing the all-order identity.
 \end{proof}
 
+\section{The energy-module level-seven diamond}\label{sec:energy-diamond}
+
+This section and the next work out the two embedding diamonds of
+Figures~\ref{fig:energy-diamond} and~\ref{fig:spin-diamond} and prove
+the corresponding fixed-\(c\) principal-part formulas;
+Table~\ref{tab:local-summary} summarizes the resulting local data.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[>=stealth,every node/.style={font=\small}]
+\node (top) at (0,0) {\(M(\tfrac12,\tfrac12)\)};
+\node (l) at (-2.8,-1.7) {\(M(\tfrac12,\tfrac52)\)};
+\node (r) at (2.8,-1.7) {\(M(\tfrac12,\tfrac72)\)};
+\node (bot) at (0,-3.4) {\(M(\tfrac12,\tfrac{15}2)\)};
+\draw[->] (l) -- node[above left]{\(\xi_2\), \((2,1)\), level \(2\)} (top);
+\draw[->] (r) -- node[above right]{\(\xi_3\), \((1,3)\), level \(3\)} (top);
+\draw[->] (bot) -- node[below left]{\(\phi_5\), \((1,5)\), level \(5\)} (l);
+\draw[->] (bot) -- node[below right]{\(\phi_4\), \((4,1)\), level \(4\)} (r);
+\end{tikzpicture}
+\caption{The energy diamond.  Arrows are the singular-vector
+embeddings of Proposition~\ref{prop:level-seven-smith}, labelled by
+the embedded singular vector, its Kac label, and its relative level.
+The two branches meet first at total level \(7\), where
+\(\xi_7=j_{\xi_2}(\phi_5)=j_{\xi_3}(\phi_4)\) creates the first double
+pole of the Ising block.}
+\label{fig:energy-diamond}
+\end{figure}
+
+\begin{proposition}[First nontransverse Smith layer]
+\label{prop:level-seven-smith}
+Let \(h_E=1/2\), and let \(U_2,U_3\) be the submodules generated by
+\(\xi_2,\xi_3\) in Proposition~\ref{prop:first-collision}.  Their first
+intersection is generated at total level \(7\) by a normalized singular
+vector \(\xi_7\).  More explicitly, the normalized child singular vectors
+are
+\[
+ \begin{split}
+ \phi_5={}&\bigl(
+ L_{-1}^5-15L_{-2}L_{-1}^3+36L_{-2}^2L_{-1}
+ +\tfrac{99}{4}L_{-3}L_{-1}^2\\
+ &\hspace{17mm}-45L_{-3}L_{-2}-54L_{-4}L_{-1}
+ +45L_{-5}\bigr)|\tfrac52\rangle ,
+ \end{split}
+\]
+\[
+ \phi_4=\bigl(
+ L_{-1}^4-\tfrac{40}{3}L_{-2}L_{-1}^2+16L_{-2}^2
+ +\tfrac{88}{3}L_{-3}L_{-1}-\tfrac{152}{3}L_{-4}
+ \bigr)|\tfrac72\rangle ,
+\]
+and
+\[
+ \xi_7=j_{\xi_2}(\phi_5)=j_{\xi_3}(\phi_4).
+\]
+The \(15\) local Smith exponents of
+\(G_7(1/2,h_E+x)\) are
+\[
+ (0^{\,4},1^{\,10},2).
+\]
+For the second crossing form of
+Proposition~\ref{prop:two-step-residue}, normalized by the displayed
+\(\xi_7\),
+\[
+ \gamma_7=-700700.
+\]
+\end{proposition}
+
+\begin{proof}
+The two child highest weights are
+\[
+ h_E+2=\frac52=\lambda_{11},\qquad
+ h_E+3=\frac72=\lambda_{13}.
+\]
+Their first singular vectors have relative levels \(5\) and \(4\), with
+labels \((1,5)\) and \((4,1)\), respectively.  Direct Virasoro commutation
+checks the two displayed vectors.  Their images are nonzero singular
+vectors at total level \(7\); uniqueness and their common
+\(L_{-1}^7\)-coefficient \(1\) prove the displayed equality.  The embedding
+diagram in \cite[Proposition~5.4 and Figure~5.4]{IoharaKoga2011} also shows
+that there is no earlier intersection and that the radical is the sum of
+the two singular submodules.
+
+At level \(7\), the radical therefore has dimension
+\[
+ p(5)+p(4)-1=7+5-1=11.
+\]
+The only Kac labels of weight \(1/2\) and level at most \(7\) are
+\((2,1)\) and \((1,3)\), so the determinant valuation is
+\[
+ p(5)+p(4)=12.
+\]
+The Smith exponents are consequently
+\((0^4,1^{10},2)\).
+
+For completeness, the second crossing scalar can be obtained without an
+off-critical deformation.  In the level-seven PBW basis, form
+\[
+ G_7(1/2,h_E+x)=G_0+xG_1+x^2G_2+O(x^3),
+\]
+solve \(G_0v_1=-G_1\xi_7\), and evaluate
+\[
+ \xi_7^{\mathsf T}(G_2\xi_7+G_1v_1).
+\]
+Exact PBW commutation gives \(-700700\).  Choice-independence follows from
+Proposition~\ref{prop:two-step-residue}.
+\end{proof}
+
+\begin{proposition}[No earlier nontransverse pole]
+\label{prop:no-earlier-double-pole}
+For every \(N<7\) and every finite internal weight, all local Smith
+exponents of \(G_N(1/2,\Delta)\) are at most \(1\).  Consequently
+\(G_N^{-1}\), \(F_N\), and \(H_N\) have at most simple poles in \(\Delta\).
+Together with Proposition~\ref{prop:level-seven-smith}, this proves that the
+double pole at \(\Delta=1/2\) and level \(7\) is the first double pole of the
+Ising Verma block.
+\end{proposition}
+
+\begin{proof}
+For a Kac weight represented by only one label \(a=(r,s)\) with
+\(\ell_a\leq N\), injectivity of the singular-vector embedding gives a
+radical of dimension \(p(N-\ell_a)\).  This equals the valuation contributed
+by that label to the Kac determinant.  Lemma~\ref{lem:smith} therefore makes
+all corresponding positive Smith exponents equal to \(1\).
+
+It remains to inspect repeated labels.  Proposition~\ref{prop:collisions},
+or direct enumeration of \(rs\leq6\), shows that the complete list of
+repeated classes below level \(7\) is
+\[
+\begin{array}{c|c|c}
+\text{weight}&\text{labels}&\text{singular levels}\\ \hline
+\lambda_5=\frac12 &(2,1),(1,3)&2,3\\
+\lambda_2=\frac1{16}&(1,2),(2,2)&2,4\\
+\lambda_1=0&(1,1),(2,3)&1,6 .
+\end{array}
+\]
+The two energy branches have no intersection below level \(7\) by
+Proposition~\ref{prop:level-seven-smith}.
+
+For the spin class, the child highest weights along the level-two and
+level-four branches are \(33/16\) and \(65/16\).  Their Kac determinants
+have no zero below relative levels \(8\) and \(6\), respectively.  A first
+intersection below level \(7\) would be singular; injectivity would pull it
+back along the level-two branch to a singular vector of relative level at
+most \(4\), which is impossible.
+
+For the vacuum class, the level-one branch is generated by
+\(L_{-1}|0\rangle\) and has child highest weight \(1\).  The Kac determinant
+of \(M(1/2,1)\) has no zero through relative level \(5\).  Hence the
+level-six singular vector cannot lie in the level-one branch, since its
+preimage would be singular at relative level \(5\).
+
+Thus, at every repeated weight and every \(N<7\), the relevant singular
+submodules have zero intersection.  The radical dimension is therefore the
+sum \(\sum_a p(N-\ell_a)\), exactly the Kac-determinant valuation.  A final
+application of Lemma~\ref{lem:smith} proves the Smith and pole bounds.
+\end{proof}
+
+\begin{theorem}[First nontransverse fixed-\(c\) principal part]
+\label{thm:level-seven-principal-part}
+Define
+\[
+ E_5(d)={\mathcal P}_{1,5}(b_0,d),\qquad
+ E_4(d)={\mathcal P}_{4,1}(b_0,d).
+\]
+Explicitly,
+\[
+ E_5(d)=\frac1{16}
+ d(d-20)(d-13)(d-11)(d-6)(d-1)
+ (2d-15)(2d-7)(2d-5)(2d-1),
+\]
+\[
+ E_4(d)=\frac1{9}
+ d(d-20)(d-13)(d-11)(d-6)(d-1)
+ (3d-14)(3d-5),
+\]
+and \(E_2E_5=E_3E_4\).  Put
+\[
+ Q_5^E(d)=
+ \left.\frac{\partial}{\partial z}
+ \{(z-\tfrac52)H_5(1/2,z,d)\}\right|_{z=5/2},
+\]
+\[
+ Q_4^E(d)=
+ \left.\frac{\partial}{\partial z}
+ \{(z-\tfrac72)H_4(1/2,z,d)\}\right|_{z=7/2}.
+\]
+For
+\[
+ \alpha=(2,1),\quad\beta=(1,3),\quad
+ \mu=(1,5),\quad\nu=(4,1),
+\]
+let
+\[
+ \delta_\alpha=h_\alpha+2-h_\mu,\qquad
+ \delta_\beta=h_\beta+3-h_\nu,
+\]
+and, with dots denoting \(d/db\) at \(b_0\), define the explicit finite
+polynomial
+\[
+ \Theta_7(d)=
+ \sum_{(\kappa,\tau)=(\alpha,\mu),(\beta,\nu)}
+ \left(
+ \frac{\dot{\mathcal R}_\kappa{\mathcal R}_\tau+
+       {\mathcal R}_\kappa\dot{\mathcal R}_\tau}{\dot\delta_\kappa}
+ -\frac{{\mathcal R}_\kappa{\mathcal R}_\tau\ddot\delta_\kappa}
+ {2\dot\delta_\kappa^2}
+ \right)_{b=b_0}.
+\]
+Explicitly,
+\[
+ \begin{split}
+ \Theta_7(d)={}&-\frac{d^2(d-1)^2
+ (2d-15)(2d-7)(2d-5)(2d-1)(3d-14)(3d-5)}
+ {2164322160000}\\
+ &\quad\times
+ \bigl(84001d^4-3376370d^3+44478887d^2\\
+ &\qquad\quad
+ -209562838d+205096320\bigr).
+ \end{split}
+\]
+Then
+\begin{equation}\label{eq:level-seven-pp}
+ \begin{split}
+ \PP_{\Delta=1/2}H_7(1/2,\Delta,d)
+ ={}&-\frac{E_2(d)E_5(d)}
+ {700700\,(\Delta-\tfrac12)^2}\\
+ &+\frac{
+ \frac9{28}E_2(d)Q_5^E(d)
+ -\frac8{105}E_3(d)Q_4^E(d)+\Theta_7(d)}
+ {\Delta-\tfrac12}.
+ \end{split}
+\end{equation}
+This is the earliest double pole of the Ising block.
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{thm:all-order-recursion}, the confluent Laurent
+expansion computed below coincides with the fixed-\(c\) Laurent
+expansion of \(H_7\) at \(\Delta=\tfrac12\).
+The double-pole coefficient also has an intrinsic derivation
+that avoids the confluence altogether:
+Propositions~\ref{prop:two-step-residue}
+and~\ref{prop:level-seven-smith} give
+\([x^{-2}]G_7(1/2,\tfrac12+x)^{-1}=\xi_7\xi_7^{\mathsf T}/\gamma_7\),
+Lemma~\ref{lem:singular-factorization} applied along either branch of
+the diamond gives
+\(\langle\xi_7|V_d(1)|\xi_7\rangle=E_2E_5=E_3E_4\), and
+multiplication by the Euler product does not affect the
+\(x^{-2}\) coefficient at level seven because all lower levels have at
+most simple poles by Proposition~\ref{prop:no-earlier-double-pole}.
+
+Equation~\eqref{eq:fusion-normalization} gives the four fusion polynomials.
+Direct evaluation of the residue products and Kac slopes gives
+\[
+ \begin{array}{c|rrrr}
+ (r,s)&(2,1)&(1,3)&(1,5)&(4,1)\\ \hline
+ {\mathcal A}_{r,s}(b_0)&
+ 9/28&-8/105&-1/102375&3/61600
+ \end{array}
+\]
+and
+\[
+ \frac{\dot h_{2,1}-\dot h_{1,3}}
+ {\dot h_{2,1}-\dot h_{1,5}}=\frac5{11},\qquad
+ \frac{\dot h_{1,3}-\dot h_{2,1}}
+ {\dot h_{1,3}-\dot h_{4,1}}=\frac5{13}.
+\]
+Either path therefore expresses the coefficient produced jointly by their
+cancelled \(t^{-1}\) parts:
+\[
+ \frac5{11}{\mathcal A}_{2,1}{\mathcal A}_{1,5}
+ =\frac5{13}{\mathcal A}_{1,3}{\mathcal A}_{4,1}
+ =-\frac1{700700}.
+\]
+This agrees with the intrinsic inverse second crossing scalar
+\(\gamma_7^{-1}\) from Proposition~\ref{prop:level-seven-smith}.
+
+Expanding the two outer recursion terms at
+\(\Delta=1/2\), their cancelled \(t^{-1}\) numerators give the displayed
+double pole.  Their finite parts are respectively
+\[
+ \frac9{28}E_2Q_5^E+T_{\alpha,\mu},\qquad
+ -\frac8{105}E_3Q_4^E+T_{\beta,\nu},
+\]
+where the two \(T\)'s are precisely the summands defining \(\Theta_7\).
+Differentiating the finite products of
+Definition~\ref{def:generic-residue} and factoring over \(\mathbb Q[d]\)
+gives the displayed explicit polynomial form of \(\Theta_7\).
+This proves the complete principal part.  Its global minimality in level is
+Proposition~\ref{prop:no-earlier-double-pole}.
+\end{proof}
+
+\begin{remark}[Computing the finite parts]\label{rem:finite-parts}
+The lower-level finite parts \(Q_5^E,Q_4^E\) here, and \(Q_8,Q_6\) in
+Theorem~\ref{thm:level-ten-principal-part} below, are defined by
+fixed-\(c\) data only: they can be computed directly from the
+inverse-Shapovalov matrices or recursively from
+Theorem~\ref{thm:all-order-recursion}, and no off-critical numerical
+limit is involved.  Closed forms (of degrees \(16\) and \(12\) in
+\(d\) for \(Q_8\) and \(Q_6\), with unwieldy rational coefficients)
+are recorded in machine-readable form and verified against the
+inverse-Shapovalov definition by the audit scripts; see
+Remark~\ref{rem:audit-scope}.
+\end{remark}
+
+\section{The spin-module level-ten diamond}\label{sec:spin-diamond}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[>=stealth,every node/.style={font=\small}]
+\node (top) at (0,0) {\(M(\tfrac12,\tfrac1{16})\)};
+\node (l) at (-2.8,-1.7) {\(M(\tfrac12,\tfrac{33}{16})\)};
+\node (r) at (2.8,-1.7) {\(M(\tfrac12,\tfrac{65}{16})\)};
+\node (bot) at (0,-3.4) {\(M(\tfrac12,\tfrac{161}{16})\)};
+\draw[->] (l) -- node[above left]{\(\chi_2\), \((1,2)\), level \(2\)} (top);
+\draw[->] (r) -- node[above right]{\(\chi_4\), \((2,2)\), level \(4\)} (top);
+\draw[->] (bot) -- node[below left]{\(\psi_8\), \((4,2)\), level \(8\)} (l);
+\draw[->] (bot) -- node[below right]{\(\psi_6\), \((1,6)\), level \(6\)} (r);
+\end{tikzpicture}
+\caption{The spin diamond.  The two branches meet first at total level
+\(10\), where \(\chi_{10}=j_{\chi_2}(\psi_8)=j_{\chi_4}(\psi_6)\)
+creates the double pole of
+Theorem~\ref{thm:level-ten-principal-part}.}
+\label{fig:spin-diamond}
+\end{figure}
+
+\begin{proposition}[Level-ten Smith profile at \(\Delta=1/16\)]
+\label{prop:level-ten-smith}
+Let \(h_0=1/16\), and let
+\[
+ U_2=U(\Vir_-)\chi_2,\qquad U_4=U(\Vir_-)\chi_4
+\]
+be the two singular submodules of \(M(1/2,h_0)\) from
+Proposition~\ref{prop:spin-singular-data}.  Their first intersection is
+generated at total level \(10\) by a singular vector \(\chi_{10}\), and
+\[
+ \dim\ker G_{10}(1/2,h_0)=32.
+\]
+The \(42\) local Smith exponents of
+\(G_{10}(1/2,h_0+x)\) are
+\[
+ \bigl(0^{\,10},1^{\,31},2\bigr).
+\]
+In particular, the inverse Shapovalov matrix has a nonzero rank-one
+coefficient at order \(x^{-2}\).
+\end{proposition}
+
+\begin{proof}
+The weight \(h_0\) is the interior Ising weight labelled by \((1,2)\), so
+it is in Class \(R^+\), Case \(1+\), in the classification of
+\cite[Section~5.1.4]{IoharaKoga2011}: both Coulomb-gas parameters are
+rational and the weight lies in the interior of the Kac table, so the
+embedding diagram is the standard braided pattern of two infinite
+strings of singular vectors.
+The commutative embedding diagram in
+\cite[Proposition~5.4 and Figure~5.4]{IoharaKoga2011} describes the two
+branches and their successive intersections.  The identification of the
+first Jantzen layer with their sum, hence with the maximal proper
+submodule, is
+\cite[Theorem~6.3(i) and equation~(6.3)]{IoharaKoga2011}.
+
+The two highest weights are
+\[
+ h_0+2=\frac{33}{16}=\lambda_{10},\qquad
+ h_0+4=\frac{65}{16}=\lambda_{14}.
+\]
+The first singular vector inside \(U_2\) has relative level \(8\), with
+Kac label \((4,2)\), and the first singular vector inside \(U_4\) has
+relative level \(6\), with Kac label \((1,6)\).  Both therefore have total
+level \(10\) and weight
+\[
+ h_0+10=\frac{161}{16}=\lambda_{22}.
+\]
+The embeddings are injective by
+\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011}.
+Their two images are proportional by uniqueness of a singular vector at a
+fixed level, \cite[Proposition~5.1]{IoharaKoga2011}.  Hence the
+level-ten intersection is one dimensional.  There is no earlier
+intersection: a vector at the first intersection level would be singular,
+whereas the Kac determinant for \(M(1/2,33/16)\), respectively
+\(M(1/2,65/16)\), has no zero below relative level \(8\), respectively
+\(6\).
+
+The level-ten radical is the level-ten part of \(U_2+U_4\).  Since
+\[
+ p(8)=22,\qquad p(6)=11,
+\]
+and the intersection has dimension one at this level,
+\[
+ \dim\ker G_{10}(1/2,h_0)=22+11-1=32.
+\]
+By Proposition~\ref{prop:collisions}, the only positive Kac labels with
+\(\Delta_{r,s}=h_0\) and \(rs\leq10\) are \((1,2)\) and \((2,2)\).
+The Kac determinant formula therefore gives
+\[
+ \ord_x\det G_{10}(1/2,h_0+x)
+ =p(8)+p(6)=33.
+\]
+There are \(p(10)=42\) Smith exponents, exactly \(32\) of them are
+positive, and their sum is \(33\).  Thus \(31\) positive exponents equal
+\(1\), one equals \(2\), and the remaining \(10\) vanish.
+Lemma~\ref{lem:smith} gives the final assertion.
+(This illustrates Corollary~\ref{cor:det-overcounts}: the determinant
+valuation \(33\) records the sum of the positive Smith exponents,
+while the pole order is their maximum, \(2\).)
+\end{proof}
+
+\begin{lemma}[Exact constants of the level-ten confluence]
+\label{lem:level-ten-constants}
+Let \(b_0=2i/\sqrt3\), so \(c(b_0)=1/2\).  Then
+\[
+ \begin{array}{c|cccc}
+ (r,s)&(1,2)&(2,2)&(4,2)&(1,6)\\ \hline
+ {\mathcal A}_{r,s}(b_0)&
+ -4/7&648/13475&48/32035128125&-8/320945625 .
+ \end{array}
+\]
+If a dot denotes \(d/db\) at \(b_0\), then
+\[
+ \frac{\dot h_{1,2}-\dot h_{2,2}}
+ {\dot h_{1,2}-\dot h_{4,2}}=\frac15,\qquad
+ \frac{\dot h_{2,2}-\dot h_{1,2}}
+ {\dot h_{2,2}-\dot h_{1,6}}=\frac17,
+\]
+and
+\[
+ \frac15{\mathcal A}_{1,2}{\mathcal A}_{4,2}
+ =\frac17{\mathcal A}_{2,2}{\mathcal A}_{1,6}
+ =-\frac{192}{1121229484375}.
+\]
+Moreover,
+\[
+ \begin{split}
+ {\mathcal P}_{4,2}(b_0,d)
+ =\frac1{20736}&d(d-20)(d-13)(d-11)(d-6)(d-1)\\
+ {}\times&(2d-57)(2d-35)(2d-15)(2d-7)(2d-5)(2d-1)\\
+ {}\times&(3d-14)(3d-5)(6d-55)(6d-1),
+ \end{split}
+\]
+\[
+ \begin{split}
+ {\mathcal P}_{1,6}(b_0,d)
+ =\frac1{64}&d(d-20)(d-13)(d-11)(d-6)(d-1)\\
+ {}\times&(2d-57)(2d-35)(2d-15)(2d-7)(2d-5)(2d-1),
+ \end{split}
+\]
+and
+\[
+ P_2(d){\mathcal P}_{4,2}(b_0,d)
+ =P_4(d){\mathcal P}_{1,6}(b_0,d).
+\]
+\end{lemma}
+
+\begin{proof}
+Substitute \(b_0=2i/\sqrt3\) in the finite products of
+Definition~\ref{def:generic-residue}.  Direct differentiation gives
+\[
+ c(b_0)=\frac12,\qquad c'(b_0)=\frac{7i\sqrt3}{2}\neq0,
+\]
+so \(b-b_0\) is a valid local deformation parameter.  The Kac-weight
+derivatives are
+\[
+ \begin{array}{c|rrrr}
+ (r,s)&(1,2)&(2,2)&(4,2)&(1,6)\\ \hline
+ 16\dot h_{r,s}/(i\sqrt3)&9&-7&-71&105 .
+ \end{array}
+\]
+These four values give the two slope ratios.  Multiplication of the four
+displayed \({\mathcal A}\)-values gives the common nested residue.
+Factoring the two \({\mathcal P}\)-products over \(\mathbb Q[d]\) gives the
+last three identities.
+\end{proof}
+
+\begin{theorem}[Leading double-pole coefficient at level ten]
+\label{thm:level-ten-leading}
+Normalize all singular vectors by setting their \(L_{-1}^{\ell}\)
+coefficient equal to \(1\).  Let
+\(\psi_8\in M(1/2,33/16)\) and
+\(\psi_6\in M(1/2,65/16)\) be the singular vectors of levels \(8\) and
+\(6\), respectively.  Then
+\[
+ \chi_{10}=j_{\chi_2}(\psi_8)=j_{\chi_4}(\psi_6).
+\]
+Define
+\[
+ P_8^{(33/16)}(d)=\langle\psi_8|V_d(1)|\psi_8\rangle,\qquad
+ P_6^{(65/16)}(d)=\langle\psi_6|V_d(1)|\psi_6\rangle .
+\]
+They are the explicit polynomials
+\[
+ P_8^{(33/16)}(d)={\mathcal P}_{4,2}(b_0,d),\qquad
+ P_6^{(65/16)}(d)={\mathcal P}_{1,6}(b_0,d)
+\]
+listed in Lemma~\ref{lem:level-ten-constants}.
+Write
+\[
+ G_{10}(1/2,h_0+x)=G_0+xG_1+x^2G_2+O(x^3),
+\]
+choose \(v_1\) with
+\[
+ G_0v_1=-G_1\chi_{10},
+\]
+and set
+\[
+ \gamma_{10}
+ =\chi_{10}^{\mathsf T}(G_2\chi_{10}+G_1v_1).
+\]
+Then it is independent of the choice of \(v_1\), and
+\[
+ \gamma_{10}=-\frac{1121229484375}{192}.
+\]
+Consequently,
+\[
+ \lim_{\Delta\to h_0}
+ (\Delta-h_0)^2H_{10}(1/2,\Delta,d)
+ =\frac{P_2(d)P_8^{(33/16)}(d)}{\gamma_{10}}
+ =\frac{P_4(d)P_6^{(65/16)}(d)}{\gamma_{10}}.
+\]
+This is an intrinsic fixed-\(c\) expression for the spin-module
+nontransverse Laurent coefficient.
+\end{theorem}
+
+\begin{proof}
+The two compositions in the first display are nonzero singular vectors of
+total level \(10\).  Proposition~5.1 of \cite{IoharaKoga2011} makes them
+proportional.  Their \(L_{-1}^{10}\) coefficients are both \(1\), so they
+are equal.
+The Kac determinants of the child modules of highest weights \(33/16\) and
+\(65/16\) have no zero below levels \(8\) and \(6\), respectively.
+Consequently the standard \(L_{-1}^{\ell}\)-normalized singular-vector
+recursion has a nonsingular coefficient system at every preceding level.
+Cramer's rule then shows that the normalized rational families
+\(\psi_8(b)\) and \(\psi_6(b)\) are regular at \(b_0\).  Hence the rational
+identity
+\eqref{eq:fusion-normalization} specializes to
+\[
+ P_8^{(33/16)}={\mathcal P}_{4,2}(b_0,d),\qquad
+ P_6^{(65/16)}={\mathcal P}_{1,6}(b_0,d).
+\]
+
+Let \(K_1=\ker G_0=(U_2+U_4)_{10}\), and let \(\beta_1\) be its first
+crossing form.  By Lemma~\ref{lem:singular-crossing}, the restriction of
+\(\beta_1\) to \(U_2\) is the scalar \(b_{\chi_2}\) times the
+Shapovalov form on \(M(1/2,33/16)\).  Since \(\psi_8\) is singular,
+\(\beta_1(\chi_{10},U_2)=0\).  The same argument through \(U_4\) gives
+\(\beta_1(\chi_{10},U_4)=0\).  Therefore
+\(\chi_{10}\in K_2=\ker\beta_1\).
+
+Proposition~\ref{prop:level-ten-smith} shows that exactly one Smith
+exponent is at least \(2\).  The unconditional Smith-layer count in
+Proposition~\ref{prop:two-step-residue} therefore shows that \(K_2\) is
+spanned by \(\chi_{10}\).  Since that exponent is exactly \(2\), the same
+proposition shows that its second crossing form is the nonzero scalar
+\(\gamma_{10}\), and gives
+\[
+ [x^{-2}]G_{10}(1/2,h_0+x)^{-1}
+ =\frac{\chi_{10}\chi_{10}^{\mathsf T}}{\gamma_{10}}.
+\]
+Taking the trace against the specialized torus matrix yields
+\[
+ [x^{-2}]F_{10}(1/2,h_0+x,d)
+ =\frac{\langle\chi_{10}|V_d(1)|\chi_{10}\rangle}{\gamma_{10}}.
+\]
+For \(N<10\), the two singular submodules have zero intersection at level
+\(N\).  Thus the radical dimension is
+\[
+ p(N-2)+p(N-4),
+\]
+with \(p(k)=0\) for \(k<0\), and this equals the Kac-determinant valuation.
+Lemma~\ref{lem:smith} therefore shows that all lower-level Smith exponents
+at \(h_0\) are at most one.  Multiplication by the Euler product consequently
+does not alter the \(x^{-2}\) coefficient at level \(10\).  Finally,
+Lemma~\ref{lem:singular-factorization}, applied along either side of the
+embedding diamond, gives
+\[
+ \langle\chi_{10}|V_d(1)|\chi_{10}\rangle
+ =P_2(d)P_8^{(33/16)}(d)
+ =P_4(d)P_6^{(65/16)}(d).
+\]
+The Gram matrices and the normalized singular-vector coefficients are
+rational at \(c=1/2\), so the defining linear system gives
+\(\gamma_{10}\in\mathbb Q\).  It remains to evaluate this intrinsic scalar.
+Apply the generic recursion of Definition~\ref{def:generic-residue}
+algebraically near \(b_0\).  By Theorem~\ref{thm:all-order-recursion},
+once the resonant paths are combined, their constant term equals the
+specialized fixed-\(c\) coefficient as a rational function of
+\(\Delta\), including the coefficient of \((\Delta-h_0)^{-2}\).
+
+The two nested paths have opposite
+\(t^{-1}\) numerator coefficients.  After their cancellation, the resulting
+double-pole coefficient can be written using the
+\((1,2)\to(4,2)\) path as
+\[
+ \frac{\dot h_{1,2}-\dot h_{2,2}}
+ {\dot h_{1,2}-\dot h_{4,2}}\,
+ {\mathcal A}_{1,2}(b_0){\mathcal A}_{4,2}(b_0)
+ P_2(d)P_8^{(33/16)}(d).
+\]
+Lemma~\ref{lem:level-ten-constants} evaluates this scalar coefficient as
+\(-192/1121229484375\).  Rewriting the same combined coefficient using the
+other path gives the equal expression with slope ratio \(1/7\); the two
+expressions are alternatives, not additive contributions.  Comparison
+with the already proved intrinsic coefficient
+\(P_2P_8/\gamma_{10}\) yields the displayed value of \(\gamma_{10}\).
+\end{proof}
+
+\begin{theorem}[Finite recursive level-ten principal part]
+\label{thm:level-ten-principal-part}
+Define the finite shifted-block parts
+\[
+ Q_8(d)=
+ \left.
+ \frac{\partial}{\partial z}
+ \left\{(z-\tfrac{33}{16})H_8(1/2,z,d)\right\}
+ \right|_{z=33/16}
+\]
+and
+\[
+ Q_6(d)=
+ \left.
+ \frac{\partial}{\partial z}
+ \left\{(z-\tfrac{65}{16})H_6(1/2,z,d)\right\}
+ \right|_{z=65/16}.
+\]
+Put
+\[
+ \begin{split}
+ \Theta_{10}(d)
+ ={}&-\frac{
+ d^2(d-1)^2(2d-7)^2(2d-1)^2
+ (3d-14)(3d-5)(6d-55)(6d-1)}
+ {552735279561465000000}\\
+ &\quad\times
+ \bigl(
+ 424640464d^8-41506307104d^7+1664502727528d^6\\
+ &\qquad
+ -35552058801520d^5+438148123547677d^4
+ -3142854705332170d^3\\
+ &\qquad
+ +12488401942129875d^2-23870935242348750d
+ +14566042731240000
+ \bigr).
+ \end{split}
+\]
+Then the entire principal part of the level-ten reduced coefficient at
+\(\Delta=h_0=1/16\) is
+\begin{equation}\label{eq:level-ten-pp}
+ \begin{split}
+ \PP_{\Delta=h_0}H_{10}(1/2,\Delta,d)
+ ={}&
+ -\frac{192\,P_2(d)P_8^{(33/16)}(d)}
+ {1121229484375\,(\Delta-h_0)^2}\\
+ &+
+ \frac{
+ -\frac47P_2(d)Q_8(d)
+ +\frac{648}{13475}P_4(d)Q_6(d)
+ +\Theta_{10}(d)}
+ {\Delta-h_0}.
+ \end{split}
+\end{equation}
+Every term on the right is finite and is evaluated at \(c=1/2\).  Thus
+this is a complete finite recursive formula for the principal part.
+\end{theorem}
+
+\begin{proof}
+Let \(t=b-b_0\), and abbreviate the four labels
+\[
+ \alpha=(1,2),\quad \beta=(2,2),\quad
+ \mu=(4,2),\quad \nu=(1,6).
+\]
+Set
+\[
+ z_\alpha=h_\alpha+2,\qquad z_\beta=h_\beta+4,\qquad
+ \delta_\alpha=z_\alpha-h_\mu,\qquad
+ \delta_\beta=z_\beta-h_\nu.
+\]
+Only the \(\alpha\)- and \(\beta\)-terms of the generic recursion can
+develop a pole at \(\Delta=h_0\).  Their numerators at level ten are
+\[
+ C_\alpha(b)
+ ={\mathcal R}_\alpha(b,d)
+ H_8(c(b),z_\alpha(b),d),\qquad
+ C_\beta(b)
+ ={\mathcal R}_\beta(b,d)
+ H_6(c(b),z_\beta(b),d).
+\]
+At \((b_0,z_\alpha(b_0))\), the level-eight shifted block has one
+transverse pole, labelled by \(\mu\), and no other Kac divisor through
+that point.  The analogous statement holds for the level-six block and
+\(\nu\).  Therefore the definitions of \(Q_8,Q_6\) give
+\[
+ \begin{aligned}
+ H_8(c(b),z_\alpha(b),d)
+ &=\frac{{\mathcal R}_\mu(b,d)}{\delta_\alpha(b)}
+   +Q_8(d)+O(t),\\
+ H_6(c(b),z_\beta(b),d)
+ &=\frac{{\mathcal R}_\nu(b,d)}{\delta_\beta(b)}
+   +Q_6(d)+O(t).
+ \end{aligned}
+\]
+
+For either nested pair \((\kappa,\tau)\), expansion of
+\({\mathcal R}_\kappa{\mathcal R}_\tau/\delta_\kappa\) gives finite term
+\[
+ T_{\kappa,\tau}
+ =
+ \frac{\dot{\mathcal R}_\kappa{\mathcal R}_\tau
+       +{\mathcal R}_\kappa\dot{\mathcal R}_\tau}
+      {\dot\delta_\kappa}
+ -
+ \frac{{\mathcal R}_\kappa{\mathcal R}_\tau\ddot\delta_\kappa}
+      {2\dot\delta_\kappa^2},
+\]
+where every undotted factor on the right is evaluated at \(b_0\).
+The two \(t^{-1}\) terms cancel because
+\[
+ \frac{{\mathcal R}_\alpha{\mathcal R}_\mu}{\dot\delta_\alpha}
+ +\frac{{\mathcal R}_\beta{\mathcal R}_\nu}{\dot\delta_\beta}=0;
+\]
+this is Lemma~\ref{lem:level-ten-constants} together with
+\(P_2P_8=P_4P_6\).
+
+Write \(y=\Delta-h_0\).  Expanding
+\[
+ \frac{C_\alpha(b)}{\Delta-h_\alpha(b)}
+ +\frac{C_\beta(b)}{\Delta-h_\beta(b)}
+\]
+at \(t=0\), the cancelled \(t^{-1}\) numerator produces the \(y^{-2}\)
+coefficient
+\[
+ \frac{\dot h_\alpha-\dot h_\beta}{\dot\delta_\alpha}
+ {\mathcal R}_\alpha(b_0,d){\mathcal R}_\mu(b_0,d)
+ =
+ -\frac{192}{1121229484375}P_2(d)P_8^{(33/16)}(d).
+\]
+The \(y^{-1}\) coefficient is
+\[
+ {\mathcal R}_\alpha(b_0,d)Q_8(d)
+ +{\mathcal R}_\beta(b_0,d)Q_6(d)
+ +T_{\alpha,\mu}+T_{\beta,\nu}.
+\]
+The first two residue constants are
+\(-4P_2/7\) and \(648P_4/13475\).
+Differentiating the finite products in
+Definition~\ref{def:generic-residue} and factoring over
+\(\mathbb Q[d]\) gives
+\[
+ T_{\alpha,\mu}+T_{\beta,\nu}=\Theta_{10}(d).
+\]
+Substitution proves the stated principal part.
+\end{proof}
+
 \begin{corollary}[Recovery of the explicit confluent formulas]
 \label{cor:recover-low-confluence}
 The \(N=3\) and \(N=7\) moments in the \(\lambda_5=1/2\) class give
 Theorems~\ref{thm:first-recursive-residue} and
-\ref{thm:grade-seven-principal-part}.  The \(N=4\) and \(N=10\) moments
+\ref{thm:level-seven-principal-part}.  The \(N=4\) and \(N=10\) moments
 in the \(\lambda_2=1/16\) class give
 Theorems~\ref{thm:spin-recursive-residue} and
-\ref{thm:grade-ten-principal-part}.
+\ref{thm:level-ten-principal-part}.
 \end{corollary}
 
 \begin{proof}
@@ -2334,7 +2377,7 @@ At \(N=3\), the class \({\mathcal C}_{5,3}\) consists of
 and its higher moments vanish.  At \(N=7\), the same class has the two
 nested shifted poles \((2,1)\to(1,5)\) and
 \((1,3)\to(4,1)\).  Its first two moments are the simple- and double-pole
-coefficients of Theorem~\ref{thm:grade-seven-principal-part}.
+coefficients of Theorem~\ref{thm:level-seven-principal-part}.
 
 At \(N=4\), the class \({\mathcal C}_{2,4}\) consists of
 \((1,2)\) and \((2,2)\), and both \(B\)-terms are regular at \(t=0\).
@@ -2354,17 +2397,91 @@ At \(N=10\), the same spin collision class has
 \]
 Their zeroth and first collision moments are exactly the two Laurent
 coefficients computed in the proof of
-Theorem~\ref{thm:grade-ten-principal-part}; all higher moments vanish by
-the grade-ten Smith profile.
+Theorem~\ref{thm:level-ten-principal-part}; all higher moments vanish by
+the level-ten Smith profile.
 \end{proof}
 
-\section{Low-grade output and comparison with earlier expansions}
-\label{sec:low-grade-output}
+\begin{table}[ht]
+\centering
+\begin{tabular}{lcc}
+\hline
+ & energy class & spin class\\
+\hline
+collided weight & \(\lambda_5=\tfrac12\) & \(\lambda_2=\tfrac1{16}\)\\
+colliding labels & \((2,1),(1,3)\) & \((1,2),(2,2)\)\\
+parent singular levels & \(2,3\) & \(2,4\)\\
+first collided coefficient & \(H_3\) & \(H_4\)\\
+first residue & Theorem~\ref{thm:first-recursive-residue} &
+ Theorem~\ref{thm:spin-recursive-residue}\\
+diamond closes at level & \(7\) & \(10\)\\
+child labels (relative levels) & \((1,5)\,(5)\), \((4,1)\,(4)\) &
+ \((4,2)\,(8)\), \((1,6)\,(6)\)\\
+second crossing scalar & \(\gamma_7=-700700\) &
+ \(\gamma_{10}=-\tfrac{1121229484375}{192}\)\\
+principal part & Theorem~\ref{thm:level-seven-principal-part} &
+ Theorem~\ref{thm:level-ten-principal-part}\\
+\hline
+\end{tabular}
+\caption{The two Ising embedding diamonds and their local data.}
+\label{tab:local-summary}
+\end{table}
 
-Through grade four, every pole of the Ising block is simple:
+\begin{remark}[Exact replay and its scope]\label{rem:audit-scope}
+The PBW commutation, Ward recursion, determinant, rank, and null-vector
+checks for the spin collision in Propositions~\ref{prop:spin-collision} and
+\ref{prop:spin-singular-data}, as well as every residue identity in
+Theorem~\ref{thm:spin-recursive-residue}, are replayed by
+\path{tools/audit_low_levels.py}.  The computation uses exact rational
+arithmetic.  The singular vectors, fusion polynomials, \(15\times15\) Gram
+matrix, Smith-layer dimensions, and intrinsic second crossing scalar for
+the earlier energy-module level-three and level-seven resonances are
+replayed by \path{tools/audit_first_resonances.py}.  The same script
+enumerates every repeated Kac class below level seven and verifies the
+child-module determinant gaps used in
+Proposition~\ref{prop:no-earlier-double-pole}.  The Kac slopes, four
+generic residue constants, fusion
+factorization, generic-recursion evaluation of \(\gamma_{10}\), and
+polynomial \(\Theta_{10}\) are replayed by
+\path{tools/audit_grade10_confluence.py}.  The shifted Laurent
+recursion and its first two collision moments are independently replayed
+by \path{tools/audit_confluent_recursion.py}.
+The level-ten confluence script checks the algebraic confluence
+calculation; it does not construct the \(42\times42\) Gram matrix,
+\(\chi_{10}\), or the second crossing form independently.  The Smith
+profile at level ten follows from the determinant and embedding-diagram
+argument in Proposition~\ref{prop:level-ten-smith}.
+
+Two further scripts test the principal-part theorems directly against
+the inverse-Shapovalov definition rather than against the confluence
+algebra.  \path{tools/audit_direct_principal_parts.py} reconstructs
+\(H_N\), \(N\leq7\), exactly as rational functions of \(\Delta\) at
+sample external weights and verifies
+Theorems~\ref{thm:first-recursive-residue}
+and~\ref{thm:spin-recursive-residue}, the complete level-seven
+principal part of Theorem~\ref{thm:level-seven-principal-part}
+including the explicit \(\Theta_7\), the pole-order claims of
+Proposition~\ref{prop:no-earlier-double-pole}, the table of
+Section~\ref{sec:low-level-output}, and the closed forms of
+\(Q_4^E,Q_5^E\).  \path{tools/audit_grade10_direct.py} performs the
+analogous direct \(42\times42\) computation at level ten: it verifies
+the kernel dimension and determinant valuation of
+Proposition~\ref{prop:level-ten-smith} and the complete principal part
+of Theorem~\ref{thm:level-ten-principal-part}, including the value of
+\(\gamma_{10}\) and the closed forms of \(Q_8,Q_6\).  Finally,
+\path{tools/audit_stocco_comparison.py} verifies the imported
+identities of Remark~\ref{rem:imported} at a generic sample point and
+the agreement with the pole-free expressions of \cite{Stocco2022}
+discussed in Section~\ref{sec:low-level-output}.
+\end{remark}
+
+\section{Explicit output through level four and comparison with
+earlier expansions}
+\label{sec:low-level-output}
+
+Through level four, every pole of the Ising block is simple:
 \(m_{n,N}=1\) for all classes with \(N\leq4\), by
 Proposition~\ref{prop:no-earlier-double-pole}.  The complete list of
-nonzero collision moments through grade four, computed from
+nonzero collision moments through level four, computed from
 Definition~\ref{def:collision-moments}, equal to the partial-fraction
 coefficients \(A_{n,k,N}\) by Theorem~\ref{thm:all-order-recursion},
 and factored over \(\mathbb Q[d]\), is
@@ -2432,7 +2549,7 @@ present paper upgrades these closed low-order expressions to an
 all-order fixed-\(c\) statement with a termination and equality proof.
 \end{remark}
 
-\section{Irreducible Ising specialization}
+\section{Irreducible Ising specialization}\label{sec:irreducible}
 
 \begin{proposition}[Identity insertion in the Verma recursion]
 \label{prop:identity-verma}
@@ -2473,7 +2590,8 @@ of \(M(1/2,h)\), and define
 
 \begin{theorem}[The three Ising characters]
 \label{thm:ising-characters}
-The quotient identity blocks are
+The quotient identity blocks of
+Definition~\ref{def:irreducible-identity} are
 \[
  \widehat H_0(q)
  =\sum_{j\in\mathbb Z}
@@ -2546,7 +2664,7 @@ degree \(30\) gives the final three lines.
 
 \begin{remark}[Character replay]
 The three BGG numerators and the resulting quotient dimensions through
-grade \(30\) are replayed by
+level \(30\) are replayed by
 \path{tools/audit_ising_characters.py} using exact integer arithmetic,
 and are checked there against an independent free-fermion count: the
 spin module is counted by partitions into distinct positive integers,
@@ -2555,7 +2673,7 @@ and the vacuum and energy modules by partitions of \(2N\)
 (respectively odd) number of parts.
 \end{remark}
 
-\section{Scope and outlook}
+\section{Scope and outlook}\label{sec:scope}
 
 The all-order result is a coefficientwise theorem for the meromorphic
 Verma-module torus block at \(c=1/2\).  Its output is fixed at the Ising
@@ -2565,17 +2683,17 @@ therefore be distinguished both from numerical regularization and from a
 hypothetical recursion formulated solely in intrinsic data of the
 specialized category.
 
-At any prescribed grade the label sets and recursion trees are finite.
+At any prescribed level the label sets and recursion trees are finite.
 Lemmas~\ref{lem:shifted-valuation-bound} and
 \ref{lem:precision-budget} give an a priori Laurent jet budget,
 but do not claim a favorable complexity bound: exact rational
-simplification can grow rapidly with the grade.  The local Smith analysis
+simplification can grow rapidly with the level.  The local Smith analysis
 explains the first simple and double poles, but an all-depth identification
 of every Smith layer with the Ising embedding diagram is not required for
-the coefficientwise confluence theorem.  The grade-ten principal part
+the coefficientwise confluence theorem.  The level-ten principal part
 has been verified directly against the inverse-Shapovalov definition
 (Remark~\ref{rem:audit-scope}); an independent symbolic construction of
-the grade-ten \(42\times42\) second crossing form itself would
+the level-ten \(42\times42\) second crossing form itself would
 nevertheless be a useful additional audit.
 
 For a general minimal-model charge \(c_{p,p'}\), the same separated-pole
@@ -2593,11 +2711,12 @@ Remarks~\ref{rem:imported} and~\ref{rem:audit-scope} and in the
 character-replay remark, together with the shared library modules
 \path{tools/exact_shapovalov.py} and
 \path{tools/direct_reconstruction.py} on which they depend.  All
-computations use exact rational arithmetic (Python~3 with SymPy;
-the pinned dependency is listed in
+computations use exact rational arithmetic (Python~3, tested with
+CPython~3.12, and SymPy~1.12; the pinned dependency is listed in
 \path{requirements-audit.txt}).  Running \texttt{make audit} replays
-every check except the direct grade-ten reconstruction, which the
-slower target \texttt{make audit-deep} adds.
+every check except the direct level-ten reconstruction, which the
+slower target \texttt{make audit-deep} adds.  The scripts will
+additionally be archived with a citable DOI at publication.
 
 \appendix
 
@@ -2607,26 +2726,27 @@ slower target \texttt{make audit-deep} adds.
 In the ordered PBW basis
 \((L_{-4},\,L_{-3}L_{-1},\,L_{-2}^2,\,L_{-2}L_{-1}^2,\,L_{-1}^4)
 \lvert\Delta\rangle\) of Proposition~\ref{prop:spin-collision}, direct
-Virasoro commutation gives
-\begin{center}
-\resizebox{\textwidth}{!}{$
-G_4=
-\begin{pmatrix}
-8\Delta+\frac52&14\Delta&24\Delta+\frac32&36\Delta&120\Delta\\
-14\Delta&12\Delta^2+14\Delta&30\Delta&40\Delta^2+20\Delta&
-192\Delta^2+48\Delta\\
-24\Delta+\frac32&30\Delta&32\Delta^2+36\Delta+\frac{17}{8}&
+Virasoro commutation at \(c=1/2\) gives the symmetric matrix
+\(G_4=\begin{pmatrix}C&C'\end{pmatrix}\) with column blocks
+\[
+C=\begin{pmatrix}
+8\Delta+\frac52&14\Delta&24\Delta+\frac32\\
+14\Delta&12\Delta^2+14\Delta&30\Delta\\
+24\Delta+\frac32&30\Delta&32\Delta^2+36\Delta+\frac{17}{8}\\
+36\Delta&40\Delta^2+20\Delta&48\Delta^2+51\Delta\\
+120\Delta&192\Delta^2+48\Delta&216\Delta^2+144\Delta
+\end{pmatrix},
+\]
+\[
+C'=\begin{pmatrix}
+36\Delta&120\Delta\\
+40\Delta^2+20\Delta&192\Delta^2+48\Delta\\
 48\Delta^2+51\Delta&216\Delta^2+144\Delta\\
-36\Delta&40\Delta^2+20\Delta&48\Delta^2+51\Delta&
-32\Delta^3+118\Delta^2+33\Delta&
-288\Delta^3+336\Delta^2+96\Delta\\
-120\Delta&192\Delta^2+48\Delta&216\Delta^2+144\Delta&
+32\Delta^3+118\Delta^2+33\Delta&288\Delta^3+336\Delta^2+96\Delta\\
 288\Delta^3+336\Delta^2+96\Delta&
-384\Delta^4+1152\Delta^3+1056\Delta^2+288\Delta
-\end{pmatrix}
-$}
-\end{center}
-at \(c=1/2\).
+ 384\Delta^4+1152\Delta^3+1056\Delta^2+288\Delta
+\end{pmatrix}.
+\]
 
 \begin{thebibliography}{99}
 
@@ -2634,31 +2754,38 @@ at \(c=1/2\).
 A.~B.~Zamolodchikov,
 \emph{Conformal symmetry in two dimensions: an explicit recurrence
 formula for the conformal partial wave amplitude},
-Commun. Math. Phys. \textbf{96} (1984) 419--422.
+Commun. Math. Phys. \textbf{96} (1984) 419--422,
+\href{https://doi.org/10.1007/BF01214585}{doi:\allowbreak 10.1007/BF01214585}.
 
 \bibitem{Zamolodchikov1987}
 A.~B.~Zamolodchikov,
 \emph{Conformal symmetry in two-dimensional space: recursion
 representation of conformal block},
-Theor. Math. Phys. \textbf{73} (1987) 1088--1093.
+Theor. Math. Phys. \textbf{73} (1987) 1088--1093,
+\href{https://doi.org/10.1007/BF01022967}{doi:\allowbreak 10.1007/BF01022967}.
 
 \bibitem{Kac1979}
 V.~G.~Kac,
 \emph{Contravariant form for infinite-dimensional Lie algebras and
 superalgebras},
 in \emph{Group Theoretical Methods in Physics},
-Lecture Notes in Physics \textbf{94}, Springer (1979) 441--445.
+Lecture Notes in Physics \textbf{94}, Springer (1979) 441--445,
+\href{https://doi.org/10.1007/3-540-09238-2_102}%
+{doi:\allowbreak 10.1007/3-540-09238-2\_102}.
 
 \bibitem{FeiginFuchs1982}
 B.~L.~Feigin and D.~B.~Fuchs,
 \emph{Invariant skew-symmetric differential operators on the line and
 Verma modules over the Virasoro algebra},
-Funct. Anal. Appl. \textbf{16} (1982) 114--126.
+Funct. Anal. Appl. \textbf{16} (1982) 114--126,
+\href{https://doi.org/10.1007/BF01081626}{doi:\allowbreak 10.1007/BF01081626}.
 
 \bibitem{Poghossian2009}
 R.~Poghossian,
 \emph{Recursion relations in CFT and N=2 SYM theory},
 JHEP \textbf{12} (2009) 038,
+\href{https://doi.org/10.1088/1126-6708/2009/12/038}%
+{doi:\allowbreak 10.1088/1126-6708/2009/12/038},
 \href{https://arxiv.org/abs/0909.3412}{arXiv:0909.3412}.
 
 \bibitem{ChoCollierYin2017}
@@ -2666,17 +2793,23 @@ M.~Cho, S.~Collier and X.~Yin,
 \emph{Recursive representations of arbitrary Virasoro conformal
 blocks},
 JHEP \textbf{04} (2019) 018,
+\href{https://doi.org/10.1007/JHEP04(2019)018}%
+{doi:\allowbreak 10.1007/JHEP04(2019)018},
 \href{https://arxiv.org/abs/1703.09805}{arXiv:1703.09805}.
 
 \bibitem{IoharaKoga2011}
 K.~Iohara and Y.~Koga,
 \emph{Representation Theory of the Virasoro Algebra},
-Springer Monographs in Mathematics, Springer (2011).
+Springer Monographs in Mathematics, Springer (2011),
+\href{https://doi.org/10.1007/978-0-85729-160-8}%
+{doi:\allowbreak 10.1007/978-0-85729-160-8}.
 
 \bibitem{HadaszJaskolskiSuchanek2010}
 L.~Hadasz, Z.~Jask\'olski and P.~Suchanek,
 \emph{Recursive representation of the torus 1-point conformal block},
 JHEP \textbf{01} (2010) 063,
+\href{https://doi.org/10.1007/JHEP01(2010)063}%
+{doi:\allowbreak 10.1007/JHEP01(2010)063},
 \href{https://arxiv.org/abs/0911.2353}{arXiv:0911.2353}.
 
 \bibitem{JaverzatSantachiaraFoda2018}
@@ -2684,6 +2817,8 @@ N.~Javerzat, R.~Santachiara and O.~Foda,
 \emph{Notes on the solutions of Zamolodchikov-type recursion relations in
 Virasoro minimal models},
 JHEP \textbf{08} (2018) 183,
+\href{https://doi.org/10.1007/JHEP08(2018)183}%
+{doi:\allowbreak 10.1007/JHEP08(2018)183},
 \href{https://arxiv.org/abs/1806.02790}{arXiv:1806.02790}.
 
 \bibitem{Stocco2022}
@@ -2696,6 +2831,8 @@ D.~Stocco,
 S.~Ribault,
 \emph{On 2d CFTs that interpolate between minimal models},
 SciPost Phys. \textbf{6} (2019) 075,
+\href{https://doi.org/10.21468/SciPostPhys.6.6.075}%
+{doi:\allowbreak 10.21468/SciPostPhys.6.6.075},
 \href{https://arxiv.org/abs/1809.03722}{arXiv:1809.03722}.
 
 \bibitem{Ribault2026}

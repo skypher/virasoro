@@ -3,10 +3,10 @@
 
 Verifies, in exact arithmetic:
 
-  * the fusion normalization (6.2) at a generic sample point b = 2 for
-    the labels (2,1) and (1,2), by solving for the normalized level-two
-    singular vector from scratch;
-  * the crossing normalization (6.1) at b_0 for the labels
+  * the fusion-normalization identity of the paper at a generic sample
+    point b = 2 for the labels (2,1) and (1,2), by solving for the
+    normalized level-two singular vector from scratch;
+  * the crossing-normalization identity of the paper at b_0 for the labels
     (2,1), (1,3), (1,2), (2,2): the inverse generic residue constants
     equal the crossing scalars 28/9, -105/8, -7/4, 13475/648 verified
     from Gram-matrix derivatives by the other audit scripts;
@@ -62,7 +62,7 @@ def fusion_polynomial(r, s, bb=b):
 
 
 def fusion_normalization_generic():
-    """Equation (6.2) at the generic sample point b = 2."""
+    """Fusion-normalization identity at the generic sample point b = 2."""
     bval = sp.Integer(2)
     cval = sp.expand(1 + 6 * (bval + 1 / bval) ** 2)
     for (r, s) in [(2, 1), (1, 2)]:
@@ -76,16 +76,16 @@ def fusion_normalization_generic():
         assert len(sols) == 1, (r, s)
         vec = vec.subs(a, sols.pop())
         element = sp.expand((vec.T * vertex.subs(h, weight) * vec)[0])
-        check_equal(f"(6.2) at generic b=2 for {(r, s)}",
+        check_equal(f"fusion normalization at generic b=2 for {(r, s)}",
                     element, fusion_polynomial(r, s, bval))
 
 
 def crossing_normalization_ising():
-    """Equation (6.1) at b_0 against the audited crossing scalars."""
+    """Crossing-normalization identity at b_0 against the audited crossing scalars."""
     audited = {(2, 1): sp.Rational(28, 9), (1, 3): sp.Rational(-105, 8),
                (1, 2): sp.Rational(-7, 4), (2, 2): sp.Rational(13475, 648)}
     for label, scalar in audited.items():
-        check_equal(f"(6.1) at b_0 for {label}",
+        check_equal(f"crossing normalization at b_0 for {label}",
                     1 / residue_constant(*label, bb=B0), scalar)
 
 
