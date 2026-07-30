@@ -1,19 +1,27 @@
-\documentclass[11pt]{article}
+\documentclass[twoside,10pt]{article}
 
-\usepackage[a4paper,margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{graphicx}
 \usepackage{tikz}
-\usepackage{hyperref}
+\usepackage[small,labelfont=bf,labelsep=period]{caption}
+\usepackage[letterpaper,total={5.5in,8in},vmarginratio=1:1,
+  hmarginratio=1:1,headsep=21pt]{geometry}
+\usepackage[breaklinks=false,linktocpage=true]{hyperref}
 % Referee copy: uncomment the next line for line numbers.
 % \usepackage{lineno}\linenumbers
-\hypersetup{pdftitle={A pole-free torus one-point Virasoro-block
+\hypersetup{
+colorlinks=true,
+linkcolor={purple},
+urlcolor={purple},
+citecolor={blue!80!black},
+pdftitle={A pole-free torus one-point Virasoro-block
 recursion at c=1/2 via exact algebraic confluence},
 pdfkeywords={Virasoro algebra, conformal blocks, torus one-point block,
 Zamolodchikov recursion, minimal models, Ising model}}
 
-\numberwithin{equation}{section}
-
+\newtheoremstyle{slbody}
+  {8pt}{8pt}{\slshape}{}{\bfseries}{.}{0.5em}{}
+\theoremstyle{slbody}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -21,6 +29,9 @@ Zamolodchikov recursion, minimal models, Ising model}}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\setlength{\emergencystretch}{1em}
 
 \newcommand{\Vir}{\operatorname{Vir}}
 \newcommand{\PP}{\operatorname{PP}}
@@ -31,6 +42,38 @@ Zamolodchikov recursion, minimal models, Ising model}}
 at \(c=\frac12\) via exact algebraic confluence}
 \author{}% TODO: fill in author name and affiliation before submission
 \date{}
+
+\makeatletter
+\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname.\enspace}
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+  {-3.5ex \@plus -1ex \@minus -.2ex}%
+  {2.3ex \@plus .2ex}%
+  {\normalfont\large\bfseries\raggedright}}
+\newcommand{\shorttitle}{A POLE-FREE TORUS ONE-POINT VIRASORO-BLOCK RECURSION}
+\newcommand{\ps@bookheader}{%
+  \renewcommand\@oddfoot{\hfil}%
+  \renewcommand\@evenfoot{\hfil}%
+  \renewcommand\@oddhead{\ifnum\value{page}>1
+    {\small\hfil\MakeUppercase{\@author}}\hfil\thepage
+    \else\hfil\fi}%
+  \renewcommand\@evenhead{\thepage\hfil\small\shorttitle\hfil}%
+}
+\renewcommand{\maketitle}{%
+  \begin{center}
+    {\large\bfseries \@title\par}
+    \vskip36pt
+    \ifx\@author\@empty\else
+      {\scshape \@author\par}
+      \vskip36pt
+    \fi
+  \end{center}
+}
+\makeatother
+\pagestyle{bookheader}
+
+\renewenvironment{abstract}
+  {\quotation\noindent\small{\bfseries\abstractname.\enspace}\ignorespaces}
+  {\endquotation}
 
 \begin{document}
 \maketitle
@@ -60,14 +103,17 @@ larger test.  As a separate quotient consistency check, the
 corresponding BGG resolutions reproduce the three Ising characters.
 All computations are verified in exact rational arithmetic by ancillary
 audit scripts.
-\end{abstract}
 
-\noindent\textit{Keywords:} Virasoro algebra; conformal blocks; torus
+\vskip5pt
+\noindent\textbf{Keywords.}\enspace Virasoro algebra; conformal blocks; torus
 one-point block; Zamolodchikov recursion; minimal models; Ising model.
 
-\smallskip
-\noindent\textit{MSC 2020:} 17B68; 17B10; 81T40.
+\vskip5pt
+\noindent\textbf{MSC 2020.}\enspace 17B68; 17B10; 81T40.
+\end{abstract}
 
+\vskip50pt
+\baselineskip=13.5pt
 \section{Introduction}
 
 Residue recursions for Virasoro blocks originate with Zamolodchikov's
@@ -2748,47 +2794,9 @@ C'=\begin{pmatrix}
 \end{pmatrix}.
 \]
 
-\begin{thebibliography}{99}
+\begin{thebibliography}{CCY19}
 
-\bibitem{Zamolodchikov1984}
-A.~B.~Zamolodchikov,
-\emph{Conformal symmetry in two dimensions: an explicit recurrence
-formula for the conformal partial wave amplitude},
-Commun. Math. Phys. \textbf{96} (1984) 419--422,
-\href{https://doi.org/10.1007/BF01214585}{doi:\allowbreak 10.1007/BF01214585}.
-
-\bibitem{Zamolodchikov1987}
-A.~B.~Zamolodchikov,
-\emph{Conformal symmetry in two-dimensional space: recursion
-representation of conformal block},
-Theor. Math. Phys. \textbf{73} (1987) 1088--1093,
-\href{https://doi.org/10.1007/BF01022967}{doi:\allowbreak 10.1007/BF01022967}.
-
-\bibitem{Kac1979}
-V.~G.~Kac,
-\emph{Contravariant form for infinite-dimensional Lie algebras and
-superalgebras},
-in \emph{Group Theoretical Methods in Physics},
-Lecture Notes in Physics \textbf{94}, Springer (1979) 441--445,
-\href{https://doi.org/10.1007/3-540-09238-2_102}%
-{doi:\allowbreak 10.1007/3-540-09238-2\_102}.
-
-\bibitem{FeiginFuchs1982}
-B.~L.~Feigin and D.~B.~Fuchs,
-\emph{Invariant skew-symmetric differential operators on the line and
-Verma modules over the Virasoro algebra},
-Funct. Anal. Appl. \textbf{16} (1982) 114--126,
-\href{https://doi.org/10.1007/BF01081626}{doi:\allowbreak 10.1007/BF01081626}.
-
-\bibitem{Poghossian2009}
-R.~Poghossian,
-\emph{Recursion relations in CFT and N=2 SYM theory},
-JHEP \textbf{12} (2009) 038,
-\href{https://doi.org/10.1088/1126-6708/2009/12/038}%
-{doi:\allowbreak 10.1088/1126-6708/2009/12/038},
-\href{https://arxiv.org/abs/0909.3412}{arXiv:0909.3412}.
-
-\bibitem{ChoCollierYin2017}
+\bibitem[CCY19]{ChoCollierYin2017}
 M.~Cho, S.~Collier and X.~Yin,
 \emph{Recursive representations of arbitrary Virasoro conformal
 blocks},
@@ -2797,14 +2805,14 @@ JHEP \textbf{04} (2019) 018,
 {doi:\allowbreak 10.1007/JHEP04(2019)018},
 \href{https://arxiv.org/abs/1703.09805}{arXiv:1703.09805}.
 
-\bibitem{IoharaKoga2011}
-K.~Iohara and Y.~Koga,
-\emph{Representation Theory of the Virasoro Algebra},
-Springer Monographs in Mathematics, Springer (2011),
-\href{https://doi.org/10.1007/978-0-85729-160-8}%
-{doi:\allowbreak 10.1007/978-0-85729-160-8}.
+\bibitem[FF82]{FeiginFuchs1982}
+B.~L.~Feigin and D.~B.~Fuchs,
+\emph{Invariant skew-symmetric differential operators on the line and
+Verma modules over the Virasoro algebra},
+Funct. Anal. Appl. \textbf{16} (1982) 114--126,
+\href{https://doi.org/10.1007/BF01081626}{doi:\allowbreak 10.1007/BF01081626}.
 
-\bibitem{HadaszJaskolskiSuchanek2010}
+\bibitem[HJS10]{HadaszJaskolskiSuchanek2010}
 L.~Hadasz, Z.~Jask\'olski and P.~Suchanek,
 \emph{Recursive representation of the torus 1-point conformal block},
 JHEP \textbf{01} (2010) 063,
@@ -2812,7 +2820,14 @@ JHEP \textbf{01} (2010) 063,
 {doi:\allowbreak 10.1007/JHEP01(2010)063},
 \href{https://arxiv.org/abs/0911.2353}{arXiv:0911.2353}.
 
-\bibitem{JaverzatSantachiaraFoda2018}
+\bibitem[IK11]{IoharaKoga2011}
+K.~Iohara and Y.~Koga,
+\emph{Representation Theory of the Virasoro Algebra},
+Springer Monographs in Mathematics, Springer (2011),
+\href{https://doi.org/10.1007/978-0-85729-160-8}%
+{doi:\allowbreak 10.1007/978-0-85729-160-8}.
+
+\bibitem[JSF18]{JaverzatSantachiaraFoda2018}
 N.~Javerzat, R.~Santachiara and O.~Foda,
 \emph{Notes on the solutions of Zamolodchikov-type recursion relations in
 Virasoro minimal models},
@@ -2821,13 +2836,24 @@ JHEP \textbf{08} (2018) 183,
 {doi:\allowbreak 10.1007/JHEP08(2018)183},
 \href{https://arxiv.org/abs/1806.02790}{arXiv:1806.02790}.
 
-\bibitem{Stocco2022}
-D.~Stocco,
-\emph{The torus one-point block of 2d CFT and null vectors in
-\(\widehat{\mathfrak{sl}}_2\)},
-\href{https://arxiv.org/abs/2209.08653}{arXiv:2209.08653} (2022).
+\bibitem[Kac79]{Kac1979}
+V.~G.~Kac,
+\emph{Contravariant form for infinite-dimensional Lie algebras and
+superalgebras},
+in \emph{Group Theoretical Methods in Physics},
+Lecture Notes in Physics \textbf{94}, Springer (1979) 441--445,
+\href{https://doi.org/10.1007/3-540-09238-2_102}%
+{doi:\allowbreak 10.1007/3-540-09238-2\_102}.
 
-\bibitem{Ribault2019}
+\bibitem[Pog09]{Poghossian2009}
+R.~Poghossian,
+\emph{Recursion relations in CFT and N=2 SYM theory},
+JHEP \textbf{12} (2009) 038,
+\href{https://doi.org/10.1088/1126-6708/2009/12/038}%
+{doi:\allowbreak 10.1088/1126-6708/2009/12/038},
+\href{https://arxiv.org/abs/0909.3412}{arXiv:0909.3412}.
+
+\bibitem[Rib19]{Ribault2019}
 S.~Ribault,
 \emph{On 2d CFTs that interpolate between minimal models},
 SciPost Phys. \textbf{6} (2019) 075,
@@ -2835,10 +2861,30 @@ SciPost Phys. \textbf{6} (2019) 075,
 {doi:\allowbreak 10.21468/SciPostPhys.6.6.075},
 \href{https://arxiv.org/abs/1809.03722}{arXiv:1809.03722}.
 
-\bibitem{Ribault2026}
+\bibitem[Rib26]{Ribault2026}
 S.~Ribault,
 \emph{Exactly solvable conformal field theories},
 \href{https://arxiv.org/abs/2411.17262v4}{arXiv:2411.17262v4} (2026).
+
+\bibitem[Sto22]{Stocco2022}
+D.~Stocco,
+\emph{The torus one-point block of 2d CFT and null vectors in
+\(\widehat{\mathfrak{sl}}_2\)},
+\href{https://arxiv.org/abs/2209.08653}{arXiv:2209.08653} (2022).
+
+\bibitem[Zam84]{Zamolodchikov1984}
+A.~B.~Zamolodchikov,
+\emph{Conformal symmetry in two dimensions: an explicit recurrence
+formula for the conformal partial wave amplitude},
+Commun. Math. Phys. \textbf{96} (1984) 419--422,
+\href{https://doi.org/10.1007/BF01214585}{doi:\allowbreak 10.1007/BF01214585}.
+
+\bibitem[Zam87]{Zamolodchikov1987}
+A.~B.~Zamolodchikov,
+\emph{Conformal symmetry in two-dimensional space: recursion
+representation of conformal block},
+Theor. Math. Phys. \textbf{73} (1987) 1088--1093,
+\href{https://doi.org/10.1007/BF01022967}{doi:\allowbreak 10.1007/BF01022967}.
 
 \end{thebibliography}
 
