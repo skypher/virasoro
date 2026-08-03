@@ -1,5 +1,7 @@
 \documentclass[twoside,10pt]{article}
 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
 \usepackage{mathtools}
 \usepackage{graphicx}
@@ -25,9 +27,9 @@
   urlcolor={purple},
   citecolor={blue!80!black},
   pdfauthor={Leslie P. Polzer},
-  pdftitle={A Pole-Free Torus One-Point Virasoro-Block Recursion at c=1/2 via Exact Algebraic Confluence},
-  pdfsubject={Torus one-point Virasoro blocks at the Ising central charge},
-  pdfkeywords={Virasoro algebra, conformal blocks, torus one-point block, Zamolodchikov recursion, minimal models, Ising model}
+  pdftitle={Exact Algebraic Confluence for Torus One-Point Virasoro-Block Recursions},
+  pdfsubject={Coefficientwise specialization of meromorphic Verma-module torus one-point Virasoro blocks},
+  pdfkeywords={Virasoro algebra, conformal blocks, torus one-point block, Zamolodchikov recursion, algebraic central charge, minimal models, Ising model}
 }
 
 \medmuskip=4mu
@@ -63,8 +65,8 @@
 \newcommand{\ord}{\operatorname{ord}}
 \newcommand{\rank}{\operatorname{rank}}
 
-\title{A pole-free torus one-point Virasoro-block recursion at
-\(c=\frac12\) via\\exact algebraic confluence}
+\title{Exact algebraic confluence for torus one-point\\
+Virasoro-block recursions}
 \author{Leslie P. Polzer}
 \newcommand{\authoraffiliation}{Independent Researcher}
 \newcommand{\authoremail}{polzer@fastmail.com}
@@ -84,7 +86,7 @@
 \renewcommand{\eqref}[1]{%
   \textup{{\normalfont(\oldstylenums{\ref{#1}}}\normalfont)}}
 
-\newcommand{\shorttitle}{A POLE-FREE TORUS ONE-POINT VIRASORO-BLOCK RECURSION}
+\newcommand{\shorttitle}{ALGEBRAIC CONFLUENCE FOR TORUS VIRASORO BLOCKS}
 \newcommand{\shortauthors}{LESLIE P. POLZER}
 \newcommand{\ps@bookheader}{%
   \renewcommand\@oddfoot{\hfil}%
@@ -126,30 +128,25 @@
 \maketitle
 
 \begin{abstract}
-We prove an exact, finite, pole-free residue recursion for the
-eta-reduced torus one-point Virasoro block at the Ising central charge
-\(c=\tfrac12\), and we prove that it reproduces the inverse-Shapovalov
-definition of the block coefficient by coefficient to all orders in
-\(q\).  Degenerate weights and their collision classes are classified
-exactly.  At every level, generic Kac recursion terms are grouped by
-their common Ising weight, and each fixed-central-charge Laurent
-coefficient is an exact collision moment: the constant term of a finite
-sum of Laurent germs in the deformation parameter \(t=b-b_0\).  A
-valuation bound proves that only finitely many moments occur, an a
-priori recursive majorant gives a finite jet budget, and a
-level-decreasing shifted recursion computes them.  The Laurent
-parameter is an exact algebraic device, not a numerical regularization.
-Local Smith and crossing-form results identify the
-representation-theoretic meaning of the moments.  The earliest
-collision occurs at level three, in the class of the energy weight
-\(\Delta=\tfrac12\), and its embedding diamond produces the first
-double pole at level seven; both its residue and its complete principal
-part are given by finite fixed-\(c\) formulas.  The spin-module
-collision at level four and its level-ten diamond provide a second,
-larger test.  As a separate quotient consistency check, the
-corresponding BGG resolutions reproduce the three Ising characters.
-All computations are verified in exact rational arithmetic by ancillary
-audit scripts.
+Fix a nonzero algebraic Coulomb-gas parameter \(b_\star\).  We prove an
+exact, finite confluence formula for every coefficient of the
+eta-reduced torus one-point Virasoro block at
+\(c_\star=1+6(b_\star+b_\star^{-1})^2\).  Generic Kac-recursion terms
+are grouped by their common limiting internal weight.  Each coefficient
+of the resulting fixed-central-charge principal part is a collision
+moment: the constant term of a finite sum of Laurent germs in
+\(t=b-b_\star\).  Separated pole sets make every collision class
+individually regular, while a valuation majorant and a backward
+precision lemma give an a priori finite jet budget.  Uniqueness of
+partial fractions identifies the construction coefficientwise in
+\(q\) with the inverse-Shapovalov definition of the meromorphic Verma
+block.  The formal germ is an exact algebraic device, not a numerical
+regularization or an intrinsic recursion in the specialized
+representation category.  At the Ising charge we classify the collision
+classes explicitly and use local Smith and crossing forms to interpret
+the first two embedding diamonds, including the first double pole at
+level seven and the level-ten spin example.  Ancillary scripts replay
+the finite computations in exact rational arithmetic.
 
 \vskip5pt
 \noindent\textbf{Keywords.}\enspace Virasoro algebra; conformal blocks; torus
@@ -191,49 +188,60 @@ blocks were also analyzed by Ribault \cite[Section~3]{Ribault2019}; those
 results provide important precedent for the confluence mechanism, although
 they do not give a finite torus one-point recursion.
 
-This paper solves a precise version of that problem at \(c=1/2\), for the
-meromorphic Verma-module block, by an exact algebraic confluence.  ``Pole-free'' here means free of the
-divergent, non-physical parameter poles in the final recursion coefficients;
-the genuine Laurent poles in the internal weight \(\Delta\) remain.  The
-construction uses the formal germ \(b=b_0+t\) to combine generic summands
-before taking a constant term.  It therefore produces an exact formula at
-fixed \(c\), but is not an intrinsic recursion that avoids an off-critical
-deformation altogether.  No numerical \(\varepsilon\)-limit is taken.
-At every level we partition the generic Kac summands into their exact Ising
-collision classes.  Each class has a regular sum, and its fixed-\(c\)
-coefficients are finite constant terms of finite Laurent sums.  The shifted
-recursion decreases the remaining level, while a recursive valuation
-majorant supplies an a priori finite jet budget.
+This paper solves a precise coefficientwise version of that problem at every
+nonzero algebraic value \(b_\star\) of the Coulomb-gas parameter.  The object
+is the meromorphic Verma-module block, and the conclusion is coefficientwise
+in \(q\).  At every fixed level we partition the generic Kac summands by their
+common limiting weight at \(b=b_\star\).  Each collision class has a regular
+sum, and every coefficient of its internal-weight principal part is a finite
+constant term of finite Laurent sums.  The shifted recursion decreases the
+remaining level, while a recursive valuation majorant supplies an a priori
+finite jet budget.
+
+The construction removes the divergent, non-physical poles in the
+deformation parameter; the genuine Laurent poles in the internal weight
+\(\Delta\) remain.  It uses the formal germ \(b=b_\star+t\) to combine
+generic summands before taking a constant term.  Thus it gives an exact
+formula at fixed \(c_\star\), with no numerical \(\varepsilon\)-limit, but it
+is not an intrinsic recursion formulated solely in the specialized
+representation category.  Nor does it by itself construct irreducible
+minimal-model traces at degenerate internal weights.
 
 In the notation of
 Sections~\ref{sec:partial-fractions}--\ref{sec:all-order}, the main
 result reads: for every level \(N\geq1\),
 \begin{equation}\label{eq:intro-main}
  \begin{aligned}
- H_N\!\left(\tfrac12,\Delta,d\right)
- &=\sum_{n\geq0}\ \sum_{k=1}^{M_{n,N}}
- \frac{A_{n,k,N}(d)}{(\Delta-\lambda_n)^k},\\
- A_{n,k,N}(d)
+ H_N(c_\star,\Delta,d)
+ &=\sum_{\lambda\in\Lambda_N(b_\star)}
+   \sum_{k=1}^{M^\star_{\lambda,N}}
+ \frac{A^\star_{\lambda,k,N}(d)}{(\Delta-\lambda)^k},\\
+ A^\star_{\lambda,k,N}(d)
  &=\operatorname{CT}_t
- \sum_{a\in{\mathcal C}_{n,N}}
- R_a(t)\,S_{a,N-\ell_a}(t)\,\delta_a(t)^{k-1},
+ \sum_{a\in{\mathcal C}^\star_{\lambda,N}}
+ R_a(t)\,S_{a,N-\ell_a}(t)\,
+ \bigl(h_a(t)-\lambda\bigr)^{k-1}.
  \end{aligned}
 \end{equation}
 where \(H_N\) is the \(N\)-th eta-reduced block coefficient,
-\(\lambda_n\) runs over the Ising degenerate weights,
-\({\mathcal C}_{n,N}\) is the finite class of Kac labels \((r,s)\) with
-\(rs\leq N\) whose weight collides at \(\lambda_n\), \(t=b-b_0\) is the
-exact Coulomb-gas germ, \(R_a\) and \(\delta_a=h_a-\lambda_n\) are the
-generic residue coefficient and the weight gap of the label \(a\),
+\(\Lambda_N(b_\star)\) is the finite set of limiting Kac weights,
+\({\mathcal C}^\star_{\lambda,N}\) is the finite class of labels
+\(a=(r,s)\) with \(rs\leq N\) that collide at \(\lambda\),
+\(t=b-b_\star\) is the exact Coulomb-gas germ, and \(R_a\) is the generic
+residue coefficient of the label \(a\),
 \(S_{a,M}\) is the shifted Laurent block of
 Definition~\ref{def:shifted-laurent}, \(\operatorname{CT}_t\) extracts
-the constant term of a Laurent germ, and \(M_{n,N}\) is the finite
+the constant term of a Laurent germ, and \(M^\star_{\lambda,N}\) is the finite
 structural pole bound of Definition~\ref{def:collision-moments}.  Every
 ingredient is a finite jet of an explicit rational function of \(b\).
-Theorem~\ref{thm:all-order-recursion} proves this identity: the
+Theorem~\ref{thm:general-confluence} proves this identity: the
 constant-term moments on the right are exactly the partial-fraction
 coefficients of the inverse-Shapovalov block, at every power of
-\(q\).
+\(q\).  At minimal-model values it applies directly, and the collision
+classes are the elementary Diophantine classes of
+Proposition~\ref{prop:minimal-collisions}.  Theorem~\ref{thm:all-order-recursion}
+records the Ising specialization, where the coefficient field improves
+from \(\mathbb Q(b_\star)\) to \(\mathbb Q\).
 
 The local calculations exhibit how the algebraic confluence records
 Virasoro embedding geometry.  The earliest collision is the transverse
@@ -253,23 +261,26 @@ The paper is organized as follows.
 Section~\ref{sec:blocks} defines the block and its eta reduction and
 collects notation; the symbol families are indexed in
 Remarks~\ref{rem:notation} and~\ref{rem:symbols}.
-Section~\ref{sec:resonance} classifies the Ising collision classes.
+Section~\ref{sec:resonance} classifies the minimal-model collision classes
+and records the Ising specialization.
 Section~\ref{sec:partial-fractions} proves the finite coefficientwise
-partial-fraction expansion, and Section~\ref{sec:smith} develops the
+partial-fraction expansion and states the main theorem before the examples.
+Section~\ref{sec:smith} develops the
 local Smith and crossing-form toolkit and computes the transverse
 collisions at levels three and four.
 Section~\ref{sec:generic-data} recalls the generic residue data and
 proves the generic torus recursion.
-Section~\ref{sec:all-order} contains the main theorem, the all-order
-pole-free recursion (Theorem~\ref{thm:all-order-recursion}).
+Section~\ref{sec:all-order} proves the general finite confluence theorem
+(Theorem~\ref{thm:general-confluence}) and its Ising corollary.
 Sections~\ref{sec:energy-diamond} and~\ref{sec:spin-diamond} work out
 the two embedding diamonds---the energy diamond with its first double
 pole at level seven, and the spin diamond at level ten;
 Corollary~\ref{cor:recover-low-confluence} identifies these local
 computations with the corresponding collision moments, and
 Table~\ref{tab:local-summary} summarizes them.
-Section~\ref{sec:low-level-output} lists the explicit output through
-level four and compares it with the expressions of Stocco;
+Section~\ref{sec:low-level-output} summarizes the output through level four
+and compares it with the expressions of Stocco; the expanded polynomials
+are collected in Appendix~\ref{app:expanded-data}.
 Section~\ref{sec:irreducible} treats the irreducible specialization and
 the Ising characters; and Section~\ref{sec:scope} discusses scope and
 open directions.
@@ -396,10 +407,13 @@ in Section~\ref{sec:all-order}; and
 Definition~\ref{def:collision-moments}.  The calligraphic
 \({\mathcal A}_{r,s},{\mathcal P}_{r,s},{\mathcal R}_{r,s}\) are the
 generic residue data of Definition~\ref{def:generic-residue}, whereas
-\(A_{n,k,N}\) are the fixed-\(c\) partial-fraction coefficients of
-Theorem~\ref{thm:partial-fractions} and \(\widetilde A_{n,k,N}\) the
-collision moments of Definition~\ref{def:collision-moments}; the two
-are identified in Theorem~\ref{thm:all-order-recursion}.
+\(A^\star_{\lambda,k,N}\) are the fixed-\(c_\star\) partial-fraction
+coefficients of Theorem~\ref{thm:general-partial-fractions} and
+\(\widetilde A^\star_{\lambda,k,N}\) the collision moments of
+Definition~\ref{def:collision-moments}; the two are identified in
+Theorem~\ref{thm:general-confluence}.  Their Ising aliases
+\(A_{n,k,N}\) and \(\widetilde A_{n,k,N}\) are used after
+Theorem~\ref{thm:all-order-recursion}.
 \(\rho_N\) is the torus matrix of Definition~\ref{def:matrices}, while
 \(\rho_e\) in Lemma~\ref{lem:shifted-valuation-bound} is a valuation
 bound; similarly \(p(N)\) counts partitions, while \(p_{a,e}\) in
@@ -420,30 +434,77 @@ Theorem~\ref{thm:level-seven-principal-part} are indexed by the
 relative levels of the child vectors \(\phi_4,\phi_5\).
 \end{remark}
 
-\section{Ising resonance classes}\label{sec:resonance}
+\section{Algebraic specializations and Ising resonance classes}
+\label{sec:resonance}
 
-\begin{definition}[Ising Kac weights]
-For arbitrary central charge, write \(\Delta_{r,s}(c)\) for the standard
-Kac degenerate weight.  In the Coulomb-gas parametrization
+\begin{definition}[Kac weights and fixed algebraic specializations]
+\label{def:fixed-specialization}
+For \(b\in\mathbb C^\times\), set
 \[
- c=1+6(b+b^{-1})^2,
-\]
-it is
-\[
- \Delta_{r,s}(c(b))
+ c(b)=1+6(b+b^{-1})^2,
+ \qquad
+ h_{r,s}(b)
  =\frac{(b+b^{-1})^2-(rb+sb^{-1})^2}{4}.
+\]
+Thus \(h_{r,s}(b)=\Delta_{r,s}(c(b))\) is the standard Kac
+degenerate weight.  Fix an algebraic number
+\(b_\star\in\overline{\mathbb Q}^{\,\times}\), and put
+\[
+ c_\star=c(b_\star),\qquad
+ \Lambda_N(b_\star)
+ =\{h_{r,s}(b_\star):r,s>0,\ rs\leq N\}.
+\]
+For \(\lambda\in\Lambda_N(b_\star)\), define the finite collision class
+\[
+ {\mathcal C}^{\star}_{\lambda,N}
+ =\{(r,s)\in\mathbb Z_{>0}^2:
+      rs\leq N,\ h_{r,s}(b_\star)=\lambda\}.
+\]
+
+For the Ising specialization, write
+\[
+ b_0=\frac{2i}{\sqrt3},\qquad c(b_0)=\frac12.
 \]
 For \(r,s\in\mathbb Z_{>0}\), define
 \[
  \Delta_{r,s}
  =\frac{(4r-3s)^2-1}{48}.
 \]
-Thus \(\Delta_{r,s}=\Delta_{r,s}(1/2)\).
-Set
+Thus \(\Delta_{r,s}=h_{r,s}(b_0)\).  Set
 \[
  \lambda_n=\frac{n^2-1}{48}\qquad(n\in\mathbb Z_{\geq0}).
 \]
 \end{definition}
+
+\begin{proposition}[Minimal-model collision classes]
+\label{prop:minimal-collisions}
+Let \(p,p'\) be coprime positive integers and choose
+\(b_\star^2=-p'/p\).  Then
+\[
+ c_\star=1-\frac{6(p'-p)^2}{pp'},\qquad
+ h_{r,s}(b_\star)
+ =\frac{(p'r-ps)^2-(p'-p)^2}{4pp'}.
+\]
+For positive pairs \((r,s)\) and \((r',s')\), their specialized weights
+are equal if and only if, for some \(\ell\in\mathbb Z\),
+\[
+ (r',s')=(r+p\ell,s+p'\ell)
+ \quad\text{or}\quad
+ (r',s')=(p\ell-r,p'\ell-s).
+\]
+\end{proposition}
+
+\begin{proof}
+The displayed formulas follow by substituting \(b_\star^2=-p'/p\) in
+Definition~\ref{def:fixed-specialization}.  Equality of the two weights is
+equivalent to
+\[
+ p'r'-ps'=\pm(p'r-ps).
+\]
+For the plus sign, coprimality gives
+\((r'-r,s'-s)=(p\ell,p'\ell)\); for the minus sign it gives
+\((r'+r,s'+s)=(p\ell,p'\ell)\).  The converse is immediate.
+\end{proof}
 
 \begin{proposition}[Exact collision classification]\label{prop:collisions}
 For positive pairs \((r,s)\) and \((r',s')\),
@@ -561,6 +622,65 @@ The generating-function identity
 gives the second limit.
 \end{proof}
 
+\begin{theorem}[Finite pole expansion at an algebraic specialization]
+\label{thm:general-partial-fractions}
+Fix \(b_\star\in\overline{\mathbb Q}^{\,\times}\).  Then \(H_0=1\),
+and for every \(N\geq1\) there are unique coefficients
+\[
+ A^{\star}_{\lambda,k,N}(d)\in\mathbb Q(b_\star)[d],
+ \qquad \lambda\in\Lambda_N(b_\star),\quad k\geq1,
+\]
+only finitely many of them nonzero, such that
+\[
+ H_N(c_\star,\Delta,d)
+ =\sum_{\lambda\in\Lambda_N(b_\star)}\ \sum_{k\geq1}
+ \frac{A^{\star}_{\lambda,k,N}(d)}{(\Delta-\lambda)^k}.
+\]
+The largest \(k\) with \(A^{\star}_{\lambda,k,N}\neq0\) is the
+multiplicity of the pole of \(H_N\) at \(\lambda\).  Consequently,
+with
+\[
+ A^{\star}_{\lambda,k}(d;q)
+ =\sum_{N\geq1}A^{\star}_{\lambda,k,N}(d)q^N,
+\]
+one has the coefficientwise locally finite expansion
+\[
+ H_\Delta^{(c_\star)}(d\mid q)
+ =1+\sum_{\lambda}\sum_{k\geq1}
+ \frac{A^{\star}_{\lambda,k}(d;q)}{(\Delta-\lambda)^k},
+\]
+where at each power of \(q\) the first sum is over the corresponding
+finite set \(\Lambda_N(b_\star)\).
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:polynomial-entries},
+\(F_N=\operatorname{tr}(G_N^{-1}\rho_N^{\mathsf T})\) is rational in
+\(\Delta\), and its poles are contained in the zero locus of
+\(\det G_N\).  The Kac determinant formula
+\cite{Kac1979,FeiginFuchs1982}, in the form of
+\cite[Theorem~4.2 and equations (4.16)--(4.21)]{IoharaKoga2011}, gives,
+up to a nonzero factor independent of \(\Delta\),
+\[
+ \det G_N(c,\Delta)
+ =C_N\prod_{\substack{r,s>0\\rs\leq N}}
+   \bigl(\Delta-\Delta_{r,s}(c)\bigr)^{p(N-rs)}.
+\]
+At \(c=c_\star\), the distinct zeros belong to the finite set
+\(\Lambda_N(b_\star)\).  Since \(H_N\) is a finite integer linear
+combination of \(F_0,\ldots,F_N\), it has the same pole containment.
+Lemma~\ref{lem:large-weight} shows that \(H_N\) tends to zero at infinity
+for \(N\geq1\), so its partial-fraction expansion has no polynomial part
+and is unique.
+
+The matrix entries belong to \(\mathbb Q(c_\star)[\Delta,d]\), and every
+pole \(\lambda\) belongs to \(\mathbb Q(b_\star)\).  Laurent expansion at
+each pole therefore gives
+\(A^{\star}_{\lambda,k,N}\in\mathbb Q(b_\star)[d]\).
+Coefficientwise local finiteness follows because \(rs\leq N\) leaves
+only finitely many labels.
+\end{proof}
+
 \begin{theorem}[Finite coefficientwise pole expansion]\label{thm:partial-fractions}
 At \(c=1/2\), \(H_0=1\), and for every \(N\geq1\) there are unique
 coefficients
@@ -588,31 +708,49 @@ gives a coefficientwise locally finite expansion
 \end{theorem}
 
 \begin{proof}
-By Lemma~\ref{lem:polynomial-entries},
-\(F_N=\operatorname{tr}(G_N^{-1}\rho_N^{\mathsf T})\) is rational in
-\(\Delta\), and its poles are contained in the zero locus of
-\(\det G_N\).  The Kac determinant formula
-\cite{Kac1979,FeiginFuchs1982}, in the form of
-\cite[Theorem~4.2 and equations (4.16)--(4.21)]{IoharaKoga2011}, gives,
-up to a nonzero factor independent of \(\Delta\),
-\[
- \det G_N(c,\Delta)
- =C_N\prod_{\substack{r,s>0\\rs\leq N}}
-   \bigl(\Delta-\Delta_{r,s}(c)\bigr)^{p(N-rs)}.
-\]
-At \(c=1/2\), Proposition~\ref{prop:collisions} identifies the distinct
-zeros with the stated finite set of \(\lambda_n\)'s.
-Since \(H_N\) is a finite integer linear combination of
-\(F_0,\ldots,F_N\), it has the same pole containment.
-Lemma~\ref{lem:large-weight} shows that \(H_N\) tends to zero at infinity
-for \(N\geq1\), so its partial-fraction expansion has no polynomial part.
-Such an expansion is unique, because a proper rational function is the
-sum of its principal parts at its finite poles.
-All matrix entries have rational coefficients at \(c=1/2\), and their
-dependence on \(d\) is polynomial; hence the partial-fraction coefficients
-belong to \(\mathbb Q[d]\).  Local finiteness follows from
+Apply Theorem~\ref{thm:general-partial-fractions} at
+\(b_\star=b_0\).  Proposition~\ref{prop:collisions} identifies its pole
+set with the stated \(\lambda_n\)'s.  The specialized inverse-Shapovalov
+coefficient has rational coefficients, and all \(\lambda_n\) are
+rational, so uniqueness of partial fractions improves the coefficient
+field from \(\mathbb Q(b_0)\) to \(\mathbb Q\).  Local finiteness is
 Corollary~\ref{cor:local-finite}.
 \end{proof}
+
+The conceptual result can now be stated independently of the Ising
+calculations.  Its collision moments and finite precision budget are defined
+in Section~\ref{sec:all-order}, after the generic residue data; the proof is
+given there as well.
+
+\begin{theorem}[Finite algebraic confluence at fixed \(b_\star\)]
+\label{thm:general-confluence}
+Fix \(b_\star\in\overline{\mathbb Q}^{\,\times}\).  For every
+\(N\geq1\),
+\begin{equation}\label{eq:general-pole-free-recursion}
+ H_N(c_\star,\Delta,d)
+ =\sum_{\lambda\in\Lambda_N(b_\star)}
+   \sum_{k=1}^{M^{\star}_{\lambda,N}}
+   \frac{\widetilde A^{\star}_{\lambda,k,N}(d)}
+        {(\Delta-\lambda)^k}.
+\end{equation}
+The sums and every constant-term calculation are finite,
+\(\widetilde A^{\star}_{\lambda,k,N}(d)\in\mathbb Q(b_\star)[d]\),
+and the level-decreasing recursion of
+Definitions~\ref{def:shifted-laurent}--\ref{def:collision-moments}
+terminates.  Its backward precision rule supplies a finite truncation order
+for every intermediate Laurent germ.  Moreover,
+\[
+ \widetilde A^{\star}_{\lambda,k,N}
+ =A^{\star}_{\lambda,k,N},\qquad
+ m^{\star}_{\lambda,N}
+ \leq M^{\star}_{\lambda,N}
+ \leq\widehat M^{\star}_{\lambda,N},
+\]
+where \(m^{\star}_{\lambda,N}\) is the exact pole multiplicity.  Consequently
+the resulting locally finite series agrees coefficient by coefficient in
+\(q\) with the inverse-Shapovalov definition of the meromorphic Verma-module
+torus one-point block.
+\end{theorem}
 
 \section{Local Smith exponents, transverse collisions, and the first
 residues}\label{sec:smith}
@@ -1188,19 +1326,12 @@ Proposition~\ref{prop:spin-singular-data} and the level-two coefficient
 from the inverse Shapovalov matrix gives the second displayed expression.
 \end{proof}
 
-\section{Generic residue data at the Ising point}\label{sec:generic-data}
+\section{Generic residue data}\label{sec:generic-data}
 
 \begin{definition}[Generic residue data used for algebraic confluence]
 \label{def:generic-residue}
-For \(b\in\mathbb C^\times\), set
-\[
- c(b)=1+6(b+b^{-1})^2,\qquad
- h_{r,s}(b)=\frac{(b+b^{-1})^2-(rb+sb^{-1})^2}{4}.
-\]
-Throughout the confluence calculations,
-\[
- b_0=\frac{2i}{\sqrt3},\qquad c(b_0)=\frac12.
-\]
+Use the functions \(c(b)\) and \(h_{r,s}(b)\) of
+Definition~\ref{def:fixed-specialization}.
 Put \(\Lambda^2=(b+b^{-1})^2-4d\), and define
 \[
  \begin{split}
@@ -1228,28 +1359,34 @@ Proposition~\ref{prop:generic-recursion} below.
 
 \begin{remark}[Source, normalization, and imported identities]
 \label{rem:imported}
-The formula is equations (7)--(9) of
-\cite[Section~3]{HadaszJaskolskiSuchanek2010}; the recursion was
-conjectured in \cite{Poghossian2009}.  The product
-\({\mathcal P}_{r,s}\) is the product of the two torus fusion polynomials of
-\cite{HadaszJaskolskiSuchanek2010}, written without choosing a square
-root of \(\Lambda^2\).  In that normalization the singular vector has
-\(L_{-1}^{rs}\)-coefficient \(1\).  Two identities at generic \(b\) are
-imported from that literature rather than rederived here.  First, with
+The recursion was conjectured in \cite{Poghossian2009}.  In
+\cite[Section~3]{HadaszJaskolskiSuchanek2010}, equation~(7) expresses the
+residue through the inverse norm derivative \(A_{r,s}(c)\), the paragraph
+immediately following equation~(7) gives its product for the normalization
+in which the singular vector has \(L_{-1}^{rs}\)-coefficient \(1\),
+equation~(8) evaluates the product of the two torus fusion polynomials, and
+equation~(9) is the eta-reduced recursion.  Definition~\ref{def:generic-residue}
+is exactly this chain after writing the four linear factors of equation~(8)
+as the two quadratic factors in \({\mathcal P}_{r,s}\), without choosing a
+square root of \(\Lambda^2\).
+
+Two normalization identities at generic \(b\) are imported from that
+derivation rather than rederived here.  First, with
 \(\chi_{r,s}(b)\) the normalized singular vector and \(b_{\chi}\) the
 crossing scalar of Lemma~\ref{lem:singular-crossing},
 \begin{equation}\label{eq:crossing-normalization}
  b_{\chi_{r,s}(b)}={\mathcal A}_{r,s}(b)^{-1};
 \end{equation}
-this is the classical norm-derivative formula behind Zamolodchikov-type
-residues \cite{Zamolodchikov1987,HadaszJaskolskiSuchanek2010}.  Second,
+this is equation~(7) and the displayed product following it, translated
+from the inverse norm derivative to the crossing-form convention of
+Lemma~\ref{lem:singular-crossing}.  Second,
 \begin{equation}\label{eq:fusion-normalization}
  \langle\chi_{r,s}(b)|V_d(1)|\chi_{r,s}(b)\rangle
  ={\mathcal P}_{r,s}(b,d);
 \end{equation}
-this is the content of the residue computation in
-\cite[Section~3]{HadaszJaskolskiSuchanek2010} and is \emph{not} a
-one-line consequence of the Ward recursion.  Both sides of each identity
+this is the factorization displayed between equations~(7) and~(8), followed
+by the explicit fusion-polynomial product in equation~(8), and is
+\emph{not} a one-line consequence of the Ward recursion.  Both sides of each identity
 are rational in \(b\), so the identities continue to every
 specialization at which the normalized singular vector is regular.  This
 fixes the normalization used below, rather than merely identifying the
@@ -1367,16 +1504,17 @@ For \(N\geq1\) this is the displayed recursion.
 \section{All-order confluent recursion}\label{sec:all-order}
 
 \begin{definition}[Shifted Laurent recursion]\label{def:shifted-laurent}
-Let \(t=b-b_0\), and work in
+Fix \(b_\star\in\overline{\mathbb Q}^{\,\times}\), put
+\(c_\star=c(b_\star)\), let \(t=b-b_\star\), and work in
 \[
- K((t)),\qquad K=\mathbb Q(i\sqrt3,d),
+ K_\star((t)),\qquad K_\star=\mathbb Q(b_\star,d),
 \]
-where \(d\) is transcendental: \(K\) is the rational-function field in
-\(d\) over the number field \(\mathbb Q(i\sqrt3)\).
+where \(d\) is transcendental.
 For a positive Kac label \(a=(r,s)\), write
 \[
- \ell_a=rs,\qquad h_a(t)=h_{r,s}(b_0+t),\qquad
- R_a(t)={\mathcal R}_{r,s}(b_0+t,d),\qquad z_a(t)=h_a(t)+\ell_a.
+ \ell_a=rs,\qquad h_a(t)=h_{r,s}(b_\star+t),\qquad
+ R_a(t)={\mathcal R}_{r,s}(b_\star+t,d),\qquad
+ z_a(t)=h_a(t)+\ell_a.
 \]
 Define shifted Laurent coefficients recursively by
 \[
@@ -1436,16 +1574,11 @@ sets involved are finite because \(\ell_e\leq M\).
 \end{proof}
 
 \begin{definition}[Collision moments]\label{def:collision-moments}
-For \(N\geq1\), set
-\[
- {\mathcal C}_{n,N}
- =\{a=(r,s)\in\mathbb Z_{>0}^2:
-       \ell_a\leq N,\ |4r-3s|=n\}.
-\]
-For \(a\in{\mathcal C}_{n,N}\), define
+For \(N\geq1\), \(\lambda\in\Lambda_N(b_\star)\), and
+\(a\in{\mathcal C}^{\star}_{\lambda,N}\), define
 \[
  B_{a,N}(t)=R_a(t)S_{a,N-\ell_a}(t),\qquad
- \delta_a(t)=h_a(t)-\lambda_n.
+ \delta_a(t)=h_a(t)-\lambda.
 \]
 If \(\delta_a\not\equiv0\) and \(B_{a,N}\not\equiv0\), put
 \[
@@ -1465,8 +1598,8 @@ Lemma~\ref{lem:shifted-valuation-bound} gives
 \]
 Define the exact finite structural pole bound
 \[
- M_{n,N}=
- \max_{a\in{\mathcal C}_{n,N}}
+ M^{\star}_{\lambda,N}=
+ \max_{a\in{\mathcal C}^{\star}_{\lambda,N}}
  \begin{cases}
  1+\lfloor v_{a,N}/\varepsilon_a\rfloor,&\varepsilon_a<\infty,\\
  1,&\varepsilon_a=\infty,
@@ -1474,31 +1607,36 @@ Define the exact finite structural pole bound
 \]
 and its a priori majorant
 \[
- \widehat M_{n,N}=
- \max_{a\in{\mathcal C}_{n,N}}
+ \widehat M^{\star}_{\lambda,N}=
+ \max_{a\in{\mathcal C}^{\star}_{\lambda,N}}
  \begin{cases}
   1+\lfloor \widehat v_{a,N}/\varepsilon_a\rfloor,&\varepsilon_a<\infty,\\
   1,&\varepsilon_a=\infty.
  \end{cases}
 \]
-Thus \(M_{n,N}\leq\widehat M_{n,N}\).  The former can be sharpened after
+Thus \(M^{\star}_{\lambda,N}\leq\widehat M^{\star}_{\lambda,N}\).
+The former can be sharpened after
 the exact rational germs have been computed, while the latter bounds the
 number of moments before those cancellations are simplified.
-For \(1\leq k\leq M_{n,N}\), define the \emph{collision moments}
+For \(1\leq k\leq M^{\star}_{\lambda,N}\), define the
+\emph{collision moments}
 \begin{equation}\label{eq:collision-moments}
- \widetilde A_{n,k,N}(d)
+ \widetilde A^{\star}_{\lambda,k,N}(d)
  =\operatorname{CT}_{t}
- \sum_{a\in{\mathcal C}_{n,N}}
+ \sum_{a\in{\mathcal C}^{\star}_{\lambda,N}}
  B_{a,N}(t)\delta_a(t)^{k-1}.
 \end{equation}
 Here \(\operatorname{CT}_t\) denotes the coefficient of \(t^0\) in a
-Laurent series.  Empty collision classes contribute zero.  Put
+Laurent series.  Put
 \[
- m_{n,N}=\max\bigl(\{k:\widetilde A_{n,k,N}\neq0\}\cup\{0\}\bigr).
+ m^{\star}_{\lambda,N}
+ =\max\bigl(\{k:\widetilde A^{\star}_{\lambda,k,N}\neq0\}
+            \cup\{0\}\bigr).
 \]
-It satisfies \(m_{n,N}\leq M_{n,N}\), and
-Theorem~\ref{thm:all-order-recursion} identifies it with the exact
-multiplicity of the pole of \(H_N\) at \(\lambda_n\).
+It satisfies
+\(m^{\star}_{\lambda,N}\leq M^{\star}_{\lambda,N}\), and
+Theorem~\ref{thm:general-confluence} identifies it with the exact
+multiplicity of the pole of \(H_N\) at \(\lambda\).
 \end{definition}
 
 \begin{lemma}[Backward Laurent-precision budget]
@@ -1550,7 +1688,7 @@ term.
 \label{lem:separated-pole-cancellation}
 Let \(\mu_1,\ldots,\mu_s\) be distinct, and let
 \[
- f_j(t,\Delta)\in K(\Delta)((t)),
+ f_j(t,\Delta)\in K_\star(\Delta)((t)),
  \]
 that is, a Laurent series in \(t\) whose coefficients are rational
 functions of \(\Delta\).  Suppose that every \(t\)-coefficient
@@ -1567,8 +1705,111 @@ Uniqueness of partial fractions forces every summand to vanish.  Repeating
 this for the finitely many possible negative exponents proves the claim.
 \end{proof}
 
+\begin{proof}[Proof of Theorem~\ref{thm:general-confluence}]
+For generic \(b\), Proposition~\ref{prop:generic-recursion} gives
+\[
+ H_N(c(b),\Delta,d)
+ =\sum_{\ell_a\leq N}
+ \frac{R_a(t)}
+ {\Delta-h_a(t)}
+ H_{N-\ell_a}(c(b),z_a(t),d).
+\]
+Induction on \(M\) in the same recursion gives
+\[
+ S_{a,M}(t)=H_M(c(b),z_a(t),d)
+\]
+for generic \(b\).  Thus
+\begin{equation}\label{eq:generic-grouped}
+ H_N(c(b),\Delta,d)
+ =\sum_{\ell_a\leq N}
+ \frac{B_{a,N}(t)}{\Delta-h_a(t)}.
+\end{equation}
+All sums are finite.
+
+Fix \(N\), and choose \(\Delta\) outside
+\(\Lambda_N(b_\star)\).  By Lemma~\ref{lem:polynomial-entries}, the
+inverse-Shapovalov expression is analytic in \(t\) near zero: its
+specialized Gram determinant is nonzero at this \(\Delta\).
+Equation~\eqref{eq:generic-grouped}, initially valid for generic \(b\),
+is an identity of rational functions and therefore holds on the punctured
+formal neighborhood of \(b_\star\).  This applies for every \(\Delta\)
+in the complement of the finite exceptional set; hence each negative
+\(t\)-coefficient vanishes as a rational function of \(\Delta\), not
+merely after one numerical specialization.
+
+Group the right-hand side by its distinct limiting weights:
+\[
+ {\mathcal G}^{\star}_{\lambda,N}(t,\Delta)
+ =\sum_{a\in{\mathcal C}^{\star}_{\lambda,N}}
+ \frac{B_{a,N}(t)}{\Delta-h_a(t)}.
+\]
+Every \(t\)-coefficient of
+\({\mathcal G}^{\star}_{\lambda,N}\) is a proper rational function of
+\(\Delta\) with its only possible finite pole at \(\Delta=\lambda\).
+The sum over \(\lambda\) is analytic in \(t\), as just proved.
+Lemma~\ref{lem:separated-pole-cancellation} therefore shows that each
+\({\mathcal G}^{\star}_{\lambda,N}\) is separately regular in \(t\).
+Hence every collision class has a finite algebraic confluent value.
+
+Put \(x=\Delta-\lambda\).  In the formal expansion at \(x=\infty\),
+\[
+ \frac1{\Delta-h_a(t)}
+ =\frac1{x-\delta_a(t)}
+ =\sum_{j\geq0}\frac{\delta_a(t)^j}{x^{j+1}}.
+\]
+Taking \(\operatorname{CT}_t\) after summing the collision class shows
+that the coefficient of \(x^{-k}\) is exactly
+\[
+ \operatorname{CT}_t
+ \sum_{a\in{\mathcal C}^{\star}_{\lambda,N}}
+ B_{a,N}(t)\delta_a(t)^{k-1}
+ =\widetilde A^{\star}_{\lambda,k,N}(d).
+\]
+If \(\delta_a\not\equiv0\), then the summand has positive
+\(t\)-valuation whenever
+\(k>1+\lfloor v_{a,N}/\varepsilon_a\rfloor\), so its constant term
+vanishes.  If \(\delta_a\equiv0\), it vanishes identically for \(k>1\).
+This proves the bound \(M^{\star}_{\lambda,N}\), the finiteness of the
+pole sum, and the finite-jet nature of every constant-term calculation.
+Independently of cancellations,
+Lemma~\ref{lem:shifted-valuation-bound} replaces \(v_{a,N}\) by
+\(\widehat v_{a,N}\), proving
+\(M^{\star}_{\lambda,N}\leq\widehat M^{\star}_{\lambda,N}\).
+Lemma~\ref{lem:precision-budget} then propagates the required upper
+precision backward through the finite recursion tree.  Only finitely
+many terms of the formal \(x^{-1}\)-expansion can contribute to
+\(\operatorname{CT}_t\), which justifies interchanging the constant term
+with that expansion.  The confluent value of each class tends to zero as
+\(\Delta\to\infty\) and has no finite pole except \(\lambda\); the
+moments are therefore its complete partial-fraction expansion, with no
+polynomial remainder.
+
+Every \(R_a(t)\) is polynomial in \(d\) with coefficients in
+\(\mathbb Q(b_\star)((t))\), and all shifted denominators are independent
+of \(d\).  Thus every collision moment belongs to
+\(\mathbb Q(b_\star)[d]\).  Equation~\eqref{eq:generic-grouped} and the
+analyticity argument identify the resulting rational function with the
+specialized inverse-Shapovalov coefficient.  Uniqueness in
+Theorem~\ref{thm:general-partial-fractions} gives
+\(\widetilde A^{\star}_{\lambda,k,N}
+=A^{\star}_{\lambda,k,N}\), and coefficientwise local finiteness follows
+from the finiteness of \(\Lambda_N(b_\star)\).
+\end{proof}
+
 \begin{theorem}[Pole-free Ising recursion and all-order equality]
 \label{thm:all-order-recursion}
+Specialize Theorem~\ref{thm:general-confluence} to \(b_\star=b_0\), and
+write
+\[
+ {\mathcal C}_{n,N}={\mathcal C}^{\star}_{\lambda_n,N},\quad
+ M_{n,N}=M^{\star}_{\lambda_n,N},\quad
+ \widehat M_{n,N}=\widehat M^{\star}_{\lambda_n,N},\quad
+ m_{n,N}=m^{\star}_{\lambda_n,N},
+\]
+\[
+ \widetilde A_{n,k,N}
+ =\widetilde A^{\star}_{\lambda_n,k,N}.
+\]
 For every \(N\geq1\),
 \begin{equation}\label{eq:pole-free-recursion}
  H_N(1/2,\Delta,d)
@@ -1607,98 +1848,13 @@ definition of the torus one-point block.
 \end{theorem}
 
 \begin{proof}
-For generic \(b\), Proposition~\ref{prop:generic-recursion} gives
-\[
- H_N(c(b),\Delta,d)
- =\sum_{\ell_a\leq N}
- \frac{R_a(t)}
- {\Delta-h_a(t)}
- H_{N-\ell_a}(c(b),z_a(t),d).
-\]
-Induction on \(M\) in the same recursion gives
-\[
- S_{a,M}(t)=H_M(c(b),z_a(t),d)
-\]
-for generic \(b\).  Thus
-\begin{equation}\label{eq:generic-grouped}
- H_N(c(b),\Delta,d)
- =\sum_{\ell_a\leq N}
- \frac{B_{a,N}(t)}{\Delta-h_a(t)}.
-\end{equation}
-All sums are finite.
-
-Fix \(N\), and choose \(\Delta\) outside the finite set of Ising Kac
-weights occurring at level \(N\).  By
-Lemma~\ref{lem:polynomial-entries}, the inverse-Shapovalov expression is
-analytic in \(t\) near zero: its specialized Gram determinant is nonzero
-at this \(\Delta\).  Equation~\eqref{eq:generic-grouped}, initially valid
-for generic \(b\), is an identity of rational functions and therefore
-holds on the punctured formal neighborhood of \(b_0\).  This applies for
-every \(\Delta\) in the complement of the finite exceptional set; hence
-each negative \(t\)-coefficient vanishes as a rational function of
-\(\Delta\), not merely after one numerical specialization.
-
-Group its right-hand side according to the distinct limits
-\(\lambda_n\):
-\[
- {\mathcal G}_{n,N}(t,\Delta)
- =\sum_{a\in{\mathcal C}_{n,N}}
- \frac{B_{a,N}(t)}{\Delta-h_a(t)}.
-\]
-Every \(t\)-coefficient of \({\mathcal G}_{n,N}\) is a proper rational
-function of \(\Delta\) with its only possible finite pole at
-\(\Delta=\lambda_n\).  The sum over \(n\) is analytic in \(t\), as just
-proved.  Lemma~\ref{lem:separated-pole-cancellation} therefore shows that
-each \({\mathcal G}_{n,N}\) is separately regular in \(t\).  Hence every
-collision class has a finite algebraic confluent value.
-
-Put \(x=\Delta-\lambda_n\).  In the formal expansion at \(x=\infty\),
-\[
- \frac1{\Delta-h_a(t)}
- =\frac1{x-\delta_a(t)}
- =\sum_{j\geq0}\frac{\delta_a(t)^j}{x^{j+1}}.
-\]
-Taking \(\operatorname{CT}_t\) after summing the collision class shows
-that the coefficient of \(x^{-k}\) is exactly
-\[
- \operatorname{CT}_t
- \sum_{a\in{\mathcal C}_{n,N}}
- B_{a,N}(t)\delta_a(t)^{k-1}
- =\widetilde A_{n,k,N}(d).
-\]
-If \(\delta_a\not\equiv0\), then the summand has positive \(t\)-valuation
-whenever \(k>1+\lfloor v_{a,N}/\varepsilon_a\rfloor\), so its constant term
-vanishes.  If \(\delta_a\equiv0\), it vanishes identically for \(k>1\).
-This proves the bound \(M_{n,N}\), the finiteness of the pole sum, and
-the finite-jet nature of every constant-term calculation.  Independently
-of cancellations, Lemma~\ref{lem:shifted-valuation-bound} replaces
-\(v_{a,N}\) by the a priori bound \(\widehat v_{a,N}\), proving
-\(M_{n,N}\leq\widehat M_{n,N}\).  Lemma~\ref{lem:precision-budget} then
-propagates the required upper precision backward through the finite
-recursion tree, fixing a finite jet budget before the exact germs are
-simplified.  In particular, since
-\(\ord_t\delta_a=\varepsilon_a>0\), only finitely many terms of the formal
-\(x^{-1}\)-expansion can contribute to \(\operatorname{CT}_t\); this
-justifies interchanging the constant term with that expansion.
-The confluent
-value of each class tends to zero as \(\Delta\to\infty\) and has no finite
-pole except \(\lambda_n\); therefore these finitely many moments are its
-complete partial-fraction expansion, with no polynomial remainder.
-
-Every \(R_a(t)\) is polynomial in \(d\) with coefficients rational in
-\(t\), and all shifted denominators are independent of \(d\).
-Therefore every collision moment is polynomial in \(d\).
-Equation~\eqref{eq:generic-grouped} and the analyticity argument identify
-the resulting rational function with the specialized inverse-Shapovalov
-coefficient; by the uniqueness in
-Theorem~\ref{thm:partial-fractions}, this gives
-\(\widetilde A_{n,k,N}=A_{n,k,N}\), and \(m_{n,N}\) is the exact pole
-multiplicity of \(H_N\) at \(\lambda_n\).  The specialized coefficient
-has rational coefficients at \(c=1/2\);
-uniqueness of its partial fractions improves
-\(\widetilde A_{n,k,N}\in K[d]\) to \(\widetilde A_{n,k,N}\in\mathbb Q[d]\).
-Finally, local finiteness in \(q\) is
-Corollary~\ref{cor:local-finite}, completing the all-order identity.
+Proposition~\ref{prop:collisions} identifies the general collision
+classes with the displayed \({\mathcal C}_{n,N}\).  The specialized
+inverse-Shapovalov coefficient and all pole positions \(\lambda_n\) have
+rational coefficients, so uniqueness of partial fractions improves
+\(\widetilde A_{n,k,N}\in\mathbb Q(b_0)[d]\) to
+\(\widetilde A_{n,k,N}\in\mathbb Q[d]\).  All other assertions are the
+specialized assertions of Theorem~\ref{thm:general-confluence}.
 \end{proof}
 
 \section{The energy-module level-seven diamond}\label{sec:energy-diamond}
@@ -1909,18 +2065,8 @@ polynomial
  {2\dot\delta_\kappa^2}
  \right)_{b=b_0}.
 \]
-Explicitly,
-\[
- \begin{split}
- \Theta_7(d)={}&-\frac{d^2(d-1)^2
- (2d-15)(2d-7)(2d-5)(2d-1)(3d-14)(3d-5)}
- {2164322160000}\\
- &\quad\times
- \bigl(84001d^4-3376370d^3+44478887d^2\\
- &\qquad\quad
- -209562838d+205096320\bigr).
- \end{split}
-\]
+Its factored expansion is recorded in
+equation~(\ref{eq:theta7-expanded}) of Appendix~\ref{app:expanded-data}.
 Then
 \begin{equation}\label{eq:level-seven-pp}
  \begin{split}
@@ -2325,26 +2471,29 @@ and
  \left\{(z-\tfrac{65}{16})H_6(1/2,z,d)\right\}
  \right|_{z=65/16}.
 \]
-Put
+For
 \[
- \begin{split}
- \Theta_{10}(d)
- ={}&-\frac{
- d^2(d-1)^2(2d-7)^2(2d-1)^2
- (3d-14)(3d-5)(6d-55)(6d-1)}
- {552735279561465000000}\\
- &\quad\times
- \bigl(
- 424640464d^8-41506307104d^7+1664502727528d^6\\
- &\qquad
- -35552058801520d^5+438148123547677d^4
- -3142854705332170d^3\\
- &\qquad
- +12488401942129875d^2-23870935242348750d
- +14566042731240000
- \bigr).
- \end{split}
+ \alpha=(1,2),\quad\beta=(2,2),\quad
+ \mu=(4,2),\quad\nu=(1,6),
 \]
+set
+\[
+ \delta_\alpha=h_\alpha+2-h_\mu,qquad
+ \delta_\beta=h_\beta+4-h_\nu,
+\]
+and, with dots denoting \(d/db\) at \(b_0\), put
+\[
+ \Theta_{10}(d)=
+ \sum_{(\kappa,\tau)=(\alpha,\mu),(\beta,\nu)}
+ \left(
+ \frac{\dot{\mathcal R}_\kappa{\mathcal R}_\tau+
+       {\mathcal R}_\kappa\dot{\mathcal R}_\tau}{\dot\delta_\kappa}
+ -\frac{{\mathcal R}_\kappa{\mathcal R}_\tau\ddot\delta_\kappa}
+ {2\dot\delta_\kappa^2}
+ \right)_{b=b_0}.
+\]
+Its factored expansion is equation~(\ref{eq:theta10-expanded}) of
+Appendix~\ref{app:expanded-data}.
 Then the entire principal part of the level-ten reduced coefficient at
 \(\Delta=h_0=1/16\) is
 \begin{equation}\label{eq:level-ten-pp}
@@ -2569,7 +2718,7 @@ the agreement with the pole-free expressions of \cite{Stocco2022}
 discussed in Section~\ref{sec:low-level-output}.
 \end{remark}
 
-\section{Explicit output through level four and comparison with
+\section{Low-level output and comparison with
 earlier expansions}
 \label{sec:low-level-output}
 
@@ -2577,32 +2726,10 @@ Through level four, every pole of the Ising block is simple:
 \(m_{n,N}=1\) for all classes with \(N\leq4\), by
 Proposition~\ref{prop:no-earlier-double-pole}.  The complete list of
 nonzero collision moments through level four, computed from
-Definition~\ref{def:collision-moments}, equal to the partial-fraction
-coefficients \(A_{n,k,N}\) by Theorem~\ref{thm:all-order-recursion},
-and factored over \(\mathbb Q[d]\), is
-\[
- \begin{aligned}
- A_{1,1,1}&=\tfrac12\,d(d-1),\\[2pt]
- A_{1,1,2}&=\tfrac14\,d^2(d-1)^2,\\
- A_{2,1,2}&=-\tfrac17\,d(d-1)(2d-7)(2d-1),\\
- A_{5,1,2}&=\tfrac1{28}\,d(d-1)(3d-14)(3d-5),\\[2pt]
- A_{1,1,3}&=\tfrac1{120}\,d^2(d-1)^2(17d^2-113d+236),\\
- A_{2,1,3}&=-\tfrac8{231}\,d^2(d-1)^2(2d-7)(2d-1),\\
- A_{5,1,3}&=-\tfrac1{84}\,d(d-1)(d^4-50d^3+311d^2-550d+210),\\
- A_{9,1,3}&=\tfrac3{3080}\,d(d-11)(d-6)(d-1)(3d-14)(3d-5),\\[2pt]
- A_{1,1,4}&=-\tfrac1{1440}\,d^2(d-1)^2
-   (31d^4-830d^3+5567d^2-13408d+8460),\\
- A_{2,1,4}&=\tfrac1{40425}\,d(d-1)(2d-7)(2d-1)\\
- &\qquad\times(248d^4-5752d^3+25274d^2-33630d+5775),\\
- A_{5,1,4}&=-\tfrac1{61152}\,d^2(d-1)^2
-   (149d^4-2506d^3-2679d^2+70508d-106540),\\
- A_{8,1,4}&=-\tfrac2{20475}\,d(d-13)(d-6)(d-1)
-   (2d-15)(2d-7)(2d-5)(2d-1),\\
- A_{9,1,4}&=\tfrac9{86240}\,d^2(d-11)(d-6)(d-1)^2(3d-14)(3d-5),\\
- A_{13,1,4}&=\tfrac1{184800}\,d(d-20)(d-13)(d-11)(d-6)(d-1)
-   (3d-14)(3d-5).
- \end{aligned}
-\]
+Definition~\ref{def:collision-moments} and equal to the partial-fraction
+coefficients \(A_{n,k,N}\) by Theorem~\ref{thm:all-order-recursion}, is
+factored over \(\mathbb Q[d]\) in
+equation~(\ref{eq:low-level-table}) of Appendix~\ref{app:expanded-data}.
 The entries are consistent with the local theorems:
 \(A_{5,1,3}\) is the residue of
 Theorem~\ref{thm:first-recursive-residue}, \(A_{2,1,4}\) is the
@@ -2634,7 +2761,8 @@ of the cost of expanding the order-four rational functions; the sampled
 order-four check includes the specialization \(b=b_0\) used in this
 paper.)  In
 particular, specializing his expressions at \(\beta=b_0^2=-4/3\)
-reproduces the \(N\leq4\) table above.  At \(c=1/2\), collided labels
+reproduces the \(N\leq4\) list in
+Appendix~\ref{app:expanded-data}.  At \(c=1/2\), collided labels
 make his denominator vanish to higher order (for instance
 \(\Delta_{\langle2,1\rangle}=\Delta_{\langle1,3\rangle}=\tfrac12\) at
 order three), and the specialized numerators \(K_N(\Delta,d,-4/3)\)
@@ -2770,13 +2898,18 @@ and the vacuum and energy modules by partitions of \(2N\)
 
 \section{Scope and outlook}\label{sec:scope}
 
-The all-order result is a coefficientwise theorem for the meromorphic
-Verma-module torus block at \(c=1/2\).  Its output is fixed at the Ising
-central charge, while its construction uses the exact formal deformation
-\(b=b_0+t\) to combine resonant generic-recursion terms.  The method should
-therefore be distinguished both from numerical regularization and from a
-hypothetical recursion formulated solely in intrinsic data of the
-specialized category.
+Theorem~\ref{thm:general-confluence} is a coefficientwise theorem for the
+meromorphic Verma-module torus block at every fixed nonzero algebraic
+\(b_\star\).  In particular, it applies to every minimal-model central
+charge; Proposition~\ref{prop:minimal-collisions} supplies the corresponding
+collision classes.  The Ising specialization is developed in greater detail
+because its classes, coefficient field, embedding diamonds, and exact local
+computations are especially transparent.  The output is fixed at
+\(c_\star\), while the construction uses the exact formal deformation
+\(b=b_\star+t\) to combine resonant generic-recursion terms.  The method
+should therefore be distinguished both from numerical regularization and
+from a recursion formulated solely in intrinsic data of the specialized
+category.
 
 At any prescribed level the label sets and recursion trees are finite.
 Lemmas~\ref{lem:shifted-valuation-bound} and
@@ -2791,11 +2924,13 @@ has been verified directly against the inverse-Shapovalov definition
 the level-ten \(42\times42\) second crossing form itself would
 nevertheless be a useful additional audit.
 
-For a general minimal-model charge \(c_{p,p'}\), the same separated-pole
-argument applies once the corresponding collision classes and residue
-valuations are inserted.  Making that extension uniform in \(p,p'\), and
-finding an intrinsic fixed-central-charge recursion that eliminates the
-formal deformation altogether, remain open directions.
+Open directions include uniform complexity bounds and a representation-
+theoretic description of the resulting pole layers as \(p,p'\) vary,
+an intrinsic fixed-central-charge recursion that eliminates the formal
+deformation, and a corresponding recursion for irreducible minimal-model
+traces at degenerate internal weights.  The BGG calculation of
+Section~\ref{sec:irreducible} is only a quotient consistency check and is
+logically separate from the confluence theorem.
 
 \section*{Code availability}
 
@@ -2810,10 +2945,80 @@ computations use exact rational arithmetic (Python~3, tested with
 CPython~3.12, and SymPy~1.12; the pinned dependency is listed in
 \path{requirements-audit.txt}).  Running \texttt{make audit} replays
 every check except the direct level-ten reconstruction, which the
-slower target \texttt{make audit-deep} adds.  The scripts will
-additionally be archived with a citable DOI at publication.
+slower target \texttt{make audit-deep} adds.  Exact commands, expected
+success markers, and SHA-256 hashes of the audit sources are recorded in
+\path{AUDIT_MANIFEST.md}; the complete package is part of the submitted
+ancillary material and will additionally be deposited in a citable archive.
 
 \appendix
+
+% Appendix tags contain a section letter, so they use lining characters;
+% \oldstylenums is retained for the numeric equation tags in the main text.
+\makeatletter
+\def\tagform@#1{%
+  \maketag@@@{(\ignorespaces#1\unskip\@@italiccorr)}}
+\renewcommand{\eqref}[1]{\textup{(\ref{#1})}}
+\makeatother
+
+\section{Expanded polynomial data}\label{app:expanded-data}
+
+The factored polynomial entering the level-seven principal part is
+\begin{equation}\label{eq:theta7-expanded}
+ \begin{split}
+ \Theta_7(d)={}&-\frac{d^2(d-1)^2
+ (2d-15)(2d-7)(2d-5)(2d-1)(3d-14)(3d-5)}
+ {2164322160000}\\
+ &\quad\times
+ \bigl(84001d^4-3376370d^3+44478887d^2\\
+ &\qquad\quad
+ -209562838d+205096320\bigr).
+ \end{split}
+\end{equation}
+The corresponding level-ten polynomial is
+\begin{equation}\label{eq:theta10-expanded}
+ \begin{split}
+ \Theta_{10}(d)
+ ={}&-\frac{
+ d^2(d-1)^2(2d-7)^2(2d-1)^2
+ (3d-14)(3d-5)(6d-55)(6d-1)}
+ {552735279561465000000}\\
+ &\quad\times
+ \bigl(
+ 424640464d^8-41506307104d^7+1664502727528d^6\\
+ &\qquad
+ -35552058801520d^5+438148123547677d^4
+ -3142854705332170d^3\\
+ &\qquad
+ +12488401942129875d^2-23870935242348750d
+ +14566042731240000
+ \bigr).
+ \end{split}
+\end{equation}
+
+The complete nonzero partial-fraction output through level four is
+\begin{equation}\label{eq:low-level-table}
+ \begin{aligned}
+ A_{1,1,1}&=\tfrac12\,d(d-1),\\[2pt]
+ A_{1,1,2}&=\tfrac14\,d^2(d-1)^2,\\
+ A_{2,1,2}&=-\tfrac17\,d(d-1)(2d-7)(2d-1),\\
+ A_{5,1,2}&=\tfrac1{28}\,d(d-1)(3d-14)(3d-5),\\[2pt]
+ A_{1,1,3}&=\tfrac1{120}\,d^2(d-1)^2(17d^2-113d+236),\\
+ A_{2,1,3}&=-\tfrac8{231}\,d^2(d-1)^2(2d-7)(2d-1),\\
+ A_{5,1,3}&=-\tfrac1{84}\,d(d-1)(d^4-50d^3+311d^2-550d+210),\\
+ A_{9,1,3}&=\tfrac3{3080}\,d(d-11)(d-6)(d-1)(3d-14)(3d-5),\\[2pt]
+ A_{1,1,4}&=-\tfrac1{1440}\,d^2(d-1)^2
+   (31d^4-830d^3+5567d^2-13408d+8460),\\
+ A_{2,1,4}&=\tfrac1{40425}\,d(d-1)(2d-7)(2d-1)\\
+ &\qquad\times(248d^4-5752d^3+25274d^2-33630d+5775),\\
+ A_{5,1,4}&=-\tfrac1{61152}\,d^2(d-1)^2
+   (149d^4-2506d^3-2679d^2+70508d-106540),\\
+ A_{8,1,4}&=-\tfrac2{20475}\,d(d-13)(d-6)(d-1)
+   (2d-15)(2d-7)(2d-5)(2d-1),\\
+ A_{9,1,4}&=\tfrac9{86240}\,d^2(d-11)(d-6)(d-1)^2(3d-14)(3d-5),\\
+ A_{13,1,4}&=\tfrac1{184800}\,d(d-20)(d-13)(d-11)(d-6)(d-1)
+   (3d-14)(3d-5).
+ \end{aligned}
+\end{equation}
 
 \section{The level-four Gram matrix at
 \texorpdfstring{\(c=1/2\)}{c=1/2}}\label{app:gram}
