@@ -1,26 +1,51 @@
 \documentclass[twoside,10pt]{article}
 
-\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{mathtools}
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage[small,labelfont=bf,labelsep=period]{caption}
-\usepackage[letterpaper,total={5.5in,8in},vmarginratio=1:1,
-  hmarginratio=1:1,headsep=21pt]{geometry}
-\usepackage[breaklinks=false,linktocpage=true]{hyperref}
+\usepackage[
+  letterpaper,
+  total={5.5in,8in},
+  vmarginratio=1:1,
+  hmarginratio=1:1,
+  headsep=21pt
+]{geometry}
+\usepackage{xcolor}
+\usepackage[
+  breaklinks=false,
+  linktocpage=true
+]{hyperref}
 % Referee copy: uncomment the next line for line numbers.
 % \usepackage{lineno}\linenumbers
 \hypersetup{
-colorlinks=true,
-linkcolor={purple},
-urlcolor={purple},
-citecolor={blue!80!black},
-pdftitle={A pole-free torus one-point Virasoro-block
-recursion at c=1/2 via exact algebraic confluence},
-pdfkeywords={Virasoro algebra, conformal blocks, torus one-point block,
-Zamolodchikov recursion, minimal models, Ising model}}
+  colorlinks=true,
+  linkcolor={purple},
+  urlcolor={purple},
+  citecolor={blue!80!black},
+  pdfauthor={Leslie P. Polzer},
+  pdftitle={A Pole-Free Torus One-Point Virasoro-Block Recursion at c=1/2 via Exact Algebraic Confluence},
+  pdfsubject={Torus one-point Virasoro blocks at the Ising central charge},
+  pdfkeywords={Virasoro algebra, conformal blocks, torus one-point block, Zamolodchikov recursion, minimal models, Ising model}
+}
+
+\medmuskip=4mu
+\thickmuskip=8mu
+\setlength{\emergencystretch}{2em}
+
+\numberwithin{equation}{section}
 
 \newtheoremstyle{slbody}
-  {8pt}{8pt}{\slshape}{}{\bfseries}{.}{0.5em}{}
+  {8pt}
+  {8pt}
+  {\normalfont\slshape}
+  {}
+  {\bfseries}
+  {.}
+  {0.5em}
+  {\thmname{#1}\thmnumber{ #2}%
+   \thmnote{ {\normalfont\itshape(\ignorespaces#3\unskip)}}}
 \theoremstyle{slbody}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -28,51 +53,73 @@ Zamolodchikov recursion, minimal models, Ising model}}
 \newtheorem{corollary}[theorem]{Corollary}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 
 \renewcommand{\qedsymbol}{$\blacksquare$}
-\setlength{\emergencystretch}{1em}
 
 \newcommand{\Vir}{\operatorname{Vir}}
 \newcommand{\PP}{\operatorname{PP}}
 \newcommand{\ord}{\operatorname{ord}}
 \newcommand{\rank}{\operatorname{rank}}
 
-\title{A pole-free torus one-point Virasoro-block recursion
-at \(c=\frac12\) via exact algebraic confluence}
-\author{}% TODO: fill in author name and affiliation before submission
-\date{}
+\title{A pole-free torus one-point Virasoro-block recursion at
+\(c=\frac12\) via\\exact algebraic confluence}
+\author{Leslie P. Polzer}
+\newcommand{\authoraffiliation}{Independent Researcher}
+\newcommand{\authoremail}{polzer@fastmail.com}
+\date{\today}
 
 \makeatletter
-\renewcommand{\@seccntformat}[1]{\csname the#1\endcsname.\enspace}
-\renewcommand\section{\@startsection{section}{1}{\z@}%
-  {-3.5ex \@plus -1ex \@minus -.2ex}%
-  {2.3ex \@plus .2ex}%
-  {\normalfont\large\bfseries\raggedright}}
+\renewcommand{\section}{%
+  \@startsection{section}{1}{\z@}%
+    {-3.5ex \@plus -1ex \@minus -.2ex}%
+    {2.3ex \@plus .2ex}%
+    {\normalfont\large\bfseries}}
+\renewcommand{\@seccntformat}[1]{%
+  \csname the#1\endcsname.\enspace}
+
+\def\tagform@#1{%
+  \maketag@@@{(\ignorespaces{\oldstylenums{#1}}\unskip\@@italiccorr)}}
+\renewcommand{\eqref}[1]{%
+  \textup{{\normalfont(\oldstylenums{\ref{#1}}}\normalfont)}}
+
 \newcommand{\shorttitle}{A POLE-FREE TORUS ONE-POINT VIRASORO-BLOCK RECURSION}
+\newcommand{\shortauthors}{LESLIE P. POLZER}
 \newcommand{\ps@bookheader}{%
   \renewcommand\@oddfoot{\hfil}%
   \renewcommand\@evenfoot{\hfil}%
-  \renewcommand\@oddhead{\ifnum\value{page}>1
-    {\small\hfil\MakeUppercase{\@author}}\hfil\thepage
-    \else\hfil\fi}%
-  \renewcommand\@evenhead{\thepage\hfil\small\shorttitle\hfil}%
-}
-\renewcommand{\maketitle}{%
-  \begin{center}
-    {\large\bfseries \@title\par}
-    \vskip36pt
-    \ifx\@author\@empty\else
-      {\scshape \@author\par}
-      \vskip36pt
-    \fi
-  \end{center}
-}
-\makeatother
+  \renewcommand\@oddhead{%
+    \ifnum\value{page}>1
+      {\small\hfil\shortauthors}\hfil\thepage
+    \else
+      \hfil
+    \fi}%
+  \renewcommand\@evenhead{%
+    \thepage\hfil\small\shorttitle\hfil}}
 \pagestyle{bookheader}
 
+\renewcommand{\maketitle}{%
+  \begin{center}
+    {\large\bfseries\@title}\\
+    \vskip36pt
+    \ifx\@author\@empty
+      \mbox{}\par
+    \else
+      {\scshape\@author}\par
+      \medskip
+      {\small\authoraffiliation}\par
+      \smallskip
+      {\small\texttt{\authoremail}}\par
+      \smallskip
+      {\small\@date}\par
+    \fi
+    \vskip36pt
+  \end{center}}
+\makeatother
+
 \renewenvironment{abstract}
-  {\quotation\noindent\small{\bfseries\abstractname.\enspace}\ignorespaces}
+  {\quotation\noindent\small{\bfseries\abstractname.\enspace}}
   {\endquotation}
 
 \begin{document}
@@ -109,7 +156,8 @@ audit scripts.
 one-point block; Zamolodchikov recursion; minimal models; Ising model.
 
 \vskip5pt
-\noindent\textbf{MSC 2020.}\enspace 17B68; 17B10; 81T40.
+\noindent\textbf{MSC2020 Classification.}\enspace
+17B68; 17B10; 81T40.
 \end{abstract}
 
 \vskip50pt
@@ -161,14 +209,15 @@ In the notation of
 Sections~\ref{sec:partial-fractions}--\ref{sec:all-order}, the main
 result reads: for every level \(N\geq1\),
 \begin{equation}\label{eq:intro-main}
+ \begin{aligned}
  H_N\!\left(\tfrac12,\Delta,d\right)
- =\sum_{n\geq0}\ \sum_{k=1}^{M_{n,N}}
- \frac{A_{n,k,N}(d)}{(\Delta-\lambda_n)^k},
-\qquad
+ &=\sum_{n\geq0}\ \sum_{k=1}^{M_{n,N}}
+ \frac{A_{n,k,N}(d)}{(\Delta-\lambda_n)^k},\\
  A_{n,k,N}(d)
- =\operatorname{CT}_t
+ &=\operatorname{CT}_t
  \sum_{a\in{\mathcal C}_{n,N}}
  R_a(t)\,S_{a,N-\ell_a}(t)\,\delta_a(t)^{k-1},
+ \end{aligned}
 \end{equation}
 where \(H_N\) is the \(N\)-th eta-reduced block coefficient,
 \(\lambda_n\) runs over the Ising degenerate weights,
