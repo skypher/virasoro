@@ -291,16 +291,10 @@ Section~\ref{sec:irreducible} treats the irreducible specialization and
 the Ising characters; and Section~\ref{sec:scope} discusses scope and
 open directions.
 
-A word on the status of computations.  Several local statements rest on
-finite exact-rational calculations: PBW commutation, Ward recursion,
-determinants, kernels, and crossing forms.  Every such calculation is
-replayed in exact arithmetic by the ancillary audit scripts described
-in Remark~\ref{rem:audit-scope} and in the Code availability section;
-no step of any proof depends on floating-point arithmetic.  In particular,
-\path{tools/audit_grade10_direct.py} now reconstructs the level-ten second
-crossing form intrinsically from the first two \(\Delta\)-derivatives of the
-\(42\times42\) Gram matrix.  This is independent of the confluence evaluation
-of \(\gamma_{10}\) in Theorem~\ref{thm:level-ten-leading}.
+The local PBW, Ward, determinant, kernel, and crossing-form calculations
+use exact rational arithmetic; no proof uses floating-point arithmetic.
+Remark~\ref{rem:audit-scope} records the scope and independence of the
+ancillary replays.
 
 \section{Blocks and the reduced series}\label{sec:blocks}
 
@@ -1425,16 +1419,13 @@ by the explicit fusion-polynomial product in equation~(8), and is
 are rational in \(b\), so the identities continue to every
 specialization at which the normalized singular vector is regular.  This
 fixes the normalization used below, rather than merely identifying the
-polynomials up to a scalar.  Both identities are verified in exact
-arithmetic by the audit scripts of
-Remark~\ref{rem:audit-scope}: \eqref{eq:fusion-normalization} directly
-at \(b_0\) for the labels \((2,1),(1,3),(1,5),(4,1),(1,2),(2,2)\), at a
-generic sample point for \((2,1),(1,2)\), and, for \((4,2),(1,6)\),
-through the level-eight and level-six residues checked by
-\path{tools/audit_grade10_direct.py}; and
-\eqref{eq:crossing-normalization} at \(b_0\) for the labels
-\((2,1),(1,3),(1,2),(2,2)\) through the crossing scalars of
-Section~\ref{sec:smith}.
+polynomials up to a scalar.  Exact checks of
+\eqref{eq:fusion-normalization} cover the labels
+\((2,1),(1,3),(1,5),(4,1),(1,2),(2,2)\) at \(b_0\), the labels
+\((2,1),(1,2)\) at a generic sample, and the \((4,2),(1,6)\) child
+residues.  Checks of \eqref{eq:crossing-normalization} cover
+\((2,1),(1,3),(1,2),(2,2)\) at \(b_0\); the responsible scripts are
+listed in Remark~\ref{rem:audit-scope}.
 \end{remark}
 
 \begin{lemma}[Distinct weights and no shifted self-poles at generic
@@ -2219,9 +2210,8 @@ inverse-Shapovalov matrices or recursively from
 Theorem~\ref{thm:all-order-recursion}, and no off-critical numerical
 limit is involved.  Closed forms (of degrees \(16\) and \(12\) in
 \(d\) for \(Q_8\) and \(Q_6\), with unwieldy rational coefficients)
-are recorded in machine-readable form.  The confluence-side polynomial
-identities are checked exactly, while the independent inverse-Shapovalov
-scripts check the closed forms at the sample external weights specified in
+are recorded in machine-readable form.  Their exact confluence checks and
+sampled inverse-Shapovalov checks are specified in
 Remark~\ref{rem:audit-scope}.
 \end{remark}
 
@@ -2769,59 +2759,46 @@ principal part & Theorem~\ref{thm:level-seven-principal-part} &
 \end{table}
 
 \begin{remark}[Exact replay and its scope]\label{rem:audit-scope}
-The PBW commutation, Ward recursion, determinant, rank, and null-vector
-checks for the spin collision in Propositions~\ref{prop:spin-collision} and
-\ref{prop:spin-singular-data}, as well as every residue identity in
-Theorem~\ref{thm:spin-recursive-residue}, are replayed by
-\path{tools/audit_low_levels.py}.  The computation uses exact rational
-arithmetic.  The singular vectors, fusion polynomials, \(15\times15\) Gram
-matrix, Smith-layer dimensions, and intrinsic second crossing scalar for
-the earlier energy-module level-three and level-seven resonances are
-replayed by \path{tools/audit_first_resonances.py}.  The same script
-enumerates every repeated Kac class below level seven and verifies the
-child-module determinant gaps used in
-Proposition~\ref{prop:no-earlier-double-pole}.  The Kac slopes, four
-generic residue constants, fusion
-factorization, generic-recursion evaluation of \(\gamma_{10}\), and
-polynomial \(\Theta_{10}\) are replayed by
-\path{tools/audit_grade10_confluence.py}.  The shifted Laurent
-recursion and its first two collision moments are independently replayed
-by \path{tools/audit_confluent_recursion.py}.
-The level-ten confluence script checks the algebraic confluence
-calculation; it does not construct the \(42\times42\) Gram matrix,
-\(\chi_{10}\), or the second crossing form independently.  In contrast,
-the \texttt{--crossing-only} mode of
-\path{tools/audit_grade10_direct.py} constructs \(G_{10}\) solely from
-the Virasoro commutator, computes its \(32\)-dimensional radical, finds the
-one-dimensional kernel of the first crossing form, and evaluates the second
-crossing scalar directly.  It imports neither a confluence routine nor any
-generic-residue data.  The Smith profile at level ten therefore has both the
-embedding-diagram proof of Proposition~\ref{prop:level-ten-smith} and this
-finite Gram-matrix audit.
-
-Two further scripts test the principal-part theorems directly against
-the inverse-Shapovalov definition rather than against the confluence
-algebra.  \path{tools/audit_direct_principal_parts.py} reconstructs
-\(H_N\), \(N\leq7\), exactly as rational functions of \(\Delta\) at
-the sample external weights \(d=3/7\) and \(d=23\), and verifies there
-Theorems~\ref{thm:first-recursive-residue}
-and~\ref{thm:spin-recursive-residue}, the complete level-seven
-principal part of Theorem~\ref{thm:level-seven-principal-part}
-including the explicit \(\Theta_7\), the pole-order claims of
-Proposition~\ref{prop:no-earlier-double-pole}, the table of
-Section~\ref{sec:low-level-output}, and the closed forms of
-\(Q_4^E,Q_5^E\).  \path{tools/audit_grade10_direct.py} performs the
-analogous direct \(42\times42\) computation at level ten at \(d=3/7\):
-it verifies the intrinsic second crossing scalar independently of \(d\),
-and at that external weight verifies
-the kernel dimension and determinant valuation of
-Proposition~\ref{prop:level-ten-smith} and the complete principal part
-of Theorem~\ref{thm:level-ten-principal-part}, including the value of
-\(\gamma_{10}\) and the closed forms of \(Q_8,Q_6\).  Finally,
-\path{tools/audit_stocco_comparison.py} verifies the imported
-identities of Remark~\ref{rem:imported} at a generic sample point and
-the agreement with the pole-free expressions of \cite{Stocco2022}
-discussed in Section~\ref{sec:low-level-output}.
+All replays use exact arithmetic.  Their division of responsibility is:
+\begin{center}
+\small
+\begin{tabular}{p{0.31\textwidth}p{0.58\textwidth}}
+\hline
+script & independent content checked\\
+\hline
+{\raggedright\path{audit_low_levels.py},
+\path{audit_first_resonances.py}\par}
+& PBW and Ward calculations, singular vectors, Gram kernels, crossing
+forms, fusion polynomials, and all repeated classes below level seven\\
+{\raggedright\path{audit_grade10_confluence.py},
+\path{audit_confluent_recursion.py}\par}
+& Kac slopes, generic residues, shifted Laurent moments,
+\(\gamma_{10}\), and \(\Theta_{10}\) on the confluence side\\
+{\raggedright\path{audit_grade10_direct.py}
+\texttt{--crossing-only}\par}
+& \(G_{10}\) from Virasoro commutation, its \(32\)-dimensional radical,
+the one-dimensional second Smith layer, and \(\gamma_{10}\), with no
+generic-residue or confluence input\\
+{\raggedright\path{audit_direct_principal_parts.py}\par}
+& direct inverse-Shapovalov reconstruction through level seven at
+\(d=3/7,23\), including \(\Theta_7,Q_4^E,Q_5^E\) and all earlier pole
+orders\\
+{\raggedright full \path{audit_grade10_direct.py}\par}
+& direct level-ten principal part and \(Q_8,Q_6\) at \(d=3/7\), together
+with the intrinsic crossing calculation\\
+{\raggedright\path{audit_stocco_comparison.py},
+\path{audit_ising_characters.py}\par}
+& the normalization samples of Remark~\ref{rem:imported}, Stocco's
+orders two--four, and the BGG/free-fermion character comparison through
+level \(30\)\\
+\hline
+\end{tabular}
+\end{center}
+Thus the level-ten confluence and second crossing form have independent
+implementations.  Direct principal-part checks are exact at the displayed
+sample values; the confluence identities themselves are symbolic in \(d\).
+Commands, dependencies, and source hashes are in
+\path{AUDIT_MANIFEST.md}.
 \end{remark}
 
 \newpage
@@ -2994,14 +2971,11 @@ degree \(30\) gives the final three lines.
 \end{proof}
 
 \begin{remark}[Character replay]
-The three BGG numerators and the resulting quotient dimensions through
-level \(30\) are replayed by
-\path{tools/audit_ising_characters.py} using exact integer arithmetic,
-and are checked there against an independent free-fermion count: the
-spin module is counted by partitions into distinct positive integers,
-and the vacuum and energy modules by partitions of \(2N\)
-(respectively \(2N+1\)) into distinct odd parts with an even
-(respectively odd) number of parts.
+Through level \(30\), exact BGG numerator coefficients agree with an
+independent free-fermion count: distinct positive-part partitions for the
+spin module, and distinct odd-part partitions of \(2N\) and \(2N+1\), with
+even and odd length respectively, for the vacuum and energy modules.  See
+Remark~\ref{rem:audit-scope} for the replay.
 \end{remark}
 
 \section{Scope and outlook}\label{sec:scope}
@@ -3026,10 +3000,8 @@ but do not claim a favorable complexity bound: exact rational
 simplification can grow rapidly with the level.  The local Smith analysis
 explains the first simple and double poles, but an all-depth identification
 of every Smith layer with the Ising embedding diagram is not required for
-the coefficientwise confluence theorem.  The level-ten principal part has
-been verified directly against the inverse-Shapovalov definition, and the
-level-ten second crossing form is now also reconstructed intrinsically from
-the \(42\times42\) Gram matrix (Remark~\ref{rem:audit-scope}).
+the coefficientwise confluence theorem.  The independent level-ten checks
+are summarized in Remark~\ref{rem:audit-scope}.
 
 Open directions include uniform complexity bounds and a representation-
 theoretic description of the resulting pole layers as \(p,p'\) vary,
@@ -3041,22 +3013,13 @@ logically separate from the confluence theorem.
 
 \section*{Code availability}
 
-All exact-arithmetic audit scripts cited in the text are distributed with
-this paper as ancillary files.  These are the eight
-\path{tools/audit_*.py} scripts described in
-Remarks~\ref{rem:imported} and~\ref{rem:audit-scope} and in the
-character-replay remark.  They use the shared library modules
-\path{tools/exact_shapovalov.py} and
-\path{tools/direct_reconstruction.py}.  All
-computations use exact rational arithmetic (Python~3, tested with
-CPython~3.12, and SymPy~1.12; the pinned dependency is listed in
-\path{requirements-audit.txt}).  Running \texttt{make audit} includes the
-intrinsic level-ten crossing-form reconstruction.  The slower target
-\texttt{make audit-deep} additionally reconstructs inverse-Shapovalov
-coefficients through level ten at \(d=3/7\).  Exact commands, expected
-success markers, and SHA-256 hashes of the audit sources are recorded in
-\path{AUDIT_MANIFEST.md}; the complete package is part of the submitted
-ancillary material and will additionally be deposited in a citable archive.
+The ancillary package contains the eight audit scripts and their two shared
+libraries.  With the dependencies pinned in
+\path{requirements-audit.txt}, \texttt{make audit} runs the standard exact
+suite and \texttt{make audit-deep} adds direct level-ten reconstruction at
+\(d=3/7\).  \path{AUDIT_MANIFEST.md} records commands, success markers,
+dependencies, and SHA-256 hashes; the package will also be deposited in a
+citable archive.
 
 \appendix
 
