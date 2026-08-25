@@ -1,4 +1,4 @@
-PYTHON ?= python3
+PYTHON ?= python3 -u
 
 .PHONY: audit audit-deep pdf
 

@@ -19,6 +19,9 @@ Conventions (matching the paper):
   with [L_n, V_d(z)] = z^n (z d/dz + (n+1) d) V_d(z), <h|V_d(z)|h> = z^-d.
 """
 
+import multiprocessing as mp
+import os
+import time
 from fractions import Fraction as Fr
 from functools import lru_cache
 
@@ -240,6 +243,38 @@ def det_and_trace_inv(G, R):
     tr = sum(A[i][n + i] for i in range(n))
     return det, tr
 
+
+_SAMPLE_G = None
+_SAMPLE_R = None
+
+
+def _init_sample_worker(G, R):
+    global _SAMPLE_G, _SAMPLE_R
+    _SAMPLE_G = G
+    _SAMPLE_R = R
+
+
+def _sample_det_trace(x):
+    """Evaluate one interpolation sample in a worker process."""
+    Gx = mat_eval(_SAMPLE_G, x)
+    Rx = mat_eval(_SAMPLE_R, x)
+    det, tr = det_and_trace_inv(Gx, Rx)
+    return x, det, None if tr is None else det * tr
+
+
+def _parallel_jobs():
+    configured = os.environ.get("VIRASORO_AUDIT_JOBS")
+    if configured is not None:
+        try:
+            jobs = int(configured)
+        except ValueError as exc:
+            raise ValueError("VIRASORO_AUDIT_JOBS must be an integer") from exc
+        if jobs < 1:
+            raise ValueError("VIRASORO_AUDIT_JOBS must be positive")
+        return jobs
+    return min(16, os.cpu_count() or 1)
+
+
 # ------------------------------------------------------- rational reconstruction
 
 def lagrange_interp(points):
@@ -317,32 +352,67 @@ def reconstruct_F(level, sample_xs=None, verbose=True):
     if verbose:
         print(f"[engine] level {level}: dim {n}, det degree {degD}", flush=True)
     npts = degD + 1
-    dets, prods, xs = [], [], []
-    x = Fr(3)
-    while len(xs) < npts:
-        Gx = mat_eval(G, x)
-        Rx = mat_eval(R, x)
-        det, tr = det_and_trace_inv(Gx, Rx)
-        if det != 0:
-            xs.append(x)
-            dets.append(det)
-            prods.append(det * tr)  # = tr * det, a polynomial value
-        x += 1
+    samples = {}
+    candidates = ([Fr(x) for x in sample_xs]
+                  if sample_xs is not None else None)
+    candidate_index = 0
+    next_x = 3
+    jobs = _parallel_jobs() if level >= 8 else 1
+    started = time.time()
+
+    def next_batch(count):
+        nonlocal candidate_index, next_x
+        if candidates is not None:
+            batch = candidates[candidate_index:candidate_index + count]
+            candidate_index += len(batch)
+            if not batch:
+                raise ValueError("sample_xs does not contain enough regular points")
+            return batch
+        batch = [Fr(x) for x in range(next_x, next_x + count)]
+        next_x += count
+        return batch
+
+    def record(results, requested):
+        completed = 0
+        for x, det, prod in results:
+            completed += 1
+            if det != 0:
+                samples[x] = (det, prod)
+            if verbose and (completed % max(1, jobs) == 0
+                            or completed == requested):
+                print(f"[engine] level {level}: samples {completed}/{requested}, "
+                      f"regular {len(samples)}/{npts + 1} "
+                      f"({time.time() - started:.0f}s)", flush=True)
+
+    global _SAMPLE_G, _SAMPLE_R
+    _SAMPLE_G, _SAMPLE_R = G, R
+    if jobs > 1:
+        context = mp.get_context("fork")
+        with context.Pool(jobs, initializer=_init_sample_worker,
+                          initargs=(G, R)) as pool:
+            while len(samples) < npts + 1:
+                requested = max(npts + 1 - len(samples) + 4, jobs)
+                batch = next_batch(requested)
+                record(pool.imap_unordered(_sample_det_trace, batch), len(batch))
+    else:
+        while len(samples) < npts + 1:
+            requested = npts + 1 - len(samples) + 4
+            batch = next_batch(requested)
+            record((_sample_det_trace(x) for x in batch), len(batch))
+
+    xs = sorted(samples)[:npts]
+    dets = [samples[x][0] for x in xs]
+    prods = [samples[x][1] for x in xs]
     D = lagrange_interp(list(zip(xs, dets)))
     # numerator degree can equal degD (F bounded at infinity)
     P = lagrange_interp(list(zip(xs, prods)))
     if len(P) > degD + 1:
         raise RuntimeError("numerator degree too high — sampling insufficient")
     # verification at extra point
-    xv = xs[-1] + 1
-    while True:
-        Gx = mat_eval(G, xv)
-        Rx = mat_eval(R, xv)
-        det, tr = det_and_trace_inv(Gx, Rx)
-        if det != 0:
-            break
-        xv += 1
-    assert peval(D, xv) == det and peval(P, xv) == det * tr, "reconstruction failed"
+    used = set(xs)
+    xv = min(x for x in samples if x not in used)
+    det, prod = samples[xv]
+    assert peval(D, xv) == det and peval(P, xv) == prod, "reconstruction failed"
     return RationalFunction(P, D)
 
 EULER = None

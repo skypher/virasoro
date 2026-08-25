@@ -4,7 +4,7 @@ This manifest describes the ancillary checks for `paper.tex`.  The ordinary
 suite is run with
 
 ```sh
-python3 -m pip install -r requirements-audit.txt
+python3 -u -m pip install -r requirements-audit.txt
 make audit
 ```
 
@@ -44,23 +44,26 @@ The deep target additionally runs `tools/audit_grade10_direct.py`, which
 reconstructs the inverse-Shapovalov coefficients through level ten at the
 exact sample external weight `d = 3/7` and checks the second level-ten
 principal part directly there.  The intrinsic crossing-form check is repeated
-as part of that full run.
+as part of that full run.  Interpolation samples at levels eight through ten
+are distributed among worker processes; set `VIRASORO_AUDIT_JOBS` to control
+their number.  Progress lines report completed and regular samples at every
+worker batch.
 
 ## SHA-256
 
 The hashes below identify the submitted audit sources.
 
 ```text
-b3e84ff35635be68d83808e51653d939207c6da12859083db8d22ffff3d7af00  Makefile
+d38110716e4fad10eab3bfb1dec09b62635b66ea04e2bae8e55a2b8a06503690  Makefile
 8347daed02ebf7b3c3cfa494e97049b7e0ab15b9af00a5addd843ed44381a64a  requirements-audit.txt
 701649d93a313c2853a9ecd4d3106ff1957a97c2ff802e4e57612e9ed6e4c84c  tools/audit_confluent_recursion.py
 240545d5e84d292f360bf8d55d18de0e4dbe28ccbf3526f551fd8db4a1a81f9e  tools/audit_direct_principal_parts.py
 90218c120e892157507e9167fbc9033ba85c6c25fbf2bde3269806ffced26185  tools/audit_first_resonances.py
 978df56dce0c8be9389c8fe8b3d7dfd93170b2ea7a74fec47d1cdd3a8c809d29  tools/audit_grade10_confluence.py
-bd8b7ef2bf64e68ea7c822fa2a77c1d52e57c617456066a8438fc800e978f517  tools/audit_grade10_direct.py
+f788150de71658f08fe11c1512ef64254fb1ff2e7da5682adeaa6ea105c6c232  tools/audit_grade10_direct.py
 26a0c7b5a325f3eacc7a900facff9e411354e39d752be7f24a66a10fbfab4448  tools/audit_ising_characters.py
 440b1a744cae37788512e6db19f41c132e8d42e0a813ad9101b217bc54946c38  tools/audit_low_levels.py
 f979190e290b2e57649d01dc6ba0fcaf225ff21fb085e92431c370a2b4f0aeb8  tools/audit_stocco_comparison.py
-002af113d98520e3b0049b7e4c918f404f9459395f5af0d80ae80da36f360ced  tools/direct_reconstruction.py
+34c9a27ab97bb28b78f1c2e559c8dabf4bc5a2903d362ad43222f103c7910390  tools/direct_reconstruction.py
 3f69e0f5a782cf9e23037907dbf38467fa7c5550750c5faf587cbddffc75b519  tools/exact_shapovalov.py
 ```

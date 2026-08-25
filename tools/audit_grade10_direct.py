@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Direct 42x42 verification of the level-ten principal-part theorem.
 
-This is the slow, definition-side audit (roughly ten minutes): it
+This is the parallel definition-side audit: it
 reconstructs H_N (N <= 10) exactly as rational functions of the internal
 weight at a sample external weight, directly from the inverse-Shapovalov
 definition, and verifies:
@@ -24,7 +24,7 @@ definition, and verifies:
 
 The intrinsic crossing-form subset is part of the ordinary audit:
 
-    python3 tools/audit_grade10_direct.py --crossing-only
+    python3 -u tools/audit_grade10_direct.py --crossing-only
 
 Run the complete inverse-Shapovalov reconstruction separately with
 ``make audit-deep``.

@@ -68,7 +68,7 @@ coefficientwise in `q`.
   collision-moment table, closed forms of `Q_4^E`, `Q_5^E`, and the
   intrinsic `gamma_7 = -700700` from an independent engine
   (`tools/direct_reconstruction.py`).
-- `tools/audit_grade10_direct.py` (run via `make audit-deep`, ~10 min):
+- `tools/audit_grade10_direct.py` (run via the parallel `make audit-deep`):
   the direct 42-by-42 computation at grade ten — kernel dimension 32,
   determinant valuation 33, intrinsic second crossing form, the
   level-8/level-6 residues, closed forms of `Q_8`, `Q_6`, and the complete
@@ -85,8 +85,8 @@ coefficientwise in `q`.
   or compilation errors.
 
 Install the exact symbolic dependency with
-`python3 -m pip install -r requirements-audit.txt`, run the standard checks
-with `make audit`, the slow grade-ten direct check with `make audit-deep`,
+`python3 -u -m pip install -r requirements-audit.txt`, run the standard checks
+with `make audit`, the parallel grade-ten direct check with `make audit-deep`,
 and rebuild the manuscript with `make pdf`.
 
 ## Supplementary extension
