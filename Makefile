@@ -1,6 +1,6 @@
 PYTHON ?= python3 -u
 
-.PHONY: audit audit-deep pdf
+.PHONY: audit audit-deep pdf arxiv-bundle
 
 audit:
 	$(PYTHON) tools/audit_first_resonances.py
@@ -18,3 +18,6 @@ audit-deep: audit
 pdf:
 	pdflatex -interaction=nonstopmode -halt-on-error paper.tex
 	pdflatex -interaction=nonstopmode -halt-on-error paper.tex
+
+arxiv-bundle:
+	bash tools/build_arxiv_bundle.sh

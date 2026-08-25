@@ -14,6 +14,18 @@ The direct level-ten reconstruction is added with
 make audit-deep
 ```
 
+From the repository root,
+
+```sh
+make arxiv-bundle
+```
+
+creates `dist/virasoro-arxiv-v1.tar.gz`. The archive contains only
+`paper.tex` at its root and the audit README, manifest, dependency pin,
+Makefile, eight scripts, and two shared libraries under `anc/`. It excludes
+the generated PDF and TeX auxiliary files, repository metadata, and project
+planning files.
+
 The tested environment is CPython 3.12 with SymPy 1.12.  A successful run
 exits with status 0.  Each completed identity is printed with a `PASS`
 prefix; any failed identity raises an assertion or prints `FAIL` and exits
@@ -54,7 +66,7 @@ worker batch.
 The hashes below identify the submitted audit sources.
 
 ```text
-d38110716e4fad10eab3bfb1dec09b62635b66ea04e2bae8e55a2b8a06503690  Makefile
+1c2fdd8b9d1aa48150b0d1be7b0998c6fa85f3355c866536ea96c69f0f2d427e  Makefile
 8347daed02ebf7b3c3cfa494e97049b7e0ab15b9af00a5addd843ed44381a64a  requirements-audit.txt
 701649d93a313c2853a9ecd4d3106ff1957a97c2ff802e4e57612e9ed6e4c84c  tools/audit_confluent_recursion.py
 240545d5e84d292f360bf8d55d18de0e4dbe28ccbf3526f551fd8db4a1a81f9e  tools/audit_direct_principal_parts.py

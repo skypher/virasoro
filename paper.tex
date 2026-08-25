@@ -70,7 +70,7 @@ Virasoro-block recursions}
 \author{Leslie P. Polzer}
 \newcommand{\authoraffiliation}{Independent Researcher}
 \newcommand{\authoremail}{polzer@fastmail.com}
-\date{\today}
+\date{August 25, 2026}
 
 \makeatletter
 \renewcommand{\section}{%
@@ -195,8 +195,9 @@ blocks were also analyzed by Ribault \cite[Section~3]{Ribault2019}; those
 results provide important precedent for the confluence mechanism, although
 they do not give a finite torus one-point recursion.
 
-This paper solves a precise coefficientwise version of that problem at every
-nonzero algebraic value \(b_\star\) of the Coulomb-gas parameter.  The object
+To the author's knowledge, this is the first all-order coefficientwise
+construction at every fixed nonzero algebraic value \(b_\star\) of the
+Coulomb-gas parameter.  The object
 is the meromorphic Verma-module block, and the conclusion is coefficientwise
 in \(q\).  At every fixed level we partition the generic Kac summands by their
 common limiting weight at \(b=b_\star\).  Each collision class has a regular
@@ -292,8 +293,10 @@ Section~\ref{sec:irreducible} treats the irreducible specialization and
 the Ising characters; and Section~\ref{sec:scope} discusses scope and
 open directions.
 
-The local PBW, Ward, determinant, kernel, and crossing-form calculations
-use exact rational arithmetic; no proof uses floating-point arithmetic.
+The general confluence theorem is proved independently of computer
+calculation.  The explicit level-seven and level-ten Gram, crossing-form,
+and polynomial evaluations are computer-assisted finite calculations in
+exact rational arithmetic; no calculation uses floating-point arithmetic.
 Remark~\ref{rem:audit-scope} records the scope and independence of the
 ancillary replays.
 
@@ -609,6 +612,11 @@ contractions producing \(L_0\).  A term that uses no Ward commutator
 because \(\langle\Delta|V_d(1)|\Delta\rangle=1\); a term that uses at
 least one Ward commutator has consumed a mode without producing
 \(L_0\), so its degree is strictly below \(\min(a_Y,a_{Y'})\).
+Indeed, since \(Y\) and \(Y'\) have the same total level, attaining
+\(\min(a_Y,a_{Y'})\) contractions would match every mode on the shorter
+side with an equal-index mode on the other side.  Those matched indices
+already sum to the full level, leaving no positive-index mode available
+for a Ward commutator.
 It follows that, after the above rescaling, both \(G_N\) and \(\rho_N\)
 converge to the same invertible diagonal matrix \(D_N\).
 Therefore
@@ -1368,21 +1376,36 @@ eta-reduced torus recursion, stated as
 Proposition~\ref{prop:generic-recursion} below.
 \end{definition}
 
-\begin{remark}[Source, normalization, and imported identities]
-\label{rem:imported}
+\begin{proposition}[Imported generic normalization identities]
+\label{prop:imported-normalizations}
+For positive \(r,s\) and generic \(b\), let \(\chi_{r,s}(b)\) be the
+singular vector whose \(L_{-1}^{rs}\)-coefficient is \(1\), and let
+\(b_{\chi_{r,s}(b)}\) be its crossing scalar from
+Lemma~\ref{lem:singular-crossing}.  Then
+\begin{equation}\label{eq:crossing-normalization}
+ b_{\chi_{r,s}(b)}={\mathcal A}_{r,s}(b)^{-1},
+\end{equation}
+and
+\begin{equation}\label{eq:fusion-normalization}
+ \langle\chi_{r,s}(b)|V_d(1)|\chi_{r,s}(b)\rangle
+ ={\mathcal P}_{r,s}(b,d).
+\end{equation}
+Both identities are identities of rational functions in \(b\), and hence
+continue to every specialization at which the normalized singular vector
+is regular.
+\end{proposition}
+
+\begin{proof}
 The recursion was conjectured in \cite{Poghossian2009}.  In
 \cite[Section~3]{HadaszJaskolskiSuchanek2010}, equation~(7) expresses the
 residue through the inverse norm derivative \(A_{r,s}(c)\), the paragraph
 immediately following equation~(7) gives its product for the normalization
 in which the singular vector has \(L_{-1}^{rs}\)-coefficient \(1\),
 equation~(8) evaluates the product of the two torus fusion polynomials, and
-equation~(9) is the eta-reduced recursion.  Definition~\ref{def:generic-residue}
-is exactly this chain after writing the four linear factors of equation~(8)
-as the two quadratic factors in \({\mathcal P}_{r,s}\), without choosing a
-square root of \(\Lambda^2\).
+equation~(9) is the eta-reduced recursion.
 
-Here is the convention check explicitly.  Write \(\lambda_{\mathrm{HJS}}\) for
-the external momentum in that source.  Its convention is
+Write \(\lambda_{\mathrm{HJS}}\) for the external momentum in that source.
+Its convention is
 \[
  d=\frac{(b+b^{-1})^2-\lambda_{\mathrm{HJS}}^2}{4},\qquad
  \lambda_{\mathrm{HJS}}^2=\Lambda^2.
@@ -1390,11 +1413,15 @@ the external momentum in that source.  Its convention is
 The source defines \(A_{r,s}(c)\) as the reciprocal of
 \(\partial_\Delta\langle\chi_{r,s}^{\Delta}\mid
 \chi_{r,s}^{\Delta}\rangle\) at \(\Delta=h_{r,s}\), with the
-coefficients of the \(L_{-1}^{rs}\)-normalized vector held fixed.  This is
-exactly \(b_{\chi}^{-1}\) in Lemma~\ref{lem:singular-crossing}, and its
-displayed product is term-for-term \({\mathcal A}_{r,s}(b)\).  Likewise,
-for every odd \(k\) and \(l\) in the ranges of
-Definition~\ref{def:generic-residue}, the four source factors pair as
+coefficients of the normalized vector held fixed.  By
+Lemma~\ref{lem:singular-crossing}, that derivative is exactly
+\(b_{\chi_{r,s}(b)}\).  The product following equation~(7) is
+term-for-term \({\mathcal A}_{r,s}(b)\), proving
+\eqref{eq:crossing-normalization} with the stated normalization.
+
+For every odd \(k\) and \(l\) in the ranges of
+Definition~\ref{def:generic-residue}, the four factors of equation~(8)
+pair as
 \[
  \begin{aligned}
  &\frac{(\lambda_{\mathrm{HJS}}+kb+lb^{-1})
@@ -1406,34 +1433,23 @@ Definition~\ref{def:generic-residue}, the four source factors pair as
   \frac{\Lambda^2-(kb-lb^{-1})^2}{4}.
  \end{aligned}
 \]
-Thus the translation introduces no sign or power-of-two factor.
+Taking the product proves \eqref{eq:fusion-normalization}; in particular,
+the translation introduces no sign or power-of-two factor and does not
+choose a square root of \(\Lambda^2\).  The normalized singular-vector
+coefficients are obtained from a finite linear system over \(\mathbb Q(b)\),
+so both left-hand sides are rational in \(b\).  This proves the final
+continuation statement.
+\end{proof}
 
-Two normalization identities at generic \(b\) are imported from that
-derivation rather than rederived here.  First, with
-\(\chi_{r,s}(b)\) the normalized singular vector and \(b_{\chi}\) the
-crossing scalar of Lemma~\ref{lem:singular-crossing},
-\begin{equation}\label{eq:crossing-normalization}
- b_{\chi_{r,s}(b)}={\mathcal A}_{r,s}(b)^{-1};
-\end{equation}
-this is equation~(7) and the displayed product following it, translated
-from the inverse norm derivative to the crossing-form convention of
-Lemma~\ref{lem:singular-crossing}.  Second,
-\begin{equation}\label{eq:fusion-normalization}
- \langle\chi_{r,s}(b)|V_d(1)|\chi_{r,s}(b)\rangle
- ={\mathcal P}_{r,s}(b,d);
-\end{equation}
-this is the factorization displayed between equations~(7) and~(8), followed
-by the explicit fusion-polynomial product in equation~(8), and is
-\emph{not} a one-line consequence of the Ward recursion.  Both sides of each identity
-are rational in \(b\), so the identities continue to every
-specialization at which the normalized singular vector is regular.  This
-fixes the normalization used below, rather than merely identifying the
-polynomials up to a scalar.  Exact checks of
-\eqref{eq:fusion-normalization} cover the labels
-\((2,1),(1,3),(1,5),(4,1),(1,2),(2,2)\) at \(b_0\), the labels
-\((2,1),(1,2)\) at a generic sample, and the \((4,2),(1,6)\) child
+\begin{remark}[Normalization checks]
+\label{rem:normalization-replays}
+Exact checks of \eqref{eq:fusion-normalization} cover the labels
+\((2,1)\), \((1,3)\), \((1,5)\), \((4,1)\), \((1,2)\), and
+\((2,2)\) at \(b_0\), the labels \((2,1)\) and \((1,2)\) at a generic
+sample, and the \((4,2)\) and \((1,6)\) child
 residues.  Checks of \eqref{eq:crossing-normalization} cover
-\((2,1),(1,3),(1,2),(2,2)\) at \(b_0\); the responsible scripts are
+\((2,1)\), \((1,3)\), \((1,2)\), and \((2,2)\) at \(b_0\); the
+responsible scripts are
 listed in Remark~\ref{rem:audit-scope}.
 \end{remark}
 
@@ -1482,13 +1498,23 @@ as an identity of rational functions of \(\Delta\), polynomial in
 \end{proposition}
 
 \begin{proof}
-Given the two imported identities of Remark~\ref{rem:imported}, the
+Given the two imported identities of
+Proposition~\ref{prop:imported-normalizations}, the
 proposition follows from the results of
 Sections~\ref{sec:partial-fractions} and~\ref{sec:smith}.  By
 Lemma~\ref{lem:no-generic-shifted-pole}, outside finitely many values of
 \(b\) the weights \(h_{r,s}(b)\) with \(rs\leq N\) are pairwise
 distinct, and no shifted weight \(z_{r,s}=h_{r,s}(b)+rs\) is a
 degenerate weight of level at most \(N\).
+
+Concretely, for the finite set of labels of level at most \(N\), take the
+exceptional set to contain \(b=0\); the zeros and poles of every nonzero
+difference \(h_a-h_e\) and \(z_a-h_e\); the poles of the coefficients in
+\(d\) of the finite products \({\mathcal R}_a\); the poles of the
+normalized singular-vector coefficients; and the zeros and poles of
+\({\mathcal A}_a\) needed for the crossing form.  These are finitely many
+zeros and poles of rational functions in \(\mathbb Q(b)\), so every
+excluded value is algebraic.
 
 Fix such a \(b\), write \(c=c(b)\), and fix a label \(a=(r,s)\) with
 \(rs\leq N\).  By distinctness, \(h_{r,s}(b)\) lies on no other Kac
@@ -1795,10 +1821,11 @@ inverse-Shapovalov expression is analytic in \(t\) near zero: its
 specialized Gram determinant is nonzero at this \(\Delta\).
 Equation~\eqref{eq:generic-grouped}, initially valid for generic \(b\),
 is an identity of rational functions and therefore holds on the punctured
-formal neighborhood of \(b_\star\).  This applies for every \(\Delta\)
-in the complement of the finite exceptional set; hence each negative
-\(t\)-coefficient vanishes as a rational function of \(\Delta\), not
-merely after one numerical specialization.
+formal neighborhood of \(b_\star\).  This applies for every \(\Delta\) in
+the complement of the finite exceptional set.  Each negative
+\(t\)-coefficient is a rational function of \(\Delta\) that therefore has
+infinitely many zeros, so it is the zero rational function, not merely zero
+after one numerical specialization.
 
 Group the right-hand side by its distinct limiting weights:
 \[
@@ -2574,7 +2601,7 @@ For
 \]
 set
 \[
- \delta_\alpha=h_\alpha+2-h_\mu,qquad
+ \delta_\alpha=h_\alpha+2-h_\mu,\qquad
  \delta_\beta=h_\beta+4-h_\nu,
 \]
 and, with dots denoting \(d/db\) at \(b_0\), put
@@ -2797,7 +2824,8 @@ orders\\
 with the intrinsic crossing calculation\\
 {\raggedright\path{audit_stocco_comparison.py},
 \path{audit_ising_characters.py}\par}
-& the normalization samples of Remark~\ref{rem:imported}, Stocco's
+& the normalization samples of Remark~\ref{rem:normalization-replays},
+Stocco's
 orders two--four, and the BGG/free-fermion character comparison through
 level \(30\)\\
 \hline
@@ -3022,8 +3050,8 @@ logically separate from the confluence theorem.
 
 \section*{Code availability}
 
-The ancillary package contains the eight audit scripts and their two shared
-libraries.  With the dependencies pinned in
+The arXiv ancillary directory contains the eight audit scripts and their two
+shared libraries.  With the dependencies pinned in
 \path{requirements-audit.txt}, \texttt{make audit} runs the standard exact
 suite and \texttt{make audit-deep} adds direct level-ten reconstruction at
 \(d=3/7\).  \path{AUDIT_MANIFEST.md} records commands, success markers,
