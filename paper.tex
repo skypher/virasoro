@@ -169,6 +169,12 @@ central charge, the eta-reduced torus one-point Virasoro block obeys the
 residue recursion conjectured by Poghossian
 \cite{Poghossian2009} and derived in
 \cite[Section~3, equations~(7)--(9)]{HadaszJaskolskiSuchanek2010}.
+Poghosyan and Poghosyan recently reviewed the Liouville and
+\(\mathcal W_3\) torus one-point recursions and derived their light-limit
+forms \cite{PoghosyanPoghosyan2026}.  Their regime is \(b\to0\), hence
+\(c\to\infty\), with fixed light dimensions; it is complementary to the
+present problem of exact specialization at a fixed algebraic \(b_\star\),
+especially rational \(b_\star^2\).
 At rational values of the Coulomb-gas parameter, distinct Kac labels have
 the same degenerate weight and the individual generic-recursion summands
 develop parameter poles.  Javerzat, Santachiara, and Foda analyzed the
@@ -290,12 +296,11 @@ finite exact-rational calculations: PBW commutation, Ward recursion,
 determinants, kernels, and crossing forms.  Every such calculation is
 replayed in exact arithmetic by the ancillary audit scripts described
 in Remark~\ref{rem:audit-scope} and in the Code availability section;
-no step of any proof depends on floating-point arithmetic.  The one
-quantity not reconstructed symbolically by an independent script is the
-level-ten second crossing form itself; its scalar \(\gamma_{10}\) is
-obtained in Theorem~\ref{thm:level-ten-leading} by comparison with the
-confluence and is verified directly against the inverse-Shapovalov
-definition by \path{tools/audit_grade10_direct.py}.
+no step of any proof depends on floating-point arithmetic.  In particular,
+\path{tools/audit_grade10_direct.py} now reconstructs the level-ten second
+crossing form intrinsically from the first two \(\Delta\)-derivatives of the
+\(42\times42\) Gram matrix.  This is independent of the confluence evaluation
+of \(\gamma_{10}\) in Theorem~\ref{thm:level-ten-leading}.
 
 \section{Blocks and the reduced series}\label{sec:blocks}
 
@@ -636,8 +641,9 @@ only finitely many of them nonzero, such that
  =\sum_{\lambda\in\Lambda_N(b_\star)}\ \sum_{k\geq1}
  \frac{A^{\star}_{\lambda,k,N}(d)}{(\Delta-\lambda)^k}.
 \]
-The largest \(k\) with \(A^{\star}_{\lambda,k,N}\neq0\) is the
-multiplicity of the pole of \(H_N\) at \(\lambda\).  Consequently,
+If at least one \(A^{\star}_{\lambda,k,N}\) is nonzero, the largest such
+\(k\) is the multiplicity of the pole of \(H_N\) at \(\lambda\); if they
+all vanish, \(\lambda\) is a removable candidate pole.  Consequently,
 with
 \[
  A^{\star}_{\lambda,k}(d;q)
@@ -752,8 +758,7 @@ the resulting locally finite series agrees coefficient by coefficient in
 torus one-point block.
 \end{theorem}
 
-\section{Local Smith exponents, transverse collisions, and the first
-residues}\label{sec:smith}
+\section{Local Smith exponents and transverse collisions}\label{sec:smith}
 
 \begin{lemma}[Pole order from local invariant factors]\label{lem:smith}
 Let \(R=\mathbb C[[x]]\), and let \(G(x)\in M_m(R)\) have nonzero
@@ -924,7 +929,8 @@ The inverse Shapovalov pole order is their maximum.
 \end{corollary}
 
 \begin{proof}
-Apply Lemma~\ref{lem:smith} with \(x=\Delta-\lambda_n\).
+Apply Lemma~\ref{lem:smith} with \(x=\Delta-\lambda\), where \(\lambda\)
+is the collided Kac weight.
 \end{proof}
 
 \begin{lemma}[Torus form on a singular submodule]
@@ -979,10 +985,12 @@ where \(\omega(L_n)=L_{-n}\).  For partitions \(Y,Y'\) of \(m\),
 \end{lemma}
 
 \begin{proof}
-Write \(S_h(u,v)=\langle h|\omega(u)v|h\rangle\) for the Shapovalov form
-of \(M(c,h)\), and for \(u\in U(\Vir_-)\) put
-\(\widetilde u=uP\in U(\Vir_-)\).  The derivative on the left defines a
-bilinear form
+For the Shapovalov form of \(M(c,h)\), write
+\[
+ S_h(u,v)=\langle h|\omega(u)v|h\rangle,
+ \qquad \widetilde u=uP\quad(u\in U(\Vir_-)).
+\]
+The derivative on the left defines a bilinear form
 \[
  C(u,v)
  =\left.\frac{d}{dh}S_h(\widetilde u,\widetilde v)\right|_{h=h_0}
@@ -1000,11 +1008,11 @@ We claim that \(C\) is contravariant for the module structure of
 \(C(L_{-n}u,v)=C(u,\omega(L_{-n})v)\), holds at every \(h\) because the
 Shapovalov form itself is contravariant and \(\widetilde{L_{-n}u}
 =L_{-n}\widetilde u\).  For a positive mode, fix \(n>0\) and
-\(v\in U(\Vir_-)\), and let \(w_h\in U(\Vir_-)\) be defined by PBW
+\(v\in U(\Vir_-)\), and let \(w_0\in U(\Vir_-)\) be the PBW
 reduction of \(L_n v\) in \(M(c,h_0+\ell)\), so that
-\(L_n\,v|h_0+\ell\rangle=w_{h_0}|h_0+\ell\rangle\).  In \(M(c,h)\) set
+\(L_n\,v|h_0+\ell\rangle=w_0|h_0+\ell\rangle\).  In \(M(c,h)\) set
 \[
- D(h)=L_n\widetilde v\,|h\rangle-\widetilde{w_{h_0}}\,|h\rangle .
+ D(h)=L_n\widetilde v\,|h\rangle-\widetilde{w_0}\,|h\rangle .
 \]
 Each coefficient of \(D(h)\) in the PBW basis is polynomial in \(h\),
 and \(D(h_0)=0\) because \(\chi=P|h_0\rangle\) is singular and
@@ -1013,7 +1021,7 @@ and \(D(h_0)=0\) because \(\chi=P|h_0\rangle\) is singular and
 \(h\).  Therefore
 \[
  \frac{d}{dh}\Big|_{h_0}S_h(\widetilde u,L_n\widetilde v)
- =\frac{d}{dh}\Big|_{h_0}S_h(\widetilde u,\widetilde{w_{h_0}})
+ =\frac{d}{dh}\Big|_{h_0}S_h(\widetilde u,\widetilde{w_0})
  +S_{h_0}\bigl(\widetilde u,\widetilde D(h_0)\bigr).
 \]
 The last term vanishes because \(\widetilde u\,|h_0\rangle
@@ -1370,6 +1378,33 @@ is exactly this chain after writing the four linear factors of equation~(8)
 as the two quadratic factors in \({\mathcal P}_{r,s}\), without choosing a
 square root of \(\Lambda^2\).
 
+Here is the convention check explicitly.  Write \(\lambda_{\mathrm{HJS}}\) for
+the external momentum in that source.  Its convention is
+\[
+ d=\frac{(b+b^{-1})^2-\lambda_{\mathrm{HJS}}^2}{4},\qquad
+ \lambda_{\mathrm{HJS}}^2=\Lambda^2.
+\]
+The source defines \(A_{r,s}(c)\) as the reciprocal of
+\(\partial_\Delta\langle\chi_{r,s}^{\Delta}\mid
+\chi_{r,s}^{\Delta}\rangle\) at \(\Delta=h_{r,s}\), with the
+coefficients of the \(L_{-1}^{rs}\)-normalized vector held fixed.  This is
+exactly \(b_{\chi}^{-1}\) in Lemma~\ref{lem:singular-crossing}, and its
+displayed product is term-for-term \({\mathcal A}_{r,s}(b)\).  Likewise,
+for every odd \(k\) and \(l\) in the ranges of
+Definition~\ref{def:generic-residue}, the four source factors pair as
+\[
+ \begin{aligned}
+ &\frac{(\lambda_{\mathrm{HJS}}+kb+lb^{-1})
+              (\lambda_{\mathrm{HJS}}-kb-lb^{-1})}{4}\\[-2pt]
+ &\qquad{}\times
+ \frac{(\lambda_{\mathrm{HJS}}+kb-lb^{-1})
+              (\lambda_{\mathrm{HJS}}-kb+lb^{-1})}{4}\\
+ &\quad=\frac{\Lambda^2-(kb+lb^{-1})^2}{4}
+  \frac{\Lambda^2-(kb-lb^{-1})^2}{4}.
+ \end{aligned}
+\]
+Thus the translation introduces no sign or power-of-two factor.
+
 Two normalization identities at generic \(b\) are imported from that
 derivation rather than rederived here.  First, with
 \(\chi_{r,s}(b)\) the normalized singular vector and \(b_{\chi}\) the
@@ -1460,7 +1495,9 @@ Fix such a \(b\), write \(c=c(b)\), and fix a label \(a=(r,s)\) with
 divisor of level at most \(N\), so the level-\(N\) Kac determinant has
 valuation exactly \(p(N-rs)\) at \(\Delta=h_{r,s}(b)\).  The
 level-\(N\) image of the injective singular embedding
-\(j_{\chi_{r,s}(b)}\) is a \(p(N-rs)\)-dimensional subspace of the
+\(j_{\chi_{r,s}(b)}\), whose injectivity is the result stated in
+\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011}, is a
+\(p(N-rs)\)-dimensional subspace of the
 kernel of the specialized Gram matrix.  By Lemma~\ref{lem:smith} the
 nullity is at most the valuation, so the kernel is exactly that image,
 and every positive local Smith exponent equals \(1\); hence
@@ -1684,6 +1721,32 @@ Its lower degree is at least \(-\widehat v_{a,N}\), so only coefficients of
 term.
 \end{proof}
 
+\begin{lemma}[Coefficientwise pole support of a collision germ]
+\label{lem:collision-pole-support}
+Let \(B(t)\in K_\star((t))\) and
+\(\delta(t)\in tK_\star[[t]]\).  Every coefficient of
+\[
+ \frac{B(t)}{x-\delta(t)}
+\]
+as a Laurent series in \(t\) is a finite \(K_\star\)-linear
+combination of \(x^{-1},x^{-2},\ldots\).  It is therefore a proper
+rational function of \(x\) whose only possible finite pole is \(x=0\).
+\end{lemma}
+
+\begin{proof}
+If \(B=0\) the assertion is immediate.  Otherwise choose \(v\geq0\)
+with \(\ord_tB\geq-v\).  If \(\delta=0\), the quotient is
+\(B/x\).  Otherwise put \(\epsilon=\ord_t\delta\geq1\).  The
+formal expansion at \(x=\infty\) gives, for every integer \(m\),
+\[
+ [t^m]\frac{B(t)}{x-\delta(t)}
+ =\sum_{\substack{j\geq0\\ -v+j\epsilon\leq m}}
+   [t^m]\bigl(B(t)\delta(t)^j\bigr)x^{-j-1}.
+\]
+The condition under the sum bounds \(j\), so the sum is finite and has
+the asserted pole support.
+\end{proof}
+
 \begin{lemma}[Separated-pole Laurent cancellation]
 \label{lem:separated-pole-cancellation}
 Let \(\mu_1,\ldots,\mu_s\) be distinct, and let
@@ -1743,9 +1806,13 @@ Group the right-hand side by its distinct limiting weights:
  =\sum_{a\in{\mathcal C}^{\star}_{\lambda,N}}
  \frac{B_{a,N}(t)}{\Delta-h_a(t)}.
 \]
-Every \(t\)-coefficient of
-\({\mathcal G}^{\star}_{\lambda,N}\) is a proper rational function of
-\(\Delta\) with its only possible finite pole at \(\Delta=\lambda\).
+For each label in this class,
+\(\delta_a=h_a-\lambda\in tK_\star[[t]]\); hence
+Lemma~\ref{lem:collision-pole-support}, with
+\(x=\Delta-\lambda\), shows explicitly that every \(t\)-coefficient
+of \({\mathcal G}^{\star}_{\lambda,N}\) is a proper rational
+function of \(\Delta\) with its only possible finite pole at
+\(\Delta=\lambda\).
 The sum over \(\lambda\) is analytic in \(t\), as just proved.
 Lemma~\ref{lem:separated-pole-cancellation} therefore shows that each
 \({\mathcal G}^{\star}_{\lambda,N}\) is separately regular in \(t\).
@@ -1933,7 +2000,11 @@ The two child highest weights are
 Their first singular vectors have relative levels \(5\) and \(4\), with
 labels \((1,5)\) and \((4,1)\), respectively.  Direct Virasoro commutation
 checks the two displayed vectors.  Their images are nonzero singular
-vectors at total level \(7\); uniqueness and their common
+vectors at total level \(7\), by injectivity of nonzero homomorphisms
+between Verma modules
+\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011}; uniqueness
+of a singular vector at a fixed level
+\cite[Proposition~5.1]{IoharaKoga2011} and their common
 \(L_{-1}^7\)-coefficient \(1\) prove the displayed equality.  The embedding
 diagram in \cite[Proposition~5.4 and Figure~5.4]{IoharaKoga2011} also shows
 that there is no earlier intersection and that the radical is the sum of
@@ -1976,7 +2047,8 @@ Ising Verma block.
 
 \begin{proof}
 For a Kac weight represented by only one label \(a=(r,s)\) with
-\(\ell_a\leq N\), injectivity of the singular-vector embedding gives a
+\(\ell_a\leq N\), injectivity of the singular-vector embedding
+\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011} gives a
 radical of dimension \(p(N-\ell_a)\).  This equals the valuation contributed
 by that label to the Kac determinant.  Lemma~\ref{lem:smith} therefore makes
 all corresponding positive Smith exponents equal to \(1\).
@@ -2147,8 +2219,9 @@ inverse-Shapovalov matrices or recursively from
 Theorem~\ref{thm:all-order-recursion}, and no off-critical numerical
 limit is involved.  Closed forms (of degrees \(16\) and \(12\) in
 \(d\) for \(Q_8\) and \(Q_6\), with unwieldy rational coefficients)
-are recorded in machine-readable form and verified against the
-inverse-Shapovalov definition by the audit scripts; see
+are recorded in machine-readable form.  The confluence-side polynomial
+identities are checked exactly, while the independent inverse-Shapovalov
+scripts check the closed forms at the sample external weights specified in
 Remark~\ref{rem:audit-scope}.
 \end{remark}
 
@@ -2203,10 +2276,13 @@ embedding diagram is the standard braided pattern of two infinite
 strings of singular vectors.
 The commutative embedding diagram in
 \cite[Proposition~5.4 and Figure~5.4]{IoharaKoga2011} describes the two
-branches and their successive intersections.  The identification of the
-first Jantzen layer with their sum, hence with the maximal proper
-submodule, is
-\cite[Theorem~6.3(i) and equation~(6.3)]{IoharaKoga2011}.
+branches and their successive intersections.  More precisely, the
+hypotheses of Class~\(R^+\), Case~\(1+\), in
+\cite[Theorem~6.3(i)]{IoharaKoga2011} apply to this interior rational
+weight, and equation~(6.3) there identifies the first Jantzen term with
+the sum of the two immediately embedded Verma submodules.  In the present
+notation those submodules are \(U_2\) and \(U_4\); their sum is the maximal
+proper submodule.
 
 The two highest weights are
 \[
@@ -2253,6 +2329,23 @@ Lemma~\ref{lem:smith} gives the final assertion.
 valuation \(33\) records the sum of the positive Smith exponents,
 while the pole order is their maximum, \(2\).)
 \end{proof}
+
+\begin{remark}[Representation-theoretic inputs and finite checks]
+\label{rem:representation-inputs}
+The embedding argument above uses four specific results of
+\cite{IoharaKoga2011}: Proposition~5.1 gives uniqueness, up to scalar, of
+a singular vector at a fixed positive level; the paragraph preceding
+Corollary~5.2 gives injectivity of a nonzero homomorphism between Verma
+modules; Proposition~5.4 and Figure~5.4 give the braided Class~\(R^+\)
+embedding diagram; and Theorem~6.3(i), with equation~(6.3), identifies the
+first Jantzen layer used here with the sum of the two branches.  These inputs
+imply the first-intersection and radical descriptions at all levels.  At the
+two levels used explicitly in this paper, they are also checked without the
+embedding diagram: exact Gram-matrix calculations give radical dimensions
+\(11\) at level seven and \(32\) at level ten, while the determinant
+valuations give the stated Smith profiles.  The all-order confluence theorem
+does not depend on the embedding-diagram interpretation.
+\end{remark}
 
 \begin{lemma}[Exact constants of the level-ten confluence]
 \label{lem:level-ten-constants}
@@ -2451,6 +2544,10 @@ other path gives the equal expression with slope ratio \(1/7\); the two
 expressions are alternatives, not additive contributions.  Comparison
 with the already proved intrinsic coefficient
 \(P_2P_8/\gamma_{10}\) yields the displayed value of \(\gamma_{10}\).
+Independently, the Gram-matrix calculation in
+\path{tools/audit_grade10_direct.py --crossing-only} constructs the first
+two Smith layers and obtains the same scalar directly from the second
+crossing form, without using the confluence calculation.
 \end{proof}
 
 \begin{theorem}[Finite recursive level-ten principal part]
@@ -2639,12 +2736,13 @@ At \(N=10\), the same spin collision class has
  B_{(2,2),10}
  ={\mathcal R}_{2,2}H_6(c(b),h_{2,2}+4,d).
 \]
-Their zeroth and first collision moments are exactly the two Laurent
+Their first and second collision moments are exactly the two Laurent
 coefficients computed in the proof of
 Theorem~\ref{thm:level-ten-principal-part}; all higher moments vanish by
 the level-ten Smith profile.
 \end{proof}
 
+\raggedbottom
 \begin{table}[ht]
 \centering
 \begin{tabular}{lcc}
@@ -2691,15 +2789,21 @@ recursion and its first two collision moments are independently replayed
 by \path{tools/audit_confluent_recursion.py}.
 The level-ten confluence script checks the algebraic confluence
 calculation; it does not construct the \(42\times42\) Gram matrix,
-\(\chi_{10}\), or the second crossing form independently.  The Smith
-profile at level ten follows from the determinant and embedding-diagram
-argument in Proposition~\ref{prop:level-ten-smith}.
+\(\chi_{10}\), or the second crossing form independently.  In contrast,
+the \texttt{--crossing-only} mode of
+\path{tools/audit_grade10_direct.py} constructs \(G_{10}\) solely from
+the Virasoro commutator, computes its \(32\)-dimensional radical, finds the
+one-dimensional kernel of the first crossing form, and evaluates the second
+crossing scalar directly.  It imports neither a confluence routine nor any
+generic-residue data.  The Smith profile at level ten therefore has both the
+embedding-diagram proof of Proposition~\ref{prop:level-ten-smith} and this
+finite Gram-matrix audit.
 
 Two further scripts test the principal-part theorems directly against
 the inverse-Shapovalov definition rather than against the confluence
 algebra.  \path{tools/audit_direct_principal_parts.py} reconstructs
 \(H_N\), \(N\leq7\), exactly as rational functions of \(\Delta\) at
-sample external weights and verifies
+the sample external weights \(d=3/7\) and \(d=23\), and verifies there
 Theorems~\ref{thm:first-recursive-residue}
 and~\ref{thm:spin-recursive-residue}, the complete level-seven
 principal part of Theorem~\ref{thm:level-seven-principal-part}
@@ -2707,7 +2811,9 @@ including the explicit \(\Theta_7\), the pole-order claims of
 Proposition~\ref{prop:no-earlier-double-pole}, the table of
 Section~\ref{sec:low-level-output}, and the closed forms of
 \(Q_4^E,Q_5^E\).  \path{tools/audit_grade10_direct.py} performs the
-analogous direct \(42\times42\) computation at level ten: it verifies
+analogous direct \(42\times42\) computation at level ten at \(d=3/7\):
+it verifies the intrinsic second crossing scalar independently of \(d\),
+and at that external weight verifies
 the kernel dimension and determinant valuation of
 Proposition~\ref{prop:level-ten-smith} and the complete principal part
 of Theorem~\ref{thm:level-ten-principal-part}, including the value of
@@ -2718,6 +2824,8 @@ the agreement with the pole-free expressions of \cite{Stocco2022}
 discussed in Section~\ref{sec:low-level-output}.
 \end{remark}
 
+\newpage
+\flushbottom
 \section{Low-level output and comparison with
 earlier expansions}
 \label{sec:low-level-output}
@@ -2918,11 +3026,10 @@ but do not claim a favorable complexity bound: exact rational
 simplification can grow rapidly with the level.  The local Smith analysis
 explains the first simple and double poles, but an all-depth identification
 of every Smith layer with the Ising embedding diagram is not required for
-the coefficientwise confluence theorem.  The level-ten principal part
-has been verified directly against the inverse-Shapovalov definition
-(Remark~\ref{rem:audit-scope}); an independent symbolic construction of
-the level-ten \(42\times42\) second crossing form itself would
-nevertheless be a useful additional audit.
+the coefficientwise confluence theorem.  The level-ten principal part has
+been verified directly against the inverse-Shapovalov definition, and the
+level-ten second crossing form is now also reconstructed intrinsically from
+the \(42\times42\) Gram matrix (Remark~\ref{rem:audit-scope}).
 
 Open directions include uniform complexity bounds and a representation-
 theoretic description of the resulting pole layers as \(p,p'\) vary,
@@ -2934,18 +3041,19 @@ logically separate from the confluence theorem.
 
 \section*{Code availability}
 
-All exact-arithmetic audit scripts cited in the text are distributed
-with this paper as ancillary files: the eight
+All exact-arithmetic audit scripts cited in the text are distributed with
+this paper as ancillary files.  These are the eight
 \path{tools/audit_*.py} scripts described in
 Remarks~\ref{rem:imported} and~\ref{rem:audit-scope} and in the
-character-replay remark, together with the shared library modules
+character-replay remark.  They use the shared library modules
 \path{tools/exact_shapovalov.py} and
-\path{tools/direct_reconstruction.py} on which they depend.  All
+\path{tools/direct_reconstruction.py}.  All
 computations use exact rational arithmetic (Python~3, tested with
 CPython~3.12, and SymPy~1.12; the pinned dependency is listed in
-\path{requirements-audit.txt}).  Running \texttt{make audit} replays
-every check except the direct level-ten reconstruction, which the
-slower target \texttt{make audit-deep} adds.  Exact commands, expected
+\path{requirements-audit.txt}).  Running \texttt{make audit} includes the
+intrinsic level-ten crossing-form reconstruction.  The slower target
+\texttt{make audit-deep} additionally reconstructs inverse-Shapovalov
+coefficients through level ten at \(d=3/7\).  Exact commands, expected
 success markers, and SHA-256 hashes of the audit sources are recorded in
 \path{AUDIT_MANIFEST.md}; the complete package is part of the submitted
 ancillary material and will additionally be deposited in a citable archive.
@@ -3106,6 +3214,12 @@ JHEP \textbf{12} (2009) 038,
 \href{https://doi.org/10.1088/1126-6708/2009/12/038}%
 {doi:\allowbreak 10.1088/1126-6708/2009/12/038},
 \href{https://arxiv.org/abs/0909.3412}{arXiv:0909.3412}.
+
+\bibitem[PP26]{PoghosyanPoghosyan2026}
+A.~Poghosyan and H.~Poghosyan,
+\emph{A note on Zamolodchikov's recursion relation for the torus
+conformal block and its light limit},
+\href{https://arxiv.org/abs/2607.09177}{arXiv:2607.09177} (2026).
 
 \bibitem[Rib19]{Ribault2019}
 S.~Ribault,

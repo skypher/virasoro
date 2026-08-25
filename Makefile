@@ -5,6 +5,7 @@ PYTHON ?= python3
 audit:
 	$(PYTHON) tools/audit_first_resonances.py
 	$(PYTHON) tools/audit_low_levels.py
+	$(PYTHON) tools/audit_grade10_direct.py --crossing-only
 	$(PYTHON) tools/audit_grade10_confluence.py
 	$(PYTHON) tools/audit_confluent_recursion.py
 	$(PYTHON) tools/audit_direct_principal_parts.py

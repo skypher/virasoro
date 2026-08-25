@@ -11,6 +11,8 @@ definition, and verifies:
   * the residues of H_8 at 33/16 and H_6 at 65/16 against the generic
     residue constants (the fusion-normalization identity of the paper,
     applied at levels 8 and 6);
+  * the one-dimensional second Smith layer and its intrinsic crossing scalar
+    gamma_10, constructed directly from the first two derivatives of G_10;
   * the closed forms of the finite parts Q_8 and Q_6;
   * both Laurent coefficients of H_10 at 1/16, i.e. the complete
     principal part of Theorem "Finite recursive level-ten principal
@@ -20,7 +22,12 @@ definition, and verifies:
     occur exactly in the energy class for N >= 7 and in the spin class
     at N = 10).
 
-Run separately from the default audit:  make audit-deep.
+The intrinsic crossing-form subset is part of the ordinary audit:
+
+    python3 tools/audit_grade10_direct.py --crossing-only
+
+Run the complete inverse-Shapovalov reconstruction separately with
+``make audit-deep``.
 """
 
 import sys
@@ -105,6 +112,125 @@ def kernel_dimension(matrix):
     return n - rank
 
 
+def nullspace(matrix):
+    """Exact row-reduction basis for the right kernel of a matrix."""
+    rows = [row[:] for row in matrix]
+    nrows = len(rows)
+    ncols = len(rows[0]) if rows else 0
+    pivot_columns = []
+    rank = 0
+    for column in range(ncols):
+        pivot = next((i for i in range(rank, nrows)
+                      if rows[i][column] != 0), None)
+        if pivot is None:
+            continue
+        rows[rank], rows[pivot] = rows[pivot], rows[rank]
+        scale = rows[rank][column]
+        rows[rank] = [x / scale for x in rows[rank]]
+        for i in range(nrows):
+            if i != rank and rows[i][column] != 0:
+                factor = rows[i][column]
+                rows[i] = [x - factor * y
+                           for x, y in zip(rows[i], rows[rank])]
+        pivot_columns.append(column)
+        rank += 1
+        if rank == nrows:
+            break
+    free_columns = [j for j in range(ncols) if j not in pivot_columns]
+    result = []
+    for free in free_columns:
+        vector = [Fr(0)] * ncols
+        vector[free] = Fr(1)
+        for i, pivot in enumerate(pivot_columns):
+            vector[pivot] = -rows[i][free]
+        result.append(vector)
+    return result
+
+
+def solve_consistent(matrix, rhs):
+    """Return one exact solution of matrix*x=rhs, with free variables zero."""
+    nrows = len(matrix)
+    ncols = len(matrix[0]) if matrix else 0
+    rows = [matrix[i][:] + [rhs[i]] for i in range(nrows)]
+    pivot_columns = []
+    rank = 0
+    for column in range(ncols):
+        pivot = next((i for i in range(rank, nrows)
+                      if rows[i][column] != 0), None)
+        if pivot is None:
+            continue
+        rows[rank], rows[pivot] = rows[pivot], rows[rank]
+        scale = rows[rank][column]
+        rows[rank] = [x / scale for x in rows[rank]]
+        for i in range(nrows):
+            if i != rank and rows[i][column] != 0:
+                factor = rows[i][column]
+                rows[i] = [x - factor * y
+                           for x, y in zip(rows[i], rows[rank])]
+        pivot_columns.append(column)
+        rank += 1
+    if any(all(rows[i][j] == 0 for j in range(ncols))
+           and rows[i][-1] != 0 for i in range(rank, nrows)):
+        return None
+    solution = [Fr(0)] * ncols
+    for i, pivot in enumerate(pivot_columns):
+        solution[pivot] = rows[i][-1]
+    return solution
+
+
+def matvec(matrix, vector):
+    return [sum(a * b for a, b in zip(row, vector)) for row in matrix]
+
+
+def dot(left, right):
+    return sum(a * b for a, b in zip(left, right))
+
+
+def pderiv(poly):
+    return pnorm(tuple(i * poly[i] for i in range(1, len(poly))))
+
+
+def direct_second_crossing(gram10):
+    """Construct the level-ten second crossing form from G_10 alone."""
+    h0 = Fr(1, 16)
+    g0 = mat_eval(gram10, h0)
+    g1 = [[peval(pderiv(entry), h0) for entry in row] for row in gram10]
+    g2 = [[peval(pderiv(pderiv(entry)), h0) / 2 for entry in row]
+          for row in gram10]
+
+    kernel = nullspace(g0)
+    check("direct second crossing: dim K_1 = 32", len(kernel) == 32)
+    beta1 = [[dot(left, matvec(g1, right)) for right in kernel]
+             for left in kernel]
+    second_layer_coordinates = nullspace(beta1)
+    check("direct second crossing: dim K_2 = 1",
+          len(second_layer_coordinates) == 1)
+    if len(second_layer_coordinates) != 1:
+        return
+
+    coordinates = second_layer_coordinates[0]
+    chi10 = [sum(coordinates[j] * kernel[j][i]
+                 for j in range(len(kernel)))
+             for i in range(len(g0))]
+    lminus1_index = basis(10).index((1,) * 10)
+    leading = chi10[lminus1_index]
+    check("direct second crossing: L_-1^10 coefficient is nonzero",
+          leading != 0)
+    if leading == 0:
+        return
+    chi10 = [x / leading for x in chi10]
+
+    correction = solve_consistent(g0, [-x for x in matvec(g1, chi10)])
+    check("direct second crossing: first correction exists",
+          correction is not None)
+    if correction is None:
+        return
+    gamma10 = (dot(chi10, matvec(g2, chi10))
+               + dot(chi10, matvec(g1, correction)))
+    check("direct intrinsic gamma_10 = -1121229484375/192",
+          gamma10 == Fr(-1121229484375, 192))
+
+
 def poly_valuation(poly, point):
     value = 0
     current = list(poly)
@@ -122,6 +248,16 @@ def poly_valuation(poly, point):
 
 def main():
     start = time.time()
+    crossing_only = sys.argv[1:] == ["--crossing-only"]
+    if sys.argv[1:] and not crossing_only:
+        raise SystemExit("usage: audit_grade10_direct.py [--crossing-only]")
+    if crossing_only:
+        direct_second_crossing(gram_matrix(10))
+        print(f"total {time.time() - start:.0f}s", flush=True)
+        if FAILURES:
+            raise AssertionError(f"failed checks: {FAILURES}")
+        return
+
     d = DVAL
     set_external_weight(d)
 
@@ -142,6 +278,7 @@ def main():
         return {k: v for k, v in total.items() if v != 0 or k >= 0}
 
     gram10 = gram_matrix(10)
+    direct_second_crossing(gram10)
     check("dim ker G_10(1/2,1/16) = 32",
           kernel_dimension(mat_eval(gram10, Fr(1, 16))) == 32)
     check("ord det G_10 at 1/16 = 33",

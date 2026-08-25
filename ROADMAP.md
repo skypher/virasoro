@@ -53,6 +53,10 @@ coefficientwise in `q`.
 - `tools/audit_grade10_confluence.py`: exact Kac slopes, residue constants,
   grade-ten fusion factorization, generic-recursion evaluation of the second
   crossing scalar, and finite simple-pole term (confluence side).
+- `tools/audit_grade10_direct.py --crossing-only`: independent intrinsic
+  reconstruction of the one-dimensional second Smith layer and
+  `gamma_10 = -1121229484375/192` from the exact 42-by-42 Gram matrix; this
+  mode uses no confluence or generic-residue data.
 - `tools/audit_confluent_recursion.py`: independent replay of the shifted
   Laurent recursion at grade two and the first two collision moments at
   grade four.
@@ -66,9 +70,10 @@ coefficientwise in `q`.
   (`tools/direct_reconstruction.py`).
 - `tools/audit_grade10_direct.py` (run via `make audit-deep`, ~10 min):
   the direct 42-by-42 computation at grade ten — kernel dimension 32,
-  determinant valuation 33, the level-8/level-6 residues, closed forms of
-  `Q_8`, `Q_6`, and the complete grade-ten principal part including
-  `gamma_10 = -1121229484375/192` and the explicit `Theta_10`.
+  determinant valuation 33, intrinsic second crossing form, the
+  level-8/level-6 residues, closed forms of `Q_8`, `Q_6`, and the complete
+  grade-ten principal part including `gamma_10 = -1121229484375/192` and the
+  explicit `Theta_10`.
 - `tools/audit_stocco_comparison.py`: the imported identities (6.1) and
   (6.1a) at sample points, and agreement with Stocco's pole-free
   numerators — orders 2 and 3 identically in `b`, order 4 at the Ising
@@ -76,8 +81,8 @@ coefficientwise in `q`.
 - `tools/audit_ising_characters.py`: the three irreducible Ising character
   expansions through grade 30, BGG side cross-checked against an
   independent free-fermion count.
-- `paper.pdf`: clean build with no undefined references, layout
-  warnings, or compilation errors.
+- `paper.pdf`: clean build with no undefined references, layout warnings,
+  or compilation errors.
 
 Install the exact symbolic dependency with
 `python3 -m pip install -r requirements-audit.txt`, run the standard checks
@@ -91,5 +96,5 @@ term of the Ising embedding diagrams would strengthen the
 representation-theoretic interpretation, but it is not used as a premise
 of the finite recursion or the all-order equality theorem.  The grade-ten
 principal part is now verified directly against the inverse-Shapovalov
-definition; an independent symbolic construction of the grade-ten second
-crossing form itself remains a natural further audit.
+definition, and the grade-ten second crossing form is independently
+reconstructed from the exact Gram matrix.
