@@ -2571,7 +2571,7 @@ expressions are alternatives, not additive contributions.  Comparison
 with the already proved intrinsic coefficient
 \(P_2P_8/\gamma_{10}\) yields the displayed value of \(\gamma_{10}\).
 Independently, the Gram-matrix calculation in
-\path{tools/audit_grade10_direct.py --crossing-only} constructs the first
+\path{tools/audit_grade10_direct.py}\ \path{--crossing-only} constructs the first
 two Smith layers and obtains the same scalar directly from the second
 crossing form, without using the confluence calculation.
 \end{proof}
@@ -2810,8 +2810,7 @@ forms, fusion polynomials, and all repeated classes below level seven\\
 \path{audit_confluent_recursion.py}\par}
 & Kac slopes, generic residues, shifted Laurent moments,
 \(\gamma_{10}\), and \(\Theta_{10}\) on the confluence side\\
-{\raggedright\path{audit_grade10_direct.py}
-\texttt{--crossing-only}\par}
+{\raggedright\path{audit_grade10_direct.py}\ \path{--crossing-only}\par}
 & \(G_{10}\) from Virasoro commutation, its \(32\)-dimensional radical,
 the one-dimensional second Smith layer, and \(\gamma_{10}\), with no
 generic-residue or confluence input\\
