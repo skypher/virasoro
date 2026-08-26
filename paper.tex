@@ -1821,8 +1821,8 @@ inverse-Shapovalov expression is analytic in \(t\) near zero: its
 specialized Gram determinant is nonzero at this \(\Delta\).
 Equation~\eqref{eq:generic-grouped}, initially valid for generic \(b\),
 is an identity of rational functions and therefore holds on the punctured
-formal neighborhood of \(b_\star\).  This applies for every \(\Delta\) in
-the complement of the finite exceptional set.  Each negative
+formal neighborhood of \(b_\star\).  This applies for every
+\(\Delta\notin\Lambda_N(b_\star)\).  Each negative
 \(t\)-coefficient is a rational function of \(\Delta\) that therefore has
 infinitely many zeros, so it is the zero rational function, not merely zero
 after one numerical specialization.
@@ -3040,13 +3040,24 @@ of every Smith layer with the Ising embedding diagram is not required for
 the coefficientwise confluence theorem.  The independent level-ten checks
 are summarized in Remark~\ref{rem:audit-scope}.
 
-Open directions include uniform complexity bounds and a representation-
-theoretic description of the resulting pole layers as \(p,p'\) vary,
+Open directions include uniform complexity bounds and a
+representation-theoretic description of the resulting pole layers as
+\(p,p'\) vary,
 an intrinsic fixed-central-charge recursion that eliminates the formal
 deformation, and a corresponding recursion for irreducible minimal-model
 traces at degenerate internal weights.  The BGG calculation of
 Section~\ref{sec:irreducible} is only a quotient consistency check and is
 logically separate from the confluence theorem.
+
+\section*{AI-use disclosure}
+
+The proof architecture was developed with assistance from OpenAI Codex using
+GPT-5.6 Sol (\texttt{gpt-5.6-sol}) at max reasoning effort.  The system was
+used as an interactive research assistant to develop and stress-test the
+argument, audit citations and calculations, prepare exact verification code,
+and revise the manuscript.  The author directed the research, selected and
+checked the final arguments, and takes responsibility for all mathematical
+claims, citations, computations, and wording.
 
 \section*{Code availability}
 
