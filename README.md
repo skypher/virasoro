@@ -37,6 +37,8 @@ traces at degenerate internal weights.
 
 - [`paper.tex`](paper.tex) — manuscript source.
 - [`paper.pdf`](paper.pdf) — current compiled manuscript.
+- [`lean/`](lean) — Lean 4 formalization in progress (status in `lean/STATUS.md`,
+  statement review in `lean/REVIEW.md`).
 - [`tools/`](tools) — nine audit scripts and two shared exact-arithmetic
   libraries.
 - [`AUDIT_MANIFEST.md`](AUDIT_MANIFEST.md) — audit scope, commands, success
