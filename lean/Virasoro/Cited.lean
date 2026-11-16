@@ -84,7 +84,12 @@ with `L_{-1}^{rs}`-coefficient `1`) and equation (8) (the product of the two tor
 polynomials), translated to the conventions of the paper as in the proof of its
 Proposition 6.2: `d = ((b + b⁻¹)² - λ_HJS²)/4`, `λ_HJS² = Λ²`.  The cited statement consists of
 the two identities for the normalized singular vector over `ℚ(b)`, `NormalizationIdentities`;
-their continuation to specializations is not part of it. -/
+their continuation to specializations is not part of it.
+`NormalizationIdentities` also asserts that the normalized singular vector exists and is unique.
+These two clauses are not from Hadasz–Jaskólski–Suchanek.  Existence of a singular vector of
+level `r s` in `M(c(b), h_{r,s}(b))` with nonzero `L_{-1}^{rs}`-coefficient: V. G. Kac (1979) and
+B. L. Feigin and D. B. Fuchs (1982), in the form of Iohara–Koga (2011).  Uniqueness up to a
+scalar: Iohara–Koga (2011), Proposition 5.1. -/
 def Cited_HJSNormalizations : Prop := NormalizationIdentities
 
 end Virasoro

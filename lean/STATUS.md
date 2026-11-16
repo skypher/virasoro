@@ -81,7 +81,7 @@ See the table at the end of this file (updated as proofs land).
 | Cor 7.6 `cor:class-regular` | `Stmt_cor_class_regular` | proved from the same two cited results (`cor_class_regular_of_cited`) | Proofs/Sec6Final, Sec7Class |
 | Prop 7.7 `prop:two-branch` | `Stmt_prop_two_branch` | proved from `Cited_KacDeterminant` and `Cited_HJSNormalizations` (`prop_two_branch`), following the paper's proof | Proofs/TwoBranchD (with Reg2, TwoBranchA–C) |
 | Prop 8.1 `prop:level-seven-smith` | `Stmt_prop_level_seven_smith` | statement frozen only | Statements/Sec8 |
-| Prop 8.2 `prop:no-earlier-double-pole` | `Stmt_prop_no_earlier_double_pole` | statement frozen only | Statements/Sec8 |
+| Prop 8.2 `prop:no-earlier-double-pole` | `Stmt_prop_no_earlier_double_pole` | proved from `Cited_KacDeterminant` and `Cited_JantzenLayers` (`prop_no_earlier_double_pole`, main session): Theorem 5.7 at the weights 0, 1/16, 1/2, and at every other weight the single-label argument (Kac multiplicities, singular kernel vector, Prop 5.2, `residue_inverse`) | Proofs/Sec8NoDouble |
 | Lemma 8.3 `lem:level-seven-constants` | `Stmt_lem_level_seven_constants` | proved, labelled (`lem_level_seven_constants`); no cited input | Proofs/Sec8Const |
 | Lemma 8.4 `lem:regular-families` | `Stmt_lem_regular_families` | statement frozen only | Statements/Sec8 |
 | Thm 8.5 `thm:level-seven-principal-part` | `Stmt_thm_level_seven_principal_part` | statement frozen only | Statements/Sec8 |
@@ -90,7 +90,7 @@ See the table at the end of this file (updated as proofs land).
 | Thm 9.4 `thm:level-ten-principal-part` | `Stmt_thm_level_ten_principal_part` | statement frozen only | Statements/Sec9 |
 | Prop 9.5 `thm:level-ten-leading` | `Stmt_thm_level_ten_leading` | statement frozen only | Statements/Sec9 |
 | Prop 11.1 `prop:identity-verma` | `Stmt_prop_identity_verma` | proved from the same two cited results (`prop_identity_verma_of_cited`) | Proofs/Sec6Final, Sec11 |
-| Thm 11.3 `thm:ising-characters` | `Stmt_thm_ising_characters` | statement frozen only | Statements/Sec11 |
+| Thm 11.3 `thm:ising-characters` | `Stmt_thm_ising_characters` | proved from `Cited_BGGCharacter` (`thm_ising_characters`, main session): Euler-product convolution with `eta_partition`, and the levels ℓ^±_k identified with the theta exponents; the displayed beginnings by kernel evaluation | Proofs/Sec11Chars |
 
 ### Re-encoding of Proposition 6.2 (round three)
 

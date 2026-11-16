@@ -13,7 +13,13 @@ open Polynomial
 `χ_{r,s}(b)` of level `r s` in `M(c(b), h_{r,s}(b))` over `ℚ(b)` whose `L_{-1}^{rs}`-coefficient
 is `1`; its coordinates `p` are the solution of a finite linear system over `ℚ(b)`.  Then
 `β_{χ_{r,s}(b)} = 𝒜_{r,s}(b)⁻¹` (6.1) and `⟨χ_{r,s}(b)|V_d(1)|χ_{r,s}(b)⟩ = 𝒫_{r,s}(b,d)` (6.2);
-the second identity is polynomial in `d` and is stated for every `d ∈ ℚ(b)`. -/
+the second identity is polynomial in `d` and is stated for every `d ∈ ℚ(b)`.
+
+Sources of the four clauses.  Existence of a singular vector of level `r s` on the Kac curve and
+the nonvanishing of its `L_{-1}^{rs}`-coefficient, so that it can be normalized: V. G. Kac (1979)
+and B. L. Feigin and D. B. Fuchs (1982).  Uniqueness up to a scalar of a singular vector at a
+fixed level: K. Iohara and Y. Koga (2011), Proposition 5.1.  The identities (6.1) and (6.2):
+L. Hadasz, Z. Jaskólski and P. Suchanek, JHEP 01 (2010) 063, Section 3. -/
 def NormalizationIdentities : Prop :=
   ∀ r s : ℕ, 0 < r → 0 < s →
     ∃ p : Nat.Partition (r * s) → RatFunc ℚ,

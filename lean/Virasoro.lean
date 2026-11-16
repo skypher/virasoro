@@ -120,3 +120,5 @@ import Virasoro.Proofs.Sec5SpinRes2
 import Virasoro.Proofs.Sec5Spin
 import Virasoro.Proofs.Sec8Const
 import Virasoro.Proofs.Sec9Const
+import Virasoro.Proofs.Sec11Chars
+import Virasoro.Proofs.Sec8NoDouble
