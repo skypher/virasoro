@@ -60,5 +60,38 @@ level rs ≥ 1. The paper now states `ℓ ≥ 1` and says in the proof why the i
 radical; `Stmt_lem_singular_crossing` must be re-frozen with `1 ≤ ℓ`, after which
 `singular_crossing` should discharge it.
 
-Not yet reviewed: every other `Stmt_`, and the definitions `HN`, `Atilde`, `MhatC` beyond what
-the statements above use.
+## 2026-11-16T12:55Z — third round, paper.tex at 9aa415f
+
+Machine checks (main session): `lake build Virasoro` green; no forbidden tokens
+(`runs/lean-check/forbidden3.log`); all 23 labelled `example : Stmt_<name> := <name>` checks
+elaborate; `#print axioms` gives only `[propext, Classical.choice, Quot.sound]` on all 33 lines
+(`runs/lean-check/check3.log`). The conditional theorems take exactly these hypotheses:
+`thm_general_partial_fractions : Cited_KacDeterminant → …`;
+`thm_jantzen_smith : Cited_JantzenLayers → …`;
+`prop_imported_normalizations : Cited_HJSNormalizations → …`;
+`prop_generic_recursion`, `genericRecursionUniform`, `thm_general_confluence_of_cited`,
+`cor_ising_confluence_of_cited`, `cor_class_regular_of_cited`, `prop_identity_verma_of_cited`,
+`prop_two_branch : Cited_KacDeterminant → Cited_HJSNormalizations → …`.
+
+Re-encoded cited input. `Cited_HJSNormalizations := NormalizationIdentities` (changed since
+9aa415f). It asserts, over ℚ(b): existence and uniqueness of the singular vector of level rs in
+M(c(b), h_{r,s}(b)) with L_{-1}^{rs}-coefficient 1, and the identities (6.1)
+`crossScalar = 𝒜_{r,s}⁻¹` and (6.2) `torusForm = 𝒫_{r,s}` for every d ∈ ℚ(b). `crossScalar` is
+the h-derivative of the Shapovalov norm with fixed coordinates (Lemma 5.10's β_χ) and
+`torusForm` is uᵀρ_N v. Verdict: not stronger than the paper's Proposition 6.2; the continuation
+clause of Prop 6.2 is proved, not cited. Documentation point: existence and uniqueness of the
+normalized vector come from Kac/Feigin–Fuchs and Iohara–Koga Prop 5.1, not from
+Hadasz–Jaskólski–Suchanek; the docstring should name those sources as well.
+
+| Paper result | Verdict | Note |
+|---|---|---|
+| Lemma 5.10 `lem:singular-crossing` (re-frozen with `1 ≤ ℓ`) | faithful to the corrected lemma | ω(P) L_Y and L_{-Y'} P encoded as `gramWord` on concatenated words with fixed coordinates |
+| Prop 6.2 `prop:imported-normalizations` | faithful | `ImportedNormalizations` = the two identities plus the continuation clause |
+| Cor 7.6 `cor:class-regular` | faithful | negative t-coefficients of `Gclass` vanish |
+| Prop 7.7 `prop:two-branch` | faithful | `TwoBranchHyp` = hypotheses (i)–(iii); `Tterm` = T_i; `finitePart` is the constant Laurent coefficient, equal to the paper's Q_i whenever H has at most a simple pole at z_i, which (i) guarantees |
+| Prop 11.1 `prop:identity-verma` | faithful | H₀ = 1 and H_N = 0 for N ≥ 1 at d = 0 |
+| Props 5.11, 5.13, 5.14, Thms 5.12, 5.15, Lemmas 8.3, 9.3 | constants as printed | spot check of 28/9, −105/8, 140/9, 16Δ−1, 13475/648, the residue polynomial over 40425, 700700, 1121229484375, 32035128125, 320945625, the β₄ entries, E₂, P₄; the theorems are kernel-checked |
+
+Not yet reviewed in full: Thm 4.3's complete statement (read in part on 2026-11-16), Cor 4.4,
+Thm 4.2, the remaining Ising statements of Sections 8, 9, 11, and the definitions `HN`,
+`Atilde`, `MhatC` beyond what the statements above use.

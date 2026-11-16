@@ -317,4 +317,13 @@ theorem singular_crossing (hℓ : 1 ≤ ℓ)
 
 end Core
 
+/-- For `χ = P|h₀⟩` singular of level `ℓ ≥ 1` with `P` fixed, and partitions `Y, Y'` of `m`:
+`d/dh ⟨h| ω(P) L_Y L_{-Y'} P |h⟩ |_{h=h₀} = β_χ G_m(c,h₀+ℓ)_{Y,Y'}`.
+
+Paper label: lem:singular-crossing -/
+theorem lem_singular_crossing : Stmt_lem_singular_crossing :=
+  fun c h₀ ℓ p hℓ hχ m Y Y' => singular_crossing c h₀ ℓ p hℓ hχ m Y Y'
+
+example : Stmt_lem_singular_crossing := lem_singular_crossing
+
 end Virasoro

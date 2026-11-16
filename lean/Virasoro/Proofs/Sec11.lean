@@ -52,8 +52,4 @@ theorem prop_identity_verma (hrec : GenericRecursionUniform) : Stmt_prop_identit
 
 example (hrec : GenericRecursionUniform) : Stmt_prop_identity_verma := prop_identity_verma hrec
 
-/-- Proposition 6.2 is the imported statement of Hadasz–Jaskólski–Suchanek. -/
-theorem prop_imported_normalizations (h : Cited_HJSNormalizations) :
-    Stmt_prop_imported_normalizations := h
-
 end Virasoro

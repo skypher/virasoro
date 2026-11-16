@@ -8,38 +8,62 @@ namespace Virasoro
 
 open Polynomial
 
-/-- The generic normalization identities of Proposition 6.2, read over the field `ℂ(b)` of
-rational functions of `b` (the variable `b` is `RatFunc.X`).  For positive `r, s` there is a
-unique singular vector `χ_{r,s}(b)` of level `r s` in `M(c(b), h_{r,s}(b))` whose
-`L_{-1}^{rs}`-coefficient is `1`; its coordinates are `p`.  Then
-`β_{χ_{r,s}(b)} = 𝒜_{r,s}(b)⁻¹` (6.1) and `⟨χ_{r,s}(b)|V_d(1)|χ_{r,s}(b)⟩ = 𝒫_{r,s}(b,d)` (6.2),
-as identities of rational functions of `b`; they continue to every specialization `b₁ ≠ 0` at
-which the coordinates of the normalized singular vector are regular.  At such a `b₁` the
-rational function `𝒜_{r,s}⁻¹` takes the value `2 ∏ (p b₁ + q b₁⁻¹)`. -/
-def ImportedNormalizations : Prop :=
+/-- The two generic normalization identities, as identities of rational functions of `b` over
+`ℚ` (the variable `b` is `RatFunc.X`).  For positive `r, s` there is a unique singular vector
+`χ_{r,s}(b)` of level `r s` in `M(c(b), h_{r,s}(b))` over `ℚ(b)` whose `L_{-1}^{rs}`-coefficient
+is `1`; its coordinates `p` are the solution of a finite linear system over `ℚ(b)`.  Then
+`β_{χ_{r,s}(b)} = 𝒜_{r,s}(b)⁻¹` (6.1) and `⟨χ_{r,s}(b)|V_d(1)|χ_{r,s}(b)⟩ = 𝒫_{r,s}(b,d)` (6.2);
+the second identity is polynomial in `d` and is stated for every `d ∈ ℚ(b)`. -/
+def NormalizationIdentities : Prop :=
   ∀ r s : ℕ, 0 < r → 0 < s →
-    ∃ p : Nat.Partition (r * s) → RatFunc ℂ,
+    ∃ p : Nat.Partition (r * s) → RatFunc ℚ,
       (p (onesPartition (r * s)) = 1 ∧
         Verma.IsSingular
-          (Verma.pbwCoord (c := kacC (RatFunc.X : RatFunc ℂ)) (h := kacH r s RatFunc.X)
+          (Verma.pbwCoord (c := kacC (RatFunc.X : RatFunc ℚ)) (h := kacH r s RatFunc.X)
             (r * s) p) (r * s)) ∧
-      (∀ p' : Nat.Partition (r * s) → RatFunc ℂ, p' (onesPartition (r * s)) = 1 →
+      (∀ p' : Nat.Partition (r * s) → RatFunc ℚ, p' (onesPartition (r * s)) = 1 →
         Verma.IsSingular
-          (Verma.pbwCoord (c := kacC (RatFunc.X : RatFunc ℂ)) (h := kacH r s RatFunc.X)
+          (Verma.pbwCoord (c := kacC (RatFunc.X : RatFunc ℚ)) (h := kacH r s RatFunc.X)
             (r * s) p') (r * s) → p' = p) ∧
-      crossScalar (kacC (RatFunc.X : RatFunc ℂ)) (kacH r s RatFunc.X) p =
-        (genA r s (RatFunc.X : RatFunc ℂ))⁻¹ ∧
-      (∀ d : RatFunc ℂ,
-        torusForm (kacC (RatFunc.X : RatFunc ℂ)) (kacH r s RatFunc.X) d (r * s) p p =
+      crossScalar (kacC (RatFunc.X : RatFunc ℚ)) (kacH r s RatFunc.X) p =
+        (genA r s (RatFunc.X : RatFunc ℚ))⁻¹ ∧
+      (∀ d : RatFunc ℚ,
+        torusForm (kacC (RatFunc.X : RatFunc ℚ)) (kacH r s RatFunc.X) d (r * s) p p =
+          genP r s RatFunc.X d)
+
+/-- The generic normalization identities of Proposition 6.2 with their continuation.  The
+identities (6.1) and (6.2) hold as identities of rational functions of `b` over `ℚ` for the
+normalized singular vector `χ_{r,s}(b)` with coordinates `p` (see `NormalizationIdentities`),
+and they continue to every specialization `b₁ ∈ ℂ^×` at which the coordinates of the normalized
+singular vector are regular.  At such a `b₁` the rational function `𝒜_{r,s}⁻¹` takes the value
+`2 ∏ (p b₁ + q b₁⁻¹)`. -/
+def ImportedNormalizations : Prop :=
+  ∀ r s : ℕ, 0 < r → 0 < s →
+    ∃ p : Nat.Partition (r * s) → RatFunc ℚ,
+      (p (onesPartition (r * s)) = 1 ∧
+        Verma.IsSingular
+          (Verma.pbwCoord (c := kacC (RatFunc.X : RatFunc ℚ)) (h := kacH r s RatFunc.X)
+            (r * s) p) (r * s)) ∧
+      (∀ p' : Nat.Partition (r * s) → RatFunc ℚ, p' (onesPartition (r * s)) = 1 →
+        Verma.IsSingular
+          (Verma.pbwCoord (c := kacC (RatFunc.X : RatFunc ℚ)) (h := kacH r s RatFunc.X)
+            (r * s) p') (r * s) → p' = p) ∧
+      crossScalar (kacC (RatFunc.X : RatFunc ℚ)) (kacH r s RatFunc.X) p =
+        (genA r s (RatFunc.X : RatFunc ℚ))⁻¹ ∧
+      (∀ d : RatFunc ℚ,
+        torusForm (kacC (RatFunc.X : RatFunc ℚ)) (kacH r s RatFunc.X) d (r * s) p p =
           genP r s RatFunc.X d) ∧
-      (∀ b₁ : ℂ, b₁ ≠ 0 → (∀ Y, (p Y).denom.eval b₁ ≠ 0) →
-        let p₁ : Nat.Partition (r * s) → ℂ := fun Y => RatFunc.eval (RingHom.id ℂ) b₁ (p Y)
+      (∀ b₁ : ℂ, b₁ ≠ 0 →
+        (∀ Y, Polynomial.eval₂ (algebraMap ℚ ℂ) b₁ (RatFunc.denom (p Y)) ≠ 0) →
+        let p₁ : Nat.Partition (r * s) → ℂ := fun Y => RatFunc.eval (algebraMap ℚ ℂ) b₁ (p Y)
         crossScalar (kacC b₁) (kacH r s b₁) p₁ =
             2 * ∏ pq ∈ genAIndex r s, ((pq.1 : ℂ) * b₁ + (pq.2 : ℂ) * b₁⁻¹) ∧
           ∀ d : ℂ, torusForm (kacC b₁) (kacH r s b₁) d (r * s) p₁ p₁ = genP r s b₁ d)
 
-/-- Proposition 6.2 (`prop:imported-normalizations`): the imported generic normalization
-identities (6.1) and (6.2); see `ImportedNormalizations`. -/
+/-- Proposition 6.2 (`prop:imported-normalizations`): the generic normalization identities
+(6.1) and (6.2) as identities of rational functions of `b`, and their continuation to every
+specialization at which the normalized singular vector is regular; see
+`ImportedNormalizations`. -/
 def Stmt_prop_imported_normalizations : Prop := ImportedNormalizations
 
 /-- Lemma 6.4 (`lem:no-generic-shifted-pole`).  For positive labels `(r,s)` and `(u,v)`,

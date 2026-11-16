@@ -161,13 +161,15 @@ def Stmt_lem_singular_factorization : Prop :=
           T χ χ * torus c (h + (ℓ : ℂ)) d m Y Y'
 
 /-- Lemma 5.10 (`lem:singular-crossing`).  Fix `c` and let `χ = P|h₀⟩ ∈ M(c,h₀)` be singular
-of level `ℓ`, where the PBW operator `P ∈ U(Vir_-)` is held fixed as `h` varies, and
+of level `ℓ ≥ 1`, where the PBW operator `P ∈ U(Vir_-)` is held fixed as `h` varies, and
 `β_χ = d/dh ⟨h|ω(P)P|h⟩ |_{h=h₀}`.  For partitions `Y, Y'` of `m`,
 `d/dh ⟨h| ω(P) L_Y L_{-Y'} P |h⟩ |_{h=h₀} = β_χ G_m(c,h₀+ℓ)_{Y,Y'}`.
 Here `P = ∑_Z p_Z L_{-Z}` with fixed coefficients `p`, and
-`⟨h| L_Z L_Y L_{-Y'} L_{-Z'} |h⟩` is `gramWord` on the concatenated words. -/
+`⟨h| L_Z L_Y L_{-Y'} L_{-Z'} |h⟩` is `gramWord` on the concatenated words.
+The hypothesis `1 ≤ ℓ` is the lemma's `ℓ ≥ 1` (paper.tex at 9aa415f); the statement read without
+it fails at `ℓ = 0`, `P = 1`, where it would assert `d/dh G_m(c,h) = 0`. -/
 def Stmt_lem_singular_crossing : Prop :=
-  ∀ (c h₀ : ℂ) (ℓ : ℕ) (p : Nat.Partition ℓ → ℂ),
+  ∀ (c h₀ : ℂ) (ℓ : ℕ) (p : Nat.Partition ℓ → ℂ), 1 ≤ ℓ →
     Verma.IsSingular (Verma.pbwCoord (c := c) (h := h₀) ℓ p) ℓ →
       ∀ (m : ℕ) (Y Y' : Nat.Partition m),
         (derivative (∑ Z : Nat.Partition ℓ, ∑ Z' : Nat.Partition ℓ,

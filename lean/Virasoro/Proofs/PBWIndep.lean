@@ -249,11 +249,11 @@ theorem sigma_eq_of_word_perm {Y Y' : Σ N : ℕ, Nat.Partition N}
   subst hN
   rw [Nat.Partition.ext hparts]
 
-/-- The vectors `L_{-Y}|h⟩`, over all partitions `Y` of all integers, are linearly
+/-- The images under `Φ` of the vectors `L_{-Y}|h⟩`, over all partitions `Y`, are linearly
 independent. -/
-theorem neg_word_linearIndependent :
+theorem polyMap_neg_word_linearIndependent :
     LinearIndependent R
-      (fun Y : (Σ N : ℕ, Nat.Partition N) => neg (c := c) (h := h) Y.2.word) := by
+      (fun Y : (Σ N : ℕ, Nat.Partition N) => polyMap c h (neg (c := c) (h := h) Y.2.word)) := by
   classical
   rw [linearIndependent_iff']
   intro s g hsum
@@ -264,9 +264,8 @@ theorem neg_word_linearIndependent :
     (fun i => i.2.word.length) ⟨i₁, Finset.mem_filter.2 ⟨hi₁, hg₁⟩⟩
   have hi₀s : i₀ ∈ s := (Finset.mem_filter.1 hi₀).1
   have hg₀ : g i₀ ≠ 0 := (Finset.mem_filter.1 hi₀).2
-  have h1 := congrArg (fun p => coeff (wordExp i₀.2.word) (polyMap c h p)) hsum
-  simp only [map_sum, map_smul, map_zero, coeff_sum, coeff_smul, smul_eq_mul, coeff_zero]
-    at h1
+  have h1 := congrArg (fun p => coeff (wordExp i₀.2.word) p) hsum
+  simp only [coeff_sum, coeff_smul, smul_eq_mul, coeff_zero] at h1
   rw [Finset.sum_eq_single i₀] at h1
   · obtain ⟨q, hq, hlow⟩ := polyMap_neg (c := c) (h := h) i₀.2.word (posWord_word i₀.2)
     rw [hq, coeff_add, coeff_monomial, if_pos rfl] at h1
@@ -295,6 +294,44 @@ theorem neg_word_linearIndependent :
   · intro hni
     exact absurd hi₀s hni
 
+/-- The vectors `L_{-Y}|h⟩`, over all partitions `Y` of all integers, are linearly
+independent. -/
+theorem neg_word_linearIndependent :
+    LinearIndependent R
+      (fun Y : (Σ N : ℕ, Nat.Partition N) => neg (c := c) (h := h) Y.2.word) :=
+  LinearIndependent.of_comp (polyMap c h) polyMap_neg_word_linearIndependent
+
+theorem polyMap_L_neg {m : ℤ} (hm : 0 < m) (v : Verma R c h) :
+    polyMap c h (L (-m) v) = polyG m.toNat (polyMap c h v) :=
+  (Classical.choose_spec (exists_negHom (c := c) (h := h)
+    (fun m : ℤ => polyG (R := R) m.toNat) polyG_rep (1 : MvPolynomial ℕ R))).2 m hm v
+
 end Verma
+
+omit [Algebra ℚ R] in
+/-- The operator `G_y` is injective: the monomials of top degree of `G_y q` are `x_y` times
+those of `q`. -/
+theorem polyG_injective (y : ℕ) : Function.Injective (polyG (R := R) y) := by
+  classical
+  rw [injective_iff_map_eq_zero]
+  intro q hq
+  by_contra hne
+  have hsupp : q.support.Nonempty := by
+    rw [Finset.nonempty_iff_ne_empty, Ne, MvPolynomial.support_eq_empty]
+    exact hne
+  obtain ⟨d, hd, hmax⟩ := Finset.exists_max_image q.support (fun d => d.degree) hsupp
+  have hlow : LowDeg q (d.degree + 1) := by
+    intro d' hd'
+    have := hmax d' (MvPolynomial.mem_support_iff.2 hd')
+    omega
+  have h1 := congrArg (coeff (Finsupp.single y 1 + d)) hq
+  rw [polyG_apply, coeff_add, coeff_X_mul, coeff_zero] at h1
+  have h2 : coeff (Finsupp.single y 1 + d) (polyD y q) = 0 := by
+    by_contra hcon
+    have := hlow.deriv y _ hcon
+    rw [map_add, Finsupp.degree_single] at this
+    omega
+  rw [h2, add_zero] at h1
+  exact (MvPolynomial.mem_support_iff.1 hd) h1
 
 end Virasoro

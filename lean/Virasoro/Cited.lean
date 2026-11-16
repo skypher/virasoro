@@ -82,8 +82,9 @@ Source: L. Hadasz, Z. Jaskólski and P. Suchanek, JHEP 01 (2010) 063, Section 3:
 and the paragraph following it (the inverse norm derivative `A_{r,s}(c)` in the normalization
 with `L_{-1}^{rs}`-coefficient `1`) and equation (8) (the product of the two torus fusion
 polynomials), translated to the conventions of the paper as in the proof of its
-Proposition 6.2: `d = ((b + b⁻¹)² - λ_HJS²)/4`, `λ_HJS² = Λ²`.  The statement is
-`ImportedNormalizations`. -/
-def Cited_HJSNormalizations : Prop := ImportedNormalizations
+Proposition 6.2: `d = ((b + b⁻¹)² - λ_HJS²)/4`, `λ_HJS² = Λ²`.  The cited statement consists of
+the two identities for the normalized singular vector over `ℚ(b)`, `NormalizationIdentities`;
+their continuation to specializations is not part of it. -/
+def Cited_HJSNormalizations : Prop := NormalizationIdentities
 
 end Virasoro

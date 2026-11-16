@@ -1,8 +1,8 @@
 # Lean formalization status
 
-Paper: `paper.tex` at commit d823b62 ("Exact algebraic confluence for torus one-point
+Paper: `paper.tex` at commit 9aa415f ("Exact algebraic confluence for torus one-point
 Virasoro-block recursions"). Toolchain `leanprover/lean4:v4.33.0`, Mathlib `v4.33.0`.
-Build: `cd lean && lake build` (log of the last full build: `logs/final-build-2.log`).
+Build: `cd lean && lake build` (log of the last full build: `logs/build59.log`).
 
 ## Design decisions
 
@@ -57,79 +57,115 @@ See the table at the end of this file (updated as proofs land).
 | Cor 3.3 `cor:ising-classes` | `Stmt_cor_ising_classes` | proved, labelled | Proofs/Sec3 |
 | Lemma 4.1 `lem:large-weight` | `Stmt_lem_large_weight` | proved, labelled (`lem_large_weight`) | Proofs/LargeWeight (with Shapovalov, TorusDegree, LargeWeightCore, EtaPartition) |
 | Thm 4.2 `thm:general-partial-fractions` | `Stmt_thm_general_partial_fractions` | proved from `Cited_KacDeterminant` by the paper's route, Kac determinant plus Lemma 4.1 (`thm_general_partial_fractions`); the earlier derivation from `GenericRecursionUniform` is kept (`thm_general_partial_fractions_of_recursion`) | Proofs/Sec4PFKac, PartialFractions, Sec4PF |
-| Thm 4.3 `thm:general-confluence` | `Stmt_thm_general_confluence` | proved conditional on `GenericRecursionUniform` (`thm_general_confluence`) | Proofs/Sec4Poly |
-| Cor 4.4 `cor:ising-confluence` | `Stmt_cor_ising_confluence` | proved conditional on `GenericRecursionUniform` (`cor_ising_confluence`) | Proofs/Sec4Ising |
+| Thm 4.3 `thm:general-confluence` | `Stmt_thm_general_confluence` | proved from `Cited_KacDeterminant` and `Cited_HJSNormalizations` (`thm_general_confluence_of_cited`; the version with hypothesis `GenericRecursionUniform` is `thm_general_confluence`) | Proofs/Sec6Final, Sec4Poly |
+| Cor 4.4 `cor:ising-confluence` | `Stmt_cor_ising_confluence` | proved from the same two cited results (`cor_ising_confluence_of_cited`) | Proofs/Sec6Final, Sec4Ising |
 | Lemma 5.1 `lem:smith` | `Stmt_lem_smith` | proved, labelled | Proofs/Sec5Smith |
 | Prop 5.2 `prop:transverse-residue` | `Stmt_prop_transverse_residue` | proved, labelled | Proofs/Sec5Cross |
 | Prop 5.3 `prop:two-step-residue` | `Stmt_prop_two_step_residue` | proved, labelled | Proofs/Sec5TwoStep |
 | Cor 5.4 `cor:det-overcounts` | `Stmt_cor_det_overcounts` | proved, labelled | Proofs/Sec5Det |
 | Lemma 5.6 `lem:jantzen-smith` | `Stmt_lem_jantzen_smith` | proved, labelled (`lem_jantzen_smith`) | Proofs/JantzenSub (with JantzenDim, Levels, BaseChange, PBWBasis) |
-| Thm 5.7 `thm:jantzen-smith` | `Stmt_thm_jantzen_smith` | statement frozen only | Statements/Sec5a |
+| Thm 5.7 `thm:jantzen-smith` | `Stmt_thm_jantzen_smith` | proved from `Cited_JantzenLayers` (`thm_jantzen_smith`), with Lemma 5.6, Lemma 5.1, the levels as a direct sum, injectivity of the negative modes and the pole bound for `F_N`, `H_N` | Proofs/Sec5Jantzen (with LevelComp, JantzenLevel, PoleBound) |
 | Lemma 5.9 `lem:singular-factorization` | `Stmt_lem_singular_factorization` | proved, labelled (`lem_singular_factorization`) | Proofs/Singular |
-| Lemma 5.10 `lem:singular-crossing` | `Stmt_lem_singular_crossing` | proved for levels `ℓ ≥ 1` over any field of characteristic zero (`singular_crossing`, no label: the frozen statement also covers `ℓ = 0`, where it fails; see ISSUE 1) | Proofs/Crossing |
-| Prop 5.11 `prop:first-collision` | `Stmt_prop_first_collision` | statement frozen only | Statements/Sec5b |
-| Thm 5.12 `thm:first-recursive-residue` | `Stmt_thm_first_recursive_residue` | statement frozen only | Statements/Sec5b |
-| Prop 5.13 `prop:spin-collision` | `Stmt_prop_spin_collision` | statement frozen only | Statements/Sec5b |
-| Prop 5.14 `prop:spin-singular-data` | `Stmt_prop_spin_singular_data` | statement frozen only | Statements/Sec5b |
-| Thm 5.15 `thm:spin-recursive-residue` | `Stmt_thm_spin_recursive_residue` | statement frozen only | Statements/Sec5b |
-| Prop 6.2 `prop:imported-normalizations` | `Stmt_prop_imported_normalizations` | proved conditional on `Cited_HJSNormalizations` (the statement is the cited one) | Proofs/Sec11 |
+| Lemma 5.10 `lem:singular-crossing` | `Stmt_lem_singular_crossing` | proved, labelled (`lem_singular_crossing`); the statement was re-frozen with `1 ≤ ℓ` to mirror the corrected lemma at 9aa415f | Proofs/Crossing |
+| Prop 5.11 `prop:first-collision` | `Stmt_prop_first_collision` | proved, labelled (`prop_first_collision`); no cited input | Proofs/Sec5First (with PartEnum, CoordTools, VecSimp, Ising3, Ising3Mat, SmithSimple) |
+| Thm 5.12 `thm:first-recursive-residue` | `Stmt_thm_first_recursive_residue` | proved, labelled (`thm_first_recursive_residue`); no cited input | Proofs/Sec5FirstRes (with TransverseBasis, IsingAux, Ising2) |
+| Prop 5.13 `prop:spin-collision` | `Stmt_prop_spin_collision` | proved, labelled (`prop_spin_collision`); no cited input | Proofs/Sec5Spin (with Ising4, Ising4Forms, Ising4Mat, Ising4Ker) |
+| Prop 5.14 `prop:spin-singular-data` | `Stmt_prop_spin_singular_data` | proved, labelled (`prop_spin_singular_data`); no cited input | Proofs/Sec5Spin (with Ising4, Ising4Forms, Ising4Mat, Ising4Ker) |
+| Thm 5.15 `thm:spin-recursive-residue` | `Stmt_thm_spin_recursive_residue` | proved, labelled (`thm_spin_recursive_residue`); no cited input | Proofs/Sec5Spin (with Sec5SpinRes, Sec5SpinRes2) |
+| Prop 6.2 `prop:imported-normalizations` | `Stmt_prop_imported_normalizations` | proved from `Cited_HJSNormalizations` (`prop_imported_normalizations`): the cited input is now the pair of identities over `ℚ(b)` (`NormalizationIdentities`), and the continuation to specializations is derived (`normalization_at`, any field of characteristic zero); statement and cited input were re-encoded over `ℚ(b)`, see the note below the table | Proofs/Sec6Norm (with RegEval, Specialize) |
 | Lemma 6.4 `lem:no-generic-shifted-pole` | `Stmt_lem_no_generic_shifted_pole` | proved, labelled | Proofs/Sec6Kac |
-| Prop 6.5 `prop:generic-recursion` | `Stmt_prop_generic_recursion` | follows from `GenericRecursionUniform` (`prop_generic_recursion_of_uniform`); `GenericRecursionUniform` itself is not proved | Proofs/Sec7Class |
+| Prop 6.5 `prop:generic-recursion` | `Stmt_prop_generic_recursion` | proved from `Cited_KacDeterminant` and `Cited_HJSNormalizations` (`prop_generic_recursion`); the uniform form `GenericRecursionUniform` is proved from the same two (`genericRecursionUniform`), following the paper's proof | Proofs/GenericH, Sec6Final (with RegEval, Specialize, KacField, Family, ResidueCore1–4, Generic, GenericResidue, GenericF) |
 | Lemma 7.2 `lem:shifted-valuation-bound` | `Stmt_lem_shifted_valuation_bound` | proved, labelled | Proofs/Sec7Val |
 | Lemma 7.4 `lem:precision-budget` | `Stmt_lem_precision_budget` | proved, labelled | Proofs/Sec7Val |
 | Lemma 7.5 `lem:collision-pole-support` | `Stmt_lem_collision_pole_support` | proved, labelled | Proofs/Sec7Pole |
-| Cor 7.6 `cor:class-regular` | `Stmt_cor_class_regular` | proved conditional on `GenericRecursionUniform` (`cor_class_regular`) | Proofs/Sec7Class |
-| Prop 7.7 `prop:two-branch` | `Stmt_prop_two_branch` | statement frozen only | Statements/Sec7 |
+| Cor 7.6 `cor:class-regular` | `Stmt_cor_class_regular` | proved from the same two cited results (`cor_class_regular_of_cited`) | Proofs/Sec6Final, Sec7Class |
+| Prop 7.7 `prop:two-branch` | `Stmt_prop_two_branch` | proved from `Cited_KacDeterminant` and `Cited_HJSNormalizations` (`prop_two_branch`), following the paper's proof | Proofs/TwoBranchD (with Reg2, TwoBranchA–C) |
 | Prop 8.1 `prop:level-seven-smith` | `Stmt_prop_level_seven_smith` | statement frozen only | Statements/Sec8 |
 | Prop 8.2 `prop:no-earlier-double-pole` | `Stmt_prop_no_earlier_double_pole` | statement frozen only | Statements/Sec8 |
-| Lemma 8.3 `lem:level-seven-constants` | `Stmt_lem_level_seven_constants` | statement frozen only | Statements/Sec8 |
+| Lemma 8.3 `lem:level-seven-constants` | `Stmt_lem_level_seven_constants` | proved, labelled (`lem_level_seven_constants`); no cited input | Proofs/Sec8Const |
 | Lemma 8.4 `lem:regular-families` | `Stmt_lem_regular_families` | statement frozen only | Statements/Sec8 |
 | Thm 8.5 `thm:level-seven-principal-part` | `Stmt_thm_level_seven_principal_part` | statement frozen only | Statements/Sec8 |
 | Prop 9.1 `prop:level-ten-smith` | `Stmt_prop_level_ten_smith` | statement frozen only | Statements/Sec9 |
-| Lemma 9.3 `lem:level-ten-constants` | `Stmt_lem_level_ten_constants` | statement frozen only | Statements/Sec9 |
+| Lemma 9.3 `lem:level-ten-constants` | `Stmt_lem_level_ten_constants` | proved, labelled (`lem_level_ten_constants`); no cited input | Proofs/Sec9Const |
 | Thm 9.4 `thm:level-ten-principal-part` | `Stmt_thm_level_ten_principal_part` | statement frozen only | Statements/Sec9 |
 | Prop 9.5 `thm:level-ten-leading` | `Stmt_thm_level_ten_leading` | statement frozen only | Statements/Sec9 |
-| Prop 11.1 `prop:identity-verma` | `Stmt_prop_identity_verma` | proved conditional on `GenericRecursionUniform` (`prop_identity_verma`) | Proofs/Sec11 |
+| Prop 11.1 `prop:identity-verma` | `Stmt_prop_identity_verma` | proved from the same two cited results (`prop_identity_verma_of_cited`) | Proofs/Sec6Final, Sec11 |
 | Thm 11.3 `thm:ising-characters` | `Stmt_thm_ising_characters` | statement frozen only | Statements/Sec11 |
+
+### Re-encoding of Proposition 6.2 (round three)
+
+`ImportedNormalizations` and `Cited_HJSNormalizations` were stated over `ℂ(b)` and the cited
+input contained the continuation clause. With coordinates in `ℂ(b)` the points where the
+normalized singular vector is regular cannot be cut out by polynomials over `ℚ`, which the
+uniform form of Proposition 6.5 needs. The paper's Proposition 6.2 speaks of identities of
+rational functions of `b`, and its proof takes the normalized singular vector from a linear
+system over `ℚ(b)`. The encoding now mirrors this: `NormalizationIdentities` (the cited
+`Cited_HJSNormalizations`) is the existence and uniqueness of the normalized singular vector
+over `ℚ(b)` with the identities (6.1), (6.2) there; `Stmt_prop_imported_normalizations` adds the
+continuation to complex specializations, which is now proved from the identities.
 
 ## Issues found in the paper
 
-1. Lemma 5.10 (`lem:singular-crossing`, paper.tex line 1086) needs the level `ℓ ≥ 1`. For `ℓ = 0`
-   and `P = 1` the vector `χ = |h₀⟩` satisfies the hypotheses as written (`L_n χ = 0` for `n > 0`
-   and `L_0`-weight `h₀ + ℓ`), `β_χ = d/dh ⟨h|h⟩ = 0`, and the conclusion would read
-   `d/dh G_m(c,h)|_{h₀} = 0`, which is false (`G_1 = 2h`). The step of the proof "its image lies
-   in the radical of the Shapovalov form" uses `ℓ ≥ 1`. All uses in the paper have `ℓ = rs ≥ 1`.
-   The frozen `Stmt_lem_singular_crossing` reads the lemma literally (all `ℓ`) and is therefore
-   not provable: `not_stmt_lem_singular_crossing` (Proofs/CrossingIssue) refutes it with
-   `ℓ = 0`, `P = 1`, `m = 1`. `singular_crossing` proves the lemma for `ℓ ≥ 1`.
+1. Lemma 5.10 (`lem:singular-crossing`) needed the level `ℓ ≥ 1` (found at d823b62; corrected in
+   the paper at 9aa415f, which now says "singular of level `ℓ ≥ 1`"). For `ℓ = 0` and `P = 1`
+   the conclusion would read `d/dh G_m(c,h)|_{h₀} = 0`, which is false (`G_1 = 2h`).
+   `Stmt_lem_singular_crossing` was re-frozen with the hypothesis `1 ≤ ℓ` and is proved
+   (`lem_singular_crossing`). The reading without that hypothesis is kept as
+   `SingularCrossingAllLevels` in Proofs/CrossingIssue, with its refutation
+   `not_singularCrossingAllLevels` (no label).
 
 ## Open items
 
-- `GenericRecursionUniform` (Statements/Sec6), i.e. Proposition 6.5 in the form its consumers
-  use. Available for its proof: Lemma 4.1 (`degree_Fnum_sub_lt`, `lem_large_weight`), partial
-  fractions (`isPoleSum_Frat_sub`, from `Cited_KacDeterminant`), Lemmas 5.1, 5.2, 5.9 and 5.10
-  (`singular_crossing`, any field of characteristic zero), the PBW basis, the levels
-  (Proofs/Levels), change of coefficient ring (Proofs/BaseChange) and the homomorphism of a
-  singular vector (`Verma.exists_singularHom`). Not yet formalized:
-  1. specialization of the normalized singular vector of `Cited_HJSNormalizations` from `ℂ(b)`
-     to a complex `b` (through the subring of functions regular at `b`);
-  2. `ker G_N(c(b),h_a(b))` = level-`N` image of the singular embedding (dimension count with
-     `Cited_VermaHomInjective`, the Kac determinant and Lemma 5.1);
-  3. the residue of `F_N` at `Δ = h_a(b)` from Proposition 5.2, Lemma 5.9 and Lemma 5.10
-     (needs the Laurent expansion of `Frat` in terms of `invLaurent (gramLocal …)`);
-  4. the eta-sum reassembling the shifted coefficients `H_{N-ℓ_a}(z_a)`;
-  5. the passage from generic complex `b` to every field of characteristic zero (the
-     exceptional set must be cut out by polynomials over `ℚ`: an identity-theorem argument in
-     `b` plus an embedding of `ℚ(b,d)` into `ℂ`).
-  Theorems 4.3, Corollaries 4.4, 7.6 and Proposition 11.1 remain conditional on
-  `GenericRecursionUniform`; Theorem 4.2 no longer is.
-- Theorem 5.7 from `Cited_JantzenLayers`: Lemma 5.6 is proved; still needed are the
-  independence of the levels as a direct sum, `(W⁺_i + W⁻_i)_N ≠ 0 ⇔ min(ℓ⁺_i, ℓ⁻_i) ≤ N`
-  (injectivity of `L_{-1}` on the Verma module), `ℓ^±_k ≥ k`, and the pole-order bound for
-  `F_N`, `H_N` over `ℂ(d)` in terms of `poleOrderInv (gramLocal …)` over `ℂ`.
-- Proposition 7.7 (uses the generic recursion and a regularity statement in two variables).
-- The Ising computations (Propositions 5.11, 5.13, 5.14, Theorems 5.12, 5.15, Sections 8, 9)
-  and Theorem 11.3.
+- Sections 8 and 9 except the constants (Propositions 8.1, 8.2, 9.1, 9.5, Lemma 8.4,
+  Theorems 8.5, 9.4) and Theorem 11.3: statements frozen only. The level-seven and level-ten statements need the
+  `15 × 15` and `42 × 42` Shapovalov matrices; the tools used at levels three and four
+  (Proofs/PartEnum, CoordTools, TransverseBasis, SmithSimple) apply, the second-order crossing
+  form of Proposition 5.3 is available as `prop_two_step_residue`, and Proposition 7.7 is
+  available as `prop_two_branch`.
+
+### How the explicit Ising results at levels three and four are proved
+
+- All explicit data are established over an arbitrary field `K` of characteristic zero
+  (vectors `xi2K`, `xi3K`, `chi2K`, `chi4K`, … in Proofs/Ising3, Ising4) and instantiated at
+  `K = ℂ` for Propositions 5.11, 5.13, 5.14 and at `K = ℂ(d)` for Theorems 5.12, 5.15. The
+  frozen vectors over `ℂ` are definitionally the `K = ℂ` instances.
+- Singular vectors: direct commutation with `L_1, …, L_ℓ` in the normal-ordering model
+  (`isSingular_of_actSt`), higher modes vanish by level.
+- Shapovalov forms of explicit vectors are polynomials in the weight obtained from the
+  normal-ordered matrix elements of their words (`gramForm_coords`); crossing scalars and the
+  first crossing form are their derivatives (`crossScalar_eq`, `cross1_gramLocal_eq`).
+- Determinants: the explicit Shapovalov matrices in the ordered Poincaré–Birkhoff–Witt bases
+  (`gram2`, `gram3`, `gram4`), expanded and compared by `ring`.
+- Smith exponents: determinant valuation equals nullity, then Lemma 5.1
+  (`isSmith_of_order_eq_nullity`).
+- Residues: Proposition 5.2 in a basis of the kernel (`ppCoeff_Frat_of_basis`) and Lemma 5.9
+  (`Verma.singular_factorization`) for the descendants of the level-two singular vector.
+
+#Round three: the Kac determinant formula over every field of characteristic zero from its
+complex form (`kac_det_field`, Proofs/KacField); specialization of the normalized singular
+vectors of Proposition 6.2 to every field (`normalization_at`, Proofs/Sec6Norm); level
+components of the Verma module (`Verma.comp`, Proofs/LevelComp); the residue of `F_{ℓ+M}` at a
+singular weight (`residue_Frat`, Proofs/ResidueCore4) and in a basis of the kernel
+(`ppCoeff_Frat_of_basis`, Proofs/TransverseBasis); the pole bound of `F_N`, `H_N` by the pole
+order of the inverse Shapovalov matrix (`poleOrder_FN_le`, `poleOrder_HN_le`, Proofs/PoleBound);
+regularity at a point in the two variables `(t, Δ)` and division by `Δ - h(t)` (`Reg2`,
+`Reg2.div_linear`, Proofs/Reg2); enumeration of the partitions of `1, …, 4`
+(`isEnum_one`, …, `isEnum_four`, Proofs/PartEnum); Euler coefficients `η_1, …, η_4`
+(Proofs/IsingAux).
+
+
+## Notes on the proof of Proposition 6.5
+
+- `Cited_VermaHomInjective` is not used: injectivity of the singular embedding on a level
+  follows from the nondegeneracy of the crossing form `β_χ G_{N-rs}(c, h+rs)`.
+- The passage to all fields of characteristic zero does not go through `ℂ`: the Kac determinant
+  is transferred from `ℂ` to `ℚ(b)` (a rational function over `ℚ` vanishing at all positive
+  integers is zero) and from there to any field by evaluation on the subring of `ℚ(b)` of
+  functions regular at `b` (`kac_det_field`); the normalized singular vector over `ℚ(b)`
+  specializes the same way (`normalization_at`).
+- The exceptional set for level `N` is the set of roots of the polynomials `m X² + n`
+  (`|m|, |n| ≤ 2N`, not both zero) and of the denominators of the coordinates of the normalized
+  singular vectors of level at most `N` (`linPolys`, `denomPolys` in Proofs/GenericH).
 
 ## Supporting results proved without a paper number
 
@@ -161,8 +197,12 @@ uniqueness of partial fractions through Laurent expansions (`ppCoeff_sum`).
 - `Field (RatFunc (RatFunc ℂ))⸨X⸩` is not found by instance search in files that import the
   analysis library; theorems over `ℂ(d)(Δ)⸨t⸩` are therefore stated for a generic field `K`
   and instantiated at `K = RatFunc ℂ`.
-- Last full build log: `logs/final-build-2.log` (2908 jobs, no error); axiom audit:
-  `logs/axioms.log` (33 theorems, all `[propext, Classical.choice, Quot.sound]`).
+- Last full build log: `logs/build59.log` (3010 jobs, no error); axiom audits:
+  `logs/axioms.log` (round two), `logs/axioms-3.log` (round three: the 23 labelled theorems and
+  17 further theorems, all `[propext, Classical.choice, Quot.sound]`).
+- The tactic `vec_simp` (Proofs/VecSimp) evaluates explicit vectors and matrices at numeral
+  indices by rewriting with the `Matrix.cons_val_*` lemmas; `dsimp` panics in the corresponding
+  simproc on some of these terms in this toolchain.
 - Do not run `lake clean` in this project: it also removes the Mathlib build products of
   `.lake/packages`, and the next `lake build` then compiles Mathlib from source. Restore with
   `lake exe cache get`.

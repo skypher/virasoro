@@ -2,11 +2,11 @@ import Virasoro.Proofs.Crossing
 import Virasoro.Statements.Sec5a
 
 /-!
-# The frozen reading of Lemma 5.10 fails at level zero
+# Lemma 5.10 needs a positive level
 
-For `ℓ = 0` and `P = 1` the vector `|h₀⟩` satisfies the hypotheses of Lemma 5.10 as written, the
-crossing scalar is `d/dh ⟨h|h⟩ = 0`, and the conclusion at `m = 1` would read
-`d/dh ⟨h|L_1 L_{-1}|h⟩ = d/dh (2h) = 0`.
+Read without the hypothesis `ℓ ≥ 1`, the crossing identity of Lemma 5.10 fails: for `ℓ = 0` and
+`P = 1` the vector `|h₀⟩` is annihilated by the positive modes, the crossing scalar is
+`d/dh ⟨h|h⟩ = 0`, and the identity at `m = 1` would read `d/dh ⟨h|L_1 L_{-1}|h⟩ = d/dh (2h) = 0`.
 -/
 
 namespace Virasoro
@@ -32,8 +32,18 @@ theorem gramWord_one_one (c h : ℂ[X]) : gramWord c h [1] [1] = 2 * h := by
 theorem gramWord_nil_nil (c h : ℂ[X]) : gramWord c h [] [] = 1 := by
   simp [gramWord, vac]
 
-/-- The literal reading of Lemma 5.10, with level `ℓ = 0` allowed, is false. -/
-theorem not_stmt_lem_singular_crossing : ¬ Stmt_lem_singular_crossing := by
+/-- The crossing identity of Lemma 5.10 with every level `ℓ ≥ 0` allowed. -/
+def SingularCrossingAllLevels : Prop :=
+  ∀ (c h₀ : ℂ) (ℓ : ℕ) (p : Nat.Partition ℓ → ℂ),
+    Verma.IsSingular (Verma.pbwCoord (c := c) (h := h₀) ℓ p) ℓ →
+      ∀ (m : ℕ) (Y Y' : Nat.Partition m),
+        (derivative (∑ Z : Nat.Partition ℓ, ∑ Z' : Nat.Partition ℓ,
+            C (p Z) * C (p Z') *
+              gramWord (C c) (X : ℂ[X]) (Y.word ++ Z.word) (Y'.word ++ Z'.word))).eval h₀ =
+          crossScalar c h₀ p * gram c (h₀ + (ℓ : ℂ)) m Y Y'
+
+/-- The crossing identity fails at level `ℓ = 0`. -/
+theorem not_singularCrossingAllLevels : ¬ SingularCrossingAllLevels := by
   intro hS
   have hpbw : Verma.pbwCoord (c := (0 : ℂ)) (h := (0 : ℂ)) 0 (fun _ => 1) = Verma.hw := by
     rw [Verma.pbwCoord_apply, Fintype.sum_unique, one_smul, word_default_zero, Verma.neg_nil]
