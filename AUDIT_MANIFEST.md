@@ -22,7 +22,7 @@ make arxiv-bundle
 
 creates `dist/virasoro-arxiv-v1.tar.gz`. The archive contains only
 `paper.tex` at its root and the audit README, manifest, dependency pin,
-Makefile, eight scripts, and two shared libraries under `anc/`. It excludes
+Makefile, nine scripts, and two shared libraries under `anc/`. It excludes
 the generated PDF and TeX auxiliary files, repository metadata, and project
 planning files.
 
@@ -37,19 +37,22 @@ The ordinary suite runs, in order:
    form, and the level-seven embedding diamond.
 2. `tools/audit_low_levels.py` — level-four Gram data, null vectors, torus
    polynomials, and the spin crossing form.
-3. `tools/audit_grade10_direct.py --crossing-only` — intrinsic construction
+3. `tools/audit_regular_families.py` — the eight regularity minors of the
+   normalized singular-vector families at the Ising parent and child
+   weights (Lemma `lem:regular-families`).
+4. `tools/audit_grade10_direct.py --crossing-only` — intrinsic construction
    of the level-ten second crossing form from the exact 42-by-42 Gram matrix,
    without generic-residue or confluence input.
-4. `tools/audit_grade10_confluence.py` — exact level-ten confluence and the
+5. `tools/audit_grade10_confluence.py` — exact level-ten confluence and the
    displayed finite-part polynomial.
-5. `tools/audit_confluent_recursion.py` — low-level collision moments from
+6. `tools/audit_confluent_recursion.py` — low-level collision moments from
    the shifted recursion.
-6. `tools/audit_direct_principal_parts.py` — direct inverse-Shapovalov checks
+7. `tools/audit_direct_principal_parts.py` — direct inverse-Shapovalov checks
    of the displayed principal parts at the exact sample external weights
    `d = 3/7` and `d = 23`.
-7. `tools/audit_stocco_comparison.py` — comparison through level four with
+8. `tools/audit_stocco_comparison.py` — comparison through level four with
    Stocco's formulas.
-8. `tools/audit_ising_characters.py` — BGG numerators and independent
+9. `tools/audit_ising_characters.py` — BGG numerators and independent
    free-fermion character counts through level 30.
 
 The deep target additionally runs `tools/audit_grade10_direct.py`, which
@@ -66,7 +69,7 @@ worker batch.
 The hashes below identify the submitted audit sources.
 
 ```text
-1c2fdd8b9d1aa48150b0d1be7b0998c6fa85f3355c866536ea96c69f0f2d427e  Makefile
+c86e28f93c151fc5adde462d612e68a55cb97226ac89d2b87ca502d5fb8281d7  Makefile
 8347daed02ebf7b3c3cfa494e97049b7e0ab15b9af00a5addd843ed44381a64a  requirements-audit.txt
 701649d93a313c2853a9ecd4d3106ff1957a97c2ff802e4e57612e9ed6e4c84c  tools/audit_confluent_recursion.py
 240545d5e84d292f360bf8d55d18de0e4dbe28ccbf3526f551fd8db4a1a81f9e  tools/audit_direct_principal_parts.py
@@ -75,6 +78,7 @@ The hashes below identify the submitted audit sources.
 f788150de71658f08fe11c1512ef64254fb1ff2e7da5682adeaa6ea105c6c232  tools/audit_grade10_direct.py
 26a0c7b5a325f3eacc7a900facff9e411354e39d752be7f24a66a10fbfab4448  tools/audit_ising_characters.py
 440b1a744cae37788512e6db19f41c132e8d42e0a813ad9101b217bc54946c38  tools/audit_low_levels.py
+4c7eba13ca7b7988107a4bd4ca6191a7a07b37dc579f8a818e47bde2929b0ce1  tools/audit_regular_families.py
 f979190e290b2e57649d01dc6ba0fcaf225ff21fb085e92431c370a2b4f0aeb8  tools/audit_stocco_comparison.py
 34c9a27ab97bb28b78f1c2e559c8dabf4bc5a2903d362ad43222f103c7910390  tools/direct_reconstruction.py
 3f69e0f5a782cf9e23037907dbf38467fa7c5550750c5faf587cbddffc75b519  tools/exact_shapovalov.py

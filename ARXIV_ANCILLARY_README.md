@@ -1,7 +1,7 @@
 # Exact-arithmetic ancillary replays
 
 This directory accompanies *Exact algebraic confluence for torus one-point
-Virasoro-block recursions*. It contains eight audit scripts and two shared
+Virasoro-block recursions*. It contains nine audit scripts and two shared
 libraries. All reported calculations use exact arithmetic.
 
 From this directory, install the pinned dependency and run the standard suite:

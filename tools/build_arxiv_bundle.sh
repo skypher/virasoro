@@ -30,6 +30,7 @@ for source in \
     audit_grade10_direct.py \
     audit_ising_characters.py \
     audit_low_levels.py \
+    audit_regular_families.py \
     audit_stocco_comparison.py \
     direct_reconstruction.py \
     exact_shapovalov.py
