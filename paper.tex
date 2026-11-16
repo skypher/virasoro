@@ -995,7 +995,7 @@ In the setting of Theorem~\ref{thm:top-layer}, let
 \(\ell_k\leq N<\max(\ell^+_k,\ell^-_k)\), put \(M=N-\ell_k\) and
 \(\mu=\lambda+\ell_k\), and let \(m>0\) with
 \(m^2=4pp'\mu+(p'-p)^2\).  If \(\min(p,p')\,M<m+\max(p,p')\) or
-\(M\leq5\), then \(H_N(c_\star,\Delta,d)\) has a pole of order exactly
+\(M\leq40\), then \(H_N(c_\star,\Delta,d)\) has a pole of order exactly
 \(j_N(\lambda)=k\) at \(\Delta=\lambda\).  At \(N=\ell_k\) the leading coefficient is
 \(\tau/\gamma\) for the singular vector of level \(\ell_k\).  The pole
 order is also exactly \(k\) at \(N=\max(\ell^+_k,\ell^-_k)\).
@@ -1025,14 +1025,16 @@ the two sums do not both vanish.  Finally, by the proof of
 Theorem~\ref{thm:jantzen-smith}, \(m\) is one of \(2jpp'\mp n_0\)
 (\(j\geq1\)), \(2(j+1)pp'-n_1\), \(2jpp'+n_1\) (\(j\geq0\)); as
 \(|n_0|<n_1<pp'\), \(m\geq p+p'\), so the hypothesis holds for
-\(M\leq2\).  For \(M\leq5\) a computer-assisted step applies instead: writing
-\(H_M(c,h,d)\) over \(\prod_{M'\leq M}\det G_{M'}(c,h)\), an exact
-Gr\"obner-basis computation over \(\mathbb Q\) shows that every common
-factor of its \(d\)-coefficients is a Kac factor and that a power of
-\(\prod_{M'\leq M}\det G_{M'}\) lies in the ideal of the remaining
-coefficients.  So \(H_M(c,h,\cdot)\not\equiv0\) whenever
-\(\det G_{M'}(c,h)\neq0\) for \(M'\leq M\), which holds at \((c_\star,\mu)\) by
-Theorem~\ref{thm:top-layer}.
+\(M\leq2\).  For \(M\leq40\) a computer-assisted step applies instead.  In
+the variables \(t=b^2\) and \(w=4th-(t+1)^2\), Lemma~\ref{lem:d-derivatives}
+writes the two derivatives as \(\sum_{rs=M}(rt\pm s)/(w+(rt+s)^2)\) up to
+nonzero factors.  An exact computation over \(\mathbb Q\) shows that their
+numerators are coprime and that each irreducible factor of their resultant
+in \(w\) either has no root \(t=-p'/p\) with \(p,p'\geq2\) (it is
+irreducible of degree at least \(4\)) or carries only common zeros on the
+Kac curves \(w+(r't+s')^2=0\), \(r's'\leq M\).  Since \(\mu\) is not a Kac
+weight of level at most \(M\) (Theorem~\ref{thm:top-layer}), the two
+derivatives at \((c_\star,\mu)\) do not both vanish.
 
 At \(N=\max(\ell^\pm_k)\), the leading coefficient is
 \((\tau/\gamma)H_M(c_\star,\mu,d)+\tau'/\gamma'\), with \(\tau',\gamma'\) the data
@@ -1044,7 +1046,7 @@ Lemma~\ref{lem:tau-order} the first term vanishes to order at least
 
 \begin{remark}[The remaining levels]\label{rem:top-layer-beyond}
 Two ranges are not covered.  (a) On the rest of a one-term part
-(\(M\geq6\)), the argument above gives attainment unless \(\sum_{uv=M}u/D\) and
+(\(M\geq41\)), the argument above gives attainment unless \(\sum_{uv=M}u/D\) and
 \(\sum_{uv=M}v/D\) both vanish.  (b) For \(\max(\ell^\pm_k)<N<\ell_{k+1}\),
 both terms of \eqref{eq:top-layer} vanish to order \(k+1\) at \(d=0\).  For
 \(k=1\) the next coefficients at \(d=0\) and \(d=1\) are explicit, since the
@@ -1965,8 +1967,8 @@ confluence input; \path{audit_top_layer.py} checks
 Theorem~\ref{thm:top-layer}, Lemmas~\ref{lem:d-derivatives}
 and~\ref{lem:tau-order}, and the enumerations of
 Remark~\ref{rem:top-layer-beyond}, \path{audit_minimal_models.py} its
-minimal-model pole orders, and \path{audit_hm_nonvanishing.py} the
-Gr\"obner certificate in the proof of Corollary~\ref{cor:top-layer-sharp}
+minimal-model pole orders, and \path{audit_kl_certificate.py} the
+certificate in the proof of Corollary~\ref{cor:top-layer-sharp}
 (commands and hashes in \path{AUDIT_MANIFEST.md}).
 \end{remark}
 

@@ -70,9 +70,10 @@ reconstructs the block coefficients at the minimal models (3,4), (2,5), (2,7),
 `d = 11/13`, and checks that the pole order at every interior weight equals
 the Jantzen depth (Remark `rem:top-layer-beyond`), and tests Proposition `prop:second-layer` at
 (2,3) against the exact Taylor coefficients at `d = 0, 1` for `N = 7, 8, 9`.
-Finally it runs `tools/audit_hm_nonvanishing.py` (about 17 minutes), the Groebner-basis
-certificate of Corollary `cor:top-layer-sharp`: for `M <= 5` the d-coefficients of
-`H_M(c,h,d)` vanish together only where some `det G_{M'}(c,h)`, `M' <= M`, vanishes.  Interpolation samples at levels eight through ten
+Finally it runs `tools/audit_kl_certificate.py` (about 20 minutes), the certificate of
+Corollary `cor:top-layer-sharp`: for `2 <= M <= 40`, at every minimal-model charge, the
+derivatives of `H_M` at `d = 0` and `d = 1` (Lemma `lem:d-derivatives`) never vanish
+together off the Kac weights of level `<= M` (resultants and Groebner reduction over Q).  Interpolation samples at levels eight through ten
 are distributed among worker processes; set `VIRASORO_AUDIT_JOBS` to control
 their number.  Progress lines report completed and regular samples at every
 worker batch.
@@ -82,14 +83,14 @@ worker batch.
 The hashes below identify the submitted audit sources.
 
 ```text
-578020053cededb8b24c5ec7d9e82582f78a483f713b9bad75fc4d516dd0608b  Makefile
+b5f31c883278b58d3a511450b787051a1d2171a15005990edba6c05c8c518d29  Makefile
 8347daed02ebf7b3c3cfa494e97049b7e0ab15b9af00a5addd843ed44381a64a  requirements-audit.txt
 701649d93a313c2853a9ecd4d3106ff1957a97c2ff802e4e57612e9ed6e4c84c  tools/audit_confluent_recursion.py
 240545d5e84d292f360bf8d55d18de0e4dbe28ccbf3526f551fd8db4a1a81f9e  tools/audit_direct_principal_parts.py
 90218c120e892157507e9167fbc9033ba85c6c25fbf2bde3269806ffced26185  tools/audit_first_resonances.py
 978df56dce0c8be9389c8fe8b3d7dfd93170b2ea7a74fec47d1cdd3a8c809d29  tools/audit_grade10_confluence.py
 f788150de71658f08fe11c1512ef64254fb1ff2e7da5682adeaa6ea105c6c232  tools/audit_grade10_direct.py
-4454f5ce1a359405913aa5ed228afb2ec064e621cf460a1b783ca467e3631c34  tools/audit_hm_nonvanishing.py
+0e8bdc95fe5056a793eab135d71b55db5e248216661d913fa2cc14d50ac95713  tools/audit_kl_certificate.py
 440b1a744cae37788512e6db19f41c132e8d42e0a813ad9101b217bc54946c38  tools/audit_low_levels.py
 cf4c9a8db5edd10c4f9b8fa5a9a2b4e344d4bcd3ac5c4895b74ef06838298cc6  tools/audit_minimal_models.py
 4c7eba13ca7b7988107a4bd4ca6191a7a07b37dc579f8a818e47bde2929b0ce1  tools/audit_regular_families.py
