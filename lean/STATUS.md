@@ -148,7 +148,7 @@ New statements, not formalized:
 - Lemma 6.7 `lem:tau-order` (τ^±_k vanishes to order exactly k at d = 0).
 - Cor 5.11 now also covers N = max(ℓ^±_k) and N − ℓ_k ≤ 40 (the latter by an exact
   certificate on the two d-derivatives of Lemma 6.5, tools/audit_kl_certificate.py) and N − ℓ_k
-  with at most four divisors (a short elimination on the same derivatives; identities checked
+  with at most five divisors (eliminations on the same derivatives plus a Diophantine step; identities checked
   symbolically in tools/audit_kl_certificate.py).
 - Prop 7.8 `prop:second-layer` (double-pole coefficient on the second-layer window as a sum
   over chains, with slope ratios η).

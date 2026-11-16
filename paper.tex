@@ -266,8 +266,8 @@ theorem, and Section~\ref{sec:ising} treats the Ising diamonds and
 compares the low-level output with Stocco's expressions.  The general
 theorems are proved without computer calculation, except for the levels
 \(N\) of Corollary~\ref{cor:top-layer-sharp} with \(12\leq N-\ell_k\leq40\) and
-\(N-\ell_k\) having at least five divisors, which rest on an exact symbolic
-computation; the explicit Ising evaluations are
+\(N-\ell_k\) having at least six divisors, and the factorization used for
+\(N-\ell_k=q^4\), which rest on exact symbolic computations; the explicit Ising evaluations are
 computer-assisted finite calculations in exact rational arithmetic
 (Remark~\ref{rem:audit-scope}).
 
@@ -998,7 +998,7 @@ In the setting of Theorem~\ref{thm:top-layer}, let
 \(\ell_k\leq N<\max(\ell^+_k,\ell^-_k)\), put \(M=N-\ell_k\) and
 \(\mu=\lambda+\ell_k\), and let \(m>0\) with
 \(m^2=4pp'\mu+(p'-p)^2\).  If \(\min(p,p')\,M<m+\max(p,p')\) or
-\(M\leq40\), or \(M\) has at most four divisors, then
+\(M\leq40\), or \(M\) has at most five divisors, then
 \(H_N(c_\star,\Delta,d)\) has a pole of order exactly
 \(j_N(\lambda)=k\) at \(\Delta=\lambda\).  At \(N=\ell_k\) the leading coefficient is
 \(\tau/\gamma\) for the singular vector of level \(\ell_k\).  The pole
@@ -1050,7 +1050,16 @@ direct expansion leaves \((a+1)(b+1)(M-1)(a-b)^2Q(-p'/p)=0\), with
 \(u^2=(a+b)(M+1)/M\), so \((p^2+p'^2)^2/(pp')^2=(a+b)(M+1)/M\).  If \(a,b\) are
 distinct primes, \((a+b)(M+1)\) is prime to \(M\), so the right side is not
 a rational square; if \(M=a^3\) it equals \((a+1)^2(a^2-a+1)/a^2\), and
-\((a-1)^2<a^2-a+1<a^2\).
+\((a-1)^2<a^2-a+1<a^2\).  If \(M=q^4\), solving for the values at
+\((1,M),(M,1)\) leaves two cubics in \(m^2\); their resultant, computed
+symbolically in \(q\) and \(t\), vanishes at \(t=-p'/p\) only through a factor
+\(t^4(Av^2+Bv+C)\), \(v=(t+1/t)^2\), the other factors vanishing only at
+\(t\in\{\pm1,\pm q^{\pm1}\}\).  Here \(A=q^6(q^4+q^3+q^2+q+1)\neq0\) and
+\(B^2-4AC=(q^2(q^2-1)^2(q^2+1))^2\Pi\) with
+\(\Pi=(q^2+1)(q^4+1)(q^6+4q^5+5q^4+5q^2+4q+1)\).  For
+\(R=q^6+2q^5+q^4+5q^2-6q+13\), \(\Pi-R^2=-8(4q^5+5q^4-8q^3+20q^2-20q+21)\), so
+\((R-1)^2<\Pi<R^2\) for \(q\geq16\), and \(\Pi\) is not a square for
+\(q\leq15\) either; hence \(v\) and \(t\) are irrational.
 
 At \(N=\max(\ell^\pm_k)\), the leading coefficient is
 \((\tau/\gamma)H_M(c_\star,\mu,d)+\tau'/\gamma'\), with \(\tau',\gamma'\) the data
@@ -1061,25 +1070,19 @@ Lemma~\ref{lem:tau-order} the first term vanishes to order at least
 \end{proof}
 
 \begin{remark}[The remaining levels]\label{rem:top-layer-beyond}
-Two ranges are not covered.  (a) On the rest of a one-term part
-(\(M\geq41\) with at least five divisors), the argument above gives attainment unless \(\sum_{uv=M}u/D\) and
-\(\sum_{uv=M}v/D\) both vanish.  (b) For \(\max(\ell^\pm_k)<N<\ell_{k+1}\),
-both terms of \eqref{eq:top-layer} vanish to order \(k+1\) at \(d=0\).  For
-\(k=1\) the next coefficients at \(d=0\) and \(d=1\) are explicit, since the
-two labels have \(\partial_d{\mathcal R}|_{d=0}=\pm n_0/(2p(b_\star^2+1))\)
-(Lemmas~\ref{lem:d-derivatives}, \ref{lem:regular-everywhere}): with
-\(f=p'u-pv\), \(g=p'u+pv\), \(m_+=n_1\), \(m_-=2pp'-n_1\), and
-\(\Sigma^\pm_x=\sum_{uv=N-\ell^\pm_1}x/(f^2-m_\pm^2)\), attainment fails only
-if \(\Sigma^+_f=\Sigma^-_f\) and \(n_1\Sigma^+_g+(2pp'-n_1)\Sigma^-_g=0\).
-For \(k=2\), Proposition~\ref{prop:second-layer} makes them explicit
-likewise; for \(k\geq3\) they involve \(\gamma^\pm_k\).  For every minimal
-model with \(pp'\leq60\), exact enumeration excludes (a) for \(k\leq3\),
-\(N-\ell_k\leq60\), and (b) for \(k=1,2\) (the hypotheses of
-Proposition~\ref{prop:second-layer} hold throughout).  A direct
-reconstruction at \(d=11/13\) finds pole order \(j_N(\lambda)\) for
-\(N\leq10\) at every interior weight of \((p,p')=(3,4)\), \((2,5)\),
-\((2,7)\), \((3,5)\), \((4,5)\), \((2,9)\), \((3,7)\), and for \(N\leq11\) at
-\((2,3)\), whose levels \(8,\ldots,11\) lie in (b) with \(k=2\).
+Two ranges remain: (a) the rest of the one-term parts (\(M\geq41\) with at
+least six divisors), where attainment holds unless \(\sum u/D\) and
+\(\sum v/D\) both vanish; (b) \(\max(\ell^\pm_k)<N<\ell_{k+1}\), where both
+terms of \eqref{eq:top-layer} vanish to order \(k+1\) at \(d=0\).  For
+\(k=1,2\) the next coefficients at \(d=0,1\) are explicit by
+Lemmas~\ref{lem:d-derivatives}, \ref{lem:regular-everywhere} and
+Proposition~\ref{prop:second-layer}; for \(k\geq3\) they involve
+\(\gamma^\pm_k\).  Exact enumeration excludes failure in (a) for \(k\leq3\),
+\(M\leq60\), and in (b) for \(k=1,2\), at every minimal model with
+\(pp'\leq60\); direct reconstruction at \(d=11/13\) confirms the pole
+orders for \(N\leq10\) at the interior weights of \((3,4)\), \((2,5)\),
+\((2,7)\), \((3,5)\), \((4,5)\), \((2,9)\), \((3,7)\), and \(N\leq11\) at
+\((2,3)\).
 \end{remark}
 
 \section{Generic residue data}\label{sec:generic-data}
@@ -1963,29 +1966,18 @@ evaluation of Lemma~\ref{lem:top-coefficient}(iii) in the PBW bases gives
 the same values.
 \end{proof}
 
-\begin{remark}[Low-level output and Stocco's expressions]
+\begin{remark}[Stocco's expressions]
 \label{rem:stocco-comparison}
-Through level four the fourteen nonzero moments \(A_{n,1,N}\) factor over
-\(\mathbb Q[d]\); \(A_{5,1,3}\) and \(A_{2,1,4}\) are the residues of
-Corollary~\ref{cor:first-residues}.  Stocco's pole-free numerators for
-\(N\leq4\) \cite[Sections~II.2--II.3 and Appendix~A]{Stocco2022} reproduce
-\(H_2\), \(H_3\) identically in \(b\) and \(H_4\) at sample values including
-\(b_0\), the collided labels making his common denominator vanish to
-higher order at \(b_0\) and his numerators acquiring compensating zeros.
-The present paper extends these expressions to all orders, with a
-termination and equality proof.
+Stocco's pole-free numerators for \(N\leq4\)
+\cite[Sections~II.2--II.3 and Appendix~A]{Stocco2022} reproduce \(H_2\),
+\(H_3\) identically in \(b\) and \(H_4\) at sample values including \(b_0\);
+the present paper extends them to all orders.
 \end{remark}
 
 \begin{remark}[Exact replay]\label{rem:audit-scope}
-The ancillary scripts replay every computation of this section in exact
-arithmetic, the level-ten Gram matrix and \(\gamma_{10}\) also without
-confluence input; \path{audit_top_layer.py} checks
-Theorem~\ref{thm:top-layer}, Lemmas~\ref{lem:d-derivatives}
-and~\ref{lem:tau-order}, and the enumerations of
-Remark~\ref{rem:top-layer-beyond}, \path{audit_minimal_models.py} its
-minimal-model pole orders, and \path{audit_kl_certificate.py} the
-certificate in the proof of Corollary~\ref{cor:top-layer-sharp}
-(commands and hashes in \path{AUDIT_MANIFEST.md}).
+The ancillary scripts (listed in \path{AUDIT_MANIFEST.md}) replay every
+computation of this paper in exact arithmetic, including the certificate in
+the proof of Corollary~\ref{cor:top-layer-sharp}.
 \end{remark}
 
 

@@ -52,7 +52,59 @@ def four_label_identities():
     return ok
 
 
+def fourth_power_identities():
+    """The elimination for M = q^4 in the proof of the corollary (symbolic in q and t)."""
+    q, W, v = sp.symbols("q W v")
+    labels = [(q ** i, q ** (4 - i)) for i in range(5)]
+    y = sp.symbols("y1:6")
+    sol = sp.solve([sum(r * yi for (r, s), yi in zip(labels, y)),
+                    sum(s * yi for (r, s), yi in zip(labels, y))], [y[0], y[4]], dict=True)[0]
+    Z = [W + (r * t + s) ** 2 for r, s in labels]
+    sub = {y[i]: 1 / Z[i] for i in range(5)}
+    n1 = sp.expand(sp.numer(sp.together((y[0] - sol[y[0]]).subs(sub))))
+    n2 = sp.expand(sp.numer(sp.together((y[4] - sol[y[4]]).subs(sub))))
+    res = sp.resultant(n1, n2, W)
+    ok = True
+    special = {t - 1, t + 1, q - t, q + t, q * t - 1, q * t + 1}
+    big = None
+    for f, _ in sp.factor_list(res)[1]:
+        if sp.Poly(f, t).degree() == 0:
+            continue
+        if sp.Poly(f, t).degree() == 8:
+            big = f
+            continue
+        ok &= sp.expand(f) in {sp.expand(x) for x in special} or sp.expand(-f) in {sp.expand(x) for x in special}
+    ok &= big is not None
+    coeffs = sp.Poly(big, t).all_coeffs()
+    ok &= all(sp.expand(coeffs[i] - coeffs[8 - i]) == 0 for i in range(9))
+    tk = {0: sp.Integer(2), 1: sp.sqrt(v)}
+    u = sp.Symbol("u")
+    tk = {0: sp.Integer(2), 1: u}
+    for k in range(2, 5):
+        tk[k] = sp.expand(u * tk[k - 1] - tk[k - 2])
+    G = sp.Poly(sp.expand(coeffs[4] + sum(coeffs[4 - k] * tk[k] for k in range(1, 5))), u)
+    ok &= all(m[0] % 2 == 0 for m in G.monoms())
+    H = sp.Poly(G.as_expr().subs(u ** 4, v ** 2).subs(u ** 2, v), v)
+    A, B, C = H.all_coeffs()
+    big_pi = (q ** 2 + 1) * (q ** 4 + 1) * (q ** 6 + 4 * q ** 5 + 5 * q ** 4 + 5 * q ** 2 + 4 * q + 1)
+    rr = q ** 6 + 2 * q ** 5 + q ** 4 + 5 * q ** 2 - 6 * q + 13
+    ok &= sp.expand(A - q ** 6 * (q ** 4 + q ** 3 + q ** 2 + q + 1)) == 0
+    ok &= sp.expand(B ** 2 - 4 * A * C - (q ** 2 * (q ** 2 - 1) ** 2 * (q ** 2 + 1)) ** 2 * big_pi) == 0
+    ok &= sp.expand(big_pi - rr ** 2 + 8 * (4 * q ** 5 + 5 * q ** 4 - 8 * q ** 3 + 20 * q ** 2 - 20 * q + 21)) == 0
+    from math import isqrt
+    for qq in range(2, 16):
+        val = int(big_pi.subs(q, qq))
+        ok &= isqrt(val) ** 2 != val
+    for qq in range(16, 200):
+        val, r0 = int(big_pi.subs(q, qq)), int(rr.subs(q, qq))
+        ok &= (r0 - 1) ** 2 < val < r0 ** 2
+    print(("PASS" if ok else "FAIL") + " fourth-power elimination identities (symbolic in q, t)",
+          flush=True)
+    return ok
+
+
 failures = 0 if four_label_identities() else 1
+failures += 0 if fourth_power_identities() else 1
 for m in range(2, MMAX + 1):
     labels = [(r, m // r) for r in range(1, m + 1) if m % r == 0]
     ks = [w + (r * t + s) ** 2 for r, s in labels]
