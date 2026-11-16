@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact replay of Theorem thm:top-layer at the Ising charge through level ten.
+"""Exact replay of Theorem thm:top-layer, Corollary cor:top-layer-sharp and Lemma lem:d-derivatives.
 
 Usage: python3 -u tools/audit_top_layer.py [-h|--help] [--max-level N] [--d D]
 
@@ -21,20 +21,34 @@ For the second layer (levels 7 and 10) the script uses the paper's values
 gamma_7 = -700700 and gamma_10 = -1121229484375/192 and the factored torus
 norms, which other audits replay.  A nonzero leading coefficient at one
 value of d proves the pole order for indeterminate d.
+
+Lemma lem:d-derivatives is checked at c = 1/2 for M <= 6 at four internal
+weights: H_M(1/2, h, d) is computed from G_M and rho_M at 2M + 3 values of d
+and interpolated, and its values and derivatives at d = 0, 1 are compared with
+the closed forms.
+
+Remark rem:top-layer-beyond: for every minimal model with pp' <= 60, every
+interior (r, s), k <= 3 and 1 <= M <= 60 in the one-term part of the window,
+the sums sum u/D and sum v/D over the labels uv = M (D = (p'u - pv)^2 - m^2)
+are checked not to vanish together, and the cases covered by the hypothesis
+of Corollary cor:top-layer-sharp are counted.
 """
 
 import argparse
 import sys
 import time
 from fractions import Fraction as Fr
+from math import gcd, isqrt
 
 sys.path.insert(0, __file__.rsplit("/", 1)[0])
 from direct_reconstruction import (  # noqa: E402
     RationalFunction,
     act,
     basis,
+    det_and_trace_inv,
     euler_coeffs,
     gram_matrix,
+    lagrange_interp,
     mat_eval,
     padd,
     peval,
@@ -110,6 +124,80 @@ def first_layer_data(level, weight):
     return tau, beta
 
 
+def d_derivative_checks():
+    """Lemma lem:d-derivatives at c = 1/2 (t = b_0^2 = -4/3)."""
+    t = Fr(-4, 3)
+    euler = euler_coeffs(6)
+    grams = {level: gram_matrix(level) for level in range(1, 7)}
+    for h0, mmax in ((Fr(15, 2), 6), (Fr(3, 7), 6), (Fr(161, 16), 6), (Fr(1), 4)):
+        for m in range(1, mmax + 1):
+            points = []
+            for i in range(2 * m + 3):
+                dval = Fr(i + 2, 3)
+                set_external_weight(dval)
+                f = [Fr(1)]
+                for level in range(1, m + 1):
+                    det, tr = det_and_trace_inv(mat_eval(grams[level], h0),
+                                                mat_eval(vertex_matrix(level), h0))
+                    assert det != 0
+                    f.append(tr)
+                points.append((dval, sum(euler[j] * f[m - j] for j in range(m + 1))))
+            poly = lagrange_interp(points)
+            deriv = tuple(poly[i] * i for i in range(1, len(poly)))
+            labels = [(r, m // r) for r in range(1, m + 1) if m % r == 0]
+            k0 = -sum((r * t + s) / (2 * (t + 1) * (h0 - Fr((4 * r - 3 * s) ** 2 - 1, 48)))
+                      for r, s in labels)
+            k1 = sum((r * t - s) / (2 * (t - 1) * (h0 - Fr((4 * r - 3 * s) ** 2 - 1, 48)))
+                     for r, s in labels)
+            check(f"d-derivatives at h={h0}, M={m}",
+                  len(poly) <= 2 * m + 1 and peval(poly, Fr(0)) == 0
+                  and peval(poly, Fr(1)) == 0 and peval(deriv, Fr(0)) == k0
+                  and peval(deriv, Fr(1)) == k1)
+
+
+def layer_levels(p, q, r, s, k):
+    n0, pq = q * r - p * s, p * q
+    if k % 2 == 0:
+        j = k // 2
+        return j * (j * pq + n0), j * (j * pq - n0)
+    j = (k - 1) // 2
+    return (r + j * p) * (s + j * q), ((j + 1) * p - r) * ((j + 1) * q - s)
+
+
+def window_criterion(ppmax=60, kmax=3, mmax=60):
+    """Remark rem:top-layer-beyond: no common zero of sum u/D and sum v/D."""
+    cases = covered = zeros = 0
+    for p in range(2, ppmax):
+        for q in range(2, ppmax // p + 1):
+            if q == p or gcd(p, q) != 1:
+                continue
+            for r in range(1, p):
+                for s in range(1, q):
+                    if q * r + p * s >= p * q:
+                        continue
+                    for k in range(1, kmax + 1):
+                        lo, hi = sorted(layer_levels(p, q, r, s, k))
+                        m2 = (q * r - p * s) ** 2 + 4 * p * q * lo
+                        m = isqrt(m2)
+                        assert m * m == m2
+                        for big_m in range(1, min(mmax, hi - lo - 1) + 1):
+                            su = sv = Fr(0)
+                            for u in range(1, big_m + 1):
+                                if big_m % u == 0:
+                                    v = big_m // u
+                                    den = (q * u - p * v) ** 2 - m2
+                                    assert den != 0
+                                    su += Fr(u, den)
+                                    sv += Fr(v, den)
+                            cases += 1
+                            covered += min(p, q) * big_m < m + max(p, q)
+                            zeros += su == 0 and sv == 0
+    print(f"one-term window cases {cases}, covered by Corollary {covered}, "
+          f"common zeros {zeros}", flush=True)
+    check("no common zero of sum u/D and sum v/D (pp' <= 60, k <= 3, M <= 60)",
+          zeros == 0 and cases > 0)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--max-level", type=int, default=10)
@@ -177,6 +265,8 @@ def main():
             check(f"lambda={weight} N={n}: pole order {order} = j_N = {depth}, "
                   f"leading coefficient matches",
                   order == depth and leading == predicted)
+    d_derivative_checks()
+    window_criterion()
     print(f"total {time.time() - start:.0f}s", flush=True)
     if FAILURES:
         print(f"{len(FAILURES)} FAILURES", flush=True)

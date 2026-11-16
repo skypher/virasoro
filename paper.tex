@@ -528,14 +528,9 @@ By Lemma~\ref{lem:polynomial-entries},
 \(\Delta\), and its poles are contained in the zero locus of
 \(\det G_N\).  The Kac determinant formula
 \cite{Kac1979,FeiginFuchs1982}, in the form of
-\cite[Theorem~4.2 and equations (4.16)--(4.21)]{IoharaKoga2011}, gives,
-up to a nonzero factor independent of \(\Delta\),
-\[
- \det G_N(c,\Delta)
- =C_N\prod_{\substack{r,s>0\\rs\leq N}}
-   \bigl(\Delta-\Delta_{r,s}(c)\bigr)^{p(N-rs)}.
-\]
-At \(c=c_\star\), the distinct zeros belong to the finite set
+\cite[Theorem~4.2 and equations (4.16)--(4.21)]{IoharaKoga2011}, gives
+\(\det G_N(c,\Delta)=C_N\prod_{rs\leq N}(\Delta-\Delta_{r,s}(c))^{p(N-rs)}\)
+with \(C_N\neq0\) independent of \(\Delta\).  At \(c=c_\star\), the distinct zeros belong to the finite set
 \(\Lambda_N(b_\star)\).  Since \(H_N\) is a finite integer linear
 combination of \(F_0,\ldots,F_N\), it has the same pole containment.
 Lemma~\ref{lem:large-weight} shows that \(H_N\) tends to zero at infinity
@@ -1017,41 +1012,55 @@ coefficients and summing as in Definition~\ref{def:eta-reduced} gives
 Lemma~\ref{lem:singular-degree}.
 \end{proof}
 
-\begin{corollary}[Sharpness at the first levels of each layer]
+\begin{corollary}[Sharpness on the lower part of each window]
 \label{cor:top-layer-sharp}
-In the setting of Theorem~\ref{thm:top-layer}, suppose
-\(N-\ell_k\in\{0,1,2\}\) and \(N<\max(\ell^+_k,\ell^-_k)\).  Then
-\(H_N(c_\star,\Delta,d)\) has a pole of order exactly \(j_N(\lambda)=k\) at
-\(\Delta=\lambda\).  In particular, this holds at the first level
-\(N=\ell_k\) of every layer, with leading coefficient \(\tau/\gamma\) for
-the singular vector of level \(\ell_k\).
+In the setting of Theorem~\ref{thm:top-layer}, let
+\(\ell_k\leq N<\max(\ell^+_k,\ell^-_k)\), put \(M=N-\ell_k\) and
+\(\mu=\lambda+\ell_k\), and let \(m>0\) with
+\(m^2=4pp'\mu+(p'-p)^2\).  If \(\min(p,p')\,M<m+\max(p,p')\), then
+\(H_N(c_\star,\Delta,d)\) has a pole of order exactly \(j_N(\lambda)=k\)
+at \(\Delta=\lambda\).  This holds in particular for
+\(N\leq\ell_k+2\), and at \(N=\ell_k\) the leading coefficient is
+\(\tau/\gamma\) for the singular vector of level \(\ell_k\).
 \end{corollary}
 
 \begin{proof}
 Only the sign with \(\ell^\pm_k=\ell_k\) contributes to
 \eqref{eq:top-layer}, so the leading coefficient is
-\(\tau(d)H_M(c_\star,\mu,d)/\gamma\) with \(M=N-\ell_k\) and
-\(\mu=\lambda+\ell_k\), and \(\tau\neq0\).  Here \(H_0=1\), and direct
-computation from Definitions~\ref{def:matrices}
-and~\ref{def:eta-reduced} gives \(H_1(c,h,d)=d(d-1)/(2h)\) and
-\[
- H_2(c,h,d)=\frac{d(d-1)\bigl((c+8h)d^2-(c+56h)d+4h(c+24h+5)\bigr)}
- {4h\,(16h^2+2(c-5)h+c)} .
-\]
-For \(M\geq1\), Theorem~\ref{thm:top-layer} gives
-\(\det G_1(c_\star,\mu)=2\mu\neq0\).  The three coefficients of the
-quadratic factor of \(H_2\) vanish together only for \(c=h=0\), so
-\(H_M(c_\star,\mu,d)\neq0\) for \(M\leq2\).
+\(\tau(d)H_M(c_\star,\mu,d)/\gamma\) with \(\tau\neq0\), and \(H_0=1\).
+Let \(M\geq1\) and suppose \(H_M(c_\star,\mu,d)=0\).  By
+Theorem~\ref{thm:top-layer}, \(H_M(c(b),\Delta,d)\) is regular at
+\((b_\star,\mu)\), so Lemma~\ref{lem:d-derivatives} applies there.  For a
+label \((u,v)\) with \(uv=M\) put \(f=p'u-pv\) and \(D=f^2-m^2\), so that
+\(D=4pp'(h_{u,v}(b_\star)-\mu)\neq0\) by Proposition~\ref{prop:minimal-collisions}.
+Since \(t=b_\star^2=-p'/p\neq0,\pm1\), the two derivatives in
+Lemma~\ref{lem:d-derivatives} vanish only if \(\sum_{uv=M}u/D=\sum_{uv=M}v/D=0\).
+Along the labels ordered by \(u\), \(f=p'u-pM/u\) increases.  If
+\(p<p'\), the hypothesis reads \(pM<m+p'\), so every \(f\) is at least
+\(f(1)=p'-pM>-m\); hence \(D>0\) exactly for \(u\) above some \(u_0\).  If
+no label has \(D>0\), then \(\sum u/D<0\); otherwise choose \(\sigma\)
+strictly between the largest \(u\) with \(D<0\) and the smallest \(u\) with
+\(D>0\), and \(\sum(u-\sigma^2v/M)/D>0\), because \(u-\sigma^2v/M\) has the
+sign of \(u-\sigma\).  If \(p>p'\), the hypothesis reads \(p'M<m+p\), every
+\(f\) is below \(f(M)=p'M-p<m\), \(D>0\) exactly for \(u\) below some
+\(u_0\), and the same argument with the opposite sign applies.  Either way
+the two sums do not both vanish.  Finally, by the proof of
+Theorem~\ref{thm:jantzen-smith}, \(m\) is one of \(2jpp'\mp n_0\)
+(\(j\geq1\)), \(2(j+1)pp'-n_1\), \(2jpp'+n_1\) (\(j\geq0\)); as
+\(|n_0|<n_1<pp'\), \(m\geq p+p'\), so the hypothesis holds for
+\(M\leq2\).
 \end{proof}
 
 \begin{remark}[The remaining levels]\label{rem:top-layer-beyond}
-For the other levels of a window, Theorem~\ref{thm:top-layer} reduces the
-question whether \(H_N\) attains \(j_N(\lambda)\) to the nonvanishing of the
-explicit polynomial in \eqref{eq:top-layer}.  At \(c=1/2\), a direct
-reconstruction at \(d=3/7\) (Remark~\ref{rem:audit-scope}) confirms
+On the rest of a one-term window the same argument reduces attainment to
+\(\sum_{uv=M}u/D\) and \(\sum_{uv=M}v/D\) not both vanishing; an exact
+enumeration finds no common zero for any minimal model with \(pp'\leq60\),
+interior \(\lambda\), \(k\leq3\), and \(N-\ell_k\leq60\).  For
+\(N\geq\max(\ell^\pm_k)\) both terms of \eqref{eq:top-layer} contribute; at
+\(c=1/2\), a direct reconstruction at \(d=3/7\) confirms
 \eqref{eq:top-layer} with a nonzero value, hence pole order exactly
 \(j_N(\lambda)\) for indeterminate \(d\), for every \(N\leq10\) at the
-interior weights \(0,\tfrac12,\tfrac1{16}\).
+interior weights \(0,\tfrac12,\tfrac1{16}\) (Remark~\ref{rem:audit-scope}).
 \end{remark}
 
 \section{Generic residue data}\label{sec:generic-data}
@@ -1229,6 +1238,40 @@ shifted \(H\)-coefficients:
  \frac{{\mathcal R}_a(b,d)}{\Delta-h_a(b)}H_{N-\ell_a}(c,z_a,d).
 \]
 For \(N\geq1\) this is the displayed recursion.
+\end{proof}
+
+\begin{lemma}[The external weights \(d=0\) and \(d=1\)]
+\label{lem:d-derivatives}
+Put \(t=b^2\).  For \(N\geq1\), \(H_N(c(b),\Delta,d)\) vanishes at \(d=0\)
+and at \(d=1\), and, as rational functions of \((b,\Delta)\),
+\[
+ \partial_dH_N\big|_{d=0}
+ =-\sum_{rs=N}\frac{rt+s}{2(t+1)(\Delta-h_{r,s}(b))},\qquad
+ \partial_dH_N\big|_{d=1}
+ =\sum_{rs=N}\frac{rt-s}{2(t-1)(\Delta-h_{r,s}(b))}.
+\]
+\end{lemma}
+
+\begin{proof}
+Write \(\varphi(x,y)=xb+yb^{-1}\) and \(B=[1-r,r]\times[1-s,s]\).  Since
+\(\Lambda^2=\varphi(1,1)^2-4d\), at \(d=0\) the factors of
+\({\mathcal P}_{r,s}\) in Definition~\ref{def:generic-residue} are
+\(\frac14(\varphi(1,1)^2-\varphi(k,\pm l)^2)
+=\frac14\varphi(1-k,1\mp l)\varphi(1+k,1\pm l)\), and over the odd \(k,l\) and
+both signs these products run once over \(\varphi(2p,2q)\),
+\((p,q)\in B\).  The factor with \((k,\pm l)=(1,1)\) equals \(-d\).  At
+\(d=1\), \(\Lambda^2=\varphi(1,-1)^2\), the factors run once over
+\(\varphi(2p,2q)\) with \((p,q)\in B-(0,1)\), and the factor with
+\((k,\pm l)=(1,-1)\) equals \(1-d\).  Hence every \({\mathcal R}_{r,s}\)
+vanishes at \(d=0,1\), and comparison with \({\mathcal A}_{r,s}\), whose
+product runs over \(B\setminus\{(0,0),(r,s)\}\), gives
+\(\partial_d{\mathcal R}_{r,s}|_{d=0}=-\varphi(r,s)/(2\varphi(1,1))\) and
+\(\partial_d{\mathcal R}_{r,s}|_{d=1}=-\varphi(-r,s)/(2\varphi(1,-1))\),
+using \(\prod_{p}\varphi(p,-s)/\varphi(p,s)=\varphi(-r,s)/\varphi(r,s)\)
+over \(p\in[1-r,r]\).  These are the displayed coefficients.  By
+Proposition~\ref{prop:generic-recursion} and induction on \(N\),
+\(H_N\) vanishes at \(d=0,1\) for \(N\geq1\), and differentiating the
+recursion there leaves only the labels with \(rs=N\).
 \end{proof}
 
 \section{All-order confluent recursion}\label{sec:all-order}
@@ -1515,15 +1558,9 @@ Proposition~\ref{prop:generic-recursion} at level \(M_i\) gives
 is regular at \((b_\star,z_i)\), and \(V(b_\star,z_i)=Q_i\) because
 \((z-z_i)H_{M_i}(c_\star,z,d)=R_{\tau_i}(0)+(z-z_i)V(b_\star,z)\).
 Restricting to \(\Delta=z_{\kappa_i}(t)\) gives
-\[
- S_{\kappa_i,M_i}(t)=\frac{R_{\tau_i}(t)}{\zeta_i(t)}+Q_i+O(t).
-\]
-Expanding \(f_i=R_{\kappa_i}R_{\tau_i}=f_i(0)+\dot f_it+O(t^2)\) and
+\(S_{\kappa_i,M_i}(t)=R_{\tau_i}(t)/\zeta_i(t)+Q_i+O(t)\).  Expanding \(f_i=R_{\kappa_i}R_{\tau_i}=f_i(0)+\dot f_it+O(t^2)\) and
 \(\zeta_i=\dot\zeta_it+\tfrac12\ddot\zeta_it^2+O(t^3)\), one finds
-\[
- B_{\kappa_i,N}(t)=\frac{f_i(0)}{\dot\zeta_i\,t}
- +R_{\kappa_i}(0)Q_i+T_i+O(t).
-\]
+\(B_{\kappa_i,N}(t)=f_i(0)/(\dot\zeta_i\,t)+R_{\kappa_i}(0)Q_i+T_i+O(t)\).
 The coefficient of \(t^{-1}(\Delta-\lambda)^{-1}\) in
 \({\mathcal G}^\star_{\lambda,N}\) is \(\sum_if_i(0)/\dot\zeta_i\), because
 \(B_{\kappa_i,N}\delta_{\kappa_i}^j\) has nonnegative valuation for
@@ -1723,13 +1760,10 @@ of Proposition~\ref{prop:imported-normalizations} are identities of
 rational functions of \(b\) and therefore specialize.
 \end{proof}
 
-Consequently, for the eight labels of the table, the singular vector
-\(w\) of level \(rs\) in \(M(\frac12,h)\) has crossing scalar
-\(B^1(w,w)={\mathcal A}_{r,s}(b_0)^{-1}\), by
-Lemmas~\ref{lem:top-coefficient}(iii) and~\ref{lem:singular-crossing} and
-\eqref{eq:crossing-normalization}, and torus norm
-\(\langle w|V_d(1)|w\rangle={\mathcal P}_{r,s}(b_0,d)\), by
-\eqref{eq:fusion-normalization}.
+So for these labels the singular vector \(w\) of level \(rs\) in
+\(M(\frac12,h)\) has \(B^1(w,w)={\mathcal A}_{r,s}(b_0)^{-1}\)
+(Lemmas~\ref{lem:top-coefficient}(iii) and~\ref{lem:singular-crossing})
+and \(\langle w|V_d(1)|w\rangle={\mathcal P}_{r,s}(b_0,d)\).
 
 \begin{corollary}[First collided residues]\label{cor:first-residues}
 At \(c=1/2\),
@@ -1752,8 +1786,9 @@ and
 \begin{proof}
 Apply Theorem~\ref{thm:top-layer} with \(k=1\) to \((r,s)=(2,1)\),
 \(N=3\), and to \((r,s)=(1,2)\), \(N=4\), with the crossing scalars and
-torus norms just described.  The explicit polynomial follows from the
-formula for \(H_2\) in the proof of Corollary~\ref{cor:top-layer-sharp}.
+torus norms just described.  The explicit polynomial follows from
+\(H_2(\frac12,\frac{33}{16},d)\), computed from the level-two matrices of
+Definition~\ref{def:matrices}.
 \end{proof}
 
 \begin{theorem}[First nontransverse fixed-\(c\) principal part]
@@ -1922,7 +1957,7 @@ confluence input, and in its full run the level-ten principal part at
 \(d=3/7\)); \path{audit_direct_principal_parts.py} (direct reconstruction
 through level seven at \(d=3/7,23\), including \(\gamma_7\), \(\Theta_7\),
 \(Q_4^E\), \(Q_5^E\)); \path{audit_top_layer.py}
-(Theorem~\ref{thm:top-layer} and Remark~\ref{rem:top-layer-beyond}, with
+(Theorem~\ref{thm:top-layer}, Lemma~\ref{lem:d-derivatives}, and Remark~\ref{rem:top-layer-beyond}, with
 the first-layer data computed directly); and
 \path{audit_stocco_comparison.py}
 (Proposition~\ref{prop:imported-normalizations} at sample labels and
@@ -1933,20 +1968,17 @@ Stocco's orders two--four).  Commands, dependencies, and hashes are in
 
 \section{Scope and outlook}\label{sec:scope}
 
-Theorem~\ref{thm:general-confluence} applies to the meromorphic Verma
-block at every fixed nonzero \(b_\star\) and has new content exactly when
-\(b_\star^2\) is rational.  Its formal deformation \(b=b_\star+t\)
-distinguishes it both from numerical regularization and from a recursion
-in intrinsic data of the specialized category; Theorem~\ref{thm:top-layer}
-supplies such intrinsic data for the deepest pole.  The Verma block at a
-degenerate weight is not an irreducible minimal-model trace: for \(d=0\)
-the Ward recursion is that of the identity operator, so \(\rho_N=G_N\) and
-the reduced block equals \(1\).  Open directions include complexity bounds
-for the jet budget of Lemma~\ref{lem:precision-budget}; nonvanishing of the
-right side of \eqref{eq:top-layer} at the remaining levels of each window,
-which would show that \(H_N\) attains \(j_N(\lambda)\) for every \(N\); the
+Theorem~\ref{thm:general-confluence} has new content exactly when
+\(b_\star^2\) is rational; its formal deformation \(b=b_\star+t\)
+distinguishes it from numerical regularization and from a recursion in
+intrinsic data of the specialized category, which
+Theorem~\ref{thm:top-layer} supplies for the deepest pole.  The Verma
+block at a degenerate weight is not an irreducible minimal-model trace;
+for instance it equals \(1\) at \(d=0\) (Lemma~\ref{lem:d-derivatives}).
+Open directions include complexity bounds for the jet budget, attainment of
+\(j_N(\lambda)\) at every level (Remark~\ref{rem:top-layer-beyond}), the
 weights of Remark~\ref{rem:jantzen-other} and the charges
-\(c_\star=1,25\); intrinsic formulas for the lower Laurent coefficients;
+\(c_\star=1,25\), intrinsic formulas for the lower Laurent coefficients,
 and recursions for irreducible minimal-model traces.
 
 \section*{AI-use disclosure}
@@ -1960,21 +1992,20 @@ Anthropic's Claude Opus~5.5 (\texttt{claude-opus-5-5}) in Claude Code, at
 the author's request: they shortened the proof of
 Theorem~\ref{thm:general-confluence} and removed its algebraicity
 hypothesis, added Proposition~\ref{prop:two-branch},
-Theorems~\ref{thm:jantzen-smith} and~\ref{thm:top-layer}, and
-Corollary~\ref{cor:top-layer-sharp}, condensed the Ising examples, checked
-the cited results against their sources, and revised the presentation.  The author directed the research, selected and checked the
+Theorems~\ref{thm:jantzen-smith} and~\ref{thm:top-layer},
+Corollary~\ref{cor:top-layer-sharp}, and Lemma~\ref{lem:d-derivatives},
+condensed the Ising examples, checked the cited results against their
+sources, and revised the presentation.  The author directed the research, selected and checked the
 final arguments, and takes responsibility for all mathematical claims,
 citations, computations, and wording.
 
 \section*{Code availability}
 
-The arXiv ancillary directory contains the nine audit scripts and their two
-shared libraries.  With the dependencies pinned in
-\path{requirements-audit.txt}, \texttt{make audit} runs the standard exact
-suite and \texttt{make audit-deep} adds direct level-ten reconstruction at
-\(d=3/7\).  \path{AUDIT_MANIFEST.md} records commands, success markers,
-dependencies, and SHA-256 hashes.  The versioned source package is available
-at \href{https://github.com/skypher/virasoro}%
+The arXiv ancillary directory contains the nine audit scripts, their two
+shared libraries, and \path{AUDIT_MANIFEST.md} (commands, dependencies,
+hashes); \texttt{make audit} runs the exact suite and \texttt{make
+audit-deep} adds the direct level-ten reconstruction.  The source package
+is at \href{https://github.com/skypher/virasoro}%
 {github.com/skypher/virasoro}.
 
 \appendix

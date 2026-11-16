@@ -55,7 +55,9 @@ The ordinary suite runs, in order:
 9. `tools/audit_top_layer.py` — Theorem `thm:top-layer` at the three Ising
    interior weights through level ten, at `d = 3/7`, against a direct
    inverse-Shapovalov reconstruction, with the first-layer singular vectors,
-   torus norms, and crossing scalars computed directly.
+   torus norms, and crossing scalars computed directly; Lemma
+   `lem:d-derivatives` at `c = 1/2` for `M <= 6`; and the window criterion of
+   Remark `rem:top-layer-beyond` for all minimal models with `pp' <= 60`.
 
 The deep target additionally runs `tools/audit_grade10_direct.py`, which
 reconstructs the inverse-Shapovalov coefficients through level ten at the
@@ -81,7 +83,7 @@ f788150de71658f08fe11c1512ef64254fb1ff2e7da5682adeaa6ea105c6c232  tools/audit_gr
 440b1a744cae37788512e6db19f41c132e8d42e0a813ad9101b217bc54946c38  tools/audit_low_levels.py
 4c7eba13ca7b7988107a4bd4ca6191a7a07b37dc579f8a818e47bde2929b0ce1  tools/audit_regular_families.py
 f979190e290b2e57649d01dc6ba0fcaf225ff21fb085e92431c370a2b4f0aeb8  tools/audit_stocco_comparison.py
-1f351e160b12d27bbb54da7e9502f69a69ea75fbf9bae25a4e2e5eddff60e5be  tools/audit_top_layer.py
+0d9fc36cd9c64b9800127a44ad4c2c25a1838494d1c48469f2ff809b9773ec80  tools/audit_top_layer.py
 34c9a27ab97bb28b78f1c2e559c8dabf4bc5a2903d362ad43222f103c7910390  tools/direct_reconstruction.py
 3f69e0f5a782cf9e23037907dbf38467fa7c5550750c5faf587cbddffc75b519  tools/exact_shapovalov.py
 ```

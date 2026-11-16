@@ -139,7 +139,11 @@ New statements, not formalized:
   matrix). It replaces Prop 5.2 `prop:transverse-residue` and Prop 5.3 `prop:two-step-residue`.
 - Lemma 5.7 `lem:singular-degree` (the L_{-1}^ℓ coefficient of a singular vector is nonzero; its
   torus norm has exact degree 2ℓ in d).
-- Thm 5.10 `thm:top-layer` and Cor 5.11 `cor:top-layer-sharp`.
+- Thm 5.10 `thm:top-layer` and Cor 5.11 `cor:top-layer-sharp` (sharpness when
+  min(p,p')·(N − ℓ_k) < m + max(p,p')).
+- Lemma 6.5 `lem:d-derivatives` (H_N vanishes at d = 0, 1; closed forms of ∂_d H_N there).
+  Numbers after it in Section 6 are unchanged; Remark 5.12 now records an exact
+  enumeration (pp' ≤ 60, k ≤ 3, N − ℓ_k ≤ 60).
 
 Merged or restated (Lean has the old pieces):
 - Prop 8.1 `prop:no-earlier-double-pole` now also states the first double poles at levels 7,
