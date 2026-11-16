@@ -147,7 +147,8 @@ New statements, not formalized:
   is removed from the paper; the old Lean proof stays valid for the old statement.
 - Lemma 6.7 `lem:tau-order` (τ^±_k vanishes to order exactly k at d = 0).
 - Cor 5.11 now also covers N = max(ℓ^±_k) and N − ℓ_k ≤ 40 (the latter by an exact
-  certificate on the two d-derivatives of Lemma 6.5, tools/audit_kl_certificate.py).
+  certificate on the two d-derivatives of Lemma 6.5, tools/audit_kl_certificate.py) and N − ℓ_k
+  prime or the square of a prime (a two-line argument on the same derivatives).
 - Prop 7.8 `prop:second-layer` (double-pole coefficient on the second-layer window as a sum
   over chains, with slope ratios η).
 - Prop 8.7 `prop:ising-jantzen-norms` restated: second Jantzen layers, torus norms and γ₇, γ₁₀

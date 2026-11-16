@@ -995,7 +995,8 @@ In the setting of Theorem~\ref{thm:top-layer}, let
 \(\ell_k\leq N<\max(\ell^+_k,\ell^-_k)\), put \(M=N-\ell_k\) and
 \(\mu=\lambda+\ell_k\), and let \(m>0\) with
 \(m^2=4pp'\mu+(p'-p)^2\).  If \(\min(p,p')\,M<m+\max(p,p')\) or
-\(M\leq40\), then \(H_N(c_\star,\Delta,d)\) has a pole of order exactly
+\(M\leq40\), or \(M\) is a prime or the square of a prime, then
+\(H_N(c_\star,\Delta,d)\) has a pole of order exactly
 \(j_N(\lambda)=k\) at \(\Delta=\lambda\).  At \(N=\ell_k\) the leading coefficient is
 \(\tau/\gamma\) for the singular vector of level \(\ell_k\).  The pole
 order is also exactly \(k\) at \(N=\max(\ell^+_k,\ell^-_k)\).
@@ -1034,7 +1035,12 @@ in \(w\) either has no root \(t=-p'/p\) with \(p,p'\geq2\) (it is
 irreducible of degree at least \(4\)) or carries only common zeros on the
 Kac curves \(w+(r't+s')^2=0\), \(r's'\leq M\).  Since \(\mu\) is not a Kac
 weight of level at most \(M\) (Theorem~\ref{thm:top-layer}), the two
-derivatives at \((c_\star,\mu)\) do not both vanish.
+derivatives at \((c_\star,\mu)\) do not both vanish.  If \(M\) is prime,
+the conditions \(\sum u/D=\sum v/D=0\) over the labels \((1,M)\), \((M,1)\)
+have the invertible matrix \(\bigl(\begin{smallmatrix}1&M\\M&1\end{smallmatrix}\bigr)\),
+so no \(1/D\) can satisfy them; if \(M=q^2\), they force the values \(1/D\)
+at \((1,q^2)\) and \((q^2,1)\) to agree, hence \(p'-pq^2=\pm(p'q^2-p)\),
+which fails since \(q\geq2\) and \(p\neq p'\).
 
 At \(N=\max(\ell^\pm_k)\), the leading coefficient is
 \((\tau/\gamma)H_M(c_\star,\mu,d)+\tau'/\gamma'\), with \(\tau',\gamma'\) the data
@@ -1046,7 +1052,7 @@ Lemma~\ref{lem:tau-order} the first term vanishes to order at least
 
 \begin{remark}[The remaining levels]\label{rem:top-layer-beyond}
 Two ranges are not covered.  (a) On the rest of a one-term part
-(\(M\geq41\)), the argument above gives attainment unless \(\sum_{uv=M}u/D\) and
+(\(M\geq41\) with at least four divisors), the argument above gives attainment unless \(\sum_{uv=M}u/D\) and
 \(\sum_{uv=M}v/D\) both vanish.  (b) For \(\max(\ell^\pm_k)<N<\ell_{k+1}\),
 both terms of \eqref{eq:top-layer} vanish to order \(k+1\) at \(d=0\).  For
 \(k=1\) the next coefficients at \(d=0\) and \(d=1\) are explicit, since the
