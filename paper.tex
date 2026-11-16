@@ -994,10 +994,9 @@ Lemma~\ref{lem:singular-degree}.
 In the setting of Theorem~\ref{thm:top-layer}, let
 \(\ell_k\leq N<\max(\ell^+_k,\ell^-_k)\), put \(M=N-\ell_k\) and
 \(\mu=\lambda+\ell_k\), and let \(m>0\) with
-\(m^2=4pp'\mu+(p'-p)^2\).  If \(\min(p,p')\,M<m+\max(p,p')\), then
-\(H_N(c_\star,\Delta,d)\) has a pole of order exactly \(j_N(\lambda)=k\)
-at \(\Delta=\lambda\).  This holds in particular for
-\(N\leq\ell_k+2\), and at \(N=\ell_k\) the leading coefficient is
+\(m^2=4pp'\mu+(p'-p)^2\).  If \(\min(p,p')\,M<m+\max(p,p')\) or
+\(M\leq5\), then \(H_N(c_\star,\Delta,d)\) has a pole of order exactly
+\(j_N(\lambda)=k\) at \(\Delta=\lambda\).  At \(N=\ell_k\) the leading coefficient is
 \(\tau/\gamma\) for the singular vector of level \(\ell_k\).  The pole
 order is also exactly \(k\) at \(N=\max(\ell^+_k,\ell^-_k)\).
 \end{corollary}
@@ -1026,7 +1025,14 @@ the two sums do not both vanish.  Finally, by the proof of
 Theorem~\ref{thm:jantzen-smith}, \(m\) is one of \(2jpp'\mp n_0\)
 (\(j\geq1\)), \(2(j+1)pp'-n_1\), \(2jpp'+n_1\) (\(j\geq0\)); as
 \(|n_0|<n_1<pp'\), \(m\geq p+p'\), so the hypothesis holds for
-\(M\leq2\).
+\(M\leq2\).  For \(M\leq5\) a computer-assisted step applies instead: writing
+\(H_M(c,h,d)\) over \(\prod_{M'\leq M}\det G_{M'}(c,h)\), an exact
+Gr\"obner-basis computation over \(\mathbb Q\) shows that every common
+factor of its \(d\)-coefficients is a Kac factor and that a power of
+\(\prod_{M'\leq M}\det G_{M'}\) lies in the ideal of the remaining
+coefficients.  So \(H_M(c,h,\cdot)\not\equiv0\) whenever
+\(\det G_{M'}(c,h)\neq0\) for \(M'\leq M\), which holds at \((c_\star,\mu)\) by
+Theorem~\ref{thm:top-layer}.
 
 At \(N=\max(\ell^\pm_k)\), the leading coefficient is
 \((\tau/\gamma)H_M(c_\star,\mu,d)+\tau'/\gamma'\), with \(\tau',\gamma'\) the data
@@ -1037,8 +1043,8 @@ Lemma~\ref{lem:tau-order} the first term vanishes to order at least
 \end{proof}
 
 \begin{remark}[The remaining levels]\label{rem:top-layer-beyond}
-Two ranges are not covered.  (a) On the rest of a one-term part, the
-argument above gives attainment unless \(\sum_{uv=M}u/D\) and
+Two ranges are not covered.  (a) On the rest of a one-term part
+(\(M\geq6\)), the argument above gives attainment unless \(\sum_{uv=M}u/D\) and
 \(\sum_{uv=M}v/D\) both vanish.  (b) For \(\max(\ell^\pm_k)<N<\ell_{k+1}\),
 both terms of \eqref{eq:top-layer} vanish to order \(k+1\) at \(d=0\).  For
 \(k=1\) the next coefficients at \(d=0\) and \(d=1\) are explicit, since the
@@ -1958,8 +1964,10 @@ arithmetic, the level-ten Gram matrix and \(\gamma_{10}\) also without
 confluence input; \path{audit_top_layer.py} checks
 Theorem~\ref{thm:top-layer}, Lemmas~\ref{lem:d-derivatives}
 and~\ref{lem:tau-order}, and the enumerations of
-Remark~\ref{rem:top-layer-beyond}, and \path{audit_minimal_models.py} its
-minimal-model pole orders (commands and hashes in \path{AUDIT_MANIFEST.md}).
+Remark~\ref{rem:top-layer-beyond}, \path{audit_minimal_models.py} its
+minimal-model pole orders, and \path{audit_hm_nonvanishing.py} the
+Gr\"obner certificate in the proof of Corollary~\ref{cor:top-layer-sharp}
+(commands and hashes in \path{AUDIT_MANIFEST.md}).
 \end{remark}
 
 
@@ -1994,7 +2002,7 @@ citations, computations, and wording.
 
 \section*{Code availability}
 
-The arXiv ancillary directory contains the ten audit scripts, their two
+The arXiv ancillary directory contains the eleven audit scripts, their two
 shared libraries, and \path{AUDIT_MANIFEST.md} (commands, dependencies,
 hashes); \texttt{make audit} runs the exact suite and \texttt{make
 audit-deep} adds the direct level-ten reconstruction.  The source package
