@@ -186,3 +186,28 @@ Verdict on the statement: faithful.
   `normalization_at` yields `crossScalar = 𝒜⁻¹` and `torusForm = 𝒫` at `b₀` for it, which is the
   same vector.
 Verdict on the statement: faithful; the table entries and the regularity conclusions match.
+
+## 2026-11-16T16:11Z — Proposition 9.5 (main session)
+
+`thm_level_ten_leading : Cited_KacDeterminant → Cited_HJSNormalizations →
+Stmt_thm_level_ten_leading`; axioms `propext`, `Classical.choice`, `Quot.sound` only
+(`runs/lean-check/ax95.log`).
+
+- ψ₈ ∈ M(1/2,33/16) and ψ₆ ∈ M(1/2,65/16) are explicit (`scripts/psi.py` solves `B_m p = e`
+  from engine data); the engine checks that `L_1, …, L_8` (resp. `L_6`) annihilate them.  By
+  `unique_of_B` with the determinants of Lemma 8.4, every normalized singular `q₈`, `q₆` equals
+  them.
+- `χ₁₀ = ψ₈ χ₂ = ψ₆ χ₄`: both engine products agree with the 42-term list `x10Q` up to
+  permutation.
+- Torus polynomials: `identities_at_b0` (the regularity argument of Lemma 8.4 for the
+  `NormalizationIdentities` family and `normalization_at`) gives `⟨q|V_d(1)|q⟩ = 𝒫_{r,s}(b₀,d)`;
+  Lemma 9.3 identifies `𝒫_{4,2}(b₀,·) = P42`, `𝒫_{1,6}(b₀,·) = P16`.
+- γ₁₀: as for γ₇, the 42 rows of `G₁₀(1/2,1/16 + x)(χ₁₀ + x v₁)` lie in `x²` (engine over
+  `ℚ[x]/(x³)`), so `χ₁₀ ∈ K₂`, `G₀ v₁ = -G₁ χ₁₀`, and `γ₁₀ = -1121229484375/192` for every
+  admissible `v₁` (`cross2_indep`).  `v₁` from `scripts/gamma10.py`.
+- The leading coefficient: Theorem 9.4's principal part has double-pole coefficient
+  `-192 P₂ 𝒫_{4,2}/1121229484375 ≠ 0`, so `poleOrder = 2` and `ppCoeff 2` is that coefficient,
+  which equals `P₂𝒫_{4,2}/γ₁₀ = P₄𝒫_{1,6}/γ₁₀` (Lemma 9.3: `P₂ P42 = P₄ P16`).
+Note: the paper derives the value of γ₁₀ by comparing its limit formula with Theorem 9.4; the
+Lean proof computes γ₁₀ directly from the Gram matrix (the paper's independent check), and takes
+the leading coefficient from Theorem 9.4.  Verdict on the statement: faithful.

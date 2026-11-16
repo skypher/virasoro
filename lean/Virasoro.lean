@@ -127,3 +127,4 @@ import Virasoro.Proofs.Sec9Theta10
 import Virasoro.Proofs.Sec8Smith7
 import Virasoro.Proofs.Sec9Smith10
 import Virasoro.Proofs.Sec8RegLabels
+import Virasoro.Proofs.Sec9Leading
