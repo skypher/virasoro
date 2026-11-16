@@ -995,7 +995,7 @@ In the setting of Theorem~\ref{thm:top-layer}, let
 \(\ell_k\leq N<\max(\ell^+_k,\ell^-_k)\), put \(M=N-\ell_k\) and
 \(\mu=\lambda+\ell_k\), and let \(m>0\) with
 \(m^2=4pp'\mu+(p'-p)^2\).  If \(\min(p,p')\,M<m+\max(p,p')\) or
-\(M\leq40\), or \(M\) is a prime or the square of a prime, then
+\(M\leq40\), or \(M\) has at most four divisors, then
 \(H_N(c_\star,\Delta,d)\) has a pole of order exactly
 \(j_N(\lambda)=k\) at \(\Delta=\lambda\).  At \(N=\ell_k\) the leading coefficient is
 \(\tau/\gamma\) for the singular vector of level \(\ell_k\).  The pole
@@ -1022,11 +1022,8 @@ strictly between the largest \(u\) with \(D<0\) and the smallest \(u\) with
 sign of \(u-\sigma\).  If \(p>p'\), the hypothesis reads \(p'M<m+p\), every
 \(f\) is below \(f(M)=p'M-p<m\), \(D>0\) exactly for \(u\) below some
 \(u_0\), and the same argument with the opposite sign applies.  Either way
-the two sums do not both vanish.  Finally, by the proof of
-Theorem~\ref{thm:jantzen-smith}, \(m\) is one of \(2jpp'\mp n_0\)
-(\(j\geq1\)), \(2(j+1)pp'-n_1\), \(2jpp'+n_1\) (\(j\geq0\)); as
-\(|n_0|<n_1<pp'\), \(m\geq p+p'\), so the hypothesis holds for
-\(M\leq2\).  For \(M\leq40\) a computer-assisted step applies instead.  In
+the two sums do not both vanish.  For \(M\leq40\) a computer-assisted step
+applies instead.  In
 the variables \(t=b^2\) and \(w=4th-(t+1)^2\), Lemma~\ref{lem:d-derivatives}
 writes the two derivatives as \(\sum_{rs=M}(rt\pm s)/(w+(rt+s)^2)\) up to
 nonzero factors.  An exact computation over \(\mathbb Q\) shows that their
@@ -1035,12 +1032,22 @@ in \(w\) either has no root \(t=-p'/p\) with \(p,p'\geq2\) (it is
 irreducible of degree at least \(4\)) or carries only common zeros on the
 Kac curves \(w+(r't+s')^2=0\), \(r's'\leq M\).  Since \(\mu\) is not a Kac
 weight of level at most \(M\) (Theorem~\ref{thm:top-layer}), the two
-derivatives at \((c_\star,\mu)\) do not both vanish.  If \(M\) is prime,
-the conditions \(\sum u/D=\sum v/D=0\) over the labels \((1,M)\), \((M,1)\)
-have the invertible matrix \(\bigl(\begin{smallmatrix}1&M\\M&1\end{smallmatrix}\bigr)\),
-so no \(1/D\) can satisfy them; if \(M=q^2\), they force the values \(1/D\)
-at \((1,q^2)\) and \((q^2,1)\) to agree, hence \(p'-pq^2=\pm(p'q^2-p)\),
-which fails since \(q\geq2\) and \(p\neq p'\).
+derivatives at \((c_\star,\mu)\) do not both vanish.  For \(M=1\) the single value \(1/D\) cannot vanish; for \(M\) prime the
+conditions on the values \(1/D\) at \((1,M),(M,1)\) have an invertible
+matrix; for \(M=q^2\) they force equal \(1/D\) at \((1,q^2)\) and
+\((q^2,1)\), i.e.\ \(p'-pq^2=\pm(p'q^2-p)\), impossible.  If \(M\) has four divisors,
+the labels are \((1,M),(a,b),(b,a),(M,1)\) with \(ab=M\), \(a<b\); with
+\(y\) the values of \(1/D\) in this order, the conditions read
+\(\gamma y_1+\alpha y_2+\beta y_3=0=\gamma y_4+\beta y_2+\alpha y_3\), where
+\(\alpha=a(b^2-1)\), \(\beta=b(a^2-1)\), \(\gamma=M^2-1\).  Clearing
+denominators, their difference is linear in \(m^2\) with nonzero leading
+coefficient and forces \(m^2=M(p'-p)^2\); substituting into the first, a
+direct expansion leaves \((a+1)(b+1)(M-1)(a-b)^2Q(-p'/p)=0\), with
+\(Q(t)=Mt^4-(M(a+b-2)+a+b)t^2+M\).  For \(u=t+1/t\), \(Q(t)=0\) means
+\(u^2=(a+b)(M+1)/M\), so \((p^2+p'^2)^2/(pp')^2=(a+b)(M+1)/M\).  If \(a,b\) are
+distinct primes, \((a+b)(M+1)\) is prime to \(M\), so the right side is not
+a rational square; if \(M=a^3\) it equals \((a+1)^2(a^2-a+1)/a^2\), and
+\((a-1)^2<a^2-a+1<a^2\).
 
 At \(N=\max(\ell^\pm_k)\), the leading coefficient is
 \((\tau/\gamma)H_M(c_\star,\mu,d)+\tau'/\gamma'\), with \(\tau',\gamma'\) the data
@@ -1052,7 +1059,7 @@ Lemma~\ref{lem:tau-order} the first term vanishes to order at least
 
 \begin{remark}[The remaining levels]\label{rem:top-layer-beyond}
 Two ranges are not covered.  (a) On the rest of a one-term part
-(\(M\geq41\) with at least four divisors), the argument above gives attainment unless \(\sum_{uv=M}u/D\) and
+(\(M\geq41\) with at least five divisors), the argument above gives attainment unless \(\sum_{uv=M}u/D\) and
 \(\sum_{uv=M}v/D\) both vanish.  (b) For \(\max(\ell^\pm_k)<N<\ell_{k+1}\),
 both terms of \eqref{eq:top-layer} vanish to order \(k+1\) at \(d=0\).  For
 \(k=1\) the next coefficients at \(d=0\) and \(d=1\) are explicit, since the

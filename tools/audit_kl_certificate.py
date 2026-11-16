@@ -28,7 +28,31 @@ import sympy as sp  # noqa: E402
 t, w = sp.symbols("t w")
 MMAX = int(sys.argv[1]) if len(sys.argv) > 1 else 40
 t0 = time.time()
-failures = 0
+
+
+def four_label_identities():
+    """The elimination for the labels (1,ab), (a,b), (b,a), (ab,1) in the proof of the corollary."""
+    a, b, W = sp.symbols("a b W")
+    x = [(t + a * b) ** 2, (a * t + b) ** 2, (b * t + a) ** 2, (a * b * t + 1) ** 2]
+    Z = [W + xi for xi in x]
+    al, be, g = a * (b ** 2 - 1), b * (a ** 2 - 1), a ** 2 * b ** 2 - 1
+    e1 = sp.expand(g * Z[1] * Z[2] + al * Z[0] * Z[2] + be * Z[0] * Z[1])
+    e2 = sp.expand(g * Z[1] * Z[2] + be * Z[3] * Z[2] + al * Z[3] * Z[1])
+    lin = sp.Poly(sp.expand(e1 - e2), W)
+    c1, c0 = lin.all_coeffs()
+    q = a * b * t ** 4 - (a * b * (a + b - 2) + a + b) * t ** 2 + a * b
+    ok = (lin.degree() == 1
+          and sp.expand(c1 + (a ** 2 - 1) * (b ** 2 - 1) * (a + b) * (t ** 2 - 1) * (a * b + 1)) == 0
+          and sp.expand(c0 * 1 + a * b * (a ** 2 - 1) * (b ** 2 - 1) * (a + b) * (t - 1) * (t + 1) ** 3
+                        * (a * b + 1)) == 0
+          and sp.expand(e1.subs(W, -a * b * (t + 1) ** 2)
+                        + (a + 1) * (b + 1) * (a * b - 1) * (a - b) ** 2 * q) == 0)
+    print(("PASS" if ok else "FAIL") + " four-label elimination identities (symbolic in a, b, t)",
+          flush=True)
+    return ok
+
+
+failures = 0 if four_label_identities() else 1
 for m in range(2, MMAX + 1):
     labels = [(r, m // r) for r in range(1, m + 1) if m % r == 0]
     ks = [w + (r * t + s) ** 2 for r, s in labels]
