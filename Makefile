@@ -15,6 +15,7 @@ audit:
 
 audit-deep: audit
 	$(PYTHON) tools/audit_grade10_direct.py
+	$(PYTHON) tools/audit_minimal_models.py
 
 pdf:
 	pdflatex -interaction=nonstopmode -halt-on-error paper.tex

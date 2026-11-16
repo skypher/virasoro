@@ -164,7 +164,7 @@ filtration; Ising model.
 17B68; 17B10; 81T40.
 \end{abstract}
 
-\vskip50pt
+\vskip24pt
 \baselineskip=13.5pt
 \section{Introduction}
 
@@ -314,11 +314,7 @@ Whenever \(G_N\) is invertible, define
 \end{definition}
 
 \begin{definition}[Eta-reduced block]\label{def:eta-reduced}
-Write
-\[
- \mathcal F_\Delta^{(c)}(d\mid q)
- =q^{\Delta-c/24}\sum_{N\geq0}F_N(c,\Delta,d)q^N
-\]
+Write \(\mathcal F_\Delta^{(c)}(d\mid q)=q^{\Delta-c/24}\sum_{N\geq0}F_N(c,\Delta,d)q^N\)
 and define
 \[
  H_\Delta^{(c)}(d\mid q)
@@ -439,14 +435,9 @@ equivalent to \(p'r'-ps'=\pm(p'r-ps)\).  For the plus sign, coprimality gives
 
 \begin{corollary}[Ising collision classes]\label{cor:ising-classes}
 For positive pairs \((r,s)\) and \((r',s')\),
-\(\Delta_{r,s}=\Delta_{r',s'}\) if and only if, for some
-\(\ell\in\mathbb Z\),
-\[
- (r',s')=(r+3\ell,s+4\ell)
- \quad\text{or}\quad
- (r',s')=(3\ell-r,4\ell-s).
-\]
-Moreover \(\Delta_{r,s}=\lambda_{|4r-3s|}\), the set of distinct
+\(\Delta_{r,s}=\Delta_{r',s'}\) if and only if
+\((r',s')=(r+3\ell,s+4\ell)\) or \((3\ell-r,4\ell-s)\) for some
+\(\ell\in\mathbb Z\).  Moreover \(\Delta_{r,s}=\lambda_{|4r-3s|}\), the set of distinct
 positive-label degenerate weights at \(c=1/2\) is
 \(\{\lambda_n:n\in\mathbb Z_{\geq0}\}\), every collision class contains
 infinitely many positive pairs, and for each fixed level \(N\) only
@@ -456,24 +447,17 @@ finitely many classes contain a pair with \(rs\leq N\).
 \begin{proof}
 Since \(b_0^2=-4/3\), the first assertion is
 Proposition~\ref{prop:minimal-collisions} with \((p,p')=(3,4)\), and
-\(\Delta_{r,s}=\lambda_{|4r-3s|}\) is its weight formula.  Given
-\(n\geq0\), choose a sufficiently large positive \(r\equiv n\pmod 3\);
-then \(s=(4r-n)/3\) is a positive integer and \(4r-3s=n\).  The pairs
-\((r+3\ell,s+4\ell)\), \(\ell\geq0\), stay positive and in the same class.
-Finally, \(rs\leq N\) implies \(r,s\leq N\).
+\(\Delta_{r,s}=\lambda_{|4r-3s|}\) is its weight formula.  For \(n\geq0\)
+and large \(r\equiv n\pmod3\), \(s=(4r-n)/3\) gives \(4r-3s=n\), and
+\((r+3\ell,s+4\ell)\), \(\ell\geq0\), stay in the class; \(rs\leq N\) forces
+\(r,s\leq N\).
 \end{proof}
 
 \section{Coefficientwise partial fractions}\label{sec:partial-fractions}
 
 \begin{lemma}[Large internal weight]\label{lem:large-weight}
-For fixed \(c,d,N\),
-\[
- \lim_{\Delta\to\infty}F_N(c,\Delta,d)=p(N),
-\]
-where \(p(N)\) is the number of partitions of \(N\).  Consequently,
-\[
- \lim_{\Delta\to\infty}H_N(c,\Delta,d)=\delta_{N,0}.
-\]
+For fixed \(c,d,N\), \(F_N(c,\Delta,d)\to p(N)\), the number of partitions
+of \(N\), and \(H_N(c,\Delta,d)\to\delta_{N,0}\) as \(\Delta\to\infty\).
 \end{lemma}
 
 \begin{proof}
@@ -512,10 +496,9 @@ only finitely many of them nonzero, such that
  =\sum_{\lambda\in\Lambda_N(b_\star)}\ \sum_{k\geq1}
  \frac{A^{\star}_{\lambda,k,N}(d)}{(\Delta-\lambda)^k}.
 \]
-If at least one \(A^{\star}_{\lambda,k,N}\) is nonzero, the largest such
-\(k\) is the multiplicity \(m^\star_{\lambda,N}\) of the pole of \(H_N\)
-at \(\lambda\); if they all vanish, \(\lambda\) is a removable candidate
-pole and we put \(m^\star_{\lambda,N}=0\).  Consequently
+The largest \(k\) with \(A^{\star}_{\lambda,k,N}\neq0\) (or \(0\)) is the
+pole multiplicity \(m^\star_{\lambda,N}\) of \(H_N\) at \(\lambda\).
+Consequently
 \(H_\Delta^{(c_\star)}(d\mid q)=1+\sum_{\lambda,k}A^{\star}_{\lambda,k}(d;q)
 (\Delta-\lambda)^{-k}\) with
 \(A^{\star}_{\lambda,k}(d;q)=\sum_{N\geq1}A^{\star}_{\lambda,k,N}(d)q^N\),
@@ -914,18 +897,12 @@ a higher pole.  Finally, \(j_{N-j}(\lambda)\leq j_N(\lambda)\), and
 \end{proof}
 
 \begin{remark}[Other weights]\label{rem:jantzen-other}
-Theorem~\ref{thm:jantzen-smith} treats the weights with an interior
-label, the weights \(\xi_0\) of Class~\(R^+\), Case~\(1+\), in
-\cite{IoharaKoga2011}.  The other weights of \(\Lambda_N(b_\star)\) at a
-minimal-model charge, such as \(h_{1,5}(b_0)=5/2\), are weights \(\xi_i\)
-with \(i\neq0\) of Case~\(1+\) or of boundary type;
-\cite[Theorem~6.3]{IoharaKoga2011} describes their fixed-\(c\) Jantzen
-filtration as well, and Lemma~\ref{lem:jantzen-smith} turns its layers
-into Smith exponents and pole bounds.  At \(c_\star=1,25\) the fixed-\(c\)
-line is tangent to some Kac curves, and
-\cite[equation (5.49)]{IoharaKoga2011} uses a different deformation, so
-Definition~\ref{def:jantzen-layers} needs a separate analysis.  The
-confluence theorem uses none of these results.
+The other weights of \(\Lambda_N(b_\star)\) at a minimal-model charge,
+such as \(h_{1,5}(b_0)=5/2\), are weights \(\xi_i\), \(i\neq0\), of
+Case~\(1+\) or of boundary type; \cite[Theorem~6.3]{IoharaKoga2011}
+describes their Jantzen filtration as well.  At \(c_\star=1,25\) the
+fixed-\(c\) line is tangent to some Kac curves and needs a separate
+analysis.  The confluence theorem uses none of these results.
 \end{remark}
 
 
@@ -1021,7 +998,8 @@ In the setting of Theorem~\ref{thm:top-layer}, let
 \(H_N(c_\star,\Delta,d)\) has a pole of order exactly \(j_N(\lambda)=k\)
 at \(\Delta=\lambda\).  This holds in particular for
 \(N\leq\ell_k+2\), and at \(N=\ell_k\) the leading coefficient is
-\(\tau/\gamma\) for the singular vector of level \(\ell_k\).
+\(\tau/\gamma\) for the singular vector of level \(\ell_k\).  The pole
+order is also exactly \(k\) at \(N=\max(\ell^+_k,\ell^-_k)\).
 \end{corollary}
 
 \begin{proof}
@@ -1033,7 +1011,7 @@ Theorem~\ref{thm:top-layer}, \(H_M(c(b),\Delta,d)\) is regular at
 \((b_\star,\mu)\), so Lemma~\ref{lem:d-derivatives} applies there.  For a
 label \((u,v)\) with \(uv=M\) put \(f=p'u-pv\) and \(D=f^2-m^2\), so that
 \(D=4pp'(h_{u,v}(b_\star)-\mu)\neq0\) by Proposition~\ref{prop:minimal-collisions}.
-Since \(t=b_\star^2=-p'/p\neq0,\pm1\), the two derivatives in
+Since \(b_\star^2=-p'/p\neq0,\pm1\), the two derivatives in
 Lemma~\ref{lem:d-derivatives} vanish only if \(\sum_{uv=M}u/D=\sum_{uv=M}v/D=0\).
 Along the labels ordered by \(u\), \(f=p'u-pM/u\) increases.  If
 \(p<p'\), the hypothesis reads \(pM<m+p'\), so every \(f\) is at least
@@ -1049,18 +1027,35 @@ Theorem~\ref{thm:jantzen-smith}, \(m\) is one of \(2jpp'\mp n_0\)
 (\(j\geq1\)), \(2(j+1)pp'-n_1\), \(2jpp'+n_1\) (\(j\geq0\)); as
 \(|n_0|<n_1<pp'\), \(m\geq p+p'\), so the hypothesis holds for
 \(M\leq2\).
+
+At \(N=\max(\ell^\pm_k)\), the leading coefficient is
+\((\tau/\gamma)H_M(c_\star,\mu,d)+\tau'/\gamma'\), with \(\tau',\gamma'\) the data
+of the other singular vector and \(M=N-\ell_k\geq1\).  By
+Lemma~\ref{lem:d-derivatives}, \(H_M(c_\star,\mu,0)=0\), so by
+Lemma~\ref{lem:tau-order} the first term vanishes to order at least
+\(k+1\) at \(d=0\) and the second to order exactly \(k\).
 \end{proof}
 
 \begin{remark}[The remaining levels]\label{rem:top-layer-beyond}
-On the rest of a one-term window the same argument reduces attainment to
-\(\sum_{uv=M}u/D\) and \(\sum_{uv=M}v/D\) not both vanishing; an exact
-enumeration finds no common zero for any minimal model with \(pp'\leq60\),
-interior \(\lambda\), \(k\leq3\), and \(N-\ell_k\leq60\).  For
-\(N\geq\max(\ell^\pm_k)\) both terms of \eqref{eq:top-layer} contribute; at
-\(c=1/2\), a direct reconstruction at \(d=3/7\) confirms
-\eqref{eq:top-layer} with a nonzero value, hence pole order exactly
-\(j_N(\lambda)\) for indeterminate \(d\), for every \(N\leq10\) at the
-interior weights \(0,\tfrac12,\tfrac1{16}\) (Remark~\ref{rem:audit-scope}).
+Two ranges are not covered.  (a) On the rest of a one-term part, the
+argument above gives attainment unless \(\sum_{uv=M}u/D\) and
+\(\sum_{uv=M}v/D\) both vanish.  (b) For \(\max(\ell^\pm_k)<N<\ell_{k+1}\),
+both terms of \eqref{eq:top-layer} vanish to order \(k+1\) at \(d=0\).  For
+\(k=1\) the next coefficients at \(d=0\) and \(d=1\) are explicit, since the
+two labels have \(\partial_d{\mathcal R}|_{d=0}=\pm n_0/(2p(b_\star^2+1))\)
+(Lemmas~\ref{lem:d-derivatives}, \ref{lem:regular-everywhere}): with
+\(f=p'u-pv\), \(g=p'u+pv\), \(m_+=n_1\), \(m_-=2pp'-n_1\), and
+\(\Sigma^\pm_x=\sum_{uv=N-\ell^\pm_1}x/(f^2-m_\pm^2)\), attainment fails only
+if \(\Sigma^+_f=\Sigma^-_f\) and \(n_1\Sigma^+_g+(2pp'-n_1)\Sigma^-_g=0\).
+For \(k=2\), Proposition~\ref{prop:second-layer} makes them explicit
+likewise; for \(k\geq3\) they involve \(\gamma^\pm_k\).  For every minimal
+model with \(pp'\leq60\), exact enumeration excludes (a) for \(k\leq3\),
+\(N-\ell_k\leq60\), and (b) for \(k=1,2\) (the hypotheses of
+Proposition~\ref{prop:second-layer} hold throughout).  A direct
+reconstruction at \(d=11/13\) finds pole order \(j_N(\lambda)\) for
+\(N\leq10\) at every interior weight of \((p,p')=(3,4)\), \((2,5)\),
+\((2,7)\), \((3,5)\), \((4,5)\), \((2,9)\), \((3,7)\), and for \(N\leq11\) at
+\((2,3)\), whose levels \(8,\ldots,11\) lie in (b) with \(k=2\).
 \end{remark}
 
 \section{Generic residue data}\label{sec:generic-data}
@@ -1139,13 +1134,9 @@ in \(b\).
 \begin{lemma}[Distinct weights and no shifted self-poles away from
 rational \(b^2\)]
 \label{lem:no-generic-shifted-pole}
-For positive labels \((r,s)\) and \((u,v)\),
-\[
- h_{r,s}(b)+rs-h_{u,v}(b)
-\]
-is not the zero rational function of \(b\).  Moreover, for distinct
-positive labels \((r,s)\neq(u,v)\), the difference
-\(h_{r,s}(b)-h_{u,v}(b)\) is not the zero rational function.  If
+For positive labels \((r,s)\) and \((u,v)\), \(h_{r,s}(b)+rs-h_{u,v}(b)\)
+is not the zero rational function of \(b\), nor is
+\(h_{r,s}(b)-h_{u,v}(b)\) when \((r,s)\neq(u,v)\).  If
 \(b_\star\in\mathbb C^\times\) and \(b_\star^2\notin\mathbb Q\), then
 neither function vanishes at \(b_\star\), and every
 \({\mathcal A}_{r,s}\) is regular and nonzero at \(b_\star\).
@@ -1242,13 +1233,13 @@ For \(N\geq1\) this is the displayed recursion.
 
 \begin{lemma}[The external weights \(d=0\) and \(d=1\)]
 \label{lem:d-derivatives}
-Put \(t=b^2\).  For \(N\geq1\), \(H_N(c(b),\Delta,d)\) vanishes at \(d=0\)
+For \(N\geq1\), \(H_N(c(b),\Delta,d)\) vanishes at \(d=0\)
 and at \(d=1\), and, as rational functions of \((b,\Delta)\),
 \[
  \partial_dH_N\big|_{d=0}
- =-\sum_{rs=N}\frac{rt+s}{2(t+1)(\Delta-h_{r,s}(b))},\qquad
+ =-\sum_{rs=N}\frac{rb^2+s}{2(b^2+1)(\Delta-h_{r,s}(b))},\quad
  \partial_dH_N\big|_{d=1}
- =\sum_{rs=N}\frac{rt-s}{2(t-1)(\Delta-h_{r,s}(b))}.
+ =\sum_{rs=N}\frac{rb^2-s}{2(b^2-1)(\Delta-h_{r,s}(b))}.
 \]
 \end{lemma}
 
@@ -1272,6 +1263,70 @@ over \(p\in[1-r,r]\).  These are the displayed coefficients.  By
 Proposition~\ref{prop:generic-recursion} and induction on \(N\),
 \(H_N\) vanishes at \(d=0,1\) for \(N\geq1\), and differentiating the
 recursion there leaves only the labels with \(rs=N\).
+\end{proof}
+
+\begin{lemma}[Regular normalized singular vectors]
+\label{lem:regular-everywhere}
+For every positive label \((r,s)\) and every \(b_\star\in\mathbb C^\times\),
+the normalized singular vector \(\chi_{r,s}(b)\) of
+Proposition~\ref{prop:imported-normalizations} is regular at \(b_\star\),
+and its value is a singular vector of level \(rs\) in
+\(M(c_\star,h_{r,s}(b_\star))\) with \(L_{-1}^{rs}\)-coefficient \(1\).
+Hence \eqref{eq:fusion-normalization} holds at \(b_\star\), and so does
+\eqref{eq:crossing-normalization} when \({\mathcal A}_{r,s}\) is regular
+there.
+\end{lemma}
+
+\begin{proof}
+Let \(e\geq0\) be minimal such that \((b-b_\star)^e\chi_{r,s}(b)\) is
+regular at \(b_\star\), with value \(w\neq0\).  The conditions
+\(L_1v=L_2v=0\) are linear with coefficients polynomial in \(b\), and
+\(L_1,L_2\) generate the positive modes, so \(w\) is singular in
+\(M(c_\star,h_{r,s}(b_\star))\).  Its \(L_{-1}^{rs}\)-coefficient is the value
+of \((b-b_\star)^e\), which is nonzero by Lemma~\ref{lem:singular-degree};
+so \(e=0\).  The identities of Proposition~\ref{prop:imported-normalizations}
+are identities of rational functions of \(b\) and specialize.
+\end{proof}
+
+\begin{lemma}[Order of the torus norms at \(d=0\)]\label{lem:tau-order}
+In the setting of Theorem~\ref{thm:jantzen-smith}, the torus norms
+\(\tau^\pm_k(d)=\langle w^\pm_k|V_d(1)|w^\pm_k\rangle\) vanish to order
+exactly \(k\) at \(d=0\), for every \(k\geq1\).
+\end{lemma}
+
+\begin{proof}
+Let \(h_{u,v}(b_\star)=h\).  By Lemma~\ref{lem:regular-everywhere} and
+uniqueness of singular vectors \cite[Proposition~5.1]{IoharaKoga2011}, the
+singular vectors of level \(uv\) in \(M(c_\star,h)\) are the multiples of
+\(\chi_{u,v}(b_\star)\), whose torus norm is \({\mathcal P}_{u,v}(b_\star,d)\).
+By the proof of Lemma~\ref{lem:d-derivatives},
+\({\mathcal P}_{u,v}=\prod(h_{k,\pm l}-d)\), where
+\(4h_{k,\pm l}=\varphi(1-k,1\mp l)\varphi(1+k,1\pm l)\) and the halved
+arguments of these \(\varphi\) run once over
+\(B_{u,v}=[1-u,u]\times[1-v,v]\).  As \(b_\star^2=-p'/p\), \(\varphi(x,y)\)
+vanishes at \(b_\star\) exactly for \((x,y)\in\mathbb Z(p,p')\), and the two
+halved points of one factor have second coordinates summing to \(1\), so at
+most one of them is such a point.  Hence \({\mathcal P}_{u,v}(b_\star,\cdot)\)
+vanishes at \(d=0\) to order
+\(o_{u,v}=\#\{j\in\mathbb Z:(jp,jp')\in B_{u,v}\}\).
+
+For \(k=2j+1\), the labels \((r+jp,s+jp')\) and \(((j+1)p-r,(j+1)p'-s)\)
+lie in the class of \(\lambda\) (Proposition~\ref{prop:minimal-collisions})
+and have the levels \(\ell^\pm_k\), so \(w^\pm_k\) are multiples of their
+normalized singular vectors; as \(0<r<p\) and \(0<s<p'\), both boxes contain
+\((jp,jp')\) exactly for \(|j|\leq\frac{k-1}2\), so \(o=k\).  For \(k=2j\),
+put \(\xi=\lambda+\ell^-_{2j-1}=h_{jp-r,-(jp'-s)}(b_\star)\), of Coulomb
+momentum \(2jpp'-n_1\).  The labels \((r,2jp'-s)\) and \((2jp-r,s)\) have the
+same momentum, hence weight \(\xi\), and levels
+\(\ell^+_{2j}-\ell^-_{2j-1}\) and \(\ell^-_{2j}-\ell^-_{2j-1}\) (proof of
+Theorem~\ref{thm:top-layer}); since \(r<p\), resp.\ \(s<p'\), their
+\(o\) equals \(1\).  The images of their singular vectors under
+\(j_{w^-_{2j-1}}\) are nonzero
+\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011} singular
+vectors of levels \(\ell^\pm_{2j}\), hence multiples of \(w^\pm_{2j}\), and
+by Lemma~\ref{lem:singular-factorization} their torus norms are
+\(\tau^-_{2j-1}(d){\mathcal P}_{u,v}(b_\star,d)\).  Induction on \(k\) gives
+order \((2j-1)+1=2j\).
 \end{proof}
 
 \section{All-order confluent recursion}\label{sec:all-order}
@@ -1415,11 +1470,8 @@ series in \(t\), is a finite \(K_\star\)-linear combination of
 \end{lemma}
 
 \begin{proof}
-If \(B=0\) or \(\delta=0\) the assertion is immediate.  Otherwise choose
-\(v\geq0\) with \(\ord_tB\geq-v\) and put
-\(\epsilon=\ord_t\delta\geq1\).  The term \(B\delta^j\) has valuation at
-least \(-v+j\epsilon\), so only the finitely many \(j\) with
-\(-v+j\epsilon\leq m\) contribute to the coefficient of \(t^m\).
+If \(\ord_tB\geq-v\), the term \(B\delta^j\) has valuation at least
+\(j-v\), so only \(j\leq m+v\) contribute to the coefficient of \(t^m\).
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:general-confluence}]
@@ -1581,6 +1633,55 @@ Theorem~\ref{thm:general-confluence} identifies these moments with the
 principal part.
 \end{proof}
 
+\begin{proposition}[The second layer]\label{prop:second-layer}
+In the setting of Theorem~\ref{thm:top-layer} with \(k=2\), let
+\(\kappa_1,\kappa_2\) be the labels \((r,s)\), \((p-r,p'-s)\) in either order,
+put \(\eta_{u,v}=1-u^2+(v^2-1)b_\star^{-4}\), and, for
+\(i=1,2\) and \(\ell_2\leq N<\ell_3\), let \(T_i\) be the set of labels \(g\)
+with \(h_g(b_\star)=\lambda+\ell_{\kappa_i}\) and
+\(\ell_g\leq N-\ell_{\kappa_i}\).  Suppose that every \({\mathcal R}_g\),
+\(g\in T_1\cup T_2\), is regular at \(b_\star\) and that
+\(\eta_g\neq\eta_{\kappa_i}\) for \(g\in T_i\).  Then, with
+\(R_a={\mathcal R}_a(b_\star,d)\),
+\[
+ \lim_{\Delta\to\lambda}(\Delta-\lambda)^2H_N(c_\star,\Delta,d)
+ =(\eta_{\kappa_1}-\eta_{\kappa_2})R_{\kappa_1}\sum_{g\in T_1}
+ \frac{R_g\,H_{N-\ell_{\kappa_1}-\ell_g}(c_\star,\lambda+\ell_{\kappa_1}+\ell_g,d)}
+ {\eta_{\kappa_1}-\eta_g}.
+\]
+\end{proposition}
+
+\begin{proof}
+The labels of weight \(\lambda\) and level at most \(N\) are \(\kappa_1,\kappa_2\),
+because the next ones have the levels \(\ell^\pm_3\)
+(Proposition~\ref{prop:minimal-collisions}).  Fix \(i\), put
+\(\xi=\lambda+\ell_{\kappa_i}\) and \(M=N-\ell_{\kappa_i}\).  For \(g\in T_i\),
+the image of \(\chi_g(b_\star)\) under \(j_{w}\), \(w\) the singular vector of
+label \(\kappa_i\), is a singular vector of \(M(c_\star,\lambda)\) of level
+\(\ell_{\kappa_i}+\ell_g\leq N\) (Lemma~\ref{lem:regular-everywhere}), so
+\(\xi+\ell_g\) is one of the weights \(\lambda+\ell^\pm_2\)
+\cite[Proposition~5.4]{IoharaKoga2011} (not \(\lambda+\ell^\pm_1\), since
+\(W^+_1\cap W^-_1\) vanishes below \(\ell_2\)), and
+\(H_{M-\ell_g}(c(b),z_g(b),d)\) is regular at \(b_\star\) by
+Theorem~\ref{thm:top-layer}.  Near \((b_\star,\xi)\), \(\det G_M(c(b),\Delta)\)
+vanishes only along the curves \(\Delta=h_g(b)\), \(g\in T_i\), and for generic
+\(b\) the residues of \(H_M\) there are \({\mathcal R}_gH_{M-\ell_g}(c(b),z_g,d)\)
+(Proposition~\ref{prop:generic-recursion}).  Hence
+\(H_M-\sum_{g\in T_i}{\mathcal R}_gH_{M-\ell_g}(c(b),z_g,d)/(\Delta-h_g)\),
+whose possible poles near \((b_\star,\xi)\) lie on these curves but which
+has no pole along them, is regular at \((b_\star,\xi)\).  On \(\Delta=z_{\kappa_i}(t)\) (\({\mathcal R}_{\kappa_i}\) is regular, as \(0<r<p\)), where
+\(z_{\kappa_i}-h_g=\tfrac12b_\star(\eta_{\kappa_i}-\eta_g)t+O(t^2)\) (since
+\(2\dot h_{u,v}=b_\star\eta_{u,v}\)), this gives
+\(\ord_tB_{\kappa_i,N}\geq-1\) and
+\([t^{-1}]B_{\kappa_i,N}=R_{\kappa_i}\sum_{g\in T_i}2R_gH_{M-\ell_g}/
+(b_\star(\eta_{\kappa_i}-\eta_g))\).  By
+Definition~\ref{def:collision-moments} the double-pole moment is
+\(\sum_i\dot h_{\kappa_i}[t^{-1}]B_{\kappa_i,N}\), and
+Corollary~\ref{cor:class-regular} gives \(\sum_i[t^{-1}]B_{\kappa_i,N}=0\);
+subtracting \(\dot h_{\kappa_2}\) times the latter and applying
+Theorem~\ref{thm:general-confluence} proves the formula.
+\end{proof}
+
 \section{The Ising embedding diamonds}\label{sec:ising}
 
 At \(c=1/2\) one has \(b_0^2=-4/3\) and \((p,p')=(3,4)\).  The interior
@@ -1600,36 +1701,12 @@ Throughout this section singular vectors are normalized by
 \(L_{-1}^\ell\)-coefficient \(1\), which is possible by
 Lemma~\ref{lem:singular-degree}.  Write \(\xi_2,\xi_3\in M(\tfrac12,\tfrac12)\)
 and \(\chi_2,\chi_4\in M(\tfrac12,\tfrac1{16})\) for the singular vectors of
-the indicated levels; Figure~\ref{fig:diamonds} shows the two diamonds
-studied below.
-
-\begin{figure}[ht]
-\centering
-\begin{tikzpicture}[>=stealth,every node/.style={font=\footnotesize}]
-\node (top) at (0,0) {\(M(\tfrac12,\tfrac12)\)};
-\node (l) at (-1.25,-1.3) {\(M(\tfrac12,\tfrac52)\)};
-\node (r) at (1.25,-1.3) {\(M(\tfrac12,\tfrac72)\)};
-\node (bot) at (0,-2.6) {\(M(\tfrac12,\tfrac{15}2)\)};
-\draw[->] (l) -- node[above left]{\(\xi_2\)} (top);
-\draw[->] (r) -- node[above right]{\(\xi_3\)} (top);
-\draw[->] (bot) -- node[below left]{\(\phi_5\)} (l);
-\draw[->] (bot) -- node[below right]{\(\phi_4\)} (r);
-\begin{scope}[xshift=4.6cm]
-\node (top2) at (0,0) {\(M(\tfrac12,\tfrac1{16})\)};
-\node (l2) at (-1.25,-1.3) {\(M(\tfrac12,\tfrac{33}{16})\)};
-\node (r2) at (1.25,-1.3) {\(M(\tfrac12,\tfrac{65}{16})\)};
-\node (bot2) at (0,-2.6) {\(M(\tfrac12,\tfrac{161}{16})\)};
-\draw[->] (l2) -- node[above left]{\(\chi_2\)} (top2);
-\draw[->] (r2) -- node[above right]{\(\chi_4\)} (top2);
-\draw[->] (bot2) -- node[below left]{\(\psi_8\)} (l2);
-\draw[->] (bot2) -- node[below right]{\(\psi_6\)} (r2);
-\end{scope}
-\end{tikzpicture}
-\caption{The energy and spin diamonds: singular-vector embeddings, labelled
-by the embedded vector (subscript: relative level; Kac labels
-\((2,1),(1,3),(1,5),(4,1)\) and \((1,2),(2,2),(4,2),(1,6)\)).}
-\label{fig:diamonds}
-\end{figure}
+the indicated levels.  The diamonds studied below are formed by these and
+the singular vectors \(\phi_5\in M(\frac12,\frac52)\),
+\(\phi_4\in M(\frac12,\frac72)\) of labels \((1,5)\), \((4,1)\), and
+\(\psi_8\in M(\frac12,\frac{33}{16})\), \(\psi_6\in M(\frac12,\frac{65}{16})\)
+of labels \((4,2)\), \((1,6)\); the two branches of each meet first at
+total levels \(7\) and \(10\).
 
 \begin{proposition}[Ising pole orders]\label{prop:no-earlier-double-pole}
 For \(N<7\) every pole of \(H_N(1/2,\Delta,d)\) in \(\Delta\) is simple.
@@ -1638,17 +1715,15 @@ poles occur in \(H_7\), \(H_{10}\), and \(H_{11}\), respectively.
 \end{proposition}
 
 \begin{proof}
-At a Kac weight with only one label \(a\) of level \(\ell_a\leq N\), the
+At a Kac weight with a single label \(a\) of level \(\ell_a\leq N\), the
 injective singular embedding
 \cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011} puts
-\(p(N-\ell_a)\) independent vectors in the radical, which is the valuation
-of the Kac determinant, so Lemma~\ref{lem:smith} makes every positive Smith
-exponent \(1\).  By
-Corollary~\ref{cor:ising-classes}, or direct enumeration of \(rs\leq6\),
-the only repeated classes below level \(7\) are the three in the table
-above.  Theorem~\ref{thm:jantzen-smith} gives \(j_N(\lambda)=1\) there
-for \(N<\ell_2\), and Corollary~\ref{cor:top-layer-sharp} gives the double
-poles at \(N=\ell_2\).
+\(p(N-\ell_a)\) independent vectors in the radical, the valuation of the
+Kac determinant, so all positive Smith exponents are \(1\)
+(Lemma~\ref{lem:smith}).  Below level \(7\) the only repeated classes are
+the three in the table (Corollary~\ref{cor:ising-classes}); there
+Theorem~\ref{thm:jantzen-smith} and Corollary~\ref{cor:top-layer-sharp}
+apply.
 \end{proof}
 
 \begin{lemma}[Exact Ising constants]\label{lem:ising-constants}
@@ -1680,10 +1755,9 @@ Hence
  =-\frac{192}{1121229484375},
  \end{gathered}
 \]
-where \(5/11\), \(5/13\), \(1/5\), and \(1/7\) are the slope ratios
-\((\dot h_{\kappa}-\dot h_{\kappa'})/(\dot h_\kappa-\dot h_\tau)\) for
-\((\kappa,\kappa',\tau)=((2,1),(1,3),(1,5))\), \(((1,3),(2,1),(4,1))\),
-\(((1,2),(2,2),(4,2))\), and \(((2,2),(1,2),(1,6))\).  Moreover, with
+the rational factors being the slope ratios
+\((\dot h_{\kappa}-\dot h_{\kappa'})/(\dot h_\kappa-\dot h_\tau)\) of
+Proposition~\ref{prop:two-branch}.  Moreover, with
 \(E_2={\mathcal P}_{2,1}(b_0,d)\), \(E_3={\mathcal P}_{1,3}(b_0,d)\),
 \(P_2={\mathcal P}_{1,2}(b_0,d)\), and \(P_4={\mathcal P}_{2,2}(b_0,d)\),
 \[
@@ -1717,68 +1791,24 @@ Definition~\ref{def:fixed-specialization} with \(b_0^2=-4/3\); note
 \(c'(b_0)=7i\sqrt3/2\neq0\).
 \end{proof}
 
-\begin{lemma}[Regular normalized singular vectors]
-\label{lem:regular-families}
-For \(m\geq2\), let \(\mathcal S_m(c,h)\) be the matrix of
-\(v\mapsto(L_1v,L_2v)\) on \(M(c,h)_m\) in PBW bases, with partitions in
-decreasing lexicographic order and the \(L_1\)-rows before the
-\(L_2\)-rows.  Let \(B_m(c,h)\) consist of the first \(p(m)-1\) rows of
-\(\mathcal S_m(c,h)\), followed by the coordinate row of \(L_{-1}^m\).
-Then
-\[
-\begin{array}{c|c|c|c}
-(r,s)&m=rs&h&\det B_m(\frac12,h)\\ \hline
-(2,1)&2&1/2&3\\
-(1,3)&3&1/2&12\\
-(1,2)&2&1/16&3\\
-(2,2)&4&1/16&-675/2\\
-(1,5)&5&5/2&91350\\
-(4,1)&4&7/2&-2730\\
-(4,2)&8&33/16&-17116376343198212705625/32\\
-(1,6)&6&65/16&505194765075/32
-\end{array}
-\]
-For each displayed label, the normalized singular vector
-\(\chi_{r,s}(b)\) of Proposition~\ref{prop:imported-normalizations} is
-regular at \(b=b_0\), and its value there is the normalized singular
-vector of level \(rs\) in \(M(\frac12,h)\).  In particular, both identities
-of Proposition~\ref{prop:imported-normalizations} hold at \(b_0\) for these
-labels.
-\end{lemma}
-
-\begin{proof}
-The determinants are exact Virasoro commutations.  For generic \(b\), the
-vector \(\chi_{r,s}(b)\) lies in \(M(c(b),h_{r,s}(b))_m\), is annihilated by
-\(L_1\) and \(L_2\), and has \(L_{-1}^m\)-coefficient \(1\), so it solves
-\(B_m(c(b),h_{r,s}(b))\,v=\epsilon_{p(m)}\), where \(\epsilon_{p(m)}\) is
-the last standard basis vector.  The determinant of this system is a
-rational function of \(b\) that is nonzero at \(b_0\) by the table, so
-Cramer's rule makes \(\chi_{r,s}(b)\) regular at \(b_0\).  Its value solves
-the same system at \(b_0\); since \(L_1\) and \(L_2\) generate the positive
-modes, it is singular with \(L_{-1}^m\)-coefficient \(1\).  Both identities
-of Proposition~\ref{prop:imported-normalizations} are identities of
-rational functions of \(b\) and therefore specialize.
-\end{proof}
-
-So for these labels the singular vector \(w\) of level \(rs\) in
-\(M(\frac12,h)\) has \(B^1(w,w)={\mathcal A}_{r,s}(b_0)^{-1}\)
-(Lemmas~\ref{lem:top-coefficient}(iii) and~\ref{lem:singular-crossing})
-and \(\langle w|V_d(1)|w\rangle={\mathcal P}_{r,s}(b_0,d)\).
+By Lemma~\ref{lem:regular-everywhere}, for every label \((r,s)\) the singular
+vector \(w\) of level \(rs\) in \(M(\frac12,h_{r,s}(b_0))\) has
+\(\langle w|V_d(1)|w\rangle={\mathcal P}_{r,s}(b_0,d)\) and, where
+\({\mathcal A}_{r,s}\) is regular at \(b_0\),
+\(B^1(w,w)={\mathcal A}_{r,s}(b_0)^{-1}\)
+(Lemmas~\ref{lem:top-coefficient}(iii) and~\ref{lem:singular-crossing}).
 
 \begin{corollary}[First collided residues]\label{cor:first-residues}
 At \(c=1/2\),
 \[
- \operatorname*{Res}_{\Delta=1/2}H_3(1/2,\Delta,d)
- =\frac9{28}E_2(d)H_1(\tfrac12,\tfrac52,d)-\frac8{105}E_3(d)
-\]
-and
-\[
  \begin{aligned}
+ \operatorname*{Res}_{\Delta=1/2}H_3(1/2,\Delta,d)
+ &=\tfrac9{28}E_2(d)H_1(\tfrac12,\tfrac52,d)-\tfrac8{105}E_3(d),\\
  \operatorname*{Res}_{\Delta=1/16}H_4(1/2,\Delta,d)
- &=-\frac47P_2(d)H_2(\tfrac12,\tfrac{33}{16},d)
-  +\frac{648}{13475}P_4(d)\\
+ &=-\tfrac47P_2(d)H_2(\tfrac12,\tfrac{33}{16},d)
+  +\tfrac{648}{13475}P_4(d)\\
  &=\tfrac1{40425}d(d-1)(2d-7)(2d-1)\\
- &\qquad\times\bigl(248d^4-5752d^3+25274d^2-33630d+5775\bigr).
+ &\qquad\times(248d^4-5752d^3+25274d^2-33630d+5775).
  \end{aligned}
 \]
 \end{corollary}
@@ -1786,9 +1816,8 @@ and
 \begin{proof}
 Apply Theorem~\ref{thm:top-layer} with \(k=1\) to \((r,s)=(2,1)\),
 \(N=3\), and to \((r,s)=(1,2)\), \(N=4\), with the crossing scalars and
-torus norms just described.  The explicit polynomial follows from
-\(H_2(\frac12,\frac{33}{16},d)\), computed from the level-two matrices of
-Definition~\ref{def:matrices}.
+torus norms just described, and compute \(H_2(\frac12,\frac{33}{16},d)\)
+from the level-two matrices.
 \end{proof}
 
 \begin{theorem}[First nontransverse fixed-\(c\) principal part]
@@ -1822,10 +1851,9 @@ coefficients \(H_N(1/2,\Delta,d)\).
 \end{theorem}
 
 \begin{proof}
-We check the hypotheses of Proposition~\ref{prop:two-branch} at \(N=7\) and
-\(\lambda=1/2\).  By Corollary~\ref{cor:ising-classes},
-\({\mathcal C}_{5,7}=\{(2,1),(1,3)\}\); the next label of this class,
-\((5,5)\), has level \(25\).  The labels of weight
+We check the hypotheses of Proposition~\ref{prop:two-branch}.  By
+Corollary~\ref{cor:ising-classes}, \({\mathcal C}_{5,7}=\{(2,1),(1,3)\}\).
+The labels of weight
 \(z_1=5/2=\lambda_{11}\) have levels \(5,15,36,\ldots\), and those of
 weight \(z_2=7/2=\lambda_{13}\) have levels \(4,14,35,\ldots\), so
 \(\tau_1=(1,5)\) and \(\tau_2=(4,1)\) satisfy~(i).
@@ -1887,99 +1915,64 @@ Closed forms (of degrees \(16\) and \(12\) in \(d\) for \(Q_8\) and \(Q_6\))
 are recorded in machine-readable form with the ancillary scripts.
 
 \begin{proposition}[Second Jantzen norms]\label{prop:ising-jantzen-norms}
-The local Smith exponents of \(G_7(\tfrac12,\tfrac12+x)\) and of
-\(G_{10}(\tfrac12,\tfrac1{16}+x)\) are \((0^4,1^{10},2)\) and
-\((0^{10},1^{31},2)\).  The second Jantzen layers are spanned by the
-singular vectors
-\[
- \xi_7=j_{\xi_2}(\phi_5)=j_{\xi_3}(\phi_4),\qquad
- \chi_{10}=j_{\chi_2}(\psi_8)=j_{\chi_4}(\psi_6),
-\]
-where \(\phi_5,\phi_4,\psi_8,\psi_6\) are the singular vectors of
-Figure~\ref{fig:diamonds}.  Their torus norms are
+The second Jantzen layers at \(\tfrac12\) and \(\tfrac1{16}\) begin with the
+singular vectors \(\xi_7=j_{\xi_2}(\phi_5)=j_{\xi_3}(\phi_4)\) and
+\(\chi_{10}=j_{\chi_2}(\psi_8)=j_{\chi_4}(\psi_6)\), with torus norms
 \(E_2{\mathcal P}_{1,5}(b_0,d)=E_3{\mathcal P}_{4,1}(b_0,d)\) and
-\(P_2{\mathcal P}_{4,2}(b_0,d)=P_4{\mathcal P}_{1,6}(b_0,d)\), and their
-second Jantzen norms are
-\[
- \gamma_7=B^2(\xi_7,\xi_7)=-700700,\qquad
- \gamma_{10}=B^2(\chi_{10},\chi_{10})=-\frac{1121229484375}{192}.
-\]
+\(P_2{\mathcal P}_{4,2}(b_0,d)=P_4{\mathcal P}_{1,6}(b_0,d)\), and
+\(\gamma_7=B^2(\xi_7,\xi_7)=-700700\),
+\(\gamma_{10}=B^2(\chi_{10},\chi_{10})=-1121229484375/192\).
 \end{proposition}
 
 \begin{proof}
-By Theorem~\ref{thm:jantzen-smith}, \(J^2_7(\tfrac12,\tfrac12)\) is spanned
-by the singular vector of level \(\ell^-_2=7\), and \(J^3_7=0\).  Only the
-labels \((2,1)\) and \((1,3)\) have weight \(\tfrac12\) and level at most
-\(7\), so the determinant valuation is \(p(5)+p(4)=12\), and
-Lemma~\ref{lem:jantzen-smith} gives \(\dim J^1_7=11\) and the profile.  The
-two compositions are nonzero singular vectors of level \(7\)
+The compositions are nonzero singular vectors of levels \(7\) and \(10\)
 \cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011} with
-\(L_{-1}^7\)-coefficient \(1\), hence equal
-\cite[Proposition~5.1]{IoharaKoga2011}.
-Lemmas~\ref{lem:singular-factorization} and~\ref{lem:regular-families}
-with \eqref{eq:fusion-normalization} give the torus norm.  By
-Theorem~\ref{thm:top-layer} the double-pole coefficient of \(H_7\) is
-\(E_2{\mathcal P}_{1,5}/\gamma_7\); comparison with
-Theorem~\ref{thm:level-seven-principal-part} gives \(\gamma_7=-700700\),
-and an exact evaluation of Lemma~\ref{lem:top-coefficient}(iii) in the
-level-seven PBW basis gives the same value.  The level-ten case is
-identical, with \(\ell^+_2=10<\ell^-_2=14\), valuation \(p(8)+p(6)=33\),
-and Theorem~\ref{thm:level-ten-principal-part}.
+\(L_{-1}^\ell\)-coefficient \(1\), hence equal
+\cite[Proposition~5.1]{IoharaKoga2011}, and they span \(J^2\) there
+(Theorem~\ref{thm:jantzen-smith}).
+Lemmas~\ref{lem:singular-factorization} and~\ref{lem:regular-everywhere}
+give the torus norms, and Theorem~\ref{thm:top-layer} with
+Proposition~\ref{prop:second-layer} and Lemma~\ref{lem:ising-constants}
+(or Theorems~\ref{thm:level-seven-principal-part}
+and~\ref{thm:level-ten-principal-part}) gives the norms \(\gamma\).  An exact
+evaluation of Lemma~\ref{lem:top-coefficient}(iii) in the PBW bases gives
+the same values.
 \end{proof}
 
 \begin{remark}[Low-level output and Stocco's expressions]
 \label{rem:stocco-comparison}
-Through level four every pole of the Ising block is simple, and the
-fourteen nonzero collision moments \(A_{n,1,N}\), \(N\leq4\), factor over
-\(\mathbb Q[d]\); for instance \(A_{5,1,3}\) and \(A_{2,1,4}\) are the
-residues of Corollary~\ref{cor:first-residues}.  Stocco
-\cite[Sections~II.2--II.3 and Appendix~A]{Stocco2022} writes the generic
-recursion over the common denominator
-\(\prod_{kl\leq N}(\Delta-h_{k,l}(b))\) and gives pole-free numerators for
-\(N\leq4\).  In exact arithmetic they reproduce \(H_2\) and \(H_3\)
-identically in \(b\), and \(H_4\) at sample values of \(b\) including
-\(b_0\); at \(b_0\) the collided labels make his denominator vanish to
-higher order, and the numerators acquire compensating zeros.  The present
-paper extends these low-order expressions to all orders, with a
+Through level four the fourteen nonzero moments \(A_{n,1,N}\) factor over
+\(\mathbb Q[d]\); \(A_{5,1,3}\) and \(A_{2,1,4}\) are the residues of
+Corollary~\ref{cor:first-residues}.  Stocco's pole-free numerators for
+\(N\leq4\) \cite[Sections~II.2--II.3 and Appendix~A]{Stocco2022} reproduce
+\(H_2\), \(H_3\) identically in \(b\) and \(H_4\) at sample values including
+\(b_0\), the collided labels making his common denominator vanish to
+higher order at \(b_0\) and his numerators acquiring compensating zeros.
+The present paper extends these expressions to all orders, with a
 termination and equality proof.
 \end{remark}
 
 \begin{remark}[Exact replay]\label{rem:audit-scope}
-All replays use exact arithmetic: \path{audit_low_levels.py} and
-\path{audit_first_resonances.py} (PBW and Ward calculations, singular
-vectors, crossing forms, fusion polynomials, repeated classes below level
-seven); \path{audit_regular_families.py}
-(Lemma~\ref{lem:regular-families}); \path{audit_grade10_confluence.py} and
-\path{audit_confluent_recursion.py} (generic residues, shifted Laurent
-moments, \(\gamma_{10}\), \(\Theta_{10}\)); \path{audit_grade10_direct.py}
-(the level-ten Gram matrix, its radical, and \(\gamma_{10}\) without
-confluence input, and in its full run the level-ten principal part at
-\(d=3/7\)); \path{audit_direct_principal_parts.py} (direct reconstruction
-through level seven at \(d=3/7,23\), including \(\gamma_7\), \(\Theta_7\),
-\(Q_4^E\), \(Q_5^E\)); \path{audit_top_layer.py}
-(Theorem~\ref{thm:top-layer}, Lemma~\ref{lem:d-derivatives}, and Remark~\ref{rem:top-layer-beyond}, with
-the first-layer data computed directly); and
-\path{audit_stocco_comparison.py}
-(Proposition~\ref{prop:imported-normalizations} at sample labels and
-Stocco's orders two--four).  Commands, dependencies, and hashes are in
-\path{AUDIT_MANIFEST.md}.
+The ancillary scripts replay every computation of this section in exact
+arithmetic, the level-ten Gram matrix and \(\gamma_{10}\) also without
+confluence input; \path{audit_top_layer.py} checks
+Theorem~\ref{thm:top-layer}, Lemmas~\ref{lem:d-derivatives}
+and~\ref{lem:tau-order}, and the enumerations of
+Remark~\ref{rem:top-layer-beyond}, and \path{audit_minimal_models.py} its
+minimal-model pole orders (commands and hashes in \path{AUDIT_MANIFEST.md}).
 \end{remark}
 
 
 \section{Scope and outlook}\label{sec:scope}
 
-Theorem~\ref{thm:general-confluence} has new content exactly when
-\(b_\star^2\) is rational; its formal deformation \(b=b_\star+t\)
-distinguishes it from numerical regularization and from a recursion in
-intrinsic data of the specialized category, which
-Theorem~\ref{thm:top-layer} supplies for the deepest pole.  The Verma
-block at a degenerate weight is not an irreducible minimal-model trace;
-for instance it equals \(1\) at \(d=0\) (Lemma~\ref{lem:d-derivatives}).
-Open directions include complexity bounds for the jet budget, attainment of
-\(j_N(\lambda)\) at every level (Remark~\ref{rem:top-layer-beyond}), the
-weights of Remark~\ref{rem:jantzen-other} and the charges
-\(c_\star=1,25\), intrinsic formulas for the lower Laurent coefficients,
-and recursions for irreducible minimal-model traces.
+Theorem~\ref{thm:general-confluence} uses the formal deformation
+\(b=b_\star+t\); Theorem~\ref{thm:top-layer} gives intrinsic fixed-\(c\)
+data for the deepest pole.  The Verma block at a degenerate weight is not
+an irreducible minimal-model trace (it equals \(1\) at \(d=0\)).  Open
+directions include attainment of \(j_N(\lambda)\) at every level
+(Remark~\ref{rem:top-layer-beyond}), the weights of
+Remark~\ref{rem:jantzen-other} and \(c_\star=1,25\), intrinsic formulas for
+the lower Laurent coefficients, and irreducible minimal-model traces.
 
 \section*{AI-use disclosure}
 
@@ -1993,7 +1986,7 @@ the author's request: they shortened the proof of
 Theorem~\ref{thm:general-confluence} and removed its algebraicity
 hypothesis, added Proposition~\ref{prop:two-branch},
 Theorems~\ref{thm:jantzen-smith} and~\ref{thm:top-layer},
-Corollary~\ref{cor:top-layer-sharp}, and Lemma~\ref{lem:d-derivatives},
+Corollary~\ref{cor:top-layer-sharp}, Proposition~\ref{prop:second-layer}, and Lemmas~\ref{lem:d-derivatives}--\ref{lem:tau-order},
 condensed the Ising examples, checked the cited results against their
 sources, and revised the presentation.  The author directed the research, selected and checked the
 final arguments, and takes responsibility for all mathematical claims,
@@ -2001,7 +1994,7 @@ citations, computations, and wording.
 
 \section*{Code availability}
 
-The arXiv ancillary directory contains the nine audit scripts, their two
+The arXiv ancillary directory contains the ten audit scripts, their two
 shared libraries, and \path{AUDIT_MANIFEST.md} (commands, dependencies,
 hashes); \texttt{make audit} runs the exact suite and \texttt{make
 audit-deep} adds the direct level-ten reconstruction.  The source package
@@ -2023,36 +2016,23 @@ is at \href{https://github.com/skypher/virasoro}%
 The factored polynomial entering the level-seven principal part is
 \begin{equation}\label{eq:theta7-expanded}
  \begin{split}
- \Theta_7(d)={}&-\frac{d^2(d-1)^2
- (2d-15)(2d-7)(2d-5)(2d-1)(3d-14)(3d-5)}
- {2164322160000}\\
- &\quad\times
- \bigl(84001d^4-3376370d^3+44478887d^2\\
- &\qquad\quad
- -209562838d+205096320\bigr).
+ \Theta_7(d)={}&-\tfrac{1}{2164322160000}\,d^2(d-1)^2
+ (2d-15)(2d-7)(2d-5)(2d-1)(3d-14)(3d-5)\\
+ &\times\bigl(84001d^4-3376370d^3+44478887d^2-209562838d+205096320\bigr).
  \end{split}
 \end{equation}
 The corresponding level-ten polynomial is
 \begin{equation}\label{eq:theta10-expanded}
  \begin{split}
- \Theta_{10}(d)
- ={}&-\frac{
- d^2(d-1)^2(2d-7)^2(2d-1)^2
- (3d-14)(3d-5)(6d-55)(6d-1)}
- {552735279561465000000}\\
- &\quad\times
- \bigl(
- 424640464d^8-41506307104d^7+1664502727528d^6\\
- &\qquad
- -35552058801520d^5+438148123547677d^4
- -3142854705332170d^3\\
- &\qquad
- +12488401942129875d^2-23870935242348750d
- +14566042731240000
- \bigr).
+ \Theta_{10}(d)={}&-\tfrac{1}{552735279561465000000}\,
+ d^2(d-1)^2(2d-7)^2(2d-1)^2(3d-14)(3d-5)\\
+ &\times(6d-55)(6d-1)\bigl(424640464d^8-41506307104d^7+1664502727528d^6\\
+ &\quad-35552058801520d^5+438148123547677d^4-3142854705332170d^3\\
+ &\quad+12488401942129875d^2-23870935242348750d+14566042731240000\bigr).
  \end{split}
 \end{equation}
 
+{\small
 \begin{thebibliography}{CCY19}
 
 \bibitem[Ast97]{Astashkevich1997}
@@ -2164,5 +2144,6 @@ Theor. Math. Phys. \textbf{73} (1987) 1088--1093,
 \href{https://doi.org/10.1007/BF01022967}{doi:\allowbreak 10.1007/BF01022967}.
 
 \end{thebibliography}
+}
 
 \end{document}

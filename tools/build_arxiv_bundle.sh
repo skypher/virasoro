@@ -29,6 +29,7 @@ for source in \
     audit_grade10_confluence.py \
     audit_grade10_direct.py \
     audit_low_levels.py \
+    audit_minimal_models.py \
     audit_regular_families.py \
     audit_stocco_comparison.py \
     audit_top_layer.py \

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Exact replay of Theorem thm:top-layer, Corollary cor:top-layer-sharp and Lemma lem:d-derivatives.
+"""Exact replay of Theorem thm:top-layer, Corollary cor:top-layer-sharp, Lemmas lem:d-derivatives
+and lem:tau-order, and the enumerations of Remark rem:top-layer-beyond.
 
 Usage: python3 -u tools/audit_top_layer.py [-h|--help] [--max-level N] [--d D]
 
@@ -198,6 +199,168 @@ def window_criterion(ppmax=60, kmax=3, mmax=60):
           zeros == 0 and cases > 0)
 
 
+def box_zero_count(p, q, u, v):
+    """Number of j with j(p, q) in [1-u, u] x [1-v, v]."""
+    return sum(1 for j in range(-u - 1, u + 2)
+               if 1 - u <= j * p <= u and 1 - v <= j * q <= v)
+
+
+def kac_weight_num(p, q, u, v):
+    """4pq h_{u,v}(b_*) + (q-p)^2 = (q u - p v)^2."""
+    return (q * u - p * v) ** 2
+
+
+def tau_order_identities(ppmax=60, kmax=6):
+    """Lemma lem:tau-order: labels, levels, weights and zero counts of the proof."""
+    ok = True
+    count = 0
+    for p in range(2, ppmax):
+        for q in range(2, ppmax // p + 1):
+            if q == p or gcd(p, q) != 1:
+                continue
+            for r in range(1, p):
+                for s in range(1, q):
+                    if q * r + p * s >= p * q:
+                        continue
+                    lam = kac_weight_num(p, q, r, s)
+                    for k in range(1, kmax + 1):
+                        count += 1
+                        if k % 2:
+                            j = (k - 1) // 2
+                            for u, v in ((r + j * p, s + j * q),
+                                         ((j + 1) * p - r, (j + 1) * q - s)):
+                                ok &= kac_weight_num(p, q, u, v) == lam
+                                ok &= u * v in layer_levels(p, q, r, s, k)
+                                ok &= box_zero_count(p, q, u, v) == k
+                        else:
+                            j = k // 2
+                            lminus = layer_levels(p, q, r, s, k - 1)[1]
+                            # lambda + l^-_{2j-1} = h_{jp-r, -(jq-s)}: momentum 2jpq - n1
+                            xi = (q * (j * p - r) + p * (j * q - s)) ** 2
+                            lp, lm = layer_levels(p, q, r, s, k)
+                            for (u, v), target in (((r, 2 * j * q - s), lp),
+                                                   ((2 * j * p - r, s), lm)):
+                                ok &= kac_weight_num(p, q, u, v) == xi
+                                ok &= u * v == target - lminus
+                                ok &= box_zero_count(p, q, u, v) == 1
+    check(f"Lemma tau-order: labels, levels, weights and zero counts ({count} cases, "
+          f"pp' <= {ppmax}, k <= {kmax})", ok and count > 0)
+
+
+def tau_order_direct(weight, level, layer):
+    """Order at d = 0 of the torus norm of the singular vector, by direct computation at c = 1/2."""
+    vec = singular_vector(level, weight)
+    n = len(vec)
+    points = []
+    for i in range(2 * level + 1):
+        dval = Fr(i + 1, 2)
+        set_external_weight(dval)
+        rho = mat_eval(vertex_matrix(level), weight)
+        points.append((dval, sum(vec[a] * vec[b] * rho[a][b] for a in range(n) for b in range(n))))
+    poly = lagrange_interp(points)
+    order = next(i for i, x in enumerate(poly) if x != 0)
+    check(f"torus norm of the level-{level} singular vector at {weight}: order {order} at d = 0 "
+          f"(layer {layer})", order == layer)
+
+
+def two_term_first_layer(ppmax=60):
+    """Remark rem:top-layer-beyond, two-term part of the first layer."""
+    cases = fails = 0
+
+    def sums(p, q, big_m, m):
+        sk = sl = Fr(0)
+        for u in range(1, big_m + 1):
+            if big_m % u == 0:
+                v = big_m // u
+                f, g = q * u - p * v, q * u + p * v
+                den = f * f - m * m
+                assert den != 0
+                sk += Fr(f, den)
+                sl += Fr(g, den)
+        return sk, sl
+
+    for p in range(2, ppmax):
+        for q in range(2, ppmax // p + 1):
+            if q == p or gcd(p, q) != 1:
+                continue
+            pq = p * q
+            for r in range(1, p):
+                for s in range(1, q):
+                    n1 = q * r + p * s
+                    if n1 >= pq:
+                        continue
+                    lp, lm = r * s, (p - r) * (q - s)
+                    for n in range(max(lp, lm) + 1, min(layer_levels(p, q, r, s, 2))):
+                        skp, slp = sums(p, q, n - lp, n1)
+                        skm, slm = sums(p, q, n - lm, 2 * pq - n1)
+                        cases += 1
+                        fails += skp == skm and n1 * slp + (2 * pq - n1) * slm == 0
+    print(f"two-term first-layer cases {cases}, criterion fails in {fails}", flush=True)
+    check("two-term first-layer criterion (pp' <= 60)", fails == 0 and cases > 0)
+
+
+def two_term_second_layer(ppmax=60):
+    """Remark rem:top-layer-beyond, two-term part of the second layer (Proposition prop:second-layer)."""
+    cases = hyp_fail = fails = 0
+    for p in range(2, ppmax):
+        for q in range(2, ppmax // p + 1):
+            if q == p or gcd(p, q) != 1:
+                continue
+            t = Fr(-q, p)
+
+            def eta(u, v):
+                return 1 - u * u + Fr(v * v - 1) / (t * t)
+
+            def rho(u, v):
+                return -(u * t + v) / (2 * (t + 1))
+
+            def rhop(u, v):
+                return (u * t - v) / (2 * (t - 1))
+
+            def k_and_l(big_m, xnum):
+                kk = ll = Fr(0)
+                for u in range(1, big_m + 1):
+                    if big_m % u == 0:
+                        v = big_m // u
+                        den = Fr(xnum - kac_weight_num(p, q, u, v), 4 * p * q)
+                        assert den != 0
+                        kk += -(u * t + v) / (2 * (t + 1) * den)
+                        ll += (u * t - v) / (2 * (t - 1) * den)
+                return kk, ll
+
+            for r in range(1, p):
+                for s in range(1, q):
+                    if q * r + p * s >= p * q:
+                        continue
+                    lam = kac_weight_num(p, q, r, s)
+                    hi2 = max(layer_levels(p, q, r, s, 2))
+                    l3 = min(layer_levels(p, q, r, s, 3))
+                    for kap in ((r, s), (p - r, q - s)):
+                        lk = kap[0] * kap[1]
+                        xi = lam + 4 * p * q * lk
+                        for n in range(hi2 + 1, l3):
+                            big_m = n - lk
+                            gs = [(u, v) for u in range(1, big_m + 1)
+                                  for v in range(1, big_m // u + 1)
+                                  if kac_weight_num(p, q, u, v) == xi]
+                            cases += 1
+                            if any(u >= p and v >= q for u, v in gs) or \
+                                    any(eta(u, v) == eta(*kap) for u, v in gs):
+                                hyp_fail += 1
+                                continue
+                            c0 = c1 = Fr(0)
+                            for u, v in gs:
+                                if big_m > u * v:
+                                    kk, ll = k_and_l(big_m - u * v, xi + 4 * p * q * u * v)
+                                    c0 += rho(u, v) * kk / (eta(*kap) - eta(u, v))
+                                    c1 += rhop(u, v) * ll / (eta(*kap) - eta(u, v))
+                            fails += c0 == 0 and c1 == 0
+    print(f"two-term second-layer cases {cases}, hypothesis failures {hyp_fail}, "
+          f"criterion fails in {fails}", flush=True)
+    check("two-term second-layer criterion (pp' <= 60)",
+          hyp_fail == 0 and fails == 0 and cases > 0)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     parser.add_argument("--max-level", type=int, default=10)
@@ -267,6 +430,13 @@ def main():
                   order == depth and leading == predicted)
     d_derivative_checks()
     window_criterion()
+    two_term_first_layer()
+    two_term_second_layer()
+    tau_order_identities()
+    for weight, level, layer in ((Fr(0), 1, 1), (Fr(0), 6, 1), (Fr(1, 2), 2, 1),
+                                 (Fr(1, 2), 3, 1), (Fr(1, 16), 2, 1), (Fr(1, 16), 4, 1),
+                                 (Fr(1, 2), 7, 2)):
+        tau_order_direct(weight, level, layer)
     print(f"total {time.time() - start:.0f}s", flush=True)
     if FAILURES:
         print(f"{len(FAILURES)} FAILURES", flush=True)

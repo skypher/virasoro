@@ -142,6 +142,17 @@ New statements, not formalized:
 - Thm 5.10 `thm:top-layer` and Cor 5.11 `cor:top-layer-sharp` (sharpness when
   min(p,p')·(N − ℓ_k) < m + max(p,p')).
 - Lemma 6.5 `lem:d-derivatives` (H_N vanishes at d = 0, 1; closed forms of ∂_d H_N there).
+- Lemma 6.6 `lem:regular-everywhere` (every normalized Kac family is regular at every b⋆ ≠ 0, by
+  Lemma 5.7). It replaces Lemma 8.4 `lem:regular-families` (the Ising determinant table), which
+  is removed from the paper; the old Lean proof stays valid for the old statement.
+- Lemma 6.7 `lem:tau-order` (τ^±_k vanishes to order exactly k at d = 0).
+- Cor 5.11 now also covers N = max(ℓ^±_k).
+- Prop 7.8 `prop:second-layer` (double-pole coefficient on the second-layer window as a sum
+  over chains, with slope ratios η).
+- Prop 8.7 `prop:ising-jantzen-norms` restated: second Jantzen layers, torus norms and γ₇, γ₁₀
+  only (the Smith profiles of the old Props 8.1, 9.1 are no longer stated; they follow from
+  Thm 5.8). The figure of the two diamonds, Cor 8.4's separate expanded display and the
+  Ising determinant table were removed.
   Numbers after it in Section 6 are unchanged; Remark 5.12 now records an exact
   enumeration (pp' ≤ 60, k ≤ 3, N − ℓ_k ≤ 60).
 
