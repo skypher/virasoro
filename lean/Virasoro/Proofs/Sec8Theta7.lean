@@ -127,12 +127,13 @@ theorem zeta0_eq {κ τ : Label}
   push_cast at this
   exact this
 
-theorem twoBranchHyp_b0 {κ τ : Label} (hκ : ∀ pq ∈ genAIndex κ.1 κ.2, 4 * pq.1 ≠ 3 * pq.2)
+theorem twoBranchHyp_b0 {N : ℕ} {κ τ : Label}
+    (hκ : ∀ pq ∈ genAIndex κ.1 κ.2, 4 * pq.1 ≠ 3 * pq.2)
     (hτ : ∀ pq ∈ genAIndex τ.1 τ.2, 4 * pq.1 ≠ 3 * pq.2) (hc : hD κ - hD τ ≠ 0)
-    (hlvl : τ.lvl = 7 - κ.lvl) (hmem : τ ∈ labels (7 - κ.lvl))
-    (huniq : ∀ g ∈ labels (7 - κ.lvl), isingKey g = isingKey κ + 48 * (κ.lvl : ℤ) ↔ g = τ)
+    (hlvl : τ.lvl = N - κ.lvl) (hmem : τ ∈ labels (N - κ.lvl))
+    (huniq : ∀ g ∈ labels (N - κ.lvl), isingKey g = isingKey κ + 48 * (κ.lvl : ℤ) ↔ g = τ)
     (hz : isingDelta (κ.1 : ℤ) (κ.2 : ℤ) + (κ.lvl : ℚ) - isingDelta (τ.1 : ℤ) (τ.2 : ℤ) = 0) :
-    TwoBranchHyp b0 7 κ τ := by
+    TwoBranchHyp b0 N κ τ := by
   refine ⟨hlvl, hmem, fun g hg => ?_, ?_, ?_, ?_⟩
   · rw [kacHL_b0_cast, kacHL_b0_cast, isingDelta_cast_shift_iff]
     exact huniq g hg
