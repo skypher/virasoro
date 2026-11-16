@@ -8,20 +8,25 @@ Virasoro-block recursions*.
 
 ## Main result
 
-At every fixed nonzero algebraic Coulomb-gas parameter, the paper gives a
+At every fixed nonzero Coulomb-gas parameter `b_star`, the paper gives a
 finite coefficientwise construction of the eta-reduced torus one-point
 Virasoro block at the corresponding central charge. Generic Kac-recursion
 terms with a common limiting internal weight are combined along the exact
 formal germ `b = b_star + t`. Their fixed-central-charge partial-fraction
 coefficients are obtained as collision moments: constant terms of finite
-sums of Laurent germs.
+sums of Laurent germs. Collisions occur only when `b_star^2` is rational;
+otherwise the construction is the generic recursion evaluated at `b_star`.
 
-Separated pole sets establish classwise cancellation, while a valuation
-majorant and backward precision rule give a finite Laurent-jet budget at
-each level. Partial-fraction uniqueness identifies the result with the
-inverse-Shapovalov definition of the meromorphic Verma-module block. The
+A valuation majorant and backward precision rule give a finite Laurent-jet
+budget at each level, and partial-fraction uniqueness identifies the result
+with the inverse-Shapovalov definition of the meromorphic Verma-module
+block. For central charges other than 1 and 25, the pole orders are
+explained by the Jantzen filtration: the local Smith exponents of the
+Shapovalov matrix are the dimensions of the Feigin-Fuchs embedding layers,
+which bounds every pole order explicitly at minimal-model charges. The
 Ising specialization includes exact level-seven and level-ten examples,
-including the first double pole.
+both obtained from one two-branch closure formula, including the first
+double pole.
 
 The result is coefficientwise in the nome and concerns the meromorphic
 Verma-module block. It is not an intrinsic recursion in the specialized
