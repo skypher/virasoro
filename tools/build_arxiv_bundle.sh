@@ -28,10 +28,10 @@ for source in \
     audit_first_resonances.py \
     audit_grade10_confluence.py \
     audit_grade10_direct.py \
-    audit_ising_characters.py \
     audit_low_levels.py \
     audit_regular_families.py \
     audit_stocco_comparison.py \
+    audit_top_layer.py \
     direct_reconstruction.py \
     exact_shapovalov.py
 do

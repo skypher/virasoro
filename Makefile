@@ -11,7 +11,7 @@ audit:
 	$(PYTHON) tools/audit_confluent_recursion.py
 	$(PYTHON) tools/audit_direct_principal_parts.py
 	$(PYTHON) tools/audit_stocco_comparison.py
-	$(PYTHON) tools/audit_ising_characters.py
+	$(PYTHON) tools/audit_top_layer.py
 
 audit-deep: audit
 	$(PYTHON) tools/audit_grade10_direct.py

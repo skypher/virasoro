@@ -70,7 +70,7 @@ Virasoro-block recursions}
 \author{Leslie P. Polzer}
 \newcommand{\authoraffiliation}{Independent Researcher}
 \newcommand{\authoremail}{polzer@fastmail.com}
-\date{November 16, 2026}
+\date{November 17, 2026}
 
 \makeatletter
 \renewcommand{\section}{%
@@ -134,28 +134,30 @@ eta-reduced torus one-point Virasoro block at
 \(c_\star=1+6(b_\star+b_\star^{-1})^2\).  Generic Kac-recursion terms
 are grouped by their common limiting internal weight; such collisions,
 and poles of the generic residues, occur only when \(b_\star^2\) is
-rational.  Each coefficient of the resulting fixed-central-charge
-principal part is a collision moment: the constant term of a finite sum
-of Laurent germs in \(t=b-b_\star\).  A valuation majorant and a
-backward precision lemma give an a priori finite jet budget, and
-uniqueness of partial fractions identifies the construction
+rational.  Each coefficient of the fixed-central-charge principal part
+is a collision moment: the constant term of a finite sum of Laurent
+germs in \(t=b-b_\star\), computed within an a priori finite jet budget.
+Uniqueness of partial fractions identifies the construction
 coefficientwise in \(q\) with the inverse-Shapovalov definition of the
-meromorphic Verma block; every collision class is then individually
-regular.  The formal germ is an exact algebraic device, not a numerical
-regularization or an intrinsic recursion in the specialized
-representation category.  For \(c_\star\neq1,25\) the local Smith
-exponents of the Shapovalov matrix in the internal weight are the
-dimensions of the Jantzen layers of the Feigin--Fuchs embedding diagram;
-at minimal-model charges this bounds the pole order of every block
-coefficient explicitly.  At the Ising charge we classify the collision
-classes and obtain the first two embedding diamonds from one two-branch
-closure formula, including the first double pole at level seven and the
-level-ten spin example.  Ancillary scripts replay the finite
-computations in exact rational arithmetic.
+meromorphic Verma block.  The formal germ is an exact algebraic device,
+not a numerical regularization.  At minimal-model charges the local
+Smith exponents of the Shapovalov matrix in the internal weight are the
+dimensions of the Jantzen layers of the Feigin--Fuchs embedding diagram,
+which bounds the pole order of every block coefficient.  We show that the
+top Jantzen layer determines the leading Laurent coefficient: it is a sum
+of shifted block coefficients weighted by the torus norms of the singular
+vectors divided by their Jantzen norms.  Since the torus norm of a
+singular vector of level \(\ell\) has exact degree \(2\ell\) in the
+external weight, the bound is attained at the first level of every
+Jantzen layer.  At the Ising charge one two-branch closure formula gives
+the complete principal parts at the first double poles, at levels seven
+and ten.  Ancillary scripts replay the finite computations in exact
+rational arithmetic.
 
 \vskip5pt
 \noindent\textbf{Keywords.}\enspace Virasoro algebra; conformal blocks; torus
-one-point block; Zamolodchikov recursion; minimal models; Ising model.
+one-point block; Zamolodchikov recursion; minimal models; Jantzen
+filtration; Ising model.
 
 \vskip5pt
 \noindent\textbf{MSC2020 Classification.}\enspace
@@ -170,63 +172,31 @@ Residue recursions for Virasoro blocks originate with Zamolodchikov's
 recursive representations of the sphere four-point block
 \cite{Zamolodchikov1984,Zamolodchikov1987}; see
 \cite{ChoCollierYin2017} for a modern general treatment.  For generic
-central charge, the eta-reduced torus one-point Virasoro block obeys the
-residue recursion conjectured by Poghossian
-\cite{Poghossian2009} and derived in
-\cite[Section~3, equations~(7)--(9)]{HadaszJaskolskiSuchanek2010}.
-Poghosyan and Poghosyan recently reviewed the Liouville and
-\(\mathcal W_3\) torus one-point recursions and derived their light-limit
-forms \cite{PoghosyanPoghosyan2026}.  Their regime is \(b\to0\), hence
-\(c\to\infty\), with fixed light dimensions; it is complementary to the
-present problem of exact specialization at a fixed \(b_\star\), which is
-nontrivial exactly when \(b_\star^2\) is rational.
-At rational values of \(b^2\), distinct Kac labels have
-the same degenerate weight and the individual generic-recursion summands
-develop parameter poles.  Javerzat, Santachiara, and Foda analyzed the
-cancellation of these non-physical poles in examples and in the
-identity-insertion character problem
+central charge, the eta-reduced torus one-point block obeys the residue
+recursion conjectured by Poghossian \cite{Poghossian2009} and derived in
+\cite[Section~3, equations~(7)--(9)]{HadaszJaskolskiSuchanek2010}; its
+light limit \(b\to0\) was studied recently in
+\cite{PoghosyanPoghosyan2026}.  At rational values of \(b^2\), distinct
+Kac labels have the same degenerate weight, and individual summands of the
+generic recursion develop poles in the deformation parameter.  Javerzat,
+Santachiara, and Foda analyzed the cancellation of these non-physical poles
+in examples and in the identity-insertion character problem
 \cite[Sections~4--6, especially equations~(60)--(61)]%
-{JaverzatSantachiaraFoda2018}.  Stocco subsequently constructed
-central-charge-pole-free torus expressions through fourth order and proposed
-an all-order Laurent-expansion procedure, whose cancellation and algebraic
-form were left conjectural
+{JaverzatSantachiaraFoda2018}.  Stocco constructed
+central-charge-pole-free torus expressions through fourth order and
+proposed an all-order Laurent-expansion procedure, whose cancellation and
+algebraic form were left conjectural
 \cite[Sections~II.2--II.3 and Appendix~A]{Stocco2022}.  Ribault identifies
-a recursion when the squared Coulomb-gas parameter \(b^2\) is rational as
-an open problem and singles out
-torus one-point Virasoro blocks as its simplest incarnation
-\cite[Section~4.3.3]{Ribault2026}.
-Higher-order internal-weight poles and rational limits of sphere four-point
-blocks were also analyzed by Ribault \cite[Section~3]{Ribault2019}; those
-results provide important precedent for the confluence mechanism, although
-they do not give a finite torus one-point recursion.
+a recursion at rational \(b^2\) as an open problem, with torus one-point
+blocks as its simplest incarnation \cite[Section~4.3.3]{Ribault2026};
+higher-order internal-weight poles and rational limits of sphere
+four-point blocks were analyzed in \cite[Section~3]{Ribault2019}.
 
-To the author's knowledge, this is the first all-order coefficientwise
-construction at every fixed nonzero value \(b_\star\) of the
-Coulomb-gas parameter.  The object
-is the meromorphic Verma-module block, and the conclusion is coefficientwise
-in \(q\).  At every fixed level we partition the generic Kac summands by their
-common limiting weight at \(b=b_\star\).  Every coefficient of the
-internal-weight principal part of a collision class is a finite constant
-term of finite Laurent sums, and each class has a regular sum.  The
-shifted recursion decreases the remaining level, while a recursive
-valuation majorant supplies an a priori finite jet budget.  Collisions
-and poles of the generic residues occur only when \(b_\star^2\) is
-rational (Lemma~\ref{lem:no-generic-shifted-pole}); for every other
-\(b_\star\) the construction reduces to the generic recursion evaluated
-at \(b_\star\).
-
-The construction removes the divergent, non-physical poles in the
-deformation parameter; the genuine Laurent poles in the internal weight
-\(\Delta\) remain.  It uses the formal germ \(b=b_\star+t\) to combine
-generic summands before taking a constant term.  Thus it gives an exact
-formula at fixed \(c_\star\), with no numerical \(\varepsilon\)-limit, but it
-is not an intrinsic recursion formulated solely in the specialized
-representation category.  Nor does it by itself construct irreducible
-minimal-model traces at degenerate internal weights.
-
-In the notation of
-Sections~\ref{sec:partial-fractions}--\ref{sec:all-order}, the main
-result reads: for every level \(N\geq1\),
+The first main result, Theorem~\ref{thm:general-confluence}, is an
+all-order coefficientwise construction at every fixed nonzero
+\(b_\star\), for the meromorphic Verma-module block.  At every level we
+partition the generic Kac summands by their common limiting weight at
+\(b=b_\star\); for every \(N\geq1\),
 \begin{equation}\label{eq:intro-main}
  \begin{aligned}
  H_N(c_\star,\Delta,d)
@@ -240,87 +210,63 @@ result reads: for every level \(N\geq1\),
  \bigl(h_a(t)-\lambda\bigr)^{k-1}.
  \end{aligned}
 \end{equation}
-where \(H_N\) is the \(N\)-th eta-reduced block coefficient,
-\(\Lambda_N(b_\star)\) is the finite set of limiting Kac weights,
+Here \(H_N\) is the \(N\)-th eta-reduced block coefficient,
 \({\mathcal C}^\star_{\lambda,N}\) is the finite class of labels
 \(a=(r,s)\) with \(rs\leq N\) that collide at \(\lambda\),
-\(t=b-b_\star\) is the exact Coulomb-gas germ, and \(R_a\) is the generic
-residue coefficient of the label \(a\),
-\(S_{a,M}\) is the shifted Laurent block of
-Definition~\ref{def:shifted-laurent}, \(\operatorname{CT}_t\) extracts
-the constant term of a Laurent germ, and \(\widehat M^\star_{\lambda,N}\) is
-the a priori pole bound of Definition~\ref{def:collision-moments}.  Every
-ingredient is a finite jet of an explicit rational function of \(b\).
-Theorem~\ref{thm:general-confluence} proves this identity: the
-constant-term moments on the right are exactly the partial-fraction
-coefficients of the inverse-Shapovalov block, at every power of
-\(q\).  The coefficients lie in \(\mathbb Q(b_\star^2)[d]\), hence in
-\(\mathbb Q[d]\) whenever \(b_\star^2\) is rational.  At minimal-model
-values the collision classes are the elementary Diophantine classes of
-Proposition~\ref{prop:minimal-collisions}, and
-Corollary~\ref{cor:ising-confluence} records the Ising specialization.
+\(t=b-b_\star\) is the exact Coulomb-gas germ, \(R_a\) is the generic
+residue, \(S_{a,M}\) is the shifted Laurent block of
+Definition~\ref{def:shifted-laurent}, \(\operatorname{CT}_t\) extracts the
+constant term, and \(\widehat M^\star_{\lambda,N}\) is an a priori pole
+bound.  Every ingredient is a finite jet of an explicit rational function
+of \(b\), and the moments are exactly the partial-fraction coefficients of
+the inverse-Shapovalov block.  Collisions occur only when \(b_\star^2\) is
+rational.  The formula is exact at fixed \(c_\star\), with no numerical
+\(\varepsilon\)-limit, but it combines generic summands through the
+formal germ \(b=b_\star+t\), so it is not an intrinsic recursion in the
+specialized representation category.
 
-The pole orders themselves are governed by the representation theory of
-the specialized Verma module.  For \(c_\star\neq1,25\),
-Theorem~\ref{thm:jantzen-smith} identifies the local Smith exponents of
-the Shapovalov matrix in the internal weight with the dimensions of the
-Jantzen layers, which the Feigin--Fuchs structure theorem describes
-\cite{IoharaKoga2011,Astashkevich1997}.  At a minimal-model charge and an
-interior Kac weight this gives an explicit bound \(j_N(\lambda)\) on the
-pole order of every block coefficient: the number of embedding-diagram
-layers that have reached level \(N\).
+The second main result concerns the pole orders, which are governed by the
+specialized Verma module.  At a minimal-model charge and an interior Kac
+weight \(\lambda\), the local Smith exponents of the Shapovalov matrix are
+the dimensions of the Jantzen layers of the Feigin--Fuchs embedding diagram
+(Theorem~\ref{thm:jantzen-smith}), so the pole order of \(H_N\) at
+\(\lambda\) is at most the number \(j_N(\lambda)\) of layers that have
+reached level \(N\).  Theorem~\ref{thm:top-layer} computes the coefficient
+at this bound.  If \(w^\pm_k\) are the singular vectors of the \(k\)-th
+layer, at levels \(\ell^\pm_k\), then for \(N\) from the first level of the
+\(k\)-th layer up to the first level of the next one,
+\begin{equation}\label{eq:intro-top}
+ \lim_{\Delta\to\lambda}(\Delta-\lambda)^kH_N(c_\star,\Delta,d)
+ =\sum_{\pm:\ \ell^\pm_k\leq N}
+ \frac{\langle w^\pm_k|V_d(1)|w^\pm_k\rangle}{\gamma^\pm_k}\,
+ H_{N-\ell^\pm_k}\bigl(c_\star,\lambda+\ell^\pm_k,d\bigr),
+\end{equation}
+where \(\gamma^\pm_k\neq0\) is the \(k\)-th Jantzen norm of \(w^\pm_k\).
+This is a fixed-\(c\) analogue of Zamolodchikov's residue formula for the
+deepest pole, and every quantity in it is intrinsic to the specialized
+module.  The torus norm \(\langle w|V_d(1)|w\rangle\) of a singular vector
+of level \(\ell\) has exact degree \(2\ell\) in \(d\)
+(Lemma~\ref{lem:singular-degree}); consequently the bound \(j_N(\lambda)\)
+is attained at the first level of every layer
+(Corollary~\ref{cor:top-layer-sharp}).
 
-The local calculations exhibit how the algebraic confluence records
-Virasoro embedding geometry.  The earliest collision is the transverse
-energy-module collision at level three; its two branches first meet at level
-seven and create the first double pole.  The spin-module collision at level
-four closes its diamond at level ten.  Both closures are instances of one
-two-branch formula (Proposition~\ref{prop:two-branch}), which expresses the
-full principal part through two lower finite parts and an explicit
-derivative term.  The fixed-\(c\) formulas are
-Theorems~\ref{thm:first-recursive-residue},
-\ref{thm:level-seven-principal-part},
-\ref{thm:spin-recursive-residue}, and
-\ref{thm:level-ten-principal-part}.  Finally,
-Theorem~\ref{thm:ising-characters} distinguishes the Verma identity
-specialization from the irreducible quotient
-(Proposition~\ref{prop:identity-verma}) and records the three standard
-Ising characters as a separate BGG consistency check.
+At the Ising charge the first double poles occur at levels \(7\), \(10\),
+and \(11\), at the energy, spin, and identity weights.  For the first two,
+one two-branch closure formula (Proposition~\ref{prop:two-branch}) gives
+the complete principal part, and comparison with \eqref{eq:intro-top}
+determines the second Jantzen norms \(\gamma_7=-700700\) and
+\(\gamma_{10}=-1121229484375/192\), which direct Gram-matrix computations
+confirm.
 
-The paper is organized as follows.
-Section~\ref{sec:blocks} defines the block and its eta reduction and
-collects notation in Remark~\ref{rem:notation}.
-Section~\ref{sec:resonance} classifies the minimal-model collision classes
-and records the Ising specialization.
-Section~\ref{sec:partial-fractions} proves the finite coefficientwise
-partial-fraction expansion and states the main theorem and its Ising
-corollary before the examples.
-Section~\ref{sec:smith} develops the
-local Smith and crossing-form toolkit, identifies the Smith layers with
-the Jantzen filtration, and computes the transverse
-collisions at levels three and four.
-Section~\ref{sec:generic-data} recalls the generic residue data and
-proves the generic torus recursion.
-Section~\ref{sec:all-order} proves the general finite confluence theorem
-(Theorem~\ref{thm:general-confluence}) and the two-branch closure
-formula.
-Sections~\ref{sec:energy-diamond} and~\ref{sec:spin-diamond} work out
-the two embedding diamonds---the energy diamond with its first double
-pole at level seven, and the spin diamond at level ten;
-Table~\ref{tab:local-summary} summarizes them.
-Section~\ref{sec:low-level-output} summarizes the output through level four
-and compares it with the expressions of Stocco; the expanded polynomials
-are collected in Appendix~\ref{app:expanded-data}.
-Section~\ref{sec:irreducible} treats the irreducible specialization and
-the Ising characters; and Section~\ref{sec:scope} discusses scope and
-open directions.
-
-The general confluence theorem is proved independently of computer
-calculation.  The explicit level-seven and level-ten Gram, crossing-form,
-and polynomial evaluations are computer-assisted finite calculations in
-exact rational arithmetic; no calculation uses floating-point arithmetic.
-Remark~\ref{rem:audit-scope} records the scope and independence of the
-ancillary replays.
+Sections~\ref{sec:blocks}--\ref{sec:partial-fractions} set up the block
+and state the confluence theorem, Section~\ref{sec:smith} develops the
+Smith and Jantzen theory and proves the top-layer theorem,
+Sections~\ref{sec:generic-data}--\ref{sec:all-order} prove the confluence
+theorem, and Section~\ref{sec:ising} treats the Ising diamonds and
+compares the low-level output with Stocco's expressions.  The general
+theorems are proved without computer calculation; the explicit Ising
+evaluations are computer-assisted finite calculations in exact rational
+arithmetic (Remark~\ref{rem:audit-scope}).
 
 \section{Blocks and the reduced series}\label{sec:blocks}
 
@@ -398,11 +344,7 @@ Repeated use of the Virasoro commutator moves every positive mode in
 \(\Delta\) and \(c\), respectively.  This gives the first assertion.
 
 For the second assertion use, in addition,
-\[
- [L_n,V_d(z)]
- =z^n\bigl(z\partial_z+(n+1)d\bigr)V_d(z).
-\]
-Move positive modes through \(V_d(z)\), then move the remaining negative
+\([L_n,V_d(z)]=z^n(z\partial_z+(n+1)d)V_d(z)\).  Move positive modes through \(V_d(z)\), then move the remaining negative
 modes through \(V_d(z)\) toward the bra.  The process terminates because
 each commutation removes one mode from one side of the insertion.
 The remaining derivatives act on \(z^{-d}\); after setting \(z=1\), their
@@ -425,8 +367,6 @@ and \(\operatorname*{Res}_{\Delta=\lambda}f\) for the coefficient of
 Unless \(d\) is explicitly specialized, it is an indeterminate and pole
 orders in \(\Delta\) are understood over \(\mathbb Q(c,d)\), or over
 \(\mathbb Q(b_\star,d)\) after a fixed algebraic specialization.
-Specializing \(d\) can annihilate a principal-part coefficient and thereby
-lower the pole order or make a candidate pole removable.
 \end{remark}
 
 \section{Algebraic specializations and Ising resonance classes}
@@ -492,11 +432,7 @@ are equal if and only if, for some \(\ell\in\mathbb Z\),
 \begin{proof}
 The displayed formulas follow by substituting \(b_\star^2=-p'/p\) in
 Definition~\ref{def:fixed-specialization}.  Equality of the two weights is
-equivalent to
-\[
- p'r'-ps'=\pm(p'r-ps).
-\]
-For the plus sign, coprimality gives
+equivalent to \(p'r'-ps'=\pm(p'r-ps)\).  For the plus sign, coprimality gives
 \((r'-r,s'-s)=(p\ell,p'\ell)\); for the minus sign it gives
 \((r'+r,s'+s)=(p\ell,p'\ell)\).  The converse is immediate.
 \end{proof}
@@ -541,59 +477,25 @@ where \(p(N)\) is the number of partitions of \(N\).  Consequently,
 \end{lemma}
 
 \begin{proof}
-For a partition \(Y\), put \(a_Y=\ell(Y)\), and rescale the PBW vector
-\(L_{-Y}\lvert\Delta\rangle\) by \(\Delta^{-a_Y/2}\).
-Commuting positive modes to the right shows that
-\[
- \deg_\Delta G_N(Y,Y')\leq\min(a_Y,a_{Y'}).
-\]
-If \(a_Y=a_{Y'}\) and \(Y\neq Y'\), the degree is at most \(a_Y-1\).
-For \(Y=Y'\), the leading term is
-\[
- \left(\prod_{j\geq1}m_j(Y)!(2j)^{m_j(Y)}\right)
- \Delta^{a_Y},
-\]
-where \(m_j(Y)\) is the multiplicity of \(j\) in \(Y\).
-Indeed, in a fully commuted matrix element every factor of \(\Delta\)
-arises from an occurrence of \(L_0\), that is, from a contraction of a
-positive mode of \(L_Y\) against a negative mode of \(L_{-Y'}\) of the
-same index through the \(2jL_0\) term of \([L_j,L_{-j}]\).  Each
-contraction consumes one mode on each side, so a single term carries at
-most \(\min(a_Y,a_{Y'})\) factors of \(\Delta\); this proves the degree
-bound.  If \(a_Y=a_{Y'}\) and the degree is attained, every mode of
-\(Y\) is contracted against a mode of \(Y'\) of equal index, which
-forces \(Y=Y'\); hence off-diagonal entries of equal length have degree
-at most \(a_Y-1\).  For \(Y=Y'\), the top-degree terms are the perfect
-matchings of equal indices: the \(m_j(Y)!\) matchings of the modes of
-index \(j\) each contribute \((2j\Delta)^{m_j(Y)}\) to leading order,
-giving the displayed leading term.
-
-Apply the same counting with one \(V_d\) insertion.  The number of
-\(\Delta\)-factors of a term is again the number of positive--negative
-contractions producing \(L_0\).  A term that uses no Ward commutator
-\([L_n,V_d(z)]\) reproduces the corresponding Shapovalov term exactly,
-because \(\langle\Delta|V_d(1)|\Delta\rangle=1\); a term that uses at
-least one Ward commutator has consumed a mode without producing
-\(L_0\), so its degree is strictly below \(\min(a_Y,a_{Y'})\).
-Indeed, since \(Y\) and \(Y'\) have the same total level, attaining
-\(\min(a_Y,a_{Y'})\) contractions would match every mode on the shorter
-side with an equal-index mode on the other side.  Those matched indices
-already sum to the full level, leaving no positive-index mode available
-for a Ward commutator.
-It follows that, after the above rescaling, both \(G_N\) and \(\rho_N\)
-converge to the same invertible diagonal matrix \(D_N\).
-Therefore
-\[
- \lim_{\Delta\to\infty}F_N(c,\Delta,d)
- =\operatorname{tr}(D_N^{-1}D_N)=p(N).
-\]
-Since \(H_N=\sum_{j=0}^N\eta_jF_{N-j}\), the generating-function
-identity
-\[
- \left(\sum_{j\geq0}\eta_jq^j\right)
- \left(\sum_{k\geq0}p(k)q^k\right)=1
-\]
-gives the second limit.
+For a partition \(Y\) put \(a_Y=\ell(Y)\), and rescale
+\(L_{-Y}\lvert\Delta\rangle\) by \(\Delta^{-a_Y/2}\).  In a fully commuted
+matrix element of \(G_N\), every factor \(\Delta\) arises from a
+contraction of a positive mode of \(L_Y\) with a negative mode of
+\(L_{-Y'}\) of the same index, through the \(2jL_0\) term of
+\([L_j,L_{-j}]\).  Each contraction consumes one mode on each side, so
+\(\deg_\Delta G_N(Y,Y')\leq\min(a_Y,a_{Y'})\); for \(a_Y=a_{Y'}\) equality
+forces \(Y=Y'\), and the top term of \(G_N(Y,Y)\) is
+\(\prod_{j}m_j(Y)!\,(2j)^{m_j(Y)}\Delta^{a_Y}\), where \(m_j(Y)\) is the
+multiplicity of \(j\) in \(Y\).  With one \(V_d\) insertion, a term using
+no Ward commutator reproduces the corresponding Shapovalov term, because
+\(\langle\Delta|V_d(1)|\Delta\rangle=1\).  A term using a Ward commutator
+has fewer than \(\min(a_Y,a_{Y'})\) contractions: attaining the minimum
+would match every mode of the shorter side with an equal-index mode of the
+other side, and these indices already sum to \(N\), leaving no positive
+mode for a Ward commutator.  So after rescaling, \(G_N\) and \(\rho_N\)
+converge to the same invertible diagonal matrix \(D_N\), and
+\(F_N\to\operatorname{tr}(D_N^{-1}D_N)=p(N)\).  The identity
+\((\sum_j\eta_jq^j)(\sum_kp(k)q^k)=1\) gives the second limit.
 \end{proof}
 
 \begin{theorem}[Finite pole expansion at a fixed specialization]
@@ -613,19 +515,11 @@ only finitely many of them nonzero, such that
 If at least one \(A^{\star}_{\lambda,k,N}\) is nonzero, the largest such
 \(k\) is the multiplicity \(m^\star_{\lambda,N}\) of the pole of \(H_N\)
 at \(\lambda\); if they all vanish, \(\lambda\) is a removable candidate
-pole and we put \(m^\star_{\lambda,N}=0\).  Consequently, with
-\[
- A^{\star}_{\lambda,k}(d;q)
- =\sum_{N\geq1}A^{\star}_{\lambda,k,N}(d)q^N,
-\]
-one has the coefficientwise locally finite expansion
-\[
- H_\Delta^{(c_\star)}(d\mid q)
- =1+\sum_{\lambda}\sum_{k\geq1}
- \frac{A^{\star}_{\lambda,k}(d;q)}{(\Delta-\lambda)^k},
-\]
-where at each power of \(q\) the first sum is over the corresponding
-finite set \(\Lambda_N(b_\star)\).
+pole and we put \(m^\star_{\lambda,N}=0\).  Consequently
+\(H_\Delta^{(c_\star)}(d\mid q)=1+\sum_{\lambda,k}A^{\star}_{\lambda,k}(d;q)
+(\Delta-\lambda)^{-k}\) with
+\(A^{\star}_{\lambda,k}(d;q)=\sum_{N\geq1}A^{\star}_{\lambda,k,N}(d)q^N\),
+an expansion that is locally finite coefficientwise in \(q\).
 \end{theorem}
 
 \begin{proof}
@@ -694,17 +588,13 @@ Proposition~\ref{prop:generic-recursion} evaluated at \(b=b_\star\).
 
 \begin{corollary}[Ising specialization]\label{cor:ising-confluence}
 Let \(b_\star=b_0\), so \(c_\star=1/2\), and write
-\[
- \begin{gathered}
- {\mathcal C}_{n,N}={\mathcal C}^{\star}_{\lambda_n,N},\quad
- \widehat M_{n,N}=\widehat M^{\star}_{\lambda_n,N},\quad
- m_{n,N}=m^{\star}_{\lambda_n,N},\\
- A_{n,k,N}=A^{\star}_{\lambda_n,k,N},\quad
- \widetilde A_{n,k,N}=\widetilde A^{\star}_{\lambda_n,k,N}.
- \end{gathered}
-\]
-By Corollary~\ref{cor:ising-classes}, \({\mathcal C}_{n,N}\) is the set of
-positive labels with \(|4r-3s|=n\) and \(rs\leq N\).  For every \(N\geq1\),
+\({\mathcal C}_{n,N}\), \(\widehat M_{n,N}\), \(m_{n,N}\), \(A_{n,k,N}\),
+and \(\widetilde A_{n,k,N}\) for the objects of
+Theorems~\ref{thm:general-partial-fractions}
+and~\ref{thm:general-confluence} at \(\lambda=\lambda_n\).  By
+Corollary~\ref{cor:ising-classes}, \({\mathcal C}_{n,N}\) is the set of
+positive labels with \(|4r-3s|=n\) and \(rs\leq N\).  For every
+\(N\geq1\),
 \begin{equation}\label{eq:pole-free-recursion}
  H_N(1/2,\Delta,d)
  =\sum_{\substack{n\geq0\\{\mathcal C}_{n,N}\neq\varnothing}}
@@ -714,14 +604,7 @@ positive labels with \(|4r-3s|=n\) and \(rs\leq N\).  For every \(N\geq1\),
  \widetilde A_{n,k,N}=A_{n,k,N}\in\mathbb Q[d],
 \end{equation}
 and \(m_{n,N}\leq\widehat M_{n,N}\) is the exact multiplicity of the pole
-of \(H_N\) at \(\lambda_n\).  With
-\(A_{n,k}(d;q)=\sum_{N\geq1}A_{n,k,N}(d)q^N\),
-\[
- H_\Delta^{(1/2)}(d\mid q)
- =1+\sum_{n\geq0}\sum_{k\geq1}
- \frac{A_{n,k}(d;q)}{(\Delta-\lambda_n)^k}
-\]
-coefficient by coefficient in \(q\).
+of \(H_N\) at \(\lambda_n\).
 \end{corollary}
 
 \begin{proof}
@@ -729,7 +612,7 @@ This is Theorem~\ref{thm:general-confluence} at \(b_\star=b_0\); the
 coefficient field is \(\mathbb Q(b_0^2)=\mathbb Q\).
 \end{proof}
 
-\section{Local Smith exponents and transverse collisions}\label{sec:smith}
+\section{Smith exponents, Jantzen layers, and the top pole}\label{sec:smith}
 
 \begin{lemma}[Pole order from local invariant factors]\label{lem:smith}
 Let \(R=\mathbb C[[x]]\), and let \(G(x)\in M_m(R)\) have nonzero
@@ -739,169 +622,15 @@ determinant.  Suppose the Smith exponents of \(G\) are
  \ord_x\det G=\sum_{i=1}^m e_i,\qquad
  \dim\ker G(0)=\#\{i:e_i>0\},
 \]
-and the pole order of \(G(x)^{-1}\) is \(e_m\).
-In particular, if
-\[
- \ord_x\det G=\dim\ker G(0)=k,
-\]
-then every positive Smith exponent equals \(1\), and \(G^{-1}\) has at
-most a simple pole.
+and the pole order of \(G(x)^{-1}\) is \(e_m\).  In particular, if
+\(\ord_x\det G=\dim\ker G(0)\), every positive Smith exponent equals \(1\).
 \end{lemma}
 
 \begin{proof}
 Since \(R\) is a discrete valuation ring, there are
-\(U,V\in\operatorname{GL}_m(R)\) such that
-\[
- UGV=\operatorname{diag}(x^{e_1},\ldots,x^{e_m}).
-\]
-Taking determinants gives the first identity.  Reducing modulo \(x\)
-gives the second.  Inverting the displayed Smith form gives pole order
-\(e_m\).  If the sum of the \(k\) positive integers \(e_i\) is \(k\),
-then each of them is \(1\).
-\end{proof}
-
-\begin{proposition}[Transverse inverse residue]\label{prop:transverse-residue}
-Let \(V\) be finite dimensional, let
-\(G(x)\colon V\to V^*\) be a symmetric matrix over \(\mathbb C[[x]]\)
-with nonzero determinant, and put \(K=\ker G(0)\).  Let
-\(\iota\colon K\hookrightarrow V\) be the inclusion and define the crossing
-form
-\[
- \beta(u,v)=u^{\mathsf T}G'(0)v,\qquad u,v\in K.
-\]
-If \(\beta\) is nondegenerate, then \(G(x)^{-1}\) has at most a simple pole and
-\[
- \operatorname*{Res}_{x=0}G(x)^{-1}
- =\iota\,\beta^{-1}\iota^*.
-\]
-Moreover, \(\beta\) is nondegenerate if and only if
-\[
- \ord_x\det G=\dim K.
-\]
-\end{proposition}
-
-\begin{proof}
-Choose a complement \(C\) of \(K\).  Since \(K\) is the radical of the
-symmetric form \(G(0)\), its restriction \(A\) to \(C\) is nondegenerate.
-In the decomposition \(V=K\oplus C\), one therefore has
-\[
- G(x)=
- \begin{pmatrix}
-  xB+O(x^2)&xD+O(x^2)\\
-  xD^{\mathsf T}+O(x^2)&A+O(x)
- \end{pmatrix},
-\]
-where \(B\) is the matrix of \(\beta\).  The Schur complement of the
-lower-right block is
-\[
- S(x)=xB+O(x^2).
-\]
-If \(B\) is invertible, block inversion gives
-\[
- G(x)^{-1}
- =\frac1x
- \begin{pmatrix}B^{-1}&0\\0&0\end{pmatrix}+O(1),
-\]
-which is the coordinate expression of the asserted residue.  Also
-\[
- \det G(x)=\det(A+O(x))\det S(x).
-\]
-Every entry of \(S\) is divisible by \(x\), so its determinant is divisible
-by \(x^{\dim K}\), with equality of orders precisely when
-\(\det B\neq0\).  This proves the final equivalence.
-\end{proof}
-
-\begin{proposition}[Two-step inverse principal part]
-\label{prop:two-step-residue}
-Let
-\[
- G(x)=G_0+xG_1+x^2G_2+O(x^3)
-\]
-be as in Proposition~\ref{prop:transverse-residue}, and put
-\[
- K_1=\ker G_0,\qquad
- \beta_1(u,v)=u^{\mathsf T}G_1v,\qquad
- K_2=\ker(\beta_1\colon K_1\to K_1^*).
-\]
-For \(v\in K_2\), choose \(v_1\in V\) satisfying
-\[
- G_0v_1=-G_1v
-\]
-and define
-\[
- \beta_2(u,v)=u^{\mathsf T}(G_2v+G_1v_1),
- \qquad u,v\in K_2.
-\]
-Then \(v_1\) exists, \(\beta_2\) is independent of its choice, and
-\(\beta_2\) is symmetric.  Without any nondegeneracy assumption,
-\[
- \#\{i:e_i\geq1\}=\dim K_1,\qquad
- \#\{i:e_i\geq2\}=\dim K_2.
-\]
-\(\beta_2\) is nondegenerate if and only if all Smith exponents are at most
-\(2\).  In that case,
-\[
- [x^{-2}]G(x)^{-1}=\iota_2\beta_2^{-1}\iota_2^*,
-\]
-where \(\iota_2\colon K_2\hookrightarrow V\).
-\end{proposition}
-
-\begin{proof}
-Because \(G_0\) is symmetric,
-\(\operatorname{im}G_0\) is the annihilator of \(K_1\).
-For \(v\in K_2\) and \(u\in K_1\),
-\[
- u^{\mathsf T}G_1v=\beta_1(u,v)=0.
-\]
-Thus \(G_1v\in\operatorname{im}G_0\), proving the existence of \(v_1\).
-Two choices differ by an element \(k\in K_1\), and
-\(u^{\mathsf T}G_1k=\beta_1(u,k)=0\) for \(u\in K_2\), proving
-choice-independence.
-
-Choose a complement to \(K_1\) as in the proof of
-Proposition~\ref{prop:transverse-residue}, and first take the Schur
-complement of its nondegenerate block.  This produces a symmetric matrix on
-\(K_1\) of the form
-\[
- S(x)=xB_1+x^2B_2+O(x^3),
-\]
-where \(B_1\) represents \(\beta_1\), and the restriction of \(B_2\) to
-\(\ker B_1=K_2\) is the displayed form \(\beta_2\).  This also proves its
-symmetry.  The positive Smith exponents of \(G\) are the Smith exponents of
-\(S\).  Dividing \(S\) by \(x\) and reducing modulo \(x\) gives \(B_1\).
-The Smith normal form, first for \(G\) and then for \(x^{-1}S\), therefore
-gives
-\[
- \#\{i:e_i\geq1\}=\dim K_1,\qquad
- \#\{i:e_i\geq2\}=\dim\ker B_1=\dim K_2.
-\]
-This count does not require the second crossing form to be nondegenerate.
-
-Now choose a complement \(E\) to \(K_2\) in \(K_1\).
-The restriction of \(B_1\) to \(E\) is nondegenerate, and a second Schur
-complement gives
-\[
- S(x)\sim
- \begin{pmatrix}
-  x^2\beta_2+O(x^3)&0\\
-  0&xB_1|_E+O(x^2)
- \end{pmatrix}.
-\]
-The second block form shows that \(\beta_2\) is nondegenerate precisely when
-no Smith exponent exceeds \(2\).  In that case block inversion yields the
-asserted \(x^{-2}\) coefficient.
-\end{proof}
-
-\begin{corollary}[Determinant multiplicity does not determine block pole
-order]\label{cor:det-overcounts}
-At a collided Kac weight, the multiplicity of the corresponding factor in
-\(\det G_N\) is only the sum of the positive local Smith exponents.
-The inverse Shapovalov pole order is their maximum.
-\end{corollary}
-
-\begin{proof}
-Apply Lemma~\ref{lem:smith} with \(x=\Delta-\lambda\), where \(\lambda\)
-is the collided Kac weight.
+\(U,V\in\operatorname{GL}_m(R)\) with
+\(UGV=\operatorname{diag}(x^{e_1},\ldots,x^{e_m})\).  Taking determinants,
+reducing modulo \(x\), and inverting give the three assertions.
 \end{proof}
 
 \begin{definition}[Jantzen layers in the internal weight]
@@ -946,7 +675,180 @@ x^i\mathbb C[x]\) for every PBW vector \(y\).  Thus \(J^i(c,h)\) is a
 submodule.  For \(i=1\) the defining condition is \(G_N(c,h)v=0\).
 \end{proof}
 
-Thus \(J^\bullet(c,h)\) is the Jantzen filtration of \(M(c,h)\) along the
+
+\begin{lemma}[Jantzen forms and the top coefficient]
+\label{lem:top-coefficient}
+Fix \((c,h)\).  For \(i\geq1\) and \(u,v\in J^i_N(c,h)\), choose families
+\(u(x),v(x)\) as in Definition~\ref{def:jantzen-layers} and put
+\[
+ B^i(u,v)=[x^i]\,v(x)^{\mathsf T}G_N(c,h+x)\,u(x).
+\]
+\begin{enumerate}
+\item[(i)] \(B^i\) is a well-defined symmetric form, and
+\(B^i(L_{-n}u,v)=B^i(u,L_nv)\) for \(n>0\), \(u\in J^i_{N-n}(c,h)\), and
+\(v\in J^i_N(c,h)\).
+\item[(ii)] Suppose \(\det G_N(c,h+x)\not\equiv0\), and let \(k\geq1\) be
+the largest local Smith exponent at \(x=0\).  Then \(B^k\) is
+nondegenerate on \(J^k_N(c,h)\), and
+\[
+ [x^{-k}]\,G_N(c,h+x)^{-1}=\iota\,(B^k)^{-1}\iota^*,
+\]
+where \(\iota\colon J^k_N(c,h)\hookrightarrow\mathbb C^{p(N)}\) is the
+inclusion.
+\item[(iii)] Write \(G_N(c,h+x)=G_0+xG_1+x^2G_2+O(x^3)\).  Then
+\(B^1(u,v)=v^{\mathsf T}G_1u\), and
+\(B^2(u,v)=v^{\mathsf T}(G_2u+G_1u_1)\) for every \(u_1\) with
+\(G_0u_1=-G_1u\).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) Two families for \(u\) differ by \(xf(x)\) with \(f\) polynomial, and
+\(v(x)^{\mathsf T}G_N\,xf(x)=x\,(G_Nv(x))^{\mathsf T}f(x)\in
+x^{i+1}\mathbb C[x]\), because \(G_N\) is symmetric.  Hence \(B^i\) does not
+depend on the family of \(u\), by symmetry neither on that of \(v\), and it
+is symmetric.  The proof of Lemma~\ref{lem:jantzen-smith} shows that
+\(L_{-n}u(x)\) and \(L_nv(x)\), computed in \(M(c,h+x)\), are families for
+\(L_{-n}u\) and \(L_nv\).  Contravariance of the Shapovalov form of
+\(M(c,h+x)\) and extraction of the coefficient of \(x^i\) give the last
+identity.
+
+(ii) With \(UG_NV=\operatorname{diag}(x^{e_1},\ldots,x^{e_{p(N)}})\) as in
+Lemma~\ref{lem:smith}, \(G_N^{-1}=V\operatorname{diag}(x^{-e_j})U\), so
+\(S=[x^{-k}]G_N^{-1}=V(0)EU(0)\), where \(E\) is the diagonal projection
+onto the indices with \(e_j=k\).  By the proof of
+Lemma~\ref{lem:jantzen-smith}, the column space of \(S\) is
+\(V(0)\operatorname{span}\{\epsilon_j:e_j=k\}=J^k_N(c,h)\).  Since \(S\) is
+symmetric, \(S=\sum_{a,b}C_{ab}u_au_b^{\mathsf T}\) for a basis
+\(u_1,\ldots,u_m\) of \(J^k_N(c,h)\) and a symmetric matrix \(C\).  For
+\(u\in J^k_N(c,h)\) with family \(u(x)\), write
+\(G_N(c,h+x)u(x)=x^kg(x)\).  Since \(x^kG_N^{-1}=S+O(x)\), evaluation at
+\(x=0\) gives \(u=Sg(0)\), while \(B^k(u,v)=v^{\mathsf T}g(0)\) for
+\(v\in J^k_N(c,h)\).  For \(u=u_c\) this reads
+\(u_c=\sum_au_a\sum_bC_{ab}B^k(u_c,u_b)\), so \(C\) is inverse to the Gram
+matrix of \(B^k\).
+
+(iii) A vector \(u\in J^1_N\) is its own family.  If \(u,v\in J^2_N\) and
+\(G_0u_1=-G_1u\), \(G_0v_1=-G_1v\), then \(u+xu_1\) and \(v+xv_1\) are
+families, and the coefficient of \(x^2\) in
+\((v+xv_1)^{\mathsf T}G_N(u+xu_1)\) is
+\(v^{\mathsf T}(G_2u+G_1u_1)+v_1^{\mathsf T}(G_1u+G_0u_1)\), whose last
+term vanishes.
+\end{proof}
+
+The case \(k=1\) of (ii) is the residue formula behind the generic
+recursion of Section~\ref{sec:generic-data}, and \(B^2\) is the second
+crossing form evaluated in Section~\ref{sec:ising}.  By
+Lemma~\ref{lem:smith}, the multiplicity of a Kac factor in \(\det G_N\) is
+the sum of the positive Smith exponents, whereas the pole order of
+\(G_N^{-1}\) is their maximum.
+
+\begin{lemma}[Torus form on a singular submodule]
+\label{lem:singular-factorization}
+Let \(\chi\in M(c,h)\) be a singular vector of level \(\ell\), normalized
+by a fixed PBW coefficient, and let
+\[
+ P_\chi(d)=\langle\chi|V_d(1)|\chi\rangle .
+\]
+For partitions \(Y,Y'\) of the same integer \(m\),
+\[
+ \langle\chi|L_YV_d(1)L_{-Y'}|\chi\rangle
+ =P_\chi(d)\,
+ \rho_m(c,h+\ell,d)_{Y,Y'}.
+\]
+\end{lemma}
+
+\begin{proof}
+The map \(L_{-Y}|h+\ell\rangle\mapsto L_{-Y}\chi\) is a homomorphism
+\(M(c,h+\ell)\to M(c,h)\), because \(\chi\) is singular of weight
+\(h+\ell\).  The torus form pulled back along it in both arguments obeys the
+Ward recursion of \(\rho_m(c,h+\ell,d)\), which determines every matrix
+element from the highest-weight value; that value is \(P_\chi(d)\) for the
+pullback and \(1\) for \(\rho_m\).
+\end{proof}
+
+\begin{lemma}[First crossing form on a singular submodule]
+\label{lem:singular-crossing}
+Fix \(c\) and let \(\chi=P|h_0\rangle\in M(c,h_0)\) be singular of level
+\(\ell\geq1\), where the PBW operator \(P\in U(\Vir_-)\) is held fixed as
+\(h\) varies.  Set
+\[
+ \beta_\chi=
+ \left.\frac{d}{dh}
+ \langle h|\omega(P)P|h\rangle\right|_{h=h_0},
+\]
+where \(\omega(L_n)=L_{-n}\).  For partitions \(Y,Y'\) of \(m\),
+\[
+ \left.\frac{d}{dh}
+ \langle h|\omega(P)L_YL_{-Y'}P|h\rangle\right|_{h=h_0}
+ =\beta_\chi\,G_m(c,h_0+\ell)_{Y,Y'}.
+\]
+\end{lemma}
+
+\begin{proof}
+The vectors \(u=L_{-Y'}P\lvert h\rangle\) and \(v=L_{-Y}P\lvert h\rangle\)
+have PBW coordinates independent of \(h\), because \(L_{-Y'}P\) and
+\(L_{-Y}P\) lie in \(U(\Vir_-)\).  At \(h=h_0\) they lie in the proper
+submodule generated by \(\chi\), hence in the radical
+\(J^1_{m+\ell}(c,h_0)\), so they are their own families.  The left side is
+therefore \(B^1(u,v)\) in the notation of Lemma~\ref{lem:top-coefficient},
+and \(\beta_\chi=B^1(\chi,\chi)\).  By Lemma~\ref{lem:top-coefficient}(i)
+and singularity of \(\chi\),
+\[
+ B^1(L_{-Y'}\chi,L_{-Y}\chi)=B^1(\chi,L_YL_{-Y'}\chi)
+ =G_m(c,h_0+\ell)_{Y,Y'}\,\beta_\chi .
+\]
+\end{proof}
+
+
+\begin{lemma}[Torus norm of a singular vector]\label{lem:singular-degree}
+Let \(w\in M(c,h)\) be a nonzero singular vector of level \(\ell\geq1\).
+Then the coefficient \(a_w\) of \(L_{-1}^\ell\lvert h\rangle\) in \(w\) is
+nonzero, and \(\langle w|V_d(1)|w\rangle\) is a polynomial in \(d\) of
+degree exactly \(2\ell\) with leading coefficient \(a_w^2\).
+\end{lemma}
+
+\begin{proof}
+Call \(\ell(Y)\) the length of the PBW vector \(L_{-Y}\lvert h\rangle\).
+The commutator of two modes is a single mode or a scalar, so a product of
+\(K\) negative modes applied to \(\lvert h\rangle\) equals its ordered PBW
+monomial plus vectors of length less than \(K\), and a positive mode does
+not increase the length.  Let \(K\) be the largest length occurring in
+\(w\), and encode its length-\(K\) part
+\(\sum_{\ell(Y)=K}a_YL_{-Y}\lvert h\rangle\) as the nonzero polynomial
+\(\sigma=\sum_{\ell(Y)=K}a_Yx_{y_1}\cdots x_{y_K}\) in commuting variables
+\(x_1,x_2,\ldots\).  Let \(j\geq1\).  Moving \(L_j\) to the right through
+\(L_{-y_1}\cdots L_{-y_K}\lvert h\rangle\), a factor \(L_{-m}\) with \(m>j\)
+is replaced by \((m+j)L_{-(m-j)}\); for \(m=j\) the commutator acts by a
+scalar, and for \(m<j\) it is the positive mode \(L_{j-m}\); both lower the
+length.  Hence the length-\(K\) part of \(L_jw\) is encoded by
+\(D_j\sigma\), where
+\(D_j=\sum_{m>j}(m+j)\,x_{m-j}\,\partial/\partial x_m\), and singularity of
+\(w\) gives \(D_j\sigma=0\) for all \(j\geq1\).  If a variable \(x_m\) with
+\(m\geq2\) occurs in \(\sigma\), let \(m\) be the largest one and
+\(j=m-1\); then \(D_j\sigma=(2m-1)\,x_1\,\partial\sigma/\partial x_m\neq0\),
+a contradiction.  So \(\sigma\) is a multiple of \(x_1^K\), and comparing
+levels gives \(K=\ell\) and \(a_w\neq0\).
+
+For the second assertion, evaluate \(\rho_\ell(c,h,d)_{Y,Y'}\) by the Ward
+recursion in the proof of Lemma~\ref{lem:polynomial-entries}.  When a mode
+\(L_{\pm n}\), \(n>0\), is commuted through \(V_d(z)\) inside a matrix
+element between vectors of levels \(m_1\) and \(m_2\), the commutator
+\([L_{\pm n},V_d(z)]=z^{\pm n}(z\partial_z+(1\pm n)d)V_d(z)\) acts on
+\(z^{m_1-m_2-d}\) and contributes, with the sign of the commutation, the
+factor \(nd\pm(m_1-m_2)\), of degree one in \(d\) with leading coefficient
+\(n\).  Every other step (a commutator of two modes, the action of \(L_0\)
+or of the central element, or an annihilation at \(\lvert h\rangle\) or
+\(\langle h|\)) removes at least one mode without producing a factor
+\(d\).  Since \(\langle h|V_d(1)|h\rangle=1\), the entry
+\(\rho_\ell(c,h,d)_{Y,Y'}\) has degree at most \(\ell(Y)+\ell(Y')\) in
+\(d\), and the coefficient of \(d^{\ell(Y)+\ell(Y')}\) is
+\(\prod_iy_i\prod_jy'_j\).  In
+\(\langle w|V_d(1)|w\rangle=\sum_{Y,Y'}a_Ya_{Y'}\rho_\ell(c,h,d)_{Y,Y'}\)
+the only pair with \(\ell(Y)+\ell(Y')=2\ell\) is \(Y=Y'=(1^\ell)\).
+\end{proof}
+
+The filtration \(J^\bullet(c,h)\) of Definition~\ref{def:jantzen-layers} is the Jantzen filtration of \(M(c,h)\) along the
 deformation \(h\mapsto h+x\) at fixed central charge.  For
 \(c\neq1,25\) this is the filtration studied in
 \cite[\S5.5 and equation (5.49)]{IoharaKoga2011}, and it is a Jantzen
@@ -970,18 +872,12 @@ Let \(p,p'\geq2\) be coprime, let \(b_\star^2=-p'/p\), and let
 \]
 Then \(M(c_\star,\lambda)\) has, for every \(k\geq1\), singular vectors
 \(w^\pm_k\) of levels \(\ell^\pm_k\), and with
-\(W^\pm_k=U(\Vir_-)w^\pm_k\),
-\[
- J^i(c_\star,\lambda)=W^+_i+W^-_i\qquad(i\geq1).
-\]
-Consequently, at every level \(N\), the number of local Smith exponents of
+\(W^\pm_k=U(\Vir_-)w^\pm_k\), one has
+\(J^i(c_\star,\lambda)=W^+_i+W^-_i\) for \(i\geq1\).  Consequently, at every level \(N\), the number of local Smith exponents of
 \(G_N(c_\star,\lambda+x)\) that are at least \(i\) is
 \(\dim(W^+_i+W^-_i)_N\).  The inverse Shapovalov matrix
 \(G_N(c_\star,\Delta)^{-1}\) has a pole of order exactly
-\[
- j_N(\lambda)=\max\bigl(\{0\}\cup
- \{k\geq1:\min(\ell^+_k,\ell^-_k)\leq N\}\bigr)
-\]
+\(j_N(\lambda)=\max(\{0\}\cup\{k\geq1:\min(\ell^+_k,\ell^-_k)\leq N\})\)
 at \(\Delta=\lambda\), and \(F_N(c_\star,\Delta,d)\) and
 \(H_N(c_\star,\Delta,d)\) have poles of order at most \(j_N(\lambda)\)
 there.
@@ -1006,22 +902,13 @@ Coulomb-gas momenta \(2jpp'\mp n_0\) when \(k=2j\), and
 \(\lambda\) are \(\ell^\mp_k\).
 
 Independently, \cite[Theorem~B(e)]{Astashkevich1997} gives the same
-layers, as sums over the same unordered pairs of generators, along every
-smooth curve through \((\lambda,c_\star)\) that is not
-tangent to a Kac curve.  The line \(c=c_\star\) has this property: near
-\((\lambda,c_\star)\) every Kac curve is a graph
-\(\Delta=h_{u,v}(b(c))\) over the \(c\)-axis, because
-\(c'(b_\star)=12(b_\star+b_\star^{-1})(1-b_\star^{-2})\neq0\).
-In the notation of \cite[\S5.1]{Astashkevich1997} one is in case
-\(\mathrm{III}_-\): the integral points of the line
+layers, in its case \(\mathrm{III}_-\) (the integral points of the line
 \(p'k-pl=n_0\) with \(kl>0\) are, up to sign, the labels
-\((r+jp,s+jp')\) and \(((j+1)p-r,(j+1)p'-s)\), \(j\geq0\), whose
-products \(\ell^+_{2j+1}<\ell^-_{2j+1}\) interlace as stated there (the
-difference is \((2j+1)(n_1-pp')<0\)); the line meets neither axis at an
-integral point because \(p\nmid r\) and \(p'\nmid s\); and the points of
-the auxiliary line give the levels
-\(rs+(jp-r)(jp'+s)=\ell^-_{2j}\) and
-\(rs+(r+jp)(jp'-s)=\ell^+_{2j}\).
+\((r+jp,s+jp')\) and \(((j+1)p-r,(j+1)p'-s)\)), along every smooth curve
+through \((\lambda,c_\star)\) that is not tangent to a Kac curve.  The line
+\(c=c_\star\) is such a curve: near \((\lambda,c_\star)\) every Kac curve is
+a graph \(\Delta=h_{u,v}(b(c))\) over the \(c\)-axis, because
+\(c'(b_\star)=12(b_\star+b_\star^{-1})(1-b_\star^{-2})\neq0\).
 
 Lemma~\ref{lem:jantzen-smith} converts the layers into Smith exponents.
 The space \((W^+_i+W^-_i)_N\) is nonzero exactly when
@@ -1033,423 +920,139 @@ a higher pole.  Finally, \(j_{N-j}(\lambda)\leq j_N(\lambda)\), and
 
 \begin{remark}[Other weights]\label{rem:jantzen-other}
 Theorem~\ref{thm:jantzen-smith} treats the weights with an interior
-label, which are the weights \(\xi_0\) of Class~\(R^+\), Case~\(1+\), in
+label, the weights \(\xi_0\) of Class~\(R^+\), Case~\(1+\), in
 \cite{IoharaKoga2011}.  The other weights of \(\Lambda_N(b_\star)\) at a
-minimal-model charge are weights \(\xi_i\) with \(i\neq0\) of Case~\(1+\),
-or of boundary type; for instance, at \((p,p')=(3,4)\) the weight
-\(h_{1,5}(b_0)=5/2\) has no interior label, although \(3\nmid1\) and
-\(4\nmid5\).  For all of them \cite[Theorem~6.3]{IoharaKoga2011}
-describes the same fixed-\(c\) Jantzen filtration, and
-Lemma~\ref{lem:jantzen-smith} turns its layers into Smith exponents and
-pole bounds.  At \(c_\star=1,25\) the fixed-\(c\) line is tangent to some
-Kac curves (not to all: \(h_{1,1}=0\) is transverse), and
-\cite[equation (5.49)]{IoharaKoga2011} uses a different deformation
-there, so Definition~\ref{def:jantzen-layers} needs a separate analysis.
-The confluence theorem uses none of these results; they explain its pole
-orders.
+minimal-model charge, such as \(h_{1,5}(b_0)=5/2\), are weights \(\xi_i\)
+with \(i\neq0\) of Case~\(1+\) or of boundary type;
+\cite[Theorem~6.3]{IoharaKoga2011} describes their fixed-\(c\) Jantzen
+filtration as well, and Lemma~\ref{lem:jantzen-smith} turns its layers
+into Smith exponents and pole bounds.  At \(c_\star=1,25\) the fixed-\(c\)
+line is tangent to some Kac curves, and
+\cite[equation (5.49)]{IoharaKoga2011} uses a different deformation, so
+Definition~\ref{def:jantzen-layers} needs a separate analysis.  The
+confluence theorem uses none of these results.
 \end{remark}
 
-\begin{lemma}[Torus form on a singular submodule]
-\label{lem:singular-factorization}
-Let \(\chi\in M(c,h)\) be a singular vector of level \(\ell\), normalized
-by a fixed PBW coefficient, and let
-\[
- P_\chi(d)=\langle\chi|V_d(1)|\chi\rangle .
-\]
-For partitions \(Y,Y'\) of the same integer \(m\),
-\[
- \langle\chi|L_YV_d(1)L_{-Y'}|\chi\rangle
- =P_\chi(d)\,
- \rho_m(c,h+\ell,d)_{Y,Y'}.
-\]
-\end{lemma}
 
-\begin{proof}
-The assignment
+\begin{theorem}[Top Jantzen layer]\label{thm:top-layer}
+In the setting of Theorem~\ref{thm:jantzen-smith}, put
+\(\ell_k=\min(\ell^+_k,\ell^-_k)\) and, for each sign,
 \[
- L_{-Y}|h+\ell\rangle\longmapsto L_{-Y}\chi
+ \mu^\pm_k=\lambda+\ell^\pm_k,\qquad
+ \gamma^\pm_k=B^k(w^\pm_k,w^\pm_k),\qquad
+ \tau^\pm_k(d)=\langle w^\pm_k|V_d(1)|w^\pm_k\rangle .
 \]
-is a homomorphism from \(M(c,h+\ell)\) to \(M(c,h)\), because \(\chi\)
-is singular and has \(L_0\)-weight \(h+\ell\).  Pull the torus
-three-point form on \(M(c,h)\) back along this homomorphism in both module
-arguments.  Commuting one Virasoro mode at a time through \(V_d(z)\) shows
-that the pulled-back form obeys the same Ward recursion as
-\(\rho_m(c,h+\ell,d)\).  That recursion terminates at the highest-weight
-matrix element and therefore determines every descendant matrix element
-uniquely.  The pulled-back highest-weight value is \(P_\chi(d)\), whereas
-the normalization
-\(\langle h+\ell|V_d(1)|h+\ell\rangle=1\) gives highest-weight value
-\(1\) for \(\rho_m\).  The displayed identity follows.
-\end{proof}
-
-\begin{lemma}[First crossing form on a singular submodule]
-\label{lem:singular-crossing}
-Fix \(c\) and let \(\chi=P|h_0\rangle\in M(c,h_0)\) be singular of level
-\(\ell\geq1\), where the PBW operator \(P\in U(\Vir_-)\) is held fixed as
-\(h\) varies.  Set
-\[
- \beta_\chi=
- \left.\frac{d}{dh}
- \langle h|\omega(P)P|h\rangle\right|_{h=h_0},
-\]
-where \(\omega(L_n)=L_{-n}\).  For partitions \(Y,Y'\) of \(m\),
-\[
- \left.\frac{d}{dh}
- \langle h|\omega(P)L_YL_{-Y'}P|h\rangle\right|_{h=h_0}
- =\beta_\chi\,G_m(c,h_0+\ell)_{Y,Y'}.
-\]
-\end{lemma}
-
-\begin{proof}
-For the Shapovalov form of \(M(c,h)\), write
-\[
- S_h(u,v)=\langle h|\omega(u)v|h\rangle,
- \qquad \widetilde u=uP\quad(u\in U(\Vir_-)).
-\]
-The derivative on the left defines a bilinear form
-\[
- C(u,v)
- =\left.\frac{d}{dh}S_h(\widetilde u,\widetilde v)\right|_{h=h_0}
-\]
-on the PBW space of \(M(c,h_0+\ell)\).  At \(h=h_0\), the map
-\[
- j_\chi\colon M(c,h_0+\ell)\longrightarrow M(c,h_0),
- \qquad u|h_0+\ell\rangle\longmapsto u\chi ,
-\]
-is a module homomorphism, and its image lies in the radical of the
-Shapovalov form, because \(\chi\) has positive level and therefore
-generates a proper submodule.
-
-We claim that \(C\) is contravariant for the module structure of
-\(M(c,h_0+\ell)\).  Contravariance in negative modes,
-\(C(L_{-n}u,v)=C(u,\omega(L_{-n})v)\), holds at every \(h\) because the
-Shapovalov form itself is contravariant and \(\widetilde{L_{-n}u}
-=L_{-n}\widetilde u\).  For a positive mode, fix \(n>0\) and
-\(v\in U(\Vir_-)\), and let \(w_0\in U(\Vir_-)\) be the PBW
-reduction of \(L_n v\) in \(M(c,h_0+\ell)\), so that
-\(L_n\,v|h_0+\ell\rangle=w_0|h_0+\ell\rangle\).  In \(M(c,h)\) set
-\[
- D(h)=L_n\widetilde v\,|h\rangle-\widetilde{w_0}\,|h\rangle .
-\]
-Each coefficient of \(D(h)\) in the PBW basis is polynomial in \(h\),
-and \(D(h_0)=0\) because \(\chi=P|h_0\rangle\) is singular and
-\(j_\chi\) intertwines the actions at \(h=h_0\).  Hence
-\(D(h)=(h-h_0)\widetilde D(h)\) with \(\widetilde D\) polynomial in
-\(h\).  Therefore
-\[
- \frac{d}{dh}\Big|_{h_0}S_h(\widetilde u,L_n\widetilde v)
- =\frac{d}{dh}\Big|_{h_0}S_h(\widetilde u,\widetilde{w_0})
- +S_{h_0}\bigl(\widetilde u,\widetilde D(h_0)\bigr).
-\]
-The last term vanishes because \(\widetilde u\,|h_0\rangle
-=j_\chi(u|h_0+\ell\rangle)\) lies in the radical of \(S_{h_0}\).  Since
-\(S_h(\widetilde u,L_n\widetilde v)
-=S_h(\widetilde{L_{-n}u},\widetilde v)\), this proves
-\(C(L_{-n}u,v)=C(u,w_0)\), that is, contravariance in positive
-modes.
-
-A contravariant form on a Verma module is uniquely determined by its
-highest-weight value, because PBW commutation recursively reduces every
-matrix element to that value.  Here the highest-weight value is
-\(\beta_\chi\), so \(C=\beta_\chi G_m(c,h_0+\ell)\).
-\end{proof}
-
-\begin{proposition}[Earliest Ising collision]\label{prop:first-collision}
-The first repeated Ising Kac weight occurs at level \(3\):
-\[
- \Delta_{2,1}=\Delta_{1,3}=\frac12,
- \qquad \ell_{2,1}=2,\quad \ell_{1,3}=3.
-\]
-In \(M(1/2,1/2)\), the vectors
-\[
- \xi_2=
- \left(L_{-1}^2-\frac43L_{-2}\right)|\tfrac12\rangle
-\]
-and
-\[
- \xi_3=
- \left(L_{-1}^3-3L_{-2}L_{-1}
-       +\frac34L_{-3}\right)|\tfrac12\rangle
-\]
-are singular.  At level \(3\),
-\[
- \ker G_3(1/2,1/2)
- =\operatorname{span}\{L_{-1}\xi_2,\xi_3\},
-\]
-and the local Smith exponents are \((0,1,1)\).  With the
-\(L_{-1}^{\ell}\)-coefficient normalized to \(1\), their crossing scalars
-are
-\[
- \beta_{\xi_2}=\frac{28}{9},\qquad
- \beta_{\xi_3}=-\frac{105}{8},
-\]
-and the level-three crossing form in the ordered basis
-\((L_{-1}\xi_2,\xi_3)\) is
-\[
- \begin{pmatrix}140/9&0\\0&-105/8\end{pmatrix}
- =
- \begin{pmatrix}
- \frac{28}{9}G_1(1/2,5/2)&0\\0&-105/8
- \end{pmatrix}.
-\]
-Moreover, the diagonal torus matrix elements are
-\[
- E_2(d):=\langle\xi_2|V_d(1)|\xi_2\rangle
- =\frac{d(d-1)(3d-14)(3d-5)}9,
-\]
-and
-\[
- E_3(d):=\langle\xi_3|V_d(1)|\xi_3\rangle
- =\frac{d(d-1)(2d-15)(2d-7)(2d-5)(2d-1)}{16}.
-\]
-\end{proposition}
-
-\begin{proof}
-The collision statement follows immediately from
-\(\Delta_{r,s}=\lambda_{|4r-3s|}\): the labels of levels at most \(2\)
-have distinct values of \(|4r-3s|\), whereas both displayed labels have
-value \(5\).  Direct commutation with \(L_1,L_2,L_3\) proves that the two
-vectors are singular.  In the ordered basis
-\((L_{-3},L_{-2}L_{-1},L_{-1}^3)|\Delta\rangle\),
-\[
- \det G_3(1/2,\Delta)
- =12\Delta^2(2\Delta-1)^2(3\Delta-5)(16\Delta-1).
-\]
-At \(\Delta=1/2\) the matrix has rank one, and
-\[
- L_{-1}\xi_2=
- \left(-\frac43L_{-3}-\frac43L_{-2}L_{-1}
- +L_{-1}^3\right)|\tfrac12\rangle
-\]
-together with \(\xi_3\) spans its radical.  The determinant valuation and
-nullity are both two, so Lemma~\ref{lem:smith} gives the Smith profile.
-Finally,
-\[
- \beta_{\xi_j}
- =\left.
- \frac{d}{d\Delta}\langle\xi_j|\xi_j\rangle
- \right|_{\Delta=1/2}
-\]
-and direct multiplication by \(\partial_\Delta G_3|_{\Delta=1/2}\)
-gives the displayed level-three crossing matrix.  The Ward recursion of
-Lemma~\ref{lem:polynomial-entries} gives the two displayed torus
-polynomials.
-\end{proof}
-
-\begin{theorem}[First fixed-\(c\) recursive residue]
-\label{thm:first-recursive-residue}
-At \(c=1/2\), the earliest collided coefficient has the simple principal
-part
-\[
- \operatorname*{Res}_{\Delta=1/2}H_3(1/2,\Delta,d)
- =\frac9{28}E_2(d)H_1(1/2,5/2,d)
-  -\frac8{105}E_3(d).
-\]
-Every quantity on the right is evaluated directly at \(c=1/2\).
+Let \(k\geq1\) and \(\ell_k\leq N<\ell_{k+1}\).  Then \(j_N(\lambda)=k\).
+For each sign with \(\ell^\pm_k\leq N\), one has \(\gamma^\pm_k\neq0\), and
+\(\det G_M(c_\star,\mu^\pm_k)\neq0\) for \(M\leq N-\ell^\pm_k\).  Moreover,
+\begin{equation}\label{eq:top-layer}
+ \lim_{\Delta\to\lambda}(\Delta-\lambda)^kH_N(c_\star,\Delta,d)
+ =\sum_{\pm:\ \ell^\pm_k\leq N}\frac{\tau^\pm_k(d)}{\gamma^\pm_k}\,
+ H_{N-\ell^\pm_k}(c_\star,\mu^\pm_k,d),
+\end{equation}
+and \(\tau^\pm_k\) has degree exactly \(2\ell^\pm_k\) in \(d\).
 \end{theorem}
 
 \begin{proof}
-The block-diagonal crossing form in
-Proposition~\ref{prop:first-collision} has highest-weight inverse scalars
-\(9/28\) and \(-8/105\).
-Proposition~\ref{prop:transverse-residue} and
-Lemma~\ref{lem:singular-factorization} therefore give
-\[
- \operatorname*{Res}_{\Delta=1/2}F_2=\frac9{28}E_2,
-\qquad
- \operatorname*{Res}_{\Delta=1/2}F_3
- =\frac9{28}E_2F_1(1/2,5/2,d)-\frac8{105}E_3.
-\]
-The Euler product gives \(H_3=F_3-F_2-F_1\); since
-\(G_1(1/2,\Delta)=(2\Delta)\), the coefficient \(F_1\) is regular at
-\(\Delta=\tfrac12\), so
-\(\operatorname*{Res}_{\Delta=1/2}H_3
-=\operatorname*{Res}_{\Delta=1/2}(F_3-F_2)\).  The result
-follows from \(H_1=F_1-F_0\).
-\end{proof}
-
-\begin{proposition}[First spin-module collision]\label{prop:spin-collision}
-At level \(4\), the labels \((1,2)\) and \((2,2)\) collide at
-\(\Delta=1/16\).  In the PBW basis
-\[
- (L_{-4},\,L_{-3}L_{-1},\,L_{-2}^2,\,
-   L_{-2}L_{-1}^2,\,L_{-1}^4)\lvert\Delta\rangle,
-\]
-the Shapovalov determinant at \(c=1/2\) is
-\[
- 12\Delta^3(2\Delta-7)(2\Delta-1)^3(3\Delta-5)
- (16\Delta-21)(16\Delta-1)^3.
-\]
-At \(\Delta=1/16\), the local Smith exponents are
-\[
- (0,0,1,1,1).
-\]
-Consequently, \(G_4(1/2,\Delta)^{-1}\), \(F_4(1/2,\Delta,d)\), and
-\(H_4(1/2,\Delta,d)\) have at most a simple pole at \(\Delta=1/16\).
-\end{proposition}
-
-\begin{proof}
-Direct Virasoro commutation gives the \(5\times5\) Gram matrix
-\(G_4(1/2,\Delta)\) recorded in Appendix~\ref{app:gram}.
-Its determinant is the polynomial displayed in the statement.  At
-\(\Delta=1/16\), the
-upper-left \(2\times2\) minor has determinant \(2\), while the following
-three independent vectors lie in the kernel:
-\[
-\begin{pmatrix}-9/16\\-3/2\\1\\0\\0\end{pmatrix},\qquad
-\begin{pmatrix}-27/64\\-9/8\\0\\1\\0\end{pmatrix},\qquad
-\begin{pmatrix}-465/256\\-75/32\\0\\0\\1\end{pmatrix}.
-\]
-Thus the specialized matrix has rank \(2\) and nullity \(3\).
-The determinant has order \(3\) at \(1/16\), so
-Lemma~\ref{lem:smith} gives the stated Smith exponents and inverse pole
-bound.  The definitions of \(F_4\) and \(H_4\) then give the same bound
-for the block coefficients.
-\end{proof}
-
-\begin{proposition}[Singular data at the first spin collision]
-\label{prop:spin-singular-data}
-Put \(h_0=1/16\).  The following vectors in \(M(1/2,h_0)\) are singular:
-\[
- \chi_2=
- \left(L_{-1}^2-\frac34L_{-2}\right)|h_0\rangle
-\]
-and
-\[
- \chi_4=
- \left(
- L_{-1}^4-\frac{25}{6}L_{-2}L_{-1}^2
- +\frac{49}{144}L_{-2}^2+\frac{11}{6}L_{-3}L_{-1}
- -\frac14L_{-4}
- \right)|h_0\rangle .
-\]
-At level \(4\),
-\[
- \ker G_4(1/2,h_0)
- =\operatorname{span}
- \{L_{-2}\chi_2,L_{-1}^2\chi_2,\chi_4\}.
-\]
-In this ordered basis the crossing form of
-Proposition~\ref{prop:transverse-residue}, with \(x=\Delta-h_0\), is
-\[
- \beta_4=
- \begin{pmatrix}
- -119/8&-693/32&0\\
- -693/32&-9471/128&0\\
- 0&0&13475/648
- \end{pmatrix}
- =
- \begin{pmatrix}
- -\frac74G_2(1/2,33/16)&0\\
- 0&13475/648
- \end{pmatrix}.
-\]
-Finally, the two highest-weight torus matrix elements are
-\[
- P_2(d):=\langle\chi_2|V_d(1)|\chi_2\rangle
- =\frac{d(d-1)(2d-7)(2d-1)}4
-\]
-and
-\[
- \begin{split}
- P_4(d)&:=\langle\chi_4|V_d(1)|\chi_4\rangle\\
- &=\frac{
- d(d-1)(2d-7)(2d-1)(3d-14)(3d-5)(6d-55)(6d-1)}
- {1296}.
- \end{split}
-\]
-\end{proposition}
-
-\begin{proof}
-Apply \(L_1,\ldots,L_\ell\) to the displayed level-\(\ell\) vector and
-use the Virasoro commutator.  Collecting coefficients in the PBW bases at
-levels \(\ell-1,\ldots,0\) gives zero for \(\chi_2\) and for \(\chi_4\);
-modes larger than \(\ell\) vanish by degree.  Thus both vectors are
-singular.
-
-In the level-four PBW basis of
-Proposition~\ref{prop:spin-collision}, the three asserted kernel vectors
-are the columns
-\[
- \begin{pmatrix}0\\0\\-3/4\\1\\0\end{pmatrix},\qquad
- \begin{pmatrix}-3/2\\-3/2\\0\\-3/4\\1\end{pmatrix},\qquad
- \begin{pmatrix}-1/4\\11/6\\49/144\\-25/6\\1\end{pmatrix}.
-\]
-Multiplication by the matrix \(G_4(1/2,h_0)\) of
-Appendix~\ref{app:gram} gives zero.
-They are independent, and Proposition~\ref{prop:spin-collision} gives
-nullity three, proving the kernel identity.
-
-Multiplying these columns on both sides of
-\(\partial_\Delta G_4(1/2,\Delta)|_{\Delta=h_0}\) gives the displayed
-crossing matrix.  Direct level-two commutation gives
-\[
- G_2(1/2,33/16)=
- \begin{pmatrix}17/2&99/8\\99/8&1353/32\end{pmatrix},
-\]
-which verifies the second expression for \(\beta_4\).
-Finally, repeated use of the primary-field Ward commutator in the proof of
-Lemma~\ref{lem:polynomial-entries}, followed by collection and
-factorization over \(\mathbb Q[d]\), gives the displayed \(P_2\) and
-\(P_4\).
-\end{proof}
-
-\begin{theorem}[Spin-sector fixed-\(c\) recursive principal part]
-\label{thm:spin-recursive-residue}
-At \(c=1/2\), the level-four reduced coefficient satisfies the finite
-fixed-central-charge recursion
-\[
- \operatorname*{Res}_{\Delta=1/16}H_4(1/2,\Delta,d)
- =-\frac47P_2(d)H_2(1/2,33/16,d)
-  +\frac{648}{13475}P_4(d).
-\]
-Equivalently, this residue is
-\[
- \frac{d(d-1)(2d-7)(2d-1)}{40425}
- \left(
- 248d^4-5752d^3+25274d^2-33630d+5775
- \right).
-\]
-Every quantity on the right is evaluated directly at \(c=1/2\).
-\end{theorem}
-
-\begin{proof}
-At levels \(2\), \(3\), and \(4\), the radicals at
-\(\Delta=h_0\) are respectively
-\[
- \operatorname{span}\{\chi_2\},\qquad
- \operatorname{span}\{L_{-1}\chi_2\},\qquad
- \operatorname{span}\{L_{-2}\chi_2,L_{-1}^2\chi_2,\chi_4\}.
-\]
-The crossing forms on the first two spaces are
-\[
- -\frac74,\qquad -\frac74G_1(1/2,33/16),
-\]
-and the third is the form in
-Proposition~\ref{prop:spin-singular-data}.  These identities follow by
-differentiating the level-two, level-three, and level-four Gram matrices;
-all three crossing forms are nondegenerate.  Apply
-Proposition~\ref{prop:transverse-residue}, then use
-Lemma~\ref{lem:singular-factorization} on each singular summand.  Taking
-the trace against the corresponding torus matrix gives
+Put \(\ell^\pm_0=0\).  For \(j\geq0\), direct expansion of the formulas of
+Theorem~\ref{thm:jantzen-smith} gives, for the upper and lower sign
+respectively,
 \[
  \begin{aligned}
- \operatorname*{Res}_{\Delta=h_0}F_2
-   &=-\frac47P_2,\\
- \operatorname*{Res}_{\Delta=h_0}F_3
-   &=-\frac47P_2F_1(1/2,33/16,d),\\
- \operatorname*{Res}_{\Delta=h_0}F_4
-   &=-\frac47P_2F_2(1/2,33/16,d)
-     +\frac{648}{13475}P_4.
+ \ell^+_{2j+1}-\ell^\pm_{2j}&=s(r+2jp),\ r(s+2jp'),\\
+ \ell^-_{2j+1}-\ell^\pm_{2j}&=(p-r)\bigl((2j+1)p'-s\bigr),\
+   (p'-s)\bigl((2j+1)p-r\bigr),\\
+ \ell^\pm_{2j+2}-\ell^+_{2j+1}&=(p'-s)\bigl((2j+1)p+r\bigr),\
+   (p-r)\bigl((2j+1)p'+s\bigr),\\
+ \ell^\pm_{2j+2}-\ell^-_{2j+1}&=r\bigl(2(j+1)p'-s\bigr),\
+   s\bigl(2(j+1)p-r\bigr),
  \end{aligned}
 \]
-The Euler product has coefficients \(1,-1,-1,0,0\) through degree four.
-Hence \(H_4=F_4-F_3-F_2\), while
-\(H_2=F_2-F_1-F_0\).  Substitution gives the recursive formula.
-Inserting the explicit polynomials from
-Proposition~\ref{prop:spin-singular-data} and the level-two coefficient
-from the inverse Shapovalov matrix gives the second displayed expression.
+all positive.  Hence \(\max(\ell^+_k,\ell^-_k)<\ell_{k+1}\), so
+\(j_N(\lambda)=k\) and \(J^{k+1}_N(c_\star,\lambda)=0\).  Moreover
+\(\ell^+_{2j}-\ell^-_{2j}=2jn_0\neq0\), because \(p\nmid r\), and
+\(\ell^+_{2j+1}-\ell^-_{2j+1}=(2j+1)(n_1-pp')\neq0\).
+
+Fix \(N'\) with \(\ell_k\leq N'\leq N\).  By
+Theorem~\ref{thm:jantzen-smith}, \(k\) is the largest local Smith exponent
+of \(G_{N'}(c_\star,\lambda+x)\), and
+\(J^k_{N'}(c_\star,\lambda)=(W^+_k)_{N'}+(W^-_k)_{N'}\).  For each sign with
+\(\ell^\pm_k\leq N'\), the vectors \(L_{-Z}w^\pm_k\), with \(Z\) a partition
+of \(N'-\ell^\pm_k\), form a basis of \((W^\pm_k)_{N'}\), because the
+embedding \(j_{w^\pm_k}\) is injective
+\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011}.  By
+Lemma~\ref{lem:top-coefficient}(i) and singularity of \(w^\pm_k\),
+\[
+ B^k(L_{-Z}w^\pm_k,L_{-Z'}w^\pm_k)=B^k(w^\pm_k,L_ZL_{-Z'}w^\pm_k)
+ =\gamma^\pm_k\,G_{N'-\ell^\pm_k}(c_\star,\mu^\pm_k)_{Z,Z'} .
+\]
+If both signs occur, let \(w\) and \(w'\) be the singular vectors of the
+lower and the higher level.  Then \(L_ZL_{-Z'}w\) is a combination of
+vectors \(L_{-Y}w\) with \(|Y|=\ell(w')-\ell(w)>0\), and
+\(B^k(w',L_{-Y}w)=B^k(L_Yw',w)=0\); so the two summands are
+\(B^k\)-orthogonal.  As \(B^k\) is nondegenerate on \(J^k_{N'}\) by
+Lemma~\ref{lem:top-coefficient}(ii), the sum is direct and
+\(\gamma^\pm_kG_{N'-\ell^\pm_k}(c_\star,\mu^\pm_k)\) is invertible.  Letting
+\(N'\) range from \(\ell^\pm_k\) to \(N\) proves the nonvanishing
+assertions.
+
+Since \(k\) is the pole order of \(G_{N'}^{-1}\) at \(\lambda\)
+(Lemma~\ref{lem:smith}), Lemma~\ref{lem:top-coefficient}(ii) in the basis
+above and Lemma~\ref{lem:singular-factorization} give
+\[
+ \begin{aligned}
+ [x^{-k}]F_{N'}(c_\star,\lambda+x,d)
+ &=\sum_{\pm}\frac1{\gamma^\pm_k}\sum_{Z,Z'}
+ \bigl(G_{N'-\ell^\pm_k}(c_\star,\mu^\pm_k)^{-1}\bigr)_{Z,Z'}
+ \langle w^\pm_k|L_ZV_d(1)L_{-Z'}|w^\pm_k\rangle\\
+ &=\sum_{\pm}\frac{\tau^\pm_k(d)}{\gamma^\pm_k}\,
+ F_{N'-\ell^\pm_k}(c_\star,\mu^\pm_k,d),
+ \end{aligned}
+\]
+with the sums over the signs with \(\ell^\pm_k\leq N'\).  For
+\(N'<\ell_k\), \(F_{N'}\) has a pole of order at most
+\(j_{N'}(\lambda)<k\) at \(\lambda\).  Multiplying by the Euler
+coefficients and summing as in Definition~\ref{def:eta-reduced} gives
+\eqref{eq:top-layer}.  The degree of \(\tau^\pm_k\) is
+Lemma~\ref{lem:singular-degree}.
 \end{proof}
+
+\begin{corollary}[Sharpness at the first levels of each layer]
+\label{cor:top-layer-sharp}
+In the setting of Theorem~\ref{thm:top-layer}, suppose
+\(N-\ell_k\in\{0,1,2\}\) and \(N<\max(\ell^+_k,\ell^-_k)\).  Then
+\(H_N(c_\star,\Delta,d)\) has a pole of order exactly \(j_N(\lambda)=k\) at
+\(\Delta=\lambda\).  In particular, this holds at the first level
+\(N=\ell_k\) of every layer, with leading coefficient \(\tau/\gamma\) for
+the singular vector of level \(\ell_k\).
+\end{corollary}
+
+\begin{proof}
+Only the sign with \(\ell^\pm_k=\ell_k\) contributes to
+\eqref{eq:top-layer}, so the leading coefficient is
+\(\tau(d)H_M(c_\star,\mu,d)/\gamma\) with \(M=N-\ell_k\) and
+\(\mu=\lambda+\ell_k\), and \(\tau\neq0\).  Here \(H_0=1\), and direct
+computation from Definitions~\ref{def:matrices}
+and~\ref{def:eta-reduced} gives \(H_1(c,h,d)=d(d-1)/(2h)\) and
+\[
+ H_2(c,h,d)=\frac{d(d-1)\bigl((c+8h)d^2-(c+56h)d+4h(c+24h+5)\bigr)}
+ {4h\,(16h^2+2(c-5)h+c)} .
+\]
+For \(M\geq1\), Theorem~\ref{thm:top-layer} gives
+\(\det G_1(c_\star,\mu)=2\mu\neq0\).  The three coefficients of the
+quadratic factor of \(H_2\) vanish together only for \(c=h=0\), so
+\(H_M(c_\star,\mu,d)\neq0\) for \(M\leq2\).
+\end{proof}
+
+\begin{remark}[The remaining levels]\label{rem:top-layer-beyond}
+For the other levels of a window, Theorem~\ref{thm:top-layer} reduces the
+question whether \(H_N\) attains \(j_N(\lambda)\) to the nonvanishing of the
+explicit polynomial in \eqref{eq:top-layer}.  At \(c=1/2\), a direct
+reconstruction at \(d=3/7\) (Remark~\ref{rem:audit-scope}) confirms
+\eqref{eq:top-layer} with a nonzero value, hence pole order exactly
+\(j_N(\lambda)\) for indeterminate \(d\), for every \(N\leq10\) at the
+interior weights \(0,\tfrac12,\tfrac1{16}\).
+\end{remark}
 
 \section{Generic residue data}\label{sec:generic-data}
 
@@ -1504,60 +1107,25 @@ is regular.
 \begin{proof}
 The recursion was conjectured in \cite{Poghossian2009}.  In
 \cite[Section~3]{HadaszJaskolskiSuchanek2010}, equation~(7) expresses the
-residue through the inverse norm derivative \(A_{r,s}(c)\), the paragraph
-immediately following equation~(7) gives its product for the normalization
-in which the singular vector has \(L_{-1}^{rs}\)-coefficient \(1\),
-equation~(8) evaluates the product of the two torus fusion polynomials, and
-equation~(9) is the eta-reduced recursion.
-
-Write \(\lambda_{\mathrm{HJS}}\) for the external momentum in that source.
-Its convention is
-\[
- d=\frac{(b+b^{-1})^2-\lambda_{\mathrm{HJS}}^2}{4},\qquad
- \lambda_{\mathrm{HJS}}^2=\Lambda^2.
-\]
-The source defines \(A_{r,s}(c)\) as the reciprocal of
-\(\partial_\Delta\langle\chi_{r,s}^{\Delta}\mid
-\chi_{r,s}^{\Delta}\rangle\) at \(\Delta=h_{r,s}\), with the
-coefficients of the normalized vector held fixed.  By
-Lemma~\ref{lem:singular-crossing}, that derivative is exactly
-\(\beta_{\chi_{r,s}(b)}\).  The product following equation~(7) is
-term-for-term \({\mathcal A}_{r,s}(b)\), proving
-\eqref{eq:crossing-normalization} with the stated normalization.
-
-For every odd \(k\) and \(l\) in the ranges of
-Definition~\ref{def:generic-residue}, the four factors of equation~(8)
-pair as
-\[
- \begin{aligned}
- &\frac{(\lambda_{\mathrm{HJS}}+kb+lb^{-1})
-              (\lambda_{\mathrm{HJS}}-kb-lb^{-1})}{4}\\[-2pt]
- &\qquad{}\times
- \frac{(\lambda_{\mathrm{HJS}}+kb-lb^{-1})
-              (\lambda_{\mathrm{HJS}}-kb+lb^{-1})}{4}\\
- &\quad=\frac{\Lambda^2-(kb+lb^{-1})^2}{4}
-  \frac{\Lambda^2-(kb-lb^{-1})^2}{4}.
- \end{aligned}
-\]
-Taking the product proves \eqref{eq:fusion-normalization}; in particular,
-the translation introduces no sign or power-of-two factor and does not
-choose a square root of \(\Lambda^2\).  The normalized singular-vector
-coefficients are obtained from a finite linear system over \(\mathbb Q(b)\),
-so both left-hand sides are rational in \(b\).  This proves the final
-continuation statement.
+residue through the inverse norm derivative \(A_{r,s}(c)\), the reciprocal
+of \(\partial_\Delta\langle\chi_{r,s}^{\Delta}\mid\chi_{r,s}^{\Delta}\rangle\)
+at \(\Delta=h_{r,s}\) with the coefficients of the normalized vector held
+fixed; by Lemma~\ref{lem:singular-crossing} this derivative is
+\(\beta_{\chi_{r,s}(b)}\).  The product following equation~(7), for the
+normalization with \(L_{-1}^{rs}\)-coefficient \(1\), is term-for-term
+\({\mathcal A}_{r,s}(b)\), proving \eqref{eq:crossing-normalization}.
+The source writes \(d=((b+b^{-1})^2-\lambda_{\mathrm{HJS}}^2)/4\), so
+\(\lambda_{\mathrm{HJS}}^2=\Lambda^2\).  For odd \(k,l\) in the ranges of
+Definition~\ref{def:generic-residue}, the four factors
+\((\lambda_{\mathrm{HJS}}\pm(kb+lb^{-1}))/2\) and
+\((\lambda_{\mathrm{HJS}}\pm(kb-lb^{-1}))/2\) of equation~(8) multiply to
+\(\frac14(\Lambda^2-(kb+lb^{-1})^2)\cdot\frac14(\Lambda^2-(kb-lb^{-1})^2)\);
+taking the product proves \eqref{eq:fusion-normalization}, with no sign,
+power of two, or choice of square root.  Equation~(9) is the eta-reduced
+recursion.  The normalized singular-vector coefficients solve a finite
+linear system over \(\mathbb Q(b)\), so both left-hand sides are rational
+in \(b\).
 \end{proof}
-
-\begin{remark}[Normalization checks]
-\label{rem:normalization-replays}
-Exact checks of \eqref{eq:fusion-normalization} cover the labels
-\((2,1)\), \((1,3)\), \((1,5)\), \((4,1)\), \((1,2)\), and
-\((2,2)\) at \(b_0\), the labels \((2,1)\) and \((1,2)\) at a generic
-sample, and the \((4,2)\) and \((1,6)\) child
-residues.  Checks of \eqref{eq:crossing-normalization} cover
-\((2,1)\), \((1,3)\), \((1,2)\), and \((2,2)\) at \(b_0\); the
-responsible scripts are
-listed in Remark~\ref{rem:audit-scope}.
-\end{remark}
 
 \begin{lemma}[Distinct weights and no shifted self-poles away from
 rational \(b^2\)]
@@ -1575,17 +1143,10 @@ neither function vanishes at \(b_\star\), and every
 \end{lemma}
 
 \begin{proof}
-The Kac formula gives the identity
-\[
- h_{r,s}(b)+rs=h_{r,-s}(b).
-\]
-It vanishes against \(h_{u,v}(b)\) exactly when
-\[
- (rb-sb^{-1})^2=(ub+vb^{-1})^2,
- \quad\text{that is,}\quad
- rb-sb^{-1}=\pm(ub+vb^{-1}),
-\]
-since \(\mathbb C(b)\) is an integral domain.  Equivalently
+The Kac formula gives \(h_{r,s}(b)+rs=h_{r,-s}(b)\), which equals
+\(h_{u,v}(b)\) exactly when \((rb-sb^{-1})^2=(ub+vb^{-1})^2\), that is,
+\(rb-sb^{-1}=\pm(ub+vb^{-1})\), since \(\mathbb C(b)\) is an integral
+domain.  Equivalently
 \((r\mp u)b^2=s\pm v\).  As an identity in \(b\) this contradicts
 \(r,s,u,v>0\), and at a point it forces \(b^2=(s\pm v)/(r\mp u)\in\mathbb Q\);
 here \(r\mp u\neq0\), because \(r=u\) would force \(s+v=0\) and
@@ -1611,23 +1172,14 @@ as an identity of rational functions of \(\Delta\), polynomial in
 \end{proposition}
 
 \begin{proof}
-Given the two imported identities of
-Proposition~\ref{prop:imported-normalizations}, the
-proposition follows from the results of
-Sections~\ref{sec:partial-fractions} and~\ref{sec:smith}.  By
-Lemma~\ref{lem:no-generic-shifted-pole}, outside finitely many values of
-\(b\) the weights \(h_{r,s}(b)\) with \(rs\leq N\) are pairwise
-distinct, and no shifted weight \(z_{r,s}=h_{r,s}(b)+rs\) is a
-degenerate weight of level at most \(N\).
-
-Concretely, for the finite set of labels of level at most \(N\), take the
-exceptional set to contain \(b=0\); the zeros and poles of every nonzero
-difference \(h_a-h_g\) and \(z_a-h_g\); the poles of the coefficients in
-\(d\) of the finite products \({\mathcal R}_a\); the poles of the
-normalized singular-vector coefficients; and the zeros and poles of
-\({\mathcal A}_a\) needed for the crossing form.  These are finitely many
-zeros and poles of rational functions in \(\mathbb Q(b)\), so every
-excluded value is algebraic.
+Exclude \(b=0\) and the finitely many zeros and poles in \(\mathbb Q(b)\)
+of the nonzero differences \(h_a-h_g\) and \(z_a-h_g\)
+(Lemma~\ref{lem:no-generic-shifted-pole}), of the coefficients of
+\({\mathcal R}_a\) and \({\mathcal A}_a\), and of the normalized
+singular-vector coefficients, for all labels of level at most \(N\); every
+excluded value is algebraic.  Then the weights \(h_{r,s}(b)\) with
+\(rs\leq N\) are pairwise distinct, and no shifted weight
+\(z_{r,s}=h_{r,s}(b)+rs\) is a degenerate weight of level at most \(N\).
 
 Fix such a \(b\), write \(c=c(b)\), and fix a label \(a=(r,s)\) with
 \(rs\leq N\).  By distinctness, \(h_{r,s}(b)\) lies on no other Kac
@@ -1639,13 +1191,14 @@ level-\(N\) image of the injective singular embedding
 \(p(N-rs)\)-dimensional subspace of the
 kernel of the specialized Gram matrix.  By Lemma~\ref{lem:smith} the
 nullity is at most the valuation, so the kernel is exactly that image,
-and every positive local Smith exponent equals \(1\); hence
-Proposition~\ref{prop:transverse-residue} applies.  By
-Lemma~\ref{lem:singular-crossing}, the crossing form on this kernel is
-\(\beta_{\chi}\,G_{N-rs}(c,z_{r,s})\), which is nondegenerate because
-\(z_{r,s}\) is not a degenerate weight and, by
-\eqref{eq:crossing-normalization},
-\(\beta_\chi^{-1}={\mathcal A}_{r,s}(b)\neq0\).  Taking the trace of the residue of
+and every positive local Smith exponent equals \(1\).  Hence
+Lemma~\ref{lem:top-coefficient}, with \(k=1\), gives the residue of
+\(G_N^{-1}\) as \(\iota(B^1)^{-1}\iota^*\) on this kernel, and by
+Lemmas~\ref{lem:top-coefficient}(iii) and~\ref{lem:singular-crossing},
+\(B^1=\beta_{\chi}\,G_{N-rs}(c,z_{r,s})\) in the basis
+\(L_{-Z}\chi_{r,s}(b)\), where
+\(\beta_\chi^{-1}={\mathcal A}_{r,s}(b)\) by
+\eqref{eq:crossing-normalization}.  Taking the trace of the residue of
 \(G_N^{-1}\) against \(\rho_N\) and factoring the pulled-back torus form
 by Lemma~\ref{lem:singular-factorization} and
 \eqref{eq:fusion-normalization} gives
@@ -1789,12 +1342,9 @@ For its \(g\)-summand it is sufficient to know
 Iterating these requests down the strictly level-decreasing recursion tree
 produces a finite a priori upper precision at every node.
 
-In particular, to compute every collision moment at level \(N\), it is
-sufficient for each \(a\) to compute \(R_a\) through \(t^{W_{a,N-\ell_a}}\),
-\(S_{a,N-\ell_a}\) through \(t^{\pi_a}\), and
-\(\delta_a^{\,k-1}\) through \(t^{\widehat v_{a,N}}\).  Thus the valuation
-majorant together with \eqref{eq:precision-propagation} is an actual finite
-jet budget, not only a pole-order bound.
+In particular, \(R_a\) through \(t^{W_{a,N-\ell_a}}\), \(S_{a,N-\ell_a}\)
+through \(t^{\pi_a}\), and \(\delta_a^{\,k-1}\) through
+\(t^{\widehat v_{a,N}}\) suffice for every collision moment at level \(N\).
 \end{lemma}
 
 \begin{proof}
@@ -1816,12 +1366,9 @@ shows that only coefficients of \(\delta_a^{k-1}\) through degree
 \label{lem:collision-pole-support}
 Let \(B(t)\in K_\star((t))\) and
 \(\delta(t)\in tK_\star[[t]]\).  Every coefficient of
-\[
- \frac{B(t)}{x-\delta(t)}
- =\sum_{j\geq0}\frac{B(t)\delta(t)^j}{x^{j+1}}
-\]
-as a Laurent series in \(t\) is a finite \(K_\star\)-linear
-combination of \(x^{-1},x^{-2},\ldots\).
+\(B(t)/(x-\delta(t))=\sum_{j\geq0}B(t)\delta(t)^jx^{-j-1}\), as a Laurent
+series in \(t\), is a finite \(K_\star\)-linear combination of
+\(x^{-1},x^{-2},\ldots\).
 \end{lemma}
 
 \begin{proof}
@@ -1909,9 +1456,8 @@ term (Lemma~\ref{lem:collision-pole-support}).  Uniqueness of partial
 fractions forces each of them to vanish.
 \end{proof}
 
-The two embedding diamonds of Sections~\ref{sec:energy-diamond}
-and~\ref{sec:spin-diamond} are instances of the following closure
-formula.  Dots denote \(d/dt\) at \(t=0\), that is, \(d/db\) at
+The two embedding diamonds of Section~\ref{sec:ising} are instances of
+the following closure formula.  Dots denote \(d/dt\) at \(t=0\), that is, \(d/db\) at
 \(b_\star\).
 
 \begin{proposition}[Closure of a two-branch collision]
@@ -1998,155 +1544,78 @@ Theorem~\ref{thm:general-confluence} identifies these moments with the
 principal part.
 \end{proof}
 
-\section{The energy-module level-seven diamond}\label{sec:energy-diamond}
+\section{The Ising embedding diamonds}\label{sec:ising}
 
-This section and the next work out the two embedding diamonds of
-Figures~\ref{fig:energy-diamond} and~\ref{fig:spin-diamond} and obtain
-their fixed-\(c\) principal parts from
-Proposition~\ref{prop:two-branch};
-Table~\ref{tab:local-summary} summarizes the resulting local data.
+At \(c=1/2\) one has \(b_0^2=-4/3\) and \((p,p')=(3,4)\).  The interior
+weights \(\lambda_1=0\), \(\lambda_5=\tfrac12\), and
+\(\lambda_2=\tfrac1{16}\) have labels \((r,s)=(1,1),(2,1),(1,2)\), and
+Theorem~\ref{thm:jantzen-smith} gives the layer levels
+\[
+\begin{array}{c|c|c|c|c}
+\lambda&\text{colliding labels}&\ell^+_1,\ \ell^-_1&
+ \ell^+_2,\ \ell^-_2&\ell^+_3,\ \ell^-_3\\ \hline
+0&(1,1),(2,3)&1,\ 6&13,\ 11&20,\ 35\\
+\tfrac12&(2,1),(1,3)&2,\ 3&17,\ 7&25,\ 28\\
+\tfrac1{16}&(1,2),(2,2)&2,\ 4&10,\ 14&24,\ 30
+\end{array}
+\]
+Throughout this section singular vectors are normalized by
+\(L_{-1}^\ell\)-coefficient \(1\), which is possible by
+Lemma~\ref{lem:singular-degree}.  Write \(\xi_2,\xi_3\in M(\tfrac12,\tfrac12)\)
+and \(\chi_2,\chi_4\in M(\tfrac12,\tfrac1{16})\) for the singular vectors of
+the indicated levels; Figure~\ref{fig:diamonds} shows the two diamonds
+studied below.
 
 \begin{figure}[ht]
 \centering
-\begin{tikzpicture}[>=stealth,every node/.style={font=\small}]
+\begin{tikzpicture}[>=stealth,every node/.style={font=\footnotesize}]
 \node (top) at (0,0) {\(M(\tfrac12,\tfrac12)\)};
-\node (l) at (-2.8,-1.7) {\(M(\tfrac12,\tfrac52)\)};
-\node (r) at (2.8,-1.7) {\(M(\tfrac12,\tfrac72)\)};
-\node (bot) at (0,-3.4) {\(M(\tfrac12,\tfrac{15}2)\)};
-\draw[->] (l) -- node[above left]{\(\xi_2\), \((2,1)\), level \(2\)} (top);
-\draw[->] (r) -- node[above right]{\(\xi_3\), \((1,3)\), level \(3\)} (top);
-\draw[->] (bot) -- node[below left]{\(\phi_5\), \((1,5)\), level \(5\)} (l);
-\draw[->] (bot) -- node[below right]{\(\phi_4\), \((4,1)\), level \(4\)} (r);
+\node (l) at (-1.25,-1.3) {\(M(\tfrac12,\tfrac52)\)};
+\node (r) at (1.25,-1.3) {\(M(\tfrac12,\tfrac72)\)};
+\node (bot) at (0,-2.6) {\(M(\tfrac12,\tfrac{15}2)\)};
+\draw[->] (l) -- node[above left]{\(\xi_2\)} (top);
+\draw[->] (r) -- node[above right]{\(\xi_3\)} (top);
+\draw[->] (bot) -- node[below left]{\(\phi_5\)} (l);
+\draw[->] (bot) -- node[below right]{\(\phi_4\)} (r);
+\begin{scope}[xshift=4.6cm]
+\node (top2) at (0,0) {\(M(\tfrac12,\tfrac1{16})\)};
+\node (l2) at (-1.25,-1.3) {\(M(\tfrac12,\tfrac{33}{16})\)};
+\node (r2) at (1.25,-1.3) {\(M(\tfrac12,\tfrac{65}{16})\)};
+\node (bot2) at (0,-2.6) {\(M(\tfrac12,\tfrac{161}{16})\)};
+\draw[->] (l2) -- node[above left]{\(\chi_2\)} (top2);
+\draw[->] (r2) -- node[above right]{\(\chi_4\)} (top2);
+\draw[->] (bot2) -- node[below left]{\(\psi_8\)} (l2);
+\draw[->] (bot2) -- node[below right]{\(\psi_6\)} (r2);
+\end{scope}
 \end{tikzpicture}
-\caption{The energy diamond.  Arrows are the singular-vector
-embeddings of Proposition~\ref{prop:level-seven-smith}, labelled by
-the embedded singular vector, its Kac label, and its relative level.
-The two branches meet first at total level \(7\), where
-\(\xi_7=j_{\xi_2}(\phi_5)=j_{\xi_3}(\phi_4)\) creates the first double
-pole of the Ising block.}
-\label{fig:energy-diamond}
+\caption{The energy and spin diamonds: singular-vector embeddings, labelled
+by the embedded vector (subscript: relative level; Kac labels
+\((2,1),(1,3),(1,5),(4,1)\) and \((1,2),(2,2),(4,2),(1,6)\)).}
+\label{fig:diamonds}
 \end{figure}
 
-\begin{proposition}[First nontransverse Smith layer]
-\label{prop:level-seven-smith}
-Let \(h_E=1/2\), and let \(U_2,U_3\) be the submodules generated by
-\(\xi_2,\xi_3\) in Proposition~\ref{prop:first-collision}.  Their
-intersection is zero below level \(7\), and
-\((U_2\cap U_3)_7=\mathbb C\xi_7\) for a normalized singular vector
-\(\xi_7\).  More explicitly, the normalized child singular vectors
-are
-\[
- \begin{split}
- \phi_5={}&\bigl(
- L_{-1}^5-15L_{-2}L_{-1}^3+36L_{-2}^2L_{-1}
- +\tfrac{99}{4}L_{-3}L_{-1}^2\\
- &\hspace{17mm}-45L_{-3}L_{-2}-54L_{-4}L_{-1}
- +45L_{-5}\bigr)|\tfrac52\rangle ,
- \end{split}
-\]
-\[
- \phi_4=\bigl(
- L_{-1}^4-\tfrac{40}{3}L_{-2}L_{-1}^2+16L_{-2}^2
- +\tfrac{88}{3}L_{-3}L_{-1}-\tfrac{152}{3}L_{-4}
- \bigr)|\tfrac72\rangle ,
-\]
-and
-\[
- \xi_7=j_{\xi_2}(\phi_5)=j_{\xi_3}(\phi_4).
-\]
-The \(15\) local Smith exponents of
-\(G_7(1/2,h_E+x)\) are
-\[
- (0^{\,4},1^{\,10},2).
-\]
-For the second crossing form of
-Proposition~\ref{prop:two-step-residue}, normalized by the displayed
-\(\xi_7\),
-\[
- \gamma_7=-700700.
-\]
+\begin{proposition}[Ising pole orders]\label{prop:no-earlier-double-pole}
+For \(N<7\) every pole of \(H_N(1/2,\Delta,d)\) in \(\Delta\) is simple.
+At the weights \(\tfrac12\), \(\tfrac1{16}\), and \(0\), the first double
+poles occur in \(H_7\), \(H_{10}\), and \(H_{11}\), respectively.
 \end{proposition}
 
 \begin{proof}
-The two child highest weights are
-\(h_E+2=5/2=\lambda_{11}\) and \(h_E+3=7/2=\lambda_{13}\).  Their first
-singular vectors have relative levels \(5\) and \(4\), with
-labels \((1,5)\) and \((4,1)\), respectively.  Direct Virasoro commutation
-checks the two displayed vectors.  Their images are nonzero singular
-vectors at total level \(7\), by injectivity of nonzero homomorphisms
-between Verma modules
-\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011}; uniqueness
-of a singular vector at a fixed level
-\cite[Proposition~5.1]{IoharaKoga2011} and their common
-\(L_{-1}^7\)-coefficient \(1\) prove the displayed equality.
-
-Theorem~\ref{thm:jantzen-smith} with \((p,p')=(3,4)\) and
-\((r,s)=(2,1)\) gives the levels \(\ell^\pm_1=2,3\),
-\(\ell^-_2=7<\ell^+_2=17\), and \(\ell^\pm_3=25,28\).  Hence
-\(J^2_7=\mathbb C\xi_7\) and \(J^3_7=0\).  A nonzero vector of
-\(U_2\cap U_3\) of lowest level is singular; if that level were below
-\(7\), its preimage under \(j_{\xi_2}\) would be a singular vector of
-\(M(\frac12,\frac52)\) of relative level below \(5\), which the Kac
-determinant of that module excludes.  So \(U_2\cap U_3\) is zero below
-level \(7\); every vector of \((U_2\cap U_3)_7\) is therefore singular,
-and uniqueness of singular vectors gives
-\((U_2\cap U_3)_7=\mathbb C\xi_7\).  The only Kac labels of weight \(1/2\) and level at most \(7\)
-are \((2,1)\) and \((1,3)\), so the determinant valuation is
-\(p(5)+p(4)=12\), and Lemma~\ref{lem:jantzen-smith} gives
-\(\dim J^1_7=11\).  The Smith exponents are therefore
-\((0^4,1^{10},2)\).
-
-The second crossing scalar can be obtained without an off-critical
-deformation.  In the level-seven PBW basis, form
-\[
- G_7(1/2,h_E+x)=G_0+xG_1+x^2G_2+O(x^3),
-\]
-solve \(G_0v_1=-G_1\xi_7\), and evaluate
-\(\xi_7^{\mathsf T}(G_2\xi_7+G_1v_1)\).
-Exact PBW commutation gives \(-700700\).  Choice-independence follows from
-Proposition~\ref{prop:two-step-residue}.
+At a Kac weight with only one label \(a\) of level \(\ell_a\leq N\), the
+injective singular embedding
+\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011} puts
+\(p(N-\ell_a)\) independent vectors in the radical, which is the valuation
+of the Kac determinant, so Lemma~\ref{lem:smith} makes every positive Smith
+exponent \(1\).  By
+Corollary~\ref{cor:ising-classes}, or direct enumeration of \(rs\leq6\),
+the only repeated classes below level \(7\) are the three in the table
+above.  Theorem~\ref{thm:jantzen-smith} gives \(j_N(\lambda)=1\) there
+for \(N<\ell_2\), and Corollary~\ref{cor:top-layer-sharp} gives the double
+poles at \(N=\ell_2\).
 \end{proof}
 
-\begin{proposition}[No earlier nontransverse pole]
-\label{prop:no-earlier-double-pole}
-For every \(N<7\) and every finite internal weight, all local Smith
-exponents of \(G_N(1/2,\Delta)\) are at most \(1\).  Consequently
-\(G_N^{-1}\), \(F_N\), and \(H_N\) have at most simple poles in \(\Delta\).
-\end{proposition}
-
-\begin{proof}
-Let \(\lambda\) be a Kac weight represented by only one label
-\(a=(r,s)\) with \(\ell_a\leq N\), and put \(k=p(N-\ell_a)\).  The
-singular-vector embedding is injective
-\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011} and its image
-lies in the radical, so \(k\leq\dim\ker G_N(1/2,\lambda)\).  The Kac
-determinant has valuation \(k\) at \(\lambda\), since \(a\) is the only
-label of weight \(\lambda\) and level at most \(N\), and
-Lemma~\ref{lem:smith} gives
-\(\dim\ker G_N(1/2,\lambda)\leq\ord_x\det G_N(1/2,\lambda+x)=k\).  Hence
-equality holds, and Lemma~\ref{lem:smith} makes every positive Smith
-exponent equal to \(1\).
-
-By Corollary~\ref{cor:ising-classes}, or direct enumeration of
-\(rs\leq6\), the repeated classes below level \(7\) are
-\[
-\begin{array}{c|c|c|c}
-\text{weight}&\text{labels}&\text{singular levels}&
- \min(\ell^+_2,\ell^-_2)\\ \hline
-\lambda_5=\frac12 &(2,1),(1,3)&2,3&7\\
-\lambda_2=\frac1{16}&(1,2),(2,2)&2,4&10\\
-\lambda_1=0&(1,1),(2,3)&1,6&11 .
-\end{array}
-\]
-All three weights are interior for \((p,p')=(3,4)\), with
-\((r,s)=(2,1),(1,2),(1,1)\), and the last column is computed from
-Theorem~\ref{thm:jantzen-smith}.  That theorem gives
-\(j_N(\lambda)=1\) below the displayed level.
-\end{proof}
-
-\begin{lemma}[Exact constants of the level-seven confluence]
-\label{lem:level-seven-constants}
-At \(b_0=2i/\sqrt3\),
+\begin{lemma}[Exact Ising constants]\label{lem:ising-constants}
+At \(b_0=2i/\sqrt3\), with dots denoting \(d/db\) at \(b_0\),
 \[
  \begin{array}{c|rrrr}
  (r,s)&(2,1)&(1,3)&(1,5)&(4,1)\\ \hline
@@ -2155,36 +1624,60 @@ At \(b_0=2i/\sqrt3\),
  16\dot h_{r,s}/(i\sqrt3)&-16&24&72&-80
  \end{array}
 \]
-where a dot denotes \(d/db\) at \(b_0\).  Hence
 \[
- \frac{\dot h_{2,1}-\dot h_{1,3}}
- {\dot h_{2,1}-\dot h_{1,5}}=\frac5{11},\qquad
- \frac{\dot h_{1,3}-\dot h_{2,1}}
- {\dot h_{1,3}-\dot h_{4,1}}=\frac5{13},\qquad
+ \begin{array}{c|rrrr}
+ (r,s)&(1,2)&(2,2)&(4,2)&(1,6)\\ \hline
+ {\mathcal A}_{r,s}(b_0)&
+ -4/7&648/13475&48/32035128125&-8/320945625\\
+ 16\dot h_{r,s}/(i\sqrt3)&9&-7&-71&105
+ \end{array}
+\]
+Hence
+\[
+ \begin{gathered}
  \frac5{11}{\mathcal A}_{2,1}{\mathcal A}_{1,5}
  =\frac5{13}{\mathcal A}_{1,3}{\mathcal A}_{4,1}
- =-\frac1{700700}.
+ =-\frac1{700700},\\
+ \frac15{\mathcal A}_{1,2}{\mathcal A}_{4,2}
+ =\frac17{\mathcal A}_{2,2}{\mathcal A}_{1,6}
+ =-\frac{192}{1121229484375},
+ \end{gathered}
 \]
-Moreover \({\mathcal P}_{2,1}(b_0,d)=E_2(d)\),
-\({\mathcal P}_{1,3}(b_0,d)=E_3(d)\),
+where \(5/11\), \(5/13\), \(1/5\), and \(1/7\) are the slope ratios
+\((\dot h_{\kappa}-\dot h_{\kappa'})/(\dot h_\kappa-\dot h_\tau)\) for
+\((\kappa,\kappa',\tau)=((2,1),(1,3),(1,5))\), \(((1,3),(2,1),(4,1))\),
+\(((1,2),(2,2),(4,2))\), and \(((2,2),(1,2),(1,6))\).  Moreover, with
+\(E_2={\mathcal P}_{2,1}(b_0,d)\), \(E_3={\mathcal P}_{1,3}(b_0,d)\),
+\(P_2={\mathcal P}_{1,2}(b_0,d)\), and \(P_4={\mathcal P}_{2,2}(b_0,d)\),
 \[
- {\mathcal P}_{1,5}(b_0,d)=\frac1{16}
- d(d-20)(d-13)(d-11)(d-6)(d-1)
- (2d-15)(2d-7)(2d-5)(2d-1),
+ \begin{gathered}
+ E_2=\tfrac19d(d-1)(3d-14)(3d-5),\qquad
+ E_3=\tfrac1{16}d(d-1)(2d-15)(2d-7)(2d-5)(2d-1),\\
+ P_2=\tfrac14d(d-1)(2d-7)(2d-1),\\
+ P_4=\tfrac1{1296}d(d-1)(2d-7)(2d-1)(3d-14)(3d-5)(6d-55)(6d-1),
+ \end{gathered}
 \]
 \[
- {\mathcal P}_{4,1}(b_0,d)=\frac1{9}
- d(d-20)(d-13)(d-11)(d-6)(d-1)
- (3d-14)(3d-5),
+ \begin{aligned}
+ {\mathcal P}_{1,5}(b_0,d)&=\tfrac1{16}\,u(d)\,(2d-15)(2d-7)(2d-5)(2d-1),\\
+ {\mathcal P}_{4,1}(b_0,d)&=\tfrac19\,u(d)\,(3d-14)(3d-5),\\
+ {\mathcal P}_{1,6}(b_0,d)&=\tfrac1{64}\,u(d)\,
+ (2d-57)(2d-35)(2d-15)(2d-7)(2d-5)(2d-1),\\
+ {\mathcal P}_{4,2}(b_0,d)&=\tfrac1{324}\,{\mathcal P}_{1,6}(b_0,d)\,
+ (3d-14)(3d-5)(6d-55)(6d-1),
+ \end{aligned}
 \]
-and \(E_2{\mathcal P}_{1,5}=E_3{\mathcal P}_{4,1}\).
+where \(u(d)=d(d-20)(d-13)(d-11)(d-6)(d-1)\).  In particular
+\(E_2{\mathcal P}_{1,5}=E_3{\mathcal P}_{4,1}\) and
+\(P_2{\mathcal P}_{4,2}=P_4{\mathcal P}_{1,6}\).
 \end{lemma}
 
 \begin{proof}
 Substitute \(b_0\) in the finite products of
 Definition~\ref{def:generic-residue}, and use
 \(\dot h_{r,s}=i\sqrt3\,(7-16r^2+9s^2)/48\), obtained by differentiating
-Definition~\ref{def:fixed-specialization} with \(b_0^2=-4/3\).
+Definition~\ref{def:fixed-specialization} with \(b_0^2=-4/3\); note
+\(c'(b_0)=7i\sqrt3/2\neq0\).
 \end{proof}
 
 \begin{lemma}[Regular normalized singular vectors]
@@ -2230,22 +1723,54 @@ of Proposition~\ref{prop:imported-normalizations} are identities of
 rational functions of \(b\) and therefore specialize.
 \end{proof}
 
+Consequently, for the eight labels of the table, the singular vector
+\(w\) of level \(rs\) in \(M(\frac12,h)\) has crossing scalar
+\(B^1(w,w)={\mathcal A}_{r,s}(b_0)^{-1}\), by
+Lemmas~\ref{lem:top-coefficient}(iii) and~\ref{lem:singular-crossing} and
+\eqref{eq:crossing-normalization}, and torus norm
+\(\langle w|V_d(1)|w\rangle={\mathcal P}_{r,s}(b_0,d)\), by
+\eqref{eq:fusion-normalization}.
+
+\begin{corollary}[First collided residues]\label{cor:first-residues}
+At \(c=1/2\),
+\[
+ \operatorname*{Res}_{\Delta=1/2}H_3(1/2,\Delta,d)
+ =\frac9{28}E_2(d)H_1(\tfrac12,\tfrac52,d)-\frac8{105}E_3(d)
+\]
+and
+\[
+ \begin{aligned}
+ \operatorname*{Res}_{\Delta=1/16}H_4(1/2,\Delta,d)
+ &=-\frac47P_2(d)H_2(\tfrac12,\tfrac{33}{16},d)
+  +\frac{648}{13475}P_4(d)\\
+ &=\tfrac1{40425}d(d-1)(2d-7)(2d-1)\\
+ &\qquad\times\bigl(248d^4-5752d^3+25274d^2-33630d+5775\bigr).
+ \end{aligned}
+\]
+\end{corollary}
+
+\begin{proof}
+Apply Theorem~\ref{thm:top-layer} with \(k=1\) to \((r,s)=(2,1)\),
+\(N=3\), and to \((r,s)=(1,2)\), \(N=4\), with the crossing scalars and
+torus norms just described.  The explicit polynomial follows from the
+formula for \(H_2\) in the proof of Corollary~\ref{cor:top-layer-sharp}.
+\end{proof}
+
 \begin{theorem}[First nontransverse fixed-\(c\) principal part]
 \label{thm:level-seven-principal-part}
 Put
 \[
  Q_5^E(d)=
  \left.\frac{\partial}{\partial z}
- \{(z-\tfrac52)H_5(1/2,z,d)\}\right|_{z=5/2},\qquad
+ \{(z-\tfrac52)H_5(1/2,z,d)\}\right|_{z=5/2},\quad
  Q_4^E(d)=
  \left.\frac{\partial}{\partial z}
  \{(z-\tfrac72)H_4(1/2,z,d)\}\right|_{z=7/2},
 \]
 and let \(\Theta_7=T_1+T_2\) be the derivative term of
 Proposition~\ref{prop:two-branch} for \(\kappa_1=(2,1)\),
-\(\tau_1=(1,5)\), \(\kappa_2=(1,3)\), and \(\tau_2=(4,1)\).  Its factored
-form is equation~(\ref{eq:theta7-expanded}) of
-Appendix~\ref{app:expanded-data}.  Then
+\(\tau_1=(1,5)\), \(\kappa_2=(1,3)\), and \(\tau_2=(4,1)\), factored in
+equation~(\ref{eq:theta7-expanded}).  Then
 \begin{equation}\label{eq:level-seven-pp}
  \begin{split}
  \PP_{\Delta=1/2}H_7(1/2,\Delta,d)
@@ -2262,206 +1787,39 @@ coefficients \(H_N(1/2,\Delta,d)\).
 \end{theorem}
 
 \begin{proof}
-We check the hypotheses of Proposition~\ref{prop:two-branch} at
-\(N=7\) and \(\lambda=1/2\).  By Corollary~\ref{cor:ising-classes},
+We check the hypotheses of Proposition~\ref{prop:two-branch} at \(N=7\) and
+\(\lambda=1/2\).  By Corollary~\ref{cor:ising-classes},
 \({\mathcal C}_{5,7}=\{(2,1),(1,3)\}\); the next label of this class,
 \((5,5)\), has level \(25\).  The labels of weight
 \(z_1=5/2=\lambda_{11}\) have levels \(5,15,36,\ldots\), and those of
 weight \(z_2=7/2=\lambda_{13}\) have levels \(4,14,35,\ldots\), so
 \(\tau_1=(1,5)\) and \(\tau_2=(4,1)\) satisfy~(i).
-Lemma~\ref{lem:level-seven-constants} gives~(ii) and, since
-\(\dot\zeta_1=\dot h_{2,1}-\dot h_{1,5}\neq0\) and
-\(\dot\zeta_2=\dot h_{1,3}-\dot h_{4,1}\neq0\), also~(iii).  With
+Lemma~\ref{lem:ising-constants} gives~(ii) and, since the slopes
+\(\dot\zeta_i\) are nonzero, also~(iii).  With
 \(R_{2,1}(b_0)=\frac9{28}E_2\) and \(R_{1,3}(b_0)=-\frac8{105}E_3\),
 \eqref{eq:two-branch-pp} becomes \eqref{eq:level-seven-pp}; its
 double-pole coefficient is
 \(\frac5{11}{\mathcal A}_{2,1}{\mathcal A}_{1,5}E_2{\mathcal P}_{1,5}\).
-By Proposition~\ref{prop:no-earlier-double-pole} no earlier coefficient
-has a double pole.
-
-The double-pole coefficient also has an intrinsic derivation.
-Propositions~\ref{prop:two-step-residue}
-and~\ref{prop:level-seven-smith} give
-\([x^{-2}]G_7(1/2,\tfrac12+x)^{-1}=\xi_7\xi_7^{\mathsf T}/\gamma_7\).  By
-Lemma~\ref{lem:regular-families}, \eqref{eq:fusion-normalization} gives
-\(\langle\phi_5|V_d(1)|\phi_5\rangle={\mathcal P}_{1,5}(b_0,d)\) and
-\(\langle\phi_4|V_d(1)|\phi_4\rangle={\mathcal P}_{4,1}(b_0,d)\).
-Lemma~\ref{lem:singular-factorization} applied along either branch then
-gives \(\langle\xi_7|V_d(1)|\xi_7\rangle=E_2{\mathcal P}_{1,5}
-=E_3{\mathcal P}_{4,1}\).  Multiplication by the Euler product does not
-affect the \(x^{-2}\) coefficient at level seven, because all lower levels
-have at most simple poles.  The resulting coefficient
-\(E_2{\mathcal P}_{1,5}/\gamma_7\) agrees with \eqref{eq:level-seven-pp}.
-\end{proof}
-
-\begin{remark}[Computing the finite parts]\label{rem:finite-parts}
-The lower-level finite parts \(Q_5^E,Q_4^E\) here, and \(Q_8,Q_6\) in
-Theorem~\ref{thm:level-ten-principal-part} below, are defined by
-fixed-\(c\) data only: they can be computed directly from the
-inverse-Shapovalov matrices or recursively from
-Corollary~\ref{cor:ising-confluence}, and no off-critical numerical
-limit is involved.  Closed forms (of degrees \(16\) and \(12\) in
-\(d\) for \(Q_8\) and \(Q_6\), with unwieldy rational coefficients)
-are recorded in machine-readable form.  Their exact confluence checks and
-sampled inverse-Shapovalov checks are specified in
-Remark~\ref{rem:audit-scope}.
-\end{remark}
-
-\section{The spin-module level-ten diamond}\label{sec:spin-diamond}
-
-\begin{figure}[ht]
-\centering
-\begin{tikzpicture}[>=stealth,every node/.style={font=\small}]
-\node (top) at (0,0) {\(M(\tfrac12,\tfrac1{16})\)};
-\node (l) at (-2.8,-1.7) {\(M(\tfrac12,\tfrac{33}{16})\)};
-\node (r) at (2.8,-1.7) {\(M(\tfrac12,\tfrac{65}{16})\)};
-\node (bot) at (0,-3.4) {\(M(\tfrac12,\tfrac{161}{16})\)};
-\draw[->] (l) -- node[above left]{\(\chi_2\), \((1,2)\), level \(2\)} (top);
-\draw[->] (r) -- node[above right]{\(\chi_4\), \((2,2)\), level \(4\)} (top);
-\draw[->] (bot) -- node[below left]{\(\psi_8\), \((4,2)\), level \(8\)} (l);
-\draw[->] (bot) -- node[below right]{\(\psi_6\), \((1,6)\), level \(6\)} (r);
-\end{tikzpicture}
-\caption{The spin diamond.  The two branches meet first at total level
-\(10\), where \(\chi_{10}=j_{\chi_2}(\psi_8)=j_{\chi_4}(\psi_6)\)
-creates the double pole of
-Theorem~\ref{thm:level-ten-principal-part}.}
-\label{fig:spin-diamond}
-\end{figure}
-
-\begin{proposition}[Level-ten Smith profile at \(\Delta=1/16\)]
-\label{prop:level-ten-smith}
-Let \(h_0=1/16\), and let
-\[
- U_2=U(\Vir_-)\chi_2,\qquad U_4=U(\Vir_-)\chi_4
-\]
-be the two singular submodules of \(M(1/2,h_0)\) from
-Proposition~\ref{prop:spin-singular-data}.  Their intersection is zero
-below level \(10\), \((U_2\cap U_4)_{10}=\mathbb C\chi_{10}\) for a
-singular vector \(\chi_{10}\), and
-\[
- \dim\ker G_{10}(1/2,h_0)=32.
-\]
-The \(42\) local Smith exponents of
-\(G_{10}(1/2,h_0+x)\) are
-\[
- \bigl(0^{\,10},1^{\,31},2\bigr).
-\]
-In particular, the inverse Shapovalov matrix has a nonzero rank-one
-coefficient at order \(x^{-2}\).
-\end{proposition}
-
-\begin{proof}
-Theorem~\ref{thm:jantzen-smith} with \((p,p')=(3,4)\) and
-\((r,s)=(1,2)\) gives the levels \(\ell^\pm_1=2,4\) of \(\chi_2,\chi_4\),
-\(\ell^+_2=10<\ell^-_2=14\), and \(\ell^\pm_3=24,30\).  Hence
-\(J^2_{10}=\mathbb C\chi_{10}\), where \(\chi_{10}\) is the singular
-vector of level \(10\), and \(J^3_{10}=0\).  As in
-Proposition~\ref{prop:level-seven-smith}, a lowest vector of
-\(U_2\cap U_4\) is singular and pulls back along \(j_{\chi_2}\) and
-\(j_{\chi_4}\) to singular vectors of \(M(\frac12,\frac{33}{16})\) and
-\(M(\frac12,\frac{65}{16})\), whose Kac determinants have no zero below
-relative levels \(8\) and \(6\).  So \(U_2\cap U_4\) is zero below level
-\(10\); it contains \(\chi_{10}=j_{\chi_2}(\psi_8)\) for the singular
-vector \(\psi_8\) of Proposition~\ref{thm:level-ten-leading}, and since
-every vector of \((U_2\cap U_4)_{10}\) is singular, uniqueness gives
-\((U_2\cap U_4)_{10}=\mathbb C\chi_{10}\).  By Corollary~\ref{cor:ising-classes}, the only positive
-Kac labels with \(\Delta_{r,s}=h_0\) and \(rs\leq10\) are \((1,2)\) and
-\((2,2)\), so the determinant valuation is \(p(8)+p(6)=33\), and
-Lemma~\ref{lem:jantzen-smith} gives \(\dim J^1_{10}=32\).  Of the
-\(p(10)=42\) Smith exponents, \(31\) equal \(1\), one equals \(2\), and the
-remaining \(10\) vanish.  (This illustrates
-Corollary~\ref{cor:det-overcounts}: the determinant valuation \(33\)
-records the sum of the positive Smith exponents, while the pole order is
-their maximum, \(2\).)
-\end{proof}
-
-\begin{remark}[Representation-theoretic inputs and finite checks]
-\label{rem:representation-inputs}
-The embedding arguments above use three results on Virasoro Verma
-modules: uniqueness, up to scalar, of a singular vector at a fixed level
-\cite[Proposition~5.1]{IoharaKoga2011}; injectivity of a nonzero
-homomorphism between Verma modules
-\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011}; and the
-Jantzen layers of Theorem~\ref{thm:jantzen-smith}, for which
-\cite[Theorem~6.3(i)]{IoharaKoga2011} and
-\cite[Theorem~B(e)]{Astashkevich1997} are independent sources.  At the
-two levels used explicitly in this paper they are also checked without
-the embedding diagram: exact Gram-matrix calculations give radical
-dimensions \(11\) at level seven and \(32\) at level ten, while the
-determinant valuations give the stated Smith profiles.  The all-order
-confluence theorem does not depend on these inputs.
-\end{remark}
-
-\begin{lemma}[Exact constants of the level-ten confluence]
-\label{lem:level-ten-constants}
-At \(b_0=2i/\sqrt3\), with dots denoting \(d/db\) at \(b_0\),
-\[
- \begin{array}{c|rrrr}
- (r,s)&(1,2)&(2,2)&(4,2)&(1,6)\\ \hline
- {\mathcal A}_{r,s}(b_0)&
- -4/7&648/13475&48/32035128125&-8/320945625\\
- 16\dot h_{r,s}/(i\sqrt3)&9&-7&-71&105
- \end{array}
-\]
-Hence
-\[
- \frac{\dot h_{1,2}-\dot h_{2,2}}
- {\dot h_{1,2}-\dot h_{4,2}}=\frac15,\qquad
- \frac{\dot h_{2,2}-\dot h_{1,2}}
- {\dot h_{2,2}-\dot h_{1,6}}=\frac17,\qquad
- \frac15{\mathcal A}_{1,2}{\mathcal A}_{4,2}
- =\frac17{\mathcal A}_{2,2}{\mathcal A}_{1,6}
- =-\frac{192}{1121229484375}.
-\]
-Moreover \({\mathcal P}_{1,2}(b_0,d)=P_2(d)\),
-\({\mathcal P}_{2,2}(b_0,d)=P_4(d)\),
-\[
- \begin{split}
- {\mathcal P}_{4,2}(b_0,d)
- =\frac1{20736}&d(d-20)(d-13)(d-11)(d-6)(d-1)\\
- {}\times&(2d-57)(2d-35)(2d-15)(2d-7)(2d-5)(2d-1)\\
- {}\times&(3d-14)(3d-5)(6d-55)(6d-1),
- \end{split}
-\]
-\[
- \begin{split}
- {\mathcal P}_{1,6}(b_0,d)
- =\frac1{64}&d(d-20)(d-13)(d-11)(d-6)(d-1)\\
- {}\times&(2d-57)(2d-35)(2d-15)(2d-7)(2d-5)(2d-1),
- \end{split}
-\]
-and \(P_2{\mathcal P}_{4,2}=P_4{\mathcal P}_{1,6}\).
-\end{lemma}
-
-\begin{proof}
-As for Lemma~\ref{lem:level-seven-constants}; in particular
-\(c'(b_0)=7i\sqrt3/2\neq0\), so \(b-b_0\) is a valid local deformation
-parameter.
+Proposition~\ref{prop:no-earlier-double-pole} gives the last assertion.
 \end{proof}
 
 \begin{theorem}[Finite recursive level-ten principal part]
 \label{thm:level-ten-principal-part}
-Define the finite shifted-block parts
+Put
 \[
+ \begin{gathered}
  Q_8(d)=
- \left.
- \frac{\partial}{\partial z}
- \left\{(z-\tfrac{33}{16})H_8(1/2,z,d)\right\}
- \right|_{z=33/16},
-\]
-\[
+ \left.\frac{\partial}{\partial z}
+ \{(z-\tfrac{33}{16})H_8(1/2,z,d)\}\right|_{z=33/16},\\
  Q_6(d)=
- \left.
- \frac{\partial}{\partial z}
- \left\{(z-\tfrac{65}{16})H_6(1/2,z,d)\right\}
- \right|_{z=65/16},
+ \left.\frac{\partial}{\partial z}
+ \{(z-\tfrac{65}{16})H_6(1/2,z,d)\}\right|_{z=65/16},
+ \end{gathered}
 \]
 and let \(\Theta_{10}=T_1+T_2\) be the derivative term of
 Proposition~\ref{prop:two-branch} for \(\kappa_1=(1,2)\),
-\(\tau_1=(4,2)\), \(\kappa_2=(2,2)\), and \(\tau_2=(1,6)\).  Its factored
-form is equation~(\ref{eq:theta10-expanded}) of
-Appendix~\ref{app:expanded-data}.  Then the entire principal part of the
-level-ten reduced coefficient at \(\Delta=h_0=1/16\) is
+\(\tau_1=(4,2)\), \(\kappa_2=(2,2)\), and \(\tau_2=(1,6)\), factored in
+equation~(\ref{eq:theta10-expanded}).  Then, with \(h_0=1/16\),
 \begin{equation}\label{eq:level-ten-pp}
  \begin{split}
  \PP_{\Delta=h_0}H_{10}(1/2,\Delta,d)
@@ -2476,373 +1834,120 @@ level-ten reduced coefficient at \(\Delta=h_0=1/16\) is
  {\Delta-h_0}.
  \end{split}
 \end{equation}
-Every term on the right is finite and is evaluated at \(c=1/2\).
 \end{theorem}
 
 \begin{proof}
-We check the hypotheses of Proposition~\ref{prop:two-branch} at
-\(N=10\) and \(\lambda=1/16\).  By Corollary~\ref{cor:ising-classes},
-\({\mathcal C}_{2,10}=\{(1,2),(2,2)\}\); the next labels of this class have
-levels \(24\) and \(30\).  The labels of weight \(z_1=33/16=\lambda_{10}\)
-have levels \(8,12,42,\ldots\), and those of weight
-\(z_2=65/16=\lambda_{14}\) have levels \(6,10,40,\ldots\), so
-\(\tau_1=(4,2)\) and \(\tau_2=(1,6)\) satisfy~(i).
-Lemma~\ref{lem:level-ten-constants} gives~(ii) and~(iii).  With
-\(R_{1,2}(b_0)=-\frac47P_2\) and \(R_{2,2}(b_0)=\frac{648}{13475}P_4\),
-\eqref{eq:two-branch-pp} becomes \eqref{eq:level-ten-pp}; its
-double-pole coefficient is
-\(\frac15{\mathcal A}_{1,2}{\mathcal A}_{4,2}P_2{\mathcal P}_{4,2}\).
+As for Theorem~\ref{thm:level-seven-principal-part}.  Now
+\({\mathcal C}_{2,10}=\{(1,2),(2,2)\}\), the next labels of this class have
+levels \(24\) and \(30\), the labels of weight \(33/16=\lambda_{10}\) have
+levels \(8,12,42,\ldots\), and those of weight \(65/16=\lambda_{14}\) have
+levels \(6,10,40,\ldots\), so \(\tau_1=(4,2)\) and \(\tau_2=(1,6)\)
+satisfy~(i); Lemma~\ref{lem:ising-constants} gives~(ii) and~(iii).
 \end{proof}
 
-\begin{proposition}[Intrinsic leading coefficient at level ten]
-\label{thm:level-ten-leading}
-Normalize all singular vectors by setting their \(L_{-1}^{\ell}\)
-coefficient equal to \(1\).  Let
-\(\psi_8\in M(1/2,33/16)\) and
-\(\psi_6\in M(1/2,65/16)\) be the singular vectors of levels \(8\) and
-\(6\), respectively.  Then
-\(\chi_{10}=j_{\chi_2}(\psi_8)=j_{\chi_4}(\psi_6)\) and
+The finite parts \(Q^E_5,Q^E_4,Q_8,Q_6\) are fixed-\(c\) data: they can be
+computed from the inverse-Shapovalov matrices or recursively from
+Corollary~\ref{cor:ising-confluence}, without any off-critical limit.
+Closed forms (of degrees \(16\) and \(12\) in \(d\) for \(Q_8\) and \(Q_6\))
+are recorded in machine-readable form with the ancillary scripts.
+
+\begin{proposition}[Second Jantzen norms]\label{prop:ising-jantzen-norms}
+The local Smith exponents of \(G_7(\tfrac12,\tfrac12+x)\) and of
+\(G_{10}(\tfrac12,\tfrac1{16}+x)\) are \((0^4,1^{10},2)\) and
+\((0^{10},1^{31},2)\).  The second Jantzen layers are spanned by the
+singular vectors
 \[
- \langle\psi_8|V_d(1)|\psi_8\rangle={\mathcal P}_{4,2}(b_0,d),\qquad
- \langle\psi_6|V_d(1)|\psi_6\rangle={\mathcal P}_{1,6}(b_0,d).
+ \xi_7=j_{\xi_2}(\phi_5)=j_{\xi_3}(\phi_4),\qquad
+ \chi_{10}=j_{\chi_2}(\psi_8)=j_{\chi_4}(\psi_6),
 \]
-Write
-\(G_{10}(1/2,h_0+x)=G_0+xG_1+x^2G_2+O(x^3)\),
-choose \(v_1\) with \(G_0v_1=-G_1\chi_{10}\), and set
+where \(\phi_5,\phi_4,\psi_8,\psi_6\) are the singular vectors of
+Figure~\ref{fig:diamonds}.  Their torus norms are
+\(E_2{\mathcal P}_{1,5}(b_0,d)=E_3{\mathcal P}_{4,1}(b_0,d)\) and
+\(P_2{\mathcal P}_{4,2}(b_0,d)=P_4{\mathcal P}_{1,6}(b_0,d)\), and their
+second Jantzen norms are
 \[
- \gamma_{10}
- =\chi_{10}^{\mathsf T}(G_2\chi_{10}+G_1v_1).
+ \gamma_7=B^2(\xi_7,\xi_7)=-700700,\qquad
+ \gamma_{10}=B^2(\chi_{10},\chi_{10})=-\frac{1121229484375}{192}.
 \]
-Then \(\gamma_{10}\) is independent of the choice of \(v_1\),
-\[
- \gamma_{10}=-\frac{1121229484375}{192},
-\]
-and
-\[
- \lim_{\Delta\to h_0}
- (\Delta-h_0)^2H_{10}(1/2,\Delta,d)
- =\frac{P_2(d){\mathcal P}_{4,2}(b_0,d)}{\gamma_{10}}
- =\frac{P_4(d){\mathcal P}_{1,6}(b_0,d)}{\gamma_{10}}.
-\]
-This is an intrinsic fixed-\(c\) expression for the spin-module
-nontransverse Laurent coefficient.
 \end{proposition}
 
 \begin{proof}
-The two compositions are nonzero singular vectors of total level \(10\)
-\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011}, hence
-proportional \cite[Proposition~5.1]{IoharaKoga2011}; their
-\(L_{-1}^{10}\) coefficients are both \(1\), so they are equal.
-By Lemma~\ref{lem:regular-families}, the normalized families
-\(\chi_{4,2}(b)\) and \(\chi_{1,6}(b)\) are regular at \(b_0\) with values
-\(\psi_8\) and \(\psi_6\), and \eqref{eq:fusion-normalization} specializes
-to the displayed torus polynomials.
-
-By Proposition~\ref{prop:level-ten-smith}, the second Smith layer
-\(K_2\) of Proposition~\ref{prop:two-step-residue} is spanned by
-\(\chi_{10}\) and the largest exponent is \(2\).  That proposition shows
-that \(\gamma_{10}\) is choice-independent and nonzero and that
-\([x^{-2}]G_{10}(1/2,h_0+x)^{-1}=\chi_{10}\chi_{10}^{\mathsf T}/\gamma_{10}\).
-Lemma~\ref{lem:singular-factorization}, applied along either side of the
-embedding diamond, gives
-\(\langle\chi_{10}|V_d(1)|\chi_{10}\rangle=P_2{\mathcal P}_{4,2}
-=P_4{\mathcal P}_{1,6}\).  By Theorem~\ref{thm:jantzen-smith}, all lower
-levels have at most simple poles at \(h_0\), so multiplication by the
-Euler product does not alter the \(x^{-2}\) coefficient at level ten.
-This proves the limit formula.  Comparing it with the double-pole
-coefficient of Theorem~\ref{thm:level-ten-principal-part} gives the value
-of \(\gamma_{10}\).  Independently,
-\path{tools/audit_grade10_direct.py}\ \path{--crossing-only} constructs
-the first two Smith layers from the Gram matrix and obtains the same
-scalar directly from the second crossing form, without using the
-confluence calculation.
+By Theorem~\ref{thm:jantzen-smith}, \(J^2_7(\tfrac12,\tfrac12)\) is spanned
+by the singular vector of level \(\ell^-_2=7\), and \(J^3_7=0\).  Only the
+labels \((2,1)\) and \((1,3)\) have weight \(\tfrac12\) and level at most
+\(7\), so the determinant valuation is \(p(5)+p(4)=12\), and
+Lemma~\ref{lem:jantzen-smith} gives \(\dim J^1_7=11\) and the profile.  The
+two compositions are nonzero singular vectors of level \(7\)
+\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011} with
+\(L_{-1}^7\)-coefficient \(1\), hence equal
+\cite[Proposition~5.1]{IoharaKoga2011}.
+Lemmas~\ref{lem:singular-factorization} and~\ref{lem:regular-families}
+with \eqref{eq:fusion-normalization} give the torus norm.  By
+Theorem~\ref{thm:top-layer} the double-pole coefficient of \(H_7\) is
+\(E_2{\mathcal P}_{1,5}/\gamma_7\); comparison with
+Theorem~\ref{thm:level-seven-principal-part} gives \(\gamma_7=-700700\),
+and an exact evaluation of Lemma~\ref{lem:top-coefficient}(iii) in the
+level-seven PBW basis gives the same value.  The level-ten case is
+identical, with \(\ell^+_2=10<\ell^-_2=14\), valuation \(p(8)+p(6)=33\),
+and Theorem~\ref{thm:level-ten-principal-part}.
 \end{proof}
 
-\raggedbottom
-\begin{table}[ht]
-\centering
-\begin{tabular}{lcc}
-\hline
- & energy class & spin class\\
-\hline
-collided weight & \(\lambda_5=\tfrac12\) & \(\lambda_2=\tfrac1{16}\)\\
-colliding labels & \((2,1),(1,3)\) & \((1,2),(2,2)\)\\
-parent singular levels & \(2,3\) & \(2,4\)\\
-first collided coefficient & \(H_3\) & \(H_4\)\\
-first residue & Theorem~\ref{thm:first-recursive-residue} &
- Theorem~\ref{thm:spin-recursive-residue}\\
-diamond closes at level & \(7\) & \(10\)\\
-child labels (relative levels) & \((1,5)\,(5)\), \((4,1)\,(4)\) &
- \((4,2)\,(8)\), \((1,6)\,(6)\)\\
-second crossing scalar & \(\gamma_7=-700700\) &
- \(\gamma_{10}=-\tfrac{1121229484375}{192}\)\\
-principal part & Theorem~\ref{thm:level-seven-principal-part} &
- Theorem~\ref{thm:level-ten-principal-part}\\
-\hline
-\end{tabular}
-\caption{The two Ising embedding diamonds and their local data.}
-\label{tab:local-summary}
-\end{table}
+\begin{remark}[Low-level output and Stocco's expressions]
+\label{rem:stocco-comparison}
+Through level four every pole of the Ising block is simple, and the
+fourteen nonzero collision moments \(A_{n,1,N}\), \(N\leq4\), factor over
+\(\mathbb Q[d]\); for instance \(A_{5,1,3}\) and \(A_{2,1,4}\) are the
+residues of Corollary~\ref{cor:first-residues}.  Stocco
+\cite[Sections~II.2--II.3 and Appendix~A]{Stocco2022} writes the generic
+recursion over the common denominator
+\(\prod_{kl\leq N}(\Delta-h_{k,l}(b))\) and gives pole-free numerators for
+\(N\leq4\).  In exact arithmetic they reproduce \(H_2\) and \(H_3\)
+identically in \(b\), and \(H_4\) at sample values of \(b\) including
+\(b_0\); at \(b_0\) the collided labels make his denominator vanish to
+higher order, and the numerators acquire compensating zeros.  The present
+paper extends these low-order expressions to all orders, with a
+termination and equality proof.
+\end{remark}
 
-\begin{remark}[Exact replay and its scope]\label{rem:audit-scope}
-All replays use exact arithmetic.  Their division of responsibility is:
-\begin{center}
-\small
-\begin{tabular}{p{0.31\textwidth}p{0.58\textwidth}}
-\hline
-script & independent content checked\\
-\hline
-{\raggedright\path{audit_low_levels.py},
-\path{audit_first_resonances.py}\par}
-& PBW and Ward calculations, singular vectors, Gram kernels, crossing
-forms, fusion polynomials, and all repeated classes below level seven\\
-{\raggedright\path{audit_regular_families.py}\par}
-& the regularity minors of Lemma~\ref{lem:regular-families}\\
-{\raggedright\path{audit_grade10_confluence.py},
-\path{audit_confluent_recursion.py}\par}
-& Kac slopes, generic residues, shifted Laurent moments,
-\(\gamma_{10}\), and \(\Theta_{10}\) on the confluence side\\
-{\raggedright\path{audit_grade10_direct.py}\ \path{--crossing-only}\par}
-& \(G_{10}\) from Virasoro commutation, its \(32\)-dimensional radical,
-the one-dimensional second Smith layer, and \(\gamma_{10}\), with no
-generic-residue or confluence input\\
-{\raggedright\path{audit_direct_principal_parts.py}\par}
-& direct inverse-Shapovalov reconstruction through level seven at
-\(d=3/7,23\), including \(\Theta_7,Q_4^E,Q_5^E\) and all earlier pole
-orders\\
-{\raggedright full \path{audit_grade10_direct.py}\par}
-& direct level-ten principal part and \(Q_8,Q_6\) at \(d=3/7\), together
-with the intrinsic crossing calculation\\
-{\raggedright\path{audit_stocco_comparison.py},
-\path{audit_ising_characters.py}\par}
-& the normalization samples of Remark~\ref{rem:normalization-replays},
-Stocco's
-orders two--four, and the BGG/free-fermion character comparison through
-level \(30\)\\
-\hline
-\end{tabular}
-\end{center}
-Thus the level-ten confluence and second crossing form have independent
-implementations.  Direct principal-part checks are exact at the displayed
-sample values; the confluence identities themselves are symbolic in \(d\).
-Commands, dependencies, and source hashes are in
+\begin{remark}[Exact replay]\label{rem:audit-scope}
+All replays use exact arithmetic: \path{audit_low_levels.py} and
+\path{audit_first_resonances.py} (PBW and Ward calculations, singular
+vectors, crossing forms, fusion polynomials, repeated classes below level
+seven); \path{audit_regular_families.py}
+(Lemma~\ref{lem:regular-families}); \path{audit_grade10_confluence.py} and
+\path{audit_confluent_recursion.py} (generic residues, shifted Laurent
+moments, \(\gamma_{10}\), \(\Theta_{10}\)); \path{audit_grade10_direct.py}
+(the level-ten Gram matrix, its radical, and \(\gamma_{10}\) without
+confluence input, and in its full run the level-ten principal part at
+\(d=3/7\)); \path{audit_direct_principal_parts.py} (direct reconstruction
+through level seven at \(d=3/7,23\), including \(\gamma_7\), \(\Theta_7\),
+\(Q_4^E\), \(Q_5^E\)); \path{audit_top_layer.py}
+(Theorem~\ref{thm:top-layer} and Remark~\ref{rem:top-layer-beyond}, with
+the first-layer data computed directly); and
+\path{audit_stocco_comparison.py}
+(Proposition~\ref{prop:imported-normalizations} at sample labels and
+Stocco's orders two--four).  Commands, dependencies, and hashes are in
 \path{AUDIT_MANIFEST.md}.
 \end{remark}
 
-\section{Low-level output and comparison with
-earlier expansions}
-\label{sec:low-level-output}
-
-Through level four, every pole of the Ising block is simple:
-\(m_{n,N}=1\) for all classes with \(N\leq4\), by
-Proposition~\ref{prop:no-earlier-double-pole}.  The complete list of
-nonzero collision moments through level four, computed from
-Definition~\ref{def:collision-moments} and equal to the partial-fraction
-coefficients \(A_{n,k,N}\) by Corollary~\ref{cor:ising-confluence}, is
-factored over \(\mathbb Q[d]\) in
-equation~(\ref{eq:low-level-table}) of Appendix~\ref{app:expanded-data}.
-The entries are consistent with the local theorems:
-\(A_{5,1,3}\) is the residue of
-Theorem~\ref{thm:first-recursive-residue}, \(A_{2,1,4}\) is the
-polynomial of Theorem~\ref{thm:spin-recursive-residue}, and
-\(A_{13,1,4}={\mathcal A}_{4,1}(b_0){\mathcal P}_{4,1}(b_0,d)\).  All entries
-are verified against the inverse-Shapovalov definition by
-\path{tools/audit_direct_principal_parts.py}.
-
-\begin{remark}[Comparison with the pole-free expressions of Stocco]
-\label{rem:stocco-comparison}
-Stocco \cite[Sections~II.2--II.3 and Appendix~A]{Stocco2022} writes the
-generic torus recursion over a common denominator,
-\[
- H^{(N)}_\Delta
- =\frac{R_{1,1}\,K_N(\Delta,\Delta_1,b^2)}
- {\prod_{kl\leq N}(\Delta-\Delta_{\langle k,l\rangle})},
-\]
-and gives closed pole-free numerators \(K_N\) for \(N\leq4\): order two
-in equation~(II.11), orders three and four in Appendix~A.  Here his
-deformation parameter has been written as \(b^2\); in our notation
-\(\Delta_1=d\), and his
-\(\Delta_{\langle r,s\rangle}\) is \(h_{r,s}(b)\).  We have verified in
-exact arithmetic that his order-two and order-three numerators
-reproduce the generic blocks \(H_2\) and \(H_3\) of
-Definition~\ref{def:matrices} identically in \(b\), and that his
-order-four numerator reproduces \(H_4\) at sample values of \(b\) and
-at \(b=b_0\); see \path{tools/audit_stocco_comparison.py}.  (The
-identical-in-\(b\) comparison was run only through order three because
-of the cost of expanding the order-four rational functions; the sampled
-order-four check includes the specialization \(b=b_0\) used in this
-paper.)  In
-particular, specializing his expressions at \(b_0^2=-4/3\)
-reproduces the \(N\leq4\) list in
-Appendix~\ref{app:expanded-data}.  At \(c=1/2\), collided labels
-make his denominator vanish to higher order (for instance
-\(\Delta_{\langle2,1\rangle}=\Delta_{\langle1,3\rangle}=\tfrac12\) at
-order three), and the specialized numerators \(K_N(\Delta,d,-4/3)\)
-acquire the compensating zeros, so that the actual pole multiplicities
-are the \(m_{n,N}\) of Definition~\ref{def:collision-moments}.  The
-present paper upgrades these closed low-order expressions to an
-all-order fixed-\(c\) statement with a termination and equality proof.
-\end{remark}
-
-\section{Irreducible Ising specialization}\label{sec:irreducible}
-
-\begin{proposition}[Identity insertion in the Verma recursion]
-\label{prop:identity-verma}
-For \(d=0\),
-\[
- H_\Delta^{(1/2)}(0\mid q)=1
-\]
-as a rational function of \(\Delta\).  Thus specialization of the
-meromorphic Verma block at a degenerate weight is not the irreducible
-Ising trace; the latter requires taking the quotient by the radical.
-\end{proposition}
-
-\begin{proof}
-In Definition~\ref{def:generic-residue}, the factor with \(k=l=1\)
-in \({\mathcal P}_{r,s}(b,0)\) is
-\[
- \frac{(b+b^{-1})^2-(b+b^{-1})^2}{4}=0.
-\]
-Hence every generic residue \(R_a(t)\) vanishes identically at \(d=0\).
-Definitions~\ref{def:shifted-laurent} and
-\ref{def:collision-moments} then give
-\(\widetilde A_{n,k,N}(0)=0\), hence \(A_{n,k,N}(0)=0\), for every
-\(N\geq1\).
-Equivalently, in the inverse-Shapovalov definition the identity insertion
-has \(\rho_N=G_N\), so \(F_N=p(N)\) and eta reduction gives \(H=1\).
-\end{proof}
-
-\begin{definition}[Eta-reduced irreducible identity block]
-\label{def:irreducible-identity}
-For \(h\in\{0,1/2,1/16\}\), let \(L(1/2,h)\) be the irreducible quotient
-of \(M(1/2,h)\), and define
-\[
- \widehat H_h(q)
- =\prod_{m\geq1}(1-q^m)
-  \sum_{N\geq0}\dim L(1/2,h)_{h+N}\,q^N.
-\]
-\end{definition}
-
-\begin{theorem}[The three Ising characters]
-\label{thm:ising-characters}
-The quotient identity blocks of
-Definition~\ref{def:irreducible-identity} are
-\[
- \widehat H_0(q)
- =\sum_{j\in\mathbb Z}
- \left(
- q^{((24j+1)^2-1)/48}
- -q^{((24j+7)^2-1)/48}
- \right),
-\]
-\[
- \widehat H_{1/2}(q)
- =\sum_{j\in\mathbb Z}
- \left(
- q^{((24j+5)^2-25)/48}
- -q^{((24j+11)^2-25)/48}
- \right),
-\]
-and
-\[
- \widehat H_{1/16}(q)
- =\sum_{j\in\mathbb Z}
- \left(
- q^{((24j-2)^2-4)/48}
- -q^{((24j+10)^2-4)/48}
- \right).
-\]
-Consequently,
-\[
- \chi_h(q)
- =q^{h-1/48}
-  \frac{\widehat H_h(q)}
-  {\prod_{m\geq1}(1-q^m)}
-\]
-are the vacuum, energy, and spin Ising characters.  Their eta-reduced
-beginnings are
-\[
- \begin{aligned}
- \widehat H_0&=1-q-q^6+q^{11}+q^{13}-q^{20}+\cdots,\\
- \widehat H_{1/2}&=1-q^2-q^3+q^7+q^{17}-q^{25}-q^{28}+\cdots,\\
- \widehat H_{1/16}&=1-q^2-q^4+q^{10}+q^{14}-q^{24}-q^{30}+\cdots.
- \end{aligned}
-\]
-\end{theorem}
-
-\begin{proof}
-The Ising model is the minimal series \(c_{3,4}=1/2\).
-The Class \(R^+\), Case \(1+\), BGG resolution in
-\cite[Theorem~6.9]{IoharaKoga2011} is an exact complex of Verma modules.
-Taking its Euler--Poincaré character gives, for an interior label
-\((r,s)\),
-\[
- \chi_{r,s}(q)
- =\frac1{\eta(q)}
- \sum_{j\in\mathbb Z}
- \left(
- q^{(24j+4r-3s)^2/48}
- -q^{(24j+4r+3s)^2/48}
- \right).
-\]
-Use \((r,s)=(1,1),(2,1),(1,2)\), respectively.  Since
-\[
- h_{r,s}=\frac{(4r-3s)^2-1}{48},\qquad
- \eta(q)=q^{1/24}\prod_{m\geq1}(1-q^m),
-\]
-factoring out \(q^{h_{r,s}-1/48}\) gives exactly the three displayed
-\(\widehat H\)-series.  For any fixed power of \(q\), only finitely many
-integers \(j\) contribute, so the Euler--Poincaré sums are
-coefficientwise finite.  Direct evaluation of the exponents through
-degree \(30\) gives the final three lines.
-\end{proof}
-
-\begin{remark}[Character replay]
-Through level \(30\), exact BGG numerator coefficients agree with an
-independent free-fermion count: distinct positive-part partitions for the
-spin module, and distinct odd-part partitions of \(2N\) and \(2N+1\), with
-even and odd length respectively, for the vacuum and energy modules.  See
-Remark~\ref{rem:audit-scope} for the replay.
-\end{remark}
 
 \section{Scope and outlook}\label{sec:scope}
 
-Theorem~\ref{thm:general-confluence} is a coefficientwise theorem for the
-meromorphic Verma-module torus block at every fixed nonzero
-\(b_\star\).  It has new content exactly when \(b_\star^2\) is rational;
-otherwise it reduces to the generic recursion at \(b_\star\).  In
-particular, it applies to every minimal-model central charge, and
-Proposition~\ref{prop:minimal-collisions} supplies the corresponding
-collision classes.  The Ising specialization is developed in greater detail
-because its classes, coefficient field, embedding diamonds, and exact local
-computations are especially transparent.  The output is fixed at
-\(c_\star\), while the construction uses the exact formal deformation
-\(b=b_\star+t\) to combine resonant generic-recursion terms.  The method
-should therefore be distinguished both from numerical regularization and
-from a recursion formulated solely in intrinsic data of the specialized
-category.
-
-At any prescribed level the label sets and recursion trees are finite.
-Lemmas~\ref{lem:shifted-valuation-bound} and
-\ref{lem:precision-budget} give an a priori Laurent jet budget,
-but do not claim a favorable complexity bound: exact rational
-simplification can grow rapidly with the level.  For \(c_\star\neq1,25\),
-Theorem~\ref{thm:jantzen-smith} and Remark~\ref{rem:jantzen-other}
-identify every Smith layer with the embedding diagram and bound every pole
-order by the Jantzen depth \(j_N(\lambda)\); the coefficientwise
-confluence theorem does not depend on this identification.  The
-independent level-ten checks are summarized in
-Remark~\ref{rem:audit-scope}.
-
-Open directions include uniform complexity bounds; the question of
-when the block coefficient \(H_N\) attains the Jantzen bound
-\(j_N(\lambda)\) for indeterminate \(d\), as it does at the two Ising
-diamonds; the charges \(c_\star=1,25\), where the internal-weight line is
-tangent to the Kac curves; an intrinsic fixed-central-charge recursion
-that eliminates the formal deformation; and a corresponding recursion for irreducible minimal-model
-traces at degenerate internal weights.  The BGG calculation of
-Section~\ref{sec:irreducible} is only a quotient consistency check and is
-logically separate from the confluence theorem.
+Theorem~\ref{thm:general-confluence} applies to the meromorphic Verma
+block at every fixed nonzero \(b_\star\) and has new content exactly when
+\(b_\star^2\) is rational.  Its formal deformation \(b=b_\star+t\)
+distinguishes it both from numerical regularization and from a recursion
+in intrinsic data of the specialized category; Theorem~\ref{thm:top-layer}
+supplies such intrinsic data for the deepest pole.  The Verma block at a
+degenerate weight is not an irreducible minimal-model trace: for \(d=0\)
+the Ward recursion is that of the identity operator, so \(\rho_N=G_N\) and
+the reduced block equals \(1\).  Open directions include complexity bounds
+for the jet budget of Lemma~\ref{lem:precision-budget}; nonvanishing of the
+right side of \eqref{eq:top-layer} at the remaining levels of each window,
+which would show that \(H_N\) attains \(j_N(\lambda)\) for every \(N\); the
+weights of Remark~\ref{rem:jantzen-other} and the charges
+\(c_\star=1,25\); intrinsic formulas for the lower Laurent coefficients;
+and recursions for irreducible minimal-model traces.
 
 \section*{AI-use disclosure}
 
@@ -2850,17 +1955,16 @@ The proof architecture was developed with assistance from OpenAI Codex using
 GPT-5.6 Sol (\texttt{gpt-5.6-sol}) at max reasoning effort.  The system was
 used as an interactive research assistant to develop and stress-test the
 argument, audit citations and calculations, prepare exact verification code,
-and revise the manuscript.  The November 2026 revision was prepared with
+and revise the manuscript.  The November 2026 revisions were prepared with
 Anthropic's Claude Opus~5.5 (\texttt{claude-opus-5-5}) in Claude Code, at
-the author's request: it shortened the proof of
-Theorem~\ref{thm:general-confluence}, removed the algebraicity hypothesis,
-added the two-branch closure formula
-(Proposition~\ref{prop:two-branch}) and the Smith-layer theorem
-(Theorem~\ref{thm:jantzen-smith}), checked the cited results against
-their sources, and revised notation and presentation.  The author directed
-the research, selected and checked the final arguments, and takes
-responsibility for all mathematical claims, citations, computations, and
-wording.
+the author's request: they shortened the proof of
+Theorem~\ref{thm:general-confluence} and removed its algebraicity
+hypothesis, added Proposition~\ref{prop:two-branch},
+Theorems~\ref{thm:jantzen-smith} and~\ref{thm:top-layer}, and
+Corollary~\ref{cor:top-layer-sharp}, condensed the Ising examples, checked
+the cited results against their sources, and revised the presentation.  The author directed the research, selected and checked the
+final arguments, and takes responsibility for all mathematical claims,
+citations, computations, and wording.
 
 \section*{Code availability}
 
@@ -2917,59 +2021,6 @@ The corresponding level-ten polynomial is
  \bigr).
  \end{split}
 \end{equation}
-
-The complete nonzero partial-fraction output through level four is
-\begin{equation}\label{eq:low-level-table}
- \begin{aligned}
- A_{1,1,1}&=\tfrac12\,d(d-1),\\[2pt]
- A_{1,1,2}&=\tfrac14\,d^2(d-1)^2,\\
- A_{2,1,2}&=-\tfrac17\,d(d-1)(2d-7)(2d-1),\\
- A_{5,1,2}&=\tfrac1{28}\,d(d-1)(3d-14)(3d-5),\\[2pt]
- A_{1,1,3}&=\tfrac1{120}\,d^2(d-1)^2(17d^2-113d+236),\\
- A_{2,1,3}&=-\tfrac8{231}\,d^2(d-1)^2(2d-7)(2d-1),\\
- A_{5,1,3}&=-\tfrac1{84}\,d(d-1)(d^4-50d^3+311d^2-550d+210),\\
- A_{9,1,3}&=\tfrac3{3080}\,d(d-11)(d-6)(d-1)(3d-14)(3d-5),\\[2pt]
- A_{1,1,4}&=-\tfrac1{1440}\,d^2(d-1)^2
-   (31d^4-830d^3+5567d^2-13408d+8460),\\
- A_{2,1,4}&=\tfrac1{40425}\,d(d-1)(2d-7)(2d-1)\\
- &\qquad\times(248d^4-5752d^3+25274d^2-33630d+5775),\\
- A_{5,1,4}&=-\tfrac1{61152}\,d^2(d-1)^2
-   (149d^4-2506d^3-2679d^2+70508d-106540),\\
- A_{8,1,4}&=-\tfrac2{20475}\,d(d-13)(d-6)(d-1)
-   (2d-15)(2d-7)(2d-5)(2d-1),\\
- A_{9,1,4}&=\tfrac9{86240}\,d^2(d-11)(d-6)(d-1)^2(3d-14)(3d-5),\\
- A_{13,1,4}&=\tfrac1{184800}\,d(d-20)(d-13)(d-11)(d-6)(d-1)
-   (3d-14)(3d-5).
- \end{aligned}
-\end{equation}
-
-\section{The level-four Gram matrix at
-\texorpdfstring{\(c=1/2\)}{c=1/2}}\label{app:gram}
-
-In the ordered PBW basis
-\((L_{-4},\,L_{-3}L_{-1},\,L_{-2}^2,\,L_{-2}L_{-1}^2,\,L_{-1}^4)
-\lvert\Delta\rangle\) of Proposition~\ref{prop:spin-collision}, direct
-Virasoro commutation at \(c=1/2\) gives the symmetric matrix
-\(G_4=\begin{pmatrix}C&C'\end{pmatrix}\) with column blocks
-\[
-C=\begin{pmatrix}
-8\Delta+\frac52&14\Delta&24\Delta+\frac32\\
-14\Delta&12\Delta^2+14\Delta&30\Delta\\
-24\Delta+\frac32&30\Delta&32\Delta^2+36\Delta+\frac{17}{8}\\
-36\Delta&40\Delta^2+20\Delta&48\Delta^2+51\Delta\\
-120\Delta&192\Delta^2+48\Delta&216\Delta^2+144\Delta
-\end{pmatrix},
-\]
-\[
-C'=\begin{pmatrix}
-36\Delta&120\Delta\\
-40\Delta^2+20\Delta&192\Delta^2+48\Delta\\
-48\Delta^2+51\Delta&216\Delta^2+144\Delta\\
-32\Delta^3+118\Delta^2+33\Delta&288\Delta^3+336\Delta^2+96\Delta\\
-288\Delta^3+336\Delta^2+96\Delta&
- 384\Delta^4+1152\Delta^3+1056\Delta^2+288\Delta
-\end{pmatrix}.
-\]
 
 \begin{thebibliography}{CCY19}
 

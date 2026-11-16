@@ -116,9 +116,45 @@ continuation to complex specializations, which is now proved from the identities
 
 ## Open items
 
-- None among the labelled results: every numbered statement of the paper has a Lean proof.
-  The cited inputs (`Cited_*` in Virasoro/Cited.lean) remain hypotheses of the theorems that use
-  them, as in the paper.
+- The table above matches the paper as of commit 803f1aa. The revision of 2026-11-17 (below)
+  added, merged, removed and renumbered statements; the Lean side has not been brought in line
+  with it yet.
+- For the paper as of 803f1aa, every numbered statement has a Lean proof. The cited inputs
+  (`Cited_*` in Virasoro/Cited.lean) remain hypotheses of the theorems that use them, as in the
+  paper.
+
+## Paper revision of 2026-11-17 (top-layer theorem, shortened to 25 pages)
+
+Statements whose content is unchanged keep their labels; their numbers changed as follows:
+Lemma 5.6 → 5.3 (`lem:jantzen-smith`), Thm 5.7 → 5.8 (`thm:jantzen-smith`), Lemma 5.9 → 5.5
+(`lem:singular-factorization`), Lemma 5.10 → 5.6 (`lem:singular-crossing`, new shorter proof via
+the Jantzen form), Lemma 6.4 → 6.3 (`lem:no-generic-shifted-pole`), Prop 6.5 → 6.4
+(`prop:generic-recursion`, residue now taken from Lemma 5.4 with k = 1), Lemma 8.4 → 8.3
+(`lem:regular-families`), Thm 8.5 and Thm 9.4 → 8.5 and 8.6. Sections 2–4 and 7 keep their
+numbers. Lemma 5.1 now states its special case as "ord det = dim ker implies every positive
+exponent equals 1" (same content).
+
+New statements, not formalized:
+- Lemma 5.4 `lem:top-coefficient` (Jantzen forms; top coefficient of the inverse Shapovalov
+  matrix). It replaces Prop 5.2 `prop:transverse-residue` and Prop 5.3 `prop:two-step-residue`.
+- Lemma 5.7 `lem:singular-degree` (the L_{-1}^ℓ coefficient of a singular vector is nonzero; its
+  torus norm has exact degree 2ℓ in d).
+- Thm 5.10 `thm:top-layer` and Cor 5.11 `cor:top-layer-sharp`.
+
+Merged or restated (Lean has the old pieces):
+- Prop 8.1 `prop:no-earlier-double-pole` now also states the first double poles at levels 7,
+  10, 11 (from Cor 5.11).
+- Lemma 8.2 `lem:ising-constants` merges Lemmas 8.3 and 9.3 (`lem:level-seven-constants`,
+  `lem:level-ten-constants`).
+- Cor 8.4 `cor:first-residues` merges Thms 5.12 and 5.15 (`thm:first-recursive-residue`,
+  `thm:spin-recursive-residue`), now derived from Thm 5.10.
+- Prop 8.7 `prop:ising-jantzen-norms` merges Props 8.1, 9.1 and 9.5 (`prop:level-seven-smith`,
+  `prop:level-ten-smith`, `thm:level-ten-leading`).
+
+Removed from the paper (the Lean proofs remain valid for the old statements): Cor 5.4
+`cor:det-overcounts` (now a sentence), Props 5.11, 5.13, 5.14 (`prop:first-collision`,
+`prop:spin-collision`, `prop:spin-singular-data`), Section 11 (Prop 11.1 `prop:identity-verma`,
+Thm 11.3 `thm:ising-characters`), the low-level table and the level-four Gram appendix.
 
 ### How the explicit Ising results at levels three and four are proved
 
