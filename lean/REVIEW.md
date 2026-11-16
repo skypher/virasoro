@@ -163,3 +163,26 @@ from Theorem 5.7 with `(p,p') = (3,4)`, `(r,s) = (1,2)`: `#(e ≥ 2) = 1` (level
 `#(e ≥ 3) = 0` (levels 24, 30), `Σ e = p(8) + p(6) = 33`, 42 exponents; `dim ker G₁₀ = 32`;
 `[x⁻²]G₁₀⁻¹` maps into `K₂` (dimension 1) and is nonzero (pairing with a nonzero `u ∈ K₂`).
 Verdict on the statement: faithful.
+
+## 2026-11-16T15:22Z — Lemma 8.4 (main session)
+
+`lem_regular_families : Cited_HJSNormalizations → Stmt_lem_regular_families`; axioms `propext`,
+`Classical.choice`, `Quot.sound` only (`runs/lean-check/ax84.log`).
+
+- `S₁, S₂`: `Sfun k c h Z Y` is the affine coefficient of `Z` in the engine's `posActAff k Y`,
+  evaluated at `(c, h)`; `L_neg_expand` proves `L_k L_{-Y}|h⟩ = ∑_Z S_k L_{-Z}|h⟩` for any
+  coefficient ring, given that the output words lie in `lexWords (m-k)` (checked by kernel).
+- Determinants: `Bmat m c h` is exactly the matrix of the statement; over `ℚ` at `(1/2, h)` it
+  has a permuted LU factorization `B σ = L U` (`scripts/luB.py`, checked in exact arithmetic
+  there and by `decide +kernel` here), so `det B = sign σ ∏ U_ii`; all eight values agree with
+  the table.  Naturality transfers the determinant to `ℂ`.
+- Regularity: a normalized singular `p` over `ℂ(b)` solves `B_m(c(b),h(b)) p = e`
+  (`Bmat_mulVec_singular`); the entries of `B_m` are regular at `b₀` with value `B_m(1/2,h)`,
+  whose determinant is nonzero, so Cramer's rule in the subring of functions regular at `b₀`
+  (`RegEvalK`, a base-field-generic version of `RegEval`) makes `p` regular there
+  (`regular_of_B`).  The specialized vector satisfies all `S₁`, `S₂` rows, hence is singular
+  (`L_pos_zero_of_L12`), and is the unique normalized singular vector (`unique_of_B`).  The
+  same argument over `ℚ(b)` gives regularity of the family of `NormalizationIdentities`, so
+  `normalization_at` yields `crossScalar = 𝒜⁻¹` and `torusForm = 𝒫` at `b₀` for it, which is the
+  same vector.
+Verdict on the statement: faithful; the table entries and the regularity conclusions match.
