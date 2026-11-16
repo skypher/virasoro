@@ -124,3 +124,4 @@ import Virasoro.Proofs.Sec11Chars
 import Virasoro.Proofs.Sec8NoDouble
 import Virasoro.Proofs.Sec8Theta7
 import Virasoro.Proofs.Sec9Theta10
+import Virasoro.Proofs.Sec8Smith7

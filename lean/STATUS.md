@@ -80,7 +80,7 @@ See the table at the end of this file (updated as proofs land).
 | Lemma 7.5 `lem:collision-pole-support` | `Stmt_lem_collision_pole_support` | proved, labelled | Proofs/Sec7Pole |
 | Cor 7.6 `cor:class-regular` | `Stmt_cor_class_regular` | proved from the same two cited results (`cor_class_regular_of_cited`) | Proofs/Sec6Final, Sec7Class |
 | Prop 7.7 `prop:two-branch` | `Stmt_prop_two_branch` | proved from `Cited_KacDeterminant` and `Cited_HJSNormalizations` (`prop_two_branch`), following the paper's proof | Proofs/TwoBranchD (with Reg2, TwoBranchA–C) |
-| Prop 8.1 `prop:level-seven-smith` | `Stmt_prop_level_seven_smith` | statement frozen only | Statements/Sec8 |
+| Prop 8.1 `prop:level-seven-smith` | `Stmt_prop_level_seven_smith` | proved from `Cited_KacDeterminant`, `Cited_VermaHomInjective`, `Cited_SingularUnique` and `Cited_JantzenLayers` (`prop_level_seven_smith`, main session): φ₅, φ₄, ξ₇ and γ₇ = -700700 by the verified normal-ordering engine (over ℚ and ℚ[x]/(x³)); U₂ ∩ U₃ by pullback of a lowest singular vector and the Kac determinant at 5/2; Smith exponents from Thm 5.7 counts and the valuation p(5)+p(4) = 12 | Proofs/PBWEngine, PBWState, PBWBridge, Jet3, SingularPull, Sec8Smith7Comp, Sec8Gamma7, Sec8Smith7 |
 | Prop 8.2 `prop:no-earlier-double-pole` | `Stmt_prop_no_earlier_double_pole` | proved from `Cited_KacDeterminant` and `Cited_JantzenLayers` (`prop_no_earlier_double_pole`, main session): Theorem 5.7 at the weights 0, 1/16, 1/2, and at every other weight the single-label argument (Kac multiplicities, singular kernel vector, Prop 5.2, `residue_inverse`) | Proofs/Sec8NoDouble |
 | Lemma 8.3 `lem:level-seven-constants` | `Stmt_lem_level_seven_constants` | proved, labelled (`lem_level_seven_constants`); no cited input | Proofs/Sec8Const |
 | Lemma 8.4 `lem:regular-families` | `Stmt_lem_regular_families` | statement frozen only | Statements/Sec8 |
@@ -116,7 +116,7 @@ continuation to complex specializations, which is now proved from the identities
 
 ## Open items
 
-- Propositions 8.1, 9.1, 9.5 and Lemma 8.4: statements frozen only. The level-seven and level-ten statements need the
+- Propositions 9.1, 9.5 and Lemma 8.4: statements frozen only. The level-seven and level-ten statements need the
   `15 × 15` and `42 × 42` Shapovalov matrices; the tools used at levels three and four
   (Proofs/PartEnum, CoordTools, TransverseBasis, SmithSimple) apply, the second-order crossing
   form of Proposition 5.3 is available as `prop_two_step_residue`, and Proposition 7.7 is
