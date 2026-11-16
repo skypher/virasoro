@@ -149,3 +149,17 @@ Cited_JantzenLayers → Stmt_prop_level_seven_smith`; axioms `propext`, `Classic
 - Smith exponents: Theorem 5.7 gives `#(e ≥ 2) = dim((W⁺₂ + W⁻₂)₇) = 1` (levels 17, 7) and
   `#(e ≥ 3) = 0` (levels 25, 28); `Σ e = ord det = p(5) + p(4) = 12`; 15 exponents.
 Verdict on the statement: faithful.
+
+## 2026-11-16T14:57Z — Proposition 9.1 (main session)
+
+`prop_level_ten_smith : Cited_KacDeterminant → Cited_VermaHomInjective → Cited_SingularUnique →
+Cited_JantzenLayers → Stmt_prop_level_ten_smith`; axioms `propext`, `Classical.choice`,
+`Quot.sound` only (`runs/lean-check/ax91.log`). Follows the paper's proof: ψ₈ ∈ M(1/2,33/16) and
+ψ₆ ∈ M(1/2,65/16) exist (`exists_singular_of_det`: a vector of `ker G_n` with `det G_m ≠ 0`
+for `m < n` is singular; Kac determinant with the labels (4,2), (1,6)); `χ₁₀ = j_{χ₂}(ψ₈)` is
+singular of level 10 (`exists_embedding`, `isSingular_map`) and proportional to `j_{χ₄}(ψ₆)`;
+`U₂ ∩ U₄` vanishes below level 10 (pullback to `M(1/2,33/16)` below level 8); Smith exponents
+from Theorem 5.7 with `(p,p') = (3,4)`, `(r,s) = (1,2)`: `#(e ≥ 2) = 1` (levels 10, 14),
+`#(e ≥ 3) = 0` (levels 24, 30), `Σ e = p(8) + p(6) = 33`, 42 exponents; `dim ker G₁₀ = 32`;
+`[x⁻²]G₁₀⁻¹` maps into `K₂` (dimension 1) and is nonzero (pairing with a nonzero `u ∈ K₂`).
+Verdict on the statement: faithful.

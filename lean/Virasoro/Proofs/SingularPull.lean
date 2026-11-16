@@ -214,4 +214,72 @@ theorem not_isSingular_of_det_ne {n : ℕ} (hn : 1 ≤ n) (hdet : (gram c h n).d
   apply hu.1
   rw [← hx, this, map_zero]
 
+
+/-- The embedding `j_χ : M(c,h+ℓ) → M(c,h)` of a singular vector `χ` of level `ℓ`. -/
+theorem exists_embedding (hI : Cited_VermaHomInjective) {χ : Verma ℂ c h} {ℓ : ℕ}
+    (hχ : IsSingular χ ℓ) :
+    ∃ j : Verma ℂ c (h + ℓ) →ₗ[ℂ] Verma ℂ c h, Function.Injective j ∧
+      LinearMap.range j = negSpan χ ∧ (∀ (n : ℤ) v, j (L n v) = L n (j v)) ∧
+      ∀ (n : ℕ) (x : Verma ℂ c (h + ℓ)), x ∈ level n → j x ∈ level (ℓ + n) := by
+  obtain ⟨j, hjhw, hjL, hjneg⟩ := exists_singularHom hχ.2.1 hχ.2.2
+  have hj0 : j ≠ 0 := by
+    intro h0
+    apply hχ.1
+    rw [← hjhw, h0]
+    rfl
+  refine ⟨j, hI c h (h + ℓ) j hjL hj0, (negSpan_eq_range j hjneg).symm, hjL, ?_⟩
+  intro n x hx
+  obtain ⟨a, rfl⟩ := hx
+  rw [pbwCoord_apply, map_sum]
+  refine Submodule.sum_mem _ fun Y _ => ?_
+  rw [map_smul, hjneg]
+  have := negOp_smul_mem_level (mem_level_of_L_zero hχ.2.1) Y.word
+  rw [word_sum'] at this
+  exact Submodule.smul_mem _ _ this
+
+/-- The image of a singular vector under an embedding is singular. -/
+theorem isSingular_map {h' : ℂ} {ℓ m : ℕ} (hh : h' = h + ℓ)
+    (j : Verma ℂ c h' →ₗ[ℂ] Verma ℂ c h) (hinj : Function.Injective j)
+    (hjL : ∀ (n : ℤ) v, j (L n v) = L n (j v)) {u : Verma ℂ c h'} (hu : IsSingular u m) :
+    IsSingular (j u) (ℓ + m) := by
+  subst hh
+  refine ⟨fun h0 => hu.1 (hinj (h0.trans (map_zero j).symm)), ?_, fun n hn => ?_⟩
+  · rw [← hjL, hu.2.1, map_smul]
+    congr 1
+    push_cast
+    ring
+  · rw [← hjL, hu.2.2 n hn, map_zero]
+
+/-- The Shapovalov form vanishes against a vector whose coordinates lie in `ker G_n`. -/
+theorem shap_pbwCoord_radical {n : ℕ} {x : Nat.Partition n → ℂ}
+    (hx : (gram c h n).mulVec x = 0) {v : Verma ℂ c h} (hv : v ∈ level n) :
+    shap c h v (pbwCoord n x) = 0 := by
+  obtain ⟨y, rfl⟩ := hv
+  rw [pbwCoord_apply, map_sum, LinearMap.sum_apply]
+  refine Finset.sum_eq_zero fun Y _ => ?_
+  rw [map_smul, LinearMap.smul_apply, shap_neg_pbwCoord, hx, Pi.zero_apply, smul_zero]
+
+/-- If `det G_n = 0` and `det G_m ≠ 0` for `m < n`, then `M(c,h)` has a singular vector of
+level `n`. -/
+theorem exists_singular_of_det {n : ℕ} (hdet : (gram c h n).det = 0)
+    (hlow : ∀ m < n, (gram c h m).det ≠ 0) : ∃ u : Verma ℂ c h, IsSingular u n := by
+  obtain ⟨x, hx0, hx⟩ := Matrix.exists_mulVec_eq_zero_iff.2 hdet
+  refine ⟨pbwCoord n x, fun h0 => hx0 (pbwCoord_injective n (h0.trans (map_zero _).symm)),
+    L_zero_of_mem_level ⟨x, rfl⟩, fun k hk => ?_⟩
+  by_cases hkn : (n : ℤ) < k
+  · exact L_eq_zero_of_level hkn ⟨x, rfl⟩
+  · obtain ⟨m, hm⟩ : ∃ m : ℕ, (m : ℤ) = n - k := ⟨(n - k).toNat, by omega⟩
+    have hmn : m < n := by omega
+    obtain ⟨z, hz⟩ := L_mem_level (c := c) (h := h) hm (⟨x, rfl⟩ : pbwCoord n x ∈ level n)
+    have hGz : (gram c h m).mulVec z = 0 := by
+      funext Y
+      rw [← shap_neg_pbwCoord, hz, Pi.zero_apply]
+      obtain ⟨k', rfl⟩ : ∃ k' : ℕ, k = k' := ⟨k.toNat, by omega⟩
+      rw [← shap_neg (by exact_mod_cast hk)]
+      refine shap_pbwCoord_radical hx (L_neg_mem_level (posWord_word Y) ?_)
+      rw [word_sum']
+      push_cast
+      omega
+    rw [← hz, Matrix.eq_zero_of_mulVec_eq_zero (hlow m hmn) hGz, map_zero]
+
 end Virasoro
