@@ -145,13 +145,16 @@ New statements, not formalized:
 - Lemma 6.6 `lem:regular-everywhere` (every normalized Kac family is regular at every b⋆ ≠ 0, by
   Lemma 5.7). It replaces Lemma 8.4 `lem:regular-families` (the Ising determinant table), which
   is removed from the paper; the old Lean proof stays valid for the old statement.
-- Lemma 6.7 `lem:tau-order` (τ^±_k vanishes to order exactly k at d = 0).
+- Prop 6.7 `prop:layer-coefficients` (the k-th Taylor coefficients of τ^±_k/γ^±_k at d = 0
+  and d = 1 for every layer k, with central binomial constants; τ^±_k has order exactly k at
+  d = 0 and d = 1). It replaces the earlier Lemma 6.7 `lem:tau-order` and Prop 7.8
+  `prop:second-layer`, which are removed from the paper.
 - Cor 5.11 now also covers N = max(ℓ^±_k) and N − ℓ_k ≤ 40 (the latter by an exact
   certificate on the two d-derivatives of Lemma 6.5, tools/audit_kl_certificate.py) and N − ℓ_k
   with at most five divisors (eliminations on the same derivatives plus a Diophantine step; identities checked
-  symbolically in tools/audit_kl_certificate.py).
-- Prop 7.8 `prop:second-layer` (double-pole coefficient on the second-layer window as a sum
-  over chains, with slope ratios η).
+  symbolically in tools/audit_kl_certificate.py), and the levels above max(ℓ^±_k) with
+  max(p,p')(N − ℓ^±_k) < m^±_k + min(p,p') for both signs (by Prop 6.7: at d = 1 for odd k,
+  at d = 0 for even k, where both d = 0 derivatives are negative).
 - Prop 8.7 `prop:ising-jantzen-norms` restated: second Jantzen layers, torus norms and γ₇, γ₁₀
   only (the Smith profiles of the old Props 8.1, 9.1 are no longer stated; they follow from
   Thm 5.8). The figure of the two diamonds, Cor 8.4's separate expanded display and the

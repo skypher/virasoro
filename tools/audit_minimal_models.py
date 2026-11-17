@@ -78,8 +78,8 @@ for p, q, nmax in MODELS:
 
 
 def second_layer_check():
-    """Proposition prop:second-layer at (p,p') = (2,3), lambda = 0: Taylor coefficients at d = 0, 1
-    of the double-pole coefficient for N = 7, 8, 9 against the chain formula."""
+    """Proposition prop:layer-coefficients with Theorem thm:top-layer at (p,p') = (2,3), lambda = 0:
+    Taylor coefficients at d = 0, 1 of the double-pole coefficient for N = 7, 8, 9 (direct)."""
     mismatch = 0
     p, q = 2, 3
     t = Fr(-q, p)
@@ -115,11 +115,11 @@ def second_layer_check():
                    for u in range(1, M + 1) if M % u == 0)
 
 
-    k1, k2 = (1, 1), (1, 2)
-    rm = (eta(*k1) - eta(*k2)) * rho(*k1) * rho(1, 4) / (eta(*k1) - eta(1, 4))
-    rp = (eta(*k1) - eta(*k2)) * rho(*k1) * rho(3, 2) / (eta(*k1) - eta(3, 2))
-    rtm = (eta(*k1) - eta(*k2)) * rhop(*k1) * rhop(1, 4) / (eta(*k1) - eta(1, 4))
-    rtp = (eta(*k1) - eta(*k2)) * rhop(*k1) * rhop(3, 2) / (eta(*k1) - eta(3, 2))
+    # Proposition prop:layer-coefficients, k = 2, (r,s) = (1,1): n0 = 1, levels 7 (+), 5 (-)
+    n0, rho_l, sig = 1, Fr(-1, 2), Fr(1, 10)
+    rp, rm = -rho_l ** 2, -rho_l ** 2
+    rtp = (+1) * (-1) * sig * Fr(12 + n0, 2 * 5)
+    rtm = (-1) * (-1) * sig * Fr(12 - n0, 2 * 5)
     print('r- =', rm, ' r+ =', rp, " r~- =", rtm, " r~+ =", rtp, flush=True)
     assert h(1, 1) == 0 and h(1, 4) == 1 and h(3, 2) == 1
 

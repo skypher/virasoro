@@ -16,6 +16,7 @@ audit:
 audit-deep: audit
 	$(PYTHON) tools/audit_grade10_direct.py
 	$(PYTHON) tools/audit_minimal_models.py
+	$(PYTHON) tools/audit_layer_coefficients.py
 	$(PYTHON) tools/audit_kl_certificate.py
 
 pdf:

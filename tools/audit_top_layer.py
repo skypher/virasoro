@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Exact replay of Theorem thm:top-layer, Corollary cor:top-layer-sharp, Lemmas lem:d-derivatives
-and lem:tau-order, and the enumerations of Remark rem:top-layer-beyond.
+"""Exact replay of Theorem thm:top-layer, Corollary cor:top-layer-sharp, Lemma lem:d-derivatives,
+the identities used in Proposition prop:layer-coefficients, and the enumerations of Remark
+rem:top-layer-beyond.
 
 Usage: python3 -u tools/audit_top_layer.py [-h|--help] [--max-level N] [--d D]
 
@@ -39,7 +40,7 @@ import argparse
 import sys
 import time
 from fractions import Fraction as Fr
-from math import gcd, isqrt
+from math import comb, gcd, isqrt
 
 sys.path.insert(0, __file__.rsplit("/", 1)[0])
 from direct_reconstruction import (  # noqa: E402
@@ -210,40 +211,90 @@ def kac_weight_num(p, q, u, v):
     return (q * u - p * v) ** 2
 
 
-def tau_order_identities(ppmax=60, kmax=6):
-    """Lemma lem:tau-order: labels, levels, weights and zero counts of the proof."""
+def layer_coefficients(p, q, r, s, k):
+    """Proposition prop:layer-coefficients: {sign: (level, [d^k], [(d-1)^k]) of tau/gamma}."""
+    n0, n1, big = q * r - p * s, q * r + p * s, 2 * p * q
+    rho, sig = Fr(-n0, 2 * (q - p)), Fr(n0, 2 * (p + q))
+    ck = (-1) ** (k // 2) * comb(k - 1, (k - 1) // 2)
+    if k % 2:
+        j = (k - 1) // 2
+        mom = {1: n1 + j * big, -1: (j + 1) * big - n1}
+    else:
+        j = k // 2
+        mom = {1: j * big + n0, -1: j * big - n0}
+    lp, lm = layer_levels(p, q, r, s, k)
+    out = {}
+    for sg, lev in ((1, lp), (-1, lm)):
+        mm = mom[sg]
+        assert mm > 0 and mm * mm == n0 * n0 + 4 * p * q * lev
+        out[sg] = (lev, ck * (sg * rho) ** k, sg ** (k + 1) * ck * sig ** (k - 1) * Fr(mm, 2 * (p + q)))
+    return out
+
+
+def box_set(p, q, u, v, shift):
+    """{j : (jp, jp' + shift) in [1-u, u] x [1-v, v]}."""
+    return {j for j in range(-u - 1, u + 2)
+            if 1 - u <= j * p <= u and 1 - v <= j * q + shift <= v}
+
+
+def layer_box_identities(ppmax=60, kmax=6):
+    """Proposition prop:layer-coefficients: labels, momenta, boxes and first-step sets of the proof."""
     ok = True
     count = 0
     for p in range(2, ppmax):
         for q in range(2, ppmax // p + 1):
             if q == p or gcd(p, q) != 1:
                 continue
+            big = 2 * p * q
             for r in range(1, p):
                 for s in range(1, q):
-                    if q * r + p * s >= p * q:
+                    n0, n1 = q * r - p * s, q * r + p * s
+                    if n1 >= p * q:
                         continue
                     lam = kac_weight_num(p, q, r, s)
                     for k in range(1, kmax + 1):
                         count += 1
+                        data = layer_coefficients(p, q, r, s, k)
+                        j = (k - 1) // 2 if k % 2 else k // 2
                         if k % 2:
-                            j = (k - 1) // 2
-                            for u, v in ((r + j * p, s + j * q),
-                                         ((j + 1) * p - r, (j + 1) * q - s)):
-                                ok &= kac_weight_num(p, q, u, v) == lam
-                                ok &= u * v in layer_levels(p, q, r, s, k)
-                                ok &= box_zero_count(p, q, u, v) == k
+                            ends = {1: n1 + j * big, -1: n1 - (j + 1) * big}
+                            for sg, (u, v) in ((1, (r + j * p, s + j * q)),
+                                               (-1, ((j + 1) * p - r, (j + 1) * q - s))):
+                                ok &= kac_weight_num(p, q, u, v) == lam and u * v == data[sg][0]
+                                ok &= box_set(p, q, u, v, 0) == set(range(-j, j + 1))
+                                ok &= box_set(p, q, u, v, 1) == set(range(-j, j + 1))
                         else:
-                            j = k // 2
-                            lminus = layer_levels(p, q, r, s, k - 1)[1]
-                            # lambda + l^-_{2j-1} = h_{jp-r, -(jq-s)}: momentum 2jpq - n1
-                            xi = (q * (j * p - r) + p * (j * q - s)) ** 2
-                            lp, lm = layer_levels(p, q, r, s, k)
-                            for (u, v), target in (((r, 2 * j * q - s), lp),
-                                                   ((2 * j * p - r, s), lm)):
-                                ok &= kac_weight_num(p, q, u, v) == xi
-                                ok &= u * v == target - lminus
-                                ok &= box_zero_count(p, q, u, v) == 1
-    check(f"Lemma tau-order: labels, levels, weights and zero counts ({count} cases, "
+                            ends = {1: n0 + j * big, -1: n0 - j * big}
+                            xk = n1 + (j - 1) * big
+                            uk, vk = r + (j - 1) * p, s + (j - 1) * q
+                            ok &= box_set(p, q, uk, vk, 0) == set(range(-(j - 1), j))
+                            ok &= box_set(p, q, uk, vk, 1) == set(range(-(j - 1), j))
+                            for sg, (u, v) in ((1, (r + (2 * j - 1) * p, q - s)),
+                                               (-1, (p - r, s + (2 * j - 1) * q))):
+                                y = ends[sg]
+                                eps = 1 if y > 0 else -1
+                                ok &= (u, v) == (eps * (xk + y) // (2 * q), eps * (y - xk) // (2 * p))
+                                ok &= (eps * (xk + y)) % (2 * q) == 0 and (eps * (y - xk)) % (2 * p) == 0
+                                ok &= box_set(p, q, u, v, 0) == {0} and box_set(p, q, u, v, 1) == {0}
+                                ok &= uk * vk + u * v == data[sg][0]
+                        # first steps of colliding chains n0 -> ... -> end (reachability by |x| increasing)
+                        for sg, y_end in ends.items():
+                            elems = [n0 + i * big for i in range(-k - 2, k + 3)] + \
+                                    [n1 + i * big for i in range(-k - 2, k + 3)]
+                            elems = [x for x in elems if abs(x) <= abs(y_end)]
+                            cls = {x: (x - n0) % big == 0 for x in elems}
+                            reach = {y_end}
+                            for x in sorted(elems, key=abs, reverse=True):
+                                if any(cls[y] != cls[x] and abs(y) > abs(x) for y in reach) and x not in reach:
+                                    reach.add(x)
+                            first = sorted((x - n1) // big for x in reach
+                                           if not cls[x] and abs(x) > abs(n0))
+                            if k % 2:
+                                want = list(range(-j, j + 1)) if sg == 1 else list(range(-j - 1, j))
+                            else:
+                                want = list(range(-j, j))
+                            ok &= first == want
+    check(f"Proposition layer-coefficients: labels, boxes, momenta and first steps ({count} cases, "
           f"pp' <= {ppmax}, k <= {kmax})", ok and count > 0)
 
 
@@ -259,106 +310,122 @@ def tau_order_direct(weight, level, layer):
         points.append((dval, sum(vec[a] * vec[b] * rho[a][b] for a in range(n) for b in range(n))))
     poly = lagrange_interp(points)
     order = next(i for i, x in enumerate(poly) if x != 0)
-    check(f"torus norm of the level-{level} singular vector at {weight}: order {order} at d = 0 "
-          f"(layer {layer})", order == layer)
+    shifted = taylor_at(poly, Fr(1))
+    order1 = next(i for i, x in enumerate(shifted) if x != 0)
+    check(f"torus norm of the level-{level} singular vector at {weight}: order {order} at d = 0, "
+          f"{order1} at d = 1 (layer {layer})", order == layer and order1 == layer)
 
 
-def two_term_first_layer(ppmax=60):
-    """Remark rem:top-layer-beyond, two-term part of the first layer."""
-    cases = fails = 0
+def taylor_at(poly, x0):
+    """Taylor coefficients of a polynomial (ascending coefficients) at x0."""
+    out = []
+    cur = list(poly)
+    while cur:
+        nxt = [Fr(0)] * (len(cur) - 1)
+        acc = cur[-1]
+        for i in range(len(cur) - 2, -1, -1):
+            nxt[i] = acc
+            acc = cur[i] + acc * x0
+        out.append(acc)
+        cur = nxt
+    return out
 
-    def sums(p, q, big_m, m):
-        sk = sl = Fr(0)
-        for u in range(1, big_m + 1):
-            if big_m % u == 0:
-                v = big_m // u
-                f, g = q * u - p * v, q * u + p * v
-                den = f * f - m * m
-                assert den != 0
-                sk += Fr(f, den)
-                sl += Fr(g, den)
-        return sk, sl
 
+def two_term_layers(ppmax=60, kmax=6):
+    """Remark rem:top-layer-beyond (b) and Corollary cor:top-layer-sharp (odd k): two-term windows."""
+    top = 0
+    for p in range(2, ppmax):
+        for q in range(2, ppmax // p + 1):
+            if q != p and gcd(p, q) == 1:
+                for r in range(1, p):
+                    for s in range(1, q):
+                        if q * r + p * s < p * q:
+                            top = max(top, min(layer_levels(p, q, r, s, kmax + 1)))
+    divs = [[] for _ in range(top + 1)]
+    for u in range(1, top + 1):
+        for m in range(u, top + 1, u):
+            divs[m].append(u)
+    cases = fails = covered = cover_bad = 0
     for p in range(2, ppmax):
         for q in range(2, ppmax // p + 1):
             if q == p or gcd(p, q) != 1:
                 continue
-            pq = p * q
-            for r in range(1, p):
-                for s in range(1, q):
-                    n1 = q * r + p * s
-                    if n1 >= pq:
-                        continue
-                    lp, lm = r * s, (p - r) * (q - s)
-                    for n in range(max(lp, lm) + 1, min(layer_levels(p, q, r, s, 2))):
-                        skp, slp = sums(p, q, n - lp, n1)
-                        skm, slm = sums(p, q, n - lm, 2 * pq - n1)
-                        cases += 1
-                        fails += skp == skm and n1 * slp + (2 * pq - n1) * slm == 0
-    print(f"two-term first-layer cases {cases}, criterion fails in {fails}", flush=True)
-    check("two-term first-layer criterion (pp' <= 60)", fails == 0 and cases > 0)
 
-
-def two_term_second_layer(ppmax=60):
-    """Remark rem:top-layer-beyond, two-term part of the second layer (Proposition prop:second-layer)."""
-    cases = hyp_fail = fails = 0
-    for p in range(2, ppmax):
-        for q in range(2, ppmax // p + 1):
-            if q == p or gcd(p, q) != 1:
-                continue
-            t = Fr(-q, p)
-
-            def eta(u, v):
-                return 1 - u * u + Fr(v * v - 1) / (t * t)
-
-            def rho(u, v):
-                return -(u * t + v) / (2 * (t + 1))
-
-            def rhop(u, v):
-                return (u * t - v) / (2 * (t - 1))
-
-            def k_and_l(big_m, xnum):
+            def k_and_l(big_m, mom):
                 kk = ll = Fr(0)
-                for u in range(1, big_m + 1):
-                    if big_m % u == 0:
-                        v = big_m // u
-                        den = Fr(xnum - kac_weight_num(p, q, u, v), 4 * p * q)
-                        assert den != 0
-                        kk += -(u * t + v) / (2 * (t + 1) * den)
-                        ll += (u * t - v) / (2 * (t - 1) * den)
+                for u in divs[big_m]:
+                    v = big_m // u
+                    f, g = q * u - p * v, q * u + p * v
+                    den = mom * mom - f * f
+                    assert den != 0
+                    kk += Fr(-2 * p * q * f, (q - p) * den)
+                    ll += Fr(2 * p * q * g, (p + q) * den)
                 return kk, ll
 
             for r in range(1, p):
                 for s in range(1, q):
-                    if q * r + p * s >= p * q:
+                    n0, n1 = q * r - p * s, q * r + p * s
+                    if n1 >= p * q:
                         continue
-                    lam = kac_weight_num(p, q, r, s)
-                    hi2 = max(layer_levels(p, q, r, s, 2))
-                    l3 = min(layer_levels(p, q, r, s, 3))
-                    for kap in ((r, s), (p - r, q - s)):
-                        lk = kap[0] * kap[1]
-                        xi = lam + 4 * p * q * lk
-                        for n in range(hi2 + 1, l3):
-                            big_m = n - lk
-                            gs = [(u, v) for u in range(1, big_m + 1)
-                                  for v in range(1, big_m // u + 1)
-                                  if kac_weight_num(p, q, u, v) == xi]
-                            cases += 1
-                            if any(u >= p and v >= q for u, v in gs) or \
-                                    any(eta(u, v) == eta(*kap) for u, v in gs):
-                                hyp_fail += 1
-                                continue
+                    for k in range(1, kmax + 1):
+                        data = layer_coefficients(p, q, r, s, k)
+                        nxt = min(layer_levels(p, q, r, s, k + 1))
+                        for n in range(max(data[1][0], data[-1][0]) + 1, nxt):
                             c0 = c1 = Fr(0)
-                            for u, v in gs:
-                                if big_m > u * v:
-                                    kk, ll = k_and_l(big_m - u * v, xi + 4 * p * q * u * v)
-                                    c0 += rho(u, v) * kk / (eta(*kap) - eta(u, v))
-                                    c1 += rhop(u, v) * ll / (eta(*kap) - eta(u, v))
+                            ls = {}
+                            in_range = True
+                            ks = {}
+                            for sg in (1, -1):
+                                lev, rk, rtk = data[sg]
+                                mom = isqrt(n0 * n0 + 4 * p * q * lev)
+                                kk, ll = k_and_l(n - lev, mom)
+                                c0 += rk * kk
+                                c1 += rtk * ll
+                                ls[sg] = ll
+                                ks[sg] = kk
+                                in_range &= max(p, q) * (n - lev) < mom + min(p, q)
+                            cases += 1
                             fails += c0 == 0 and c1 == 0
-    print(f"two-term second-layer cases {cases}, hypothesis failures {hyp_fail}, "
+                            if in_range:
+                                covered += 1
+                                if k % 2:
+                                    cover_bad += not (ls[1] > 0 and ls[-1] > 0 and c1 != 0)
+                                else:
+                                    cover_bad += not (ks[1] < 0 and ks[-1] < 0 and c0 != 0)
+    print(f"two-term window cases (k <= {kmax}) {cases}, covered by the corollary {covered}, "
           f"criterion fails in {fails}", flush=True)
-    check("two-term second-layer criterion (pp' <= 60)",
-          hyp_fail == 0 and fails == 0 and cases > 0)
+    check(f"two-term criterion (pp' <= {ppmax}, k <= {kmax}); corollary range: L+, L- > 0 (odd k), "
+          f"K+, K- < 0 (even k)",
+          fails == 0 and cover_bad == 0 and cases > 0)
+
+
+def ising_layer_two():
+    """Proposition prop:layer-coefficients against the Ising norms gamma_7, gamma_10 of Section 8."""
+    def pmulx(a, b):
+        out = [Fr(0)] * (len(a) + len(b) - 1)
+        for i, x in enumerate(a):
+            for j, y in enumerate(b):
+                out[i + j] += x * y
+        return out
+
+    def lin(*roots_scaled):
+        poly = [Fr(1)]
+        for a, c in roots_scaled:  # factor (a d - c)
+            poly = pmulx(poly, [Fr(-c), Fr(a)])
+        return poly
+
+    u = lin((1, 0), (1, 20), (1, 13), (1, 11), (1, 6), (1, 1))
+    e2 = [x / 9 for x in lin((1, 0), (1, 1), (3, 14), (3, 5))]
+    p15 = [x / 16 for x in pmulx(u, lin((2, 15), (2, 7), (2, 5), (2, 1)))]
+    p2 = [x / 4 for x in lin((1, 0), (1, 1), (2, 7), (2, 1))]
+    p16 = [x / 64 for x in pmulx(u, lin((2, 57), (2, 35), (2, 15), (2, 7), (2, 5), (2, 1)))]
+    p42 = [x / 324 for x in pmulx(p16, lin((3, 14), (3, 5), (6, 55), (6, 1)))]
+    for name, tau, gamma, (r, s), sg in (("gamma_7", pmulx(e2, p15), Fr(-700700), (2, 1), -1),
+                                         ("gamma_10", pmulx(p2, p42), Fr(-1121229484375, 192), (1, 2), 1)):
+        lev, rk, rtk = layer_coefficients(3, 4, r, s, 2)[sg]
+        a0, a1 = taylor_at(tau, Fr(0)), taylor_at(tau, Fr(1))
+        ok = a0[0] == a0[1] == 0 and a0[2] / gamma == rk and a1[0] == a1[1] == 0 and a1[2] / gamma == rtk
+        check(f"Ising {name} (level {lev}): [d^2] tau/gamma = {rk}, [(d-1)^2] tau/gamma = {rtk}", ok)
 
 
 def main():
@@ -430,9 +497,9 @@ def main():
                   order == depth and leading == predicted)
     d_derivative_checks()
     window_criterion()
-    two_term_first_layer()
-    two_term_second_layer()
-    tau_order_identities()
+    two_term_layers()
+    layer_box_identities()
+    ising_layer_two()
     for weight, level, layer in ((Fr(0), 1, 1), (Fr(0), 6, 1), (Fr(1, 2), 2, 1),
                                  (Fr(1, 2), 3, 1), (Fr(1, 16), 2, 1), (Fr(1, 16), 4, 1),
                                  (Fr(1, 2), 7, 2)):

@@ -186,7 +186,8 @@ in examples and in the identity-insertion character problem
 central-charge-pole-free torus expressions through fourth order and
 proposed an all-order Laurent-expansion procedure, whose cancellation and
 algebraic form were left conjectural
-\cite[Sections~II.2--II.3 and Appendix~A]{Stocco2022}.  Ribault identifies
+\cite[Sections~II.2--II.3 and Appendix~A]{Stocco2022}; his numerators agree
+with \(H_2,H_3\) identically and with \(H_4\) at sample values.  Ribault identifies
 a recursion at rational \(b^2\) as an open problem, with torus one-point
 blocks as its simplest incarnation \cite[Section~4.3.3]{Ribault2026};
 higher-order internal-weight poles and rational limits of sphere
@@ -248,7 +249,11 @@ module.  The torus norm \(\langle w|V_d(1)|w\rangle\) of a singular vector
 of level \(\ell\) has exact degree \(2\ell\) in \(d\)
 (Lemma~\ref{lem:singular-degree}); consequently the bound \(j_N(\lambda)\)
 is attained at the first level of every layer
-(Corollary~\ref{cor:top-layer-sharp}).
+(Corollary~\ref{cor:top-layer-sharp}).  The \(k\)-th Taylor coefficients of
+\(\langle w^\pm_k|V_d(1)|w^\pm_k\rangle/\gamma^\pm_k\) at \(d=0\) and \(d=1\)
+are given by central binomial coefficients for every \(k\)
+(Proposition~\ref{prop:layer-coefficients}); they yield attainment on
+further levels.
 
 At the Ising charge the first double poles occur at levels \(7\), \(10\),
 and \(11\), at the energy, spin, and identity weights.  For the first two,
@@ -258,18 +263,16 @@ determines the second Jantzen norms \(\gamma_7=-700700\) and
 \(\gamma_{10}=-1121229484375/192\), which direct Gram-matrix computations
 confirm.
 
-Sections~\ref{sec:blocks}--\ref{sec:partial-fractions} set up the block
-and state the confluence theorem, Section~\ref{sec:smith} develops the
-Smith and Jantzen theory and proves the top-layer theorem,
+Sections~\ref{sec:blocks}--\ref{sec:partial-fractions} state the
+confluence theorem, Section~\ref{sec:smith} proves the top-layer theorem,
 Sections~\ref{sec:generic-data}--\ref{sec:all-order} prove the confluence
-theorem, and Section~\ref{sec:ising} treats the Ising diamonds and
-compares the low-level output with Stocco's expressions.  The general
+theorem, and Section~\ref{sec:ising} treats the Ising diamonds.  The general
 theorems are proved without computer calculation, except for the levels
 \(N\) of Corollary~\ref{cor:top-layer-sharp} with \(12\leq N-\ell_k\leq40\) and
 \(N-\ell_k\) having at least six divisors, and the factorization used for
 \(N-\ell_k=q^4\), which rest on exact symbolic computations; the explicit Ising evaluations are
-computer-assisted finite calculations in exact rational arithmetic
-(Remark~\ref{rem:audit-scope}).
+computer-assisted finite calculations in exact rational arithmetic, all
+replayed by the ancillary scripts (see Code availability).
 
 \section{Blocks and the reduced series}\label{sec:blocks}
 
@@ -1002,7 +1005,10 @@ In the setting of Theorem~\ref{thm:top-layer}, let
 \(H_N(c_\star,\Delta,d)\) has a pole of order exactly
 \(j_N(\lambda)=k\) at \(\Delta=\lambda\).  At \(N=\ell_k\) the leading coefficient is
 \(\tau/\gamma\) for the singular vector of level \(\ell_k\).  The pole
-order is also exactly \(k\) at \(N=\max(\ell^+_k,\ell^-_k)\).
+order is also exactly \(k\) at \(N=\max(\ell^+_k,\ell^-_k)\), and at every
+\(N<\ell_{k+1}\) above it with
+\(\max(p,p')M^\pm<m^\pm_k+\min(p,p')\) for both signs, where
+\(M^\pm=N-\ell^\pm_k\) and \((m^\pm_k)^2=4pp'(\lambda+\ell^\pm_k)+(p'-p)^2\).
 \end{corollary}
 
 \begin{proof}
@@ -1065,24 +1071,37 @@ At \(N=\max(\ell^\pm_k)\), the leading coefficient is
 \((\tau/\gamma)H_M(c_\star,\mu,d)+\tau'/\gamma'\), with \(\tau',\gamma'\) the data
 of the other singular vector and \(M=N-\ell_k\geq1\).  By
 Lemma~\ref{lem:d-derivatives}, \(H_M(c_\star,\mu,0)=0\), so by
-Lemma~\ref{lem:tau-order} the first term vanishes to order at least
-\(k+1\) at \(d=0\) and the second to order exactly \(k\).
+Proposition~\ref{prop:layer-coefficients} the first term vanishes to order at least
+\(k+1\) at \(d=0\) and the second to order exactly \(k\).  Above it, put
+\(f=p'u-pv\) for \(uv=M^\pm\); as \(|f|\leq\max(p'M-p,pM-p')<m^\pm_k\), and
+pairing \((u,v)\) with \((v,u)\), \(u\geq v\), gives \(|f(v,u)|<f(u,v)\) if
+\(p'>p\) (reversed if \(p'<p\)), the odd increasing function
+\(x/((m^\pm_k)^2-x^2)\) shows that
+\(K^\pm=-\frac{2pp'}{p'-p}\sum f/((m^\pm_k)^2-f^2)\), the derivatives at \(d=0\)
+(Lemma~\ref{lem:d-derivatives}), are negative.  For even \(k\) the
+coefficient of \(d^{k+1}\) is \(c_k\rho^k(K^++K^-)\neq0\)
+(Proposition~\ref{prop:layer-coefficients}).  For odd \(k\) the coefficient
+of \((d-1)^{k+1}\) in
+\(\sum_\pm(\tau^\pm_k/\gamma^\pm_k)H_{M^\pm}(c_\star,\lambda+\ell^\pm_k,d)\)
+is \(c_k\sigma^{k-1}(m^+_kL^++m^-_kL^-)/(2(p+p'))\) by
+Proposition~\ref{prop:layer-coefficients} and
+Lemma~\ref{lem:d-derivatives}, where
+\(L^\pm=\frac{2pp'}{p+p'}\sum_{uv=M^\pm}(p'u+pv)/((m^\pm_k)^2-f^2)>0\).
 \end{proof}
 
 \begin{remark}[The remaining levels]\label{rem:top-layer-beyond}
-Two ranges remain: (a) the rest of the one-term parts (\(M\geq41\) with at
-least six divisors), where attainment holds unless \(\sum u/D\) and
-\(\sum v/D\) both vanish; (b) \(\max(\ell^\pm_k)<N<\ell_{k+1}\), where both
-terms of \eqref{eq:top-layer} vanish to order \(k+1\) at \(d=0\).  For
-\(k=1,2\) the next coefficients at \(d=0,1\) are explicit by
-Lemmas~\ref{lem:d-derivatives}, \ref{lem:regular-everywhere} and
-Proposition~\ref{prop:second-layer}; for \(k\geq3\) they involve
-\(\gamma^\pm_k\).  Exact enumeration excludes failure in (a) for \(k\leq3\),
-\(M\leq60\), and in (b) for \(k=1,2\), at every minimal model with
-\(pp'\leq60\); direct reconstruction at \(d=11/13\) confirms the pole
-orders for \(N\leq10\) at the interior weights of \((3,4)\), \((2,5)\),
-\((2,7)\), \((3,5)\), \((4,5)\), \((2,9)\), \((3,7)\), and \(N\leq11\) at
-\((2,3)\).
+Open are (a) the one-term levels with \(M\geq41\) and at least six
+divisors, where attainment fails only if \(\sum u/D=\sum v/D=0\), and (b)
+the levels above \(\max(\ell^\pm_k)\) not covered by
+Corollary~\ref{cor:top-layer-sharp}, where by
+Lemma~\ref{lem:d-derivatives} and Proposition~\ref{prop:layer-coefficients}
+it fails only if \(K^++(-1)^kK^-=0=m^+_kL^+-(-1)^km^-_kL^-\), with
+\(K^\pm,L^\pm\) the derivatives of \(H_{M^\pm}(c_\star,\lambda+\ell^\pm_k,d)\)
+at \(d=0,1\).  For every minimal model with \(pp'\leq60\), exact enumeration
+excludes failure in (a) for \(k\leq3\), \(M\leq60\), and in (b) for
+\(k\leq6\); direct reconstruction at \(d=11/13\) confirms the pole orders
+for \(N\leq10\) at the interior weights of all models with \(6<pp'\leq21\)
+and for \(N\leq11\) at \((2,3)\).
 \end{remark}
 
 \section{Generic residue data}\label{sec:generic-data}
@@ -1315,45 +1334,78 @@ so \(e=0\).  The identities of Proposition~\ref{prop:imported-normalizations}
 are identities of rational functions of \(b\) and specialize.
 \end{proof}
 
-\begin{lemma}[Order of the torus norms at \(d=0\)]\label{lem:tau-order}
-In the setting of Theorem~\ref{thm:jantzen-smith}, the torus norms
-\(\tau^\pm_k(d)=\langle w^\pm_k|V_d(1)|w^\pm_k\rangle\) vanish to order
-exactly \(k\) at \(d=0\), for every \(k\geq1\).
-\end{lemma}
+
+\begin{proposition}[Layer coefficients at \(d=0\) and \(d=1\)]
+\label{prop:layer-coefficients}
+In the setting of Theorem~\ref{thm:top-layer}, let \(m^\pm_k\) be the
+Coulomb momentum of \(\lambda+\ell^\pm_k\) (proof of
+Theorem~\ref{thm:jantzen-smith}), \(\rho=-n_0/(2(p'-p))\),
+\(\sigma=n_0/(2(p+p'))\) and
+\(c_k=(-1)^{\lfloor k/2\rfloor}\binom{k-1}{\lfloor(k-1)/2\rfloor}\).  Then
+\(\tau^\pm_k/\gamma^\pm_k\) equals \(c_k(\pm\rho)^kd^k\) and
+\((\pm1)^{k+1}c_k\sigma^{k-1}m^\pm_k(d-1)^k/(2(p+p'))\) up to higher
+powers of \(d\) and of \(d-1\), respectively; in particular
+\(\tau^\pm_k\) vanishes to order exactly \(k\) at \(d=0\) and at \(d=1\).
+\end{proposition}
 
 \begin{proof}
-Let \(h_{u,v}(b_\star)=h\).  By Lemma~\ref{lem:regular-everywhere} and
-uniqueness of singular vectors \cite[Proposition~5.1]{IoharaKoga2011}, the
-singular vectors of level \(uv\) in \(M(c_\star,h)\) are the multiples of
-\(\chi_{u,v}(b_\star)\), whose torus norm is \({\mathcal P}_{u,v}(b_\star,d)\).
-By the proof of Lemma~\ref{lem:d-derivatives},
-\({\mathcal P}_{u,v}=\prod(h_{k,\pm l}-d)\), where
-\(4h_{k,\pm l}=\varphi(1-k,1\mp l)\varphi(1+k,1\pm l)\) and the halved
-arguments of these \(\varphi\) run once over
-\(B_{u,v}=[1-u,u]\times[1-v,v]\).  As \(b_\star^2=-p'/p\), \(\varphi(x,y)\)
-vanishes at \(b_\star\) exactly for \((x,y)\in\mathbb Z(p,p')\), and the two
-halved points of one factor have second coordinates summing to \(1\), so at
-most one of them is such a point.  Hence \({\mathcal P}_{u,v}(b_\star,\cdot)\)
-vanishes at \(d=0\) to order
-\(o_{u,v}=\#\{j\in\mathbb Z:(jp,jp')\in B_{u,v}\}\).
+Put \(\nu=b^2\), \(\nu_\star=-p'/p\), \(N_0=2pp'\); dots denote \(d/d\nu\) at
+\(\nu_\star\).  By the proof of Lemma~\ref{lem:d-derivatives}, the factors of
+\({\mathcal P}_g(b,0)\) vanishing at \(\nu_\star\) (where \(\varphi(x,y)=0\) iff
+\((x,y)\in\mathbb Z(p,p')\)) are \(-d\) and
+\(\frac14\varphi(2jp,2jp')\varphi(2-2jp,2-2jp')\), \(0\neq j\),
+\((jp,jp')\in B_g\), of derivative \(j\kappa_0\), \(\kappa_0=p(p'-p)/p'\);
+\({\mathcal A}_g\) has a pole of order at most their number minus one, equal
+to it when \(\rho_g:=\partial_d{\mathcal R}_g|_{d=0}=-(p'u-pv)/(2(p'-p))\)
+(Lemma~\ref{lem:d-derivatives}) is nonzero; so along
+\((\nu,\Delta,d)=(\nu_\star+\tau,\lambda+\tau w,\tau y)\),
+\({\mathcal R}_g/\tau\to\rho_gy\prod_j(1-y/(j\kappa_0))\).  Expanding \(H_N\)
+by Proposition~\ref{prop:generic-recursion} into chains \(g_1,\dots,g_n\)
+with denominators \(z_{i-1}-h_{g_i}\) (\(z_0=\Delta\),
+\(z_i=h_{g_i}+\ell_{g_i}\)), each of order \(\tau\) if
+\(h_{g_i}(\nu_\star)=z_{i-1}(\nu_\star)\) (consecutive slopes differ, see
+below) and a unit otherwise (generic \(w,y\)), \(H_N\) tends to \(T_N(w,y)\), the sum over such colliding chains
+of \(\prod_i\rho_{g_i}y\prod_j(1-y/(j\kappa_0))/(\zeta_{i-1}-\dot h_{g_i})\),
+\(\zeta_0=w\), \(\zeta_i=\dot h_{g_i}\).  The denominator of \(H_N\) is a
+product of powers of \(\Delta-h_g\), with leading forms units or
+\(\Delta-\lambda-\dot h_g(\nu-\nu_\star)\); so \(T_N(w,y)=\Phi(1,w,y)\) for the
+lowest homogeneous part \(\Phi\) of \(H_N\) in
+\((\nu-\nu_\star,\Delta-\lambda,d)\), of degree \(0\) and regular at
+\((0,1,\cdot)\).  Hence \([y^k]T_N=O(w^{-k})\) and
+\(H_N(c_\star,\lambda+\varepsilon,\varepsilon y)\to\Phi(0,1,y)\); with
+Theorems~\ref{thm:jantzen-smith}, \ref{thm:top-layer} and
+Lemma~\ref{lem:d-derivatives} this gives
+\([d^k](\tau^\pm_k/\gamma^\pm_k)=\lim_ww^k[y^k]T_{\ell^\pm_k}\).
 
-For \(k=2j+1\), the labels \((r+jp,s+jp')\) and \(((j+1)p-r,(j+1)p'-s)\)
-lie in the class of \(\lambda\) (Proposition~\ref{prop:minimal-collisions})
-and have the levels \(\ell^\pm_k\), so \(w^\pm_k\) are multiples of their
-normalized singular vectors; as \(0<r<p\) and \(0<s<p'\), both boxes contain
-\((jp,jp')\) exactly for \(|j|\leq\frac{k-1}2\), so \(o=k\).  For \(k=2j\),
-put \(\xi=\lambda+\ell^-_{2j-1}=h_{jp-r,-(jp'-s)}(b_\star)\), of Coulomb
-momentum \(2jpp'-n_1\).  The labels \((r,2jp'-s)\) and \((2jp-r,s)\) have the
-same momentum, hence weight \(\xi\), and levels
-\(\ell^+_{2j}-\ell^-_{2j-1}\) and \(\ell^-_{2j}-\ell^-_{2j-1}\) (proof of
-Theorem~\ref{thm:top-layer}); since \(r<p\), resp.\ \(s<p'\), their
-\(o\) equals \(1\).  The images of their singular vectors under
-\(j_{w^-_{2j-1}}\) are nonzero
-\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011} singular
-vectors of levels \(\ell^\pm_{2j}\), hence multiples of \(w^\pm_{2j}\), and
-by Lemma~\ref{lem:singular-factorization} their torus norms are
-\(\tau^-_{2j-1}(d){\mathcal P}_{u,v}(b_\star,d)\).  Induction on \(k\) gives
-order \((2j-1)+1=2j\).
+By integrality of \(u,v\), the colliding chains from \(\lambda\) are the
+sequences \(n_0=x_0,x_1,\dots\), \(|x_i|\) increasing, alternately in
+\(n_1+N_0\mathbb Z\) and \(n_0+N_0\mathbb Z\), via
+\(g_i=(\epsilon_i(x_{i-1}+x_i)/(2p'),\epsilon_i(x_i-x_{i-1})/(2p))\),
+\(\epsilon_i=\operatorname{sgn}x_i\); then
+\(\rho_{g_i}=-\epsilon_ix_{i-1}/(2(p'-p))\),
+\(4p'^2\dot h_{g_i}=p'^2-p^2-x_{i-1}x_i\) (so \(4p'^2(\dot h_{g_{i-1}}-\dot h_{g_i})=x_{i-1}(x_i-x_{i-2})\neq0\)),
+and \(|x_i|\) is the momentum reached.  The endpoints \(\pm m^\pm_k\) are \(n_1+jN_0\), \(n_1-(j+1)N_0\)
+for \(k=2j+1\) and \(n_0\pm jN_0\) for \(k=2j\); the first steps of chains
+ending there are \(x_1=n_1+iN_0\) with \(-j\leq i\leq j\),
+\(-j-1\leq i\leq j-1\), \(-j\leq i\leq j-1\): \(k\) distinct slopes.  As
+\([y^k]T_N=\sum_\theta C_\theta/(w-\dot h_\theta)\) is \(O(w^{-k})\), its
+moments of order \(\leq k-2\) vanish, and
+\(\lim_ww^k[y^k]T_N=C_\kappa\prod_{\theta\neq\kappa}n_0(x_\theta-x_\kappa)/(4p'^2)\)
+for each \(\kappa\).  For \(k=2j+1\) take \(\kappa\) the endpoint, \((r+jp,s+jp')\) or
+\(((j+1)p-r,(j+1)p'-s)\), whose box meets \(\mathbb Z(p,p')\) for \(|j'|\leq j\)
+(as \(0<r<p\), \(0<s<p'\)): \(C_\kappa=\pm\rho(-1)^j/(j!^2\kappa_0^{2j})\),
+the product is \((n_0N_0/4p'^2)^{2j}(2j)!\), and
+\(n_0N_0/(4p'^2\kappa_0)=-\rho\).  For \(k=2j\) take
+\(\kappa=n_1+(j-1)N_0\), then the step \(g\) to the endpoint, \((r+(2j-1)p,p'-s)\) or
+\((p-r,s+(2j-1)p')\), whose box meets \(\mathbb Z(p,p')\) only at \(0\),
+\(\rho_g/(\dot h_\kappa-\dot h_g)=-2p'^2/((p'-p)jN_0)\); the product is
+\(-(n_0N_0/4p'^2)^{2j-1}(2j-1)!\).  Both give \(c_k(\pm\rho)^k\).  At \(d=1\),
+with \(y=(d-1)/\tau\), the vanishing factors of \({\mathcal P}_g(b,1)\) are
+\(1-d\) and \(\frac14\varphi(2jp,2jp')\varphi(2-2jp,-2-2jp')\),
+\((jp,jp'+1)\in B_g\) (for the labels \(\kappa,g\) above, the same \(j\) as before), of derivative \(j\kappa_1\), \(\kappa_1=p(p+p')/p'\);
+\(\partial_d{\mathcal R}_g|_{d=1}=(p'u+pv)/(2(p+p'))=|x_i|/(2(p+p'))\),
+\(n_0N_0/(4p'^2\kappa_1)=\sigma\), and for \(k=2j\) the ratio becomes
+\(2p'^2x_{\rm end}/((p+p')x_\kappa jN_0)\); the same steps give the claim.
 \end{proof}
 
 \section{All-order confluent recursion}\label{sec:all-order}
@@ -1660,54 +1712,6 @@ Theorem~\ref{thm:general-confluence} identifies these moments with the
 principal part.
 \end{proof}
 
-\begin{proposition}[The second layer]\label{prop:second-layer}
-In the setting of Theorem~\ref{thm:top-layer} with \(k=2\), let
-\(\kappa_1,\kappa_2\) be the labels \((r,s)\), \((p-r,p'-s)\) in either order,
-put \(\eta_{u,v}=1-u^2+(v^2-1)b_\star^{-4}\), and, for
-\(i=1,2\) and \(\ell_2\leq N<\ell_3\), let \(T_i\) be the set of labels \(g\)
-with \(h_g(b_\star)=\lambda+\ell_{\kappa_i}\) and
-\(\ell_g\leq N-\ell_{\kappa_i}\).  Suppose that every \({\mathcal R}_g\),
-\(g\in T_1\cup T_2\), is regular at \(b_\star\) and that
-\(\eta_g\neq\eta_{\kappa_i}\) for \(g\in T_i\).  Then, with
-\(R_a={\mathcal R}_a(b_\star,d)\),
-\[
- \lim_{\Delta\to\lambda}(\Delta-\lambda)^2H_N(c_\star,\Delta,d)
- =(\eta_{\kappa_1}-\eta_{\kappa_2})R_{\kappa_1}\sum_{g\in T_1}
- \frac{R_g\,H_{N-\ell_{\kappa_1}-\ell_g}(c_\star,\lambda+\ell_{\kappa_1}+\ell_g,d)}
- {\eta_{\kappa_1}-\eta_g}.
-\]
-\end{proposition}
-
-\begin{proof}
-The labels of weight \(\lambda\) and level at most \(N\) are \(\kappa_1,\kappa_2\),
-because the next ones have the levels \(\ell^\pm_3\)
-(Proposition~\ref{prop:minimal-collisions}).  Fix \(i\), put
-\(\xi=\lambda+\ell_{\kappa_i}\) and \(M=N-\ell_{\kappa_i}\).  For \(g\in T_i\),
-the image of \(\chi_g(b_\star)\) under \(j_{w}\), \(w\) the singular vector of
-label \(\kappa_i\), is a singular vector of \(M(c_\star,\lambda)\) of level
-\(\ell_{\kappa_i}+\ell_g\leq N\) (Lemma~\ref{lem:regular-everywhere}), so
-\(\xi+\ell_g\) is one of the weights \(\lambda+\ell^\pm_2\)
-\cite[Proposition~5.4]{IoharaKoga2011} (not \(\lambda+\ell^\pm_1\), since
-\(W^+_1\cap W^-_1\) vanishes below \(\ell_2\)), and
-\(H_{M-\ell_g}(c(b),z_g(b),d)\) is regular at \(b_\star\) by
-Theorem~\ref{thm:top-layer}.  Near \((b_\star,\xi)\), \(\det G_M(c(b),\Delta)\)
-vanishes only along the curves \(\Delta=h_g(b)\), \(g\in T_i\), and for generic
-\(b\) the residues of \(H_M\) there are \({\mathcal R}_gH_{M-\ell_g}(c(b),z_g,d)\)
-(Proposition~\ref{prop:generic-recursion}).  Hence
-\(H_M-\sum_{g\in T_i}{\mathcal R}_gH_{M-\ell_g}(c(b),z_g,d)/(\Delta-h_g)\),
-whose possible poles near \((b_\star,\xi)\) lie on these curves but which
-has no pole along them, is regular at \((b_\star,\xi)\).  On \(\Delta=z_{\kappa_i}(t)\) (\({\mathcal R}_{\kappa_i}\) is regular, as \(0<r<p\)), where
-\(z_{\kappa_i}-h_g=\tfrac12b_\star(\eta_{\kappa_i}-\eta_g)t+O(t^2)\) (since
-\(2\dot h_{u,v}=b_\star\eta_{u,v}\)), this gives
-\(\ord_tB_{\kappa_i,N}\geq-1\) and
-\([t^{-1}]B_{\kappa_i,N}=R_{\kappa_i}\sum_{g\in T_i}2R_gH_{M-\ell_g}/
-(b_\star(\eta_{\kappa_i}-\eta_g))\).  By
-Definition~\ref{def:collision-moments} the double-pole moment is
-\(\sum_i\dot h_{\kappa_i}[t^{-1}]B_{\kappa_i,N}\), and
-Corollary~\ref{cor:class-regular} gives \(\sum_i[t^{-1}]B_{\kappa_i,N}=0\);
-subtracting \(\dot h_{\kappa_2}\) times the latter and applying
-Theorem~\ref{thm:general-confluence} proves the formula.
-\end{proof}
 
 \section{The Ising embedding diamonds}\label{sec:ising}
 
@@ -1959,35 +1963,20 @@ The compositions are nonzero singular vectors of levels \(7\) and \(10\)
 (Theorem~\ref{thm:jantzen-smith}).
 Lemmas~\ref{lem:singular-factorization} and~\ref{lem:regular-everywhere}
 give the torus norms, and Theorem~\ref{thm:top-layer} with
-Proposition~\ref{prop:second-layer} and Lemma~\ref{lem:ising-constants}
-(or Theorems~\ref{thm:level-seven-principal-part}
-and~\ref{thm:level-ten-principal-part}) gives the norms \(\gamma\).  An exact
+Theorems~\ref{thm:level-seven-principal-part}
+and~\ref{thm:level-ten-principal-part} gives the norms \(\gamma\).  An exact
 evaluation of Lemma~\ref{lem:top-coefficient}(iii) in the PBW bases gives
 the same values.
 \end{proof}
 
-\begin{remark}[Stocco's expressions]
-\label{rem:stocco-comparison}
-Stocco's pole-free numerators for \(N\leq4\)
-\cite[Sections~II.2--II.3 and Appendix~A]{Stocco2022} reproduce \(H_2\),
-\(H_3\) identically in \(b\) and \(H_4\) at sample values including \(b_0\);
-the present paper extends them to all orders.
-\end{remark}
 
-\begin{remark}[Exact replay]\label{rem:audit-scope}
-The ancillary scripts (listed in \path{AUDIT_MANIFEST.md}) replay every
-computation of this paper in exact arithmetic, including the certificate in
-the proof of Corollary~\ref{cor:top-layer-sharp}.
-\end{remark}
 
 
 \section{Scope and outlook}\label{sec:scope}
 
-Theorem~\ref{thm:general-confluence} uses the formal deformation
-\(b=b_\star+t\); Theorem~\ref{thm:top-layer} gives intrinsic fixed-\(c\)
-data for the deepest pole.  The Verma block at a degenerate weight is not
-an irreducible minimal-model trace (it equals \(1\) at \(d=0\)).  Open
-directions include attainment of \(j_N(\lambda)\) at every level
+The Verma block at a degenerate weight is not an irreducible
+minimal-model trace (it equals \(1\) at \(d=0\)).  Open directions include
+attainment of \(j_N(\lambda)\) at every level
 (Remark~\ref{rem:top-layer-beyond}), the weights of
 Remark~\ref{rem:jantzen-other} and \(c_\star=1,25\), intrinsic formulas for
 the lower Laurent coefficients, and irreducible minimal-model traces.
@@ -2004,7 +1993,7 @@ the author's request: they shortened the proof of
 Theorem~\ref{thm:general-confluence} and removed its algebraicity
 hypothesis, added Proposition~\ref{prop:two-branch},
 Theorems~\ref{thm:jantzen-smith} and~\ref{thm:top-layer},
-Corollary~\ref{cor:top-layer-sharp}, Proposition~\ref{prop:second-layer}, and Lemmas~\ref{lem:d-derivatives}--\ref{lem:tau-order},
+Corollary~\ref{cor:top-layer-sharp}, Lemmas~\ref{lem:d-derivatives} and~\ref{lem:regular-everywhere}, and Proposition~\ref{prop:layer-coefficients},
 condensed the Ising examples, checked the cited results against their
 sources, and revised the presentation.  The author directed the research, selected and checked the
 final arguments, and takes responsibility for all mathematical claims,
@@ -2012,7 +2001,7 @@ citations, computations, and wording.
 
 \section*{Code availability}
 
-The arXiv ancillary directory contains the eleven audit scripts, their two
+The arXiv ancillary directory contains the twelve audit scripts, their two
 shared libraries, and \path{AUDIT_MANIFEST.md} (commands, dependencies,
 hashes); \texttt{make audit} runs the exact suite and \texttt{make
 audit-deep} adds the direct level-ten reconstruction.  The source package
