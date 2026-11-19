@@ -1,109 +1,85 @@
 # Handover: torus Virasoro blocks at minimal-model charges
 
-Written 2026-11-17T02:31Z (10:31 Taiwan time). Paper state: commit `a7946fa` plus this file;
-`paper.tex` / `paper.pdf`, 25 pages. Results are cited by their LaTeX labels; numbers in
-parentheses refer to the current PDF.
+Updated 2026-11-19T14:57Z (22:57 Taiwan time). Paper pin: commit `eb519e08f707926985c3f0b8474f7d3d47cb8579`
+(`paper.tex` / `paper.pdf`, 25 pages, 0 warnings, 0 undefined references, 0 missing characters,
+0 overfull hboxes). Results are cited by their LaTeX labels; numbers in parentheses refer to the
+current PDF.
 
-## 1. Where the work stands
+## 1. Current status
 
-The open target is the sharpness of the Jantzen bound:
+All three milestones of the manuscript (`CONF`, `TOP_LAYER`, and `TOP1`) have complete,
+computer-free proofs in `paper.tex` and have received independent reviewer `PASS` verdicts at
+commit `eb519e08`:
 
-> **TOP1.** At a minimal-model charge `c⋆` (`b⋆² = −p'/p`, `p, p' ≥ 2` coprime) and an interior Kac
-> weight `λ = h_{r,s}` (labelled so that `n₁ = p'r + ps < pp'`, `n₀ = p'r − ps`), the block
-> coefficient `H_N(c⋆, Δ, d)` has a pole of order exactly `j_N(λ)` at `Δ = λ` for every level `N`.
+- **TOP1 (`cor:top-layer-sharp`, Cor 5.11) — PASS:** At every minimal-model charge `c⋆`
+  (`b⋆² = −p'/p`, `p, p' ≥ 2` coprime), every interior Kac weight `λ = h_{r,s}(b⋆)`
+  (`0 < r < p`, `0 < s < p'`, `n₁ = p'r + ps < pp'`), and every level `N ≥ 1`, the eta-reduced
+  block coefficient `H_N(c⋆, Δ, d)` has a pole of order **exact** `j_N(λ)` at `Δ = λ`;
+  equivalently the top-layer polynomial `P_N(d)` in `eq:top-layer` is not identically zero on
+  every window `ℓ_k ≤ N < ℓ_{k+1}`.
+  - `prop:h13-nonvanishing` (Prop 6.8): unified two-point machinery at `d₁ = h_{1,3}(b) = −1 − 2/t`
+    and `d₂ = h_{1,−3}(b) = 2 − 2/t` (replacing the former single-point `lem:one-screening` and
+    eliminating the `M ≤ 40` certificate and `≤ 5`-divisor arguments):
+    (i) odd-prime integrality `P_M^{(ν)}(t, Y) ∈ ℤ[½][t, Y]`, `P_M^{(2)}(0, Y) = P_M^{(1)}(0, Y)`,
+    `P_M^{(ν)}(0, 0) = 4^M` via Feigin–Fuchs Fock factorization
+    `G_M = B_M(q₀, 2q₀ − α)^T D_M B_M(q₀, α)` and Lagrange's theorem for centralizers in `S_M`;
+    (ii) exact level polynomiality `c_{i,j}^{(ν)}(M) ∈ ℚ[M]` of degree `≤ 2i + 2j` for all `M ≥ 0`
+    via `G̃, ρ̃` expansion, Leibniz rule, non-negative-mode count, and `sl₂` identities;
+    (iii) exact `ℓ`-adic valuation `eq:h13-valuation` and Mahler/Legendre `ℓ`-adic Lipschitz ratio
+    bound `eq:second-screening-lip`.
+  - `prop:two-term-criteria` (Prop 6.9): settles every two-vector level `max(ℓ^+_k, ℓ^-_k) < N < ℓ_{k+1}`
+    across three exhaustive cases (WLOG odd prime `ℓ | p'` with `a = v_ℓ(p') ≥ 1`):
+    Case 1 (`s ∈ {1, p'−1}`): vanishing-order separation at `d₁`;
+    Case 2 (`2 ≤ s ≤ p'−2`, `s ≢ ±1 mod ℓ`): exact pairing cancellation (`ℓ ≥ 5`) and triple-partition
+    cancellation (`ℓ = 3`, `3 | s`, where both branches shift by `−k v_3(p' − 3p)` and cancel in
+    `V_3^+ − V_3^-`);
+    Case 3 (`2 ≤ s ≤ p'−2`, `s ≡ ±1 mod ℓ`): exact `ε`-telescoping formula
+    `T_k = −m^-_k((m^-_k)² − p²) / (m^+_k((m^+_k)² − p²))`, giving `v_ℓ(T_k) ≠ 0` or
+    `v_ℓ(T_k − 1) ≤ v_ℓ(k) + a − 1`, contradicting `v_ℓ(H_rat − 1) ≥ v_ℓ(k) + a` from
+    `prop:h13-nonvanishing`(iii).
+  - `prop:layer-coefficients` (Prop 6.7): exact `d^k` and `(d−1)^k` Taylor coefficients of
+    `τ^±_k / γ^±_k` for every layer `k ≥ 1`.
+- **TOP_LAYER (`thm:top-layer`, Thm 5.10) & JANTZEN (`thm:jantzen-smith`, Thm 5.8) — PASS.**
+- **CONF (`thm:general-confluence`, Thm 4.3, `cor:ising-confluence`, Cor 4.4, Section 7 through
+  `prop:two-branch`, Prop 7.7, and Section 4 & 6 foundations) — PASS.**
 
-By `thm:top-layer` (5.10), on the window `ℓ_k ≤ N < ℓ_{k+1}` the leading coefficient is
-`P_N(d) = Σ_± (τ^±_k/γ^±_k) H_{N−ℓ^±_k}(c⋆, λ+ℓ^±_k, d)`, the sum over the signs with
-`ℓ^±_k ≤ N`. TOP1 says that `P_N ≢ 0` in `d`.
+## 2. Independent review record (all on `paper.tex` at `eb519e08`)
 
-**Proved in the paper.** These are candidates, and none has had an independent review.
-- `cor:top-layer-sharp` (5.11) shows that `P_N ≢ 0` at the following levels. Write `M = N − ℓ_k` and
-  let `m` be the momentum of `λ + ℓ_k`.
-  - **Single-vector levels** (`N < max ℓ^±_k`): when `min(p,p')M < m + max(p,p')` (sign/σ argument);
-    when `M ≤ 40` (exact certificate, `tools/audit_kl_certificate.py`); or when `M` has at most
-    five divisors (by hand, with a Diophantine step for four divisors and for `q⁴`).
-  - **The level `N = max ℓ^±_k`.**
-  - **Two-vector levels** (`N > max ℓ^±_k`): when `max(p,p')M^± < m^±_k + min(p,p')` for both
-    signs. For odd `k` the `(d−1)^{k+1}` coefficient is a positive combination there. For even `k`
-    both `d = 0` derivatives are negative there.
-- `prop:layer-coefficients` (6.7) was added on 2026-11-17. For every layer `k`,
-  `[d^k](τ^±_k/γ^±_k) = c_k(±ρ)^k` and
-  `[(d−1)^k](τ^±_k/γ^±_k) = (±1)^{k+1} c_k σ^{k−1} m^±_k/(2(p+p'))`, where
-  - `ρ = −n₀/(2(p'−p))`, `σ = n₀/(2(p+p'))`;
-  - `c_k = (−1)^{⌊k/2⌋} C(k−1, ⌊(k−1)/2⌋)`, which runs 1, −1, −2, 3, 6, −10, ….
+| Scope | Reviewer | Verdict | UTC time | Envelope ID | Notes |
+|---|---|---|---|---|---|
+| `Prop 6.8`, `Prop 6.9` (at `d845af5`) | `yang2` | FIX → repaired at `eb519e08` | 2026-11-19T12:39Z | `yang2-20261119T123932Z-virasoro-top1-result` | Two display fixes (`2d_Δ+d_c=ℓ(λ)+ℓ(μ)` in Prop 6.8(i); removed extraneous sign in Prop 6.9 Case 2) + two clarity precisions; cores & audits confirmed. |
+| `Prop 6.7`, `Cor 5.11` | `yang2` | **PASS** | 2026-11-19T12:48Z | `yang2-20261119T124803Z-virasoro-top1-rest-result` | Unchanged between `d845af5` and `eb519e08`. |
+| `Thm 5.8`, `Thm 5.10`, `Lem 5.1, 5.3–5.5, 5.7` | `yang2` | **PASS** | 2026-11-19T13:41Z | `yang2-20261119T134115Z-virasoro-toplayer-result` | Astashkevich arXiv PDF verified directly; replayed `tools/audit_top_layer.py --max-level 8`. |
+| `Prop 6.8`, `Prop 6.9` repairs (at `eb519e08`) | `jander` | **PASS** | 2026-11-19T13:45Z | `jander-20261119T134530Z-virasoro-top1-repair-result` | Independent other-reviewer re-check of all repairs at `eb519e08`. |
+| `Thm 4.3`, `Cor 4.4`, `Sec 7` (`Def 7.1`–`Prop 7.7`) | `yang2` | **PASS** | 2026-11-19T14:40Z | `yang2-20261119T144009Z-virasoro-conf2-result` | Replayed `tools/audit_confluent_recursion.py`. |
+| `Lem 2.7, 4.1, 6.3, 6.5, 6.6`, `Thm 4.2`, `Prop 6.2, 6.4` | `jander` | **PASS** | 2026-11-19T14:49Z | `jander-20261119T144949Z-virasoro-conf1-result` | Directly verified HJS arXiv:0911.2353 §§3 eqs (7)–(9). |
 
-  Proof outline:
-  1. Take the scaling limit of the generic recursion along `(b² − b⋆², Δ − λ, d) ~ τ`. Every residue
-     is `O(τ)`.
-  2. Degree-0 homogeneity makes the lower moments vanish over the `k` first steps.
-  3. Lagrange interpolation reduces the sum to one explicit chain.
+Citation scope notes from the reviewers:
+- Astashkevich (`arXiv:hep-th/9511032`) and Hadasz–Jaskólski–Suchanek (`arXiv:0911.2353`) were
+  verified directly against their PDFs.
+- Springer previews of Iohara–Koga Chapters 4–6 were not accessible in full, so exact IK11 theorem
+  and equation numbers remain uncertified by the external reviewers; `jander` supplied independent
+  PBW/determinant deductions and `yang2` verified the Jantzen layer structure independently via
+  Astashkevich Theorem B(e).
+- Section 8 (Ising level-7 and level-10 embedding diamonds) is unchanged and audited by 8 of the 10
+  scripts in `make audit`.
 
-  It replaces the former Lemma 6.7 (`lem:tau-order`) and the second-layer Proposition 7.8
-  (`prop:second-layer`), which were removed to keep 25 pages.
-- `lem:d-derivatives` (6.5) gives closed forms of `∂_d H_N` at `d = 0` and `d = 1`, the sums
-  `K` and `L` below. `lem:regular-everywhere` (6.6) states that the normalized singular vectors
-  are regular at every `b⋆`.
+## 3. Audits, build, and bundle
 
-**Still open.** `rem:top-layer-beyond` (5.12) states these ranges precisely.
-- **(a) Single-vector levels** with `M ≥ 41`, at least six divisors, outside the sign range.
-  Attainment fails only if `Σ_{uv=M} u/D = Σ_{uv=M} v/D = 0`, where `D = (p'u − pv)² − m²`.
-- **(b) Two-vector levels** outside the sign range. Attainment fails only if both
-  `K⁺ + (−1)^k K⁻ = 0` and `m⁺_k L⁺ − (−1)^k m⁻_k L⁻ = 0`, where `K^±` and `L^±` are the derivatives
-  of `H_{M^±}(c⋆, λ+ℓ^±_k, d)` at `d = 0` and `d = 1`.
-- **Exact enumeration** finds no failure:
-  - (a) for `k ≤ 3`, `M ≤ 60`, at every model with `pp' ≤ 60`;
-  - (b) for `k ≤ 6`, `pp' ≤ 60`: 219072 cases.
-
-## 2. Attempts on the open ranges (all 2026-11-17)
-
-| Attempt | Outcome |
-|---|---|
-| Divisor families for (a), one by one | Done up to five divisors. Six or more need eliminations of degree 8–48 per family, so this was stopped. |
-| Uniform locus for (a) (`Ω = W/t + 2M = −M(t+1/t)`) | Contains the four-divisor zeros and one of the two `M = 12` components, but not the other `M = 12` component or the `M = 16` component. |
-| One-sign combination of the two first-order conditions in (b) | Exists in only 2280 of the 10320 cases outside the sign range (`pp' < 31`, `k ≤ 4`). Smallest failure: (2,3), `λ = 0`, `N = 11`. |
-| Second-order conditions in (b) | Not defined term by term. At (2,3), `N = 11`, the chain (1,1)→(1,4) has a zero denominator at `c = 0`. |
-| Isolating one branch at a fusion root of `τ⁺` | At (2,3), layer 2, `d = h₁,₃` is a root of both `τ^±₂`, so it gives nothing. |
-| Interlacing of `L = Σ g/(m² − f²)` (all residues positive) | `L ≠ 0` in all 18702 uncovered (a)-cases (`pp' ≤ 60`, `k ≤ 3`, `M ≤ 200`). Sign decides 5770 and a dominant term 7140; 5792 remain. |
-| Structural: `H_M(c,h,·) ≢ 0` off the Kac curves | Holds at every `c` for each `M` with at most four divisors (checked numerically at M = 6, 8, 10). Untested for six or more divisors. |
-| `d = h₁,₃` (only labels `(u,1)` survive) | `H_M ≠ 0` in all 3556 uncovered cases tested; the terms are never of one sign. |
-| `ℓ`-adic certificates for `L` | 5782 of 5788 cases are certified by some prime `≤ 200`, but no single structural prime works; 6 cases have none. |
-
-The most promising next step is to prove `L ≠ 0` on the 5792 remaining (a)-cases. The positive
-residues give exactly one zero per gap between Kac weights. The open question is whether a
-layer weight can sit exactly at that zero, given that layer weights and Kac weights lie on the
-same lattice `(n² − (p'−p)²)/(4pp')`.
-
-## 3. Tools
-
-**Audits (tracked).** `make audit` runs the standard suite in about 1.5 minutes. `make audit-deep`
-adds four more scripts:
-- the direct level-10 run;
-- `audit_minimal_models.py`, the pole orders at eight models;
-- `audit_layer_coefficients.py`, an exact Laurent expansion of the generic recursion against
-  `prop:layer-coefficients` (52 checks, about 10 minutes);
-- `audit_kl_certificate.py`, the `M ≤ 40` certificate (about 20 minutes).
-
-Commands and hashes are in `AUDIT_MANIFEST.md`. All audits passed at `a7946fa`.
-
-**Exploration scripts (local, untracked, in `runs/toplayer/`).**
-- `laurent_rk.py`: the leading pole coefficient mod `d^{D+1}` from the generic recursion, using
-  modular arithmetic and CRT; `--at1` expands at `d = 1`. It reaches levels around 45.
-- `linmodel.py`, `linsplit.py`, `linres.py`: the dimensionless chain model behind
-  `prop:layer-coefficients`. It gives `c_k` up to `k = 9`.
-- `agt_scaling.py`, `agt_maxres.py`: the Nekrasov (AGT) scaling formula. It reproduces `r_k` up to
-  `k = 4`, and individual terms do exceed `j_N` in resonant boxes.
-- `twoterm_comb.py`, `interlace.py`, `struct_test.py`, `h13_test.py`, `padic_L.py`: the tests
-  in the table above. Their logs (`*.log`) sit next to them.
-- `k3_window.py`, `gamma3*.py`: Gram-matrix values at (2,3), layer 3.
-
-The working receipt `receipt.md` (local, untracked) has the full history of the hard step.
+- `make audit` (all 10 exact rational/symbolic scripts, including the upgraded
+  `tools/audit_one_screening.py` with 8 exact checks covering Fock factorization, symbolic
+  `P_M^(1,2)`, direct Shapovalov cross-check at `d₁` and `d₂`, `sl₂` identities, level
+  polynomiality, valuation/Lipschitz bounds, and Cases 1–3) exited 0.
+- `AUDIT_MANIFEST.md` SHA-256 hashes verified (`sha256sum -c`).
+- `dist/virasoro-arxiv-v1.tar.gz` rebuilt from `eb519e08` and verified to compile standalone cleanly
+  at 25 pages with 0 warnings and 0 overfull hboxes.
+- `receipt.md` (local, untracked) updated and validated via `python3 -I ~/cockpit/tree.py virasoro`
+  with 0 problem flags; all three milestones (`CONF`, `TOP_LAYER`, `TOP1`) are marked `established`.
 
 ## 4. Before the paper is shared
 
-- **Review.** Nothing added since `803f1aa` has been independently reviewed. That covers
-  `prop:layer-coefficients`, `lem:d-derivatives`, `lem:regular-everywhere`, the extensions of
-  `cor:top-layer-sharp` and its certificate, and the Diophantine steps.
-- **Disclosure.** The AI-use disclosure says the author checked the final arguments. That needs
-  the author's own reading first.
-- **Lean.** `lean/` covers the `803f1aa` version; `lean/STATUS.md` maps the revisions.
-- **arXiv bundle.** The bundle in `dist/` is stale; rebuild it with `tools/build_arxiv_bundle.sh`.
+- **Author reading:** The author should read the final `paper.pdf` (in particular Sections 5–6 and
+  the AI-use disclosure) and, if desired, spot-check the Iohara–Koga Chapter 4–6 pinpoint references
+  against a full copy of `[IK11]`.
+- **Lean:** `lean/` still corresponds to `803f1aa` (`lean/STATUS.md`); Lean formalization is
+  currently untouched unless explicitly requested.
