@@ -68,8 +68,9 @@ The ordinary suite runs, in order:
     (`P_M` integrality and `P_M(0,0) = 4^M`), direct Shapovalov comparison
     (`M <= 6`), `P_42 mod 3` at an 8-divisor level, and Proposition
     `prop:two-term-criteria` (order characterization on `pp' <= 40, k <= 4`,
-    degree bound at `(8,9),(3,5),k=1,N=23`, and exact nonvanishing of
-    `[(d - h_{1,3})^1] P_N` on all 8 valuation-tie levels).
+    `ell >= 5` pairing cancellation on `pp' <= 80, k <= 4`, degree bound at
+    `(8,9),(3,5),k=1,N=23`, and exact nonvanishing of `[(d - h_{1,3})^1] P_N`
+    on all 8 valuation-tie levels).
 
 The deep target additionally runs `tools/audit_grade10_direct.py`, which
 reconstructs the inverse-Shapovalov coefficients through level ten at the
@@ -110,7 +111,7 @@ a06deb403aa2becb904c9f437742206974aa2fd3fe35356e78731b4cff24f130  tools/audit_kl
 dab3557d933399d1deced4f28983534f13730378f0c065f4f965fc11fd1822a8  tools/audit_layer_coefficients.py
 440b1a744cae37788512e6db19f41c132e8d42e0a813ad9101b217bc54946c38  tools/audit_low_levels.py
 0a9c8563a0da3f9d7ca9061b923e657fc7ca663f1bfaefefebdf6354ff7b4ca7  tools/audit_minimal_models.py
-06749a0592641c8fde61c6c2842d60aee654d311d17c56fa1ee5579ab66be342  tools/audit_one_screening.py
+c5aac2dbbf5c1707df2108c38d48202c68b66c301ad982b59891078d1613083a  tools/audit_one_screening.py
 4c7eba13ca7b7988107a4bd4ca6191a7a07b37dc579f8a818e47bde2929b0ce1  tools/audit_regular_families.py
 f979190e290b2e57649d01dc6ba0fcaf225ff21fb085e92431c370a2b4f0aeb8  tools/audit_stocco_comparison.py
 29ac19d33c33a7575730e67598d74c2bc86c0fce485cb444122d535b5579e418  tools/audit_top_layer.py

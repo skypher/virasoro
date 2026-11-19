@@ -149,8 +149,10 @@ of shifted block coefficients weighted by the torus norms of the singular
 vectors divided by their Jantzen norms.  Through a one-screening closed form at
 the degenerate external weight \(d=h_{1,3}(b)\), we prove that the bound
 is attained at every single-vector level of every layer, at the start of every
-two-vector range, and at every level of every minimal model with \(p=3\) or
-\(p'=3\), including the Ising model.  At the Ising charge one two-branch
+two-vector range, and at every interior weight and every level of every
+minimal model in which at least one of \(p,p'\) is an odd prime (including
+the Ising, Lee--Yang, tricritical Ising, and three-state Potts models).  At
+the Ising charge one two-branch
 closure formula gives the complete principal parts at the first double poles,
 at levels seven and ten.  Ancillary scripts replay the finite computations in
 exact rational arithmetic.
@@ -259,8 +261,9 @@ Corollary~\ref{cor:top-layer-sharp}).  Combined with the \(k\)-th Taylor
 coefficients of \(\langle w^\pm_k|V_d(1)|w^\pm_k\rangle/\gamma^\pm_k\) at
 \(d=0\) and \(d=1\) (Proposition~\ref{prop:layer-coefficients}), this also
 yields order, \(\ell\)-adic valuation, and degree criteria on two-vector
-levels (Proposition~\ref{prop:two-term-criteria}), closing every level of
-every minimal model with \(p=3\) or \(p'=3\) (including the Ising model).
+levels (Proposition~\ref{prop:two-term-criteria}), closing every interior
+weight and every level of every minimal model in which at least one of
+\(p,p'\) is an odd prime (including the Ising model).
 
 At the Ising charge the first double poles occur at levels \(7\), \(10\),
 and \(11\), at the energy, spin, and identity weights.  For the first two,
@@ -909,11 +912,13 @@ with leading coefficient \(\tau/\gamma\) at \(N=\ell_k\);
 \(\max(\ell^+_k,\ell^-_k)<N<\ell_{k+1}\) with
 \(\max(p,p')M^\pm<m^\pm_k+\min(p,p')\) for both signs, where
 \(M^\pm=N-\ell^\pm_k\) and \((m^\pm_k)^2=4pp'(\lambda+\ell^\pm_k)+(p'-p)^2\);
-\item[(iii)] every level \(N\geq1\) whenever \(s\in\{1,p'-1\}\) and \(p'\)
-has an odd prime divisor, or \(r\in\{1,p-1\}\) and \(p\) has an odd prime
-divisor; in particular, at every minimal model with \(p=3\) or \(p'=3\)
-(including the Ising charge \(c=1/2\) and \(c=0\)), the bound \(j_N(\lambda)\)
-is attained at every interior Kac weight \(\lambda\) and every level \(N\geq1\);
+\item[(iii)] every level \(N\geq1\) whenever \(p'\) has an odd prime divisor
+\(\ell\) with \(s\in\{1,p'-1\}\) or \(\ell\geq5\) and
+\(s\not\equiv\pm1\pmod\ell\), or dually \(p\) has an odd prime divisor \(\ell\)
+with \(r\in\{1,p-1\}\) or \(\ell\geq5\) and \(r\not\equiv\pm1\pmod\ell\); in
+particular, whenever at least one of \(p,p'\) is an odd prime (including the
+Ising charge \(c=1/2\) and \(c=0\)), the bound \(j_N(\lambda)\) is attained at
+every interior Kac weight \(\lambda\) and every level \(N\geq1\);
 \item[(iv)] every two-vector level satisfying the \(\ell\)-adic valuation or
 coprime-factor degree criterion of Proposition~\ref{prop:two-term-criteria}.
 \end{enumerate}
@@ -949,16 +954,18 @@ odd \(k\) the coefficient of \((d-1)^{k+1}\) is
 \(L^\pm=\frac{2pp'}{p+p'}\sum_{uv=M^\pm}(p'u+pv)/((m^\pm_k)^2-f^2)>0\).
 
 (iii)--(iv) Both follow directly from Proposition~\ref{prop:two-term-criteria}.
-When \(p=3\) every interior weight has \(r\in\{1,2\}=\{1,p-1\}\), and when
-\(p'=3\) every interior weight has \(s\in\{1,2\}=\{1,p'-1\}\).
+If \(p'\) is an odd prime \(\ell\), every \(0<s<\ell\) satisfies either
+\(s\in\{1,\ell-1\}\) or (\(\ell\geq5\) and \(s\not\equiv\pm1\pmod\ell\)); the
+same holds dually if \(p\) is an odd prime.
 \end{proof}
 
 \begin{remark}[The remaining two-vector levels]\label{rem:top-layer-beyond}
-All single-vector levels are settled by Corollary~\ref{cor:top-layer-sharp}(i).
-Open are only the two-vector levels \(\max(\ell^+_k,\ell^-_k)<N<\ell_{k+1}\)
-not covered by parts~(ii)--(iv) of Corollary~\ref{cor:top-layer-sharp}; in
-particular \(2\leq s\leq p'-2\) (when \(p'\) has an odd prime factor) and
-\(2\leq r\leq p-2\) (when \(p\) has an odd prime factor).  At \(d=0,1\),
+All single-vector levels and all minimal models with \(p\) or \(p'\) an odd
+prime are settled by Corollary~\ref{cor:top-layer-sharp}.  Open are only the
+two-vector levels \(\max(\ell^+_k,\ell^-_k)<N<\ell_{k+1}\) not covered by
+parts~(ii)--(iv) of Corollary~\ref{cor:top-layer-sharp}, which require \(2\leq
+s\leq p'-2\) with \(s\equiv\pm1\pmod\ell\) for every prime \(\ell\geq5\)
+dividing \(p'\) (and dually for \(p\)).  At \(d=0,1\),
 Lemma~\ref{lem:d-derivatives} and Proposition~\ref{prop:layer-coefficients}
 show that attainment fails only if
 \(K^++(-1)^kK^-=0=m^+_kL^+-(-1)^km^-_kL^-\), where
@@ -1285,12 +1292,9 @@ functional \(\Lambda_{\nu,\gamma}\) on \(\mathbb Q(\nu,\gamma)[z,z^{-1}]\) by
 gives
 \(\Lambda_{\nu,\gamma}((1-z)^rz^m)=(\gamma+1)_r(\nu)_m/(\nu+\gamma+1)_{r+m}\):
 the step \(r\to r+1\) is the subtraction
-\((\nu+\gamma+1+r+m)-(\nu+m)=\gamma+1+r\).  Taking \(r=2k\), \(m=-k\) yields,
-for \(W=(1-z)^2/z\),
-\[
- \Lambda_{\nu,\gamma}(W^k)
- =\frac{\prod_{j=1}^{2k}(\gamma+j)}{\prod_{j=1}^k(\nu-j)(\nu+\gamma+j)}.
-\]
+\((\nu+\gamma+1+r+m)-(\nu+m)=\gamma+1+r\).  Taking \(r=2k\), \(m=-k\) yields
+\(\Lambda_{\nu,\gamma}(W^k)=\prod_{j=1}^{2k}(\gamma+j)/\prod_{j=1}^k(\nu-j)(\nu+\gamma+j)\)
+for \(W=(1-z)^2/z\).
 Relating \(\Delta\) to \(\nu\) by
 \(\Delta(\nu)=(1+\gamma-\nu(\nu+\gamma))/(2\gamma)\) (with \(\gamma=2/t\)),
 one has \(2\Delta(\nu)-2h_{j,1}(b)=-(\nu-j)(\nu+\gamma+j)/\gamma\), so
@@ -1319,10 +1323,7 @@ it suffices to check the identity at every integer \(\gamma>u\).
 Fix an integer \(\gamma>u\), and set
 \(F(z;q)=(1-z)^\gamma\sum_{M\geq0}G_M(z)q^M=\sum_{M\geq0}F_M(z)q^M\).  Since
 \(1-q^nW/(1-q^n)^2=(1-q^nz)(1-q^nz^{-1})/(1-q^n)^2\), we have
-\[
- F(z;q)=(1-z)^\gamma\prod_{n\geq1}
- \frac{(1-q^nz)^\gamma(1-q^nz^{-1})^\gamma}{(1-q^n)^{2\gamma}}.
-\]
+\(F(z;q)=(1-z)^\gamma\prod_{n\geq1}(1-q^nz)^\gamma(1-q^nz^{-1})^\gamma/(1-q^n)^{2\gamma}\).
 Because \(\gamma\in\mathbb Z_{>0}\), the factor \((1-qz^{-1})^\gamma\)
 contributes monomials \(z^{-r}q^r\) with \(0\leq r\leq\gamma\), while every
 other factor contributes monomials \(z^aq^M\) with \(M\leq2(M+a)\); hence every
@@ -1336,11 +1337,9 @@ Extracting \([q^{M-u}w^{-u}]\) from both sides yields
 For \(\gamma\in\mathbb Z_{>u}\), \(\Lambda_{\nu,\gamma}(z^m)\) is regular at
 \(\nu=u\) for \(m\geq0\), while for \(m=-(u+s)\) (\(s\geq0\)) it has a simple
 pole at \(\nu=u\) with residue
-\[
- \frac{\prod_{j=1}^{u+s}(u+\gamma+1-j)}{(u-1)!(-1)^ss!}
- =\frac{\prod_{i=1}^u(\gamma+i)}{(u-1)!}\,(-1)^s\binom{\gamma}{s}
-\]
-(which vanishes for \(s>\gamma\)); summing against \(G_M(z)\) gives
+\(\prod_{j=1}^{u+s}(u+\gamma+1-j)/((u-1)!(-1)^ss!)
+=(\prod_{i=1}^u(\gamma+i)/(u-1)!)(-1)^s\binom{\gamma}{s}\)
+(vanishing for \(s>\gamma\)); summing against \(G_M(z)\) gives
 \(\operatorname*{Res}_{\nu=u}\Lambda_{\nu,\gamma}(G_M(z))
 =(\prod_{i=1}^u(\gamma+i)/(u-1)!)[z^{-u}]F_M(z)\).  At \(\nu=u-\gamma\), every
 denominator in \(\Lambda_{u-\gamma,\gamma}(w^m)\) is nonzero (since
@@ -1442,6 +1441,8 @@ Set
 \]
 If \(V_\ell^+(N)\neq V_\ell^-(N)\), then \([(d-h_{1,3}(b_\star))^k]P_N(d)\neq0\)
 and \(H_N(c_\star,\Delta,d)\) has pole order \(k\) at \(\Delta=\lambda\).
+In particular, this holds for every \(k\geq1\) and every two-vector level \(N\)
+whenever \(\ell\geq5\) and \(s\not\equiv\pm1\pmod\ell\).
 The dual statements of (i)--(ii) hold with \(p\leftrightarrow p'\),
 \(r\leftrightarrow s\), and \(h_{1,3}\leftrightarrow h_{3,1}\) for every odd
 prime \(\ell\mid p\).
@@ -1456,19 +1457,18 @@ By Lemma~\ref{lem:regular-everywhere}, Lemma~\ref{lem:singular-factorization},
 and uniqueness of singular vectors of a given weight in a Verma module
 \cite[Proposition~5.1]{IoharaKoga2011}, at \(b=b_\star\),
 \(\tau^+_{2j+1}={\mathcal P}_{r+jp,\,s+jp'}\),
-\(\tau^-_{2j+1}={\mathcal P}_{(j+1)p-r,\,(j+1)p'-s}\), and
-\[
- \tau^+_{2j}={\mathcal P}_{r+(j-1)p,\,s+(j-1)p'}{\mathcal P}_{(2j-1)p+r,\,p'-s},\qquad
- \tau^-_{2j}={\mathcal P}_{r+(j-1)p,\,s+(j-1)p'}{\mathcal P}_{p-r,\,(2j-1)p'+s},
-\]
-where each \({\mathcal P}_{R,S}(b_\star,d)
-=\prod_{k,l}(d-d_{p'k-pl})(d-d_{p'k+pl})\) over odd \(1\leq k<2R\) and odd
+\(\tau^-_{2j+1}={\mathcal P}_{(j+1)p-r,\,(j+1)p'-s}\),
+and for even \(k=2j\),
+\(\tau^+_{2j}={\mathcal P}_{r+(j-1)p,\,s+(j-1)p'}\,{\mathcal P}_{(2j-1)p+r,\,p'-s}\)
+and
+\(\tau^-_{2j}={\mathcal P}_{r+(j-1)p,\,s+(j-1)p'}\,{\mathcal P}_{p-r,\,(2j-1)p'+s}\),
+where \({\mathcal P}_{R,S}(b_\star,d)=\prod_{a,l}(d-d_{p'a-pl})(d-d_{p'a+pl})\) over odd \(1\leq a<2R\) and odd
 \(1\leq l<2S\) is monic of degree \(2RS\).
 
-(i) For \(p\geq2\), \(p'\geq3\) coprime, solving \(|p'k\pm pl|=|p'-3p|\) in
-odd positive integers \((k,l)\): the plus sign gives \(p'(k+1)=p(3-l)\) (forcing
-\(l=1\) and \(p'\mid2\), impossible) or \(p'(k-1)=-p(l+3)\) (impossible); the
-minus sign gives \(p'(k-1)=p(l-3)\) or \(p'(k+1)=p(l+3)\).  Since \(k\pm1\) and
+(i) For \(p\geq2\), \(p'\geq3\) coprime, solving \(|p'a\pm pl|=|p'-3p|\) in
+odd positive integers \((a,l)\): the plus sign gives \(p'(a+1)=p(3-l)\) (forcing
+\(l=1\) and \(p'\mid2\), impossible) or \(p'(a-1)=-p(l+3)\) (impossible); the
+minus sign gives \(p'(a-1)=p(l-3)\) or \(p'(a+1)=p(l+3)\).  Since \(a\pm1\) and
 \(l\pm3\) are even and at least one of \(p,p'\) is odd, the solutions are
 \((1+2mp,3+2mp')\) (\(m\geq0\)) and \((2mp-1,2mp'-3)\) (\(m\geq1\)).  Hence
 the multiplicity of \(d_{x_0}\) in \({\mathcal P}_{R,S}\) is
@@ -1486,19 +1486,37 @@ Proposition~\ref{prop:h13-nonvanishing}.
 
 (ii) When \(e_+=e_-=k\), Proposition~\ref{prop:layer-coefficients} gives
 \(\gamma^\pm_k=[d^k]\tau^\pm_k/(c_k(\pm\rho)^k)\).  Writing
-\[
- \begin{aligned}
- [(d-d_{x_0})^k]\tau^\pm_k&=(4pp')^{k-2\ell^\pm_k}\prod_{x\neq x_0}(x_0^2-x^2)^{m^\pm_k(x)},\\
- [d^k]\tau^\pm_k&=(-1)^{2\ell^\pm_k-k}(4pp')^{k-2\ell^\pm_k}
- \prod_{x\neq|p'-p|}\bigl((p'-p)^2-x^2\bigr)^{m^\pm_k(x)},
- \end{aligned}
-\]
+\([(d-d_{x_0})^k]\tau^\pm_k=(4pp')^{k-2\ell^\pm_k}\allowbreak\prod_{x\neq x_0}(x_0^2-x^2)^{m^\pm_k(x)}\)
+and
+\([d^k]\tau^\pm_k=(-1)^{2\ell^\pm_k-k}(4pp')^{k-2\ell^\pm_k}\allowbreak\prod_{x\neq x_1}(x_1^2-x^2)^{m^\pm_k(x)}\)
+with \(x_1=|p'-p|\),
 the factors \((4pp')^{k-2\ell^\pm_k}\) cancel in the ratio
 \([(d-d_{x_0})^k](\tau^\pm_k/\gamma^\pm_k)\), and \(c_k(\pm\rho)^k\) has the
 same \(\ell\)-adic valuation for both signs.  Combining with
 \eqref{eq:h13-valuation}, the two summands of \([(d-h_{1,3})^k]P_N(d)\) have
 \(\ell\)-adic valuations differing by \(V_\ell^+(N)-V_\ell^-(N)\); if this is
-nonzero their sum cannot vanish.
+nonzero their sum cannot vanish.  Now suppose \(\ell\geq5\) and
+\(s\not\equiv\pm1\pmod\ell\).  In each factor \({\mathcal P}_{R,S}\) of
+\(\tau^\pm_k\) one has \(S\equiv\pm s\not\equiv\pm1\pmod\ell\), so the odd
+indices \(1\leq l<2S\) with \(l\equiv\pm3\pmod\ell\) pair bijectively with
+those with \(l\equiv\pm1\pmod\ell\) via
+\((l_3,l_1)=(2j\ell+3\epsilon,\,2j\ell+\epsilon)\) (\(\epsilon=+1\) for
+\(j\geq0\); \(\epsilon=-1\) for \(j\geq1\)).  For \(\alpha\in\{1,3\}\),
+\(\sigma\in\{\pm1\}\), and odd \(a\), setting \(A=p'-\alpha p\) and
+\(B=p'a+\sigma p(2j\ell+\alpha\epsilon)\) gives
+\(A^2-B^2=(A+\epsilon\sigma B)(A-\epsilon\sigma B)\) with
+\(A+\epsilon\sigma B=p'(1+\epsilon\sigma a)+2\epsilon j\ell p\) independent of
+\(\alpha\) and \(A-\epsilon\sigma B\equiv-2\alpha p\not\equiv0\pmod\ell\)
+(since \(\ell\geq5\) and \(\ell\nmid p\)); hence the paired factors either both
+vanish or share the same \(\ell\)-adic valuation, and the first two sums in
+\(V_\ell^\pm(N)\) cancel identically.  Moreover
+\(m^\pm_k\equiv\pm ps\pmod{p'}\) gives
+\((m^\pm_k)^2-(p'u-p)^2\equiv p^2(s^2-1)\not\equiv0\pmod\ell\), so the last sum
+vanishes as well, leaving
+\(V_\ell^+(N)-V_\ell^-(N)=\allowbreak-(v_\ell(M^+!)-v_\ell(M^-!))-(M^+-M^-)v_\ell(p')\).
+Because \(M^+-M^-=\ell^-_k-\ell^+_k\) equals \(k(pp'-n_1)>0\) for odd \(k\)
+and \(-kn_0\neq0\) for even \(k\), and \(M\mapsto v_\ell(M!)\) is weakly
+increasing, \(V_\ell^+(N)-V_\ell^-(N)\neq0\).
 
 (iii) By Proposition~\ref{prop:layer-coefficients}, \(\ord_{d=0}\tau^\pm_k
 =\ord_{d=1}\tau^\pm_k=k\), so \(d(d-1)\) divides \(g_k\) and is coprime to
@@ -1801,9 +1819,8 @@ At \(b_0=2i/\sqrt3\), with dots denoting \(d/db\) at \(b_0\),
  \end{array}
 \]
 Hence
-\(\tfrac5{11}{\mathcal A}_{2,1}{\mathcal A}_{1,5}=\tfrac5{13}{\mathcal A}_{1,3}{\mathcal A}_{4,1}=\allowbreak-\tfrac1{700700}\)
-and
-\(\tfrac15{\mathcal A}_{1,2}{\mathcal A}_{4,2}=\tfrac17{\mathcal A}_{2,2}{\mathcal A}_{1,6}=\allowbreak-\tfrac{192}{1121229484375}\),
+\(\tfrac5{11}{\mathcal A}_{2,1}{\mathcal A}_{1,5}=\tfrac5{13}{\mathcal A}_{1,3}{\mathcal A}_{4,1}=-\tfrac1{700700}\),
+\(\tfrac15{\mathcal A}_{1,2}{\mathcal A}_{4,2}=\tfrac17{\mathcal A}_{2,2}{\mathcal A}_{1,6}=-\tfrac{192}{1121229484375}\),
 with slope ratios \((\dot h_{\kappa}-\dot h_{\kappa'})/(\dot h_\kappa-\dot h_\tau)\)
 (Proposition~\ref{prop:two-branch}).  At \(b_0\), put \(E_2={\mathcal P}_{2,1}\),
 \(E_3={\mathcal P}_{1,3}\), \(P_2={\mathcal P}_{1,2}\), \(P_4={\mathcal P}_{2,2}\),
@@ -1988,27 +2005,25 @@ is at \href{https://github.com/skypher/virasoro}%
 
 \section{Expanded polynomial data}\label{app:expanded-data}
 
-The factored polynomial entering the level-seven principal part is
-\begin{equation}\label{eq:theta7-expanded}
- \begin{split}
- \Theta_7(d)={}&-\tfrac{1}{2164322160000}\,d^2(d-1)^2
- (2d-15)(2d-7)(2d-5)(2d-1)(3d-14)(3d-5)\\
- &\times\bigl(84001d^4-3376370d^3+44478887d^2-209562838d+205096320\bigr).
- \end{split}
-\end{equation}
-The corresponding level-ten polynomial is
-\begin{equation}\label{eq:theta10-expanded}
- \begin{split}
- \Theta_{10}(d)={}&-\tfrac{1}{552735279561465000000}\,
- d^2(d-1)^2(2d-7)^2(2d-1)^2(3d-14)(3d-5)\\
- &\times(6d-55)(6d-1)\bigl(424640464d^8-41506307104d^7+1664502727528d^6\\
- &\quad-35552058801520d^5+438148123547677d^4-3142854705332170d^3\\
- &\quad+12488401942129875d^2-23870935242348750d+14566042731240000\bigr).
- \end{split}
-\end{equation}
+The factored polynomials entering the level-seven and level-ten principal parts
+are
+\begin{align}
+ \Theta_7(d)&=-\tfrac{1}{2164322160000}\,d^2(d-1)^2
+ (2d-15)(2d-7)(2d-5)(2d-1)(3d-14)(3d-5)\notag\\
+ &\quad\times\bigl(84001d^4-3376370d^3+44478887d^2-209562838d+205096320\bigr),
+ \label{eq:theta7-expanded}\\
+ \Theta_{10}(d)&=-\tfrac{1}{552735279561465000000}\,
+ d^2(d-1)^2(2d-7)^2(2d-1)^2(3d-14)(3d-5)\notag\\
+ &\quad\times(6d-55)(6d-1)\bigl(424640464d^8-41506307104d^7+1664502727528d^6\notag\\
+ &\quad\quad-35552058801520d^5+438148123547677d^4-3142854705332170d^3\notag\\
+ &\quad\quad+12488401942129875d^2-23870935242348750d+14566042731240000\bigr).
+ \label{eq:theta10-expanded}
+\end{align}
 
 {\small
 \begin{thebibliography}{CCY19}
+\setlength{\itemsep}{0pt plus 0.5pt}
+\setlength{\parskip}{0pt}
 
 \bibitem[Ast97]{Astashkevich1997}
 A.~Astashkevich,

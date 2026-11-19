@@ -327,6 +327,74 @@ def check_order_characterization():
     print(f"[PASS] Prop 6.10(i) exact order characterization verified on {checked} (p,p',r,s,k) tuples", flush=True)
 
 
+def check_prime_pairing():
+    """Verify Prop 6.10(ii) exact cancellation for ell >= 5, s != +-1 mod ell (pp' <= 80, k <= 4)."""
+    def v_int(n, ell):
+        n = abs(n)
+        c = 0
+        while n % ell == 0:
+            n //= ell
+            c += 1
+        return c
+
+    def primes_ge5(n):
+        while n % 2 == 0:
+            n //= 2
+        while n % 3 == 0:
+            n //= 3
+        res = []
+        d = 5
+        while d * d <= n:
+            if n % d == 0:
+                res.append(d)
+                while n % d == 0:
+                    n //= d
+            d += 2
+        if n >= 5:
+            res.append(n)
+        return res
+
+    def dtau_block(R, S, p, pp, ell):
+        x0, x1 = abs(pp - 3 * p), abs(pp - p)
+        tot = 0
+        for a in range(1, 2 * R, 2):
+            for l in range(1, 2 * S, 2):
+                for x in (abs(pp * a - p * l), pp * a + p * l):
+                    if x != x0:
+                        tot += v_int(x0 * x0 - x * x, ell)
+                    if x != x1:
+                        tot -= v_int(x1 * x1 - x * x, ell)
+        return tot
+
+    checked = 0
+    for pp in range(5, 41):
+        ells = primes_ge5(pp)
+        if not ells:
+            continue
+        for p in range(2, 80 // pp + 1):
+            if math.gcd(p, pp) != 1:
+                continue
+            for r in range(1, p):
+                for s in range(2, pp - 1):
+                    if pp * r + p * s >= p * pp:
+                        continue
+                    for ell in ells:
+                        if s % ell in (1, ell - 1):
+                            continue
+                        for k in range(1, 5):
+                            if k % 2 == 1:
+                                j = (k - 1) // 2
+                                dp = dtau_block(r + j * p, s + j * pp, p, pp, ell)
+                                dm = dtau_block((j + 1) * p - r, (j + 1) * pp - s, p, pp, ell)
+                            else:
+                                j = k // 2
+                                dp = dtau_block((2 * j - 1) * p + r, pp - s, p, pp, ell)
+                                dm = dtau_block(p - r, (2 * j - 1) * pp + s, p, pp, ell)
+                            assert dp == 0 and dm == 0, f"Nonzero dtau at {(p,pp,r,s,k,ell)}: {dp},{dm}"
+                            checked += 1
+    print(f"[PASS] Prop 6.10(ii) ell >= 5 pairing cancellation verified on {checked} (p,p',r,s,k,ell) tuples", flush=True)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.parse_args()
@@ -334,6 +402,7 @@ def main():
     check_direct_shapovalov(6)
     check_M42_and_89()
     check_order_characterization()
+    check_prime_pairing()
     print("ALL ONE-SCREENING AND TWO-TERM AUDITS PASSED.", flush=True)
 
 
