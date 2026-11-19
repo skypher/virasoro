@@ -32,6 +32,7 @@ for source in \
     audit_layer_coefficients.py \
     audit_low_levels.py \
     audit_minimal_models.py \
+    audit_one_screening.py \
     audit_regular_families.py \
     audit_stocco_comparison.py \
     audit_top_layer.py \

@@ -22,7 +22,7 @@ make arxiv-bundle
 
 creates `dist/virasoro-arxiv-v1.tar.gz`. The archive contains only
 `paper.tex` at its root and the audit README, manifest, dependency pin,
-Makefile, twelve scripts, and two shared libraries under `anc/`. It excludes
+Makefile, thirteen scripts, and two shared libraries under `anc/`. It excludes
 the generated PDF and TeX auxiliary files, repository metadata, and project
 planning files.
 
@@ -63,6 +63,13 @@ The ordinary suite runs, in order:
    enumerations of Remark `rem:top-layer-beyond` (one-term windows for `k <= 3`,
    two-term windows for `k <= 6`, with the odd-layer range of Corollary
    `cor:top-layer-sharp`) for all minimal models with `pp' <= 60`.
+10. `tools/audit_one_screening.py` — symbolic verification of Lemma
+    `lem:one-screening` (`M <= 5`) and Proposition `prop:h13-nonvanishing`
+    (`P_M` integrality and `P_M(0,0) = 4^M`), direct Shapovalov comparison
+    (`M <= 6`), `P_42 mod 3` at an 8-divisor level, and Proposition
+    `prop:two-term-criteria` (order characterization on `pp' <= 40, k <= 4`,
+    degree bound at `(8,9),(3,5),k=1,N=23`, and exact nonvanishing of
+    `[(d - h_{1,3})^1] P_N` on all 8 valuation-tie levels).
 
 The deep target additionally runs `tools/audit_grade10_direct.py`, which
 reconstructs the inverse-Shapovalov coefficients through level ten at the
@@ -92,7 +99,7 @@ worker batch.
 The hashes below identify the submitted audit sources.
 
 ```text
-7863bddf935cf6c2bd87a61c1edad0d46036b24707059042436261e275375ddf  Makefile
+6fb2d72ce51856d939605da5fc97b557b4fa52b50a8144b00765051cf8b98026  Makefile
 8347daed02ebf7b3c3cfa494e97049b7e0ab15b9af00a5addd843ed44381a64a  requirements-audit.txt
 701649d93a313c2853a9ecd4d3106ff1957a97c2ff802e4e57612e9ed6e4c84c  tools/audit_confluent_recursion.py
 240545d5e84d292f360bf8d55d18de0e4dbe28ccbf3526f551fd8db4a1a81f9e  tools/audit_direct_principal_parts.py
@@ -103,6 +110,7 @@ a06deb403aa2becb904c9f437742206974aa2fd3fe35356e78731b4cff24f130  tools/audit_kl
 dab3557d933399d1deced4f28983534f13730378f0c065f4f965fc11fd1822a8  tools/audit_layer_coefficients.py
 440b1a744cae37788512e6db19f41c132e8d42e0a813ad9101b217bc54946c38  tools/audit_low_levels.py
 0a9c8563a0da3f9d7ca9061b923e657fc7ca663f1bfaefefebdf6354ff7b4ca7  tools/audit_minimal_models.py
+06749a0592641c8fde61c6c2842d60aee654d311d17c56fa1ee5579ab66be342  tools/audit_one_screening.py
 4c7eba13ca7b7988107a4bd4ca6191a7a07b37dc579f8a818e47bde2929b0ce1  tools/audit_regular_families.py
 f979190e290b2e57649d01dc6ba0fcaf225ff21fb085e92431c370a2b4f0aeb8  tools/audit_stocco_comparison.py
 29ac19d33c33a7575730e67598d74c2bc86c0fce485cb444122d535b5579e418  tools/audit_top_layer.py

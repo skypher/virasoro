@@ -12,6 +12,7 @@ audit:
 	$(PYTHON) tools/audit_direct_principal_parts.py
 	$(PYTHON) tools/audit_stocco_comparison.py
 	$(PYTHON) tools/audit_top_layer.py
+	$(PYTHON) tools/audit_one_screening.py
 
 audit-deep: audit
 	$(PYTHON) tools/audit_grade10_direct.py
