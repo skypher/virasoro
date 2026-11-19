@@ -1,6 +1,7 @@
 # Handover: torus Virasoro blocks at minimal-model charges
 
-Updated 2026-11-19T15:51Z (23:51 Taiwan time). Paper pin: commit `eb519e08f707926985c3f0b8474f7d3d47cb8579`
+Updated 2026-11-19T15:59Z (23:59 Taiwan time; session wound down cleanly at the 00:00 Taiwan
+timebox). Paper pin: commit `eb519e08f707926985c3f0b8474f7d3d47cb8579`
 (`paper.tex` blob `8bba870ae47db96513a03a59690c39749ccd18c9`, unchanged in `HEAD`; `paper.pdf`
 25 pages, 0 warnings, 0 undefined references, 0 missing characters, 0 overfull hboxes). Results are
 cited by their LaTeX labels; numbers in parentheses refer to the current PDF.
@@ -83,10 +84,20 @@ Citation scope notes from the reviewers:
   with 0 problem flags; all three milestones (`CONF`, `TOP_LAYER`, `TOP1`) and top-node `T` are
   marked `established`.
 
-## 4. Before the paper is shared
+## 4. Open steps, running computations, and how to resume
 
-- **Author reading:** The author should read the final `paper.pdf` (in particular Sections 5–6 and
-  the AI-use disclosure) and, if desired, spot-check the Iohara–Koga Chapter 4–6 pinpoint references
-  against a full copy of `[IK11]`.
-- **Lean:** `lean/` still corresponds to `803f1aa` (`lean/STATUS.md`); Lean formalization is
-  currently untouched unless explicitly requested.
+- **Running computations / watchers:** None. All background computations and `yang_watch.py`
+  watchers have exited cleanly.
+- **Open mathematical steps:** None on the manuscript (`CONF`, `TOP_LAYER`, `TOP1`, top-node `T`
+  assembly, and Section 8 structural proofs all hold independent reviewer `PASS` / scoped `PASS`
+  at `eb519e08`, and `Theta_7(d)` is now symbolically certified in `tools/audit_first_resonances.py`).
+- **Before the paper is shared:**
+  - **Author reading:** The author should read the final `paper.pdf` (in particular Sections 5–6
+    and the AI-use disclosure) and, if desired, spot-check the Iohara–Koga Chapter 4–6 pinpoint
+    references against a full copy of `[IK11]` and optionally replay `make audit` / `make audit-deep`
+    on the updated `tools/audit_first_resonances.py`.
+  - **Lean:** `lean/` still corresponds to `803f1aa` (`lean/STATUS.md`); Lean formalization is
+    untouched unless explicitly requested.
+- **How to resume:** Verify `git status` is clean on `main`, check `receipt.md` (`python3 -I
+  ~/cockpit/tree.py virasoro`), and run `make pdf` / `make audit` / `make arxiv-bundle` if any
+  author-requested edits are made.
