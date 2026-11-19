@@ -23,10 +23,14 @@ with the inverse-Shapovalov definition of the meromorphic Verma-module
 block. For central charges other than 1 and 25, the pole orders are
 explained by the Jantzen filtration: the local Smith exponents of the
 Shapovalov matrix are the dimensions of the Feigin-Fuchs embedding layers,
-which bounds every pole order explicitly at minimal-model charges. The
-Ising specialization includes exact level-seven and level-ten examples,
-both obtained from one two-branch closure formula, including the first
-double pole.
+giving an explicit upper bound `j_N(lambda)` on every pole order at
+minimal-model charges. Evaluating the top Jantzen layer at the degenerate
+external weights `d = h_{1,3}(b)` and `d = h_{1,-3}(b)` via a Feigin-Fuchs
+Fock factorization and `ell`-adic valuation and ratio separation shows that
+this bound `j_N(lambda)` is attained at every minimal-model charge, every
+interior Kac weight, and every level `N >= 1`. The Ising specialization
+includes exact level-seven and level-ten examples, both obtained from one
+two-branch closure formula, including the first double pole.
 
 The result is coefficientwise in the nome and concerns the meromorphic
 Verma-module block. It is not an intrinsic recursion in the specialized

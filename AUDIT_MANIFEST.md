@@ -63,14 +63,22 @@ The ordinary suite runs, in order:
    enumerations of Remark `rem:top-layer-beyond` (one-term windows for `k <= 3`,
    two-term windows for `k <= 6`, with the odd-layer range of Corollary
    `cor:top-layer-sharp`) for all minimal models with `pp' <= 60`.
-10. `tools/audit_one_screening.py` — symbolic verification of Lemma
-    `lem:one-screening` (`M <= 5`) and Proposition `prop:h13-nonvanishing`
-    (`P_M` integrality and `P_M(0,0) = 4^M`), direct Shapovalov comparison
-    (`M <= 6`), `P_42 mod 3` at an 8-divisor level, and Proposition
-    `prop:two-term-criteria` (order characterization on `pp' <= 40, k <= 4`,
-    `ell >= 5` pairing cancellation on `pp' <= 80, k <= 4`, degree bound at
-    `(8,9),(3,5),k=1,N=23`, and exact nonvanishing of `[(d - h_{1,3})^1] P_N`
-    on all 8 valuation-tie levels).
+10. `tools/audit_one_screening.py` — exact verification of Proposition
+    `prop:h13-nonvanishing` (Feigin-Fuchs Fock factorization `G_M =
+    B_M(q_0, 2q_0 - alpha)^T D_M B_M(q_0, alpha)` in `Z[1/2][q_0, alpha]` for
+    `M <= 4`; symbolic `P_M^(1), P_M^(2) in Z[1/2][t, Y]` with
+    `P_M^(2)(0, Y) = P_M^(1)(0, Y)` and `P_M^(nu)(0, 0) = 4^M` for `M <= 5`;
+    collapsed `(u, 1)` recursion against direct Shapovalov inversion for
+    `M <= 6` at both `d_1 = h_{1,3}` and `d_2 = h_{1,-3}`; exact `sl_2`
+    commutation identities for `a', r~, b' <= 5`; `M`-polynomiality of
+    `c_{i,j}^(nu)(M)` of degree `<= 2i + 2j` for `i + j <= 3`, `M <= 8`; exact
+    `ell`-adic valuation at `M = 42` and Lipschitz ratio bound including
+    `e = 1..3` and all 8 former valuation-tie levels of `(8,9),(3,5),k=1`) and
+    Proposition `prop:two-term-criteria` (Case 1 & 3 order characterization at
+    `d_1, d_2` on `pp' <= 40, k <= 4`; Case 2 valuation cancellation for both
+    `ell >= 5` and `ell = 3` on `pp' <= 80, k <= 4`; Case 3 exact
+    `epsilon`-telescoping formula for `T_k` and `ell`-adic separation on
+    `pp' <= 80, k <= 4`).
 
 The deep target additionally runs `tools/audit_grade10_direct.py`, which
 reconstructs the inverse-Shapovalov coefficients through level ten at the
@@ -87,10 +95,11 @@ Taylor coefficients at `d = 0, 1` for `N = 7, 8, 9`.  Next,
 Laurent series in `b^2 - b_*^2` and checks Proposition `prop:layer-coefficients`
 at `d = 0` and `d = 1` for layers up to four at (2,3) and up to three at
 (2,5), (3,4), (2,7).
-Finally it runs `tools/audit_kl_certificate.py` (about 20 minutes), the certificate of
-Corollary `cor:top-layer-sharp`: for `2 <= M <= 40`, at every minimal-model charge, the
-derivatives of `H_M` at `d = 0` and `d = 1` (Lemma `lem:d-derivatives`) never vanish
-together off the Kac weights of level `<= M` (resultants and Groebner reduction over Q).  Interpolation samples at levels eight through ten
+Finally it runs `tools/audit_kl_certificate.py` (about 20 minutes), an
+independent check for `2 <= M <= 40` that at every minimal-model charge the
+derivatives of `H_M` at `d = 0` and `d = 1` (Lemma `lem:d-derivatives`) never
+vanish together off the Kac weights of level `<= M` (resultants and Groebner
+reduction over Q).  Interpolation samples at levels eight through ten
 are distributed among worker processes; set `VIRASORO_AUDIT_JOBS` to control
 their number.  Progress lines report completed and regular samples at every
 worker batch.
@@ -111,7 +120,7 @@ a06deb403aa2becb904c9f437742206974aa2fd3fe35356e78731b4cff24f130  tools/audit_kl
 dab3557d933399d1deced4f28983534f13730378f0c065f4f965fc11fd1822a8  tools/audit_layer_coefficients.py
 440b1a744cae37788512e6db19f41c132e8d42e0a813ad9101b217bc54946c38  tools/audit_low_levels.py
 0a9c8563a0da3f9d7ca9061b923e657fc7ca663f1bfaefefebdf6354ff7b4ca7  tools/audit_minimal_models.py
-c5aac2dbbf5c1707df2108c38d48202c68b66c301ad982b59891078d1613083a  tools/audit_one_screening.py
+bbf9f2dd80e80dfe18f13d4abc34c052229ea7146deb00e889a0276948006d9f  tools/audit_one_screening.py
 4c7eba13ca7b7988107a4bd4ca6191a7a07b37dc579f8a818e47bde2929b0ce1  tools/audit_regular_families.py
 f979190e290b2e57649d01dc6ba0fcaf225ff21fb085e92431c370a2b4f0aeb8  tools/audit_stocco_comparison.py
 29ac19d33c33a7575730e67598d74c2bc86c0fce485cb444122d535b5579e418  tools/audit_top_layer.py

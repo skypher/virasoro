@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.1)  19 NOV 2026 18:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.1)  19 NOV 2026 20:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -818,9 +818,9 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 131
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 181.
+(Font)              <10> on input line 180.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 181.
+(Font)              <7> on input line 180.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
@@ -828,13 +828,13 @@ dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/sha
 re/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-m
 athsy.enc}]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-16.
+15.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [2{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/
 enc/dvips/lm/lm-ts1.enc}]
-Underfull \hbox (badness 7203) in paragraph at lines 312--317
+Underfull \hbox (badness 7203) in paragraph at lines 310--315
 \T1/lmr/m/n/10 and de-fine $\OML/lmm/m/it/10 H[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/
 10 d \OMS/lmsy/m/n/10 j \OML/lmm/m/it/10 q\OT1/lmr/m/n/10 ) = [][](1 \OMS/lmsy/
 m/n/10 ^^@ \OML/lmm/m/it/10 q[]\OT1/lmr/m/n/10 ) [][] \OML/lmm/m/it/10 F[]\OT1/
@@ -845,7 +845,7 @@ m/n/10 )\OML/lmm/m/it/10 q[]$\T1/lmr/m/n/10 .
  []
 
 
-Underfull \hbox (badness 1845) in paragraph at lines 312--317
+Underfull \hbox (badness 1845) in paragraph at lines 310--315
 \T1/lmr/m/n/10 With $[][]\OT1/lmr/m/n/10 (1 \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/
 10 q[]\OT1/lmr/m/n/10 ) = [][] \OML/lmm/m/it/10 ^^Q[]q[]$ \T1/lmr/m/n/10 ($\OML
 /lmm/m/it/10 ^^Q[] \OT1/lmr/m/n/10 = 1$\T1/lmr/m/n/10 , $\OML/lmm/m/it/10 ^^Q[]
@@ -855,7 +855,7 @@ OML/lmm/m/it/10 ^^Q[] \OT1/lmr/m/n/10 = 0$\T1/lmr/m/n/10 ), one has
  []
 
 [3] [4]
-Underfull \hbox (badness 1342) in paragraph at lines 465--473
+Underfull \hbox (badness 1342) in paragraph at lines 463--471
 \OML/lmm/m/it/10 H[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 d \OMS/lmsy/m/n/10 j \OML
 /lmm/m/it/10 q\OT1/lmr/m/n/10 ) = 1 + [][] \OML/lmm/m/it/10 A[]\OT1/lmr/m/n/10 
 (\OML/lmm/m/it/10 d\OT1/lmr/m/n/10 ; \OML/lmm/m/it/10 q\OT1/lmr/m/n/10 )(^^A \O
@@ -866,11 +866,11 @@ ML/lmm/m/it/10 d\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 q[]$\T1/lmr/m/sl/10 , lo-
  []
 
 LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
-477.
+475.
 (/usr/share/texmf/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [5] [6]
-Underfull \hbox (badness 1253) in paragraph at lines 605--608
+Underfull \hbox (badness 1253) in paragraph at lines 603--606
 [][]\T1/lmr/bx/n/10 Lemma 5.4 \T1/lmr/m/it/10 (Jantzen forms and the top co-ef-
 fi-cient)\T1/lmr/bx/n/10 . []\T1/lmr/m/sl/10 Fix $\OT1/lmr/m/n/10 (\OML/lmm/m/i
 t/10 c; h\OT1/lmr/m/n/10 )$\T1/lmr/m/sl/10 . For $\OML/lmm/m/it/10 i \OMS/lmsy/
@@ -878,7 +878,7 @@ m/n/10 ^^U \OT1/lmr/m/n/10 1$ \T1/lmr/m/sl/10 and
  []
 
 
-Underfull \hbox (badness 1281) in paragraph at lines 605--608
+Underfull \hbox (badness 1281) in paragraph at lines 603--606
 \OML/lmm/m/it/10 u; v \OMS/lmsy/m/n/10 2 \OML/lmm/m/it/10 J[]\OT1/lmr/m/n/10 (\
 OML/lmm/m/it/10 c; h\OT1/lmr/m/n/10 )$\T1/lmr/m/sl/10 , choose fam-i-lies $\OML
 /lmm/m/it/10 u\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 )\OML/lmm/m/it
@@ -888,7 +888,7 @@ L/lmm/m/it/10 u; v\OT1/lmr/m/n/10 ) =
  []
 
 [7] [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 848--858
+Underfull \hbox (badness 10000) in paragraph at lines 846--856
 \OT1/lmr/m/n/10 1)\OML/lmm/m/it/10 p[] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 s\
 OT1/lmr/m/n/10 )\OML/lmm/m/it/10 ;  \OT1/lmr/m/n/10 (\OML/lmm/m/it/10 p[] \OMS/
 lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 s\OT1/lmr/m/n/10 )((2\OML/lmm/m/it/10 j \OT1/l
@@ -901,25 +901,8 @@ m/m/it/10 p \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 r\OT1/lmr/m/n/10 )\OML/lmm/m/it/
  r\OT1/lmr/m/n/10 )((2\OML/lmm/m/it/10 j \OT1/lmr/m/n/10 +
  []
 
-[10]
-Underfull \hbox (badness 3219) in paragraph at lines 911--915
-[]$\OML/lmm/m/it/10 N \OT1/lmr/m/n/10 = [](\OML/lmm/m/it/10 `[]; `[]\OT1/lmr/m/
-n/10 )$\T1/lmr/m/sl/10 , and ev-ery two-vector level $[]\OT1/lmr/m/n/10 (\OML/l
-mm/m/it/10 `[]; `[]\OT1/lmr/m/n/10 ) \OML/lmm/m/it/10 < N < `[]$ \T1/lmr/m/sl/1
-0 with
- []
-
-
-Underfull \hbox (badness 1337) in paragraph at lines 963--982
-\OML/lmm/m/it/10 L[] \OT1/lmr/m/n/10 = [] [][](\OML/lmm/m/it/10 p[]u \OT1/lmr/m
-/n/10 + \OML/lmm/m/it/10 pv\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 =\OT1/lmr/m/n/10 (
-\OML/lmm/m/it/10 C[] \OMS/lmsy/m/n/10 ^^@ \OT1/lmr/m/n/10 (\OML/lmm/m/it/10 p[]
-u \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 pv\OT1/lmr/m/n/10 )[])$ \T1/lmr/m/n/10 sha
-re the com-mon mod-u-lus $\OML/lmm/m/it/10 C[] \OT1/lmr/m/n/10 =
- []
-
-[11] [12] [13]
-Underfull \hbox (badness 1122) in paragraph at lines 1136--1155
+[10] [11] [12]
+Underfull \hbox (badness 1122) in paragraph at lines 1088--1107
 \T1/lmr/m/n/10 equals $\OT1/lmr/m/n/10 1 \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 
 d$\T1/lmr/m/n/10 . Hence ev-ery $\OMS/lmsy/m/n/10 R[]$ \T1/lmr/m/n/10 van-ishes
  at $\OML/lmm/m/it/10 d \OT1/lmr/m/n/10 = 0\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 1
@@ -928,7 +911,7 @@ $\T1/lmr/m/n/10 , and com-par-i-son with $\OMS/lmsy/m/n/10 A[]$\T1/lmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 1412) in paragraph at lines 1136--1155
+Underfull \hbox (badness 1412) in paragraph at lines 1088--1107
 \OML/lmm/m/it/10 @[]\OMS/lmsy/m/n/10 R[]j[] \OT1/lmr/m/n/10 = \OMS/lmsy/m/n/10 
 ^^@\OML/lmm/m/it/10 '\OT1/lmr/m/n/10 (\OMS/lmsy/m/n/10 ^^@\OML/lmm/m/it/10 r; s
 \OT1/lmr/m/n/10 )\OML/lmm/m/it/10 =\OT1/lmr/m/n/10 (2\OML/lmm/m/it/10 '\OT1/lmr
@@ -941,69 +924,380 @@ m/n/10 (\OML/lmm/m/it/10 p; s\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 '\OT1/lmr/m/n
 
  []
 
-[14] [15]
-Underfull \hbox (badness 5622) in paragraph at lines 1323--1336
-\T1/lmr/m/n/10 Since $\OT1/lmr/m/n/10 1 \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 q
-[]W=\OT1/lmr/m/n/10 (1 \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 q[]\OT1/lmr/m/n/10
- )[] = (1 \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 q[]z\OT1/lmr/m/n/10 )(1 \OMS/lm
-sy/m/n/10 ^^@ \OML/lmm/m/it/10 q[]z[]\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 =\OT1/lm
-r/m/n/10 (1 \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 q[]\OT1/lmr/m/n/10 )[]$\T1/lm
-r/m/n/10 , we have $\OML/lmm/m/it/10 F\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 z\OT1/l
-mr/m/n/10 ; \OML/lmm/m/it/10 q\OT1/lmr/m/n/10 ) = (1 \OMS/lmsy/m/n/10 ^^@
+[13]
+Underfull \hbox (badness 1776) in paragraph at lines 1219--1224
+\OML/lmm/m/it/10 a \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 v[]\OT1/lmr/m/n/10 (\OML/
+lmm/m/it/10 p[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^^U \OT1/lmr/m/n/10 1$\T1/lmr
+/m/sl/10 . If $\OML/lmm/m/it/10 M \OMS/lmsy/m/n/10 ^^U \OT1/lmr/m/n/10 1$ \T1/l
+mr/m/sl/10 and $\OML/lmm/m/it/10 ^^V \OT1/lmr/m/n/10 = (\OML/lmm/m/it/10 m[] \O
+MS/lmsy/m/n/10 ^^@ \OT1/lmr/m/n/10 (\OML/lmm/m/it/10 p[] \OMS/lmsy/m/n/10 ^^@ \
+OML/lmm/m/it/10 p\OT1/lmr/m/n/10 )[])\OML/lmm/m/it/10 =\OT1/lmr/m/n/10 (4\OML/l
+mm/m/it/10 pp[]\OT1/lmr/m/n/10 )$ \T1/lmr/m/sl/10 ($\OML/lmm/m/it/10 m \OMS/lms
+y/m/n/10 2 \U/msb/m/n/10 Z$\T1/lmr/m/sl/10 ) sat-isfy
+ []
+
+[14]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 130
+8.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+Underfull \hbox (badness 3907) in paragraph at lines 1243--1321
+\OML/lmm/m/it/10 D[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 Y\OT1/lmr/m/n/10 ) + \OML
+/lmm/m/it/10 tG[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 t; Y\OT1/lmr/m/n/10 ) \OMS/l
+msy/m/n/10 2 [][]\OT1/lmr/m/n/10 (\U/msb/m/n/10 Z\OT1/lmr/m/n/10 [[]][\OML/lmm/
+m/it/10 t; Y\OT1/lmr/m/n/10 ])$\T1/lmr/m/n/10 , where $\OML/lmm/m/it/10 D[]\OT1
+/lmr/m/n/10 (\OML/lmm/m/it/10 Y\OT1/lmr/m/n/10 ) = [](\OML/lmm/m/it/10 K[]Y[]\O
+T1/lmr/m/n/10 )$ \T1/lmr/m/n/10 and $\OML/lmm/m/it/10 K[] \OT1/lmr/m/n/10 =
+ []
+
+
+Underfull \hbox (badness 2617) in paragraph at lines 1243--1321
+\OML/lmm/m/it/10 M\OT1/lmr/m/n/10 !(2\OML/lmm/m/it/10 Y\OT1/lmr/m/n/10 )[] [][]
+ \OML/lmm/m/it/10 ^^Q[] [][]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 K[]Y[]\OT1/lmr/m/
+n/10 )[][](0\OML/lmm/m/it/10 ; Y\OT1/lmr/m/n/10 )[]$\T1/lmr/m/n/10 . Only $\OT1
+/lmr/m/n/10 (\OML/lmm/m/it/10 s; ^^U\OT1/lmr/m/n/10 ) = (0\OML/lmm/m/it/10 ; \O
+T1/lmr/m/n/10 (1[]))$ \T1/lmr/m/n/10 has
+ []
+
+
+Underfull \hbox (badness 1242) in paragraph at lines 1243--1321
+\T1/lmr/m/n/10 of Lemma [][]5.7[][]), giv-ing $\OML/lmm/m/it/10 P[]\OT1/lmr/m/n
+/10 (0\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 0) = 4[]$\T1/lmr/m/n/10 . Also, $[] \O
+ML/lmm/m/it/10 G[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 c\OT1/lmr/m/n/10 (\OML/lmm/
+m/it/10 b\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 ^^A) = \OML/lmm/m/
+it/10 K[] [][]\OT1/lmr/m/n/10 (^^A \OMS/lmsy/m/n/10 ^^@
+ []
+
+
+Underfull \hbox (badness 1052) in paragraph at lines 1243--1321
+\OML/lmm/m/it/10 h[]\OT1/lmr/m/n/10 )[]$ \T1/lmr/m/n/10 with $\OML/lmm/m/it/10 
+K[] \OT1/lmr/m/n/10 = [][] \OML/lmm/m/it/10 K[]$\T1/lmr/m/n/10 ; by Cramer's ru
+le and monic poly-no-mial di-vi-
+ []
+
+
+Underfull \hbox (badness 1142) in paragraph at lines 1243--1321
+\T1/lmr/m/n/10 berg Fock mod-ule $\OMS/lmsy/m/n/10 F\OT1/lmr/m/n/10 (\OML/lmm/m
+/it/10 \OT1/lmr/m/n/10 )$ \T1/lmr/m/n/10 ($\OT1/lmr/m/n/10 [\OML/lmm/m/it/10 a
+[]; a[]\OT1/lmr/m/n/10 ] = \OML/lmm/m/it/10 m^^N[]$\T1/lmr/m/n/10 , $\OML/lmm/m
+/it/10 a[]\OMS/lmsy/m/n/10 j\OML/lmm/m/it/10 \OMS/lmsy/m/n/10 i \OT1/lmr/m/n/1
+0 = \OML/lmm/m/it/10 \OMS/lmsy/m/n/10 j\OML/lmm/m/it/10 \OMS/lmsy/m/n/10 i$\T
+1/lmr/m/n/10 ), the Feigin--Fuchs op-
+ []
+
+
+Underfull \hbox (badness 2310) in paragraph at lines 1243--1321
+\T1/lmr/m/n/10 er-a-tors $\OML/lmm/m/it/10 L[] \OT1/lmr/m/n/10 = [] [][] []\OML
+/lmm/m/it/10 a[]a[][] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 q[]\OT1/lmr/m/n/10 
+(\OML/lmm/m/it/10 n \OT1/lmr/m/n/10 + 1)\OML/lmm/m/it/10 a[]$ \T1/lmr/m/n/10 gi
+ve a Vi-ra-soro ac-tion of charge $\OML/lmm/m/it/10 c\OT1/lmr/m/n/10 (\OML/lmm/
+m/it/10 b\OT1/lmr/m/n/10 )$
+ []
+
+
+Underfull \hbox (badness 1348) in paragraph at lines 1243--1321
+\OML/lmm/m/it/10 B[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 q[]; \OT1/lmr/m/n/10 ) \
+OMS/lmsy/m/n/10 2 [][]\OT1/lmr/m/n/10 (\U/msb/m/n/10 Z\OT1/lmr/m/n/10 [[]][\OML
+/lmm/m/it/10 q[]; \OT1/lmr/m/n/10 ])$ \T1/lmr/m/n/10 ex-presses $\OML/lmm/m/it
+/10 L[]\OMS/lmsy/m/n/10 j\OML/lmm/m/it/10 \OMS/lmsy/m/n/10 i$ \T1/lmr/m/n/10 i
+n the ba-sis $\OML/lmm/m/it/10 a[]\OMS/lmsy/m/n/10 j\OML/lmm/m/it/10 \OMS/lmsy
+/m/n/10 i$ \T1/lmr/m/n/10 and $\OML/lmm/m/it/10 D[] \OT1/lmr/m/n/10 =
+ []
+
+
+Underfull \hbox (badness 3128) in paragraph at lines 1243--1321
+[] \OML/lmm/m/it/10 B[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 q[]; \OT1/lmr/m/n/10 2
+\OML/lmm/m/it/10 q[] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 \OT1/lmr/m/n/10 ) [
+] \OML/lmm/m/it/10 B[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 q[]; \OT1/lmr/m/n/10 )
+ = \OMS/lmsy/m/n/10 ^^F\OT1/lmr/m/n/10 2[] [][](^^A \OMS/lmsy/m/n/10 ^^@ \OML/l
+mm/m/it/10 h[]\OT1/lmr/m/n/10 )[]$\T1/lmr/m/n/10 , whose lead-ing
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 1322--1363
+[]\T1/lmr/m/n/10 (ii) Fac-tor $[][]\OT1/lmr/m/n/10 (2\OML/lmm/m/it/10 Y \OT1/lm
+r/m/n/10 + (\OML/lmm/m/it/10 u \OMS/lmsy/m/n/10 ^^@ \OT1/lmr/m/n/10 1)\OML/lmm/
+m/it/10 t[] \OT1/lmr/m/n/10 + []\OML/lmm/m/it/10 t[]\OT1/lmr/m/n/10 ) = (2\OML/
+lmm/m/it/10 Y\OT1/lmr/m/n/10 )[] [][](1 + [][] + [][])$\T1/lmr/m/n/10 .
+ []
+
+
+Underfull \hbox (badness 1337) in paragraph at lines 1322--1363
+\T1/lmr/m/n/10 all $\OML/lmm/m/it/10 M \OMS/lmsy/m/n/10 ^^U \OT1/lmr/m/n/10 0$ 
+\T1/lmr/m/n/10 (since $[][]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 u \OMS/lmsy/m/n/10
+ ^^@ \OT1/lmr/m/n/10 1)$ \T1/lmr/m/n/10 and $[][]\OT1/lmr/m/n/10 (\OML/lmm/m/it
+/10 u[] \OMS/lmsy/m/n/10 ^^@ \OT1/lmr/m/n/10 1)$ \T1/lmr/m/n/10 have de-grees $
+\OT1/lmr/m/n/10 2$ \T1/lmr/m/n/10 and $\OT1/lmr/m/n/10 3 \OMS/lmsy/m/n/10 ^^T \
+OT1/lmr/m/n/10 4$ \T1/lmr/m/n/10 and
+ []
+
+
+Underfull \hbox (badness 3312) in paragraph at lines 1322--1363
+\T1/lmr/m/n/10 van-ish at $\OML/lmm/m/it/10 M \OT1/lmr/m/n/10 = 0$\T1/lmr/m/n/1
+0 ). With $\OML/lmm/m/it/10 R[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 t; Y\OT1/lmr/m
+/n/10 ) := (\OML/lmm/m/it/10 M\OT1/lmr/m/n/10 !\OML/lmm/m/it/10 =\OT1/lmr/m/n/1
+0 2[])\OML/lmm/m/it/10 Y[]F[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 c\OT1/lmr/m/n/10
+ (\OML/lmm/m/it/10 b\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 ; Y=t[]; \OMS/lmsy/m/n/10
+ ^^@\OT1/lmr/m/n/10 2\OML/lmm/m/it/10 =t \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 ^^P
+\OT1/lmr/m/n/10 )$ \T1/lmr/m/n/10 ($\OML/lmm/m/it/10 ^^P \OMS/lmsy/m/n/10 2
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1322--1363
+\OMS/lmsy/m/n/10 f^^@\OT1/lmr/m/n/10 1\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 2\OMS/
+lmsy/m/n/10 g$\T1/lmr/m/n/10 ), $\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 M\OT1/lmr/m/
+n/10 !\OML/lmm/m/it/10 =\OT1/lmr/m/n/10 2[])\OML/lmm/m/it/10 Y[]H[] \OT1/lmr/m/
+n/10 = [][] \OML/lmm/m/it/10 ^^Q[] M\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 M \OMS/lm
+sy/m/n/10 ^^@ \OT1/lmr/m/n/10 1) [] (\OML/lmm/m/it/10 M \OMS/lmsy/m/n/10 ^^@ \O
+ML/lmm/m/it/10 s \OT1/lmr/m/n/10 + 1)(\OML/lmm/m/it/10 Y=\OT1/lmr/m/n/10 2)[]\O
+ML/lmm/m/it/10 R[]$\T1/lmr/m/n/10 , where
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1322--1363
+[][][][]\OT1/lmr/m/n/10 (1 + [])[][]\OMS/lmsy/m/n/10 h\OT1/lmr/m/n/10 ^^A\OMS/l
+msy/m/n/10 j[][]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 L[]\OT1/lmr/m/n/10 )[](\OML/l
+mm/m/it/10 L[]L[]\OT1/lmr/m/n/10 )[]\OML/lmm/m/it/10 L[]\OMS/lmsy/m/n/10 j\OT1/
+lmr/m/n/10 ^^A\OMS/lmsy/m/n/10 i$\T1/lmr/m/n/10 .
+ []
+
+
+Underfull \hbox (badness 2384) in paragraph at lines 1370--1410
+\T1/lmr/m/n/10 yields a sum over $\OML/lmm/m/it/10 p[]; q[]; p[]; q[]; k[] \OMS
+/lmsy/m/n/10 ^^U \OT1/lmr/m/n/10 0$ \T1/lmr/m/n/10 (putting $\OML/lmm/m/it/10 p
+[] \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 p[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 p[
+]$\T1/lmr/m/n/10 , $\OML/lmm/m/it/10 q[] \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 q[]
+ \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 q[]$\T1/lmr/m/n/10 , $\OML/lmm/m/it/10 s[] 
+\OT1/lmr/m/n/10 =
+ []
+
+
+Underfull \hbox (badness 1314) in paragraph at lines 1370--1410
+\OML/lmm/m/it/10 a[] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 k[] \OMS/lmsy/m/n/10
+ ^^@ \OML/lmm/m/it/10 p[]$\T1/lmr/m/n/10 , $\OML/lmm/m/it/10 s[] \OT1/lmr/m/n/1
+0 = \OML/lmm/m/it/10 a[] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 k[] \OMS/lmsy/m/
+n/10 ^^@ \OML/lmm/m/it/10 q[]$\T1/lmr/m/n/10 ) of the prod-uct of $[][][]$, $[]
+[]\OT1/lmr/m/n/10 (2\OML/lmm/m/it/10 Y \OT1/lmr/m/n/10 +
+ []
+
+
+Underfull \hbox (badness 2057) in paragraph at lines 1370--1410
+\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 M \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 c[]\OT1/
+lmr/m/n/10 )\OML/lmm/m/it/10 t[]\OT1/lmr/m/n/10 )$\T1/lmr/m/n/10 , $\OT1/lmr/m/
+n/10 (\OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n/10 2)[] [][](1 + \OML/lmm/m/it/10 c[]t\O
+T1/lmr/m/n/10 ) [][](1 + \OML/lmm/m/it/10 c[]t\OT1/lmr/m/n/10 )$ \T1/lmr/m/n/10
+ (where $\OML/lmm/m/it/10 c[]; c[]$ \T1/lmr/m/n/10 are affine-linear
+ []
+
+
+Underfull \hbox (badness 1953) in paragraph at lines 1370--1410
+\OML/lmm/m/it/10 w[]=\OT1/lmr/m/n/10 2 + \OML/lmm/m/it/10 k[] \OT1/lmr/m/n/10 +
+ \OML/lmm/m/it/10 p[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 q[]$ \T1/lmr/m/n/10 an
+d $\OT1/lmr/m/n/10 2^^A\OML/lmm/m/it/10 i[] \OT1/lmr/m/n/10 + 2^^A\OML/lmm/m/it
+/10 j[] \OMS/lmsy/m/n/10 ^^@ \OT1/lmr/m/n/10 (\OML/lmm/m/it/10 w[] \OT1/lmr/m/n
+/10 + \OML/lmm/m/it/10 p[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 q[] \OT1/lmr/m/n/
+10 + 2\OML/lmm/m/it/10 k[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^^U \OML/lmm/m/it/
+10 w[] \OT1/lmr/m/n/10 + 2\OML/lmm/m/it/10 `\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 ^
+^V[]\OT1/lmr/m/n/10 ) + \OML/lmm/m/it/10 p[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10
+ q[] \OMS/lmsy/m/n/10 ^^@
+ []
+
+
+Underfull \hbox (badness 2478) in paragraph at lines 1370--1410
+\OT1/lmr/m/n/10 2(\OML/lmm/m/it/10 d[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 d[] \
+OT1/lmr/m/n/10 + \OML/lmm/m/it/10 d[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^^U \OT
+1/lmr/m/n/10 0$\T1/lmr/m/n/10 . Sum-ming yields $\OML/lmm/m/it/10 i \OT1/lmr/m/
+n/10 + \OML/lmm/m/it/10 j \OMS/lmsy/m/n/10 ^^U \OML/lmm/m/it/10 w[]=\OT1/lmr/m/
+n/10 2 + \OML/lmm/m/it/10 k[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 p[] \OT1/lmr/m
+/n/10 + \OML/lmm/m/it/10 q[] \OT1/lmr/m/n/10 + [] [][] \OML/lmm/m/it/10 p[]$
  []
 
 [16]
-Underfull \hbox (badness 1189) in paragraph at lines 1400--1415
-[]\T1/lmr/m/n/10 Now spe-cial-ize to $\OML/lmm/m/it/10 t[] \OT1/lmr/m/n/10 = \O
-MS/lmsy/m/n/10 ^^@\OML/lmm/m/it/10 p[]=p$ \T1/lmr/m/n/10 and $\OT1/lmr/m/n/10 ^
-^A = \OML/lmm/m/it/10 ^^V$\T1/lmr/m/n/10 . By the Kac de-ter-mi-nant for-mula,
+Underfull \hbox (badness 1331) in paragraph at lines 1411--1444
+[]\T1/lmr/m/n/10 (iii) Spe-cial-ize to $\OML/lmm/m/it/10 t[] \OT1/lmr/m/n/10 = 
+\OMS/lmsy/m/n/10 ^^@\OML/lmm/m/it/10 p[]=p$ \T1/lmr/m/n/10 and $\OT1/lmr/m/n/10
+ ^^A = \OML/lmm/m/it/10 ^^V$\T1/lmr/m/n/10 . By the Kac de-ter-mi-nant for-mula
+,
  []
 
 
-Underfull \hbox (badness 1577) in paragraph at lines 1400--1415
-\OML/lmm/m/it/10 P[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 t[]; Y[]\OT1/lmr/m/n/10 )
- \OMS/lmsy/m/n/10 ^^Q \OT1/lmr/m/n/10 4[] \OMS/lmsy/m/n/10 6^^Q \OT1/lmr/m/n/10
- 0([]\OML/lmm/m/it/10 `\U/msb/m/n/10 Z[]\OT1/lmr/m/n/10 )$\T1/lmr/m/n/10 , so $
-\OML/lmm/m/it/10 v[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 P[]\OT1/lmr/m/n/10 (\OML/
-lmm/m/it/10 t[]; Y[]\OT1/lmr/m/n/10 )) = 0$ \T1/lmr/m/n/10 and $\OML/lmm/m/it/1
-0 H[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 c[]; ^^V; h[]\OT1/lmr/m/n/10 (\OML/lmm/m
-/it/10 b[]\OT1/lmr/m/n/10 )) \OMS/lmsy/m/n/10 6\OT1/lmr/m/n/10 = 0$\T1/lmr/m/n/
-10 .
+Underfull \hbox (badness 1394) in paragraph at lines 1456--1475
+[]\T1/lmr/m/n/10 By $\OML/lmm/m/it/10 b \OMS/lmsy/m/n/10 7! \OML/lmm/m/it/10 b[
+]$ \T1/lmr/m/n/10 (swap-ping $\OML/lmm/m/it/10 p \OMS/lmsy/m/n/10 $ \OML/lmm/m/
+it/10 p[]$\T1/lmr/m/n/10 , $\OML/lmm/m/it/10 r \OMS/lmsy/m/n/10 $ \OML/lmm/m/it
+/10 s$\T1/lmr/m/n/10 ), as-sume an odd prime $\OML/lmm/m/it/10 ` \OMS/lmsy/m/n/
+10 j \OML/lmm/m/it/10 p[]$ \T1/lmr/m/n/10 with
  []
 
 
-Underfull \vbox (badness 1527) has occurred while \output is active []
-
- [17]
-Underfull \hbox (badness 1057) in paragraph at lines 1456--1467
-[]\T1/lmr/m/n/10 By Lemma [][]6.6[][], Lemma [][]5.5[][], and unique-ness of si
-n-gu-lar vec-tors of a given
+Underfull \hbox (badness 2042) in paragraph at lines 1456--1475
+\OMS/lmsy/m/n/10 P[]$\T1/lmr/m/n/10 , and for $\OML/lmm/m/it/10 k \OT1/lmr/m/n/
+10 = 2\OML/lmm/m/it/10 j$\T1/lmr/m/n/10 , $\OML/lmm/m/it/10 ^^\[] \OT1/lmr/m/n/
+10 = \OMS/lmsy/m/n/10 P[] P[]$\T1/lmr/m/n/10 , $\OML/lmm/m/it/10 ^^\[] \OT1/lmr
+/m/n/10 =
  []
 
 
-Underfull \hbox (badness 3333) in paragraph at lines 1487--1520
-\OT1/lmr/m/n/10 [(\OML/lmm/m/it/10 d \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 d[]\
-OT1/lmr/m/n/10 )[]]\OML/lmm/m/it/10 ^^\[] \OT1/lmr/m/n/10 = (4\OML/lmm/m/it/10 
-pp[]\OT1/lmr/m/n/10 )[] [][](\OML/lmm/m/it/10 x[] \OMS/lmsy/m/n/10 ^^@ \OML/lmm
-/m/it/10 x[]\OT1/lmr/m/n/10 )[]$ \T1/lmr/m/n/10 and $\OT1/lmr/m/n/10 [\OML/lmm/
-m/it/10 d[]\OT1/lmr/m/n/10 ]\OML/lmm/m/it/10 ^^\[] \OT1/lmr/m/n/10 = (\OMS/lmsy
-/m/n/10 ^^@\OT1/lmr/m/n/10 1)[](4\OML/lmm/m/it/10 pp[]\OT1/lmr/m/n/10 )[]
+Underfull \hbox (badness 2409) in paragraph at lines 1456--1475
+\OMS/lmsy/m/n/10 P[] P[]$\T1/lmr/m/n/10 , where $\OMS/lmsy/m/n/10 P[]\OT1/lmr/m
+/n/10 (\OML/lmm/m/it/10 b[]; d\OT1/lmr/m/n/10 ) = [][](\OML/lmm/m/it/10 d \OMS/
+lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 d[]\OT1/lmr/m/n/10 )(\OML/lmm/m/it/10 d \OMS/l
+msy/m/n/10 ^^@ \OML/lmm/m/it/10 d[]\OT1/lmr/m/n/10 )$
  []
 
 
-Underfull \hbox (badness 5203) in paragraph at lines 1487--1520
-\OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 v[]\OT1/lmr/m/n/10 (\OML/
-lmm/m/it/10 M[]\OT1/lmr/m/n/10 !) \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 v[]\OT1
-/lmr/m/n/10 (\OML/lmm/m/it/10 M[]\OT1/lmr/m/n/10 !)) \OMS/lmsy/m/n/10 ^^@ \OT1/
-lmr/m/n/10 (\OML/lmm/m/it/10 M[] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 M[]\OT1/
-lmr/m/n/10 )\OML/lmm/m/it/10 v[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 p[]\OT1/lmr/m
-/n/10 )$\T1/lmr/m/n/10 . Be-cause $\OML/lmm/m/it/10 M[] \OMS/lmsy/m/n/10 ^^@ \O
-ML/lmm/m/it/10 M[] \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 `[] \OMS/lmsy/m/n/10 ^^@ 
-\OML/lmm/m/it/10 `[]$ \T1/lmr/m/n/10 equals
+Underfull \hbox (badness 2261) in paragraph at lines 1476--1493
+\OML/lmm/m/it/10 e[] \OT1/lmr/m/n/10 = 2\OML/lmm/m/it/10 j \OT1/lmr/m/n/10 + \O
+T1/lmr/bx/n/10 1[]$ \T1/lmr/m/n/10 for $\OML/lmm/m/it/10 k \OT1/lmr/m/n/10 = 2\
+OML/lmm/m/it/10 j \OT1/lmr/m/n/10 + 1$\T1/lmr/m/n/10 , and $\OML/lmm/m/it/10 e[
+] \OT1/lmr/m/n/10 = 2\OML/lmm/m/it/10 j \OMS/lmsy/m/n/10 ^^@ \OT1/lmr/m/n/10 1 
+\OMS/lmsy/m/n/10 ^^@ \OT1/lmr/bx/n/10 1[] \OT1/lmr/m/n/10 + \OT1/lmr/bx/n/10 1[
+] \OT1/lmr/m/n/10 + \OT1/lmr/bx/n/10 1[]$\T1/lmr/m/n/10 , $\OML/lmm/m/it/10 e[]
+ \OT1/lmr/m/n/10 =
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 1494--1536
+\OML/lmm/m/it/10 V[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 N\OT1/lmr/m/n/10 ) := [][
+] \OML/lmm/m/it/10 m[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 )\OML/
+lmm/m/it/10 v[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[] \OMS/lmsy/m/n/10 ^^@ \OML/
+lmm/m/it/10 x[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^^@ [][] \OML/lmm/m/it/10 m[]
+\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 v[]\OT1/lm
+r/m/n/10 (\OML/lmm/m/it/10 x[] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 x[]\OT1/lm
+r/m/n/10 ) \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 v[]\OT1/lmr/m/n/10 (\OML/lmm/m
+/it/10 M[]\OT1/lmr/m/n/10 !) \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 M[]a \OMS/lm
+sy/m/n/10 ^^@
+ []
+
+
+Underfull \hbox (badness 2846) in paragraph at lines 1494--1536
+\OT1/lmr/m/n/10 3$\T1/lmr/m/n/10 -divisible fac-tors $\OML/lmm/m/it/10 p[]\OT1/
+lmr/m/n/10 (1 + \OML/lmm/m/it/10 a[]\OT1/lmr/m/n/10 ) + 6\OML/lmm/m/it/10 jp$\T
+1/lmr/m/n/10 , $\OML/lmm/m/it/10 p[]\OT1/lmr/m/n/10 (1 \OMS/lmsy/m/n/10 ^^@ \OM
+L/lmm/m/it/10 a[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^^@ \OT1/lmr/m/n/10 6(\OML/
+lmm/m/it/10 j \OT1/lmr/m/n/10 + 1)\OML/lmm/m/it/10 p$\T1/lmr/m/n/10 , $\OML/lmm
+/m/it/10 p[]\OT1/lmr/m/n/10 (1 + \OML/lmm/m/it/10 a[]\OT1/lmr/m/n/10 ) \OMS/lms
+y/m/n/10 ^^@ \OT1/lmr/m/n/10 6(\OML/lmm/m/it/10 j \OT1/lmr/m/n/10 + 1)\OML/lmm/
+m/it/10 p$\T1/lmr/m/n/10 , and
+ []
+
+
+Underfull \hbox (badness 1406) in paragraph at lines 1494--1536
+\T1/lmr/m/n/10 divisible fac-tors of $\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[] \OM
+S/lmsy/m/n/10 ^^@ \OT1/lmr/m/n/10 (\OML/lmm/m/it/10 p[]a[] \OT1/lmr/m/n/10 + \O
+ML/lmm/m/it/10 pl\OT1/lmr/m/n/10 )[])(\OML/lmm/m/it/10 x[] \OMS/lmsy/m/n/10 ^^@
+ \OT1/lmr/m/n/10 (\OML/lmm/m/it/10 p[]a[] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10
+ pl\OT1/lmr/m/n/10 )[])$ \T1/lmr/m/n/10 are the first and fourth (at
+ []
+
+
+Underfull \hbox (badness 1859) in paragraph at lines 1537--1592
+\T1/lmr/m/n/10 pos-i-tive $\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 a[]; l\OT1/lmr/m/n
+/10 )$ \T1/lmr/m/n/10 yields $\OT1/lmr/m/n/10 (1\OML/lmm/m/it/10 ; \OT1/lmr/m/n
+/10 3)$\T1/lmr/m/n/10 , $\OT1/lmr/m/n/10 (1 + 2\OML/lmm/m/it/10 mp; \OT1/lmr/m/
+n/10 2\OML/lmm/m/it/10 mp[] \OMS/lmsy/m/n/10 ^^@ \OT1/lmr/m/n/10 3)$\T1/lmr/m/n
+/10 , and $\OT1/lmr/m/n/10 (2\OML/lmm/m/it/10 mp \OMS/lmsy/m/n/10 ^^@ \OT1/lmr/
+m/n/10 1\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10 2\OML/lmm/m/it/10 mp[] \OT1/lmr/m/n/
+10 + 3)$ \T1/lmr/m/n/10 ($\OML/lmm/m/it/10 m \OMS/lmsy/m/n/10 ^^U \OT1/lmr/m/n/
+10 1$\T1/lmr/m/n/10 );
+ []
+
+
+Underfull \hbox (badness 1158) in paragraph at lines 1537--1592
+\T1/lmr/m/n/10 count-ing on $\OML/lmm/m/it/10 ^^\[]$ \T1/lmr/m/n/10 as in Case 
+1 gives $[][] \OML/lmm/m/it/10 ^^\[] \OT1/lmr/m/n/10 = [][] \OML/lmm/m/it/10 ^^
+\[] \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 k$\T1/lmr/m/n/10 . With $\OML/lmm/m/it/1
+0 x[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 "\OT1/lmr/m/n/10 ) =
+ []
+
+
+Underfull \hbox (badness 2158) in paragraph at lines 1537--1592
+\OML/lmm/m/it/10 a[]\OMS/lmsy/m/n/10 g$ \T1/lmr/m/n/10 runs once over $\OMS/lms
+y/m/n/10 f\OT1/lmr/m/n/10 0\OML/lmm/m/it/10 ; \OMS/lmsy/m/n/10 ^^F\OT1/lmr/m/n/
+10 2\OML/lmm/m/it/10 ; [] ; \OMS/lmsy/m/n/10 ^^F\OT1/lmr/m/n/10 2(\OML/lmm/m/it
+/10 R \OMS/lmsy/m/n/10 ^^@ \OT1/lmr/m/n/10 1)\OML/lmm/m/it/10 ; \OT1/lmr/m/n/10
+ 2\OML/lmm/m/it/10 R\OMS/lmsy/m/n/10 g$\T1/lmr/m/n/10 , so $\OMS/lmsy/m/n/10 P[
+]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 b[]; d[]\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 =\
+OMS/lmsy/m/n/10 P[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 b[]; d[]\OT1/lmr/m/n/10 ) 
+=
+ []
+
+
+Underfull \hbox (badness 1527) in paragraph at lines 1537--1592
+\OMS/lmsy/m/n/10 f\OT1/lmr/m/n/10 0\OML/lmm/m/it/10 ; \OMS/lmsy/m/n/10 ^^F\OML/
+lmm/m/it/10 p\OMS/lmsy/m/n/10 g$ \T1/lmr/m/n/10 (since $\OML/lmm/m/it/10 p \U/m
+sb/m/n/10 - \OML/lmm/m/it/10 r$\T1/lmr/m/n/10 , hence $\OML/lmm/m/it/10 p \U/ms
+b/m/n/10 - \OT1/lmr/m/n/10 (\OML/lmm/m/it/10 R[]p[] \OMS/lmsy/m/n/10 ^^@ \OML/l
+mm/m/it/10 S[]p\OT1/lmr/m/n/10 )$\T1/lmr/m/n/10 ) and $\OML/lmm/m/it/10 R[]p[] 
+\OT1/lmr/m/n/10 + \OML/lmm/m/it/10 S[]p \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 m[]$
+\T1/lmr/m/n/10 , so the nu-
+ []
+
+
+Underfull \hbox (badness 1540) in paragraph at lines 1537--1592
+\T1/lmr/m/n/10 mer-a-tor triple has ra-tio $\OT1/lmr/m/n/10 (\OMS/lmsy/m/n/10 ^
+^@\OT1/lmr/m/n/10 1)[] = \OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n/10 1$ \T1/lmr/m/n/10 
+and $\OML/lmm/m/it/10 T[] \OT1/lmr/m/n/10 := ([(\OML/lmm/m/it/10 d \OMS/lmsy/m/
+n/10 ^^@ \OML/lmm/m/it/10 d[]\OT1/lmr/m/n/10 )[]]\OML/lmm/m/it/10 ^^\[]=\OT1/lm
+r/m/n/10 [(\OML/lmm/m/it/10 d \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 d[]\OT1/lmr
+/m/n/10 )[]]\OML/lmm/m/it/10 ^^\[]\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 =\OT1/lmr/m
+/n/10 ([(\OML/lmm/m/it/10 d \OMS/lmsy/m/n/10 ^^@
+ []
+
+
+Underfull \hbox (badness 4713) in paragraph at lines 1537--1592
+\OML/lmm/m/it/10 d[]\OT1/lmr/m/n/10 )[]]\OML/lmm/m/it/10 ^^\[]=\OT1/lmr/m/n/10 
+[(\OML/lmm/m/it/10 d \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 d[]\OT1/lmr/m/n/10 )
+[]]\OML/lmm/m/it/10 ^^\[]\OT1/lmr/m/n/10 ) = \OMS/lmsy/m/n/10 ^^@\OML/lmm/m/it/
+10 m[]\OT1/lmr/m/n/10 ((\OML/lmm/m/it/10 m[]\OT1/lmr/m/n/10 )[] \OMS/lmsy/m/n/1
+0 ^^@ \OML/lmm/m/it/10 p[]\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 =\OT1/lmr/m/n/10 (\
+OML/lmm/m/it/10 m[]\OT1/lmr/m/n/10 ((\OML/lmm/m/it/10 m[]\OT1/lmr/m/n/10 )[] \O
+MS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 p[]\OT1/lmr/m/n/10 ))$\T1/lmr/m/n/10 . Us-i
+ng $\OML/lmm/m/it/10 m[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 m[] \OT1/lmr/m/n/10
+ =
+ []
+
+
+Underfull \hbox (badness 3557) in paragraph at lines 1537--1592
+\T1/lmr/m/n/10 hence ei-ther $\OML/lmm/m/it/10 v[]\OT1/lmr/m/n/10 (\OML/lmm/m/i
+t/10 T[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 6\OT1/lmr/m/n/10 = 0$ \T1/lmr/m/n/10
+ or $\OML/lmm/m/it/10 v[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 T[] \OMS/lmsy/m/n/10
+ ^^@ \OT1/lmr/m/n/10 1) = \OML/lmm/m/it/10 v[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10
+ k\OT1/lmr/m/n/10 ) + \OML/lmm/m/it/10 a \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 
+v[]\OT1/lmr/m/n/10 ((\OML/lmm/m/it/10 m[]\OT1/lmr/m/n/10 )[] \OMS/lmsy/m/n/10 ^
+^@ \OML/lmm/m/it/10 p[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^^T \OML/lmm/m/it/10 
+v[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 k\OT1/lmr/m/n/10 ) + \OML/lmm/m/it/10 a \O
+MS/lmsy/m/n/10 ^^@ \OT1/lmr/m/n/10 1$\T1/lmr/m/n/10 .
+ []
+
+
+Underfull \hbox (badness 2359) in paragraph at lines 1537--1592
+\OML/lmm/m/it/10 v[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 t[]\OT1/lmr/m/n/10 ) = \O
+ML/lmm/m/it/10 a$\T1/lmr/m/n/10 , $\OML/lmm/m/it/10 v[]\OT1/lmr/m/n/10 (\OML/lm
+m/m/it/10 Y[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^^U \OML/lmm/m/it/10 a \OT1/lmr
+/m/n/10 + 1$ \T1/lmr/m/n/10 (as $\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 m[]\OT1/lmr/
+m/n/10 )[] \OMS/lmsy/m/n/10 ^^Q \OML/lmm/m/it/10 p[]\OT1/lmr/m/n/10 ([]\OML/lmm
+/m/it/10 `\OT1/lmr/m/n/10 )$\T1/lmr/m/n/10 ), $\OML/lmm/m/it/10 v[]\OT1/lmr/m/n
+/10 (\OML/lmm/m/it/10 M[] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 M[]\OT1/lmr/m/n
+/10 ) \OMS/lmsy/m/n/10 ^^U \OML/lmm/m/it/10 v[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/1
+0 k\OT1/lmr/m/n/10 )$\T1/lmr/m/n/10 , and
+ []
+
+
+Underfull \hbox (badness 1048) in paragraph at lines 1537--1592
+\OML/lmm/m/it/10 Y[] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 Y[] \OT1/lmr/m/n/10 
+= \OML/lmm/m/it/10 p[]\OT1/lmr/m/n/10 (2\OML/lmm/m/it/10 kpp[]\OT1/lmr/m/n/10 )
+(\OML/lmm/m/it/10 m[] \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 m[]\OT1/lmr/m/n/10 
+)\OML/lmm/m/it/10 =\OT1/lmr/m/n/10 (4\OML/lmm/m/it/10 p[]\OT1/lmr/m/n/10 )$ \T1
+/lmr/m/n/10 has $\OML/lmm/m/it/10 v[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 Y[] \OMS
+/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 Y[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^^U \OM
+L/lmm/m/it/10 v[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 k\OT1/lmr/m/n/10 ) + 2\OML/l
+mm/m/it/10 a$\T1/lmr/m/n/10 . By Propo-si-
  []
 
 [18] [19] [20]
-Underfull \hbox (badness 4752) in paragraph at lines 1737--1750
+Underfull \hbox (badness 4752) in paragraph at lines 1798--1811
 \T1/lmr/m/n/10 pand-ing $\OML/lmm/m/it/10 f[] \OT1/lmr/m/n/10 = \OML/lmm/m/it/1
 0 R[]R[] \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 f[]\OT1/lmr/m/n/10 (0) + []\OML/lmm
 /m/it/10 t \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 O\OT1/lmr/m/n/10 (\OML/lmm/m/it/1
@@ -1014,7 +1308,7 @@ m/n/10 + \OML/lmm/m/it/10 O\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 t[]\OT1/lmr/m/n/10
  []
 
 [21]
-Underfull \hbox (badness 3229) in paragraph at lines 1820--1828
+Underfull \hbox (badness 3229) in paragraph at lines 1881--1889
 \T1/lmr/m/sl/10 Hence $[]\OMS/lmsy/m/n/10 A[]A[] \OT1/lmr/m/n/10 = []\OMS/lmsy/
 m/n/10 A[]A[] \OT1/lmr/m/n/10 = \OMS/lmsy/m/n/10 ^^@[]$\T1/lmr/m/sl/10 , $[]\OM
 S/lmsy/m/n/10 A[]A[] \OT1/lmr/m/n/10 = []\OMS/lmsy/m/n/10 A[]A[] \OT1/lmr/m/n/1
@@ -1022,7 +1316,7 @@ S/lmsy/m/n/10 A[]A[] \OT1/lmr/m/n/10 = []\OMS/lmsy/m/n/10 A[]A[] \OT1/lmr/m/n/1
  []
 
 
-Underfull \hbox (badness 1728) in paragraph at lines 1820--1828
+Underfull \hbox (badness 1728) in paragraph at lines 1881--1889
 \T1/lmr/m/sl/10 with slope ra-tios $\OT1/lmr/m/n/10 ([] \OMS/lmsy/m/n/10 ^^@ []
 \OT1/lmr/m/n/10 )\OML/lmm/m/it/10 =\OT1/lmr/m/n/10 ([] \OMS/lmsy/m/n/10 ^^@ []\
 OT1/lmr/m/n/10 )$ \T1/lmr/m/sl/10 (Propo-si-tion [][]7.7[][]). At $\OML/lmm/m/i
@@ -1031,9 +1325,7 @@ y/m/n/10 P[]$\T1/lmr/m/sl/10 ,
  []
 
 [22]
-Missing character: There is no A in font ts1-lmr10!
-
-Underfull \hbox (badness 3354) in paragraph at lines 1881--1886
+Underfull \hbox (badness 3354) in paragraph at lines 1942--1947
 [][]\T1/lmr/bx/n/10 Theorem 8.4 \T1/lmr/m/it/10 (First non-trans-verse fixed-$\
 OML/lmm/m/it/10 c$ \T1/lmr/m/it/10 prin-ci-pal part)\T1/lmr/bx/n/10 . []\T1/lmr
 /m/sl/10 Put $\OML/lmm/m/it/10 Q[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 d\OT1/lmr/m
@@ -1041,9 +1333,8 @@ OML/lmm/m/it/10 c$ \T1/lmr/m/it/10 prin-ci-pal part)\T1/lmr/bx/n/10 . []\T1/lmr
 10 z \OMS/lmsy/m/n/10 ^^@
  []
 
-Missing character: There is no A in font ts1-lmr10!
 
-Underfull \hbox (badness 4832) in paragraph at lines 1912--1919
+Underfull \hbox (badness 4832) in paragraph at lines 1973--1980
 \OML/lmm/m/it/10 @[]\OMS/lmsy/m/n/10 f\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 z \OMS/
 lmsy/m/n/10 ^^@ []\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 H[]\OT1/lmr/m/n/10 ([]\OML/
 lmm/m/it/10 ; z; d\OT1/lmr/m/n/10 )\OMS/lmsy/m/n/10 gj[]$ \T1/lmr/m/sl/10 and $
@@ -1054,23 +1345,19 @@ m/it/10 ; z; d\OT1/lmr/m/n/10 )\OMS/lmsy/m/n/10 gj[]$\T1/lmr/m/sl/10 , and let
  []
 
 [23] [24]
-Underfull \hbox (badness 1371) in paragraph at lines 2029--2036
+Underfull \hbox (badness 1371) in paragraph at lines 2089--2096
 \T1/lmr/m/it/9 al-ge-bras\T1/lmr/m/n/9 , Com-mun. Math. Phys. \T1/lmr/bx/n/9 18
 6 \T1/lmr/m/n/9 (1997) 531--562, [][]doi:10.1007/s002200050119[][],
  []
 
 
-Underfull \hbox (badness 1163) in paragraph at lines 2069--2076
+Underfull \hbox (badness 1163) in paragraph at lines 2129--2136
 \T1/lmr/m/it/9 type re-cur-sion re-la-tions in Vi-ra-soro min-i-mal mod-els\T1/
 lmr/m/n/9 , JHEP \T1/lmr/bx/n/9 08 \T1/lmr/m/n/9 (2018) 183, [][]doi:
  []
 
-LaTeX Font Info:    Trying to load font information for U+euf on input line 211
-9.
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)
-Underfull \hbox (badness 1546) in paragraph at lines 2130--2135
+
+Underfull \hbox (badness 1546) in paragraph at lines 2190--2195
 []\T1/lmr/m/n/9 A. B. Zamolod-chikov, \T1/lmr/m/it/9 Con-for-mal sym-me-try in 
 two-dimensional space: re-cur-sion
  []
@@ -1084,38 +1371,39 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 (rerunfilecheck)             Checksum: 79D84CA7BF580A608EDF73A4F4BC154E;1989.
  ) 
 Here is how much of TeX's memory you used:
- 23240 strings out of 476182
- 426287 string characters out of 5795596
- 1950975 words of memory out of 5000000
- 44708 multiletter control sequences out of 15000+600000
- 653485 words of font info for 93 fonts, out of 8000000 for 9000
+ 23238 strings out of 476182
+ 426271 string characters out of 5795596
+ 1954975 words of memory out of 5000000
+ 44709 multiletter control sequences out of 15000+600000
+ 653957 words of font info for 95 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  84i,17n,93p,542b,671s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><
-/usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1
-/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb></usr/s
-hare/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/publ
-ic/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share
-/texmf/fonts/type1/public/lm/lmmi5.pfb></usr/share/texmf/fonts/type1/public/lm/
-lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf/f
-onts/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pf
-b></usr/share/texmf/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf/fonts/type
-1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/sha
-re/texmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm
-/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri9.pfb></usr/share/texmf
-/fonts/type1/public/lm/lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8
-.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts
-/type1/public/lm/lmsy5.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></
-usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/p
-ublic/lm/lmsy9.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/sha
-re/texmf/fonts/type1/public/lm/lmtt9.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/symbols/msbm7.pfb>
-Output written on paper.pdf (25 pages, 654119 bytes).
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr
+/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/pub
+lic/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx9.pfb></usr/share
+/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/l
+m/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/tex
+mf/fonts/type1/public/lm/lmmi5.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi
+6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmmi9.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></
+usr/share/texmf/fonts/type1/public/lm/lmr5.pfb></usr/share/texmf/fonts/type1/pu
+blic/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/t
+exmf/fonts/type1/public/lm/lmr9.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
+i10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri9.pfb></usr/share/texmf/fon
+ts/type1/public/lm/lmro10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb
+></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/typ
+e1/public/lm/lmsy5.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/
+share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/publi
+c/lm/lmsy9.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/t
+exmf/fonts/type1/public/lm/lmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/symbols/msbm7.pfb>
+Output written on paper.pdf (25 pages, 671260 bytes).
 PDF statistics:
- 679 PDF objects out of 1000 (max. 8388607)
- 582 compressed objects within 6 object streams
- 120 named destinations out of 1000 (max. 500000)
+ 666 PDF objects out of 1000 (max. 8388607)
+ 566 compressed objects within 6 object streams
+ 117 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
