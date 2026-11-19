@@ -34,7 +34,8 @@ nonzero.  Timing and `reconstructed F_N` progress lines are informational.
 The ordinary suite runs, in order:
 
 1. `tools/audit_first_resonances.py` — level-three data, the energy crossing
-   form, and the level-seven embedding diamond.
+   form, the level-seven embedding diamond, and the exact symbolic level-seven
+   finite-part polynomial `Theta_7(d)`.
 2. `tools/audit_low_levels.py` — level-four Gram data, null vectors, torus
    polynomials, and the spin crossing form.
 3. `tools/audit_regular_families.py` — the eight regularity minors of the
@@ -113,7 +114,7 @@ The hashes below identify the submitted audit sources.
 8347daed02ebf7b3c3cfa494e97049b7e0ab15b9af00a5addd843ed44381a64a  requirements-audit.txt
 701649d93a313c2853a9ecd4d3106ff1957a97c2ff802e4e57612e9ed6e4c84c  tools/audit_confluent_recursion.py
 240545d5e84d292f360bf8d55d18de0e4dbe28ccbf3526f551fd8db4a1a81f9e  tools/audit_direct_principal_parts.py
-90218c120e892157507e9167fbc9033ba85c6c25fbf2bde3269806ffced26185  tools/audit_first_resonances.py
+5824b2952fd75394b16bd30e9ed25cd8a191f62ce450169b0c29bb0e5ad077ac  tools/audit_first_resonances.py
 978df56dce0c8be9389c8fe8b3d7dfd93170b2ea7a74fec47d1cdd3a8c809d29  tools/audit_grade10_confluence.py
 f788150de71658f08fe11c1512ef64254fb1ff2e7da5682adeaa6ea105c6c232  tools/audit_grade10_direct.py
 a06deb403aa2becb904c9f437742206974aa2fd3fe35356e78731b4cff24f130  tools/audit_kl_certificate.py

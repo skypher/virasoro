@@ -1,9 +1,9 @@
 # Handover: torus Virasoro blocks at minimal-model charges
 
-Updated 2026-11-19T14:57Z (22:57 Taiwan time). Paper pin: commit `eb519e08f707926985c3f0b8474f7d3d47cb8579`
-(`paper.tex` / `paper.pdf`, 25 pages, 0 warnings, 0 undefined references, 0 missing characters,
-0 overfull hboxes). Results are cited by their LaTeX labels; numbers in parentheses refer to the
-current PDF.
+Updated 2026-11-19T15:51Z (23:51 Taiwan time). Paper pin: commit `eb519e08f707926985c3f0b8474f7d3d47cb8579`
+(`paper.tex` blob `8bba870ae47db96513a03a59690c39749ccd18c9`, unchanged in `HEAD`; `paper.pdf`
+25 pages, 0 warnings, 0 undefined references, 0 missing characters, 0 overfull hboxes). Results are
+cited by their LaTeX labels; numbers in parentheses refer to the current PDF.
 
 ## 1. Current status
 
@@ -53,6 +53,8 @@ commit `eb519e08`:
 | `Prop 6.8`, `Prop 6.9` repairs (at `eb519e08`) | `jander` | **PASS** | 2026-11-19T13:45Z | `jander-20261119T134530Z-virasoro-top1-repair-result` | Independent other-reviewer re-check of all repairs at `eb519e08`. |
 | `Thm 4.3`, `Cor 4.4`, `Sec 7` (`Def 7.1`–`Prop 7.7`) | `yang2` | **PASS** | 2026-11-19T14:40Z | `yang2-20261119T144009Z-virasoro-conf2-result` | Replayed `tools/audit_confluent_recursion.py`. |
 | `Lem 2.7, 4.1, 6.3, 6.5, 6.6`, `Thm 4.2`, `Prop 6.2, 6.4` | `jander` | **PASS** | 2026-11-19T14:49Z | `jander-20261119T144949Z-virasoro-conf1-result` | Directly verified HJS arXiv:0911.2353 §§3 eqs (7)–(9). |
+| Top-node `T` assembly (`CONF`, `TOP_LAYER`, `TOP1`, Sec 8 interface) | `yang2` | **PASS** | 2026-11-19T15:41Z | `yang2-20261119T154113Z-virasoro-assembly-result` | End-to-end dependency and interface assembly check at `eb519e08`. |
+| Section 8 & Appendix A (`Prop 8.1`–`Prop 8.6`, `eq:theta7-expanded`, `eq:theta10-expanded`) | `jander` | **Scoped PASS** (+ audit FIX applied) | 2026-11-19T15:47Z | `jander-20261119T154730Z-virasoro-sec8-result` | All structural proofs and derivative-defined principal parts PASS; audit-coverage finding on symbolic `Theta_7(d)` closed in `tools/audit_first_resonances.py` without modifying `paper.tex`. |
 
 Citation scope notes from the reviewers:
 - Astashkevich (`arXiv:hep-th/9511032`) and Hadasz–Jaskólski–Suchanek (`arXiv:0911.2353`) were
@@ -61,20 +63,25 @@ Citation scope notes from the reviewers:
   and equation numbers remain uncertified by the external reviewers; `jander` supplied independent
   PBW/determinant deductions and `yang2` verified the Jantzen layer structure independently via
   Astashkevich Theorem B(e).
-- Section 8 (Ising level-7 and level-10 embedding diamonds) is unchanged and audited by 8 of the 10
-  scripts in `make audit`.
+- Section 8 (Ising level-7 and level-10 embedding diamonds) passed static review by `jander`;
+  Appendix A's expanded numerical coefficients are verified symbolically in `ℚ[d]` by
+  `tools/audit_first_resonances.py` (`Theta_7`) and `tools/audit_grade10_confluence.py` (`Theta_10`)
+  inside `make audit` (not independently machine-replayed by the static reviewer).
 
 ## 3. Audits, build, and bundle
 
 - `make audit` (all 10 exact rational/symbolic scripts, including the upgraded
-  `tools/audit_one_screening.py` with 8 exact checks covering Fock factorization, symbolic
-  `P_M^(1,2)`, direct Shapovalov cross-check at `d₁` and `d₂`, `sl₂` identities, level
-  polynomiality, valuation/Lipschitz bounds, and Cases 1–3) exited 0.
+  `tools/audit_first_resonances.py` — now symbolically certifying `Theta_7(d)` in `ℚ[d]` under a
+  raising assertion — and `tools/audit_one_screening.py` with 8 exact checks covering Fock
+  factorization, symbolic `P_M^(1,2)`, direct Shapovalov cross-check at `d₁` and `d₂`, `sl₂`
+  identities, level polynomiality, valuation/Lipschitz bounds, and Cases 1–3) exited 0.
 - `AUDIT_MANIFEST.md` SHA-256 hashes verified (`sha256sum -c`).
-- `dist/virasoro-arxiv-v1.tar.gz` rebuilt from `eb519e08` and verified to compile standalone cleanly
-  at 25 pages with 0 warnings and 0 overfull hboxes.
+- `dist/virasoro-arxiv-v1.tar.gz` rebuilt with the updated audit script and manifest (while keeping
+  `paper.tex` byte-for-byte identical to `eb519e08`), verified to compile standalone cleanly at 25
+  pages with 0 warnings and 0 overfull hboxes.
 - `receipt.md` (local, untracked) updated and validated via `python3 -I ~/cockpit/tree.py virasoro`
-  with 0 problem flags; all three milestones (`CONF`, `TOP_LAYER`, `TOP1`) are marked `established`.
+  with 0 problem flags; all three milestones (`CONF`, `TOP_LAYER`, `TOP1`) and top-node `T` are
+  marked `established`.
 
 ## 4. Before the paper is shared
 

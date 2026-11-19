@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
-"""Independent exact audit of the first Ising collision and diamond."""
+"""Independent exact audit of the first Ising collision and diamond.
 
+Usage: python3 -u tools/audit_first_resonances.py [-h|--help]
+"""
+
+import argparse
 from collections import defaultdict
 
 import sympy as sp
@@ -122,6 +126,30 @@ def fusion_polynomial(r, s):
                 momentum_squared - (k * b - ell / b) ** 2
             ) / 4
     return sp.cancel(result)
+
+
+def residue_polynomial(r, s):
+    return residue_constant(r, s) * fusion_polynomial(r, s)
+
+
+def nested_finite_term(parent, child, delta):
+    parent_residue = residue_polynomial(*parent)
+    child_residue = residue_polynomial(*child)
+    parent_value = parent_residue.subs(b, b0)
+    child_value = child_residue.subs(b, b0)
+    delta_one = sp.diff(delta, b).subs(b, b0)
+    delta_two = sp.diff(delta, b, 2).subs(b, b0)
+    return sp.together(
+        (
+            sp.diff(parent_residue, b).subs(b, b0) * child_value
+            + parent_value * sp.diff(child_residue, b).subs(b, b0)
+        )
+        / delta_one
+        - parent_value
+        * child_value
+        * delta_two
+        / (2 * delta_one**2)
+    )
 
 
 def torus_form(level, weight, vector):
@@ -437,6 +465,45 @@ def main():
         1 / gamma_seven,
     )
 
+    delta_left = h21 + 2 - h15
+    delta_right = h13 + 3 - h41
+    finite_nested_seven = sp.factor(
+        sp.cancel(
+            nested_finite_term((2, 1), (1, 5), delta_left)
+            + nested_finite_term((1, 3), (4, 1), delta_right)
+        )
+    )
+    expected_theta_seven = (
+        -d**2
+        * (d - 1) ** 2
+        * (2 * d - 15)
+        * (2 * d - 7)
+        * (2 * d - 5)
+        * (2 * d - 1)
+        * (3 * d - 14)
+        * (3 * d - 5)
+        * (
+            84001 * d**4
+            - 3376370 * d**3
+            + 44478887 * d**2
+            - 209562838 * d
+            + 205096320
+        )
+        / 2164322160000
+    )
+    check_equal(
+        "level-7 symbolic finite nested contribution Theta_7",
+        finite_nested_seven,
+        expected_theta_seven,
+    )
+
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description=(
+            "Independent exact audit of the first Ising collision, "
+            "level-7 embedding diamond, and symbolic Theta_7 polynomial."
+        )
+    )
+    parser.parse_args()
     main()
