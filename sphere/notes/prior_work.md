@@ -43,7 +43,7 @@ Verified directly against the arXiv TeX sources on 2026-11-20.
 
 ## 5. Verification of 2025–2026 literature
 
-Targeted arXiv and web searches on 2026-11-20 confirm that no 2025–2026 paper proves all-order rational-$b^2$ cancellation, finite fixed-$c$ confluence, or Jantzen pole-order sharpness for sphere four-point Virasoro blocks. Recent related papers (Desiraju–Ghosal–Prokhorov `2407.05839` on probabilistic semiclassical torus blocks; Poghosyan–Poghosyan `2607.09177` on the $b \to 0$ light limit of torus blocks) address different regimes.
+Targeted arXiv and web searches on 2026-11-20 confirm that no 2025–2026 paper proves the finite-$c$ large-$\Delta$ limit $\lim_{\Delta\to\infty} H_N(c,\Delta,\Delta_i) = \delta_{N,0}$ (Ribault `2411.17262v4` §4.3.4 still notes none exists), all-order rational-$b^2$ cancellation, finite fixed-$c$ confluence, or Jantzen pole-order sharpness for sphere four-point Virasoro blocks. Related works cited for context: Artemev–Khromov (`arXiv:2603.08194`, Phys. Rev. D 114 (2026) 045002, WKB physics derivation of large-intermediate-dimension asymptotics for multipoint comb-channel blocks with approximations) and Ghosal–Rémy–Sun–Sun (2022 preprint, convergence and meromorphy for $c > 25$ via Liouville CFT without large-$\Delta$ asymptotics); other recent papers (Desiraju–Ghosal–Prokhorov `2407.05839` on probabilistic semiclassical torus blocks; Poghosyan–Poghosyan `2607.09177` on the $b \to 0$ light limit of torus blocks) address different regimes.
 
 ## 6. Novelty and rigor checkpoints before starting
 
