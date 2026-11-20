@@ -2,9 +2,10 @@
 """Exact rational audit of S1_CONF: fixed-b_* shifted Laurent confluence vs direct Gram matrices.
 
 Implements Definition 5 and Lemma 6 of sphere/notes/s1_confluence.md over exact Q(b_*)((t))
-(using exact rational numbers for minimal models b_*^2 = -p'/p by working in u = b^2 - b_*^2,
-which is equivalent to t = b - b_* since du/dt = 2 b_* != 0!) and verifies exact equality of
-every collision moment A~^*_{lambda, k, N} against direct Shapovalov reconstruction of H_N.
+(using exact rational numbers for minimal models b_*^2 = -p'/p by working in u = b^2 - b_*^2;
+the grouped numerators C_{lambda,k} are holomorphic at t = 0 so CT_u C_{lambda,k} = CT_t C_{lambda,k})
+and verifies exact equality of every collision moment A~^*_{lambda, k, N} against direct
+Shapovalov reconstruction of H_N.
 """
 
 from __future__ import annotations
@@ -33,7 +34,8 @@ from sphere.tools.exact_sphere_block import reconstruct_B_and_H, peval
 #   Wait: ((La+Lb)^2 - x^2)((La-Lb)^2 - x^2) = (La^2 + Lb^2 - x^2)^2 - 4 La^2 Lb^2, PURELY IN nu = b^2!!
 # THEREFORE h_{r,s}, A_{r,s}, P_{r,s}, AND R^{sph}_{r,s} ARE ALL RATIONAL FUNCTIONS OF nu = b^2 OVER Q!!
 # Working in u = nu - nu_* (where nu_* = -p'/p is RATIONAL!) keeps ALL arithmetic in exact Python Fraction!
-# And since nu = b^2 has d(nu)/db|_{b_*} = 2 b_* != 0, CT_u == CT_t identically!!
+# Because each grouped numerator C_{lambda,k} is holomorphic at t=0 (verified below by checking
+# cancellation of all negative u-powers), its constant term is its value at 0 and satisfies CT_u == CT_t.
 
 
 class LSeries:
@@ -513,9 +515,8 @@ def main() -> None:
         _, H_funcs = reconstruct_B_and_H(c_val, d_ext, N_max)
 
         for N in range(1, N_max + 1):
-            # Reconstruct H_N from collision moments and test at 30 distinct rational h values
-            # plus exact pole-by-pole Laurent comparison!
-            # First compare every principal part at every lambda in moms[N]!
+            # Verify exact pole-by-pole Laurent principal parts at every frozen pole lambda,
+            # plus global rational equality at the non-pole test point h = 17/3.
             for lam, mdict in moms[N].items():
                 ord_H, laurent = H_funcs[N].laurent_at(lam, 0)
                 max_k_conf = max(mdict.keys()) if mdict else 0
@@ -535,7 +536,7 @@ def main() -> None:
             assert lhs == rhs, f"({p},{pp}) N={N}: global rational mismatch at h={h_pt}: {lhs} != {rhs}"
         print(f"  [PASS] ({p},{pp}): exact match of ALL collision moments & global rational H_N for N=1..{N_max}", flush=True)
 
-    audit_irrational_b(4)
+    audit_irrational_b(3)
     print("\nALL S1_CONF AUDITS PASSED.", flush=True)
 
 

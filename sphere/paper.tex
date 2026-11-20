@@ -1116,13 +1116,19 @@ so the second identity specializes to every \(b_\star\in\mathbb C^\times\).
 \end{proposition}
 
 \begin{proof}
-The first identity is Zamolodchikov's norm formula~\cite{Zamolodchikov1987}
-(proved in~\cite{Zamolodchikov2004}; see also~\cite[\S3, eq.~(7)]{HadaszJaskolskiSuchanek2010}
-and~\cite[Prop.~6.2]{PolzerTorus2026}).  The second is Zamolodchikov's fusion
-polynomial~\cite[\S2]{Zamolodchikov1987} (see also~\cite[eq.~(3.11)]{Ribault2019},
-whose sign in our convention is \(+1\), as the leading coefficient in
-\(\Delta_b-\Delta_a\) of both sides is \(+1\) from~\eqref{eq:gamma-Y}
-and~\eqref{eq:Prs-def}).
+The first identity is Zamolodchikov's norm formula~\cite{Zamolodchikov1987}:
+in~\cite[\S6--\S7, eqs.~(6.1) and~(7.5)]{Zamolodchikov2004} the derivative of
+the singular-vector norm is computed with respect to the Liouville momentum
+\(\alpha\) at \(\alpha_{r,s}\), and dividing by
+\(d\Delta/d\alpha|_{\alpha_{r,s}}=rb+s/b\) removes the top lattice factor
+\((rb+s/b)\) to yield \(\beta_{\chi_{r,s}(b)}=\mathcal A_{r,s}(b)^{-1}\)
+(see also~\cite[\S3]{HadaszJaskolskiSuchanek2010} for the \(\Delta\)-crossing
+convention and~\cite[Prop.~6.2]{PolzerTorus2026}).  The second identity is
+Zamolodchikov's fusion polynomial~\cite[\S2]{Zamolodchikov1987}, proved
+directly in~\cite[\S5, eqs.~(5.9)--(5.12)]{Zamolodchikov2004} (see
+also~\cite[eq.~(3.4)]{Ribault2019} for the residue product); its sign in our
+convention is \(+1\), as the leading coefficient in \(\Delta_b-\Delta_a\) of
+both sides is \(+1\) from~\eqref{eq:gamma-Y} and~\eqref{eq:Prs-def}.
 \end{proof}
 
 \begin{proposition}[Generic Zamolodchikov recursion]\label{prop:generic-recursion}
@@ -1232,32 +1238,55 @@ Fix \(b_\star\in\mathbb C^\times\) and \(N\geq1\).
 
 \begin{proof}
 By Proposition~\ref{prop:generic-recursion} and induction on \(M\),
-\(S_{a,M}(t)=H_M(c(b_\star+t),z_a(t),\Delta_i)\) in \(K_\star((t))\), and in
-\(K_\star(\Delta)((t))\),
+\(S_{a,M}(t)=H_M(c(b_\star+t),z_a(t),\Delta_i)\) in \(K_\star((t))\).  Setting
+\(C_{\lambda,k}(t):=\sum_{a\in\mathcal C^\star_{\lambda,N}}B_{a,N}(t)\delta_a(t)^{k-1}\in K_\star((t))\),
+we expand in \(K_\star(\Delta)((t))\):
 \begin{align*}
  H_N(c(b_\star+t),\Delta,\Delta_i)
  &=\sum_{\lambda\in\Lambda_N(b_\star)}\sum_{a\in\mathcal C^\star_{\lambda,N}}
-  \frac{B_{a,N}(t)}{\Delta-\lambda-\delta_a(t)}\\
- &=\sum_{\lambda\in\Lambda_N(b_\star)}\sum_{k=1}^\infty
-  \frac{\sum_{a\in\mathcal C^\star_{\lambda,N}}B_{a,N}(t)\delta_a(t)^{k-1}}{(\Delta-\lambda)^k}.
+  \frac{B_{a,N}(t)}{\Delta-\lambda-\delta_a(t)}
+ =\sum_{\lambda\in\Lambda_N(b_\star)}\sum_{k=1}^\infty
+  \frac{C_{\lambda,k}(t)}{(\Delta-\lambda)^k}.
 \end{align*}
-Because \(\det G_N(c(b_\star+t),\Delta)\) does not vanish identically in
-\(\Delta\) at \(t=0\), the left-hand side lies in \(K_\star(\Delta)[[t]]\)
-with constant term \(H_N(c_\star,\Delta,\Delta_i)\).  Extracting \(\CT_t\)
-(for \(k>\widehat M^\star_{\lambda,N}\) every summand has positive
-\(t\)-valuation and contributes \(0\)) proves~\eqref{eq:confluence-H}; since
-the left-hand side lies in \(\mathbb Q(b_\star)[\Delta_1,\dots,\Delta_4](\Delta)\),
-so do the principal-part coefficients \(\widetilde A^\star_{\lambda,k,N}\).
-Part~(iii) follows immediately from~\eqref{eq:B-from-H}.
+By the valuation bound of Definition~\ref{def:confluence},
+\(\ord_t C_{\lambda,k}\geq1\) whenever \(k>\widehat M^\star_{\lambda,N}\), so
+for every integer \(m\leq0\) only finitely many pairs \((\lambda,k)\)---all with
+\(1\leq k\leq\widehat M^\star_{\lambda,N}\)---contribute to the coefficient of
+\(t^m\) on the right-hand side.  Because \(\det G_N(c(b_\star+t),\Delta)\) does
+not vanish identically in \(\Delta\) at \(t=0\), the left-hand side lies in
+\(K_\star(\Delta)[[t]]\) with constant term \(H_N(c_\star,\Delta,\Delta_i)\).
+Hence for every \(m<0\) the finite partial-fraction sum
+\(\sum_{\lambda\in\Lambda_N(b_\star)}\sum_{k=1}^{\widehat M^\star_{\lambda,N}}
+([t^m]C_{\lambda,k}(t))(\Delta-\lambda)^{-k}\) vanishes identically in
+\(K_\star(\Delta)\).  By uniqueness of partial-fraction decompositions at the
+distinct frozen poles \(\lambda\in\Lambda_N(b_\star)\), every
+\([t^m]C_{\lambda,k}(t)=0\) for \(m<0\); thus each grouped numerator
+\(C_{\lambda,k}(t)\) is holomorphic in \(t\), i.e.\ \(C_{\lambda,k}(t)\in K_\star[[t]]\).
+Extracting \([t^0]\) then gives~\eqref{eq:confluence-H} with
+\(\widetilde A^\star_{\lambda,k,N}=C_{\lambda,k}(0)\); since the left-hand side
+lies in \(\mathbb Q(b_\star)[\Delta_1,\dots,\Delta_4](\Delta)\), so do the
+principal-part coefficients \(\widetilde A^\star_{\lambda,k,N}\).  Part~(iii)
+follows immediately from~\eqref{eq:B-from-H}.
 \end{proof}
 
 \begin{remark}\label{rem:nu-parameter}
-Because \(h_{r,s}\), \(\mathcal A_{r,s}\), and \(P_{r,s}\) are rational
-functions of \(\nu=b^2\) over \(\mathbb Q\) (with
-\(\mathcal A_{r,s}=\frac12\nu^{2rs-1}\prod(p\nu+q)^{-1}\)), working in
-\(u=\nu-b_\star^2\) gives the exact same collision moments
-(\(\CT_u=\CT_t\) since \(d\nu/db|_{b_\star}=2b_\star\neq0\)), keeping all
-arithmetic over \(\mathbb Q\) whenever \(b_\star^2\in\mathbb Q\).
+All ingredients \(h_{r,s}\), \(\mathcal A_{r,s}\), and \(P_{r,s}\) are rational
+functions of \(\nu=b^2\) over \(\mathbb Q\): we have
+\(\mathcal A_{r,s}=\frac12\nu^{2rs-1}\prod(p\nu+q)^{-1}\), while in
+\(P_{r,s}(b,\Delta_a,\Delta_b)\) pairing opposite lattice labels
+\((j,l)\leftrightarrow(-j,-l)\) yields factors rational in \(\nu\) (and the
+\((0,0)\) factor, when \(r,s\) are both odd, is already \(\Delta_b-\Delta_a\)).
+Under the invertible coordinate change \(u=\nu-b_\star^2=2b_\star t+t^2\)
+(\(du/dt|_{t=0}=2b_\star\neq0\)), the constant term of a general meromorphic
+Laurent series is not preserved (for example
+\(t^{-1}=2b_\star u^{-1}+(2b_\star)^{-1}+O(u)\)).  However, by the proof of
+Theorem~\ref{thm:confluence} each grouped numerator \(C_{\lambda,k}\) is
+holomorphic at \(t=0\) (hence holomorphic at \(u=0\)), so its constant term is
+simply its value at \(0\) and satisfies
+\(\CT_u C_{\lambda,k}(u)=C_{\lambda,k}(0)=\CT_t C_{\lambda,k}(t)=\widetilde A^\star_{\lambda,k,N}\).
+Computing the grouped numerators in \(u\) therefore yields the exact same
+collision moments while keeping all arithmetic over \(\mathbb Q\) whenever
+\(b_\star^2\in\mathbb Q\).
 \end{remark}
 
 \section{Minimal-model pole orders, top Jantzen layer, and sharpness}\label{sec:jantzen}
