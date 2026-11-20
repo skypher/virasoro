@@ -31,11 +31,10 @@ is well-defined.
 
 ## 3. Complete algebraic proof architecture (three main theorems)
 
-### Theorem 1 (Fusion-descent and exact regularity iff)
-Let $d \in \mathbb{C}$. The following three conditions are equivalent:
-1. $\rho(c_\star, \lambda, d)$ descends to a well-defined bilinear form on $L(c_\star, \lambda)$;
-2. $d \in \mathcal{F}_{p,p'}(r,s) := \{h_{2k+1, 2m+1}(b_\star) : 0 \le k < \min(r, p-r),\; 0 \le m < \min(s, p'-s)\}$ (and the pair $(k, m)$ is uniquely determined by $d$);
-3. $F^{\mathrm{Verma}}_N(c_\star, \Delta, d)$ is regular (pole order $0$) at $\Delta = \lambda$ for every $N \ge 0$.
+### Theorem 1 (Fusion-descent and exact Verma regularity)
+Let $d \in \mathbb{C}$, $\mathcal{F}_{p,p'}(r,s) := \{h_{2k+1, 2m+1}(b_\star) : 0 \le k < \min(r, p-r),\; 0 \le m < \min(s, p'-s)\}$, and $\mathcal{F}^\pm_{p,p'}(r,s) := \{h_{2k+1, \pm(2m+1)}(b_\star) : 0 \le k < \min(r, p-r),\; 0 \le m < \min(s, p'-s)\}$.
+1. $\rho(c_\star, \lambda, d)$ descends to a well-defined bilinear form on $L(c_\star, \lambda) \times L(c_\star, \lambda)$ iff $d \in \mathcal{F}_{p,p'}(r,s)$ (and the pair $(k, m)$ is uniquely determined by $d$);
+2. $F^{\mathrm{Verma}}_N(c_\star, \Delta, d)$ is regular (pole order $0$) at $\Delta = \lambda$ for every $N \ge 0$ iff $d \in \mathcal{F}^\pm_{p,p'}(r,s)$ (which strictly contains $\mathcal{F}_{p,p'}(r,s)$ via reflected weights such as Lee--Yang $d = h_{1,-3} = 14/5$).
 
 **Proof mechanism**:
 - $(1) \iff (2)$: symmetry of $\rho$, Ward induction on PBW level showing $J^1 = U(\mathrm{Vir}_-)w^+_1 + U(\mathrm{Vir}_-)w^-_1 \subset \operatorname{rad}\rho \iff P_{r,s}(b_\star, \lambda, d) = P_{p-r, p'-s}(b_\star, \lambda, d) = 0$, plus elementary coprime arithmetic showing $u_1 + u_2 \le 2p - 2 < 2p$ so every common root has a unique representative $(u,v) = (2k+1, 2m+1)$ in the intersection box.
@@ -65,7 +64,7 @@ where every ratio $\Psi_{u,v}(\mu^\pm_j)/\Psi_{u,v}(\lambda) \in \mathbb{Q}^\tim
 1. Every weight $\mu$ in the BGG orbit of $\lambda$ lies in Class $\mathrm{III}_-$ (Astashkevich 1997 Theorem A(c)), with two primitive singular vectors of Kac labels $(R_1, S_1)$ and $(R_2, S_2)$ leading to $\nu_1, \nu_2$, satisfying $R_1 S_1 \ne R_2 S_2$ and $\min(R_i/p, S_i/p') < 1$ (so $\gamma_{R_i, S_i}(b_\star) \ne 0$).
 2. At generic $b = b_\star + t$, the 1-layer Jantzen trace formula on $M(c(b), h_{R_1, S_1}(b))$ gives
    $$F_N(c(b), h_{R_1, S_1}(b), d(b)) = \operatorname{Tr}_{V_{R_1, S_1}(b)_N}(V_{d(b)}(1)) + c_{R_1, S_1}(b; u, v)\, F_{N - R_1 S_1}(c(b), h_{R_1, -S_1}(b), d(b)).$$
-3. As $t \to 0$, $V_{R_1, S_1}(b_\star + t)_N$ is a free $\mathbb{C}[[t]]$-module of rank $p(N) - p(N - R_1 S_1)$ specializing to $M(c_\star, \mu)/M(c_\star, \nu_1)$, which has length $2$ with composition factors $L(c_\star, \mu)$ and $L(c_\star, \nu_2)$ (since $M(\nu_1) \cap M(\nu_2) = \operatorname{rad} M(\nu_2)$). Because $h_{R_1, S_1}(b) - h_{R_2, S_2}(b)$ has a simple zero at $b_\star$ ($\partial_t \propto R_2 S_2 - R_1 S_1 \ne 0$) and $\gamma_{R_2, S_2}(b_\star) \ne 0$, the $t$-Jantzen filtration on $V_{R_1, S_1}(b_\star + t)$ has exact length $2$ ($J_t^2 = 0$, also confirming Astashkevich Theorem C(e)). Since both $B(\chi_{R_2, S_2}, \chi_{R_2, S_2})$ and $\rho(\chi_{R_2, S_2}, \chi_{R_2, S_2})$ vanish identically along $\Delta = h_{R_2, S_2}(b)$, the chain rule equates the $t$-derivative ratio to the $\Delta$-derivative ratio $c_{R_2, S_2}(b_\star; u, v) = \Psi(\nu_2)/\Psi(\mu)$.
+3. As $t \to 0$, $V_{R_1, S_1}(b_\star + t)_N$ is a free $\mathbb{C}[[t]]$-module of rank $p(N) - p(N - R_1 S_1)$ specializing to $M(c_\star, \mu)/M(c_\star, \nu_1)$, which has length $2$ with composition factors $L(c_\star, \mu)$ and $L(c_\star, \nu_2)$ (since $M(\nu_1) \cap M(\nu_2) = \operatorname{rad} M(\nu_2)$). Because $h_{R_1, S_1}(t) - h_{R_2, S_2}(t)$ has a simple zero at $t_\star = -p'/p$ ($\alpha = (m_2 n_2 - m_1 n_1)/(4p'^2) \ne 0$) and $\gamma_{R_2, S_2}(b_\star) \ne 0$, the $t$-Jantzen filtration on $V_{R_1, S_1}(b_\star + t)$ has exact length $2$ ($J_t^2 = 0$, matching Astashkevich Theorem C(e)). Since both $B(\chi_{R_2, S_2}, \chi_{R_2, S_2})$ and $\rho(\chi_{R_2, S_2}, \chi_{R_2, S_2})$ vanish identically along $\Delta = h_{R_2, S_2}(t)$, the chain rule equates the $t$-derivative ratio to the $\Delta$-derivative ratio $c_{R_2, S_2}(b_\star; u, v) = \Omega_{u,v}(\mu \to \nu_2)$.
 4. Taking $t \to 0$ (using joint holomorphicity of $F_N(c(b), \Delta, d(b))$ at $(b_\star, \mu)$ and $(b_\star, \nu_1)$) yields the exact two-term identity
    $$\widetilde{\mathcal{T}}(\mu) + \widetilde{\mathcal{T}}(\nu_2) = \widetilde{\mathcal{F}}(\mu) - \widetilde{\mathcal{F}}(\nu_1), \qquad \widetilde{\mathcal{T}}(\mu) := \Psi(\mu) q^{\mu-\lambda} \mathcal{T}^{\mathrm{irr}}(\mu).$$
 5. Taking the alternating sum along the BGG chain $\lambda \to \mu^-_1 \to \mu^+_2 \to \mu^-_3 \to \cdots$ telescopes every $\widetilde{\mathcal{T}}(\mu^\pm_j)$ ($j \ge 1$) to zero, giving Theorem 3.

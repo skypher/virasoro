@@ -294,8 +294,44 @@ def bgg_terms(p, pp, r, s, u, v, maxN):
 # ---------------------------------------------------------------- CHECK 1: Theorem 1
 
 def audit_theorem1():
-    print("[1/4] Auditing Theorem 1 (fusion-descent & exact regularity iff)...", flush=True)
-    # 1a. Allowed vs forbidden descent
+    print("[1/4] Auditing Lemma 2.3(iv) transverse slope & Theorem 1 (fusion-descent & regularity iff)...", flush=True)
+    # 1a. Verify exact Lemma 2.3(iv) transverse-slope formula (m2*n2 - m1*n1)/(4*pp^2)
+    t_sym = sp.Symbol("t")
+
+    def h_t(R, S):
+        return ((t_sym + 1) ** 2 - (R * t_sym + S) ** 2) / (4 * t_sym)
+
+    for (p, pp, r, s) in [(2, 3, 1, 1), (2, 5, 1, 2), (3, 4, 1, 2), (4, 5, 2, 2), (3, 5, 1, 2)]:
+        n0 = pp * r - p * s
+        n1 = pp * r + p * s
+        t0 = sp.Rational(-pp, p)
+        # Check layers k = 0, 1, 2
+        layer_momenta = [[n0], [n1, 2 * p * pp - n1], [2 * p * pp - n0, 2 * p * pp + n0], [2 * p * pp + n1, 4 * p * pp - n1]]
+        for k_lay in range(3):
+            for n_mu in layer_momenta[k_lay]:
+                children = layer_momenta[k_lay + 1]
+                arrows = []
+                for n_nu in children:
+                    found = []
+                    for sgn in (+1, -1):
+                        if (n_nu + sgn * n_mu) % (2 * pp) == 0 and (n_nu - sgn * n_mu) % (2 * p) == 0:
+                            R = (n_nu + sgn * n_mu) // (2 * pp)
+                            S = (n_nu - sgn * n_mu) // (2 * p)
+                            if R > 0 and S > 0:
+                                found.append((R, S))
+                    assert len(found) == 1
+                    arrows.append(found[0])
+                (R1, S1), (R2, S2) = arrows
+                deriv_exact = sp.diff(h_t(R1, S1) - h_t(R2, S2), t_sym).subs(t_sym, t0)
+                m1, n_1 = pp * R1 - p * S1, pp * R1 + p * S1
+                m2, n_2 = pp * R2 - p * S2, pp * R2 + p * S2
+                formula = sp.Rational(m2 * n_2 - m1 * n_1, 4 * pp * pp)
+                assert deriv_exact == formula and formula != 0, f"Slope mismatch: {deriv_exact} vs {formula}"
+    # Spot check (2,3) vacuum: (1,1),(1,2) -> -1/3
+    assert sp.diff(h_t(1, 1) - h_t(1, 2), t_sym).subs(t_sym, sp.Rational(-3, 2)) == sp.Rational(-1, 3)
+    print("  PASS: Lemma 2.3(iv) transverse-slope formula verified across 5 minimal models, layers 0-2.", flush=True)
+
+    # 1b. Allowed vs reflected vs forbidden descent
     cases = [
         ("LY (2,5) (1,2) d=-1/5 allowed", 2, 5, 1, 2, Fraction(-1, 5), True, True, 6),
         ("LY (2,5) (1,2) d=14/5 reflected (regular F_N, fails descent at N=2)", 2, 5, 1, 2, Fraction(14, 5), False, True, 5),
