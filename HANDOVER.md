@@ -1,4 +1,127 @@
-# Handover: torus Virasoro blocks at minimal-model charges
+# Handover to tmp session (all three Virasoro papers complete)
+
+Updated 2026-11-20T05:52:11Z (13:52 Taiwan time; Neon session handing the repository back to the
+tmp Claude Code session per user instruction, 2026-11-20 13:4x Taiwan: "once neon finishes it hands
+over the ptojrct bsck t9 you."). Repository `skypher/virasoro`, branch `main`, HEAD at
+`5df4cd7801f33a103bd986b028314460dd8f4c35` (pushed to `origin/main` before this handover commit).
+No background tasks, computations, or watchers are running.
+
+## Summary of the three manuscripts
+
+1. **Verma torus one-point block** (`paper.tex`, `paper.pdf`)
+   - Final commit touching `paper.tex`: `299e8a0576575c65ceb4bf2d1caded30617b3a9a`
+     (blob `70a2993bd231f6ce843d986774b084af315c3919`, untouched since before this brief).
+   - Length and build: **22 pages**, 0 LaTeX warnings, 0 overfull hboxes.
+   - Review record:
+     - Pre-shortening 25-page manuscript (`eb519e08`): all milestones (`CONF`, `TOP_LAYER`, `TOP1`,
+       top-node assembly, and Section 8) received independent reviewer `PASS` / scoped `PASS` from
+       `yang2` and `jander` (2026-11-19T12:48Z–15:47Z; full table in Section 2 below).
+     - Shortened 22-page manuscript (`5d457f6`): `yang2` returned **PASS** on items 1–3 at
+       `2026-11-20T00:24:37Z` (`yang2-20261120T002437Z-virasoro-shorten-result`), with abstract and
+       Prop. 8.1 notes applied in `5d457f6`.
+     - Citation-only update (`299e8a05`): added `[IK11, Props. 5.1, 5.2, Cor. 5.2]` in Prop. 6.2
+       (see Open items below).
+
+2. **Verma sphere four-point block** (`sphere/paper.tex`, `sphere/paper.pdf`; primary target `S`)
+   - Final commit touching `sphere/paper.tex`: `5df4cd7801f33a103bd986b028314460dd8f4c35`
+     (blob `d917612de455df747769397f98392f68a41fb3e9`).
+   - Length and build: **24 pages**, 0 LaTeX warnings, 0 overfull hboxes, 0 non-ASCII characters.
+   - Contents: self-contained algebraic proof of Zamolodchikov's large-Δ asymptotics
+     `lim_{Δ→∞} H_N(c, Δ, Δ_i) = δ_{N,0}` for all `(c, Δ_1, ..., Δ_4) ∈ ℂ^5` (Theorem 3.1,
+     Lemmas 3.2–3.7), fixed-`b⋆` all-order exact algebraic confluence for `H_N` and `B_N`
+     (Theorem 4.7), and minimal-model Jantzen pole-order bound, top-layer formula, and unconditional
+     attainment for indeterminate external weights for both `B_N` and `H_N` (Theorems 5.1, 5.3,
+     5.4, 5.5), plus Section 6 examples (`(2,3)` `N=5` and Ising `N=7, 10, 11`).
+   - Review record:
+     - Packet 1 (`78adcfdb`): `yang2` FIX on `S1_CONF` (`02:30:08Z`, `yang2-20261120T023008Z-virasoro-s1-conf-result`);
+       `jander` FIX on `S1_ASYMP` (`02:37:57Z`, `jander-20261120T023757Z-virasoro-s1-asymp-result`).
+       All repairs landed at `024c5fc7` and `495ef9e4`.
+     - Packet 2 (`495ef9e4`, swapped reviewers):
+       - `S1_ASYMP` (Sections 2–3, Theorem 3.1, Lemmas 3.2–3.7 + `audit_large_delta.py` replay):
+         `yang2` **PASS** at `2026-11-20T03:30:56Z` (`yang2-20261120T033056Z-virasoro-p2a-asymp-result`).
+       - `S2_TOP`, `S2_SHARP`, Section 6 (`exact_sphere_block.py` and `audit_sphere_top_layer.py` replay):
+         `yang2` **PASS** at `2026-11-20T03:32:09Z` (`yang2-20261120T033209Z-virasoro-p2b-s2-result`).
+       - `S1_CONF` (Section 4, Zamolodchikov 2004 / HJS 2010 / Ribault 2019 citations verified):
+         `jander` **PASS** at `2026-11-20T03:34:50Z` (`jander-20261120T033450Z-virasoro-s1-conf-recheck-result`).
+     - Packet 3a (`5dd2934b`/`899cee4d`): `S_POLISH` (8 local text/citation polish edits + replay of
+       `audit_sphere_confluence.py --max-level 7`, `audit_sphere_top_layer.py --max-level 7`, and
+       24-page PDF build): `yang2` **PASS** at `2026-11-20T04:36:36Z`
+       (`yang2-20261120T043636Z-virasoro-p3a-result`).
+     - Packet 4a Item 2 (`4607fde4`, two related-work citations from
+       `~/agy-advice/checks/virasoro_large_delta_lit.md`): `jander` (`2026-11-20T05:45:26Z`,
+       `jander-20261120T054526Z-virasoro-p4a-result`) verified byte-for-byte preservation of all
+       mathematical text and confirmed `Artemev–Khromov` (`Phys. Rev. D 114, 045002 (2026)`,
+       `10.1103/9y4x-9b4p`, `arXiv:2603.08194`), requesting one citation-scope qualification for
+       `Ghosal–Rémy–Sun–Sun` (external-momentum range of Theorem 1.2 and dated 1 November 2022
+       draft URL). Applied verbatim at `5df4cd78` (see Open items below).
+
+3. **Irreducible minimal-model torus one-point traces** (`irreducible/paper.tex`, `irreducible/paper.pdf`; secondary target `T_IRR`)
+   - Final commit touching `irreducible/paper.tex`: `4607fde4cb5585f25b40c8956e58bf9bce593b9a`
+     (blob `0745ea1a274183deccc644923bb4efa49b919819`, unchanged at `5df4cd78`).
+   - Length and build: **19 pages**, 0 LaTeX warnings, 0 overfull hboxes, 0 non-ASCII characters.
+   - Contents: exact iff characterization of primary-operator descent (`d ∈ F_{p,p'}(r,s)`) vs
+     all-order Verma regularity (`d ∈ F^±_{p,p'}(r,s)`), Jantzen vertex filtration, and joint
+     `(b, Δ)`-regularity (Theorem 1.1, Lemmas 2.1, 2.3, 3.1, 3.3, Propositions 2.2, 3.2);
+     two-weight fusion product rule for the first-layer Jantzen vertex ratio and Gamma-potential
+     BGG cocycle (Theorem 1.2, Proposition 4.1); two-layer `τ`-Jantzen telescoping, generalized
+     Rocha–Caridi alternating BGG identity with exact fixed-`b⋆` confluence, higher-layer Jantzen
+     ratios, and collision-free single-index truncated recursion (Lemma 5.1, Theorem 1.3,
+     Corollary 1.4), plus Section 6 minimal-model examples (Ising, Lee–Yang, Tricritical Ising).
+   - Review record:
+     - Packet 3a (`899cee4d`): `yang2` FIX on `T_IRR_CORE` §§1–3 (`04:36:36Z`,
+       `yang2-20261120T043636Z-virasoro-p3a-result`); Packet 3b (`899cee4d`): `jander` FIX on
+       `T_IRR_COCYCLE_BGG` §§4–6 (`04:45:48Z`, `jander-20261120T044548Z-virasoro-p3b-result`).
+       All 10 findings repaired at `714568e2`, with author/bibliography alignment at `4607fde4`.
+     - Packet 4b (`4607fde4`, swapped to `yang2`): `T_IRR_BGG` (Sections 4–6, bibliography,
+       author/disclosure metadata, and isolated replay of `audit_irreducible_torus.py` + 19-page
+       PDF build): `yang2` **PASS** at `2026-11-20T05:36:43Z`
+       (`yang2-20261120T053643Z-virasoro-p4b-result`).
+     - Packet 4a Item 1 (`4607fde4`, swapped to `jander`): `T_IRR_CORE` (Abstract, Sections 1–3,
+       slope carry-through in Lemma 5.1, companion citations Props. 6.2/6.4/Lem. 6.6, HJS §3, JSF
+       article 183, Ribault v4, disclosures): `jander` **PASS** at `2026-11-20T05:45:26Z`
+       (`jander-20261120T054526Z-virasoro-p4a-result`).
+
+## Open items (unreviewed edits, pending verdicts, questions)
+
+- **Pending review verdicts:** none. No open review claims exist on ntfy or `agent-messages`.
+- **Unreviewed minor edits (citation/wording only; zero mathematical changes):**
+  1. `sphere/paper.tex` at `5df4cd78`: 3-line citation-scope update for `GhosalRemySunSun2022` in
+     Section 1 item 1 and `\begin{thebibliography}` (exact replacement requested by `jander` in
+     `jander-20261120T054526Z-virasoro-p4a-result`). Can be confirmed in any future batch if a
+     formal confirmation on the final pin is desired.
+  2. `paper.tex` at `299e8a05`: citation-only addition `[IK11, Props. 5.1, 5.2, Cor. 5.2]` in
+     Proposition 6.2 (unchanged since `2026-11-20T00:41Z`).
+  3. `irreducible/paper.tex` at `4607fde4`: **no unreviewed edits** (exact blob `0745ea1a` passed
+     by both `yang2` and `jander`). One minor optional wording suggestion from `yang2` at lines
+     1445–1449 ("start with 'Through level 30'") was intentionally not applied so the passed blob
+     remains frozen; apply only if the manuscript is reopened later.
+- **`[yours]` questions:** none open. Before outside distribution or submission, standard author
+  reading of all three PDFs (`paper.pdf`, `sphere/paper.pdf`, `irreducible/paper.pdf`), their
+  AI-use disclosures, and any packaging/arXiv bundling decisions belong to the user.
+
+## How to run each build and audit
+
+- **Torus paper (root):**
+  - `make pdf` (builds `paper.pdf`, 22 pp)
+  - `make audit` (runs all exact rational/symbolic audit scripts in `tools/`)
+- **Sphere paper (`sphere/`):**
+  - `make -C sphere pdf` (builds `sphere/paper.pdf`, 24 pp)
+  - `make -C sphere audit` (runs `exact_sphere_block.py --max-level 7`,
+    `audit_large_delta.py --max-z 7 --max-level 5`,
+    `audit_sphere_confluence.py --max-level 7`, and
+    `audit_sphere_top_layer.py --max-level 7`)
+- **Irreducible torus paper (`irreducible/`):**
+  - `make -C irreducible pdf` (builds `irreducible/paper.pdf`, 19 pp)
+  - `make -C irreducible audit` (runs `python3 -u irreducible/tools/audit_irreducible_torus.py`,
+    covering all 4 exact rational/symbolic stages: Lemma 2.3(iv) + Theorem 1.1, Theorem 1.2 +
+    Proposition 4.1, Theorem 1.3 quotient-Gram vs BGG sum on Lee–Yang/Ising/Tricritical Ising,
+    and Corollary 1.4 single-index recursion on Ising `N ≤ 30` and Lee–Yang `N ≤ 25`)
+- **Receipt check:** `python3 -I ~/cockpit/tree.py virasoro` (currently reports all four
+  milestones `S1`, `S2`, `T_IRR`, `T_TORUS` and root `ST` as `PASS` / `established`, 0 flags).
+
+---
+
+# Earlier handover: torus Virasoro blocks at minimal-model charges
 
 Updated 2026-11-19T15:59Z (23:59 Taiwan time; session wound down cleanly at the 00:00 Taiwan
 timebox). Paper pin: commit `eb519e08f707926985c3f0b8474f7d3d47cb8579`
