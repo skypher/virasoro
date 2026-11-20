@@ -255,7 +255,7 @@ Feigin--Fuchs Fock factorization establishes odd-prime integrality of the
 cleared block polynomials \(P_M^{(1)},P_M^{(2)}\in\mathbb Z[\tfrac12][t,Y]\)
 and level polynomiality of their Taylor coefficients
 (Proposition~\ref{prop:h13-nonvanishing}).  Combined with the \(k\)-th Taylor
-coefficients of \(\tau^\pm_k/\gamma^\pm_k\) at \(d=0,1\)
+coefficients of \(\tau^\pm_k/\gamma^\pm_k\) at \(d=0\)
 (Proposition~\ref{prop:layer-coefficients}), \(\ell\)-adic valuation and ratio
 separation settle every two-vector level
 (Proposition~\ref{prop:two-term-criteria}), proving unconditionally that
@@ -264,20 +264,18 @@ minimal-model charge, interior Kac weight, and level \(N\geq1\)
 (Corollary~\ref{cor:top-layer-sharp}).
 
 At the Ising charge the first double poles occur at levels \(7\), \(10\),
-and \(11\), at the energy, spin, and identity weights.  For the first two,
-one two-branch closure formula (Proposition~\ref{prop:two-branch}) gives
-the complete principal part, and comparison with \eqref{eq:intro-top}
-determines the second Jantzen norms \(\gamma_7=-700700\) and
-\(\gamma_{10}=-1121229484375/192\), which direct Gram-matrix computations
-confirm.
+and \(11\), at the energy, spin, and identity weights, and
+\eqref{eq:intro-top} gives their coefficients in closed form, with second
+Jantzen norms \(\gamma_7=-700700\), \(\gamma_{10}=-1121229484375/192\), and
+\(\gamma_{11}=-2477917160468750/6561\)
+(Proposition~\ref{prop:ising-double-poles}).
 
 Sections~\ref{sec:blocks}--\ref{sec:partial-fractions} state the
 confluence theorem, Section~\ref{sec:smith} proves the top-layer theorem,
 Sections~\ref{sec:generic-data}--\ref{sec:all-order} prove the generic
 identities and the confluence theorem, and Section~\ref{sec:ising} treats the
-Ising diamonds.  All general theorems are proved without computer calculation;
-the explicit Ising evaluations are computer-assisted finite calculations in
-exact rational arithmetic, all replayed by the ancillary scripts (see Code
+Ising model.  All theorems are proved without computer calculation; the
+ancillary scripts replay them in exact rational arithmetic (see Code
 availability).
 
 \section{Blocks and the reduced series}\label{sec:blocks}
@@ -352,7 +350,7 @@ orders in \(\Delta\) are understood over \(\mathbb Q(c,d)\), or over
 \(\mathbb Q(b_\star,d)\) after a fixed algebraic specialization.
 \end{remark}
 
-\section{Algebraic specializations and Ising resonance classes}
+\section{Algebraic specializations and collision classes}
 \label{sec:resonance}
 
 \begin{definition}[Kac weights and fixed algebraic specializations]
@@ -369,9 +367,6 @@ put \(c_\star=c(b_\star)\) and
  =\{(r,s)\in\mathbb Z_{>0}^2:
       rs\leq N,\ h_{r,s}(b_\star)=\lambda\}.
 \]
-For the Ising specialization, put \(b_0=2i/\sqrt3\) (\(c(b_0)=\tfrac12\)),
-\(\Delta_{r,s}=h_{r,s}(b_0)=((4r-3s)^2-1)/48\), and
-\(\lambda_n=(n^2-1)/48\) (\(n\in\mathbb Z_{\geq0}\)).
 \end{definition}
 
 \begin{proposition}[Minimal-model collision classes]
@@ -400,25 +395,6 @@ equivalent to \(p'r'-ps'=\pm(p'r-ps)\).  For the plus sign, coprimality gives
 \((r'+r,s'+s)=(p\ell,p'\ell)\).  The converse is immediate.
 \end{proof}
 
-\begin{corollary}[Ising collision classes]\label{cor:ising-classes}
-For positive pairs \((r,s)\) and \((r',s')\),
-\(\Delta_{r,s}=\Delta_{r',s'}\) if and only if
-\((r',s')=(r+3\ell,s+4\ell)\) or \((3\ell-r,4\ell-s)\) for some
-\(\ell\in\mathbb Z\).  Moreover \(\Delta_{r,s}=\lambda_{|4r-3s|}\), the set of distinct
-positive-label degenerate weights at \(c=1/2\) is
-\(\{\lambda_n:n\in\mathbb Z_{\geq0}\}\), every collision class contains
-infinitely many positive pairs, and for each fixed level \(N\) only
-finitely many classes contain a pair with \(rs\leq N\).
-\end{corollary}
-
-\begin{proof}
-Since \(b_0^2=-4/3\), the first assertion is
-Proposition~\ref{prop:minimal-collisions} with \((p,p')=(3,4)\), and
-\(\Delta_{r,s}=\lambda_{|4r-3s|}\) is its weight formula.  For \(n\geq0\)
-and large \(r\equiv n\pmod3\), \(s=(4r-n)/3\) gives \(4r-3s=n\), and
-\((r+3\ell,s+4\ell)\), \(\ell\geq0\), stay in the class; \(rs\leq N\) forces
-\(r,s\leq N\).
-\end{proof}
 
 \section{Coefficientwise partial fractions}\label{sec:partial-fractions}
 
@@ -522,27 +498,6 @@ a singleton, every \(\widehat M^{\star}_{\lambda,N}\) equals \(1\), and
 Proposition~\ref{prop:generic-recursion} evaluated at \(b=b_\star\).
 \end{theorem}
 
-\begin{corollary}[Ising specialization]\label{cor:ising-confluence}
-At \(b_\star=b_0\) (\(c_\star=1/2\)), write \({\mathcal C}_{n,N}\),
-\(\widehat M_{n,N}\), \(m_{n,N}\), \(A_{n,k,N}\), and \(\widetilde A_{n,k,N}\)
-for the objects of Theorems~\ref{thm:general-partial-fractions}
-and~\ref{thm:general-confluence} at \(\lambda=\lambda_n\), where
-\({\mathcal C}_{n,N}=\{(r,s):|4r-3s|=n,\ rs\leq N\}\)
-(Corollary~\ref{cor:ising-classes}).  Then for every \(N\geq1\),
-\begin{equation}\label{eq:pole-free-recursion}
- H_N(1/2,\Delta,d)
- =\sum_{\substack{n\geq0\\{\mathcal C}_{n,N}\neq\varnothing}}
-   \sum_{k=1}^{\widehat M_{n,N}}
-   \frac{\widetilde A_{n,k,N}(d)}{(\Delta-\lambda_n)^k},
- \qquad
- \widetilde A_{n,k,N}=A_{n,k,N}\in\mathbb Q[d],
-\end{equation}
-and \(m_{n,N}\leq\widehat M_{n,N}\) is the exact pole multiplicity at \(\lambda_n\).
-\end{corollary}
-
-\begin{proof}
-This is Theorem~\ref{thm:general-confluence} at \(b_\star=b_0\), where \(\mathbb Q(b_0^2)=\mathbb Q\).
-\end{proof}
 
 \section{Smith exponents, Jantzen layers, and the top pole}\label{sec:smith}
 
@@ -799,14 +754,9 @@ Coulomb-gas momenta \(2jpp'\mp n_0\) when \(k=2j\), and
 \(h_{u,v}(b_\star)=((p'u-pv)^2-(p'-p)^2)/(4pp')\), their levels above
 \(\lambda\) are \(\ell^\mp_k\).
 
-Independently, \cite[Theorem~B(e)]{Astashkevich1997} gives the same
-layers, in its case \(\mathrm{III}_-\) (the integral points of the line
-\(p'k-pl=n_0\) with \(kl>0\) are, up to sign, the labels
-\((r+jp,s+jp')\) and \(((j+1)p-r,(j+1)p'-s)\)), along every smooth curve
-through \((\lambda,c_\star)\) that is not tangent to a Kac curve.  The line
-\(c=c_\star\) is such a curve: near \((\lambda,c_\star)\) every Kac curve is
-a graph \(\Delta=h_{u,v}(b(c))\) over the \(c\)-axis, because
-\(c'(b_\star)=12(b_\star+b_\star^{-1})(1-b_\star^{-2})\neq0\).
+The same layers follow from \cite[Theorem~B(e), case \(\mathrm{III}_-\)]{Astashkevich1997},
+which applies because the line \(c=c_\star\) is transverse to every Kac
+curve through \((\lambda,c_\star)\) (as \(c'(b_\star)\neq0\)).
 
 Lemma~\ref{lem:jantzen-smith} converts the layers into Smith exponents.
 The space \((W^+_i+W^-_i)_N\) is nonzero exactly when
@@ -816,14 +766,6 @@ a higher pole.  Finally, \(j_{N-j}(\lambda)\leq j_N(\lambda)\), and
 \(H_N=\sum_j\eta_jF_{N-j}\).
 \end{proof}
 
-\begin{remark}[Other weights]\label{rem:jantzen-other}
-The other weights of \(\Lambda_N(b_\star)\) at a minimal-model charge,
-such as \(h_{1,5}(b_0)=5/2\), are weights \(\xi_i\), \(i\neq0\), of
-Case~\(1+\) or of boundary type; \cite[Theorem~6.3]{IoharaKoga2011}
-describes their Jantzen filtration as well.  At \(c_\star=1,25\) the
-fixed-\(c\) line is tangent to some Kac curves and needs a separate
-analysis.  The confluence theorem uses none of these results.
-\end{remark}
 
 
 \begin{theorem}[Top Jantzen layer]\label{thm:top-layer}
@@ -926,12 +868,6 @@ nonzero.  Finally, every two-vector level
 Proposition~\ref{prop:two-term-criteria}.
 \end{proof}
 
-\begin{remark}[Direct reconstruction check]\label{rem:top-layer-beyond}
-Direct reconstruction at \(d=11/13\) independently confirms the pole orders
-\(j_N(\lambda)\) of Corollary~\ref{cor:top-layer-sharp} for \(N\leq10\) at the
-interior weights of all models with \(6<pp'\leq21\) and for \(N\leq11\) at
-\((2,3)\).
-\end{remark}
 
 \section{Generic residue data}\label{sec:generic-data}
 
@@ -1072,15 +1008,13 @@ gives \(H_N(c,\Delta,d)=\delta_{N,0}+\sum_{\ell_a\leq N}({\mathcal R}_a(b,d)/(\D
 which for \(N\geq1\) is the displayed recursion.
 \end{proof}
 
-\begin{lemma}[The external weights \(d=0\) and \(d=1\)]
+\begin{lemma}[The external weight \(d=0\)]
 \label{lem:d-derivatives}
-For \(N\geq1\), \(H_N(c(b),\Delta,d)\) vanishes at \(d=0\)
-and at \(d=1\), and, as rational functions of \((b,\Delta)\),
+For \(N\geq1\), \(H_N(c(b),\Delta,d)\) vanishes at \(d=0\), and, as
+rational functions of \((b,\Delta)\),
 \[
  \partial_dH_N\big|_{d=0}
- =-\sum_{rs=N}\frac{rb^2+s}{2(b^2+1)(\Delta-h_{r,s}(b))},\quad
- \partial_dH_N\big|_{d=1}
- =\sum_{rs=N}\frac{rb^2-s}{2(b^2-1)(\Delta-h_{r,s}(b))}.
+ =-\sum_{rs=N}\frac{rb^2+s}{2(b^2+1)(\Delta-h_{r,s}(b))}.
 \]
 \end{lemma}
 
@@ -1091,19 +1025,14 @@ Write \(\varphi(x,y)=xb+yb^{-1}\) and \(B=[1-r,r]\times[1-s,s]\).  Since
 \(\frac14(\varphi(1,1)^2-\varphi(k,\pm l)^2)
 =\frac14\varphi(1-k,1\mp l)\varphi(1+k,1\pm l)\), and over the odd \(k,l\) and
 both signs these products run once over \(\varphi(2p,2q)\),
-\((p,q)\in B\).  The factor with \((k,\pm l)=(1,1)\) equals \(-d\).  At
-\(d=1\), \(\Lambda^2=\varphi(1,-1)^2\), the factors run once over
-\(\varphi(2p,2q)\) with \((p,q)\in B-(0,1)\), and the factor with
-\((k,\pm l)=(1,-1)\) equals \(1-d\).  Hence every \({\mathcal R}_{r,s}\)
-vanishes at \(d=0,1\), and comparison with \({\mathcal A}_{r,s}\), whose
-product runs over \(B\setminus\{(0,0),(r,s)\}\), gives
-\(\partial_d{\mathcal R}_{r,s}|_{d=0}=-\varphi(r,s)/(2\varphi(1,1))\) and
-\(\partial_d{\mathcal R}_{r,s}|_{d=1}=-\varphi(-r,s)/(2\varphi(1,-1))\),
-using \(\prod_{p}\varphi(p,-s)/\varphi(p,s)=\varphi(-r,s)/\varphi(r,s)\)
-over \(p\in[1-r,r]\).  These are the displayed coefficients.  By
-Proposition~\ref{prop:generic-recursion} and induction on \(N\),
-\(H_N\) vanishes at \(d=0,1\) for \(N\geq1\), and differentiating the
-recursion there leaves only the labels with \(rs=N\).
+\((p,q)\in B\).  The factor with \((k,\pm l)=(1,1)\) equals \(-d\).  Hence
+every \({\mathcal R}_{r,s}\) vanishes at \(d=0\), and comparison with
+\({\mathcal A}_{r,s}\), whose product runs over
+\(B\setminus\{(0,0),(r,s)\}\), gives
+\(\partial_d{\mathcal R}_{r,s}|_{d=0}=-\varphi(r,s)/(2\varphi(1,1))\), the
+displayed coefficient.  By Proposition~\ref{prop:generic-recursion} and
+induction on \(N\), \(H_N\) vanishes at \(d=0\) for \(N\geq1\), and
+differentiating the recursion there leaves only the labels with \(rs=N\).
 \end{proof}
 
 \begin{lemma}[Regular normalized singular vectors]
@@ -1130,17 +1059,14 @@ are identities of rational functions of \(b\) and specialize.
 \end{proof}
 
 
-\begin{proposition}[Layer coefficients at \(d=0\) and \(d=1\)]
+\begin{proposition}[Layer coefficients at \(d=0\)]
 \label{prop:layer-coefficients}
 In the setting of Theorem~\ref{thm:top-layer}, let \(m^\pm_k\) be the
 Coulomb momentum of \(\lambda+\ell^\pm_k\) (proof of
-Theorem~\ref{thm:jantzen-smith}), \(\rho=-n_0/(2(p'-p))\),
-\(\sigma=n_0/(2(p+p'))\) and
+Theorem~\ref{thm:jantzen-smith}), \(\rho=-n_0/(2(p'-p))\), and
 \(c_k=(-1)^{\lfloor k/2\rfloor}\binom{k-1}{\lfloor(k-1)/2\rfloor}\).  Then
-\(\tau^\pm_k/\gamma^\pm_k\) equals \(c_k(\pm\rho)^kd^k\) and
-\((\pm1)^{k+1}c_k\sigma^{k-1}m^\pm_k(d-1)^k/(2(p+p'))\) up to higher
-powers of \(d\) and of \(d-1\), respectively; in particular
-\(\tau^\pm_k\) vanishes to order exactly \(k\) at \(d=0\) and at \(d=1\).
+\(\tau^\pm_k/\gamma^\pm_k=c_k(\pm\rho)^kd^k+O(d^{k+1})\); in particular
+\(\tau^\pm_k\) vanishes to order exactly \(k\) at \(d=0\).
 \end{proposition}
 
 \begin{proof}
@@ -1194,13 +1120,7 @@ the product is \((n_0N_0/4p'^2)^{2j}(2j)!\), and
 \(\kappa=n_1+(j-1)N_0\), then the step \(g\) to the endpoint, \((r+(2j-1)p,p'-s)\) or
 \((p-r,s+(2j-1)p')\), whose box meets \(\mathbb Z(p,p')\) only at \(0\),
 \(\rho_g/(\dot h_\kappa-\dot h_g)=-2p'^2/((p'-p)jN_0)\); the product is
-\(-(n_0N_0/4p'^2)^{2j-1}(2j-1)!\).  Both give \(c_k(\pm\rho)^k\).  At \(d=1\),
-with \(y=(d-1)/\tau\), the vanishing factors of \({\mathcal P}_g(b,1)\) are
-\(1-d\) and \(\frac14\varphi(2jp,2jp')\varphi(2-2jp,-2-2jp')\),
-\((jp,jp'+1)\in B_g\) (for the labels \(\kappa,g\) above, the same \(j\) as before), of derivative \(j\kappa_1\), \(\kappa_1=p(p+p')/p'\);
-\(\partial_d{\mathcal R}_g|_{d=1}=(p'u+pv)/(2(p+p'))=|x_i|/(2(p+p'))\),
-\(n_0N_0/(4p'^2\kappa_1)=\sigma\), and for \(k=2j\) the ratio becomes
-\(2p'^2x_{\rm end}/((p+p')x_\kappa jN_0)\); the same steps give the claim.
+\(-(n_0N_0/4p'^2)^{2j-1}(2j-1)!\).  Both give \(c_k(\pm\rho)^k\).
 \end{proof}
 
 \begin{proposition}[Integrality, valuation, and level polynomiality at \(d=h_{1,\pm3}(b)\)]
@@ -1744,92 +1664,13 @@ no shifted denominator vanishes there; hence \(W_{a,M}=0\),
 and the sole moment is \(R_a(0)H_{N-\ell_a}(c_\star,z_a(b_\star),d)\).
 \end{proof}
 
-\begin{corollary}[Classwise regularity]\label{cor:class-regular}
-Every \({\mathcal G}^\star_{\lambda,N}\) lies in \(K_\star(\Delta)[[t]]\).
-\end{corollary}
+\section{The Ising model}\label{sec:ising}
 
-\begin{proof}
-For \(m<0\), the coefficient of \(t^m\) on the left of
-\eqref{eq:generic-grouped} vanishes.  On the right it is a sum over
-\(\lambda\) of polynomials in \((\Delta-\lambda)^{-1}\) without constant
-term (Lemma~\ref{lem:collision-pole-support}).  Uniqueness of partial
-fractions forces each of them to vanish.
-\end{proof}
-
-The two embedding diamonds of Section~\ref{sec:ising} are instances of
-the following closure formula.  Dots denote \(d/dt\) at \(t=0\), that is, \(d/db\) at
-\(b_\star\).
-
-\begin{proposition}[Closure of a two-branch collision]
-\label{prop:two-branch}
-Fix \(b_\star\in\mathbb C^\times\), \(N\geq1\), and
-\(\lambda\in\Lambda_N(b_\star)\) with
-\({\mathcal C}^\star_{\lambda,N}=\{\kappa_1,\kappa_2\}\).  For \(i=1,2\) put
-\(M_i=N-\ell_{\kappa_i}\) and \(z_i=z_{\kappa_i}(0)\), and suppose that
-there is a label \(\tau_i\) with \(\ell_{\tau_i}=M_i\) such that:
-(i)~\(\tau_i\) is the only label \(g\) with \(\ell_g\leq M_i\) and
-\(h_g(0)=z_i\); (ii)~\(R_{\kappa_i}\) and \(R_{\tau_i}\) are regular at
-\(t=0\); (iii)~\(\zeta_i(t):=z_{\kappa_i}(t)-h_{\tau_i}(t)\) has a simple zero
-at \(t=0\).  Define
-\(Q_i(d)=\partial_z\{(z-z_i)H_{M_i}(c_\star,z,d)\}|_{z=z_i}\) and
-\(T_i(d)=(\dot R_{\kappa_i}R_{\tau_i}+R_{\kappa_i}\dot R_{\tau_i})/\dot\zeta_i
--R_{\kappa_i}R_{\tau_i}\ddot\zeta_i/(2\dot\zeta_i^2)\), evaluated at \(t=0\).
-Then
-\begin{gather}
- \frac{R_{\kappa_1}R_{\tau_1}}{\dot\zeta_1}
- +\frac{R_{\kappa_2}R_{\tau_2}}{\dot\zeta_2}=0,\label{eq:two-branch-cancel}\\
- \PP_{\Delta=\lambda}H_N(c_\star,\Delta,d)
- =\frac{(\dot h_{\kappa_1}-\dot h_{\kappa_2})R_{\kappa_1}R_{\tau_1}}
-       {\dot\zeta_1\,(\Delta-\lambda)^2}
- +\frac{R_{\kappa_1}Q_1+R_{\kappa_2}Q_2+T_1+T_2}{\Delta-\lambda}.\label{eq:two-branch-pp}
-\end{gather}
-\end{proposition}
-
-\begin{proof}
-Fix \(i\).  By (i), near \((b,\Delta)=(b_\star,z_i)\) the only factor of
-\(\det G_{M_i}(c(b),\Delta)\) that vanishes is
-\(\Delta-h_{\tau_i}(b)\), with exponent \(p(M_i-\ell_{\tau_i})=1\).
-Hence \(U(b,\Delta)=(\Delta-h_{\tau_i}(b))H_{M_i}(c(b),\Delta,d)\) is a
-rational function regular at \((b_\star,z_i)\).  For generic \(b\),
-Proposition~\ref{prop:generic-recursion} at level \(M_i\) gives
-\(U(b,h_{\tau_i}(b))=R_{\tau_i}(b)\).  Therefore
-\[
- V(b,\Delta)=H_{M_i}(c(b),\Delta,d)-\frac{R_{\tau_i}(b)}{\Delta-h_{\tau_i}(b)}
- =\frac{U(b,\Delta)-U(b,h_{\tau_i}(b))}{\Delta-h_{\tau_i}(b)}
-\]
-is regular at \((b_\star,z_i)\), and \(V(b_\star,z_i)=Q_i\) because
-\((z-z_i)H_{M_i}(c_\star,z,d)=R_{\tau_i}(0)+(z-z_i)V(b_\star,z)\).
-Restricting to \(\Delta=z_{\kappa_i}(t)\) gives
-\(S_{\kappa_i,M_i}(t)=R_{\tau_i}(t)/\zeta_i(t)+Q_i+O(t)\).  Expanding \(f_i=R_{\kappa_i}R_{\tau_i}=f_i(0)+\dot f_it+O(t^2)\) and
-\(\zeta_i=\dot\zeta_it+\tfrac12\ddot\zeta_it^2+O(t^3)\), one finds
-\(B_{\kappa_i,N}(t)=f_i(0)/(\dot\zeta_i\,t)+R_{\kappa_i}(0)Q_i+T_i+O(t)\).
-The coefficient of \(t^{-1}(\Delta-\lambda)^{-1}\) in
-\({\mathcal G}^\star_{\lambda,N}\) is \(\sum_if_i(0)/\dot\zeta_i\), because
-\(B_{\kappa_i,N}\delta_{\kappa_i}^j\) has nonnegative valuation for
-\(j\geq1\); Corollary~\ref{cor:class-regular} gives
-\eqref{eq:two-branch-cancel}.  Since
-\(\delta_{\kappa_i}=\dot h_{\kappa_i}t+O(t^2)\), the moments are
-\[
- \widetilde A^\star_{\lambda,1,N}=\sum_i\bigl(R_{\kappa_i}(0)Q_i+T_i\bigr),
- \qquad
- \widetilde A^\star_{\lambda,2,N}
- =\sum_i\frac{\dot h_{\kappa_i}f_i(0)}{\dot\zeta_i}
- =\frac{(\dot h_{\kappa_1}-\dot h_{\kappa_2})f_1(0)}{\dot\zeta_1},
-\]
-the last step by \eqref{eq:two-branch-cancel}, and
-\(\widetilde A^\star_{\lambda,k,N}=0\) for \(k\geq3\), because
-\(B_{\kappa_i,N}\delta_{\kappa_i}^{k-1}\) then has positive valuation.
-Theorem~\ref{thm:general-confluence} identifies these moments with the
-principal part.
-\end{proof}
-
-
-\section{The Ising embedding diamonds}\label{sec:ising}
-
-At \(c=1/2\) one has \(b_0^2=-4/3\) and \((p,p')=(3,4)\).  The interior
-weights \(\lambda_1=0\), \(\lambda_5=\tfrac12\), and
-\(\lambda_2=\tfrac1{16}\) have labels \((r,s)=(1,1),(2,1),(1,2)\), and
-Theorem~\ref{thm:jantzen-smith} gives the layer levels
+At \(c=1/2\) one has \(b_0^2=-4/3\), \((p,p')=(3,4)\), and
+\(h_{r,s}(b_0)=((4r-3s)^2-1)/48\).  The interior weights \(0\),
+\(\tfrac12\), and \(\tfrac1{16}\) have labels \((r,s)=(1,1),(2,1),(1,2)\)
+and \(n_0=1,5,-2\), and Theorem~\ref{thm:jantzen-smith} gives the layer
+levels
 \[
 \begin{array}{c|c|c|c|c}
 \lambda&\text{colliding labels}&\ell^+_1,\ \ell^-_1&
@@ -1839,203 +1680,56 @@ Theorem~\ref{thm:jantzen-smith} gives the layer levels
 \tfrac1{16}&(1,2),(2,2)&2,\ 4&10,\ 14&24,\ 30
 \end{array}
 \]
-Throughout this section singular vectors are normalized by
-\(L_{-1}^\ell\)-coefficient \(1\), which is possible by
-Lemma~\ref{lem:singular-degree}.  Write \(\xi_2,\xi_3\in M(\tfrac12,\tfrac12)\)
-and \(\chi_2,\chi_4\in M(\tfrac12,\tfrac1{16})\) for the singular vectors of
-the indicated levels.  The diamonds studied below are formed by these and
-the singular vectors \(\phi_5\in M(\frac12,\frac52)\),
-\(\phi_4\in M(\frac12,\frac72)\) of labels \((1,5)\), \((4,1)\), and
-\(\psi_8\in M(\frac12,\frac{33}{16})\), \(\psi_6\in M(\frac12,\frac{65}{16})\)
-of labels \((4,2)\), \((1,6)\); the two branches of each meet first at
-total levels \(7\) and \(10\).
 
-\begin{proposition}[Ising pole orders]\label{prop:no-earlier-double-pole}
-For \(N<7\) every pole of \(H_N(1/2,\Delta,d)\) in \(\Delta\) is simple.
-At the weights \(\tfrac12\), \(\tfrac1{16}\), and \(0\), the first double
-poles occur in \(H_7\), \(H_{10}\), and \(H_{11}\), respectively.
+\begin{proposition}[Ising double poles]\label{prop:ising-double-poles}
+For \(N<7\) every pole of \(H_N(\tfrac12,\Delta,d)\) in \(\Delta\) is
+simple.  At \(\lambda=\tfrac12,\tfrac1{16},0\) the first double poles occur
+at \(N=7,10,11\), where
+\(\lim_{\Delta\to\lambda}(\Delta-\lambda)^2H_N(\tfrac12,\Delta,d)=\tau(d)/\gamma\) with
+\[
+\begin{array}{c|c|c|c}
+\lambda&N&\tau(d)&\gamma\\ \hline
+\tfrac12&7&{\mathcal P}_{2,1}{\mathcal P}_{1,5}&-700700\\
+\tfrac1{16}&10&{\mathcal P}_{1,2}{\mathcal P}_{4,2}&-1121229484375/192\\
+0&11&{\mathcal P}_{1,1}{\mathcal P}_{2,5}&-2477917160468750/6561
+\end{array}
+\]
+Here \({\mathcal P}_{R,S}={\mathcal P}_{R,S}(b_0,d)\) is the monic
+polynomial of degree \(2RS\) in the proof of
+Proposition~\ref{prop:two-term-criteria}, \(\tau\) is the torus norm of the
+singular vector that starts the second Jantzen layer, and \(\gamma\) is its
+second Jantzen norm.
 \end{proposition}
 
 \begin{proof}
-At a Kac weight with a single label \(a\) of level \(\ell_a\leq N\), the
-injective singular embedding
-\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011} puts
-\(p(N-\ell_a)\) independent vectors in the radical, the valuation of the
-Kac determinant, so all positive Smith exponents are \(1\)
-(Lemma~\ref{lem:smith}).  Below level \(7\) the only repeated classes are
-the three in the table (Corollary~\ref{cor:ising-classes}); there
-Theorem~\ref{thm:jantzen-smith} and Corollary~\ref{cor:top-layer-sharp}
-apply.
+The labels with \(rs\leq6\) have \(|4r-3s|=1,2,5,8,11,14,5,2,1,9,6,13,17,21\)
+for \((r,s)=(1,1),\ldots,(1,6),(2,1),(2,2),(2,3),(3,1),(3,2),(4,1),(5,1),(6,1)\),
+so only the three classes in the table contain two of them.  At a weight
+with a single label \(a\) of level \(\ell_a\leq N\), the injective singular
+embedding \cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011}
+puts \(p(N-\ell_a)\) independent vectors in the radical, the valuation of
+the Kac determinant, so all positive Smith exponents are \(1\)
+(Lemma~\ref{lem:smith}).  At the three interior weights,
+Theorem~\ref{thm:jantzen-smith} gives \(j_N(\lambda)\leq1\) for
+\(N<\min(\ell^+_2,\ell^-_2)\), which is \(11\), \(7\), \(10\).  At
+\(N=\min(\ell^+_2,\ell^-_2)\), \eqref{eq:top-layer} has the single term
+\(\tau/\gamma\) with \(M=0\); the factorization of \(\tau\) is that of the
+proof of Proposition~\ref{prop:two-term-criteria} with \(j=1\), and
+Proposition~\ref{prop:layer-coefficients} with \(c_2=-1\) gives
+\(\gamma=-[d^2]\tau/\rho^2\), \(\rho=-n_0/2\).
 \end{proof}
 
-\begin{lemma}[Exact Ising constants]\label{lem:ising-constants}
-At \(b_0=2i/\sqrt3\), with dots denoting \(d/db\) at \(b_0\),
-\[
- \begin{array}{c|rrrr}
- (r,s)&(2,1)&(1,3)&(1,5)&(4,1)\\ \hline
- {\mathcal A}_{r,s}(b_0)&9/28&-8/105&-1/102375&3/61600\\
- 16\dot h_{r,s}/(i\sqrt3)&-16&24&72&-80\\ \hline\hline
- (r,s)&(1,2)&(2,2)&(4,2)&(1,6)\\ \hline
- {\mathcal A}_{r,s}(b_0)&-4/7&648/13475&48/32035128125&-8/320945625\\
- 16\dot h_{r,s}/(i\sqrt3)&9&-7&-71&105
- \end{array}
-\]
-Hence
-\(\tfrac5{11}{\mathcal A}_{2,1}{\mathcal A}_{1,5}=\tfrac5{13}{\mathcal A}_{1,3}{\mathcal A}_{4,1}=-\tfrac1{700700}\),
-\(\tfrac15{\mathcal A}_{1,2}{\mathcal A}_{4,2}=\tfrac17{\mathcal A}_{2,2}{\mathcal A}_{1,6}=-\tfrac{192}{1121229484375}\),
-with slope ratios \((\dot h_{\kappa}-\dot h_{\kappa'})/(\dot h_\kappa-\dot h_\tau)\)
-(Proposition~\ref{prop:two-branch}).  At \(b_0\), put \(E_2={\mathcal P}_{2,1}\),
-\(E_3={\mathcal P}_{1,3}\), \(P_2={\mathcal P}_{1,2}\), \(P_4={\mathcal P}_{2,2}\),
-\(u(d)=d(d-20)(d-13)(d-11)(d-6)(d-1)\), and \(v(d)=(3d-14)(3d-5)\); then
-\[
- \begin{aligned}
- E_2&=\tfrac19d(d-1)v(d),\qquad
- P_2=\tfrac14d(d-1)(2d-7)(2d-1),\\
- E_3&=\tfrac14P_2(2d-15)(2d-5),\qquad
- P_4=\tfrac1{324}P_2\,v(d)(6d-55)(6d-1),\\
- {\mathcal P}_{4,1}&=\tfrac19u(d)v(d),\qquad
- {\mathcal P}_{1,5}=\tfrac1{16}u(d)(2d-15)(2d-7)(2d-5)(2d-1),\\
- {\mathcal P}_{1,6}&=\tfrac14{\mathcal P}_{1,5}(2d-57)(2d-35),\qquad
- {\mathcal P}_{4,2}=\tfrac1{324}{\mathcal P}_{1,6}\,v(d)(6d-55)(6d-1).
- \end{aligned}
-\]
-In particular \(E_2{\mathcal P}_{1,5}=E_3{\mathcal P}_{4,1}\) and
-\(P_2{\mathcal P}_{4,2}=P_4{\mathcal P}_{1,6}\).
-\end{lemma}
-
-\begin{proof}
-Substitute \(b_0\) in the finite products of
-Definition~\ref{def:generic-residue}, and use
-\(\dot h_{r,s}=i\sqrt3\,(7-16r^2+9s^2)/48\), obtained by differentiating
-Definition~\ref{def:fixed-specialization} with \(b_0^2=-4/3\); note
-\(c'(b_0)=7i\sqrt3/2\neq0\).
-\end{proof}
-
-By Lemma~\ref{lem:regular-everywhere}, for every label \((r,s)\) the singular
-vector \(w\) of level \(rs\) in \(M(\frac12,h_{r,s}(b_0))\) has
-\(\langle w|V_d(1)|w\rangle={\mathcal P}_{r,s}(b_0,d)\) and, where
-\({\mathcal A}_{r,s}\) is regular at \(b_0\),
-\(B^1(w,w)={\mathcal A}_{r,s}(b_0)^{-1}\)
-(Lemmas~\ref{lem:top-coefficient}(iii) and~\ref{lem:singular-crossing}).
-
-\begin{corollary}[First collided residues]\label{cor:first-residues}
-At \(c=1/2\), one has
-\(\operatorname*{Res}_{\Delta=1/2}H_3(\tfrac12,\Delta,d)
-=\tfrac9{28}E_2(d)H_1(\tfrac12,\tfrac52,d)-\tfrac8{105}E_3(d)\), and
-\[
- \begin{aligned}
- \operatorname*{Res}_{\Delta=1/16}H_4(\tfrac12,\Delta,d)
- &=-\tfrac47P_2(d)H_2(\tfrac12,\tfrac{33}{16},d)+\tfrac{648}{13475}P_4(d)\\
- &=\tfrac{4}{40425}P_2(d)\bigl(248d^4-5752d^3+25274d^2-33630d+5775\bigr).
- \end{aligned}
-\]
-\end{corollary}
-
-\begin{proof}
-Apply Theorem~\ref{thm:top-layer} with \(k=1\) to \((r,s)=(2,1)\),
-\(N=3\), and to \((r,s)=(1,2)\), \(N=4\), with the crossing scalars and
-torus norms just described, and compute \(H_2(\frac12,\frac{33}{16},d)\)
-from the level-two matrices.
-\end{proof}
-
-\begin{theorem}[First nontransverse fixed-\(c\) principal part]
-\label{thm:level-seven-principal-part}
-Put \(Q_5^E(d)=\partial_z\{(z-\tfrac52)H_5(\tfrac12,z,d)\}|_{z=5/2}\) and
-\(Q_4^E(d)=\partial_z\{(z-\tfrac72)H_4(\tfrac12,z,d)\}|_{z=7/2}\), and let
-\(\Theta_7=T_1+T_2\) be the derivative term of Proposition~\ref{prop:two-branch}
-for \(\kappa_1=(2,1)\), \(\tau_1=(1,5)\), \(\kappa_2=(1,3)\), and
-\(\tau_2=(4,1)\), factored in \textup{(\ref{eq:theta7-expanded})}.  Then
-\begin{equation}\label{eq:level-seven-pp}
- \PP_{\Delta=1/2}H_7(\tfrac12,\Delta,d)
- =-\frac{E_2(d){\mathcal P}_{1,5}(b_0,d)}{700700\,(\Delta-\tfrac12)^2}
- +\frac{\frac9{28}E_2(d)Q_5^E(d)-\frac8{105}E_3(d)Q_4^E(d)+\Theta_7(d)}
-       {\Delta-\tfrac12}.
-\end{equation}
-With \(d\) indeterminate, this is the earliest double pole among the
-coefficients \(H_N(\tfrac12,\Delta,d)\).
-\end{theorem}
-
-\begin{proof}
-We check the hypotheses of Proposition~\ref{prop:two-branch}.  By
-Corollary~\ref{cor:ising-classes}, \({\mathcal C}_{5,7}=\{(2,1),(1,3)\}\).
-The labels of weight \(z_1=5/2=\lambda_{11}\) have levels \(5,15,36,\ldots\),
-and those of weight \(z_2=7/2=\lambda_{13}\) have levels \(4,14,35,\ldots\), so
-\(\tau_1=(1,5)\) and \(\tau_2=(4,1)\) satisfy~(i).
-Lemma~\ref{lem:ising-constants} gives~(ii) and, since \(\dot\zeta_i\neq0\),
-also~(iii).  With \(R_{2,1}(b_0)=\frac9{28}E_2\) and
-\(R_{1,3}(b_0)=-\frac8{105}E_3\), \eqref{eq:two-branch-pp} becomes
-\eqref{eq:level-seven-pp}; its double-pole coefficient is
-\(\frac5{11}{\mathcal A}_{2,1}{\mathcal A}_{1,5}E_2{\mathcal P}_{1,5}\).
-Proposition~\ref{prop:no-earlier-double-pole} gives the last assertion.
-\end{proof}
-
-\begin{theorem}[Finite recursive level-ten principal part]
-\label{thm:level-ten-principal-part}
-With \(h_0=1/16\), put
-\(Q_8(d)=\partial_z\{(z-\tfrac{33}{16})H_8(\tfrac12,z,d)\}|_{z=33/16}\) and
-\(Q_6(d)=\partial_z\{(z-\tfrac{65}{16})H_6(\tfrac12,z,d)\}|_{z=65/16}\), and
-let \(\Theta_{10}=T_1+T_2\) be the derivative term of
-Proposition~\ref{prop:two-branch} for \(\kappa_1=(1,2)\), \(\tau_1=(4,2)\),
-\(\kappa_2=(2,2)\), and \(\tau_2=(1,6)\), factored in
-\textup{(\ref{eq:theta10-expanded})}.  Then
-\begin{equation}\label{eq:level-ten-pp}
- \begin{split}
- \PP_{\Delta=h_0}H_{10}(\tfrac12,\Delta,d)
- ={}&-\frac{192\,P_2(d){\mathcal P}_{4,2}(b_0,d)}{1121229484375\,(\Delta-h_0)^2}\\
- &+\frac{-\frac47P_2(d)Q_8(d)+\frac{648}{13475}P_4(d)Q_6(d)+\Theta_{10}(d)}
-        {\Delta-h_0}.
- \end{split}
-\end{equation}
-\end{theorem}
-
-\begin{proof}
-As for Theorem~\ref{thm:level-seven-principal-part}.  Now
-\({\mathcal C}_{2,10}=\{(1,2),(2,2)\}\), the next labels of this class have
-levels \(24\) and \(30\), the labels of weight \(33/16=\lambda_{10}\) have
-levels \(8,12,42,\ldots\), and those of weight \(65/16=\lambda_{14}\) have
-levels \(6,10,40,\ldots\), so \(\tau_1=(4,2)\) and \(\tau_2=(1,6)\)
-satisfy~(i); Lemma~\ref{lem:ising-constants} gives~(ii) and~(iii).
-\end{proof}
-
-The finite parts \(Q^E_5,Q^E_4,Q_8,Q_6\) are fixed-\(c\) data: they can be
-computed from the inverse-Shapovalov matrices or recursively from
-Corollary~\ref{cor:ising-confluence}, without any off-critical limit.
-Closed forms (of degrees \(16\) and \(12\) in \(d\) for \(Q_8\) and \(Q_6\))
-are recorded in machine-readable form with the ancillary scripts.
-
-\begin{proposition}[Second Jantzen norms]\label{prop:ising-jantzen-norms}
-The second Jantzen layers at \(\tfrac12\) and \(\tfrac1{16}\) begin with the
-singular vectors \(\xi_7=j_{\xi_2}(\phi_5)=j_{\xi_3}(\phi_4)\) and
-\(\chi_{10}=j_{\chi_2}(\psi_8)=j_{\chi_4}(\psi_6)\), with torus norms
-\(E_2{\mathcal P}_{1,5}(b_0,d)=E_3{\mathcal P}_{4,1}(b_0,d)\) and
-\(P_2{\mathcal P}_{4,2}(b_0,d)=P_4{\mathcal P}_{1,6}(b_0,d)\), and
-\(\gamma_7=B^2(\xi_7,\xi_7)=-700700\),
-\(\gamma_{10}=B^2(\chi_{10},\chi_{10})=-1121229484375/192\).
-\end{proposition}
-
-\begin{proof}
-The compositions are nonzero singular vectors of levels \(7\) and \(10\)
-\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011} with
-\(L_{-1}^\ell\)-coefficient \(1\), hence equal
-\cite[Proposition~5.1]{IoharaKoga2011}, and they span \(J^2\) there
-(Theorem~\ref{thm:jantzen-smith}).
-Lemmas~\ref{lem:singular-factorization} and~\ref{lem:regular-everywhere}
-give the torus norms, and Theorem~\ref{thm:top-layer} with
-Theorems~\ref{thm:level-seven-principal-part}
-and~\ref{thm:level-ten-principal-part} gives the norms \(\gamma\).  An exact
-evaluation of Lemma~\ref{lem:top-coefficient}(iii) in the PBW bases gives
-the same values.
-\end{proof}
-
-
-
+The values \(\gamma_7\) and \(\gamma_{10}\) agree with direct evaluations of
+Lemma~\ref{lem:top-coefficient}(iii) in the PBW bases, and the double-pole
+coefficients at \(N=7\) and \(N=10\) agree with direct inverse-Shapovalov
+reconstructions (ancillary scripts).
 
 \section{Scope and outlook}\label{sec:scope}
 
 The Verma block at a degenerate weight is not an irreducible
 minimal-model trace (it equals \(1\) at \(d=0\)).  Open directions include
-the non-interior weights of
-Remark~\ref{rem:jantzen-other} and \(c_\star=1,25\), intrinsic formulas for
+the non-interior weights, whose Jantzen filtrations are also given by
+\cite[Theorem~6.3]{IoharaKoga2011}, the charges \(c_\star=1,25\), intrinsic formulas for
 the lower Laurent coefficients, and irreducible minimal-model traces.
 
 \section*{AI-use disclosure}
@@ -2053,33 +1747,6 @@ hashes); \texttt{make audit} runs the exact suite and \texttt{make
 audit-deep} adds the direct level-ten reconstruction.  The source package
 is at \href{https://github.com/skypher/virasoro}%
 {github.com/skypher/virasoro}.
-
-\appendix
-
-% Appendix tags contain a section letter, so they use lining characters;
-% \oldstylenums is retained for the numeric equation tags in the main text.
-\makeatletter
-\def\tagform@#1{%
-  \maketag@@@{(\ignorespaces#1\unskip\@@italiccorr)}}
-\renewcommand{\eqref}[1]{\textup{(\ref{#1})}}
-\makeatother
-
-\section{Expanded polynomial data}\label{app:expanded-data}
-
-The factored polynomials entering the level-seven and level-ten principal parts
-are
-\begin{align}
- \Theta_7(d)&=-\tfrac{1}{2164322160000}\,d^2(d-1)^2
- (2d-15)(2d-7)(2d-5)(2d-1)(3d-14)(3d-5)\notag\\
- &\quad\times\bigl(84001d^4-3376370d^3+44478887d^2-209562838d+205096320\bigr),
- \label{eq:theta7-expanded}\\
- \Theta_{10}(d)&=-\tfrac{1}{552735279561465000000}\,
- d^2(d-1)^2(2d-7)^2(2d-1)^2(3d-14)(3d-5)\notag\\
- &\quad\times(6d-55)(6d-1)\bigl(424640464d^8-41506307104d^7+1664502727528d^6\notag\\
- &\quad\quad-35552058801520d^5+438148123547677d^4-3142854705332170d^3\notag\\
- &\quad\quad+12488401942129875d^2-23870935242348750d+14566042731240000\bigr).
- \label{eq:theta10-expanded}
-\end{align}
 
 {\small
 \begin{thebibliography}{CCY19}

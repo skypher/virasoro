@@ -6,6 +6,21 @@ timebox). Paper pin: commit `eb519e08f707926985c3f0b8474f7d3d47cb8579`
 25 pages, 0 warnings, 0 undefined references, 0 missing characters, 0 overfull hboxes). Results are
 cited by their LaTeX labels; numbers in parentheses refer to the current PDF.
 
+## 0. Update 2026-11-20 (shortened version, awaiting review)
+
+User, 2026-11-20 (tmp terminal), answering "unshelve virasoro, make the ½-page cuts, cut the Ising part
+to a half-page example, and work on the ℓ | k case?": "yes". The paper is now 22 pages (0 LaTeX
+warnings); `make audit` exit 0 (2026-11-20T00:14Z start). Changes:
+- Section 8 is Prop 8.1 (`prop:ising-double-poles`): first double poles at levels 7, 10, 11 with
+  coefficients τ/γ, γ from Prop 6.7 (γ₁₁ = −2477917160468750/6561 is new; γ₇, γ₁₀ unchanged).
+- Removed: Prop 7.7 (two-branch closure) and Cor 7.6, Cor 3.3 and Cor 4.4 (Ising classes and
+  specialization), Appendix A, Remarks 5.9 and 5.12, and the d = 1 halves of Lemma 6.5 and
+  Prop 6.7 (old numbers); the Astashkevich B(e) route in Thm 5.8 is one sentence.
+- Iohara–Koga [IK11] page references were checked against the full book (private Pdfs2 copy) on
+  2026-11-20; record in `~/agy-advice/checks/virasoro_IK11_pinpoints.md` (author-side, not a review).
+- Prop 6.8(ii) stays: the ℓ | k subcase of Case 3 has no proof without it (`receipt.md`, memo SHORT).
+- Sections 1–4 below describe the pre-shortening version; the PASS record in section 2 is for `eb519e08`.
+
 ## 1. Current status
 
 All three milestones of the manuscript (`CONF`, `TOP_LAYER`, and `TOP1`) have complete,

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Direct test of exact pole orders j_N(lambda) at seven minimal models (Remark rem:top-layer-beyond).
+"""Direct test of exact pole orders j_N(lambda) at seven minimal models (direct check of Corollary cor:top-layer-sharp).
 
 Usage: python3 -u tools/audit_minimal_models.py [NMAX] [D] [-h|--help]   (defaults 10, 11/13)
 

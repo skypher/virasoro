@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Exact replay of Theorem thm:top-layer, Corollary cor:top-layer-sharp, Lemma lem:d-derivatives,
-the identities used in Proposition prop:layer-coefficients, and the enumerations of Remark
-rem:top-layer-beyond.
+the identities used in Proposition prop:layer-coefficients, the Ising norms of Proposition
+prop:ising-double-poles, and enumerations of one-term and two-term windows.
 
 Usage: python3 -u tools/audit_top_layer.py [-h|--help] [--max-level N] [--d D]
 
@@ -29,7 +29,7 @@ weights: H_M(1/2, h, d) is computed from G_M and rho_M at 2M + 3 values of d
 and interpolated, and its values and derivatives at d = 0, 1 are compared with
 the closed forms.
 
-Remark rem:top-layer-beyond: for every minimal model with pp' <= 60, every
+One-term windows: for every minimal model with pp' <= 60, every
 interior (r, s), k <= 3 and 1 <= M <= 60 in the one-term part of the window,
 the sums sum u/D and sum v/D over the labels uv = M (D = (p'u - pv)^2 - m^2)
 are checked not to vanish together, and the cases covered by the hypothesis
@@ -167,7 +167,7 @@ def layer_levels(p, q, r, s, k):
 
 
 def window_criterion(ppmax=60, kmax=3, mmax=60):
-    """Remark rem:top-layer-beyond: no common zero of sum u/D and sum v/D."""
+    """One-term windows: no common zero of sum u/D and sum v/D."""
     cases = covered = zeros = 0
     for p in range(2, ppmax):
         for q in range(2, ppmax // p + 1):
@@ -332,7 +332,7 @@ def taylor_at(poly, x0):
 
 
 def two_term_layers(ppmax=60, kmax=6):
-    """Remark rem:top-layer-beyond (b) and Corollary cor:top-layer-sharp (odd k): two-term windows."""
+    """Two-term windows and Corollary cor:top-layer-sharp (odd k)."""
     top = 0
     for p in range(2, ppmax):
         for q in range(2, ppmax // p + 1):
@@ -400,7 +400,8 @@ def two_term_layers(ppmax=60, kmax=6):
 
 
 def ising_layer_two():
-    """Proposition prop:layer-coefficients against the Ising norms gamma_7, gamma_10 of Section 8."""
+    """Proposition prop:layer-coefficients against the Ising norms gamma_7, gamma_10, gamma_11
+    (Proposition prop:ising-double-poles)."""
     def pmulx(a, b):
         out = [Fr(0)] * (len(a) + len(b) - 1)
         for i, x in enumerate(a):
@@ -426,6 +427,28 @@ def ising_layer_two():
         a0, a1 = taylor_at(tau, Fr(0)), taylor_at(tau, Fr(1))
         ok = a0[0] == a0[1] == 0 and a0[2] / gamma == rk and a1[0] == a1[1] == 0 and a1[2] / gamma == rtk
         check(f"Ising {name} (level {lev}): [d^2] tau/gamma = {rk}, [(d-1)^2] tau/gamma = {rtk}", ok)
+
+    def kac_family(big_r, big_s):
+        """Monic P_{R,S}(b_0, d) of Proposition prop:two-term-criteria at (p, p') = (3, 4)."""
+        poly = [Fr(1)]
+        for a in range(1, 2 * big_r, 2):
+            for l in range(1, 2 * big_s, 2):
+                for x in (4 * a - 3 * l, 4 * a + 3 * l):
+                    poly = pmulx(poly, [-Fr(x * x - 1, 48), Fr(1)])
+        return poly
+
+    check("Proposition prop:ising-double-poles: P_{2,1} P_{1,5} = E_2 P_{1,5} and P_{1,2} P_{4,2} "
+          "equal the factored torus norms",
+          pmulx(kac_family(2, 1), kac_family(1, 5)) == pmulx(e2, p15)
+          and pmulx(kac_family(1, 2), kac_family(4, 2)) == pmulx(p2, p42))
+    tau11 = pmulx(kac_family(1, 1), kac_family(2, 5))
+    gamma11 = Fr(-2477917160468750, 6561)
+    lev, rk, rtk = layer_coefficients(3, 4, 1, 1, 2)[-1]
+    a0, a1 = taylor_at(tau11, Fr(0)), taylor_at(tau11, Fr(1))
+    check(f"Ising gamma_11 (level {lev}) of Proposition prop:ising-double-poles: "
+          f"[d^2] tau/gamma = {rk}, [(d-1)^2] tau/gamma = {rtk}",
+          lev == 11 and a0[0] == a0[1] == 0 and a0[2] / gamma11 == rk
+          and a1[0] == a1[1] == 0 and a1[2] / gamma11 == rtk)
 
 
 def main():
