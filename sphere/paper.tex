@@ -202,7 +202,7 @@ Three foundational issues arise around this recursion.
   weights \(h_{r,s}(b)\) collide at \(b=b_\star\) and the generic residues
   \(\mathcal R^{\mathrm{sph}}_{r,s}\) (the inverse-norm factor
   \(\mathcal A_{r,s}(b)\) times two fusion polynomials,
-  Definition~\ref{def:sphere-residues}) acquire poles through
+  Definition~\ref{def:sphere-residues}) can acquire poles through
   \(\mathcal A_{r,s}(b)\).  While collisions at low levels
   were studied by Javerzat--Santachiara--Foda~\cite{JaverzatSantachiaraFoda2018}
   and Ribault~\cite{Ribault2019} (with numerical \(\varepsilon\)-limits or
@@ -213,8 +213,11 @@ Three foundational issues arise around this recursion.
   one-point block, the companion work~\cite{PolzerTorus2026} showed that
   at minimal-model charges and interior Kac weights \(\lambda\), the
   Jantzen filtration bounds the pole order by \(j_N(\lambda)\), the top
-  Jantzen layer determines the leading Laurent coefficient, and the bound
-  is attained unconditionally at every \(N\geq1\).  The sphere four-point
+  Jantzen layer determines the leading Laurent coefficient at positive
+  depth, and for an indeterminate external weight \(d\) the bound is
+  attained at every \(N\geq1\), the pole order being taken over
+  \(\mathbb Q(d)\) (at the identity insertion \(d=0\), \(H_N=0\) for
+  \(N\geq1\)).  The sphere four-point
   block has four independent external weights and two standard
   normalizations (\(\mathcal B_N\) and \(H_N\)), and one asks whether the
   same top-layer structure and unconditional sharpness hold for both.
@@ -1252,10 +1255,13 @@ Its Shapovalov crossing scalar (norm derivative along \(\Delta\) at fixed
  \beta_{\chi_{r,s}(b)}=\mathcal A_{r,s}(b)^{-1},\qquad
  \langle\chi_{r,s}(b)\mid\Phi_b(1)\mid\Delta_a\rangle=P_{r,s}(b,\Delta_a,\Delta_b).
 \end{equation}
-Both are identities of rational functions of \(b\), and by
-\cite[Lemma~6.6]{PolzerTorus2026} the vector \(\chi_{r,s}(b)\) is regular at
-every \(b_\star\in\mathbb C^\times\) with \(L_{-1}^{rs}\)-coefficient \(1\),
-so the second identity specializes to every \(b_\star\in\mathbb C^\times\).
+Both are identities of rational functions of \(b\).  By
+\cite[Lemma~6.6]{PolzerTorus2026} the normalized vector \(\chi_{r,s}(b)\)
+(\(L_{-1}^{rs}\)-coefficient \(1\)) is regular at every
+\(b_\star\in\mathbb C^\times\); the second identity is polynomial in its
+coefficients and in \((\Delta_a,\Delta_b)\), so it specializes to every
+\(b_\star\in\mathbb C^\times\).  The first identity is used only as an identity
+of rational functions of \(b\).
 \end{proposition}
 
 \begin{proof}
@@ -1266,7 +1272,8 @@ the singular-vector norm is computed with respect to the Liouville momentum
 \(d\Delta/d\alpha|_{\alpha_{r,s}}=rb+s/b\) removes the top lattice factor
 \((rb+s/b)\) to yield \(\beta_{\chi_{r,s}(b)}=\mathcal A_{r,s}(b)^{-1}\)
 (see also~\cite[\S3]{HadaszJaskolskiSuchanek2010} for the \(\Delta\)-crossing
-convention and~\cite[Prop.~6.2]{PolzerTorus2026}).  The second identity is
+convention, and~\cite[Prop.~6.2]{PolzerTorus2026}, whose first identity is the
+same normalized product at generic charge).  The second identity is
 Zamolodchikov's fusion polynomial~\cite[\S2]{Zamolodchikov1987}, proved
 directly in~\cite[\S5, eqs.~(5.9)--(5.12)]{Zamolodchikov2004} (see
 also~\cite[eq.~(3.4)]{Ribault2019} for the residue product); its sign in our
@@ -1294,7 +1301,10 @@ Exclude \(b=0\) and the finitely many algebraic values where any
 pole, for \(\ell_a,\ell_g\leq N\).  Then for each \(a=(r,s)\) with
 \(\ell_a\leq N\), every positive local Smith exponent of \(G_m(c(b),\Delta)\)
 (\(m\leq N\)) at \(\Delta=h_a(b)\) equals \(1\) on the \(p(m-\ell_a)\)-dimensional
-singular submodule \(U(\Vir_-)\chi_a(b)\).  By Smith-form residue extraction
+singular submodule \(U(\Vir_-)\chi_a(b)\), since the Kac root \(h_a(b)\) is
+distinct from the others and the embedding of \(M(c(b),h_a(b)+\ell_a)\) is
+injective (as in the proof of~\cite[Prop.~6.4]{PolzerTorus2026}).  By
+Smith-form residue extraction
 (\cite[Lemma~5.4]{PolzerTorus2026}), Lemma~\ref{lem:3pt-factor}, and
 Proposition~\ref{prop:imported},
 \(\Res_{\Delta=h_a}\mathcal B_m(c,\Delta,\Delta_i)
@@ -1828,7 +1838,15 @@ At \(N=\ell_2\), Theorem~\ref{thm:top-layer} has the single term \(M=0\)
 (\(H_0=\mathcal B_0=1\)), with \(\pi\) given by
 Lemma~\ref{lem:pi-factorization}(ii) at \(j=1\) and the same second Jantzen
 norm \(\gamma=B^2(w^{\mathrm{small}}_2,w^{\mathrm{small}}_2)\) as on the
-torus, taken from~\cite[Props.~6.7 and~8.1]{PolzerTorus2026}.  The
+torus.  The three Ising norms are listed
+in~\cite[Proposition~8.1]{PolzerTorus2026}.  For \((2,3)\), \(\lambda=0\),
+the proof of~\cite[Proposition~6.9]{PolzerTorus2026} gives the torus norm
+\(\tau^-_2(d)=\mathcal P_{1,1}(b_\star,d)\,\mathcal P_{1,4}(b_\star,d)\) (in
+the notation there), whose roots are the \(d_x=(x^2-1)/24\) for
+\(x=1,5\) and \(x=1,5,3,9,7,13,11,17\), so that
+\([d^2]\tau^-_2=\tfrac13\cdot\tfrac{10}{3}\cdot2\cdot7\cdot5\cdot12=\tfrac{2800}{3}\);
+and~\cite[Proposition~6.7]{PolzerTorus2026} gives
+\([d^2](\tau^-_2/\gamma_5)=-\tfrac14\).  Hence \(\gamma_5=-11200/3\).  The
 ancillary scripts check these values only in part.  The sphere audits in
 \texttt{sphere/tools/} reconstruct the blocks through level seven: the
 script \texttt{exact\_sphere\_block.py} checks the \(c=0\) coefficient at
@@ -1865,9 +1883,12 @@ The exact rational and symbolic verification suite (\texttt{sphere/tools/})
 checks the lemmas of Section~\ref{sec:asymp} at low orders, the
 fixed-\(b_\star\) confluent recursion of Section~\ref{sec:confluence}
 through level seven at \((2,3)\), \((2,5)\), and \((3,4)\) and at levels
-one to three at the irrational charge \(b_\star^2=\sqrt2\), and the
-top-layer and sharpness formulas of Section~\ref{sec:jantzen} through
-level seven.  These are finite checks; the proofs do not use them.
+one to three at the irrational charge \(b_\star^2=\sqrt2\), the top-layer
+formula of Section~\ref{sec:jantzen} in selected cases through level seven,
+and the sharpness witnesses of Section~\ref{sec:jantzen} at shifted degrees
+\(M\leq4\) (these are not full reconstructions of \(\mathcal B_N\) or
+\(H_N\) at level \(N\)).  These are finite checks; the proofs do not use
+them.
 The repository is at \href{https://github.com/skypher/virasoro}%
 {github.com/skypher/virasoro}.
 
