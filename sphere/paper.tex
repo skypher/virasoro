@@ -147,16 +147,19 @@ finite expansion for the cross-ratio coefficient \(\mathcal B_N\).  Third,
 at every minimal-model charge \(b_\star^2=-p'/p\) (\(p,p'\geq2\) coprime)
 and every interior Kac weight \(\lambda=h_{r,s}(b_\star)\), the pole order
 of both \(\mathcal B_N\) and \(H_N\) at \(\Delta=\lambda\) is bounded by
-the Jantzen depth \(j_N(\lambda)\), the leading Laurent coefficient is
-given by the top Jantzen layer with the same Jantzen norms \(\gamma^\pm_k\)
-as on the torus, and the bound \(j_N(\lambda)\) is attained unconditionally
-for all \(p,p'\), all interior \(\lambda\), and all \(N\geq1\).  Sharpness
+the Jantzen depth \(j_N(\lambda)\) (depth zero means no pole), for
+\(j_N(\lambda)\geq1\) the leading Laurent coefficient is given by the top
+Jantzen layer with the same Jantzen norms \(\gamma^\pm_k\) as on the torus,
+and the bound \(j_N(\lambda)\) is attained for all \(p,p'\), all interior
+\(\lambda\), and all \(N\geq1\), with the pole order taken over the field of
+rational functions of the external weights.  The bound survives every
+specialization of the external weights; attainment holds for generic
+external weights, not at every numerical specialization.  Sharpness
 is proved for \(\mathcal B_N\) via a single rational \((2,1)\) BPZ
 specialization and for \(H_N\) via an identity-insertion Hermite
 specialization together with Schur's irreducibility theorems for Hermite
-polynomials.  Exact rational audit scripts verify the identities and
-explicit minimal-model examples, including \(c=0\) at level five and the
-Ising charge \(c=\tfrac12\) through level eleven.
+polynomials.  Explicit minimal-model examples include \(c=0\) at level five
+and the first Ising double poles at levels seven, ten and eleven.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -179,10 +182,12 @@ Three foundational issues arise around this recursion.
 \item \emph{Large-\(\Delta\) asymptotics.}  Zamolodchikov's recursion
   follows from Liouville's theorem for rational functions of \(\Delta\)
   once one knows that \(\lim_{\Delta\to\infty}H_N(c,\Delta,\Delta_i)=\delta_{N,0}\)
-  for every \(N\geq0\).  As noted by Ribault~\cite[\S4.3.4]{Ribault2026},
-  the literature has lacked a complete proof of this asymptotic statement
-  at finite central charge: the monodromy argument of~\cite{Zamolodchikov1987}
-  is semiclassical, while the oscillator calculation of
+  for every \(N\geq0\).  To our knowledge, and as noted by
+  Ribault~\cite[\S4.3.4]{Ribault2026}, no complete proof of this asymptotic
+  statement at finite central charge has appeared: the derivation
+  of~\cite{Zamolodchikov1987} combines a semiclassical monodromy input with
+  a rational-degree argument and a comparison at \(c=1\), while the
+  oscillator calculation of
   Be\c{s}ken--Datta--Kraus~\cite[\S4.3]{BeskenDattaKraus2019} establishes only
   the leading exponential \((16q)^\Delta\) and omits the \(O(\Delta^0)\)
   determinant, external-weight, and central-charge prefactors.  More recently, Artemev--Khromov~\cite{ArtemevKhromov2026} gave a WKB
@@ -195,7 +200,10 @@ Three foundational issues arise around this recursion.
 \item \emph{Fixed-\(b_\star\) confluence.}  When \(b_\star^2\in\mathbb Q\)
   (in particular at minimal-model charges \(b_\star^2=-p'/p\)), distinct Kac
   weights \(h_{r,s}(b)\) collide at \(b=b_\star\) and the generic residues
-  \(\mathcal A_{r,s}(b)\) acquire poles.  While collisions at low levels
+  \(\mathcal R^{\mathrm{sph}}_{r,s}\) (the inverse-norm factor
+  \(\mathcal A_{r,s}(b)\) times two fusion polynomials,
+  Definition~\ref{def:sphere-residues}) acquire poles through
+  \(\mathcal A_{r,s}(b)\).  While collisions at low levels
   were studied by Javerzat--Santachiara--Foda~\cite{JaverzatSantachiaraFoda2018}
   and Ribault~\cite{Ribault2019} (with numerical \(\varepsilon\)-limits or
   regularized minimal-model limits for special external weights), a finite
@@ -226,8 +234,9 @@ of the level-lowering differential operator and isolates the exact
 parameter dependence via an involution parity; Lemma~\ref{lem:saddle}
 evaluates the saddle point via a half-pillow Wiener--Hopf factorization;
 Lemma~\ref{lem:bergman-det} evaluates the Gaussian determinant
-\(\det(I-M(z)^2)^{-1/2}=(1-z)^{-1/8}\theta_3(q)^{-1}\) from a convergent
-matrix two-point function on \(\mathbb P^1\); Lemma~\ref{lem:ext-exponents}
+\(\det(I-M(z)^2)^{-1/2}=(1-z)^{-1/8}\theta_3(q)^{-1}\) from the
+continuation to \(\mathbb P^1\), coefficientwise in \(z\), of a weighted
+matrix two-point function; Lemma~\ref{lem:ext-exponents}
 determines the external-weight prefactors by rational identities; and
 Lemma~\ref{lem:central-charge} determines the central-charge prefactor from
 the unitary orthogonal decomposition of the \(c=1+1=2\) tensor product via
@@ -243,10 +252,16 @@ budget, together with the induced finite formula for \(\mathcal B_N\).
 
 Section~\ref{sec:jantzen} proves the minimal-model Jantzen pole-order bound
 (Theorem~\ref{thm:jantzen-bound}), the top-layer leading Laurent formula
-for both \(\mathcal B_N\) and \(H_N\) (Theorem~\ref{thm:top-layer}), and
+for both \(\mathcal B_N\) and \(H_N\) at positive depth
+(Theorem~\ref{thm:top-layer}), and
 unconditional sharpness at every minimal model, interior Kac weight, and
 level \(N\geq1\) for both \(\mathcal B_N\) (Theorem~\ref{thm:sharp-B}) and
-\(H_N\) (Theorem~\ref{thm:sharp-H}).  Notably, the four external weights
+\(H_N\) (Theorem~\ref{thm:sharp-H}).  Sharpness is exactness of the pole
+order over the field of rational functions of the external weights: the
+upper bound holds at every specialization of \(\Delta_1,\dots,\Delta_4\),
+and the nonvanishing witnesses below show that the top coefficient is a
+nonzero rational function, which does not give attainment at every
+numerical specialization.  Notably, the four external weights
 make the sphere sharpness proofs substantially shorter than the torus
 \(\ell\)-adic proof of~\cite{PolzerTorus2026}: for \(\mathcal B_N\) a
 single rational \((2,1)\) BPZ specialization kills the higher-level branch
@@ -1514,8 +1529,9 @@ embedding \(M(c_\star,\mu^+_1)\hookrightarrow M(c_\star,\lambda)\)
 Lemma~\ref{lem:3pt-factor} proves (ii).  For (iii), since
 \(b_\star=ip'/\sqrt{pp'}\) and \(b_\star^{-1}=-ip/\sqrt{pp'}\), the roots of
 \(P_{R,S}(b_\star,\Delta_a,\Delta_b)\) are
-\(a_a\pm a_b=-(jp'-lp)\) for \(j\in\{-(R-1),\dots,R-1\}\) and
-\(l\in\{-(S-1),\dots,S-1\}\), whose maximum magnitude is
+\(a_a\pm a_b=-(jp'-lp)\) for \(j\in\{1-R,3-R,\dots,R-1\}\) and
+\(l\in\{1-S,3-S,\dots,S-1\}\) (steps of two, as in~\eqref{eq:Prs-def}),
+whose maximum magnitude is
 \((R-1)p'+(S-1)p=Rp'+Sp-p'-p\), attained at \((j,l)=(-(R-1),S-1)\).  For
 both parities \(R^\pm_kp'+S^\pm_kp=m^\pm_k\), and for even \(k\) the factor
 \(P_{r,s}\) has maximum \(n_1-p'-p<pp'-p'-p<m^\pm_k-p'-p\).
@@ -1652,8 +1668,9 @@ At our specialization (\(b_\star^2=-p'/p\),
   \(m^{\mathrm{small}}_k=up-p'\), so
   \(\Lambda_\mu=-(b_\star+ub_\star^{-1})\) and \(\mu=h_{1,u}(b_\star)\),
   forcing \(\det G_M(c_\star,\mu)=0\), contradicting
-  Theorem~\ref{thm:top-layer}.  Hence \((C)_M\neq0\), so both sides of the
-  rational identity for \(\mathcal B_M\) are regular here.
+  Theorem~\ref{thm:top-layer}.  Hence \((C)_M\neq0\), so for every
+  \(m\leq M\) both sides of the rational identity for \(\mathcal B_m\) are
+  regular here; we specialize the identity only through degree \(M\).
 \item \(B=\frac12(1-\frac{p'+m^{\mathrm{small}}_k}{p}+\frac{m^{\mathrm{small}}_k+p'-p}{p})=0\),
   so \({}_2F_1(A,0;C;z)=1\).
 \item \(\kappa=\frac12(1-\frac{p'}{p}+\frac{kpp'-p}{p})=\frac{(kp-1)p'}{2p}\).
@@ -1674,7 +1691,9 @@ weights), has a pole of order exactly \(j_N(\lambda)\) at \(\Delta=\lambda\).
 \end{theorem}
 
 \begin{proof}
-Fix \(k=j_N(\lambda)\geq1\), \(M:=N-\ell^{\mathrm{small}}_k\geq0\), and
+Fix \(k=j_N(\lambda)\).  If \(k=0\), Theorem~\ref{thm:jantzen-bound} gives
+no pole at \(\Delta=\lambda\), which is pole order exactly \(0\); assume
+\(k\geq1\), and set \(M:=N-\ell^{\mathrm{small}}_k\geq0\) and
 \(\mu:=\mu^{\mathrm{small}}_k\), with \(\det G_m(c_\star,\mu)\neq0\) for
 \(0\leq m\leq M\) (Theorem~\ref{thm:top-layer}).  Specialize
 \((\Delta_1,\Delta_2):=(\mu,0)\) (so \(a_1=m^{\mathrm{small}}_k\),
@@ -1809,8 +1828,16 @@ At \(N=\ell_2\), Theorem~\ref{thm:top-layer} has the single term \(M=0\)
 (\(H_0=\mathcal B_0=1\)), with \(\pi\) given by
 Lemma~\ref{lem:pi-factorization}(ii) at \(j=1\) and the same second Jantzen
 norm \(\gamma=B^2(w^{\mathrm{small}}_2,w^{\mathrm{small}}_2)\) as on the
-torus (from~\cite[Props.~6.7 and~8.1]{PolzerTorus2026}, confirmed
-independently by exact Gram-matrix reconstruction in the ancillary scripts).
+torus, taken from~\cite[Props.~6.7 and~8.1]{PolzerTorus2026}.  The
+ancillary scripts check these values only in part.  The sphere audits in
+\texttt{sphere/tools/} reconstruct the blocks through level seven: the
+script \texttt{exact\_sphere\_block.py} checks the \(c=0\) coefficient at
+\(N=5\) against~\cite[eq.~(3.24)]{Ribault2019}, and it and the script
+\texttt{audit\_sphere\_top\_layer.py} check \(\gamma=-700700\) at
+\(\lambda=\tfrac12\), \(N=7\).  The Ising norms at levels ten and eleven
+are checked against the layer-coefficient formula only by the torus
+paper's script \texttt{tools/audit\_top\_layer.py}.  These are finite
+checks, not part of the proof.
 \end{proof}
 
 \section{Scope and outlook}\label{sec:scope}
@@ -1834,10 +1861,12 @@ claims, citations, computations, and wording.
 \section*{Code availability}
 
 The exact rational and symbolic verification suite (\texttt{sphere/tools/})
-audits every lemma of Section~\ref{sec:asymp}, the fixed-\(b_\star\)
-confluent recursion of Section~\ref{sec:confluence} through level seven at
-\((2,3)\), \((2,5)\), and \((3,4)\) (and at irrational \(b_\star^2=\sqrt2\)),
-and the top-layer and sharpness formulas of Section~\ref{sec:jantzen}.
+checks the lemmas of Section~\ref{sec:asymp} at low orders, the
+fixed-\(b_\star\) confluent recursion of Section~\ref{sec:confluence}
+through level seven at \((2,3)\), \((2,5)\), and \((3,4)\) and at levels
+one to three at the irrational charge \(b_\star^2=\sqrt2\), and the
+top-layer and sharpness formulas of Section~\ref{sec:jantzen} through
+level seven.  These are finite checks; the proofs do not use them.
 The repository is at \href{https://github.com/skypher/virasoro}%
 {github.com/skypher/virasoro}.
 
