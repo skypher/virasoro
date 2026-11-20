@@ -1,3 +1,20 @@
+# Current state (2026-11-20, tmp session)
+
+Two manuscripts now (user, tmp terminal, 2026-11-20 14:5x Taiwan: "merge torus and traces paper."):
+
+- `paper.tex` (42 pp): torus paper, Sections 1-8 as reviewed at 299e8a0 (numbers unchanged, the sphere
+  paper cites them), Sections 9-14 = the traces paper merged from `irreducible/paper.tex` at 4607fde
+  (merge commits 84d8f15, cf9078e; repairs 21f5305). `irreducible/paper.tex` is kept only as the reviewed
+  source of those sections.
+- `sphere/paper.tex` (25 pp): sphere paper, separate (repairs 179e04c, c8ae6af, 5040b6d).
+
+Review state, open items and the packet log are in `receipt.md` (hard step FULL). Audits:
+`make audit`, `make audit-deep`, `make audit-irreducible`, `make -C sphere audit`; bundle `make arxiv-bundle`
+(now includes the Part II audit). Before outside distribution: the papers cite the torus paper and the code
+at github.com/skypher/virasoro, which is private.
+
+The section below is Neon's handover of 05:52Z and describes the three papers before the merge.
+
 # Handover to tmp session (all three Virasoro papers complete)
 
 Updated 2026-11-20T05:52:11Z (13:52 Taiwan time; Neon session handing the repository back to the
