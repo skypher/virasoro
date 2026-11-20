@@ -515,8 +515,8 @@ def main() -> None:
         _, H_funcs = reconstruct_B_and_H(c_val, d_ext, N_max)
 
         for N in range(1, N_max + 1):
-            # Verify exact pole-by-pole Laurent principal parts at every frozen pole lambda,
-            # plus global rational equality at the non-pole test point h = 17/3.
+            # Exact pole-by-pole principal-parts comparison at every frozen pole lambda,
+            # plus a one-point check at the non-pole weight h = 17/3.
             for lam, mdict in moms[N].items():
                 ord_H, laurent = H_funcs[N].laurent_at(lam, 0)
                 max_k_conf = max(mdict.keys()) if mdict else 0
@@ -534,7 +534,7 @@ def main() -> None:
                 for k, val in mdict.items()
             )
             assert lhs == rhs, f"({p},{pp}) N={N}: global rational mismatch at h={h_pt}: {lhs} != {rhs}"
-        print(f"  [PASS] ({p},{pp}): exact match of ALL collision moments & global rational H_N for N=1..{N_max}", flush=True)
+        print(f"  [PASS] ({p},{pp}): exact principal-parts match + one-point check at h=17/3 for N=1..{N_max}", flush=True)
 
     audit_irrational_b(3)
     print("\nALL S1_CONF AUDITS PASSED.", flush=True)

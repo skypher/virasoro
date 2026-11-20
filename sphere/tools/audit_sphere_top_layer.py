@@ -163,7 +163,7 @@ def audit_top_layer_and_gamma(max_level: int = 7) -> None:
 
 def audit_sharpness_specializations() -> None:
     print("=== Auditing Theorem S2C (BPZ (2,1) B_N sharpness) & Theorem S2D (Hermite H_N sharpness) ===", flush=True)
-    # Test multiple minimal models, interior weights, layers k=1,2, and M up to 5!
+    # Test multiple minimal models, interior weights, layers k=1,2, and M up to 4.
     test_tuples = [
         (2, 3, 1, 1, 1, 3),  # k=1: ell=1,2; next=5 -> max M = 3
         (2, 3, 1, 1, 2, 4),  # k=2: ell=5,7; next=12 -> M up to 4
