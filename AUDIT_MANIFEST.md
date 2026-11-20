@@ -14,6 +14,22 @@ The direct level-ten reconstruction is added with
 make audit-deep
 ```
 
+The examples of Sections 9-14 (irreducible traces) are replayed with
+
+```sh
+make audit-irreducible
+```
+
+which runs `irreducible/tools/audit_irreducible_torus.py`.  It imports
+`tools/direct_reconstruction.py` and `tools/exact_shapovalov.py` and must be run
+from the directory that contains `tools/` (the repository root, or `anc/` in
+the archive).  It checks Theorem `thm:descent-regularity` on allowed,
+forbidden and half-fusion weights, Theorem `thm:first-layer-ratio` from the
+two-weight Ward identity, Theorem `thm:gen-rocha-caridi` against exact
+quotient-Gram traces (Lee--Yang N <= 9, Ising N <= 8, tricritical Ising
+N <= 7), and Corollary `cor:collision-free` (Ising N <= 30, Lee--Yang
+N <= 25).
+
 From the repository root,
 
 ```sh
@@ -22,7 +38,9 @@ make arxiv-bundle
 
 creates `dist/virasoro-arxiv-v1.tar.gz`. The archive contains only
 `paper.tex` at its root and the audit README, manifest, dependency pin,
-Makefile, thirteen scripts, and two shared libraries under `anc/`. It excludes
+Makefile, thirteen scripts and two shared libraries for Sections 2-8, and
+`irreducible/tools/audit_irreducible_torus.py` for Sections 9-14, under
+`anc/`. It excludes
 the generated PDF and TeX auxiliary files, repository metadata, and project
 planning files.
 
@@ -113,7 +131,7 @@ worker batch.
 The hashes below identify the submitted audit sources.
 
 ```text
-6fb2d72ce51856d939605da5fc97b557b4fa52b50a8144b00765051cf8b98026  Makefile
+f4cab7aabcd437593b8fa5bbc48cd7193ae56c938b25a968fe2958d493c99865  Makefile
 8347daed02ebf7b3c3cfa494e97049b7e0ab15b9af00a5addd843ed44381a64a  requirements-audit.txt
 701649d93a313c2853a9ecd4d3106ff1957a97c2ff802e4e57612e9ed6e4c84c  tools/audit_confluent_recursion.py
 240545d5e84d292f360bf8d55d18de0e4dbe28ccbf3526f551fd8db4a1a81f9e  tools/audit_direct_principal_parts.py
@@ -130,4 +148,5 @@ f979190e290b2e57649d01dc6ba0fcaf225ff21fb085e92431c370a2b4f0aeb8  tools/audit_st
 1151440942f319d548965bc51a2cd0baa84b940a661735981a8b2b3afe887a98  tools/audit_top_layer.py
 34c9a27ab97bb28b78f1c2e559c8dabf4bc5a2903d362ad43222f103c7910390  tools/direct_reconstruction.py
 3f69e0f5a782cf9e23037907dbf38467fa7c5550750c5faf587cbddffc75b519  tools/exact_shapovalov.py
+ab524b1ad1bb3915c03d3e9c666c409193b4dacc97b054c74d1ea91f6803c133  irreducible/tools/audit_irreducible_torus.py
 ```

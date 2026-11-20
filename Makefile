@@ -1,6 +1,6 @@
 PYTHON ?= python3 -u
 
-.PHONY: audit audit-deep pdf arxiv-bundle
+.PHONY: audit audit-deep audit-irreducible pdf arxiv-bundle
 
 audit:
 	$(PYTHON) tools/audit_first_resonances.py
@@ -19,6 +19,10 @@ audit-deep: audit
 	$(PYTHON) tools/audit_minimal_models.py
 	$(PYTHON) tools/audit_layer_coefficients.py
 	$(PYTHON) tools/audit_kl_certificate.py
+
+# Sections 9-14 (irreducible traces); imports tools/direct_reconstruction.py and tools/exact_shapovalov.py
+audit-irreducible:
+	$(PYTHON) irreducible/tools/audit_irreducible_torus.py
 
 pdf:
 	pdflatex -interaction=nonstopmode -halt-on-error paper.tex

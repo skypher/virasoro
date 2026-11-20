@@ -11,7 +11,7 @@ cleanup() {
 }
 trap cleanup EXIT HUP INT TERM
 
-mkdir -p "$output_dir" "$stage/anc/tools"
+mkdir -p "$output_dir" "$stage/anc/tools" "$stage/anc/irreducible/tools"
 
 install -m 0644 "$repo_root/paper.tex" "$stage/paper.tex"
 install -m 0644 "$repo_root/ARXIV_ANCILLARY_README.md" \
@@ -41,6 +41,9 @@ for source in \
 do
     install -m 0644 "$repo_root/tools/$source" "$stage/anc/tools/$source"
 done
+# Sections 9-14: same relative layout as the repository, so its imports of tools/ resolve
+install -m 0644 "$repo_root/irreducible/tools/audit_irreducible_torus.py" \
+    "$stage/anc/irreducible/tools/audit_irreducible_torus.py"
 
 tar \
     --sort=name \
