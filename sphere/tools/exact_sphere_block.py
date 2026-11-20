@@ -582,9 +582,9 @@ def check_minimal_model(p: int, pp: int, r: int, s: int, max_level: int, d_ext: 
 
 
 def check_ribault_23_N5():
-    """Verify Ribault 2019 eq. (3.18) at (p,p')=(2,3), (r,s)=(1,1), N=5 against direct Gram reconstruction."""
+    """Verify Ribault 2019 eq. (3.24) at (p,p')=(2,3), (r,s)=(1,1), N=5 against direct Gram reconstruction."""
     # Ribault has beta^2 = 3/2 (i.e. b^2 = -3/2, p=2, p'=3, c=0), lambda = 0, N = 5.
-    # Eq. (3.18): H^5_Delta ~ 3 / (11200 Delta^2) * lam(0) * lam(1/(2beta)) * lam(-1/(2beta)) * lam(beta) * lam(-beta)
+    # Eq. (3.24): H^5_Delta ~ 3 / (11200 Delta^2) * lam(0) * lam(1/(2beta)) * lam(-1/(2beta)) * lam(beta) * lam(-beta)
     # where lam(P) = prod_pm (P2 pm P1 + P)(P3 pm P4 + P), and Delta_i = (beta - 1/beta)^2/4 - P_i^2 = -1/24 - P_i^2
     # Wait: in Ribault 1809.03722: c = 1 - 6(beta - 1/beta)^2, Delta(P) = P^2 - (beta-1/beta)^2/4?
     # Let's check with b^2 = -3/2: Q^2 = (b + 1/b)^2 = -3/2 + 2 - 2/3 = -1/6, so (c-1)/24 = -1/24 = Q^2/4!
@@ -616,7 +616,7 @@ def check_ribault_23_N5():
     print(f"  Direct H_5 [-2] = {lh[-2]}", flush=True)
     print(f"  (-1)^5 * Rib318 = {ribault}", flush=True)
     assert lh[-2] == ribault, f"Ribault mismatch: {lh[-2]} vs {ribault}"
-    print("[PASS] Exact match with Ribault 2019 eq. (3.18) at (2,3), lambda=0, N=5 (with (-1)^N from 3<->4)!", flush=True)
+    print("[PASS] Exact match with Ribault 2019 eq. (3.24) at (2,3), lambda=0, N=5 (with (-1)^N from 3<->4)!", flush=True)
 
 
 def eval_P_rs_at_minmodel(p: int, pp: int, R: int, S: int, d_a: Fr, d_b: Fr) -> Fr:

@@ -179,7 +179,7 @@ Three foundational issues arise around this recursion.
 \item \emph{Large-\(\Delta\) asymptotics.}  Zamolodchikov's recursion
   follows from Liouville's theorem for rational functions of \(\Delta\)
   once one knows that \(\lim_{\Delta\to\infty}H_N(c,\Delta,\Delta_i)=\delta_{N,0}\)
-  for every \(N\geq0\).  As noted by Ribault~\cite[\S4.3.4]{Ribault2026},
+  for every \(N\geq0\).  As noted by Ribault~\cite[\S5.3.4]{Ribault2026},
   the literature has lacked a complete proof of this asymptotic statement
   at finite central charge: the monodromy argument of~\cite{Zamolodchikov1987}
   is semiclassical, while the oscillator calculation of
@@ -369,12 +369,12 @@ and using \((16q(z))^m=z^m(16q(z)/z)^m\) gives
 \end{equation}
 where \(\psi_r(c,\Delta,\Delta_i)\in\mathbb Q[c,\Delta,\Delta_1,\dots,\Delta_4]\)
 has degree \(r\) in \(\Delta\) with leading term \(\frac{1}{2^r r!}\Delta^r\)
-(from \(16q(z)/z=1+\tfrac12 z+O(z^2)\)).  In particular,
-\(\mathcal B_N\sim\frac{1}{2^N N!}\Delta^N\) as \(\Delta\to\infty\), so
+(from \(16q(z)/z=1+\tfrac12 z+O(z^2)\)).  Once Theorem~\ref{thm:large-delta}
+below establishes \(H_m\to\delta_{m,0}\) as \(\Delta\to\infty\), it follows
+that \(\mathcal B_N\sim\frac{1}{2^N N!}\Delta^N\) as \(\Delta\to\infty\), so
 \(\mathcal B_N\) carries a polynomial part of degree \(N\) in \(\Delta\) and
-cannot satisfy a pure-pole recursion.  By contrast,
-Theorem~\ref{thm:large-delta} below shows that \(H_N\to\delta_{N,0}\) as
-\(\Delta\to\infty\), which makes \(H_N\) the exact normalization for the
+cannot satisfy a pure-pole recursion.  By contrast, the vanishing
+\(H_N\to\delta_{N,0}\) makes \(H_N\) the exact normalization for the
 pure-pole recursion and its fixed-\(b_\star\) confluence.
 
 \section{Large-\texorpdfstring{\(\Delta\)}{Delta} asymptotics of the elliptic \texorpdfstring{\(H\)}{H}-series}\label{sec:asymp}
@@ -384,9 +384,10 @@ For every \(N\geq0\) and every \((c,\Delta_1,\Delta_2,\Delta_3,\Delta_4)\in\math
 \[
  \lim_{\Delta\to\infty}H_N(c,\Delta,\Delta_1,\Delta_2,\Delta_3,\Delta_4)=\delta_{N,0}.
 \]
-Equivalently, as a rational function of \(\Delta\) with coefficients in
-\(\mathbb Q[c,\Delta_1,\dots,\Delta_4]\), \(H_N\) has numerator degree
-strictly smaller than \(\deg_\Delta\det G_N(c,\Delta)\) for every \(N\geq1\).
+Equivalently, writing \(H_N(c,\Delta,\Delta_i)=P_N(c,\Delta,\Delta_i)/\det G_N(c,\Delta)\)
+over the common denominator \(\det G_N(c,\Delta)\) with polynomial numerator
+\(P_N\in\mathbb Q[c,\Delta,\Delta_1,\dots,\Delta_4]\), one has
+\(\deg_\Delta P_N<\deg_\Delta\det G_N(c,\Delta)\) for every \(N\geq1\).
 \end{theorem}
 
 The proof proceeds through six lemmas (Lemmas~\ref{lem:fock-verma}--\ref{lem:central-charge}).
@@ -560,14 +561,19 @@ part of minimal total polynomial degree \(d\geq1\) (since \(m\geq1\)), then
 \(\partial_{\sigma_k}\) lowers total degree by \(1\) while
 \(\sum n\sigma_n\partial_{\sigma_{n+k}}\) preserves it, so the
 degree-\((d-1)\) part of \(D_k(\infty)P=0\) gives \(i\partial_{\sigma_k}P_d=0\)
-for all \(1\leq k\leq m\), contradicting \(m\geq1\).  Hence
-\(\mathcal D_m(\lambda)\) has a \(p(m)\times p(m)\) minor nonzero at
-\(\lambda^{-1}=0\), so its inverse is regular at \(\lambda^{-1}=0\).
+for all \(1\leq k\leq m\), contradicting \(m\geq1\).  Hence the rectangular
+system \(\mathcal D_m(\lambda)\) has an invertible \(p(m)\times p(m)\) square
+minor at \(\lambda^{-1}=0\) (supplying a left inverse regular in
+\(\lambda^{-1}\)), so its unique solution is regular at \(\lambda^{-1}=0\).
 Induction on \(m\geq1\) proves that every \(S_m(\sigma;\lambda)\) is regular
 at \(\lambda=\infty\).
 
-(ii) Expanding~\eqref{eq:S-pde} in \(\lambda^{-1}\) gives a unique
-recursive solution at each order by injectivity of \(\mathcal D_m(\infty)\).
+(ii) Expanding~\eqref{eq:S-pde} in \(\lambda^{-1}\) determines each
+\(S^{(r)}_m\) uniquely by induction on \(m\): in the linearized operator
+\(L_k^{(0)}\), both \(-\sum n\sigma_n\partial_{\sigma_n}\) and
+\(-\frac12\sum_{n=1}^{k-1}(\partial_{\sigma_n}S^{(0)})\partial_{\sigma_{k-n}}\)
+act on strictly lower oscillator levels \(<m\), leaving \(\mathcal D_m(\infty)\)
+as the highest-level operator, which is injective.
 At order \(\lambda^0\), the PDE is independent of \((\mu,\Delta_1,\Delta_2)\)
 and is solved by the quadratic \(S^{(0)}\) of~\eqref{eq:AB-gf}, as checked
 directly in Lemma~\ref{lem:saddle}(i) below together with
@@ -594,48 +600,84 @@ whose source is affine-linear in
 uniqueness gives the stated decomposition and \(\iota\)-evenness of
 \(S^{(2)}\).
 
-(iii) Fix \(N\geq0\) and work modulo \(z^{N+1}\).  By
-Lemma~\ref{lem:fock-verma}(ii), \(\mathcal B(z)\pmod{z^{N+1}}\) depends only
-on \(u_1,\dots,u_N\) and equals the finite-dimensional Gaussian expectation
+(iii) Fix \(N\geq0\) and work algebraically in the formal ring
+\(\mathbb C[[z]]/(z^{N+1})\).  By Lemma~\ref{lem:fock-verma}(ii), the
+polynomial pairing \(\mathcal B(z)\pmod{z^{N+1}}\) depends only on
+\(u_1,\dots,u_N\) and \(\bar u_1,\dots,\bar u_N\), and equals the algebraic
+Gaussian expectation with respect to the unperturbed negative Hessian
+\(Q_0=\bigl(\begin{smallmatrix}0&2D\\2D&0\end{smallmatrix}\bigr)\)
+(\(D=\mathrm{diag}(1,\dots,N)\)):
 \[
- \int_{\mathbb C^N}\!\Bigl(\prod_{m=1}^N\frac{2m}{\pi}d^2u_m\Bigr)
- \exp\!\Bigl(-2\sum_{m=1}^N m u_m\bar u_m
- +\lambda^2 S^{(0)}\!\left(\frac{z^\bullet u}{\lambda}\right)
+ \mathcal B(z)\equiv
+ \mathbb E_{Q_0}\!\left[\exp\!\Bigl(
+ \lambda^2 S^{(0)}\!\left(\frac{z^\bullet u}{\lambda}\right)
  +\lambda^2\widetilde S^{(0)}\!\left(\frac{\bar u}{\lambda}\right)\Bigr)
- R(z;u,\bar u;\lambda)
+ R(z;u,\bar u;\lambda)\right]\pmod{z^{N+1}},
 \]
-modulo \(z^{N+1}\), where
+where
 \(R=\exp(\sum_{r\geq1}\lambda^{2-r}[S^{(r)}(z^\bullet u/\lambda)+\widetilde S^{(r)}(\bar u/\lambda)])\).
-The quadratic exponent has Hessian
+Absorbing the quadratic part of \(S^{(0)}+\widetilde S^{(0)}\) into the
+Gaussian weight produces the perturbed negative Hessian
 \(Q(z)=\bigl(\begin{smallmatrix}-2B^{(z)}&2D\\2D&-2B\end{smallmatrix}\bigr)\)
-with \(D=\mathrm{diag}(1,\dots,N)\) and \(B^{(z)}_{m,n}=z^{m+n}B_{m,n}=O(z^2)\).
-In \(\mathbb C[[z]]/(z^{N+1})\), the perturbation from
-\(\bigl(\begin{smallmatrix}0&2D\\2D&0\end{smallmatrix}\bigr)\) is strictly
-nilpotent, so Wick contraction is an exact algebraic identity with
-determinant \(\det(I-M(z)^2)^{-1/2}\) and unique saddle point
-\((\sigma_*,\bar\sigma_*)\) satisfying
-\(-2mz^{-m}\bar\sigma_{*,m}+A_m+2\sum_n B_{m,n}\sigma_{*,n}=0\) and its
+with \(B^{(z)}_{m,n}=z^{m+n}B_{m,n}=O(z^{m+n})\).  Writing
+\(M_1:=D^{-1}B^{(z)}\) and \(M_2:=D^{-1}B\), we have
+\(Q_0^{-1}(Q(z)-Q_0)=\bigl(\begin{smallmatrix}0&-M_2\\-M_1&0\end{smallmatrix}\bigr)\),
+whose reduction modulo \(z\) is strictly block upper-triangular and whose
+square \(\mathrm{diag}(M_2M_1,M_1M_2)\) is \(O(z^2)\).  Thus
+\(Q_0^{-1}(Q(z)-Q_0)\) is nilpotent in \(M_{2N}(\mathbb C[[z]]/(z^{N+1}))\),
+so the formal Gaussian determinant and covariance are finite algebraic sums:
+conjugating \(M_2M_1\) by \(Z=\mathrm{diag}(z,\dots,z^N)\) gives
+\(ZM_2M_1Z^{-1}=M(z)^2\), whence
+\(\det(Q_0^{-1}Q(z))^{-1/2}=\det(I-M_2M_1)^{-1/2}=\det(I-M(z)^2)^{-1/2}\)
+(stabilizing coefficientwise in \(z\) as \(N\to\infty\)), and the Neumann
+block inverse is
+\[
+ Q(z)^{-1}
+ =\bigl(I+Q_0^{-1}(Q-Q_0)\bigr)^{-1}Q_0^{-1}
+ =\frac12\begin{pmatrix}K_{21}M_2D^{-1}&K_{21}D^{-1}\\K_{12}D^{-1}&K_{12}M_1D^{-1}\end{pmatrix},
+\]
+with \(K_{21}=(I-M_2M_1)^{-1}\) and \(K_{12}=(I-M_1M_2)^{-1}\).
+
+Completing the square algebraically shifts the variables to
+\(z^m u_m=\lambda\sigma_{*,m}+U_m\) and \(\bar u_m=\lambda\bar\sigma_{*,m}+V_m\)
+(\(U_m:=z^m\xi_m\), \(V_m:=\bar\xi_m\)), where the unique saddle point
+\((\sigma_*,\bar\sigma_*)\) solves
+\(-2mz^{-m}\bar\sigma_{*,m}+A_m+2\sum_{n=1}^N B_{m,n}\sigma_{*,n}=0\) and its
 conjugate.  Since \(\bar A_m=-A_m\) and \(B_{m,n}\in\mathbb R\), one has
 \(\bar\sigma_{*,m}=-\sigma_{*,m}\in iz^m\mathbb Q[[z]]\) and
-\((I+M(z))\sigma_*=-\frac12 D^{-1}ZA\).
+\((I+M(z))\sigma_*=-\frac12 D^{-1}ZA\).  In the centered Gaussian for
+\((U,V)\), the Neumann inverse gives
+\begin{align*}
+ \operatorname{Cov}(U_m,U_n)&=O(z^{m+n}),\qquad
+ \operatorname{Cov}(V_m,V_n)=O(z^{m+n}),\\
+ \operatorname{Cov}(U_m,V_n)&=\frac{\delta_{m,n}}{2m}z^m+O(z^{m+n}).
+\end{align*}
+Consequently, every Wick contraction of a pair of modes of weights \(m,n\) has
+\(z\)-order at least \(\frac{m+n}{2}\), so every Wick monomial in \((U,V)\) of
+total oscillator weight \(L\) has \(z\)-order at least \(\lceil L/2\rceil\),
+while every saddle factor \(\sigma_{*,m},\bar\sigma_{*,m}\) has \(z\)-order at
+least \(m\).  Modulo \(z^{N+1}\), only finitely many oscillator modes and
+finitely many Wick monomials (of total weight \(L\leq2N\)) contribute, making
+all algebraic shifts and \(\lambda^{-1}\)-extractions finite identities in
+\(\mathbb C[[z]]/(z^{N+1})\).
 
-Shifting \(u_m=\lambda z^{-m}\sigma_{*,m}+\xi_m\) and
-\(\bar u_m=\lambda\bar\sigma_{*,m}+\bar\xi_m\), the \(\lambda^2\) term
-factors out as \(e^{\lambda^2\mathcal I_0(z)}\).  At order \(\lambda^1\),
-\(\iota\)-oddness of \(\widetilde S^{(1)}\) and \(\bar\sigma_*=-\sigma_*\)
-give
+The \(\lambda^2\) saddle value factors out as \(e^{\lambda^2\mathcal I_0(z)}\).
+At order \(\lambda^1\), \(\iota\)-oddness of \(\widetilde S^{(1)}\) and
+\(\bar\sigma_*=-\sigma_*\) give
 \(S^{(1)}(\sigma_*)+\widetilde S^{(1)}(\bar\sigma_*)
 =\mu[\widetilde S^{(1)}(\sigma_*)+\iota(\widetilde S^{(1)})(\sigma_*)]=0\)
-identically.  At order \(\lambda^0\), \(R\) expands as
+identically.  At order \(\lambda^0\), the shifted factor \(R\) expands in the
+graded \(z\)-filtration as
 \[
- \exp\Bigl(\mu\sum_{m=1}^N\bigl(\partial_{\sigma_m}\widetilde S^{(1)}(\sigma_*)z^m\xi_m
- +\partial_{\bar\sigma_m}\widetilde S^{(1)}_{\mathrm{conj}}(\bar\sigma_*)\bar\xi_m\bigr)
- +S^{(2)}(\sigma_*)+\widetilde S^{(2)}(\bar\sigma_*)\Bigr)\bigl(1+O(\lambda^{-1})\bigr).
+ \exp\Bigl(\mu\sum_{m=1}^N\bigl(\partial_{\sigma_m}\widetilde S^{(1)}(\sigma_*)U_m
+ +\partial_{\bar\sigma_m}\widetilde S^{(1)}_{\mathrm{conj}}(\bar\sigma_*)V_m\bigr)
+ +S^{(2)}(\sigma_*)+\widetilde S^{(2)}(\bar\sigma_*)\Bigr)\bigl(1+O(\lambda^{-1})\bigr),
 \]
-Integrating the linear-in-\((\xi,\bar\xi)\) exponential against the centered
-Gaussian in \((\xi,\bar\xi)\) produces a universal factor
-\(\exp(\mu^2\Psi_1(z))\) independent of \((\mu,\Delta_i)\).  Using
-\(\iota\)-evenness of \(S^{(2)}\) to identify
+with \(O(\lambda^{-1})\) coefficientwise in \(z\).  Evaluating the finite
+centered Gaussian expectation of the linear-in-\((U,V)\) exponential yields
+\(\exp(\mu^2\Psi_1(z))\) (half the covariance contraction of the gradient of
+\(\widetilde S^{(1)}\)), where \(\Psi_1\in z\mathbb Q[[z]]\) is independent of
+\((\mu,\Delta_i)\).  Using \(\iota\)-evenness of \(S^{(2)}\) to identify
 \(\widetilde S^{(2)}(\bar\sigma_*)\) and setting
 \(\Phi_c^{\mathrm{raw}}(z):=2S^{(2)}_c(\sigma_*(z))+\Psi_1(z)\),
 \(\Phi_j(z):=S^{(2)}_j(\sigma_*(z))\) (\(j=1,2\)) yields
@@ -743,13 +785,17 @@ By stationarity at \((\sigma_*,\bar\sigma_*)\) and~\eqref{eq:jacobi-2},
   =z\frac{d}{dz}\log\frac{16q(z)}{z},
 \end{align*}
 and \(\mathcal I_0(0)=0\) gives \(\mathcal I_0(z)=\log(16q(z)/z)\).
-Finally, writing
+Finally, for sufficiently small \(|z|\), \(z/p(w)=z(1+w)^2/(4w)\) is uniformly
+small on a fixed annulus straddling \(|w|=1\), so both \(f_*(p(w))\) and the
+symmetric function \(H(w)\) extend holomorphically to that annulus with
+exponentially decaying Laurent coefficients.  The continued Wiener--Hopf
+identity
 \[
  H(w)=1-g_*(w)+i\sum_{n=1}^\infty nt_{*,n}(w^n-w^{-n})
 \]
-and evaluating at \(w=1\) (\(p(1)=1\)) and \(w=-1\) (\(p(-1)=\infty\)) kills
-the sum and gives \(1-g_*(1)=H(1)=\theta_4^{-2}\) and
-\(1-g_*(-1)=H(-1)=\theta_3^{-2}\).
+therefore holds on that annulus; evaluating at \(w=1\) (\(p(1)=1\)) and
+\(w=-1\) (\(p(-1)=\infty\)) kills the sum and gives
+\(1-g_*(1)=H(1)=\theta_4^{-2}\) and \(1-g_*(-1)=H(-1)=\theta_3^{-2}\).
 \end{proof}
 
 \begin{lemma}[Bergman-kernel evaluation of the Gaussian determinant]
@@ -763,18 +809,24 @@ As formal power series in \(z\),
 \end{lemma}
 
 \begin{proof}
-Fix \(z\in\mathbb C\) with \(|z|\) sufficiently small (say \(|z|<1/16\)).
-Because \(B(p,q)\) is holomorphic on \(\{|p|<1,|q|<1\}\) (where
-\(\operatorname{Re}\sqrt{1-p}>0\)), Cauchy's inequality gives
-\(|B_{m,n}|\leq C_\rho\rho^{-m-n}\) for every \(0<\rho<1\).  Thus the
-symmetric matrix \(\widetilde M(z)_{m,n}=z^{(m+n)/2}B_{m,n}/\sqrt{mn}\)
-(similar to \(M(z)\)) is trace-class with \(\|\widetilde M(z)\|_{\mathrm{HS}}<1/2\),
-so \(K_{12}:=(I-M_1M_2)^{-1}\) and \(K_{21}:=(I-M_2M_1)^{-1}\) (with
-\(M_1=D^{-1}B^{(z)}\), \(M_2=D^{-1}B\), \(B^{(z)}_{m,n}=z^{m+n}B_{m,n}\))
-converge in operator norm, and the Fredholm determinant agrees with the
-formal series \(\det(I-M(z)^2)\).
+We prove the identity in \(\mathbb Q[[z]]\) by working coefficientwise in \(z\).
+Set \(D=\mathrm{diag}(1,2,\dots)\), \(B^{(z)}_{m,n}=z^{m+n}B_{m,n}\),
+\(M_1=D^{-1}B^{(z)}\), \(M_2=D^{-1}B\), and form the formal Neumann series
+\(K_{12}:=\sum_{r\geq0}(M_1M_2)^r\) and \(K_{21}:=\sum_{r\geq0}(M_2M_1)^r\) in
+\(M_\infty(\mathbb Q[[z]])\).  Since \((M_1)_{m,n}=O(z^{m+n})\), every fixed
+coefficient \([z^j]M_1\) (\(j\geq1\)) has finite support (\(m+n\leq j\)); hence
+for every \(j\geq1\), \([z^j]K_{12}\) has finite row support, while
+\([z^j]K_{21}\) has finite column support with each column a finite linear
+combination of columns of \(M_2\).  Because \(B(p,q)\) is holomorphic on
+\(\{|p|<1,|q|<1\}\) (where \(\operatorname{Re}\sqrt{1-p}>0\)), Cauchy's
+inequality gives \(|B_{m,n}|\leq C_\rho\rho^{-m-n}\) for every
+\(0<\rho<1\); in particular the formal series
+\(\det(I-M(z)^2)^{-1/2}=\exp(\frac12\sum_{k\geq1}\frac1k\Tr(M(z)^{2k}))\) is
+well-defined (and for sufficiently small \(|z|\) agrees with the trace-class
+Fredholm determinant of the symmetrized matrix
+\(\widetilde M(z)_{m,n}=z^{(m+n)/2}B_{m,n}/\sqrt{mn}\)).
 
-On the annulus \(|z|<|x_1|,|x_2|<1\), define
+Fix \(x_2\) with \(0<|x_2|<1\), and define the formal power series in \(z\),
 \(W(x_1,x_2):=\frac{1}{(x_1-x_2)^2}+W_{\mathrm{no}}(x_1,x_2)\), where
 \begin{multline*}
  W_{\mathrm{no}}(x_1,x_2)
@@ -782,80 +834,111 @@ On the annulus \(|z|<|x_1|,|x_2|<1\), define
   +A_{-+,mn}x_1^{m-1}x_2^{-n-1}+A_{+-,mn}x_1^{-m-1}x_2^{n-1}\Bigr)
 \end{multline*}
 with blocks \(A_{++}=-B^{(z)}K_{21}\), \(A_{--}=-BK_{12}\),
-\(A_{-+}=BK_{12}M_1\), and \(A_{+-}=A_{-+}^T=B^{(z)}K_{21}M_2\).
+\(A_{-+}=BK_{12}M_1\), and \(A_{+-}=A_{-+}^T=B^{(z)}K_{21}M_2\).  By the
+finite row and column support of \([z^r]M_1\) and the Cauchy bound
+\(|B_{m,n}|\leq C_\rho\rho^{-m-n}\) (choosing \(\rho\in(\max(|x_1|,|x_2|),1)\)),
+each coefficient \([z^j]W_{\mathrm{no}}(x_1,x_2)\) converges locally normally
+on \(\{0<|x_1|,|x_2|<1\}\).
 
-\emph{Step 1 (Rational twist identity).}  With \(s_1=\sqrt{1-p}\) and
-\(s_2=\sqrt{1-q}\) (\(p-q=s_2^2-s_1^2\)),
+\emph{Step 1 (Rational twist identity and polynomial growth).}  With
+\(s_1=\sqrt{1-p}\) and \(s_2=\sqrt{1-q}\) (\(p-q=s_2^2-s_1^2\)),
 \[
  \sqrt{1-p}\left(B(p,q)-\frac{pq}{(p-q)^2}\right)
  =-pq\left(\frac{1}{2s_2(s_1+s_2)^2}+\frac{s_1}{(s_2^2-s_1^2)^2}\right)
  =-\frac{pq(2-p-q)}{2\sqrt{1-q}\,(p-q)^2}.
 \]
-Expanding in \(q\) for \(|q|<|p|\) shows that every \([q^n]\)-coefficient
-contains only non-positive powers of \(p\).  Equivalently, for each
-\(n\geq1\), letting \(f_n(x):=\sum_{m=1}^\infty B_{m,n}x^{-m-1}-nx^{n-1}\),
-the product \(P_n(x):=\sqrt{x(x-1)}\,f_n(x)\) is a polynomial in \(x\) of
-degree \(n\).
+Setting \(p=1/X\) (\(|Xq|<1\)), define
+\(f_n(X):=\sum_{m=1}^\infty B_{m,n}X^{-m-1}-nX^{n-1}\) for \(n\geq1\); then
+\(P_n(X):=\sqrt{X(X-1)}\,f_n(X)\) is a polynomial of degree \(n\):
+\[
+ P_n(X)=-\frac12[q^{n-1}]\frac{(2X-1)-Xq}{(1-q)^{1/2}(1-Xq)^2}.
+\]
+Expanding \((1-q)^{-1/2}\) and \((1-Xq)^{-2}\) gives
+\(|[X^{n-k}]P_n(X)|=O(\mathrm{poly}(n))\) uniformly in \(0\leq k\leq n\), and
+hence \(|P_n(X)|\leq C_K\,\mathrm{poly}(n)\max(1,|X|)^n\) on compact
+\(X\)-sets.
 
-\emph{Step 2 (Continuation to \(\mathbb P^1\) and Liouville's theorem).}
-Fix \(x_2\) with \(|z|<|x_2|<1\).  Using \(D+BK_{12}M_1=DK_{21}\) and
-\(BK_{12}=DK_{21}M_2\):
+\emph{Step 2 (Coefficientwise meromorphic continuation and Liouville's theorem).}
+Fix \(0<|x_2|<1\) and use \(D+BK_{12}M_1=DK_{21}\) and \(BK_{12}=DK_{21}M_2\):
 \begin{itemize}\setlength{\itemsep}{1pt}
-\item For \(|z|<|x_1|<|x_2|\), expanding
+\item \emph{Inner patch (\(|x_1|<|x_2|\)):} expanding
   \((x_1-x_2)^{-2}=\sum_{m\geq1}mx_1^{m-1}x_2^{-m-1}\) and setting
   \(v(x_2):=K_{21}(x_2^{-\bullet-1}-M_2x_2^{\bullet-1})\) gives
   \(W(x_1,x_2)=-\sum_{n\geq1}v_n(x_2)z^{n-1}f_n(x_1/z)\), so
-  \(\sqrt{x_1(x_1-z)}\,W(x_1,x_2)=-\sum_{n\geq1}v_n(x_2)z^nP_n(x_1/z)\)
-  extends holomorphically to \(|x_1|<|x_2|\).
-\item For \(|x_2|<|x_1|<1\), expanding
-  \((x_1-x_2)^{-2}=\sum_{m\geq1}mx_1^{-m-1}x_2^{m-1}\) and setting
-  \(w(x_2):=K_{12}(x_2^{\bullet-1}-M_1x_2^{-\bullet-1})\) gives
-  \(W(x_1,x_2)=-x_1^{-2}\sum_{n\geq1}w_n(x_2)f_n(1/x_1)\), so
-  \(x_1\sqrt{x_1-1}\,W(x_1,x_2)=i\sum_{n\geq1}w_n(x_2)P_n(1/x_1)\) extends
-  holomorphically to \(|x_1|>|x_2|\), including \(x_1=\infty\).
+  \(\sqrt{x_1(x_1-z)}\,W(x_1,x_2)=-\sum_{n\geq1}v_n(x_2)z^nP_n(x_1/z)\).
+  For each \(j\geq0\), \([z^j]v_n(x_2)\) is a finite linear combination of
+  columns of \(M_2\) (plus the \(j=0\) source
+  \(x_2^{-n-1}-(M_2x_2^{\bullet-1})_n\)); choosing Cauchy radius
+  \(|x_2|<\rho<1\) bounds these columns and \((M_2x_2^{\bullet-1})_n\) by
+  \(O(\rho^{-n})\), so \(|[z^j]v_n(x_2)|=O(|x_2|^{-n})\).  In
+  \([z^j]\sum_{n\geq1}v_n z^n P_n(x_1/z)\), the only contributing monomials
+  from \(z^nP_n(x_1/z)\) have powers \(x_1^{n-k}\) with \(0\leq k\leq j\) and
+  coefficients \(O(\mathrm{poly}(n)|x_2|^{-n})\), giving normal convergence
+  on every compact disc \(|x_1|\leq r<|x_2|\).
+\item \emph{Outer patch (\(|x_1|>|x_2|\), including \(\infty\)):} define
+  \(w(x_2):=K_{12}(x_2^{\bullet-1}-M_1x_2^{-\bullet-1})\).  Expanding
+  \((x_1-x_2)^{-2}=\sum_{m\geq1}mx_1^{-m-1}x_2^{m-1}\) gives
+  \begin{align*}
+   W(x_1,x_2)&=-x_1^{-2}\sum_{n\geq1}w_n(x_2)f_n(1/x_1),\\
+   x_1\sqrt{x_1-1}\,W(x_1,x_2)&=i\sum_{n\geq1}w_n(x_2)P_n(1/x_1).
+  \end{align*}
+  Since
+  \([z^0]w_n=x_2^{n-1}\) while \([z^j]w\) has finite support for every
+  \(j\geq1\), the polynomial bound on \(P_n\) gives normal convergence of each
+  \([z^j]\)-coefficient on compact subsets of \(|x_1|>|x_2|\), including
+  \(x_1=\infty\).
 \end{itemize}
 With \(Y(x):=\sqrt{x(x-z)(x-1)}\) (\(Y(x)\sim x^{3/2}\) at \(\infty\)),
-\(Y(x_1)W(x_1,x_2)\) therefore extends to a single-valued meromorphic
-function on \(\mathbb P^1\), holomorphic at \(\infty\), whose only
-singularity is a double pole at \(x_1=x_2\) with principal part
-\(Y(x_1)/(x_1-x_2)^2\).  With the symmetric polynomial
+multiplying the inner patch by \(\sqrt{x_1-1}\) (holomorphic on \(|x_1|<1\))
+and the outer patch by \(\sqrt{1-z/x_1}\) (coefficientwise in \(z\)) with
+consistent branch choice proves that at every order in \(z\),
+\([z^j](Y(x_1)W(x_1,x_2))\) extends to a single-valued meromorphic function on
+\(\mathbb P^1\), holomorphic at \(\infty\), whose only singularity is the pole
+at \(x_1=x_2\) matching \([z^j](Y(x_1)/(x_1-x_2)^2)\).  With the symmetric
+polynomial
 \(S(x_1,x_2):=\frac12[x_1x_2(x_1+x_2)-2(1+z)x_1x_2+z(x_1+x_2)]\)
 (satisfying \(S(x,x)=Y(x)^2\), \(\partial_{x_1}S(x,x)=Y(x)Y'(x)\), and
-\(\deg_{x_1}S=2\)), symmetry \(W(x_1,x_2)=W(x_2,x_1)\) and Liouville's
-theorem on \(\mathbb P^1\) uniquely force
+\(\deg_{x_1}S=2\)), symmetry \(W(x_1,x_2)=W(x_2,x_1)\) and Liouville's theorem
+on \(\mathbb P^1\) applied coefficientwise in \(z\) force
 \[
- W(x_1,x_2)=\frac{S(x_1,x_2)}{Y(x_1)Y(x_2)(x_1-x_2)^2}+\frac{2C(z)}{Y(x_1)Y(x_2)}.
+ W(x_1,x_2)=\frac{S(x_1,x_2)}{Y(x_1)Y(x_2)(x_1-x_2)^2}+\frac{2C(z)}{Y(x_1)Y(x_2)}
 \]
+for a unique formal power series \(C(z)\in\mathbb Q[[z]]\).
 
 \emph{Step 3 (Zero-mode condition and Cauchy residue).}  Since
-\(W(x_1,x_2)\) has no \(x_1^{-1}\) term on \(|z|<|x_1|<1\),
-\(\oint_{|x_1|=r}W(x_1,x_2)\frac{dx_1}{2\pi i}=0\).  Extracting the
-\(x_2^{-3/2}\) leading term as \(x_2\to\infty\) gives
+\([z^j]W(x_1,x_2)\) has no \(x_1^{-1}\) term on \(0<|x_1|<1\),
+\(\oint_{|x_1|=r}W(x_1,x_2)\frac{dx_1}{2\pi i}=0\) coefficientwise in \(z\)
+(for \(0<r<1\)).  Extracting the \(x_2^{-3/2}\) leading term as
+\(x_2\to\infty\) gives
 \(\oint_{|x_1|=r}(x_1/2+2C(z))Y(x_1)^{-1}\frac{dx_1}{2\pi i}=0\), so
-\(2C(z)=-\frac12 I_1(z)/I_0(z)\), where
-\(I_0(z)=[x^0](1-z/x)^{-1/2}(1-x)^{-1/2}=\sum_{n\geq0}\binom{-1/2}{n}^2z^n={}_2F_1(\tfrac12,\tfrac12;1;z)\)
+\(2C(z)=-\frac12 F_1(z)/F_0(z)\), where
+\(F_0(z):=[x^0](1-z/x)^{-1/2}(1-x)^{-1/2}=\sum_{n\geq0}\binom{-1/2}{n}^2z^n={}_2F_1(\tfrac12,\tfrac12;1;z)\)
 and
-\(I_1(z)=[x^{-1}](1-z/x)^{-1/2}(1-x)^{-1/2}=\sum_{n\geq0}\binom{-1/2}{n}^2\frac{n+1/2}{n+1}z^{n+1}\).
-Because \([z^{n+1}]z(1-z)I_0'(z)=\frac{1}{4(n+1)}\binom{-1/2}{n}^2\), we
-have \(I_1(z)=zI_0(z)-2z(1-z)I_0'(z)\) and
-\(2C(z)=-\frac{z}{2}+z(1-z)I_0'(z)/I_0(z)\).
+\(F_1(z):=[x^{-1}](1-z/x)^{-1/2}(1-x)^{-1/2}=\sum_{n\geq0}\binom{-1/2}{n}^2\frac{n+1/2}{n+1}z^{n+1}\).
+Because \([z^{n+1}]z(1-z)F_0'(z)=\frac{1}{4(n+1)}\binom{-1/2}{n}^2\), we
+have \(F_1(z)=zF_0(z)-2z(1-z)F_0'(z)\) and
+\(2C(z)=-\frac{z}{2}+z(1-z)F_0'(z)/F_0(z)\).
 
-Finally, on \(|z|<|x|<1\), only the diagonal entries of \(A_{-+}\) and
-\(A_{+-}\) contribute to \([x^{-2}]W_{\mathrm{no}}(x,x)\), so
+Finally, on \(0<|x|<1\), only the diagonal entries of \(A_{-+}\) and
+\(A_{+-}\) contribute to \([x^{-2}]W_{\mathrm{no}}(x,x)\), so in
+\(\mathbb Q[[z]]\),
 \begin{align*}
  \oint_{|x|=r}\frac{x}{2}W_{\mathrm{no}}(x,x)\frac{dx}{2\pi i}
  &=\Tr(BK_{12}M_1)
   =\Tr\bigl(DM(z)^2(I-M(z)^2)^{-1}\bigr)\\
  &=z\frac{d}{dz}\log\det\bigl(I-M(z)^2\bigr)^{-1/2}.
 \end{align*}
-Taking the coincidence limit \(x_1\to x\) of \(W(x_1,x)-(x_1-x)^{-2}\)
-gives the rational function
-\(W_{\mathrm{no}}(x,x)=\frac{(x^2-z)^2}{8x^2(x-1)^2(x-z)^2}+\frac{2C(z)}{x(x-1)(x-z)}\).
-Deforming \(|x|=r\) inward to the poles \(x=0,z\) yields
+Writing \(P(x)=x(x-1)(x-z)\), the polynomial identity
+\(4P(x)(-2x+1+z)+P'(x)^2=(x^2-z)^2\) gives the coincidence limit
+\(W_{\mathrm{no}}(x,x)=\lim_{x_1\to x}(W(x_1,x)-(x_1-x)^{-2})
+=\frac{(x^2-z)^2}{8x^2(x-1)^2(x-z)^2}+\frac{2C(z)}{x(x-1)(x-z)}\).
+Evaluating the contour integral at each order in \(z\) by summing the residues
+inside \(|x|=r\) (at \(x=0,z\), equivalently minus the residues at
+\(x=1,\infty\)) yields
 \[
  \Res_{x=0,z}\!\left(\frac{x}{2}W_{\mathrm{no}}(x,x)\right)
  =\frac{z}{8(z-1)}+\frac{2C(z)}{2(z-1)}
- =\frac{z}{8(1-z)}-\frac12 z\frac{I_0'(z)}{I_0(z)}.
+ =\frac{z}{8(1-z)}-\frac12 z\frac{F_0'(z)}{F_0(z)}.
 \]
 Integrating from \(z=0\) (where both sides equal \(1\)) and using
 \eqref{eq:jacobi-1} completes the proof.
@@ -920,24 +1003,41 @@ of two \(c=1\) Fock modules (oscillators \(v_m\) of weight \(\lambda^2\),
 
 \emph{Step 1 (Exact \(c=2\) decomposition).}  At \(\mu=0\) and
 \(\Delta_1=\Delta_2=\frac1{16}\), Lemma~\ref{lem:lambda-expansion}(ii) and
-Lemma~\ref{lem:saddle}(i) show that the exact finite-\(\lambda\) Ward
-equation \(l_kF=(l_0+\frac{k-1}{16})F\) is solved identically by the pure
-Gaussians \(F_1(v)=\exp(\lambda\sum A_mv_m+\sum B_{m,n}v_mv_n)\) and
-\(F_2(u)=\exp(\sum B_{m,n}u_mu_n)\), whose Fock pairings are
-\(\mathcal B(1,\lambda^2,\tfrac1{16};z)=\det(I-M(z)^2)^{-1/2}(16q/z)^{\lambda^2}\)
-and \(\mathcal B(1,0,\tfrac1{16};z)=\det(I-M(z)^2)^{-1/2}\).  Their product
-\(F_{\mathrm{tot}}=F_1F_2\) solves the exact \(c=2\),
-\(\Delta_1=\Delta_2=\frac18\) Ward equation
+Lemma~\ref{lem:saddle}(i) show that the exact finite-\(\lambda\) Fock Ward
+equations \(l_k^{(1)}F_1=(l_0^{(1)}+\frac{k-1}{16})F_1\) and
+\(l_k^{(2)}F_2=(l_0^{(2)}+\frac{k-1}{16})F_2\) are solved identically by the
+pure Gaussians \(F_1(v)=\exp(\lambda\sum A_mv_m+\sum B_{m,n}v_mv_n)\) and
+\(F_2(u)=\exp(\sum B_{m,n}u_mu_n)\).  Direct Gaussian evaluation
+(Lemma~\ref{lem:lambda-expansion}(iii) and Lemma~\ref{lem:saddle}(iii)) gives
+the two Fock pairings
+\begin{align*}
+ G_{\mathrm{charged}}(\lambda;z)
+ &:=\langle\widetilde F_1(\bar v),F_1(z^\bullet v)\rangle_{\mathcal F^{(1)}_{0,\lambda}}
+  =\det\bigl(I-M(z)^2\bigr)^{-1/2}\Bigl(\frac{16q(z)}{z}\Bigr)^{\lambda^2},\\
+ G_{\mathrm{neutral}}(z)
+ &:=\langle\widetilde F_2(\bar u),F_2(z^\bullet u)\rangle_{\mathcal F^{(2)}_{0,0}}
+  =\det\bigl(I-M(z)^2\bigr)^{-1/2},
+\end{align*}
+without invoking any Verma inverse Gram matrix at the resonant point
+\((c,\Delta)=(1,0)\).  Their product \(F_{\mathrm{tot}}=F_1F_2\) solves the
+exact \(c=2\), \(\Delta_1=\Delta_2=\frac18\) Ward equation
 \(L_k^{\mathrm{tot}}F_{\mathrm{tot}}=(L_0^{\mathrm{tot}}+\frac{k-1}{8})F_{\mathrm{tot}}\).
-By Lemma~\ref{lem:fock-verma}(i), every Verma module \(M(2,\lambda^2+n)\)
-(\(n\geq0\)) is irreducible and unitary, so \(\mathcal H_\lambda\)
-decomposes orthogonally as
+At \(c=2\) (\(1<c<25\)), every Kac weight is either nonpositive or nonreal
+(as in the proof of Lemma~\ref{lem:fock-verma}(i)), so every Verma module
+\(M(2,\lambda^2+n)\) (\(n\geq0\), \(\lambda>0\)) is Kac-nonresonant,
+irreducible, and unitary.  Hence \(\mathcal H_\lambda\) decomposes orthogonally
+as
 \(\mathcal H_\lambda=\bigoplus_{n=0}^\infty\bigoplus_{j=1}^{p(n)}M_{2,\lambda^2+n}^{(j)}\),
-where \(\mathcal P_n(\lambda):=\{P\in(\mathcal H_\lambda)_n:L_k^{\mathrm{tot}}P=0\ \forall k\geq1\}\)
-has dimension \(p(n)\).  Orthogonal projection of
-\(F_{\mathrm{tot}}(z^\bullet v,z^\bullet u)\) gives, in \(\mathbb C[[z]]\),
+where comparing graded characters
+\(\prod_{m\geq1}(1-t^m)^{-2}/\prod_{m\geq1}(1-t^m)^{-1}=\sum_{n\geq0}p(n)t^n\)
+shows that the primary space
+\(\mathcal P_n(\lambda):=\{P\in(\mathcal H_\lambda)_n:L_k^{\mathrm{tot}}P=0\ \forall k\geq1\}\)
+has dimension \(p(n)\).  Because the Ward equations uniquely determine all
+descendant projections of \(F_{\mathrm{tot}}\) inside each irreducible summand
+\(M_{2,\lambda^2+n}^{(j)}\) from its primary component, orthogonal projection
+gives, in \(\mathbb C[[z]]\),
 \begin{equation}\label{eq:c2-decomp}
- \mathcal B(1,\lambda^2,\tfrac1{16};z)\,\mathcal B(1,0,\tfrac1{16};z)
+ G_{\mathrm{charged}}(\lambda;z)\,G_{\mathrm{neutral}}(z)
  =\sum_{n=0}^\infty c_n(\lambda^2)\,z^n\,\mathcal B(2,\lambda^2+n,\tfrac18;z),
 \end{equation}
 where
@@ -948,27 +1048,43 @@ for any basis \(\{P_a\}\) of \(\mathcal P_n(\lambda)\) with Gram matrix
 \emph{Step 2 (Large-\(\lambda\) primaries and Virasoro diffeomorphism).}
 Rescaling \(v_m=i\lambda W_m\) gives
 \(l_k^{(1)}=D_k+\frac{1}{4\lambda^2}\sum_{r=1}^{k-1}\partial_{W_r}\partial_{W_{k-r}}\),
-where \(D_k:=\partial_{W_k}+\sum_{m\geq1}mW_m\partial_{W_{m+k}}\).  By the
-same lowest-degree injectivity of \((D_1,\dots,D_r)\) as in
-Lemma~\ref{lem:lambda-expansion}(i), for each \(w\in\mathcal F^{(2)}_n\)
-the unique primary \(P_w\in\mathcal P_n(\lambda)\) with
-\(P_w(0,u)=w(u)\) satisfies \(P_w(i\lambda W,u)=U(W)w(u)+O(\lambda^{-2})\),
-where \(U(W):\mathcal F^{(2)}\to\mathcal F^{(2)}[[W]]\) solves
-\((D_k+l_k^{(2)})U(W)=0\) (\(\forall k\geq1\)) with \(U(0)=\mathrm{id}\).
-Because every \(v_m\) in \(P_w\) carries \(\lambda^{-1}\), the Gram
-matrix satisfies
-\(G^{(n)}(\lambda)_{w_1,w_2}=\langle w_1,w_2\rangle_{\mathcal F^{(2)}}+O(\lambda^{-2})\),
-while pairing \(\bar v_m\) with \(F_1(v)\) replaces
-\(\overline{W_m}=i\bar v_m/\lambda\) by
-\(W_{*,m}:=\frac{iA_m}{2m}=\frac{1}{m\cdot 4^m}\binom{2m}{m}+O(\lambda^{-2})\).
-Since \(U(W)\) has real coefficients and \(W_{*,m}\in\mathbb R\), we obtain
+where \(D_k:=\partial_{W_k}+\sum_{m\geq1}mW_m\partial_{W_{m+k}}\).  Fix a
+level \(n\geq0\) and consider on the finite-dimensional space
+\((\mathcal H_\lambda)_n\) the stacked linear system consisting of the
+primary conditions \((L_k^{(1)}+L_k^{(2)})P=0\) (\(1\leq k\leq n\)) together
+with the evaluation map \(\operatorname{ev}_0(P):=P|_{W=0}\in(\mathcal F^{(2)}_{0,0})_n\).
+At \(\lambda^{-2}=0\) this stacked system is injective: filtering a kernel
+element \(P\) by \(W\)-level, its lowest nonzero positive \(W\)-level lies in
+\(\bigcap_{k=1}^n\ker D_k\), hence vanishes by the lowest-degree injectivity
+of Lemma~\ref{lem:lambda-expansion}(i).  Thus a full square minor is nonzero
+at \(\lambda^{-2}=0\) and remains nonzero for all sufficiently large
+\(\lambda\).  Since \(\dim\mathcal P_n(\lambda)=p(n)=\dim(\mathcal F^{(2)}_{0,0})_n\),
+\(\operatorname{ev}_0|_{\mathcal P_n(\lambda)}:\mathcal P_n(\lambda)\to(\mathcal F^{(2)}_{0,0})_n\)
+is a linear isomorphism for all sufficiently large \(\lambda\) at each fixed
+\(n\), and its inverse \(w\mapsto P_w\) is regular in \(\lambda^{-2}\) at
+\(\lambda^{-2}=0\): \(P_w(i\lambda W,u)=U(W)w(u)+O(\lambda^{-2})\), where
+\(U(W):\mathcal F^{(2)}\to\mathcal F^{(2)}[[W]]\) acts finitely on each
+homogeneous component and uniquely solves \((D_k+l_k^{(2)})U(W)=0\)
+(\(\forall k\geq1\)) with \(U(0)=\mathrm{id}\).
+
+Because every \(v_m\) in \(P_w\) carries \(\lambda^{-1}\), the Gram matrix
+satisfies
+\(G^{(n)}(\lambda)_{w_1,w_2}=\langle w_1,w_2\rangle_{\mathcal F^{(2)}}+O(\lambda^{-2})\).
+In the pairing \(\langle P_w,F_1F_2\rangle\), each monomial in
+\(\overline{W_m}=i\bar v_m/\lambda\) paired against the charged Gaussian
+\(F_1(v)\) evaluates by Wick's theorem to the product of saddle means
+\(W_{*,m}:=\frac{iA_m}{2m}=\frac{1}{m\cdot 4^m}\binom{2m}{m}\in\mathbb R\)
+plus \(O(\lambda^{-2})\) from quadratic contractions.  Taking the adjoint
+\(U(W)^\dagger\) in real variables \(W\) (defined levelwise on the completed
+neutral Fock space, equivalently conjugating coefficientwise and specializing
+to real \(W_*\)) therefore yields
 \[
  c_n^\infty:=\lim_{\lambda\to\infty}c_n(\lambda^2)
  =\bigl\|\bigl(U(W_*)^\dagger F_2\bigr)_n\bigr\|_{\mathcal F^{(2)}}^2.
 \]
 
 \emph{Step 3 (Exact diagonalization of \(U(W_*)^\dagger F_2\)).}  Taking
-the adjoint of \(D_kU(W)=-l_k^{(2)}U(W)\) yields
+the adjoint of \(D_kU(W)=-l_k^{(2)}U(W)\) in real variables \(W\) yields
 \(D_k(U(W)^\dagger)=-U(W)^\dagger l_{-k}^{(2)}\) with
 \(U(0)^\dagger=\mathrm{id}\).  Define the free-boson current
 \(\alpha(x):=\sum_{n\neq0}\alpha_n x^{-n-1}\) on \(\mathcal F^{(2)}\) by
@@ -979,8 +1095,10 @@ the adjoint of \(D_kU(W)=-l_k^{(2)}U(W)\) yields
 \(D_k\Psi=-\partial_x(x^{1-k}\Psi)\) with \(\Psi(0,x)=\alpha(x)\).  For
 \(f(x;W):=x\exp(-\sum_{m\geq1}W_m x^{-m})\), direct differentiation gives
 \(D_k(f(x;W))=-x^{1-k}f'(x;W)\), so \(f'(x;W)\alpha(f(x;W))\) solves the
-same system with the same initial value; by injectivity of \(D_k\),
-\(U(W)^\dagger\alpha(x)(U(W)^\dagger)^{-1}=f'(x;W)\alpha(f(x;W))\).
+same system with the same initial value; by degree-triangular uniqueness in
+the \(W\)-adic filtration (from injectivity of \(D_k\)),
+\(U(W)^\dagger\alpha(x)(U(W)^\dagger)^{-1}=f'(x;W)\alpha(f(x;W))\) before
+specialization.
 
 At \(W=W_*\), integrating \(\sum_{m\geq1}\frac{1}{m\cdot 4^m}\binom{2m}{m}y^m=\int_0^y\frac{(1-t)^{-1/2}-1}{t}dt=\log\frac{4(1-\sqrt{1-y})}{y(1+\sqrt{1-y})}\)
 shows that \(X=f(x;W_*)\) has inverse
@@ -1020,7 +1138,10 @@ Lemmas~\ref{lem:lambda-expansion}--\ref{lem:ext-exponents}, at \(c=2\)
 \begin{itemize}\setlength{\itemsep}{1pt}
 \item the left-hand side tends to
   \(((1-z)^{-1/8}\theta_3^{-1})^2=(1-z)^{-1/4}\theta_3^{-2}\);
-\item the right-hand side tends to
+\item on the right-hand side, each term \(\mathcal B(2,\lambda^2+n,\tfrac18;z)\)
+  has \(\Delta-\mu^2=\lambda^2+n-\frac{1}{24}\), so its exponential factor
+  combines with \(z^n\) to give \((16q)^n(16q/z)^{-1/24}\); summing over \(n\)
+  yields
   \[
    \Bigl(\prod_{m=1}^\infty(1-q^{2m})^{-1/2}\Bigr)
    \Bigl(\frac{16q}{z}\Bigr)^{-1/24}(1-z)^{-1/8}\theta_3^{-1}
@@ -1370,7 +1491,8 @@ By Proposition~\ref{prop:imported}, every \(\chi_{R,S}(b_\star)\) is regular
 with \(L_{-1}^{RS}\)-coefficient \(1\) and three-point scalar
 \(P_{R,S}(b_\star,\Delta_a,\Delta_b)\).  Since the singular space at each
 weight \(\lambda+\ell^\pm_k\) in \(M(c_\star,\lambda)\) is
-\(1\)-dimensional~\cite[Prop.~5.4]{IoharaKoga2011}: for odd \(k=2j+1\),
+\(1\)-dimensional~\cite[Props.~5.1 and~5.4]{IoharaKoga2011}
+(see also~\cite[Theorem~B(e)]{Astashkevich1997}): for odd \(k=2j+1\),
 \(h_{R^\pm_k,S^\pm_k}(b_\star)=\lambda\) and \(R^\pm_kS^\pm_k=\ell^\pm_k\),
 so \(w^\pm_k=\chi_{R^\pm_k,S^\pm_k}(b_\star)\), proving (i); for even
 \(k=2j\), \(R^\pm_k,S^\pm_k\geq1\), \(h_{R^\pm_k,S^\pm_k}(b_\star)=\mu^+_1=\lambda+rs\),
@@ -1473,12 +1595,15 @@ Setting \(a_3:=-\tilde a_3\) and \(a_4:=-\tilde a_4\), we have
 \(a_4-a_3=-(m^{\mathrm{big}}_k-p'-p)\), Lemma~\ref{lem:pi-factorization}(iii)
 gives \(\pi^{\mathrm{big}}_k(\Delta_4,\Delta_3)=0\).
 
-\emph{(b) Nonvanishing of the lower-branch factors.}  All four quantities
+\emph{(b) Nonvanishing of the lower-branch factors.}  For \(k=1\),
+\(m^{\mathrm{small}}_1=p'r+ps\geq p'+p\), while for \(k\geq2\),
+\(m^{\mathrm{small}}_k>pp'>p'+p\), so \(m^{\mathrm{small}}_k-p'-p\geq0\)
+always.  All four quantities
 \(\tilde a_1+\tilde a_2=m^{\mathrm{small}}_k+3p'-p\),
 \(\tilde a_1-\tilde a_2=m^{\mathrm{small}}_k-p'+p\),
 \(a_3-a_4=m^{\mathrm{big}}_k-p'-p\), and
 \(a_3+a_4=m^{\mathrm{small}}_k+p'-p\) strictly exceed
-\(m^{\mathrm{small}}_k-p'-p\), so
+\(m^{\mathrm{small}}_k-p'-p\geq0\) (hence also in absolute value), so
 \(\pi^{\mathrm{small}}_k(\Delta_1,\Delta_2)\neq0\) and
 \(\pi^{\mathrm{small}}_k(\Delta_4,\Delta_3)\neq0\) by
 Lemma~\ref{lem:pi-factorization}(iii).
@@ -1575,8 +1700,11 @@ where \(X:=m^{\mathrm{big}}_k-p'-p\) and \(\alpha:=X/\sqrt{pp'}\).
    \left(\frac{\theta_4(q)}{\theta_3(q)}\right)^{\alpha v/2}
    =\exp\bigl(-2\alpha v q-v^2q^2+O(vq^3,v^2q^4)\bigr).
   \]
-  Thus \(H_M(v):=H_M(c_\star,\mu,\mu,0,\Delta_3(v),\Delta_4(v))\) is a
-  polynomial in \(v\) of degree at most \(M\), with leading coefficient
+  In the logarithm of the right-hand side, every monomial \(v^aq^b\) has
+  \(a\leq b\) (and \(a<b\) for all \(v\)-independent \(O(q)\) terms and all
+  \(O(vq^3,v^2q^4)\) terms), with equality \(a=b\) only for \(-2\alpha vq\)
+  and \(-v^2q^2\).  Thus \(H_M(v):=H_M(c_\star,\mu,\mu,0,\Delta_3(v),\Delta_4(v))\)
+  is a polynomial in \(v\) of degree at most \(M\), with leading coefficient
   \[
    [v^M]H_M(v)
    =16^{-M}[t^M]\exp(-2\alpha t-t^2)
@@ -1631,7 +1759,7 @@ where Theorem~\ref{thm:top-layer} gives
  &=\frac{P_{1,1}(b_\star,\Delta_4,\Delta_3)\,P_{1,4}(b_\star,\Delta_4,\Delta_3)\,
          P_{1,1}(b_\star,\Delta_1,\Delta_2)\,P_{1,4}(b_\star,\Delta_1,\Delta_2)}{\gamma_5}
 \end{align*}
-with \(\gamma_5=-11200/3\), agreeing with~\cite[eq.~(3.18)]{Ribault2019} up
+with \(\gamma_5=-11200/3\), agreeing with~\cite[eq.~(3.24)]{Ribault2019} up
 to the sign \((-1)^5=-1\) arising from the swap \(\Delta_3\leftrightarrow\Delta_4\)
 in the convention of~\cite{Ribault2019}.
 \end{proposition}
