@@ -1969,16 +1969,16 @@ unmodified truncated recursion, with no formal \(t\)-expansion at all.
 The proof of Theorem~\ref{thm:gen-rocha-caridi} bypasses all direct
 higher-layer Jantzen computations.  For each weight \(\mu\) in the BGG orbit
 with primitive singular vectors of labels \((R_1,S_1)\) and \((R_2,S_2)\)
-leading to \(\nu_1,\nu_2\), we deform \(b=b_\star+t\) along the generic
+leading to \(\nu_1,\nu_2\), we deform \(b^2=b_\star^2+\tau\) along the generic
 degenerate quotient
 \[
  V_{R_1,S_1}(b):=M\bigl(c(b),h_{R_1,S_1}(b)\bigr)\big/
                  M\bigl(c(b),h_{R_1,-S_1}(b)\bigr).
 \]
-At \(t=0\), its specialization \(V_{R_1,S_1}(b_\star)=M(c_\star,\mu)/M(c_\star,\nu_1)\)
+At \(\tau=0\), its specialization \(V_{R_1,S_1}(b_\star)=M(c_\star,\mu)/M(c_\star,\nu_1)\)
 has exact length two with composition factors \(L(c_\star,\mu)\) and
-\(L(c_\star,\nu_2)\), and its \(t\)-Jantzen filtration terminates at depth one
-(\(J_t^2=0\)).  Taking \(t\to0\) yields a two-term identity relating
+\(L(c_\star,\nu_2)\), and its \(\tau\)-Jantzen filtration terminates at depth one
+(\(J_\tau^2=0\)).  Taking \(\tau\to0\) yields a two-term identity relating
 \(\mathcal{T}^{\mathrm{irr}}(\mu)\) and \(\mathcal{T}^{\mathrm{irr}}(\nu_2)\)
 to \(\mathcal{F}^{\mathrm{Verma}}(\mu)\) and
 \(\mathcal{F}^{\mathrm{Verma}}(\nu_1)\), which telescopes along the BGG chain
@@ -1998,6 +1998,10 @@ radical \(J(c,\Delta)=\rad B_\Delta\) is the unique maximal proper submodule
 of \(M(c,\Delta)\), and \(L(c,\Delta)=M(c,\Delta)/J(c,\Delta)\) is the
 irreducible quotient, on which the induced form \(\bar B\) is nondegenerate.
 
+In Sections~\ref{sec:irr-results}--\ref{sec:examples}, \(t\) denotes \(b^2\),
+as in Section~\ref{sec:generic-data}; Sections~\ref{sec:partial-fractions}
+and~\ref{sec:all-order} use \(t\) for the germ \(b-b_\star\).  A deformation
+of the charge is written \(b^2=b_\star^2+\tau\).
 For \(b\in\mathbb{C}^\times\) we set \(t=b^2\), \(Q=b+b^{-1}\),
 \(c(b)=1+6Q^2=13+6t+6t^{-1}\), and for any integers \(r,s\in\mathbb{Z}\),
 \begin{equation}\label{eq:kac-weight}
@@ -2805,12 +2809,12 @@ Multiplying along the two sides of any BGG diamond immediately gives
 \in\mathbb{Q}^\times\).
 \end{proof}
 
-\section{Two-layer \texorpdfstring{\(t\)}{t}-Jantzen telescoping and the Rocha--Caridi identity}\label{sec:telescoping}
+\section{Two-layer \texorpdfstring{\(\tau\)}{tau}-Jantzen telescoping and the Rocha--Caridi identity}\label{sec:telescoping}
 
 We now prove Theorem~\ref{thm:gen-rocha-caridi} and
 Corollary~\ref{cor:collision-free}.
 
-\begin{lemma}[Two-layer \(t\)-Jantzen identity on the generic degenerate quotient]\label{lem:degenerate-quotient-t}
+\begin{lemma}[Two-layer \(\tau\)-Jantzen identity on the generic degenerate quotient]\label{lem:degenerate-quotient-t}
 Let \(b_\star^2=-p'/p\) (\(p,p'\geq2\) coprime), let
 \(\lambda=h_{r,s}(b_\star)\) be an interior Kac weight, and let
 \(d_\star=h_{u,v}(b_\star)\in\mathcal{F}_{p,p'}(r,s)\) with
