@@ -26,3 +26,13 @@ import Virasoro.Sphere.Proofs.Sec5PiOdd
 import Virasoro.Sphere.Proofs.Sec5PiZeros
 import Virasoro.Sphere.Proofs.Sec5PiEven
 import Virasoro.Sphere.Proofs.Sec5PiFactorization
+import Virasoro.Sphere.Proofs.Sec3FockOps
+import Virasoro.Sphere.Proofs.Sec3FockIrr
+import Virasoro.Sphere.Proofs.Sec3FockLevel
+import Virasoro.Sphere.Proofs.Sec3Ward
+import Virasoro.Sphere.Proofs.Sec3WardBlock
+import Virasoro.Sphere.Proofs.Sec3FockVerma
+import Virasoro.Sphere.Proofs.Sec3Density
+import Virasoro.Sphere.Proofs.Sec3Dvd
+import Virasoro.Sphere.Proofs.Sec3PolyDet
+import Virasoro.Sphere.Proofs.Sec3PolyH

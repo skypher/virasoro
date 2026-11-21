@@ -334,3 +334,12 @@ the cited inputs of Prop 4.3 and Iohara–Koga Prop 5.1 (sphere l.1529), so it i
 convention.  In 5.2(ii) the Lean proof checks that the push-forward is normalized, by reading the
 L₋₁-coefficient off the top Δ_b-coefficient of the three-point scalar; the paper's "yields
 w^±_k" leaves this check to the reader.  The proof does not need injectivity of the embedding.
+
+## 2026-11-21T19:41Z — run 8 result
+
+Sphere Lemma 3.2 `lem_fock_verma_of_cited` checked (`../runs/lean2/checkR8.log`): frozen type,
+axioms [propext, Classical.choice, Quot.sound].  Hypotheses: the Feigin–Fuchs operators (cited at
+sphere l.428, 443–444) and the Kac determinant.  The sphere paper uses the Kac determinant at
+l.472–480 and l.495 but cites it nowhere (grep).  This is a citation gap in the paper; the
+mathematics is unaffected.  Labelled, with the paper fix recorded in receipt.md: cite the Kac
+determinant (Iohara–Koga Thm 4.2, as the torus paper does) at those lines in the prose-edit pass.
