@@ -19,3 +19,10 @@ import Virasoro.Sphere.CitedJacobi
 import Virasoro.Sphere.Proofs.Sec5PoleBound
 import Virasoro.Sphere.Proofs.Sec5TopB
 import Virasoro.Sphere.Proofs.Sec5TopLayerB
+import Virasoro.Sphere.Proofs.FpowLaw
+import Virasoro.Sphere.Proofs.RegEval
+import Virasoro.Sphere.Proofs.Sec5TopLayerH
+import Virasoro.Sphere.Proofs.Sec5PiOdd
+import Virasoro.Sphere.Proofs.Sec5PiZeros
+import Virasoro.Sphere.Proofs.Sec5PiEven
+import Virasoro.Sphere.Proofs.Sec5PiFactorization

@@ -324,3 +324,13 @@ such data exist, so Lemmas 3.6 and 3.7 are not vacuous.
 
 All four approved for proving.  Run 6 results checked (`../runs/lean2/checkR6.log`): sphere
 Thm 5.1 `thm_jantzen_bound_of_cited` (labelled) and the reduction `thm_top_layer_of_sub`.
+
+## 2026-11-21T19:07Z — run 7 results
+
+Checked by the main session (`../runs/lean2/checkR7.log`): sphere Thm 5.3
+`thm_top_layer_of_cited` and sphere Lemma 5.2 `lem_pi_factorization_of_cited` have their
+frozen types and the axioms [propext, Classical.choice, Quot.sound].  Lemma 5.2's hypotheses are
+the cited inputs of Prop 4.3 and Iohara–Koga Prop 5.1 (sphere l.1529), so it is labelled under the
+convention.  In 5.2(ii) the Lean proof checks that the push-forward is normalized, by reading the
+L₋₁-coefficient off the top Δ_b-coefficient of the three-point scalar; the paper's "yields
+w^±_k" leaves this check to the reader.  The proof does not need injectivity of the embedding.
