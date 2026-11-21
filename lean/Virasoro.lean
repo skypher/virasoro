@@ -153,3 +153,10 @@ import Virasoro.Proofs.Sec6DDeriv
 import Virasoro.Proofs.Sec6Regular
 import Virasoro.Proofs.TopLayerArith
 import Virasoro.Proofs.Sec5TopLayer
+import Virasoro.Proofs.TopLayerForm
+import Virasoro.Proofs.Sec5TopNondeg
+import Virasoro.Proofs.TopLayerCoeffF
+import Virasoro.Proofs.TopLayerInv
+import Virasoro.Proofs.TopLayerTrace
+import Virasoro.Proofs.Sec5TopLayerFinal
+import Virasoro.Proofs.Sec6LayerCoeff
