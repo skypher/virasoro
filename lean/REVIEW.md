@@ -343,3 +343,31 @@ sphere l.428, 443–444) and the Kac determinant.  The sphere paper uses the Kac
 l.472–480 and l.495 but cites it nowhere (grep).  This is a citation gap in the paper; the
 mathematics is unaffected.  Labelled, with the paper fix recorded in receipt.md: cite the Kac
 determinant (Iohara–Koga Thm 4.2, as the torus paper does) at those lines in the prose-edit pass.
+
+## 2026-11-21T21:04Z — run 10 results
+
+Sphere Lemma 3.4 `lem_saddle_of_cited` checked (`../runs/lean2/checkR10.log`): frozen type,
+axioms [propext, Classical.choice, Quot.sound]; frozen statements and cited inputs unchanged
+since 5cdc8e6; no forbidden tokens in the new modules; full build green (`logs/D2-build-all.log`).
+Hypotheses: `Cited_JacobiIdentities` and `Cited_JacobiIdentities2`, the identities (2.3)–(2.5)
+cited at sphere l.348.  The proof uses (2.4) at l.802 by reference and (2.3) at l.821–822
+without one (H(1) = (₂F₁√(1−z))⁻¹ = θ₄⁻², H(−1) = ₂F₁⁻¹ = θ₃⁻²).  The citation is in the paper,
+so the label stands under the convention; the missing `\eqref{eq:jacobi-1}` at l.822 goes to
+the prose-edit pass (receipt.md).
+
+Route differences in Lemma 3.4(iii), with the paper as authority (lean.md "Paper first"):
+- the saddle-point equations are checked from the closed form B(p,q) = −q∂_q(√(1−q)D(p,q)),
+  where the paper derives them from the Wiener–Hopf identity (3.6) (l.766–800);
+- 1 − g_*(±1) come from closed forms of ∑nψ_n and ∑n(−1)ⁿψ_n, where the paper continues (3.6)
+  to an annulus and evaluates at w = ±1 (l.812–822).
+The formal setting does not force either difference: at each order in z, 1 − g_*(w) is a
+polynomial in w (t_{*,n} = O(zⁿ)) and H(w) is a Laurent polynomial in w, so (3.6) and its
+evaluation at w = ±1 can be stated and proved coefficientwise in z.  The statement-level result
+is accepted; replacing these two sub-proofs by the paper's argument is queued as a route repair
+together with the Prop 8.1 repair (brief, order of work).
+
+Sphere Lemma 3.5: `lem_bergman_det_of_first` derives the second equality from the first and
+(2.3); no label.  The first equality is open in Lean.  The paper's proof (l.835–970) is
+coefficientwise complex analysis in x₁, x₂ (Cauchy bounds, normal convergence, continuation to
+ℙ¹, Liouville, contour integrals); Mathlib has Liouville, circle integrals, Cauchy estimates and
+removable singularities, so that route is the one to translate.
