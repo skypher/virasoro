@@ -371,3 +371,35 @@ Sphere Lemma 3.5: `lem_bergman_det_of_first` derives the second equality from th
 coefficientwise complex analysis in x₁, x₂ (Cauchy bounds, normal convergence, continuation to
 ℙ¹, Liouville, contour integrals); Mathlib has Liouville, circle integrals, Cauchy estimates and
 removable singularities, so that route is the one to translate.
+
+## 2026-11-21T22:15Z — run 11 results (sphere Lemma 3.5)
+
+Checked by the main session (`../runs/lean2/checkR11.log`): `sub_bergman_residue :
+Stmt_sub_bergman_residue` and the reduction `lem_bergman_det_of_liouville_zero_mode (hJ2) (hL :
+Stmt_sub_bergman_liouville) (hZ : Stmt_sub_bergman_zero_mode) : Stmt_lem_bergman_det`, axioms
+[propext, Classical.choice, Quot.sound]; frozen statements and cited inputs unchanged since
+28ad362; no forbidden tokens; build green (`logs/H6-build-all.log`, 3615 jobs).  No label.
+
+Sub-statements, checked against sphere/paper.tex:
+- `IsWFormula Cz` (l.925–929): on 0 < |x₁|, |x₂| < 1, x₁ ≠ x₂, each z-coefficient of W_no
+  converges and W = S/(Y₁Y₂(x₁−x₂)²) + 2C/(Y₁Y₂).  S matches l.921 term by term.
+  1/(Y₁Y₂) = −(x₁x₂√(1−x₁)√(1−x₂))⁻¹(1−z/x₁)^{−1/2}(1−z/x₂)^{−1/2}, from
+  Y = x√(1−z/x)√(x−1) with one branch of √(x−1) = ±i√(1−x) for both factors; the principal
+  branch of √(1−x) is the analytic one on the unit disc.  Order z⁰ test by hand: M₁ = O(z), so
+  [z⁰]W = (x₁−x₂)⁻² − B(x₁,x₂)/(x₁x₂), and regularity at x₁ = 0 forces C(0) = 0; the formula then
+  gives (2−x₁−x₂)/(2√(1−x₁)√(1−x₂)(x₁−x₂)²), which is the Step 1 twist identity (l.883–885).
+- `Stmt_sub_bergman_liouville` = ∃ C, IsWFormula C (Steps 1–2): faithful.
+- `Stmt_sub_bergman_zero_mode`: 4C = 2z(1−z)F₀′/F₀ − z, l.941 times 2: faithful.
+- `Stmt_sub_bergman_residue`: 8(z−1)Tr(DM²(I−M²)⁻¹) = z + 8C, l.963–964 times 8(z−1):
+  faithful.  With the zero-mode value it gives Tr = z/(8(1−z)) − ½zF₀′/F₀ = `Stmt_sub_bergman_trace`.
+
+Route notes (paper is the authority):
+- |B_{m,n}| ≤ 2n(n+1) from the explicit coefficients in place of Cauchy's inequality (l.845–847):
+  the same estimate with a stronger bound; allowed by the brief.
+- The coincidence limit (l.946–949) is derived through S(x₁,x₂)² − P(x₁)P(x₂) =
+  ¼(x₁−x₂)²(x₁x₂−z)² and continuity of each z-coefficient; on the diagonal this is the paper's
+  identity 4P(−2x+1+z) + P′² = (x²−z)².  The paper states the limit without derivation; this
+  fills it in.
+- The residue sum (l.950–963) is computed as Laurent coefficients on |x| = ½, the brief's
+  reading of "summing the residues inside |x| = r".
+- P_n is stated in the reversed form pⁿP_n(1/p) (l.887–889): packaging only.
