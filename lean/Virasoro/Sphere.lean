@@ -36,3 +36,8 @@ import Virasoro.Sphere.Proofs.Sec3Density
 import Virasoro.Sphere.Proofs.Sec3Dvd
 import Virasoro.Sphere.Proofs.Sec3PolyDet
 import Virasoro.Sphere.Proofs.Sec3PolyH
+import Virasoro.Sphere.Proofs.FpowBinom
+import Virasoro.Sphere.Proofs.Sec3SaddleDiag
+import Virasoro.Sphere.Proofs.Sec3SaddleOmega
+import Virasoro.Sphere.Proofs.Sec3SaddlePde0
+import Virasoro.Sphere.Proofs.Sec3SaddlePd
