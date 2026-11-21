@@ -2,6 +2,8 @@
 
 PAUSED 2026-11-20 16:5x Taiwan by the user: "no. need to do lean first (Ill tell u when) and then edit the papers so tehy dont sound like written by a robot. pause for now." Next, when the user says so: Lean; then a prose edit of both papers; then distribution.
 
+LEAN STARTED 2026-11-21 22:27 Taiwan (user: "launch fable medium agent to do the lean impl."). One Fable agent at medium effort runs phase A: statement freeze of both papers at 70bac53 in `lean/`. The main session reviews the statements before proving; see `receipt.md`, hard step LEAN.
+
 Two manuscripts now (user, tmp terminal, 2026-11-20 14:5x Taiwan: "merge torus and traces paper."):
 
 - `paper.tex` (42 pp): torus paper, Sections 1-8 as reviewed at 299e8a0 (numbers unchanged, the sphere
