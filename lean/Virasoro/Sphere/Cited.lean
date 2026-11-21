@@ -1,4 +1,5 @@
 import Virasoro.Sphere.Statements.Sec4
+import Virasoro.Sphere.Fock
 
 /-!
 # Results cited from the literature by `sphere/paper.tex`
@@ -47,5 +48,17 @@ def Cited_JacobiIdentities : Prop :=
   (1 - zq ℚ = th4 ℚ ^ 4 * (th3 ℚ ^ 4)⁻¹) ∧
   (thPsi ℚ * th3 ℚ * th4 ℚ = etaSqPow 3) ∧
   (16 * PowerSeries.X * etaSqPow 12 = zq ℚ * (1 - zq ℚ) * th3 ℚ ^ 12)
+
+/-- Cited input for the operators (3.2), sphere/paper.tex l.428, l.443–444.
+Source: M. Beşken, S. Datta and P. Kraus (2019), §2.1: the Feigin–Fuchs differential operators
+form a Virasoro representation of central charge `c = 1 + 24μ²`, and `l_k† = l_{-k}` under the
+form (3.1) for real `μ, λ`. -/
+def Cited_FeiginFuchsOperators : Prop :=
+  (∀ (μ lam : ℂ) (m n : ℤ) (f : Fock),
+    ffOp μ lam m (ffOp μ lam n f) - ffOp μ lam n (ffOp μ lam m f) =
+      ((m : ℂ) - n) • ffOp μ lam (m + n) f +
+        if m + n = 0 then ((1 + 24 * μ ^ 2) / 12 * ((m : ℂ) ^ 3 - m)) • f else 0) ∧
+  (∀ (μ lam : ℝ) (k : ℤ) (f g : Fock),
+    fockForm (ffOp (μ : ℂ) (lam : ℂ) k f) g = fockForm f (ffOp (μ : ℂ) (lam : ℂ) (-k) g))
 
 end Virasoro.Sphere

@@ -267,3 +267,21 @@ for them were fixed by the main session (`../runs/lean2/brief-phaseB.md`, sectio
 
 Phase B1 so far: `lem_smith_v2` (Lemma 5.1) carries a label and its `example` check; Lemma 5.7
 is reduced to `Stmt_sub_singular_ones_coeff` (no label).  Build `logs/B1-build-2.log` green.
+
+## 2026-11-21T17:20Z — sphere Lemmas 3.2 and 3.5 (statements), run-4 reductions
+
+| Paper result | Verdict | Note |
+|---|---|---|
+| sphere Lemma 3.5 `Stmt_lem_bergman_det` | faithful | `detInvSqrt` is the paper's trace-exponential definition (l.864–865); the truncation to `n` indices and `k ≤ n` is exact at `z^n`, since row `m` of `M(z)` has order `m`; `Bgf` is (3.4); M(z)² agrees with the proof's M₁M₂ |
+| sphere Lemma 3.2 `Stmt_lem_fock_verma` | change requested | (i), (ii) faithful: operators (3.2) checked term by term; `fockBil (conj G_N) F_N` is the Hermitian pairing of the (Δ₄,Δ₃) and (Δ₁,Δ₂) solutions, as in the proof; "irreducible" read as det G_N ≠ 0 for all N.  (iii) is weaker than the paper: the paper fixes `N` in the preamble and concludes Theorem 3.1 at that `N` from the limit at that `N`; the frozen form assumes the limit for every `N`.  Restate per level: a `LargeDeltaAt N` with the body of Theorem 3.1 at `N`, a proof that `Stmt_thm_large_delta ↔ ∀ N, LargeDeltaAt N`, and (iii) as `∀ N, (limit at N) → LargeDeltaAt N` |
+| `Cited_FeiginFuchsOperators` | faithful | Virasoro relations with `c = 1+24μ²` and `l_k† = l_{-k}` at real parameters, as cited at l.428, 443–444 |
+
+Lemma 3.3 encoding (main-session decision): (iii) stays existential, as printed.  𝓘₀ and
+Φ_c^raw get Lean definitions that follow the proof of Lemma 3.3 (l.694–711: 𝓘₀ the saddle value,
+Φ_c^raw = 2S_c^{(2)}(σ_*) + Ψ₁).  Lemmas 3.4(iii) and 3.7 are stated for these definitions
+(reading convention: "the 𝓘₀, Φ_c^raw of Lemma 3.3 are those its proof constructs").  A working
+theorem proves the limit formula (3.5) for these definitions; the existential form follows.
+
+Run 4 (no labelled theorem): reductions of Props 6.7, 6.9, Cor 5.10 and Prop 8.1 to frozen
+sub-statements, plus proved supporting lemmas.  By the scaffold-depth rule of lean.md the next
+run closes leaves before any further decomposition.

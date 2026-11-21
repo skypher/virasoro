@@ -160,3 +160,12 @@ import Virasoro.Proofs.TopLayerInv
 import Virasoro.Proofs.TopLayerTrace
 import Virasoro.Proofs.Sec5TopLayerFinal
 import Virasoro.Proofs.Sec6LayerCoeff
+import Virasoro.Proofs.TorusAtZero
+import Virasoro.Proofs.TopTermPoly
+import Virasoro.Proofs.Sec6LayerPP
+import Virasoro.Proofs.Sec6TwoTerm
+import Virasoro.Proofs.Sec5SharpArith
+import Virasoro.Proofs.Sec5Sharp
+import Virasoro.Proofs.Sec6H13Poles
+import Virasoro.Proofs.Sec6Chains
+import Virasoro.Proofs.Sec8IsingPoles

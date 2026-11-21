@@ -4,3 +4,6 @@ import Virasoro.Sphere.Statements.Sec2
 import Virasoro.Sphere.Statements.Sec4
 import Virasoro.Sphere.Statements.Sec5
 import Virasoro.Sphere.Cited
+import Virasoro.Sphere.Fock
+import Virasoro.Sphere.Statements.Sec3a
+import Virasoro.Sphere.Statements.Sec3b
