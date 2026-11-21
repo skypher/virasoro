@@ -7,3 +7,8 @@ import Virasoro.Sphere.Cited
 import Virasoro.Sphere.Fock
 import Virasoro.Sphere.Statements.Sec3a
 import Virasoro.Sphere.Statements.Sec3b
+import Virasoro.Sphere.Proofs.Sec2Block
+import Virasoro.Sphere.Proofs.Sec2HSeries
+import Virasoro.Sphere.Proofs.Sec4Imported
+import Virasoro.Sphere.Proofs.Sec4Precision
+import Virasoro.Sphere.Proofs.Sec3LargeDeltaAt

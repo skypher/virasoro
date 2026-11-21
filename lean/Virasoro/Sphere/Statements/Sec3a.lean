@@ -14,6 +14,23 @@ namespace Virasoro.Sphere
 
 open MvPolynomial
 
+/-- The body of Theorem 3.1 (`Stmt_thm_large_delta`) at one level `N`: the limit
+`lim_{Δ→∞} H_N(c,Δ,Δ_i) = δ_{N,0}` for all complex `(c,Δ_i)` and its equivalent degree form.
+`Stmt_thm_large_delta` is `∀ N, LargeDeltaAt N` by definition. -/
+def LargeDeltaAt (N : ℕ) : Prop :=
+  (∀ (c : ℂ) (Δe : Fin 4 → ℂ),
+    Filter.Tendsto (fun Δ : ℂ => RatFunc.eval (RingHom.id ℂ) Δ (Hsph c Δe N))
+      (Bornology.cobounded ℂ) (nhds (if N = 0 then 1 else 0))) ∧
+  ∃ Q : MvPolynomial (Fin 6) ℚ, ∀ (c : ℂ) (Δe : Fin 4 → ℂ),
+    ∃ P : Polynomial ℂ,
+      algebraMap (Polynomial ℂ) (RatFunc ℂ) P =
+        MvPolynomial.aeval
+          (![RatFunc.C c, RatFunc.X, RatFunc.C (Δe 0), RatFunc.C (Δe 1), RatFunc.C (Δe 2),
+            RatFunc.C (Δe 3)] : Fin 6 → RatFunc ℂ) Q ∧
+      Hsph c Δe N * algebraMap (Polynomial ℂ) (RatFunc ℂ) (gramPoly c N).det =
+        algebraMap (Polynomial ℂ) (RatFunc ℂ) P ∧
+      (1 ≤ N → P.degree < (gramPoly c N).det.degree)
+
 /-- Lemma 3.2 (`lem:fock-verma`), sphere/paper.tex l.446–470.  Fix `μ > 0`, real `Δ₁,…,Δ₄`
 and `N ≥ 0`.
 (i) For every `λ > 0`, `M(1+24μ², λ²+μ²)` is irreducible and isometric to `ℱ_{μ,λ}` via
@@ -39,9 +56,10 @@ Demand sheet.
 - (ii) `F̃_N`: the coefficients of the solution for `(Δ₄,Δ₃)` conjugated (`i ↦ -i` at real
   parameters); the pairing is the bilinear `fockBil`; `ℬ_N` is evaluated at `Δ = λ² + μ²`,
   where it is regular by (i) (l.455–461);
-- (iii) hypothesis for all `μ > 0`, all real `Δ_i` and all `N`, as a limit along `λ → +∞` of
-  the values of the rational function `H_N` at `Δ = λ² + μ²` (regular there by (i));
-  conclusion: the frozen Theorem 3.1 for all `N` (l.462–465). -/
+- (iii) per level `N` (the lemma fixes `N`, l.447): hypothesis for all `μ > 0` and all real
+  `Δ_i` at that `N`, as a limit along `λ → +∞` of the values of the rational function `H_N` at
+  `Δ = λ² + μ²` (regular there by (i)); conclusion: Theorem 3.1 at that `N` for all complex
+  `(c, Δ_i)`, which is `LargeDeltaAt N` (l.462–465). -/
 def Stmt_lem_fock_verma : Prop :=
   (∀ μ : ℝ, 0 < μ → ∀ lam : ℝ, 0 < lam →
     let c : ℂ := 1 + 24 * (μ : ℂ) ^ 2
@@ -58,11 +76,12 @@ def Stmt_lem_fock_verma : Prop :=
         IsWardSeries (μ : ℂ) (lam : ℂ) (Δe 3 : ℂ) (Δe 2 : ℂ) G → ∀ N : ℕ,
           RatFunc.eval (RingHom.id ℂ) Δ (Bsph c (fun i => (Δe i : ℂ)) N) =
             fockBil (map (starRingEnd ℂ) (G N)) (F N)) ∧
-  ((∀ μ : ℝ, 0 < μ → ∀ (Δe : Fin 4 → ℝ) (N : ℕ),
+  (∀ N : ℕ,
+    (∀ μ : ℝ, 0 < μ → ∀ Δe : Fin 4 → ℝ,
       Filter.Tendsto
         (fun lam : ℝ => RatFunc.eval (RingHom.id ℂ) ((lam : ℂ) ^ 2 + (μ : ℂ) ^ 2)
           (Hsph (1 + 24 * (μ : ℂ) ^ 2) (fun i => (Δe i : ℂ)) N))
         Filter.atTop (nhds (if N = 0 then 1 else 0))) →
-    Stmt_thm_large_delta)
+    LargeDeltaAt N)
 
 end Virasoro.Sphere

@@ -285,3 +285,20 @@ theorem proves the limit formula (3.5) for these definitions; the existential fo
 Run 4 (no labelled theorem): reductions of Props 6.7, 6.9, Cor 5.10 and Prop 8.1 to frozen
 sub-statements, plus proved supporting lemmas.  By the scaffold-depth rule of lean.md the next
 run closes leaves before any further decomposition.
+
+## 2026-11-21T18:11Z — run 5 results, Lemma 3.2(iii) restatement, label convention
+
+- Sphere Lemma 3.2(iii) restated per level (`LargeDeltaAt N`, `Stmt_thm_large_delta` is
+  `∀ N, LargeDeltaAt N` by definition): faithful.  Lemma 3.2 approved for proving.
+- Checked by the main session (`../runs/lean2/checkE5.log`): frozen types and axioms
+  [propext, Classical.choice, Quot.sound] of `prop_ising_double_poles_of_cited`,
+  `Sphere.def_sphere_block`, `Sphere.lem_3pt_factor`, `Sphere.def_H_series`,
+  `Sphere.prop_imported_of_cited`, `Sphere.lem_precision_budget`.
+- Prop 8.1 route: Lean takes γ₇, γ₁₀ from the PBW computation and γ₁₁ from Prop 7.7, where the
+  paper takes γ = −[d²]τ/ρ² from Prop 6.7 (paper.tex l.1768–1773).  The statement is the
+  paper's; the proof differs because Prop 6.7 is not yet formalized.  When Prop 6.7 lands, a
+  proof along the paper's route can replace it.
+- Label convention: a theorem whose only hypotheses are `Cited_*` inputs that the paper cites
+  at the corresponding step proves the full result and carries the `Paper label` line.
+  Labels added to `lem_d_derivatives_of_cited`, `lem_regular_everywhere_of_cited`,
+  `thm_top_layer_of_cited` (build `logs/main-build-labels.log` green).

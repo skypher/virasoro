@@ -95,7 +95,8 @@ theorem sub_top_layer_coeff_of_cited (hI : Cited_VermaHomInjective) :
   rw [block_sum _ _ k _ xp N fun hle => (hndp xp hxp hle).2,
     block_sum _ _ k _ xm N fun hle => (hndm xm hxm hle).2]
 
-/-- Theorem 5.9 from the cited injectivity of the singular embedding (paper.tex l.854–855). -/
+/-- Theorem 5.9 from the cited injectivity of the singular embedding (paper.tex l.854–855).
+Paper label: thm:top-layer -/
 theorem thm_top_layer_of_cited (hI : Cited_VermaHomInjective) : Stmt_thm_top_layer :=
   thm_top_layer_of_subs (sub_top_layer_nondeg_of_cited hI) (sub_top_layer_coeff_of_cited hI)
 

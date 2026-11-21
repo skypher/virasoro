@@ -169,3 +169,6 @@ import Virasoro.Proofs.Sec5Sharp
 import Virasoro.Proofs.Sec6H13Poles
 import Virasoro.Proofs.Sec6Chains
 import Virasoro.Proofs.Sec8IsingPoles
+import Virasoro.Proofs.Sec8IsingRows
+import Virasoro.Proofs.Sec8Ising11PP
+import Virasoro.Proofs.Sec8Ising11

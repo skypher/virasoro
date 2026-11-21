@@ -194,7 +194,8 @@ theorem Hval_shift_zero (hK : Cited_KacDeterminant) (hH : Cited_HJSNormalization
     hgen.gram_det_shift_ne hK ha (by omega), h0]
   simp
 
-/-- Lemma 6.5 from the cited inputs of Proposition 6.4. -/
+/-- Lemma 6.5 from the cited inputs of Proposition 6.4.
+Paper label: lem:d-derivatives -/
 theorem lem_d_derivatives_of_cited (hK : Cited_KacDeterminant) (hH : Cited_HJSNormalizations) :
     Stmt_lem_d_derivatives := by
   classical

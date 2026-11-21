@@ -165,7 +165,8 @@ theorem regular_of_normalized {r s : ℕ} (hr : 0 < r) (hs : 0 < s)
       field_simp
     rwa [e2] at h3
 
-/-- Lemma 6.6 from the cited normalization identities of Proposition 6.2. -/
+/-- Lemma 6.6 from the cited normalization identities of Proposition 6.2.
+Paper label: lem:regular-everywhere -/
 theorem lem_regular_everywhere_of_cited (hH : Cited_HJSNormalizations) :
     Stmt_lem_regular_everywhere := by
   intro r s hr hs p hp1 hsing b₁ hb
