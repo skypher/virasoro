@@ -211,3 +211,59 @@ Stmt_thm_level_ten_leading`; axioms `propext`, `Classical.choice`, `Quot.sound` 
 Note: the paper derives the value of γ₁₀ by comparing its limit formula with Theorem 9.4; the
 Lean proof computes γ₁₀ directly from the Gram matrix (the paper's independent check), and takes
 the leading coefficient from Theorem 9.4.  Verdict on the statement: faithful.
+
+## 2026-11-21T15:06Z — statements of paper.tex Sections 1–8 at 70bac53 (phase A)
+
+Machine checks (main session): `lake build Virasoro` green (`logs/A-build-all-2.log`); no
+`sorry`, `axiom`, `admit`, `native_decide`, `implemented_by` or `Paper label` in the new files
+(`../runs/lean2/forbidden.log`).  The 16 statements marked unchanged were compared with their
+text at 803f1aa (`../runs/lean2/stmt_diff.log`); the differences are rewording and layout only
+(Thm 4.3 moves `Ã = A ∈ ℚ(b⋆²)[d]` into the display; Prop 6.2 adds the level and the Iohara–Koga
+citation for existence and uniqueness).  Their earlier verdicts stand.
+
+| Paper result | Verdict | Note |
+|---|---|---|
+| Lemma 5.1 `V2.Stmt_lem_smith` | faithful | |
+| Lemma 5.4 `Stmt_lem_top_coefficient` | faithful | (i) adds membership of `L_{-n}u`, `L_n v` in the layers, which the paper's proof states and the identity needs; (ii) `ι(B^k)⁻¹ι^*` by its defining property; (iii) `cross1 G v u = vᵀG₁u`, `cross2 G v u u₁ = vᵀ(G₂u+G₁u₁)` checked against `Smith.lean` |
+| Lemma 5.7 `Stmt_lem_singular_degree` | faithful | |
+| Thm 5.9 `Stmt_thm_top_layer` | faithful | every family with the properties of Thm 5.8; τ/γ is invariant under rescaling of `w`, so the choice is immaterial; the limit as pole order ≤ k plus the `(Δ-λ)^{-k}` coefficient is equivalent |
+| Cor 5.10 `Stmt_cor_top_layer_sharp` | faithful | |
+| Lemma 6.5 `Stmt_lem_d_derivatives` | faithful | the added clause (Gram determinants nonzero over ℚ(b)(Δ)) is what makes `H_N` defined there |
+| Lemma 6.6 `Stmt_lem_regular_everywhere` | faithful | "𝒜 regular" read as no factor vanishing: every factor of 𝒜 (`genA`) is in the denominator, so this is exact |
+| Prop 6.7 `Stmt_prop_layer_coefficients` | faithful | cross-multiplied by γ; equivalent since γ ≠ 0 (Thm 5.9) |
+| Prop 6.8 `Stmt_prop_h13_nonvanishing` | faithful | `c⋆ = 1 - 6(p'-p)²/(pp')`, `d₁ = -1 + 2p/p'`, `d₂ = 2 + 2p/p'` checked from `t⋆ = -p'/p`; the Lipschitz clause adds that the four values are units, which the paper's proof states and the quotient needs, and is then equivalent |
+| Prop 6.9 `Stmt_prop_two_term_criteria` | faithful | |
+| Prop 8.1 `Stmt_prop_ising_double_poles` | faithful | the levels 7, 10, 11 are ℓ⁻₂, ℓ⁺₂, ℓ⁻₂ of the table; normalization `a_w = 1` matches the monic τ |
+
+Approved for proving.  Docstring numbers in `Statements/Sec4`, `Sec5a`, `Sec6`, `Sec7` stay at
+803f1aa until the next full rebuild (the STATUS table has the current numbers).
+
+## 2026-11-21T15:12Z — statements of sphere/paper.tex and of paper.tex Sections 9–13 (phase A)
+
+| Paper result | Verdict | Note |
+|---|---|---|
+| sphere Def 2.1 `Stmt_def_sphere_block` | faithful | `IsThreePoint` for all `u` via `L₀` is the linear extension of the homogeneous rule; `Y.word` is decreasing and `neg` applies `L_{-y₁}⋯L_{-y_r}`, matching the sphere paper's `L_{-Y}` |
+| sphere Def 2.2 `Stmt_def_H_series` | faithful | θ₂⁴ = 16qψ⁴ with ψ = ∑ q^{n(n+1)}; Φ̃ factors and exponents checked (Δe 1, Δe 2 = Δ₂, Δ₃) |
+| sphere Thm 3.1 `Stmt_thm_large_delta` | faithful | junk values of `RatFunc.eval` at poles are avoided along `cobounded`; the degree form at every complex `(c,Δ_i)` is equivalent to the form over ℚ[c,Δ_i] |
+| sphere Lemma 4.2 `Stmt_lem_3pt_factor` | faithful | `L₀`-eigenvector of eigenvalue `h+ℓ` is the level-ℓ space |
+| sphere Prop 4.3 `Stmt_prop_imported` | faithful | `fusP` checked: the (j,l)·(−j,−l) product is ((A−B+β²)²−4Aβ²)/16, the (0,0) factor Δ_b−Δ_a; half-set `j > 0 ∨ (j = 0 ∧ l > 0)` |
+| sphere Prop 4.4 `Stmt_prop_generic_recursion` | faithful | the exceptional set is chosen before `b` and the `Δ_i` |
+| sphere Lemma 4.6 `Stmt_lem_precision_budget` | faithful | same reading as torus Lemma 7.4 |
+| sphere Thm 4.7 `Stmt_thm_confluence` | faithful | (iii) as `ℬ_N = Q + ∑ PP_λ ℬ_N`, `deg Q = N` |
+| sphere Thm 5.1, 5.3, 5.4, 5.5 | faithful | `topTermSph` uses (Δ₄,Δ₃) and (Δ₁,Δ₂) as in (2.2); scale-invariant |
+| sphere Lemma 5.2 `Stmt_lem_pi_factorization` | faithful, with excess | (iii) asserts the hyperplane constants are integers; the paper leaves `c` unqualified, and its proof gives `c = lp − jp'`.  The excess strength is noted; its consumer (Thm 5.4) uses only the absolute-value form |
+| sphere Props 6.1, 6.2 | faithful | levels for (2,3) checked: 1, 2, 5, 7; `fusP` is even in `b` |
+| Thm 9.1 `Stmt_thm_descent_regularity` | faithful | `orbitSet` is invariant under (r,s) ↦ (p−r,p'−s) (n₀ ↦ −n₀, n₁ ↦ 2pp'−n₁) |
+| Thm 9.2 `Stmt_thm_first_layer_ratio` | faithful | "generic" as `b² ∉ ℚ`: both sides are rational in `b`, and at irrational `t` no Γ argument is a pole (arguments `1+R+(j±S)/t`, `1+(R+i)t±S+m`) |
+| Thm 9.3 `Stmt_thm_gen_rocha_caridi` | faithful | `arrowLabel` is invariant under `n_μ ↦ −n_μ`, so starting Ω from node (+,0) is immaterial |
+| Cor 9.4 `Stmt_cor_collision_free` | faithful | the last clause is the reading of "evaluated directly … by the unmodified truncated recursion" |
+| Lemma 10.1, Prop 10.2, Lemma 10.3 | faithful | 10.3(i) quotient clause as simplicity of `U(Vir₋)w^±_i / J^{i+1}`; 10.3(iv) `hT` checked against (10.3) |
+| Lemma 11.1, Prop 11.2, Lemma 11.3 | faithful | 11.2(i) Ward identity with `Δ₁ = Δ₂ = μ` has the factor `N₁ − N₂ + nd` |
+| Prop 12.1 `Stmt_prop_bgg_cocycle` | faithful | the box ratio equals ∏_{B₁∖B₀}/∏_{B₀∖B₁} after the shift; the powers of `p` cancel since the two differences have equal size |
+| Lemma 13.1 `Stmt_lem_degenerate_quotient_t` | faithful | both labellings of ν₁, ν₂ |
+
+All approved for proving.  Sphere Lemmas 3.2–3.7 are not frozen yet; the representation choices
+for them were fixed by the main session (`../runs/lean2/brief-phaseB.md`, section "Sphere §3").
+
+Phase B1 so far: `lem_smith_v2` (Lemma 5.1) carries a label and its `example` check; Lemma 5.7
+is reduced to `Stmt_sub_singular_ones_coeff` (no label).  Build `logs/B1-build-2.log` green.

@@ -260,3 +260,168 @@ uniqueness of partial fractions through Laurent expansions (`ppCoeff_sum`).
 - Do not run `lake clean` in this project: it also removes the Mathlib build products of
   `.lake/packages`, and the next `lake build` then compiles Mathlib from source. Restore with
   `lake exe cache get`.
+
+## Paper at 70bac53
+
+Written 2026-11-21T15:01Z (phase A: statement freeze and pre-check, no proofs).
+
+Sources: `paper.tex` at 70bac53 (torus one-point blocks, Sections 1–8; irreducible traces,
+Sections 9–14) and `sphere/paper.tex` (sphere four-point blocks).  Numbers are those of
+`paper.aux` and `sphere/paper.aux`.  The table above (paper at 803f1aa) is kept as history.
+
+Status is relative to the Lean statements that existed before this phase: *unchanged* (the
+existing `Stmt_` matches the current text), *changed* (re-frozen), *new* (frozen now),
+*not frozen*.  Rating: CLEAN (exact statement, Lean objects available), NOTE (formalization
+guidance), ISSUE (mathematical error or gap in the paper).  The ratings come from reading the
+statements and the definitions they use; the proofs were read only where a statement needed it.
+No proofs were written in this phase; every `Stmt_` below marked new or changed has no theorem
+of its type yet.
+
+Build: `lake build Virasoro`, 3446 jobs, no error (`logs/A-build-all-2.log`).  Single-file logs:
+`logs/A-*.log`.
+
+### Torus paper (`paper.tex`)
+
+| No. | Label | `Stmt_` | Status | Rating | Remarks |
+|---|---|---|---|---|---|
+| Def 2.2 | `def:matrices` | `Stmt_def_matrices` | unchanged | CLEAN | old proof carries over |
+| 2.4 | `lem:polynomial-entries` | `Stmt_lem_polynomial_entries` | unchanged | CLEAN | old proof carries over |
+| 3.2 | `prop:minimal-collisions` | `Stmt_prop_minimal_collisions` | unchanged | CLEAN | old proof carries over |
+| 4.1 | `lem:large-weight` | `Stmt_lem_large_weight` | unchanged | CLEAN | old proof carries over |
+| 4.2 | `thm:general-partial-fractions` | `Stmt_thm_general_partial_fractions` | unchanged | CLEAN | old proof carries over |
+| 4.3 | `thm:general-confluence` | `Stmt_thm_general_confluence` | unchanged | NOTE | its last clause now refers to Prop 6.4 (was 6.5); old proof carries over |
+| 5.1 | `lem:smith` | `V2.Stmt_lem_smith` (Statements/Sec5c) | changed | NOTE | the special case no longer concludes "at most a simple pole" and has no parameter `k`; implied by the old `Stmt_lem_smith`, whose proof gives it at once |
+| 5.3 | `lem:jantzen-smith` | `Stmt_lem_jantzen_smith` | unchanged | CLEAN | was 5.6; old proof carries over |
+| 5.4 | `lem:top-coefficient` | `Stmt_lem_top_coefficient` | new | NOTE | new object `jform` (chosen families; part (i) characterizes it by every pair of families); `ι (B^k)⁻¹ ι^*` by its defining property; `L_{-n}u`, `L_nv` through coordinates.  The cases `k = 1, 2` of (ii) and (iii) are the old Props 5.2, 5.3 (`Stmt_prop_transverse_residue`, `Stmt_prop_two_step_residue`), whose proofs can be reused |
+| 5.5 | `lem:singular-factorization` | `Stmt_lem_singular_factorization` | unchanged | NOTE | was 5.9; the new words "normalized by a fixed PBW coefficient" add no hypothesis (the identity holds for every singular vector); old proof carries over |
+| 5.6 | `lem:singular-crossing` | `Stmt_lem_singular_crossing` | unchanged | CLEAN | was 5.10; the paper's proof changed (via Lemma 5.4), the old Lean proof stays valid |
+| 5.7 | `lem:singular-degree` | `Stmt_lem_singular_degree` | new | NOTE | the vector is given by level-`ℓ` coordinates; degree as `natDegree`, leading coefficient `a_w²` |
+| 5.8 | `thm:jantzen-smith` | `Stmt_thm_jantzen_smith` | unchanged | CLEAN | was 5.7; old proof carries over |
+| 5.9 | `thm:top-layer` | `Stmt_thm_top_layer` | new | NOTE | quantified over every family `w^±_k` with the properties of Thm 5.8 (`TopLayerSetting`); limit read as pole order ≤ `k` plus the coefficient of `(Δ-λ)^{-k}`; `H_{N-ℓ}` evaluated by `RatFunc.eval` at a point where the statement itself gives regularity; `γ⁻¹` appears only for signs where `γ ≠ 0` is asserted |
+| 5.10 | `cor:top-layer-sharp` | `Stmt_cor_top_layer_sharp` | new | NOTE | "in the setting of Theorem 5.9" is read as the setting of Thm 5.8 (the corollary quantifies over all `N ≥ 1` itself) |
+| 6.2 | `prop:imported-normalizations` | `Stmt_prop_imported_normalizations` | unchanged | NOTE | statement over `ℚ(b)` with the continuation clause, as before; old proof carries over |
+| 6.3 | `lem:no-generic-shifted-pole` | `Stmt_lem_no_generic_shifted_pole` | unchanged | CLEAN | was 6.4; old proof carries over |
+| 6.4 | `prop:generic-recursion` | `Stmt_prop_generic_recursion` | unchanged | NOTE | was 6.5; consumers use `GenericRecursionUniform`; old proof carries over (the paper now takes the residue from Lemma 5.4 with `k = 1`) |
+| 6.5 | `lem:d-derivatives` | `Stmt_lem_d_derivatives` | new | NOTE | over `ℚ(b)(Δ)`; new object `HpolyD` (`H_N` as a polynomial in `d`, with `G⁻¹` as a matrix inverse; invertibility of the Gram matrices is a clause of the statement); needs a bridge `HpolyD` ↔ `Hrat` in phase B |
+| 6.6 | `lem:regular-everywhere` | `Stmt_lem_regular_everywhere` | new | NOTE | "𝒜 regular at b⋆" read as: no factor of its product vanishes; replaces old Lemma 8.4, whose machinery (`RegEvalK`, `normalization_at`) can be reused |
+| 6.7 | `prop:layer-coefficients` | `Stmt_prop_layer_coefficients` | new | NOTE | stated without dividing by `γ^±_k`: low coefficients of `τ^±_k` vanish and `[d^k]τ^±_k = γ^±_k c_k (±ρ)^k ≠ 0`; all `k ≥ 1` |
+| 6.8 | `prop:h13-nonvanishing` | `Stmt_prop_h13_nonvanishing` | new | NOTE | one existential family `P ν M ∈ ℚ[t,Y]` tied to the definition by `P(t, t²Δ) = clearedH`; valuations with `padicValRat`; the Lipschitz bound in `ℚ_ℓ` by norms, cross-multiplied, with the four unit facts stated; `d_ν(b⋆)` written as rational numbers |
+| 6.9 | `prop:two-term-criteria` | `Stmt_prop_two_term_criteria` | new | NOTE | `P_N` is the sum of the two `topTerm`s in `ℂ(d)` |
+| 7.2 | `lem:shifted-valuation-bound` | `Stmt_lem_shifted_valuation_bound` | unchanged | CLEAN | old proof carries over |
+| 7.4 | `lem:precision-budget` | `Stmt_lem_precision_budget` | unchanged | CLEAN | old proof carries over |
+| 7.5 | `lem:collision-pole-support` | `Stmt_lem_collision_pole_support` | unchanged | CLEAN | old proof carries over |
+| 8.1 | `prop:ising-double-poles` | `Stmt_prop_ising_double_poles` | new | NOTE | merges old 8.2, 8.1, 9.1, 9.5 and adds level 11; `𝒫_{R,S}(b₀,d)` is `genP`; the first clause is over all points of `ℂ(d)`; `τ`, `γ` attached to an existing normalized singular vector.  Old proofs cover `N < 7` at complex points, `γ₇`, `γ₁₀` and the double-pole coefficients at `N = 7, 10`; level 11 is new |
+| 9.1 | `thm:descent-regularity` | `Stmt_thm_descent_regularity` | new | NOTE | new objects `TorusDescends`, `IsIrrTrace`, `JointRegular`, `fusionSet`, `fusionSetPM`, `orbitSet`; `F_N` at complex `d` is `Frat` over `ℂ` |
+| 9.2 | `thm:first-layer-ratio` | `Stmt_thm_first_layer_ratio` | new | NOTE | "generic b" has no definition in the paper; read as `b ≠ 0`, `b² ∉ ℚ`; both identities cross-multiplied with the three denominators stated nonzero; `1/Γ` as the entire function |
+| 9.3 | `thm:gen-rocha-caridi` | `Stmt_thm_gen_rocha_caridi` | new | NOTE | coefficientwise in `q`; the labelling `n₁ < pp'` of Section 10 is a hypothesis; `T^irr_N` through the predicate `IsIrrTrace`; (b) as rationality of the value; (c) cross-multiplied with `vform` |
+| 9.4 | `cor:collision-free` | `Stmt_cor_collision_free` | new | NOTE | the three explicit claims plus the truncated recursion identity at `b⋆` as the reading of "evaluated directly … by the unmodified truncated recursion" |
+| 10.1 | `lem:two-weight-ward` | `Stmt_lem_two_weight_ward` | new | NOTE | Ward identity with `L₀` instead of homogeneous `u, v` |
+| 10.2 | `prop:fusion-poly` | `Stmt_prop_fusion_poly` | new | NOTE | `P_{R,S}` is `fusP`, root-free (the factors of `(j,l)` and `(-j,-l)` multiplied); the external weight of the pairing is `Δ₂`, as printed.  By the sphere paper's Prop 4.3 the constant `C_{R,S}(b)` equals `1` |
+| 10.3 | `lem:bgg-arrows` | `Stmt_lem_bgg_arrows` | new | NOTE | the clause `J^i/J^{i+1} ≅ L ⊕ L` is read as simplicity of `U(Vir_-)w^±_i / J^{i+1}`; labels through `arrowLabel`; derivative as `HasDerivAt` of `hT` |
+| 11.1 | `lem:fusion-injective` | `Stmt_lem_fusion_injective` | new | CLEAN | |
+| 11.2 | `prop:jantzen-vertex` | `Stmt_prop_jantzen_vertex` | new | NOTE | `ρ_x` is the primary pairing over `ℂ[x]`; polynomial families in place of the power-series lattice `𝒥^{(i)}`; the sum runs to `N` with absent terms `0` |
+| 11.3 | `lem:joint-holomorphicity` | `Stmt_lem_joint_holomorphicity` | new | CLEAN | |
+| 12.1 | `prop:bgg-cocycle` | `Stmt_prop_bgg_cocycle` | new | NOTE | `c_{R,S}(-p'/p;…)` is the value of the reduced rational function `boxRatio`; path independence over lists of signs |
+| 13.1 | `lem:degenerate-quotient-t` | `Stmt_lem_degenerate_quotient_t` | new | NOTE | coefficientwise in `q`; `Ω` of one arrow is `cArrow` |
+
+Removed from the paper since 803f1aa; the old statements and their proofs are kept:
+`Stmt_def_fixed_specialization_ising` (the Ising values are now prose in Section 8),
+`Stmt_cor_ising_classes`, `Stmt_cor_ising_confluence`, `Stmt_prop_transverse_residue`,
+`Stmt_prop_two_step_residue`, `Stmt_cor_det_overcounts`, `Stmt_prop_first_collision`,
+`Stmt_thm_first_recursive_residue`, `Stmt_prop_spin_collision`, `Stmt_prop_spin_singular_data`,
+`Stmt_thm_spin_recursive_residue`, `Stmt_cor_class_regular`, `Stmt_prop_two_branch`,
+`Stmt_prop_level_seven_smith`, `Stmt_prop_no_earlier_double_pole`,
+`Stmt_lem_level_seven_constants`, `Stmt_lem_regular_families`,
+`Stmt_thm_level_seven_principal_part`, `Stmt_prop_level_ten_smith`,
+`Stmt_lem_level_ten_constants`, `Stmt_thm_level_ten_principal_part`,
+`Stmt_thm_level_ten_leading`, `Stmt_prop_identity_verma`, `Stmt_thm_ising_characters`
+(24 statements); `Stmt_lem_smith` is superseded by `V2.Stmt_lem_smith`.
+
+The docstrings of the unchanged statements in `Statements/Sec4`, `Sec5a`, `Sec6`, `Sec7` still
+carry the numbers of 803f1aa (5.6, 5.7, 5.9, 5.10, 6.4, 6.5); the current numbers are in the
+table.  They were not edited in this phase: a change to these files invalidates the build of
+every proof module.
+
+### Sphere paper (`sphere/paper.tex`)
+
+All statements are new; namespace `Virasoro.Sphere`.
+
+| No. | Label | `Stmt_` | Status | Rating | Remarks |
+|---|---|---|---|---|---|
+| Def 2.1 | `def:sphere-block` | `Stmt_def_sphere_block` | new | CLEAN | unique three-point functional and its values `γ_Y` |
+| Def 2.2 | `def:H-series` | `Stmt_def_H_series` | new | NOTE | `z(q) = 16qψ⁴/θ₃⁴` with `θ₂ = 2q^{1/4}ψ`; powers of series by the binomial series (`fpow`); the identification of `q(z)` with the elliptic nome is not part of the statement |
+| 3.1 | `thm:large-delta` | `Stmt_thm_large_delta` | new | NOTE | both forms; degree inequality stated at every complex `(c,Δ_i)` |
+| 3.2 | `lem:fock-verma` | — | not frozen | NOTE | needs the Fock space `ℂ[u₁,u₂,…]`, the operators `l_k`, the inner product (3.1) |
+| 3.3 | `lem:lambda-expansion` | — | not frozen | NOTE | needs formal series in infinitely many variables with coefficients rational in `λ`, `S = λ⁻² log F`, the saddle point `σ_*(z)`, `det(I - M(z)²)^{-1/2}` |
+| 3.4 | `lem:saddle` | — | not frozen | NOTE | needs the objects of 3.3 and the change of variables `p(w)` |
+| 3.5 | `lem:bergman-det` | — | not frozen | NOTE | needs the formal determinant of 3.3 and `₂F₁(1/2,1/2;1;z)` |
+| 3.6 | `lem:ext-exponents` | — | not frozen | NOTE | needs `S^{(2)}_j`, `g(±1)`, `Φ_j` of 3.3–3.4 |
+| 3.7 | `lem:central-charge` | — | not frozen | NOTE | needs `Φ_c^raw`, `𝓘₀` of 3.3 |
+| 4.2 | `lem:3pt-factor` | `Stmt_lem_3pt_factor` | new | CLEAN | |
+| 4.3 | `prop:imported` | `Stmt_prop_imported` | new | NOTE | `P_{r,s}` is the root-free `fusP`; the three-point scalar as `∑_Y p_Y γ_Y` |
+| 4.4 | `prop:generic-recursion` | `Stmt_prop_generic_recursion` | new | NOTE | stated for all complex `Δ_i` |
+| 4.6 | `lem:precision-budget` | `Stmt_lem_precision_budget` | new | CLEAN | generic copies `SGg`, `WGg`, … of the torus recursion with the residue germs as a parameter |
+| 4.7 | `thm:confluence` | `Stmt_thm_confluence` | new | NOTE | over `ℂ(Δ₁,…,Δ₄)`; (iii) as `ℬ_N = Q + ∑_λ PP_λ ℬ_N`, `deg Q = N` |
+| 5.1 | `thm:jantzen-bound` | `Stmt_thm_jantzen_bound` | new | NOTE | pole orders over `ℂ(Δ₁,…,Δ₄)` |
+| 5.2 | `lem:pi-factorization` | `Stmt_lem_pi_factorization` | new | NOTE | every normalized singular vector of the level; (iii) with an integer constant `c` |
+| 5.3 | `thm:top-layer` | `Stmt_thm_top_layer` | new | NOTE | as torus Thm 5.9, for `ℬ` and `H` |
+| 5.4 | `thm:sharp-B` | `Stmt_thm_sharp_B` | new | CLEAN | |
+| 5.5 | `thm:sharp-H` | `Stmt_thm_sharp_H` | new | CLEAN | |
+| 6.1 | `prop:c0-example` | `Stmt_prop_c0_example` | new | NOTE | the comparison with Ribault's (3.24) is not part of the statement |
+| 6.2 | `prop:ising-example` | `Stmt_prop_ising_example` | new | CLEAN | |
+
+### Counts
+
+Torus: 39 rows; unchanged 16, changed 1, new 22; CLEAN 14, NOTE 25, ISSUE 0; 24 old statements
+removed from the paper.  Sphere: 21 rows; new and frozen 15, not frozen 6; CLEAN 6, NOTE 15
+(of which 6 not frozen), ISSUE 0.
+
+### New objects
+
+- `Virasoro/JantzenForm.lean`: `IsJFamily`, `jformFam`, `jform` (Lemma 5.4), `torusShift`,
+  `vformFam`, `vform` (Prop 11.2), `torusCrossScalar` (Thm 9.2), `FpolyD`, `HpolyD`
+  (Definitions 2.2, 2.3 as polynomials in `d`).
+- `Virasoro/Orbit.lean`: `MinimalSetting`, `TopLayerSetting`, `ellOrb`, `ellMin`, `nOrb`,
+  `momWt`, `muOrb`, `orbitSet`, `fusionSet`, `fusionSetPM`, `arrowLabel`, `boxSet`, `boxShift`,
+  `boxNum`, `boxDen`, `cMM`, `cArrow`, `pathProd`, `Omega`, `PsiPot`, `hT`, `cT`.
+- `Virasoro/Irreducible.lean`: `Verma.IsTwoWeightPairing`, `stepRange`, `fusP`,
+  `TorusDescends`, `IsIrrTrace`, `JointRegular`.
+- `Virasoro/Sphere/Defs.lean`: `gammaY`, `IsThreePoint`, `Bsph`, theta series, `zq`,
+  `nomeRatio`, `fpow`, `PhiTilde`, `Hseries`, `Hsph`, `K4 = ℂ(Δ₁,…,Δ₄)`.
+- `Virasoro/Sphere/Germs.lean`: `Rsph`, `SGg`, `WGg`, `BGg`, `Mhatg`, `Atildeg`, `RgSph`.
+
+### Cited inputs of the current papers
+
+| Cited input | Lean | Source as given in the paper | Paper lines |
+|---|---|---|---|
+| Kac determinant | `Cited_KacDeterminant` | Kac 1979; Feigin–Fuchs 1982; Iohara–Koga 2011, Thm 4.2 and eqs (4.16)–(4.21) | paper.tex l.502–506, l.1252, l.2510 |
+| Jantzen layers at an interior weight | `Cited_JantzenLayers` | Iohara–Koga, Thm 6.3(i), eq (6.3), Prop 5.4, Fig 5.4, eqs (5.4), (5.22), (5.49); Astashkevich 1997, Thm B(e), case III₋ | paper.tex l.789–808 |
+| Injectivity of Verma homomorphisms | `Cited_VermaHomInjective` | Iohara–Koga, the paragraph preceding Cor 5.2 | paper.tex l.855, l.1038, l.1761; sphere l.1305 |
+| Uniqueness of a singular vector at a level | `Cited_SingularUnique` | Iohara–Koga, Prop 5.1 (with Prop 5.4; Astashkevich Thm 3.1 in the sphere paper) | paper.tex l.1438; sphere l.1530–1531 |
+| Normalized singular vector, `β_χ = 𝒜⁻¹`, torus norm `𝒫` | `Cited_HJSNormalizations` | Iohara–Koga, Props 5.1, 5.2, Cor 5.2; Hadasz–Jaskólski–Suchanek 2010, Section 3, eqs (7)–(9); Zamolodchikov 2004, eqs (6.1), (7.5) | paper.tex l.946, l.961–976, l.2262–2265; sphere l.1251, l.1268–1276 |
+| Existence of the two-weight pairing | `Cited_TwoWeightPairingExists` (new, Cited2) | Hadasz–Jaskólski–Suchanek 2010, Section 3, p. 4 | paper.tex l.2081–2085 |
+| Singular vector coefficients in `ℚ[b²,b⁻²]` | `Cited_SingularFamilyLaurent` (new, Cited2) | Astashkevich 1997, Thm 3.1; Iohara–Koga, Props 5.1–5.2, Cor 5.2 | paper.tex l.2149–2152 |
+| Fusion polynomial (two-weight pairing) | `Cited_FusionPolynomial` (new, Cited2) | Zamolodchikov 2004, Section 5, eqs (5.9)–(5.12); Hadasz–Jaskólski–Suchanek, Section 3, eqs (7)–(9) | paper.tex l.2153–2155 |
+| Jantzen layers on the whole orbit | `Cited_JantzenLayersOrbit` (new, Cited2) | Astashkevich 1997, Thm A(a), (b)(iii), (c), Thm B(e); Iohara–Koga, Prop 5.4, Fig 5.4, Thm 6.3 | paper.tex l.2232–2234 |
+| Fusion polynomial (sphere three-point scalar) | `Sphere.Cited_SphereFusionPolynomial` (new) | Zamolodchikov 1987, Section 2; Zamolodchikov 2004, Section 5, eqs (5.9)–(5.12); Ribault 2019, eq (3.4) | sphere l.1277–1281 |
+| Jacobi identities (2.3)–(2.5) | `Sphere.Cited_JacobiIdentities` (new; three of the five identities) | Whittaker–Watson 1927, §21.6, §22.3 | sphere l.348–357 |
+| `₂F₁(1/2,1/2;1;z(q)) = θ₃²` and the logarithmic derivative of `16q(z)/z` | not encoded | Whittaker–Watson 1927, §21.6, §22.3 | sphere l.351–353 |
+| Feigin–Fuchs differential operators | not encoded | Besken–Datta–Kraus 2019, §2.1 | sphere l.431 |
+| Torus results used by the sphere paper | the torus `Stmt_` of Lemmas 5.4, 6.3, 6.6, Thms 5.8, 5.9, Props 6.2, 6.4, 6.7, 6.9, 8.1 | `PolzerTorus2026` | sphere l.1259, 1275, 1300, 1306, 1308, 1340, 1460, 1489, 1554, 1573, 1580, 1829, 1844–1849 |
+
+`Cited_BGGCharacter` is no longer used: Section 11 of the paper at 803f1aa was removed.  The
+last two "not encoded" inputs are used only by Lemmas 3.2–3.7 of the sphere paper, which are
+not frozen.  The Rocha-Caridi character formula and Ribault's equation (3.24) are quoted for
+comparison only.  The new torus inputs are in `Virasoro/Cited2.lean`, not in
+`Virasoro/Cited.lean`, because seven proof modules import `Cited.lean` and a change to it
+invalidates the build of most of the proof tree.
+
+### Not frozen
+
+Sphere Lemmas 3.2–3.7 (the six lemmas that prove Theorem 3.1).  Their statements are about the
+Fock realization with infinitely many oscillator variables, formal series whose coefficients
+are rational functions of `λ`, a saddle point in `iz ℚ[[z]]^ℕ`, and the formal determinant
+`det(I - M(z)²)^{-1/2}`.  None of these objects exists in the formalization, and their encoding
+(carrier of the Fock space, how `S = λ⁻² log F` and its `λ⁻¹`-expansion are represented, how the
+limit `λ → ∞` of a formal series is stated) should be settled together before any of the six
+is frozen.  Theorem 3.1 itself is frozen and does not refer to them.
