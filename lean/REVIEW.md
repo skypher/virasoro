@@ -403,3 +403,35 @@ Route notes (paper is the authority):
 - The residue sum (l.950–963) is computed as Laurent coefficients on |x| = ½, the brief's
   reading of "summing the residues inside |x| = r".
 - P_n is stated in the reversed form pⁿP_n(1/p) (l.887–889): packaging only.
+
+## 2026-11-21T23:26Z — run 12 results (sphere Lemma 3.5 proved)
+
+Checked by the main session (`../runs/lean2/checkR12.log`): `Sphere.lem_bergman_det_of_cited
+(hJ2 : Cited_JacobiIdentities2) : Stmt_lem_bergman_det`, `sub_bergman_liouville`,
+`sub_bergman_zero_mode` have their frozen types; axioms [propext, Classical.choice, Quot.sound];
+frozen statements, cited inputs and the run 11 sub-statements unchanged since ab8d2e8; no
+forbidden tokens; build green (`logs/L18-build-all.log`, 3636 jobs).  The hypothesis is (2.3),
+used at l.969 with its reference, so the label stands.  The new sub-statements
+`Stmt_sub_bergman_holo`, `_inner`, `_outer`, `_const` are proved and used only inside the proof
+of the approved `Stmt_sub_bergman_liouville`; they need no approval.  Also proved:
+`L0_unique` (l.572–584, 606–611).
+
+Route notes (paper is the authority):
+- l.892–910: Lean works with Dv, Dw (the Laurent coefficients of [z^i]W in x₁) instead of v, w;
+  the relations used are those of l.891 and their transposes.  Same argument.
+- l.914–920: "holomorphic at ∞" encoded as holomorphic on |x₁| > |x₂| and bounded on |x₁| ≥ 1,
+  glued to one bounded entire function before Liouville; forced by ℂ in place of ℙ¹.
+- l.933–935: "leading term as x₂ → ∞" via the polynomial in w = 1/x₂ that the x₁-integral is at
+  each z-order; it vanishes on 1 < |w| < 2, and its value at w = 0 is the paper's leading term.
+  The paper's step at each order in z.
+- l.888, l.936: the binomial series of (1−x)^{−1/2} on the disc proved from h²(1−x) = 1; the
+  paper uses the series without proof.  Not a route question.
+- l.918–924, double pole at x₁ = x₂: the paper uses S(x,x) = Y², ∂₁S(x,x) = YY′; Lean uses
+  S² − P₁P₂ = ¼(x₁−x₂)²(x₁x₂−z)² and a limit of coefficients.  Not forced by the formal setting:
+  queued for route repair.
+
+Lemma 3.6 stall assessed: `IsExpansionData` quantifies over Ward solutions F, so it holds
+vacuously when none exists; pinning S₁^{(2)}, S₂^{(2)} needs the existence and uniqueness of F
+and the equations L0 k S₂^{(2)} = k, L0 k S₁^{(2)} = −1, which are Lemma 3.3's content.  The
+paper's proof of 3.6 uses Lemma 3.3(ii) the same way.  Lemma 3.3 goes first; 3.6 and 3.7 follow
+from it.
