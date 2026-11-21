@@ -302,3 +302,25 @@ run closes leaves before any further decomposition.
   at the corresponding step proves the full result and carries the `Paper label` line.
   Labels added to `lem_d_derivatives_of_cited`, `lem_regular_everywhere_of_cited`,
   `thm_top_layer_of_cited` (build `logs/main-build-labels.log` green).
+
+## 2026-11-21T18:41Z — sphere Lemmas 3.3, 3.4, 3.6, 3.7 (statements); run 6 results
+
+| Paper result | Verdict | Note |
+|---|---|---|
+| sphere Lemma 3.3 `Stmt_lem_lambda_expansion` | faithful | (i) via the unique Ward solution over ℂ(λ); `Slam` coefficient λ^{|α|-2}[u^α] log F matches S = λ⁻² log F(λσ); (ii) S0's off-diagonal coefficients B_{mn}+B_{nm} match the ordered double sum; the universal series are chosen before (μ,Δ); (iii) existential as printed, with Δe 0 + Δe 3 = Δ₁ + Δ₄ |
+| sphere Lemma 3.4 `Stmt_lem_saddle` | faithful | `tcoef n m = binom(2m,m−n)/4^m` is [w^{−n}]((1+w)²/(4w))^m; the stationarity equations are ∂/∂σ_m and ∂/∂σ̄_m of the functional, with Ã = −A and B̃ = B; Ω's x^m coefficient defines a_m, so the claims are Ω₀ = 1 and Ω_{−m} = a_m z^m |
+| sphere Lemma 3.6 `Stmt_lem_ext_exponents` | faithful | consistent with 3.4: 2 log θ₄^{−2} = −4 log θ₄ |
+| sphere Lemma 3.7 `Stmt_lem_central_charge` | faithful | both printed equalities, with z/(16q) = R⁻¹ |
+| `Sphere.Cited_JacobiIdentities2` | faithful | the ₂F₁ and log-derivative identities of (2.3)–(2.4) as formal series |
+
+Definitions: `I0def` takes, at each z-coefficient, a finsum over m that is finite exactly when
+ord(σ_mσ̄_m) ≥ 2m, which holds at every saddle point (both stationarity equations make σ_m and
+σ̄_m divisible by z^m); it is used only at saddle points.  `Psi1` is ½ Var of the linear
+exponent with the covariance blocks of Q(z)⁻¹ (paper l.656–661, 698–706): Cov(U,U) =
+z^{m+n}·½K₂₁M₂D⁻¹, Cov(U,V) = z^m·½K₂₁D⁻¹, Cov(V,V) = ½K₁₂M₁D⁻¹; its leading term z^m/(2m)
+agrees with the paper's Cov(U_m,V_m).  The N×N truncation is exact at z^N.
+`IsExpansionData` determines S̃^{(1)}, S_c^{(2)}, S_j^{(2)} uniquely, and Lemma 3.3 asserts that
+such data exist, so Lemmas 3.6 and 3.7 are not vacuous.
+
+All four approved for proving.  Run 6 results checked (`../runs/lean2/checkR6.log`): sphere
+Thm 5.1 `thm_jantzen_bound_of_cited` (labelled) and the reduction `thm_top_layer_of_sub`.

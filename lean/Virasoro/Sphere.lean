@@ -12,3 +12,10 @@ import Virasoro.Sphere.Proofs.Sec2HSeries
 import Virasoro.Sphere.Proofs.Sec4Imported
 import Virasoro.Sphere.Proofs.Sec4Precision
 import Virasoro.Sphere.Proofs.Sec3LargeDeltaAt
+import Virasoro.Sphere.Saddle
+import Virasoro.Sphere.Statements.Sec3c
+import Virasoro.Sphere.Statements.Sec3d
+import Virasoro.Sphere.CitedJacobi
+import Virasoro.Sphere.Proofs.Sec5PoleBound
+import Virasoro.Sphere.Proofs.Sec5TopB
+import Virasoro.Sphere.Proofs.Sec5TopLayerB
