@@ -144,3 +144,12 @@ import Virasoro.Sphere
 import Virasoro.Proofs.Sec5SmithV2
 import Virasoro.Proofs.SingularDegreeD
 import Virasoro.Proofs.SingularDegree
+import Virasoro.Proofs.SingularSymbol
+import Virasoro.Proofs.SingularOnes
+import Virasoro.Proofs.JFormSeries
+import Virasoro.Proofs.Sec5TopCoeff
+import Virasoro.Proofs.GenPZero
+import Virasoro.Proofs.Sec6DDeriv
+import Virasoro.Proofs.Sec6Regular
+import Virasoro.Proofs.TopLayerArith
+import Virasoro.Proofs.Sec5TopLayer
