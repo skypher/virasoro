@@ -3,10 +3,10 @@ import Virasoro.Sphere.Proofs.Sec3ExpLog
 /-!
 # Lemma 3.7, Step 4: the limit of the `c = 2` decomposition (sphere paper)
 
-sphere/paper.tex l.1013–1181.  Steps 1–3 of the proof (l.1022–1154) produce the decomposition
+sphere/paper.tex l.1013–1181.  Steps 1–3 of the proof (l.1029–1156) produce the decomposition
 (3.8) of `G_charged G_neutral` into `c = 2` blocks, the limits `c_n^∞` of its coefficients and
 their generating function; they are the frozen statement `Stmt_sub_c2_decomp`.  Step 4
-(l.1156–1180) divides (3.8) by `(16q/z)^{λ²}` and lets `λ → ∞` at each order in `z`, using
+(l.1158–1180) divides (3.8) by `(16q/z)^{λ²}` and lets `λ → ∞` at each order in `z`, using
 Lemma 3.3(iii) at `c = 2`.  This file carries out the limit.
 -/
 
@@ -14,23 +14,23 @@ namespace Virasoro.Sphere
 
 open PowerSeries Filter Topology
 
-/-- Lemma 3.7, Steps 1–3 (sphere/paper.tex l.1022–1154): the `c = 2` decomposition (3.8),
+/-- Lemma 3.7, Steps 1–3 (sphere/paper.tex l.1029–1156): the `c = 2` decomposition (3.8),
 `G_charged(λ;z) G_neutral(z) = ∑_n c_n(λ²) z^n ℬ(2, λ²+n, 1/8; z)` in `ℂ[[z]]`, the limits
 `c_n^∞ = lim_{λ→∞} c_n(λ²)`, and `∑_n 16^n c_n^∞ q^n = ∏_m (1 - q^{2m})^{-1/2}`.
 
 Demand sheet.
 - (3.8) coefficient by coefficient in `z`, the sum over `n` being finite at each order
-  (l.1157–1158); the paper has it for every real `λ > 0` (l.1024), Step 4 uses it as
-  `λ → ∞` at each fixed order (l.1157), so it is stated for all sufficiently large `λ` at each
-  order;
+  (l.1159–1160); the paper has it for every real `λ > 0` (l.1026), Step 4 uses it as
+  `λ → ∞` at each fixed order (l.1158–1159), so it is stated for all sufficiently large `λ`
+  at each order;
 - `G_charged = det(I - M²)^{-1/2} (16q/z)^{λ²}`, `G_neutral = det(I - M²)^{-1/2}` are entered by
-  their values (l.1037–1041), with `(16q/z)^{λ²} = e^{λ²𝓘₀}` (Lemma 3.4(iii));
+  their values (l.1038–1045), with `(16q/z)^{λ²} = e^{λ²𝓘₀}` (Lemma 3.4(iii));
 - `ℬ(2, λ²+n, 1/8; z)`: the block at `c = 2`, internal weight `λ² + n`, all four external
-  weights `1/8` (l.1044–1046), the value of the rational function `ℬ_j` at `Δ = λ² + n`, where
-  it has no pole (l.1047–1050; for `λ² + n ≥ 1/24` this is Lemma 3.2(i) at `μ² = 1/24`);
+  weights `1/8` (l.1047–1049), the value of the rational function `ℬ_j` at `Δ = λ² + n`, where
+  it has no pole (l.1050–1053; for `λ² + n ≥ 1/24` this is Lemma 3.2(i) at `μ² = 1/24`);
 - `c_n(λ²)`: a function of `λ` for each `n`, existential (it is determined by (3.8), `ℬ_0 = 1`);
-  the limit along real `λ → +∞` at each fixed `n` (l.1109–1112);
-- the generating function (l.1147–1154) without the fractional power:
+  the limit along real `λ → +∞` at each fixed `n` (l.1106–1109);
+- the generating function (l.1150–1156) without the fractional power:
   `(∑_n 16^n c_n^∞ q^n)² ∏_m (1 - q^{2m}) = 1`, which is all that Step 4 uses. -/
 def Stmt_sub_c2_decomp : Prop :=
   ∃ (c : ℕ → ℝ → ℂ) (cinf : ℕ → ℂ),
@@ -82,7 +82,7 @@ variable (hF : Cited_FeiginFuchsOperators) (hK : Cited_KacDeterminant)
 
 include hF hK in
 set_option maxHeartbeats 1600000 in
-/-- Step 4 of Lemma 3.7, the limit (sphere/paper.tex l.1156–1172): at each order in `z`,
+/-- Step 4 of Lemma 3.7, the limit (sphere/paper.tex l.1158–1175): at each order in `z`,
 `det(I - M²)^{-1} = ∑_n c_n^∞ z^n e^{(n - 1/24)𝓘₀} det(I - M²)^{-1/2}
 exp(Φ_c^raw/24 + (Φ₁ + Φ₂)/8)`. -/
 theorem c2_limit (hJ2 : Cited_JacobiIdentities2) {S1t S2c S21 S22 : MvPowerSeries ℕ+ ℂ}

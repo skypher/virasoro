@@ -589,3 +589,57 @@ Representation choices for ℋ_λ and the Step 1–3 objects: fixed by the main 
 Fock as printed, L^tot by `TensorProduct.map`, the product form, `MvPolynomial.tensorEquivSum`
 for products of the two variable sets, U(W) levelwise, α(x) coefficientwise in x, ∮ as the formal
 residue.
+
+## 2026-11-22T04:46Z — run 17 results (Lemma 3.7 Steps 1 and 2 proved; Step 3 reduced)
+
+Checked by the main session (`../runs/lean2/checkR17.log`): `sub_c2_step1 (hF) (hK) :
+Stmt_sub_c2_step1`, `sub_c2_primaries (hF) (hK)`, `sub_c2_wick`, `sub_c2_step2_of (hF)`,
+`sub_c2_step2 (hF) (hK) : Stmt_sub_c2_step2`, `sub_c2_step3_of`, `sub_c2_decomp_of_steps`,
+`sub_c2_decomp_of_step3 (hF) (hK)`, `sub_c2_decomp_of_diag (hF) (hK) (h1 : Stmt_sub_c2_diag)
+(h2 : Stmt_sub_c2_diag_norm) : Stmt_sub_c2_decomp`, and `thm_large_delta_of_c2` composed with it;
+axioms [propext, Classical.choice, Quot.sound].  Committed files changed: imports in
+`Virasoro/Sphere.lean` and docstring line numbers in `Sec3CentralSubs.lean`, `Sec3CentralFinal.lean`
+(diff read; the text of `Stmt_sub_c2_decomp` is unchanged).  No forbidden tokens in the 20 new
+modules (`../runs/lean2/r17-forbidden.log` empty); build green (`logs/Z1-build-all.log`, 3714 jobs).
+No paper result has a new labelled theorem; Lemmas 3.3, 3.7 and Theorem 3.1 now rest on
+`Stmt_sub_c2_diag` and `Stmt_sub_c2_diag_norm`.  19 of 44.
+
+Objects (`Sec3C2Defs.lean`), checked against the paper: `HH`, `Ltot`, `hhForm` (tensor of the forms
+(3.1), l.425–428), `hhLevel`, `primSpace` (l.1058; conditions k ≤ n suffice by the grading),
+`gaussExpo`/`gaussF` (F₁ = exp(λ∑A_m v_m + ∑B v v), F₂ = exp(∑B u u), l.1034–1035), `Ftot`
+(level N of F₁F₂), `primGram`, `primCoef` (l.1068–1071), `Dop` (D_k of l.1076), `evAt`,
+`IsDiffeoU` ((D_k + l_k⁽²⁾)U = 0, U(0) = id, l.1091–1093; U w a polynomial in W, which is the
+paper's "acts finitely on each homogeneous component", total level being preserved), `Wstar`
+(binom(2m,m)/(m 4^m), l.1101), `UdagF` (⟨w, y⟩ = ⟨U(W_*)w, F₂⟩ for w of level n, the adjoint in
+real W specialized at W_*, l.1102–1105), `diagExpo`, `diagF` (l.1148).
+
+Sub-statements, checked against the paper:
+- `Stmt_sub_c2_step1` (l.1029–1071): every λ > 0; dim 𝒫_n(λ) = p(n); (3.8) coefficientwise with the
+  left side by its value as in `Stmt_sub_c2_decomp`; for every basis of 𝒫_n(λ) the Gram matrix is
+  invertible and c_n = `primCoef`.  As printed.  Approved.
+- `Stmt_sub_c2_step2` (l.1073–1109): some U with `IsDiffeoU`, and every function that is c_n(λ²) in
+  some basis for large λ tends to ‖(U(W_*)†F₂)_n‖².  As printed (c_n does not depend on the basis).
+  Approved.
+- `Stmt_sub_c2_primaries` (l.1074–1093): the P_w form a basis for large λ and P_w(iλW,u) → U(W)w
+  coefficientwise.  The paper has + O(λ⁻²); `Stmt_sub_c2_wick` and Step 4 use only the limit.
+  Consumer strength; approved.
+- `Stmt_sub_c2_wick` (l.1095–1109): from those two facts, c_n(λ²) → ‖(U(W_*)†F₂)_n‖².  Approved.
+- `Stmt_sub_c2_step3`, `Stmt_sub_c2_diag` (l.1111–1149), `Stmt_sub_c2_diag_norm` (l.1150–1156):
+  for every U with `IsDiffeoU`, (U(W_*)†F₂)_n = level n of exp(−∑ (m/16^m) u_m²), and the squared
+  generating function as in `Stmt_sub_c2_decomp`.  "Every U" is the paper's strength: U is unique by
+  the paper's own W-filtration argument (lowest positive W-weight of a difference lies in ∩ ker D_k,
+  zero by `Dop_injective_level`).  Approved.
+
+Route notes:
+- l.1030–1035: Lean shows the Gaussians solve the Ward equations from Lemma 3.4(i) and a direct
+  check of (3.3) at μ = 0, without Lemma 3.3(ii).  Forced: Lemma 3.3 is stated for μ > 0 (paper
+  l.507–509) and Step 1 works at μ = 0.  The paper's citation of Lemma 3.3(ii) there is outside that
+  lemma's hypothesis; recorded as a paper fix for the prose-edit pass (receipt.md).
+- l.1053–1067: the decomposition as an induction on the level with the projection to 𝒫_n, as item
+  11 of the brief prescribes.  The paper's argument written out; accepted.
+- l.1084–1086: a left inverse at λ⁻² = 0 and det(L·S) → 1 in place of a nonzero square minor.  The
+  paper pairs the two itself in the same argument for Lemma 3.3(i) ("an invertible square minor …
+  supplying a left inverse", l.596–597).  Same mechanism; accepted.
+- l.1089–1093: U(W)w obtained as the limit of P_w(iλW,u), uniqueness from the stacked system.
+  Follows the paper.
+- l.1098–1102: Wick's theorem as the coefficient of v^β in exp(λA·v + vBv).  Follows the paper.

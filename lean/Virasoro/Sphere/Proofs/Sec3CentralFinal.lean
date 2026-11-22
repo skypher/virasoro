@@ -4,7 +4,7 @@ import Virasoro.Sphere.Proofs.Sec3BergmanZero
 /-!
 # Lemma 3.7 from the `c = 2` decomposition (sphere paper, Step 4)
 
-sphere/paper.tex l.1156–1180.  With the limit of (3.8) at each order in `z` (`c2_limit`),
+sphere/paper.tex l.1158–1180.  With the limit of (3.8) at each order in `z` (`c2_limit`),
 `(Φ₁ + Φ₂)/8 = -½ log(θ₃θ₄) = -⅛ log(1 - z) - log θ₃` cancels `det(I - M²)^{-1/2}`
 (Lemmas 3.5, 3.6 and (2.3)), leaving `exp((Φ_c^raw - 𝓘₀)/24) = ∏(1 - q^{2m})^{1/2}`; raising to
 the 24th power and (2.5) give the claim.
@@ -96,7 +96,7 @@ theorem Q_eq_Q0 {Q : PowerSeries ℂ} (hQ0 : constantCoeff Q = 0) (hQ : (zq ℂ)
   exact h.symm
 
 include hF hK in
-/-- `exp((Φ₁ + Φ₂)/8) = det(I - M²)^{-1/2}` (sphere/paper.tex l.1174–1176). -/
+/-- `exp((Φ₁ + Φ₂)/8) = det(I - M²)^{-1/2}` (sphere/paper.tex l.1176). -/
 theorem exp_Phi_eighth (hJ1 : Cited_JacobiIdentities) (hJ2 : Cited_JacobiIdentities2)
     {S1t S2c S21 S22 : MvPowerSeries ℕ+ ℂ} (hE : IsExpansionData S1t S2c S21 S22) :
     constantCoeff ((1 / 8 : ℂ) • MvPowerSeries.subst sigmaStar S21 +
@@ -182,7 +182,7 @@ theorem constantCoeff_PhiCraw {S1t S2c S21 S22 : MvPowerSeries ℕ+ ℂ}
 
 include hF hK in
 set_option maxHeartbeats 1600000 in
-/-- Lemma 3.7 from Steps 1–3 of its proof (sphere/paper.tex l.1156–1180, Step 4). -/
+/-- Lemma 3.7 from Steps 1–3 of its proof (sphere/paper.tex l.1158–1180, Step 4). -/
 theorem lem_central_charge_of_c2 (hJ1 : Cited_JacobiIdentities) (hJ2 : Cited_JacobiIdentities2)
     (h : Stmt_sub_c2_decomp) : Stmt_lem_central_charge := by
   obtain ⟨c, cinf, hdec, hlim, hgen⟩ := h
