@@ -164,3 +164,15 @@ import Virasoro.Sphere.Proofs.Sec3C2Primaries
 import Virasoro.Sphere.Proofs.Sec3C2WickTools
 import Virasoro.Sphere.Proofs.Sec3C2Wick
 import Virasoro.Sphere.Proofs.Sec3C2Assembly
+import Virasoro.Sphere.Proofs.Sec3C2Fam
+import Virasoro.Sphere.Proofs.Sec3C2Current
+import Virasoro.Sphere.Proofs.Sec3C2Udag
+import Virasoro.Sphere.Proofs.Sec3C2Conj
+import Virasoro.Sphere.Proofs.Sec3C2Lev
+import Virasoro.Sphere.Proofs.Sec3C2Fstar
+import Virasoro.Sphere.Proofs.Sec3C2Input
+import Virasoro.Sphere.Proofs.Sec3C2Spec
+import Virasoro.Sphere.Proofs.Sec3C2Step3Parts
+import Virasoro.Sphere.Proofs.Sec3C2DiagFinal
+import Virasoro.Sphere.Proofs.Sec3C2DiagNorm
+import Virasoro.Sphere.Proofs.Sec3Headline

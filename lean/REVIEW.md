@@ -643,3 +643,44 @@ Route notes:
 - l.1089–1093: U(W)w obtained as the limit of P_w(iλW,u), uniqueness from the stacked system.
   Follows the paper.
 - l.1098–1102: Wick's theorem as the coefficient of v^β in exp(λA·v + vBv).  Follows the paper.
+
+## 2026-11-22T05:55Z — run 18 results (Lemma 3.7 Step 3 proved; labelled Lemma 3.7, Lemma 3.3, Theorem 3.1)
+
+Checked by the main session (`../runs/lean2/checkR18.log`): `sub_c2_diag (hF) : Stmt_sub_c2_diag`,
+`sub_c2_diag_norm : Stmt_sub_c2_diag_norm`, `sub_c2_decomp (hF) (hK) : Stmt_sub_c2_decomp`, the
+seven part theorems below, and the labelled
+- `lem_central_charge_of_cited (hF) (hK) (hJ1) (hJ2) : Stmt_lem_central_charge` (lem:central-charge),
+- `lem_lambda_expansion_of_cited (hF) (hK) (hJ1) (hJ2) : Stmt_lem_lambda_expansion`
+  (lem:lambda-expansion),
+- `thm_large_delta_of_cited (hF) (hK) (hJ1) (hJ2) : Stmt_thm_large_delta` (thm:large-delta),
+
+all in `Sec3Headline.lean`; axioms [propext, Classical.choice, Quot.sound].  Their only hypotheses
+are the cited inputs the paper uses (Feigin–Fuchs operators, Kac determinant, Jacobi identities).
+Committed files changed: imports in `Virasoro/Sphere.lean` only (`../runs/lean2/r18-stmtdiff.log`
+empty).  No forbidden tokens in the 12 new modules (3332 lines); build green
+(`logs/W1-build-all.log`, 3732 jobs).  The sphere paper's headline theorem is proved.  22 of 44.
+
+Part statements of Step 3 (`Sec3C2Step3Parts.lean`), checked against the paper and the objects
+(`Ucf`, `Udg` the coefficientwise adjoint with ⟨U_β†a, b⟩ = ⟨a, U_β b⟩, `DkF`, `alphaOp` =
+(i/√2)∂_{u_n}, −i√2 n u_n, `thc` = (N/M) M^{deg β}/β! with M = N − wt β, `Est`, `Yz`, `cst`, `sk`):
+- `Stmt_sub_c2_adj` (l.1111–1114), `Stmt_sub_c2_current` (l.1114–1118), `Stmt_sub_c2_conj`
+  (l.1119–1127, with a two-sided inverse series), `Stmt_sub_c2_fstar` (l.1128–1131, in t = 1/x:
+  g + t/2 + t²/(16g) = 1 and √(1−t) = g − t²/(16g), i.e. x(X) = X + ½ + 1/(16X) and
+  √(x(x−1)) = X − 1/(16X)), `Stmt_sub_c2_input` (l.1131–1134, the residue at each level as a
+  finite sum), `Stmt_sub_c2_cov` (l.1134–1139), `Stmt_sub_c2_modes` (l.1140–1145).  As printed,
+  level by level.  Approved.
+
+Route notes:
+- l.1128–1131: Lean proves exp(−∑ W_{*,m} t^m) = ((1+√(1−t))/2)² by comparing logarithmic
+  derivatives and constant terms.  The paper's log(4(1−√(1−y))/(y(1+√(1−y)))) is −2 log((1+√(1−y))/2),
+  and its integral identity is checked by the same derivative.  Same argument in exponentiated form;
+  accepted.
+- l.1134–1139: the change of variables as the formal residue statement of brief item 12
+  (`res_hS`: res f^p f′ = δ_{p,−1}).  As fixed by the main session.
+- l.1140–1143: the span from x(X)·(X^m − 16^{−m}X^{−m}) = D_{m+1} + ½D_m + (1/16)D_{m−1}
+  (D_m = X^m − 16^{−m}X^{−m}), giving a triangular expansion with leading coefficient 1.  This
+  writes out the paper's invariance-and-leading-term sentence; accepted.
+- l.1091–1093: U_β lowers the level by wt β is derived from `IsDiffeoU` (`Ucf_graded`), since the
+  frozen statement quantifies over every such U.  Fills in.
+- l.1145–1149: the Gaussian identified through ∂_iΦ = Φ·∂_i g (`ext_of_pderiv`).  Fills in.
+- Adjoint, Ψ = U†α(U†)⁻¹ with the inverse series, uniqueness on matrix entries: follow the paper.
