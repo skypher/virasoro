@@ -1275,29 +1275,29 @@ For any homogeneous vector \(w\in M(c,h)_\ell\) and any partition \(Z\) of
 \end{lemma}
 
 \begin{proof}
-Immediate by induction on the length of \(Z\) from the Ward recursion
+Apply the Ward recursion
 \(\langle L_{-n}u\mid\Phi_b(1)\mid\Delta_a\rangle
 =(h(u)+n\Delta_b-\Delta_a)\langle u\mid\Phi_b(1)\mid\Delta_a\rangle\) of
-Definition~\ref{def:sphere-block}.
+Definition~\ref{def:sphere-block} successively to the parts of \(Z\).
 \end{proof}
 
-\begin{proposition}[Imported generic normalizations]\label{prop:imported}
+\begin{proposition}[Singular-vector norm and three-point factor]\label{prop:imported}
 For positive integers \(r,s\) and generic \(b\), let
 \(\chi_{r,s}(b)\in M(c(b),h_{r,s}(b))_{rs}\) be the unique singular vector
 with \(L_{-1}^{rs}\)-coefficient \(1\)~\cite[Props.~5.1--5.2 and Cor.~5.2]{IoharaKoga2011}.
-Its Shapovalov crossing scalar (norm derivative along \(\Delta\) at fixed
-\(c(b)\)) and sphere three-point scalar are
+Its Shapovalov crossing scalar \(\beta_{\chi_{r,s}(b)}\) is the derivative of
+its norm along \(\Delta\) at fixed \(c(b)\).  The crossing scalar and the
+sphere three-point scalar are
 \begin{equation}\label{eq:imported-ids}
  \beta_{\chi_{r,s}(b)}=\mathcal A_{r,s}(b)^{-1},\qquad
  \langle\chi_{r,s}(b)\mid\Phi_b(1)\mid\Delta_a\rangle=P_{r,s}(b,\Delta_a,\Delta_b).
 \end{equation}
-Both are identities of rational functions of \(b\).  By
-\cite[Lemma~6.6]{PolzerTorus2026} the normalized vector \(\chi_{r,s}(b)\)
-(\(L_{-1}^{rs}\)-coefficient \(1\)) is regular at every
-\(b_\star\in\mathbb C^\times\); the second identity is polynomial in its
-coefficients and in \((\Delta_a,\Delta_b)\), so it specializes to every
-\(b_\star\in\mathbb C^\times\).  The first identity is used only as an identity
-of rational functions of \(b\).
+Both are identities of rational functions of \(b\), and the first is used only
+in this form.  By \cite[Lemma~6.6]{PolzerTorus2026} the vector
+\(\chi_{r,s}(b)\) is regular at every \(b_\star\in\mathbb C^\times\).  The
+second identity is polynomial in its coefficients and in
+\((\Delta_a,\Delta_b)\), so it specializes to every
+\(b_\star\in\mathbb C^\times\).
 \end{proposition}
 
 \begin{proof}
@@ -1311,8 +1311,7 @@ For the \(\Delta\)-crossing convention see~\cite[\S3]{HadaszJaskolskiSuchanek201
 the first identity of~\cite[Prop.~6.2]{PolzerTorus2026} is the same
 normalized product at generic charge.  The second identity is Zamolodchikov's
 fusion polynomial~\cite[\S2]{Zamolodchikov1987}, proved directly
-in~\cite[\S5, eqs.~(5.9)--(5.12)]{Zamolodchikov2004}; for the residue product
-see also~\cite[eq.~(3.4)]{Ribault2019}.  Its sign in our convention is \(+1\),
+in~\cite[\S5, eqs.~(5.9)--(5.12)]{Zamolodchikov2004}.  Its sign in our convention is \(+1\),
 because the leading coefficient in \(\Delta_b-\Delta_a\) of both sides is
 \(+1\) by~\eqref{eq:gamma-Y} and~\eqref{eq:Prs-def}.
 \end{proof}
@@ -1331,35 +1330,42 @@ as an identity of rational functions of \(\Delta\), polynomial in
 \end{proposition}
 
 \begin{proof}
-Exclude \(b=0\) and the finitely many algebraic values where any
-\(h_a(b)-h_g(b)\) (\(a\neq g\)) or \(h_a(b)+\ell_a-h_g(b)\) vanishes
-(\cite[Lemma~6.3]{PolzerTorus2026}), or where \(\mathcal A_a(b)\) has a
-pole, for \(\ell_a,\ell_g\leq N\).  Then for each \(a=(r,s)\) with
+Exclude \(b=0\) and the finitely many algebraic values, for
+\(\ell_a,\ell_g\leq N\), where some \(h_a(b)-h_g(b)\) (\(a\neq g\)) or
+\(h_a(b)+\ell_a-h_g(b)\) vanishes (\cite[Lemma~6.3]{PolzerTorus2026}) or where
+\(\mathcal A_a(b)\) has a pole.  Then for each \(a=(r,s)\) with
 \(\ell_a\leq N\), every positive local Smith exponent of \(G_m(c(b),\Delta)\)
-(\(m\leq N\)) at \(\Delta=h_a(b)\) equals \(1\) on the \(p(m-\ell_a)\)-dimensional
-singular submodule \(U(\Vir_-)\chi_a(b)\), since the Kac root \(h_a(b)\) is
-distinct from the others and the embedding of \(M(c(b),h_a(b)+\ell_a)\) is
-injective (as in the proof of~\cite[Prop.~6.4]{PolzerTorus2026}).  By
-Smith-form residue extraction
-(\cite[Lemma~5.4]{PolzerTorus2026}), Lemma~\ref{lem:3pt-factor}, and
+(\(m\leq N\)) at \(\Delta=h_a(b)\) equals \(1\) on the
+\(p(m-\ell_a)\)-dimensional singular submodule \(U(\Vir_-)\chi_a(b)\).  The
+reason is that the Kac root \(h_a(b)\) is distinct from the others and the
+embedding of \(M(c(b),h_a(b)+\ell_a)\) is injective, as in the proof
+of~\cite[Prop.~6.4]{PolzerTorus2026}.  By Smith-form residue extraction
+(\cite[Lemma~5.4]{PolzerTorus2026}), Lemma~\ref{lem:3pt-factor} and
 Proposition~\ref{prop:imported},
-\(\Res_{\Delta=h_a}\mathcal B_m(c,\Delta,\Delta_i)
-=\mathcal R^{\mathrm{sph}}_a(b,\Delta_i)\mathcal B_{m-\ell_a}(c,h_a+\ell_a,\Delta_i)\)
-for \(\ell_a\leq m\leq N\) (and \(0\) for \(m<\ell_a\)).  Dividing by
-\(\widetilde\Phi(c,\Delta,\Delta_i;q)\) (which is regular in \(\Delta\) and
-satisfies \(\widetilde\Phi(c,h_a+\ell_a,\Delta_i;q)/\widetilde\Phi(c,h_a,\Delta_i;q)=(16q/z(q))^{\ell_a}\),
-combining with \(z(q)^{\ell_a}\) to give \((16q)^{\ell_a}\)) gives
+\[
+ \Res_{\Delta=h_a}\mathcal B_m(c,\Delta,\Delta_i)
+ =\mathcal R^{\mathrm{sph}}_a(b,\Delta_i)\,\mathcal B_{m-\ell_a}(c,h_a+\ell_a,\Delta_i)
+ \qquad(\ell_a\leq m\leq N).
+\]
+The residue vanishes for \(m<\ell_a\).  The prefactor
+\(\widetilde\Phi(c,\Delta,\Delta_i;q)\) is regular in \(\Delta\), and
+\[
+ \frac{\widetilde\Phi(c,h_a+\ell_a,\Delta_i;q)}{\widetilde\Phi(c,h_a,\Delta_i;q)}
+ =\Bigl(\frac{16q}{z(q)}\Bigr)^{\ell_a},
+\]
+which combines with \(z(q)^{\ell_a}\) to give \((16q)^{\ell_a}\).  Dividing by
+\(\widetilde\Phi\) therefore gives
 \(\Res_{\Delta=h_a}H_N=\mathcal R^{\mathrm{sph}}_a(b,\Delta_i)H_{N-\ell_a}(c,h_a+\ell_a,\Delta_i)\),
 and all poles of \(H_N\) are simple and lie at \(\{h_a(b):\ell_a\leq N\}\).
 By Theorem~\ref{thm:large-delta}, \(\lim_{\Delta\to\infty}H_N=0\) for
 \(N\geq1\), so \(H_N\) equals the sum of its principal parts.
 \end{proof}
 
-Now fix an arbitrary \(b_\star\in\mathbb C^\times\), put \(c_\star=c(b_\star)\)
-and \(t=b-b_\star\), and work in \(K_\star((t))\) with
-\(K_\star=\mathbb Q(b_\star,\Delta_1,\Delta_2,\Delta_3,\Delta_4)\).  For
-\(a=(r,s)\) (\(\ell_a=rs\)), write \(h_a(t)=h_{r,s}(b_\star+t)\),
-\(z_a(t)=h_a(t)+\ell_a\), and
+Now fix an arbitrary \(b_\star\in\mathbb C^\times\) and put
+\(c_\star=c(b_\star)\) and \(t=b-b_\star\).  We work in \(K_\star((t))\), where
+\(K_\star=\mathbb Q(b_\star,\Delta_1,\Delta_2,\Delta_3,\Delta_4)\).  For a label
+\(a=(r,s)\) with \(\ell_a=rs\), write \(h_a(t)=h_{r,s}(b_\star+t)\),
+\(z_a(t)=h_a(t)+\ell_a\) and
 \(R_a(t)=\mathcal R^{\mathrm{sph}}_{r,s}(b_\star+t,\Delta_i)\).  Let
 \(\Lambda_N(b_\star):=\{h_a(0):\ell_a\leq N\}\) and
 \(\mathcal C^\star_{\lambda,N}:=\{a:\ell_a\leq N,\ h_a(0)=\lambda\}\).
@@ -1373,17 +1379,22 @@ Define \(S_{a,0}(t):=1\) and, recursively for \(M\geq1\),
   \frac{R_g(t)}{z_a(t)-h_g(t)}\,S_{g,M-\ell_g}(t)\in K_\star((t)).
 \end{equation}
 Every denominator \(z_a(t)-h_g(t)\) is nonzero in \(K_\star[[t]]\) by
-\cite[Lemma~6.3]{PolzerTorus2026}.  Put \(\pi_g:=\max\{0,-\ord_t R_g\}\),
-\(\sigma_{a,g}:=\max\{0,\ord_t(z_a-h_g)\}\), \(W_{a,0}:=0\), and
-\(W_{a,M}:=\max(\{0\}\cup\{\pi_g+\sigma_{a,g}+W_{g,M-\ell_g}:\ell_g\leq M\})\);
-induction gives \(\ord_t S_{a,M}\geq-W_{a,M}\).  For
-\(\lambda\in\Lambda_N(b_\star)\) and \(a\in\mathcal C^\star_{\lambda,N}\),
+\cite[Lemma~6.3]{PolzerTorus2026}.  Define the pole-order bounds
+\begin{gather*}
+ \pi_g:=\max\{0,-\ord_t R_g\},\qquad
+ \sigma_{a,g}:=\max\{0,\ord_t(z_a-h_g)\},\\
+ W_{a,M}:=\max\bigl(\{0\}\cup\{\pi_g+\sigma_{a,g}+W_{g,M-\ell_g}:\ell_g\leq M\}\bigr),
+\end{gather*}
+with \(W_{a,0}:=0\).  Induction on \(M\) gives \(\ord_t S_{a,M}\geq-W_{a,M}\).
+For \(\lambda\in\Lambda_N(b_\star)\) and \(a\in\mathcal C^\star_{\lambda,N}\),
 put \(B_{a,N}(t):=R_a(t)S_{a,N-\ell_a}(t)\),
-\(\delta_a(t):=h_a(t)-\lambda\in tK_\star[[t]]\),
-\(\varepsilon_a:=\ord_t\delta_a\geq1\) (\(\infty\) if \(\delta_a\equiv0\)),
-\(\widehat v_{a,N}:=\pi_a+W_{a,N-\ell_a}\), and
-\(\widehat M^\star_{\lambda,N}:=\max_{a\in\mathcal C^\star_{\lambda,N}}(1+\lfloor\widehat v_{a,N}/\varepsilon_a\rfloor)\)
-(with \(1\) when \(\varepsilon_a=\infty\)).  Define the \emph{collision moments}
+\(\delta_a(t):=h_a(t)-\lambda\in tK_\star[[t]]\) and
+\(\widehat v_{a,N}:=\pi_a+W_{a,N-\ell_a}\).  Let
+\(\varepsilon_a:=\ord_t\delta_a\geq1\), with \(\varepsilon_a=\infty\) if
+\(\delta_a\equiv0\), and put
+\(\widehat M^\star_{\lambda,N}:=\max_{a\in\mathcal C^\star_{\lambda,N}}(1+\lfloor\widehat v_{a,N}/\varepsilon_a\rfloor)\);
+a label with \(\varepsilon_a=\infty\) contributes \(1\) to this maximum.
+Define the \emph{collision moments}
 \begin{equation}\label{eq:collision-moments}
  \widetilde A^\star_{\lambda,k,N}(\Delta_1,\dots,\Delta_4)
  :=\CT_t\sum_{a\in\mathcal C^\star_{\lambda,N}}B_{a,N}(t)\,\delta_a(t)^{k-1}
@@ -1391,15 +1402,15 @@ put \(B_{a,N}(t):=R_a(t)S_{a,N-\ell_a}(t)\),
 \end{equation}
 \end{definition}
 
-\begin{lemma}[Backward Laurent-precision budget]\label{lem:precision-budget}
-To compute \(S_{a,M}(t)\) through \(t^U\), it suffices to compute for each
-\(g\) with \(\ell_g\leq M\): \(R_g/(z_a-h_g)\) through
-\(t^{U+W_{g,M-\ell_g}}\) and \(S_{g,M-\ell_g}\) through
-\(t^{U+\pi_g+\sigma_{a,g}}\).  Iterating down the level-decreasing tree
-produces an explicit finite precision bound at every node; in particular,
-\(R_a\) through \(t^{W_{a,N-\ell_a}}\), \(S_{a,N-\ell_a}\) through
-\(t^{\pi_a}\), and \(\delta_a^{k-1}\) through \(t^{\widehat v_{a,N}}\)
-suffice for all collision moments at level \(N\).
+\begin{lemma}[Laurent precision for the recursion]\label{lem:precision-budget}
+To compute \(S_{a,M}(t)\) through \(t^U\), it suffices to compute, for each
+\(g\) with \(\ell_g\leq M\), the factor \(R_g/(z_a-h_g)\) through
+\(t^{U+W_{g,M-\ell_g}}\) and the factor \(S_{g,M-\ell_g}\) through
+\(t^{U+\pi_g+\sigma_{a,g}}\).  Each recursive step lowers the level, so
+iterating gives a finite precision bound for every factor that occurs.  For the collision
+moments at level \(N\) it suffices to compute \(R_a\) through
+\(t^{W_{a,N-\ell_a}}\), \(S_{a,N-\ell_a}\) through \(t^{\pi_a}\), and
+\(\delta_a^{k-1}\) through \(t^{\widehat v_{a,N}}\).
 \end{lemma}
 
 \begin{theorem}[All-order confluent sphere recursion at fixed \(b_\star\)]
@@ -1438,24 +1449,23 @@ we expand in \(K_\star(\Delta)((t))\):
   \frac{C_{\lambda,k}(t)}{(\Delta-\lambda)^k}.
 \end{align*}
 By the valuation bound of Definition~\ref{def:confluence},
-\(\ord_t C_{\lambda,k}\geq1\) whenever \(k>\widehat M^\star_{\lambda,N}\), so
-for every integer \(m\leq0\) only finitely many pairs \((\lambda,k)\)---all with
-\(1\leq k\leq\widehat M^\star_{\lambda,N}\)---contribute to the coefficient of
-\(t^m\) on the right-hand side.  Because \(\det G_N(c(b_\star+t),\Delta)\) does
+\(\ord_t C_{\lambda,k}\geq1\) whenever \(k>\widehat M^\star_{\lambda,N}\).  So
+for each integer \(m\leq0\), only the terms with
+\(1\leq k\leq\widehat M^\star_{\lambda,N}\) contribute to the coefficient of
+\(t^m\) on the right-hand side.  Since \(\det G_N(c(b_\star+t),\Delta)\) does
 not vanish identically in \(\Delta\) at \(t=0\), the left-hand side lies in
-\(K_\star(\Delta)[[t]]\) with constant term \(H_N(c_\star,\Delta,\Delta_i)\).
+\(K_\star(\Delta)[[t]]\), with constant term \(H_N(c_\star,\Delta,\Delta_i)\).
 Hence for every \(m<0\) the finite partial-fraction sum
 \(\sum_{\lambda\in\Lambda_N(b_\star)}\sum_{k=1}^{\widehat M^\star_{\lambda,N}}
 ([t^m]C_{\lambda,k}(t))(\Delta-\lambda)^{-k}\) vanishes identically in
-\(K_\star(\Delta)\).  By uniqueness of partial-fraction decompositions at the
-distinct frozen poles \(\lambda\in\Lambda_N(b_\star)\), every
-\([t^m]C_{\lambda,k}(t)=0\) for \(m<0\); thus each grouped numerator
-\(C_{\lambda,k}(t)\) is holomorphic in \(t\), i.e.\ \(C_{\lambda,k}(t)\in K_\star[[t]]\).
-Extracting \([t^0]\) then gives~\eqref{eq:confluence-H} with
-\(\widetilde A^\star_{\lambda,k,N}=C_{\lambda,k}(0)\); since the left-hand side
-lies in \(\mathbb Q(b_\star)[\Delta_1,\dots,\Delta_4](\Delta)\), so do the
+\(K_\star(\Delta)\).  Partial-fraction decompositions at the distinct poles
+\(\lambda\in\Lambda_N(b_\star)\) are unique, so \([t^m]C_{\lambda,k}(t)=0\) for
+every \(m<0\), and each grouped numerator \(C_{\lambda,k}(t)\) lies in
+\(K_\star[[t]]\).  The coefficient of \(t^0\) then gives~\eqref{eq:confluence-H}
+with \(\widetilde A^\star_{\lambda,k,N}=C_{\lambda,k}(0)\).  Since the left-hand
+side lies in \(\mathbb Q(b_\star)[\Delta_1,\dots,\Delta_4](\Delta)\), so do the
 principal-part coefficients \(\widetilde A^\star_{\lambda,k,N}\).  Part~(iii)
-follows immediately from~\eqref{eq:B-from-H}.
+follows from~\eqref{eq:B-from-H}.
 \end{proof}
 
 \begin{remark}\label{rem:nu-parameter}
@@ -1467,31 +1477,35 @@ functions of \(\nu=b^2\) over \(\mathbb Q\): we have
 \((0,0)\) factor, when \(r,s\) are both odd, is already \(\Delta_b-\Delta_a\)).
 Under the invertible coordinate change \(u=\nu-b_\star^2=2b_\star t+t^2\)
 (\(du/dt|_{t=0}=2b_\star\neq0\)), the constant term of a general meromorphic
-Laurent series is not preserved (for example
-\(t^{-1}=2b_\star u^{-1}+(2b_\star)^{-1}+O(u)\)).  However, by the proof of
-Theorem~\ref{thm:confluence} each grouped numerator \(C_{\lambda,k}\) is
-holomorphic at \(t=0\) (hence holomorphic at \(u=0\)), so its constant term is
-simply its value at \(0\) and satisfies
+Laurent series is not preserved.  For example,
+\[
+ t^{-1}=2b_\star u^{-1}+(2b_\star)^{-1}+O(u).
+\]
+By the proof of Theorem~\ref{thm:confluence}, each grouped numerator
+\(C_{\lambda,k}\) is regular at \(t=0\), hence at \(u=0\), so its constant term
+in either variable is its value at the collision:
 \(\CT_u C_{\lambda,k}(u)=C_{\lambda,k}(0)=\CT_t C_{\lambda,k}(t)=\widetilde A^\star_{\lambda,k,N}\).
-Computing the grouped numerators in \(u\) therefore yields the exact same
-collision moments while keeping all arithmetic over \(\mathbb Q\) whenever
+Computing the grouped numerators in \(u\) therefore gives the same collision
+moments, with all arithmetic over \(\mathbb Q\) whenever
 \(b_\star^2\in\mathbb Q\).
 \end{remark}
 
 \section{Minimal-model pole orders, top Jantzen layer, and sharpness}\label{sec:jantzen}
 
 Let \(p,p'\geq2\) be coprime integers.  By the \(b\leftrightarrow b^{-1}\)
-symmetry of \(c(b)\), assume without loss of generality that \(p'>p\geq2\),
-and set
+symmetry of \(c(b)\) we may assume \(p'>p\), and we set
 \[
  b_\star=i\sqrt{\frac{p'}{p}},\qquad
  c_\star=1-\frac{6(p'-p)^2}{pp'},\qquad
  Q_\star=i\frac{p'-p}{\sqrt{pp'}}.
 \]
 Let \(\lambda=h_{r,s}(b_\star)=\frac{(p'r-ps)^2-(p'-p)^2}{4pp'}\) be an
-interior Kac weight (\(1\leq r\leq p-1\), \(1\leq s\leq p'-1\)), labeled by
-\((r,s)\leftrightarrow(p-r,p'-s)\) so that \(n_1:=p'r+ps<pp'\) (equality is
-impossible since \(\gcd(p,p')=1\)), and put \(n_0:=p'r-ps\neq0\).
+interior Kac weight, so \(1\leq r\leq p-1\) and \(1\leq s\leq p'-1\).  Of the
+two labels \((r,s)\) and \((p-r,p'-s)\) of \(\lambda\), choose the one with
+\(p'r+ps<pp'\); equality is impossible since \(\gcd(p,p')=1\).  Put
+\[
+ n_1:=p'r+ps<pp',\qquad n_0:=p'r-ps\neq0.
+\]
 
 Following~\cite[Theorem~5.8]{PolzerTorus2026}, define the Jantzen
 singular-vector levels
@@ -1503,15 +1517,17 @@ singular-vector levels
 \end{align*}
 with \(\ell_k:=\min(\ell^+_k,\ell^-_k)\), \(\mu^\pm_k:=\lambda+\ell^\pm_k\),
 and Jantzen depth \(j_N(\lambda):=\max(\{0\}\cup\{k\geq1:\ell_k\leq N\})\).
+A pole of order zero means regularity.
 The shifted weights \(\mu^\pm_k=((m^\pm_k)^2-(p'-p)^2)/(4pp')\) have
 positive integer Coulomb momenta
 \(m^+_{2j+1}=2jpp'+n_1<2(j+1)pp'-n_1=m^-_{2j+1}\) and
 \(m^\pm_{2j}=2jpp'\pm n_0\).  In both parities \(m^+_k\neq m^-_k\) and
-\(m^+_k+m^-_k=2kpp'\); write \(m^{\mathrm{small}}_k<m^{\mathrm{big}}_k\)
-(with levels \(\ell^{\mathrm{small}}_k<\ell^{\mathrm{big}}_k\), shifted
-weights \(\mu^{\mathrm{small}}_k<\mu^{\mathrm{big}}_k\), and singular
-vectors \(w^{\mathrm{small}}_k,w^{\mathrm{big}}_k\)).  Since \(n_1<pp'\)
-and \(n_0\neq0\), one always has \(m^{\mathrm{big}}_k\geq kpp'+1\).
+\(m^+_k+m^-_k=2kpp'\).  Write \(m^{\mathrm{small}}_k<m^{\mathrm{big}}_k\) for
+the two momenta, and use the same labels for the corresponding levels
+\(\ell^{\mathrm{small}}_k<\ell^{\mathrm{big}}_k\), shifted weights
+\(\mu^{\mathrm{small}}_k<\mu^{\mathrm{big}}_k\) and singular vectors
+\(w^{\mathrm{small}}_k,w^{\mathrm{big}}_k\).  Since \(n_1<pp'\) and
+\(n_0\neq0\), \(m^{\mathrm{big}}_k\geq kpp'+1\).
 
 \begin{theorem}[Jantzen pole-order bound]\label{thm:jantzen-bound}
 For every coprime pair \(p,p'\geq2\), every interior Kac weight
@@ -1549,48 +1565,51 @@ set \(\pi^\pm_k(\Delta_a,\Delta_b):=\langle w^\pm_k\mid\Phi_b(1)\mid\Delta_a\ran
   \(\Lambda_b=ia_b/\sqrt{pp'}\), so that
   \(\Delta_a=(a_a^2-(p'-p)^2)/(4pp')\).  The zero locus of
   \(\pi^\pm_k(\Delta_a,\Delta_b)\) is a union of hyperplanes
-  \(a_a\pm a_b=c\) with \(|c|\leq m^\pm_k-p'-p\).  Thus at every zero at least
-  one of \(|a_a+a_b|\) or \(|a_a-a_b|\) is at most \(m^\pm_k-p'-p\);
-  equivalently, if both strictly exceed \(m^\pm_k-p'-p\), then
-  \(\pi^\pm_k(\Delta_a,\Delta_b)\neq0\).  Both hyperplanes
-  \(a_a-a_b=\pm(m^\pm_k-p'-p)\) lie in the zero locus of
-  \(\pi^\pm_k(\Delta_a,\Delta_b)\).
+  \(a_a\pm a_b=c\) with \(|c|\leq m^\pm_k-p'-p\), and it contains both
+  hyperplanes \(a_a-a_b=\pm(m^\pm_k-p'-p)\).  In particular, if
+  \(|a_a+a_b|\) and \(|a_a-a_b|\) both exceed \(m^\pm_k-p'-p\), then
+  \(\pi^\pm_k(\Delta_a,\Delta_b)\neq0\).
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
 By Proposition~\ref{prop:imported}, every \(\chi_{R,S}(b_\star)\) is regular
 with \(L_{-1}^{RS}\)-coefficient \(1\) and three-point scalar
-\(P_{R,S}(b_\star,\Delta_a,\Delta_b)\).  Since the singular space at each
-weight \(\lambda+\ell^\pm_k\) in \(M(c_\star,\lambda)\) is
-\(1\)-dimensional~\cite[Props.~5.1 and~5.4]{IoharaKoga2011}
-(see also~\cite[Theorem~3.1]{Astashkevich1997}): for odd \(k=2j+1\),
-\(h_{R^\pm_k,S^\pm_k}(b_\star)=\lambda\) and \(R^\pm_kS^\pm_k=\ell^\pm_k\),
-so \(w^\pm_k=\chi_{R^\pm_k,S^\pm_k}(b_\star)\), proving (i); for even
-\(k=2j\), \(R^\pm_k,S^\pm_k\geq1\), \(h_{R^\pm_k,S^\pm_k}(b_\star)=\mu^+_1=\lambda+rs\),
-and \(R^\pm_kS^\pm_k=\ell^\pm_k-rs\), so pushing
-\(\chi_{R^\pm_k,S^\pm_k}(b_\star)\) forward along the injective Verma
-embedding \(M(c_\star,\mu^+_1)\hookrightarrow M(c_\star,\lambda)\)
-(\(v_{\mu^+_1}\mapsto\chi_{r,s}(b_\star)\)) yields \(w^\pm_k\), and
-Lemma~\ref{lem:3pt-factor} proves (ii).  For (iii), since
-\(b_\star=ip'/\sqrt{pp'}\) and \(b_\star^{-1}=-ip/\sqrt{pp'}\), the roots of
-\(P_{R,S}(b_\star,\Delta_a,\Delta_b)\) are
-\(a_a\pm a_b=-(jp'-lp)\) for \(j\in\{1-R,3-R,\dots,R-1\}\) and
-\(l\in\{1-S,3-S,\dots,S-1\}\) (steps of two, as in~\eqref{eq:Prs-def}),
-whose maximum magnitude is
-\((R-1)p'+(S-1)p=Rp'+Sp-p'-p\), attained at \((j,l)=(-(R-1),S-1)\).  For
-both parities \(R^\pm_kp'+S^\pm_kp=m^\pm_k\), and for even \(k\) the factor
-\(P_{r,s}\) has maximum \(n_1-p'-p<pp'-p'-p<m^\pm_k-p'-p\).
+\(P_{R,S}(b_\star,\Delta_a,\Delta_b)\).  The singular space at each weight
+\(\lambda+\ell^\pm_k\) in \(M(c_\star,\lambda)\) is
+\(1\)-dimensional~\cite[Props.~5.1 and~5.4]{IoharaKoga2011}; see
+also~\cite[Theorem~3.1]{Astashkevich1997}.
+
+For odd \(k=2j+1\), \(h_{R^\pm_k,S^\pm_k}(b_\star)=\lambda\) and
+\(R^\pm_kS^\pm_k=\ell^\pm_k\), so \(w^\pm_k=\chi_{R^\pm_k,S^\pm_k}(b_\star)\);
+this proves (i).
+
+For even \(k=2j\), \(R^\pm_k,S^\pm_k\geq1\),
+\(h_{R^\pm_k,S^\pm_k}(b_\star)=\mu^+_1=\lambda+rs\) and
+\(R^\pm_kS^\pm_k=\ell^\pm_k-rs\).  Pushing \(\chi_{R^\pm_k,S^\pm_k}(b_\star)\)
+forward along the injective Verma embedding
+\(M(c_\star,\mu^+_1)\hookrightarrow M(c_\star,\lambda)\),
+\(v_{\mu^+_1}\mapsto\chi_{r,s}(b_\star)\), gives \(w^\pm_k\), and
+Lemma~\ref{lem:3pt-factor} proves (ii).
+
+For (iii), \(b_\star=ip'/\sqrt{pp'}\) and \(b_\star^{-1}=-ip/\sqrt{pp'}\), so
+the roots of \(P_{R,S}(b_\star,\Delta_a,\Delta_b)\) are
+\(a_a\pm a_b=-(jp'-lp)\), with \(j\) and \(l\) in the ranges
+of~\eqref{eq:Prs-def}.  Their maximal magnitude is
+\((R-1)p'+(S-1)p=Rp'+Sp-p'-p\), attained at \((j,l)=(-(R-1),S-1)\).  For both
+parities \(R^\pm_kp'+S^\pm_kp=m^\pm_k\).  For even \(k\), the roots of the
+factor \(P_{r,s}\) have magnitude at most \(n_1-p'-p\), and
+\(n_1-p'-p<pp'-p'-p<m^\pm_k-p'-p\).
 \end{proof}
 
 \begin{theorem}[Top Jantzen layer for \(\mathcal B_N\) and \(H_N\)]
 \label{thm:top-layer}
-Let \(k\geq1\) and \(\ell_k\leq N<\ell_{k+1}\), and let
+Let \(k\geq1\) and \(\ell_k\leq N<\ell_{k+1}\).  Let
 \(\gamma^\pm_k:=B^k(w^\pm_k,w^\pm_k)\) be the \(k\)-th Jantzen norms of
-\(w^\pm_k\) (identical to those in~\cite[Theorem~5.9]{PolzerTorus2026}).
-Then \(j_N(\lambda)=k\); for each sign with \(\ell^\pm_k\leq N\), one has
-\(\gamma^\pm_k\neq0\) and \(\det G_M(c_\star,\mu^\pm_k)\neq0\) for all
-\(0\leq M\leq N-\ell^\pm_k\); and
+\(w^\pm_k\); they are the norms of~\cite[Theorem~5.9]{PolzerTorus2026}.
+Then \(j_N(\lambda)=k\).  For each sign with \(\ell^\pm_k\leq N\) one has
+\(\gamma^\pm_k\neq0\), and \(\det G_M(c_\star,\mu^\pm_k)\neq0\) for every
+\(M\) with \(0\leq M\leq N-\ell^\pm_k\).  Moreover
 \begin{align}
  \lim_{\Delta\to\lambda}(\Delta-\lambda)^k\mathcal B_N(c_\star,\Delta,\Delta_i)
  &=\sum_{\pm:\ \ell^\pm_k\leq N}
@@ -1606,17 +1625,19 @@ Then \(j_N(\lambda)=k\); for each sign with \(\ell^\pm_k\leq N\), one has
 \end{theorem}
 
 \begin{proof}
-By the proof of~\cite[Theorem~5.9]{PolzerTorus2026}, the following hold for
-every \(\ell_k\leq N'\leq N\): \(k\) is the maximal local Smith exponent of
-\(G_{N'}(c_\star,\lambda+x)\); the \(k\)-th Jantzen layer splits as the
-\(B^k\)-orthogonal direct sum
-\(J^k_{N'}(c_\star,\lambda)=\bigoplus_{\pm:\ell^\pm_k\leq N'}(W^\pm_k)_{N'}\)
-with \(B^k(L_{-Z}w^\pm_k,L_{-Z'}w^\pm_k)=\gamma^\pm_k G_{N'-\ell^\pm_k}(c_\star,\mu^\pm_k)_{Z,Z'}\);
-and \(\gamma^\pm_k\neq0\).  Moreover \(\det G_M(c_\star,\mu^\pm_k)\neq0\) for
-all \(M\leq N-\ell^\pm_k\).  Applying~\cite[Lemma~5.4(ii)]{PolzerTorus2026} to
+The proof of~\cite[Theorem~5.9]{PolzerTorus2026} gives the following
+facts at every level \(N'\) with \(\ell_k\leq N'<\ell_{k+1}\).  The maximal
+local Smith exponent of \(G_{N'}(c_\star,\lambda+x)\) is \(k\).  The \(k\)-th
+Jantzen layer is the \(B^k\)-orthogonal direct sum
+\(J^k_{N'}(c_\star,\lambda)=\bigoplus_{\pm:\ell^\pm_k\leq N'}(W^\pm_k)_{N'}\).
+On each summand the form is
+\(B^k(L_{-Z}w^\pm_k,L_{-Z'}w^\pm_k)=\gamma^\pm_k G_{N'-\ell^\pm_k}(c_\star,\mu^\pm_k)_{Z,Z'}\),
+with \(\gamma^\pm_k\neq0\).  For each sign with \(\ell^\pm_k\leq N'\), the
+shifted Gram determinants \(\det G_M(c_\star,\mu^\pm_k)\) are nonzero for
+\(M\leq N'-\ell^\pm_k\).  Applying~\cite[Lemma~5.4(ii)]{PolzerTorus2026} to
 the bilinear form~\eqref{eq:B-def} and factoring via
-Lemma~\ref{lem:3pt-factor} gives~\eqref{eq:top-B} for every
-\(\ell_k\leq N'\leq N\).
+Lemma~\ref{lem:3pt-factor} gives~\eqref{eq:top-B} at every such level
+\(N'\).
 
 For~\eqref{eq:top-H}, expand
 \[
@@ -1624,14 +1645,18 @@ For~\eqref{eq:top-H}, expand
  =\widetilde\Phi(c_\star,\lambda+x,\Delta_i;q)^{-1}
   \sum_{m=0}^\infty\mathcal B_m(c_\star,\lambda+x,\Delta_i)\,z(q)^m.
 \]
-Since \(\widetilde\Phi(c_\star,\lambda+x,\Delta_i;q)^{-1}
-=\widetilde\Phi(c_\star,\lambda,\Delta_i;q)^{-1}+O(x)\)
-and each \(\mathcal B_m\) (\(m<\ell_k\)) has pole order below \(k\)
-at \(\Delta=\lambda\), extracting
-\([x^{-k}]\) modulo \(q^{\ell_{k+1}}\) and using
-\(\widetilde\Phi(c_\star,\lambda,\Delta_i;q)^{-1}z(q)^{\ell^\pm_k}
-=(16q)^{\ell^\pm_k}\widetilde\Phi(c_\star,\mu^\pm_k,\Delta_i;q)^{-1}\)
-yields
+The prefactor is regular at \(x=0\):
+\(\widetilde\Phi(c_\star,\lambda+x,\Delta_i;q)^{-1}
+=\widetilde\Phi(c_\star,\lambda,\Delta_i;q)^{-1}+O(x)\).
+For \(m<\ell_k\) the coefficient \(\mathcal B_m\) has pole order below \(k\)
+at \(\Delta=\lambda\) and does not contribute to \([x^{-k}]\).  The
+prefactors at \(\lambda\) and at \(\mu^\pm_k\) are related by
+\[
+ \widetilde\Phi(c_\star,\lambda,\Delta_i;q)^{-1}z(q)^{\ell^\pm_k}
+ =(16q)^{\ell^\pm_k}\widetilde\Phi(c_\star,\mu^\pm_k,\Delta_i;q)^{-1}.
+\]
+Extracting \([x^{-k}]\) modulo \(q^{\ell_{k+1}}\) and
+using~\eqref{eq:top-B} at each level of the layer gives
 \begin{multline*}
  \sum_{N'=\ell_k}^{\ell_{k+1}-1}[x^{-k}]H_{N'}(16q)^{N'}\\
  \equiv\sum_{\pm}\frac{\pi^\pm_k(\Delta_4,\Delta_3)\pi^\pm_k(\Delta_1,\Delta_2)}{\gamma^\pm_k}
@@ -1640,24 +1665,25 @@ yields
 modulo \(q^{\ell_{k+1}}\).  Extracting \([(16q)^N]\) gives~\eqref{eq:top-H}.
 \end{proof}
 
-\begin{theorem}[Unconditional sharpness for \(\mathcal B_N\)]
+\begin{theorem}[Sharp pole order for \(\mathcal B_N\)]
 \label{thm:sharp-B}
 For every coprime pair \(p,p'\geq2\), every interior Kac weight
 \(\lambda=h_{r,s}(b_\star)\), and every level \(N\geq1\), the coefficient
 \(\mathcal B_N(c_\star,\Delta,\Delta_1,\Delta_2,\Delta_3,\Delta_4)\),
 viewed as a rational function of \(\Delta\) over
-\(\mathbb Q(\Delta_1,\Delta_2,\Delta_3,\Delta_4)\) (for indeterminate external
-weights), has a pole of order exactly \(j_N(\lambda)\) at \(\Delta=\lambda\).
+\(\mathbb Q(\Delta_1,\Delta_2,\Delta_3,\Delta_4)\), has pole order exactly
+\(j_N(\lambda)\) at \(\Delta=\lambda\).
 \end{theorem}
 
 \begin{proof}
-Fix \(k=j_N(\lambda)\).  If \(k=0\) the claim is trivial; assume \(k\geq1\)
-(\(\ell_k\leq N<\ell_{k+1}\)), and set \(M:=N-\ell^{\mathrm{small}}_k\geq0\),
-\(\mu:=\mu^{\mathrm{small}}_k\), \(\Lambda_\mu:=im^{\mathrm{small}}_k/\sqrt{pp'}\).
+Fix \(k=j_N(\lambda)\).  For \(k=0\), Theorem~\ref{thm:jantzen-bound} gives
+regularity.  For \(k\geq1\), so that \(\ell_k\leq N<\ell_{k+1}\), set
+\(M:=N-\ell^{\mathrm{small}}_k\geq0\), \(\mu:=\mu^{\mathrm{small}}_k\) and
+\(\Lambda_\mu:=im^{\mathrm{small}}_k/\sqrt{pp'}\).
 By Theorem~\ref{thm:top-layer}, \(\det G_m(c_\star,\mu)\neq0\) for
-\(0\leq m\leq M\).  Consider the single rational specialization
-\(\Lambda_j=i\tilde a_j/\sqrt{pp'}\) (\(\Delta_j=(\tilde a_j^2-(p'-p)^2)/(4pp')\in\mathbb Q\))
-with
+\(0\leq m\leq M\).  We specialize the external weights to the rational values
+\(\Delta_j=(\tilde a_j^2-(p'-p)^2)/(4pp')\), that is
+\(\Lambda_j=i\tilde a_j/\sqrt{pp'}\), where
 \[
  \tilde a_2=2p'-p,\quad
  \tilde a_1=m^{\mathrm{small}}_k+p',\quad
@@ -1671,18 +1697,19 @@ Setting \(a_3:=-\tilde a_3\) and \(a_4:=-\tilde a_4\), we have
 \(a_4-a_3=-(m^{\mathrm{big}}_k-p'-p)\), Lemma~\ref{lem:pi-factorization}(iii)
 gives \(\pi^{\mathrm{big}}_k(\Delta_4,\Delta_3)=0\).
 
-\emph{(b) Nonvanishing of the lower-branch factors.}  For \(k=1\),
-\(m^{\mathrm{small}}_1=p'r+ps\geq p'+p\), while for \(k\geq2\),
-\(m^{\mathrm{small}}_k>pp'>p'+p\), so \(m^{\mathrm{small}}_k-p'-p\geq0\)
-always.  All four quantities
-\(\tilde a_1+\tilde a_2=m^{\mathrm{small}}_k+3p'-p\),
-\(\tilde a_1-\tilde a_2=m^{\mathrm{small}}_k-p'+p\),
-\(a_3-a_4=m^{\mathrm{big}}_k-p'-p\), and
-\(a_3+a_4=m^{\mathrm{small}}_k+p'-p\) strictly exceed
-\(m^{\mathrm{small}}_k-p'-p\geq0\) (hence also in absolute value), so
+\emph{(b) Nonvanishing of the lower-branch factors.}  The threshold
+\(m^{\mathrm{small}}_k-p'-p\) is nonnegative: for \(k=1\),
+\(m^{\mathrm{small}}_1=p'r+ps\geq p'+p\), and for \(k\geq2\),
+\(m^{\mathrm{small}}_k>pp'>p'+p\).  Each of the four quantities
+\begin{align*}
+ \tilde a_1+\tilde a_2&=m^{\mathrm{small}}_k+3p'-p,&
+ \tilde a_1-\tilde a_2&=m^{\mathrm{small}}_k-p'+p,\\
+ a_3-a_4&=m^{\mathrm{big}}_k-p'-p,&
+ a_3+a_4&=m^{\mathrm{small}}_k+p'-p
+\end{align*}
+is larger than this threshold.  By Lemma~\ref{lem:pi-factorization}(iii),
 \(\pi^{\mathrm{small}}_k(\Delta_1,\Delta_2)\neq0\) and
-\(\pi^{\mathrm{small}}_k(\Delta_4,\Delta_3)\neq0\) by
-Lemma~\ref{lem:pi-factorization}(iii).
+\(\pi^{\mathrm{small}}_k(\Delta_4,\Delta_3)\neq0\).
 
 \emph{(c) Exact evaluation of \(\mathcal B_M\).}  Take
 \((b,\Lambda_\mu,\Lambda_3,\Lambda_4)\) generic, \(\Delta_2=h_{2,1}(b)\) and
@@ -1704,21 +1731,27 @@ for every \(m\geq0\), with
  A&=\frac{1+b^2+b(\Lambda_\mu+\Lambda_3-\Lambda_4)}{2},&
  B&=\frac{1+b^2+b(\Lambda_\mu+\Lambda_3+\Lambda_4)}{2}.
 \end{align*}
-At our specialization (\(b_\star^2=-p'/p\),
-\(b_\star\Lambda_\mu=-m^{\mathrm{small}}_k/p\),
-\(b_\star\Lambda_3=a_3/p\), \(b_\star\Lambda_4=a_4/p\),
-\(\Delta_2=h_{2,1}(b_\star)\), \(\Lambda_1=\Lambda_\mu+b_\star\)):
+At our specialization \(\Delta_2=h_{2,1}(b_\star)\),
+\(\Lambda_1=\Lambda_\mu+b_\star\) and
+\[
+ b_\star^2=-\frac{p'}{p},\qquad
+ b_\star\Lambda_\mu=-\frac{m^{\mathrm{small}}_k}{p},\qquad
+ b_\star\Lambda_3=\frac{a_3}{p},\qquad
+ b_\star\Lambda_4=\frac{a_4}{p}.
+\]
 \begin{enumerate}\setlength{\itemsep}{1pt}
 \item \(C=1-(p'+m^{\mathrm{small}}_k)/p\notin\{0,-1,\dots,-(M-1)\}\): if
   \(C=1-u\) for an integer \(1\leq u\leq M\), then
   \(m^{\mathrm{small}}_k=up-p'\), so
   \(\Lambda_\mu=-(b_\star+ub_\star^{-1})\) and \(\mu=h_{1,u}(b_\star)\),
   forcing \(\det G_M(c_\star,\mu)=0\), contradicting
-  Theorem~\ref{thm:top-layer}.  Hence \((C)_M\neq0\), so for every
-  \(m\leq M\) both sides of the rational identity for \(\mathcal B_m\) are
-  regular here; we specialize the identity only through degree \(M\).
-\item \(B=\frac12(1-\frac{p'+m^{\mathrm{small}}_k}{p}+\frac{m^{\mathrm{small}}_k+p'-p}{p})=0\),
-  so \({}_2F_1(A,0;C;z)=1\).
+  Theorem~\ref{thm:top-layer}.  Hence \((C)_M\neq0\).  For
+  \(0\leq m\leq M\) both sides of the identity for \(\mathcal B_m\) are
+  therefore regular at the specialization: the left side because
+  \(\det G_m(c_\star,\mu)\neq0\), the right side because \((C)_m\neq0\).
+\item \(B=\frac12(1-\frac{p'+m^{\mathrm{small}}_k}{p}+\frac{m^{\mathrm{small}}_k+p'-p}{p})=0\).
+  The hypergeometric series \({}_2F_1(A,0;C;z)\) equals \(1\) through degree
+  \(M\).
 \item \(\kappa=\frac12(1-\frac{p'}{p}+\frac{kpp'-p}{p})=\frac{(kp-1)p'}{2p}\).
   Since \(\gcd(p,(kp-1)p')=1\) and \(p\geq2\), \(\kappa\notin\mathbb Z\).
 \end{enumerate}
@@ -1726,45 +1759,49 @@ Therefore \(\mathcal B_M=(-1)^M\binom{\kappa}{M}\neq0\), so the
 right-hand side of~\eqref{eq:top-B} is nonzero.
 \end{proof}
 
-\begin{theorem}[Unconditional sharpness for \(H_N\)]
+\begin{theorem}[Sharp pole order for \(H_N\)]
 \label{thm:sharp-H}
 For every coprime pair \(p,p'\geq2\), every interior Kac weight
 \(\lambda=h_{r,s}(b_\star)\), and every level \(N\geq1\), the elliptic
 coefficient \(H_N(c_\star,\Delta,\Delta_1,\Delta_2,\Delta_3,\Delta_4)\),
 viewed as a rational function of \(\Delta\) over
-\(\mathbb Q(\Delta_1,\Delta_2,\Delta_3,\Delta_4)\) (for indeterminate external
-weights), has a pole of order exactly \(j_N(\lambda)\) at \(\Delta=\lambda\).
+\(\mathbb Q(\Delta_1,\Delta_2,\Delta_3,\Delta_4)\), has pole order exactly
+\(j_N(\lambda)\) at \(\Delta=\lambda\).
 \end{theorem}
 
 \begin{proof}
-Fix \(k=j_N(\lambda)\).  If \(k=0\), Theorem~\ref{thm:jantzen-bound} gives
-no pole at \(\Delta=\lambda\), which is pole order exactly \(0\); assume
-\(k\geq1\), and set \(M:=N-\ell^{\mathrm{small}}_k\geq0\) and
-\(\mu:=\mu^{\mathrm{small}}_k\), with \(\det G_m(c_\star,\mu)\neq0\) for
-\(0\leq m\leq M\) (Theorem~\ref{thm:top-layer}).  Specialize
-\((\Delta_1,\Delta_2):=(\mu,0)\) (so \(a_1=m^{\mathrm{small}}_k\),
-\(a_2=p'-p\)), and restrict \((\Delta_3,\Delta_4)\) to the affine line
+Fix \(k=j_N(\lambda)\).  For \(k=0\), Theorem~\ref{thm:jantzen-bound} gives
+regularity.  For \(k\geq1\) set \(M:=N-\ell^{\mathrm{small}}_k\geq0\) and
+\(\mu:=\mu^{\mathrm{small}}_k\).  By Theorem~\ref{thm:top-layer},
+\(\det G_m(c_\star,\mu)\neq0\) for \(0\leq m\leq M\).  Specialize
+\((\Delta_1,\Delta_2):=(\mu,0)\); then \(a_1=m^{\mathrm{small}}_k\) and
+\(a_2=p'-p\).  Put \(X:=m^{\mathrm{big}}_k-p'-p\) and
+\(\alpha:=X/\sqrt{pp'}\), and restrict \((\Delta_3,\Delta_4)\) to the affine
+line
 \[
- \Lambda_3-\Lambda_4=i\alpha,\qquad \Lambda_3+\Lambda_4=iv\quad(v\text{ indeterminate}),
+ \Lambda_3-\Lambda_4=i\alpha,\qquad \Lambda_3+\Lambda_4=iv,
 \]
-where \(X:=m^{\mathrm{big}}_k-p'-p\) and \(\alpha:=X/\sqrt{pp'}\).
+with \(v\) an indeterminate.
 \begin{enumerate}\setlength{\itemsep}{2pt}
 \item \emph{Vanishing of the higher branch.}  By
-  Lemma~\ref{lem:pi-factorization}(iii), \(\pi^{\mathrm{big}}_k(\Delta_4,\Delta_3)\equiv0\)
+  Lemma~\ref{lem:pi-factorization}(iii), \(\pi^{\mathrm{big}}_k(\Delta_4,\Delta_3)=0\)
   identically in \(v\).
 \item \emph{Nonvanishing of the lower-branch factors.}  Both
-  \(a_1\pm a_2=m^{\mathrm{small}}_k\pm(p'-p)\) strictly exceed
-  \(m^{\mathrm{small}}_k-p'-p\), so \(\pi^{\mathrm{small}}_k(\mu,0)\neq0\).
-  On the affine line, \(\pi^{\mathrm{small}}_k(\Delta_4,\Delta_3)\) is a
-  product of nonconstant linear factors in \(v\) and constant factors
-  \((\alpha\pm c)\) with \(|c|\leq(m^{\mathrm{small}}_k-p'-p)/\sqrt{pp'}<\alpha\),
-  hence \(\pi^{\mathrm{small}}_k(\Delta_4,\Delta_3)\not\equiv0\) in
-  \(\mathbb C[v]\).
-\item \emph{Collapse of \(\mathcal B_m\) and leading Hermite coefficient.}
-  At \((\Delta_1,\Delta_2)=(\mu,0)\), for every nonempty partition
-  \(Z=(z_1,\dots,z_r)\) the last factor (\(j=r\)) of
-  \(\gamma_Z(\mu;\mu,0)\) in~\eqref{eq:gamma-Y} is \(\mu+0+0-\mu=0\).
-  Because \(\det G_m(c_\star,\mu)\neq0\) for \(0\leq m\leq M\), we get
+  \(a_1\pm a_2=m^{\mathrm{small}}_k\pm(p'-p)\) exceed the nonnegative
+  threshold \(m^{\mathrm{small}}_k-p'-p\), so
+  \(\pi^{\mathrm{small}}_k(\mu,0)\neq0\).  On the affine line, each linear
+  factor of \(\pi^{\mathrm{small}}_k(\Delta_4,\Delta_3)\) is either
+  nonconstant in \(v\) or a constant \(\alpha\pm c\) with
+  \(|c|\leq(m^{\mathrm{small}}_k-p'-p)/\sqrt{pp'}\).  This bound is smaller
+  than \(\alpha\), so the constant factors are nonzero, and
+  \(\pi^{\mathrm{small}}_k(\Delta_4,\Delta_3)\) is a nonzero polynomial in
+  \(v\).
+\item \emph{Identity insertion and the Hermite coefficient.}
+  At \((\Delta_1,\Delta_2)=(\mu,0)\), the three-point polynomial
+  \(\gamma_Z(\mu;\mu,0)\) of~\eqref{eq:gamma-Y} vanishes for every nonempty
+  partition \(Z=(z_1,\dots,z_r)\), because its last factor, \(j=r\), is
+  \(\mu+0+0-\mu=0\).  Since \(\det G_m(c_\star,\mu)\neq0\) for
+  \(0\leq m\leq M\), it follows that
   \(\mathcal B_m(c_\star,\mu,\mu,0,\Delta_3(v),\Delta_4(v))=\delta_{m,0}\)
   for \(0\leq m\leq M\).  By~\eqref{eq:H-def}, modulo \(q^{M+1}\),
   \begin{multline*}
@@ -1781,17 +1818,19 @@ where \(X:=m^{\mathrm{big}}_k-p'-p\) and \(\alpha:=X/\sqrt{pp'}\).
    \left(\frac{\theta_4(q)}{\theta_3(q)}\right)^{\alpha v/2}
    =\exp\bigl(-2\alpha v q-v^2q^2+O(vq^3,v^2q^4)\bigr).
   \]
-  In the logarithm of the right-hand side, every monomial \(v^aq^b\) has
-  \(a\leq b\) (and \(a<b\) for all \(v\)-independent \(O(q)\) terms and all
-  \(O(vq^3,v^2q^4)\) terms), with equality \(a=b\) only for \(-2\alpha vq\)
-  and \(-v^2q^2\).  Thus \(H_M(v):=H_M(c_\star,\mu,\mu,0,\Delta_3(v),\Delta_4(v))\)
-  is a polynomial in \(v\) of degree at most \(M\), with leading coefficient
+  In the logarithm of the right-hand side, the monomials \(-2\alpha vq\) and
+  \(-v^2q^2\) have equal degree in \(v\) and in \(q\).  Every other monomial
+  \(v^aq^b\) has \(a<b\).  Thus
+  \(f(v):=H_M(c_\star,\mu,\mu,0,\Delta_3(v),\Delta_4(v))\) is a polynomial in
+  \(v\) of degree at most \(M\).  Let \(H_M(x)\) denote the \(M\)-th
+  physicist's Hermite polynomial, so that
+  \(\exp(2xt-t^2)=\sum_n H_n(x)t^n/n!\).  The \([v^M]\) coefficient of \(f\)
+  is
   \[
-   [v^M]H_M(v)
+   [v^M]f(v)
    =16^{-M}[t^M]\exp(-2\alpha t-t^2)
-   =\frac{(-1)^M}{16^M M!}H_M(\alpha),
+   =\frac{(-1)^M}{16^M M!}H_M(\alpha).
   \]
-  where \(H_M(x)\) is the \(M\)-th physicist's Hermite polynomial.
 \item \emph{Nonvanishing of \(H_M(\alpha)\).}  Because
   \(m^{\mathrm{big}}_k\geq pp'+1\), we have
   \(X\geq(p-1)(p'-1)\geq2\) and
@@ -1801,28 +1840,33 @@ where \(X:=m^{\mathrm{big}}_k-p'-p\) and \(\alpha:=X/\sqrt{pp'}\).
   \item \(M=1\): \(H_1(\alpha)=2\alpha>0\).
   \item \(M=2\): \(H_2(\alpha)=4\alpha^2-2>0\) since
     \(\alpha^2\geq\frac{1^2\cdot 2^2}{2\cdot 3}=\frac23>\frac12\).
-  \item \(M=3\): \(H_3(\alpha)=4\alpha(2\alpha^2-3)\).  As
-    \((x-1)^2/x\) increases strictly on \(x\geq1\), for all coprime
-    \(p'>p\geq2\) with \((p,p')\neq(2,3)\) we have
+  \item \(M=3\): \(H_3(\alpha)=4\alpha(2\alpha^2-3)\), so it suffices that
+    \(\alpha^2\neq\frac32\).  The function \((x-1)^2/x\) increases strictly
+    on \(x\geq1\).  Hence for coprime \(p'>p\geq2\) with
+    \((p,p')\neq(2,3)\),
     \(\alpha^2\geq\min(\frac{16}{10},\frac{36}{12})=\frac85>\frac32\).  At
-    \((p,p')=(2,3)\), the unique interior weight is \((1,1)\) (\(\lambda=0\)):
-    for \(k=1\), \(m^{\mathrm{big}}_1=7\), \(X=2\), \(\alpha^2=\frac23\neq\frac32\);
-    for \(k\geq2\), \(X\geq13-5=8\), \(\alpha^2\geq\frac{32}{3}>\frac32\).
-    Hence \(H_3(\alpha)\neq0\).
+    \((p,p')=(2,3)\) the only interior weight is \(\lambda=h_{1,1}=0\), with
+    \(r=s=1\).  For \(k=1\), \(m^{\mathrm{big}}_1=7\), so \(X=2\) and
+    \(\alpha^2=\frac23\).  For \(k\geq2\), \(X\geq13-5=8\) and
+    \(\alpha^2\geq\frac{32}{3}\).  In every case \(\alpha^2\neq\frac32\).
   \item \(M\geq4\): Write \(M=2m+\varepsilon\) with \(m\geq2\) and
-    \(\varepsilon\in\{0,1\}\).  Let \(\mathrm{He}_n(x)=2^{-n/2}H_n(x/\sqrt2)\)
-    be the monic Hermite polynomials (\(\mathrm{He}_0=1\),
-    \(\mathrm{He}_1=x\), \(\mathrm{He}_{n+1}=x\mathrm{He}_n-n\mathrm{He}_{n-1}\)),
-    and define \(K^{(0)}_m,K^{(1)}_m\in\mathbb Q[t]\), both of degree \(m\), by
+    \(\varepsilon\in\{0,1\}\).  The monic Hermite polynomials are
+    \begin{gather*}
+     \mathrm{He}_n(x)=2^{-n/2}H_n(x/\sqrt2),\\
+     \mathrm{He}_0=1,\quad \mathrm{He}_1=x,\quad
+     \mathrm{He}_{n+1}=x\mathrm{He}_n-n\mathrm{He}_{n-1}.
+    \end{gather*}
+    Define \(K^{(0)}_m,K^{(1)}_m\in\mathbb Q[t]\), both of degree \(m\), by
     \(\mathrm{He}_{2m}(x)=K^{(0)}_m(x^2)\) and
     \(\mathrm{He}_{2m+1}(x)=xK^{(1)}_m(x^2)\).  Schur proved that
     \(\mathrm{He}_{2m}(x)\) and \(\mathrm{He}_{2m+1}(x)/x\) are irreducible
-    over \(\mathbb Q\) for \(m\geq2\) \cite{Schur1929}; the statement is
-    Hilfssatz~D in \cite[\S1]{Schur1931}, where \(H_n\) denotes
-    \(\mathrm{He}_n\).  A rational root \(s\) of \(K^{(\varepsilon)}_m\)
-    would make \(x^2-s\) a factor of
-    \(\mathrm{He}_{2m+\varepsilon}(x)/x^{\varepsilon}\), which has degree
-    \(2m\geq4\), so \(K^{(\varepsilon)}_m\) has no rational root.  From
+    over \(\mathbb Q\) for \(m\geq2\) \cite{Schur1929}.  The statement is
+    Hilfssatz~D in \cite[\S1]{Schur1931}; Schur writes \(H_n\) for
+    \(\mathrm{He}_n\).  If \(K^{(\varepsilon)}_m\) had a rational root \(s\),
+    then \(x^2-s\) would divide
+    \(\mathrm{He}_{2m+\varepsilon}(x)/x^{\varepsilon}\).  This quotient has
+    degree \(2m\geq4\), so \(x^2-s\) would be a proper factor, contradicting
+    irreducibility.  Hence \(K^{(\varepsilon)}_m\) has no rational root.  From
     \(H_n(x)=2^{n/2}\mathrm{He}_n(\sqrt2\,x)\),
     \[
      H_{2m}(x)=2^mK^{(0)}_m(2x^2),\qquad H_{2m+1}(x)=2^{m+1}xK^{(1)}_m(2x^2).
@@ -1831,17 +1875,17 @@ where \(X:=m^{\mathrm{big}}_k-p'-p\) and \(\alpha:=X/\sqrt{pp'}\).
     \(H_M(\alpha)\neq0\).
   \end{itemize}
 \end{enumerate}
-Therefore \(H_M(v)\not\equiv0\), so the right-hand side of~\eqref{eq:top-H}
-is a nonzero polynomial in \(v\).
+Therefore \(f\) is a nonzero polynomial in \(v\), and so is the right-hand
+side of~\eqref{eq:top-H}.
 \end{proof}
 
 \section{Explicit minimal-model examples}\label{sec:examples}
 
 \begin{proposition}[First double pole at \((2,3)\), \(c=0\), \(\lambda=0\)]
 \label{prop:c0-example}
-At \((p,p')=(2,3)\) (\(c_\star=0\), \(b_\star^2=-\tfrac32\)) and
-\(\lambda=h_{1,1}(b_\star)=0\), the first two Jantzen layers have
-\(\ell^+_1=1\), \(\ell^-_1=2\), \(\ell^-_2=5\), \(\ell^+_2=7\).  Hence the
+Let \((p,p')=(2,3)\), so that \(c_\star=0\) and \(b_\star^2=-\tfrac32\), and
+let \(\lambda=h_{1,1}(b_\star)=0\).  The first two Jantzen layers have
+\(\ell^+_1=1\), \(\ell^-_1=2\), \(\ell^-_2=5\) and \(\ell^+_2=7\).  Hence the
 first double pole of \(H_N(0,\Delta,\Delta_i)\) and
 \(\mathcal B_N(0,\Delta,\Delta_i)\) at \(\Delta=0\) occurs at \(N=5\),
 where Theorem~\ref{thm:top-layer} gives
@@ -1851,21 +1895,21 @@ where Theorem~\ref{thm:top-layer} gives
  &=\frac{P_{1,1}(b_\star,\Delta_4,\Delta_3)\,P_{1,4}(b_\star,\Delta_4,\Delta_3)\,
          P_{1,1}(b_\star,\Delta_1,\Delta_2)\,P_{1,4}(b_\star,\Delta_1,\Delta_2)}{\gamma_5}
 \end{align*}
-with \(\gamma_5=-11200/3\), agreeing with~\cite[eq.~(3.24)]{Ribault2019} under
-\(b=i\beta\), \(P_j=i\Lambda_j/2\), and the single right-pair swap
-\(\Delta_3\leftrightarrow\Delta_4\) (which multiplies \(P_{1,1}P_{1,4}\) by
-\((-1)^5=-1\)).
+with \(\gamma_5=-11200/3\).  This agrees with~\cite[eq.~(3.24)]{Ribault2019}
+under \(b=i\beta\) and \(P_j=i\Lambda_j/2\), after the swap
+\(\Delta_3\leftrightarrow\Delta_4\) of the right pair, which multiplies
+\(P_{1,1}P_{1,4}\) by \((-1)^5=-1\).
 \end{proposition}
 
 \begin{proposition}[First double poles at the Ising charge \(c=\tfrac12\)]
 \label{prop:ising-example}
 Let \((p,p')=(3,4)\), so that \(c_\star=\tfrac12\) and
-\(b_\star^2=-\tfrac43\).  For each of the three interior Kac weights
-\(\lambda\) in the table below (the energy, spin and identity weights
-\(\tfrac12,\tfrac1{16},0\)), both \(\mathcal B_N(\tfrac12,\Delta,\Delta_i)\)
+\(b_\star^2=-\tfrac43\).  The table lists the three interior Kac weights: the
+energy weight \(\tfrac12\), the spin weight \(\tfrac1{16}\) and the identity
+weight \(0\).  For each of them, both \(\mathcal B_N(\tfrac12,\Delta,\Delta_i)\)
 and \(H_N(\tfrac12,\Delta,\Delta_i)\) have their first double pole at
-\(\Delta=\lambda\) at the listed level \(N\), with leading Laurent coefficient
-\(\pi(\Delta_4,\Delta_3)\,\pi(\Delta_1,\Delta_2)/\gamma\):
+\(\Delta=\lambda\) at the listed level \(N\).  The leading Laurent coefficient
+is \(\pi(\Delta_4,\Delta_3)\,\pi(\Delta_1,\Delta_2)/\gamma\):
 \[
  \begin{array}{c|c|c|c}
   \lambda & N & \pi(\Delta_a,\Delta_b) & \gamma \\ \hline
@@ -1880,42 +1924,41 @@ block~\cite[Proposition~8.1]{PolzerTorus2026}.
 
 \begin{proof}[Proof of Propositions~\ref{prop:c0-example} and~\ref{prop:ising-example}]
 The second-layer cutoff \(\ell_2=\min(\ell^+_2,\ell^-_2)\) equals \(5\) at
-\((2,3),\ \lambda=0\), and \(7,10,11\) at \((3,4),\ \lambda=\tfrac12,\tfrac1{16},0\).
-At \(N=\ell_2\), Theorem~\ref{thm:top-layer} has the single term \(M=0\)
-(\(H_0=\mathcal B_0=1\)), with \(\pi\) given by
-Lemma~\ref{lem:pi-factorization}(ii) at \(j=1\) and the same second Jantzen
-norm \(\gamma=B^2(w^{\mathrm{small}}_2,w^{\mathrm{small}}_2)\) as on the
-torus.  The three Ising norms are listed
-in~\cite[Proposition~8.1]{PolzerTorus2026}.  For \((2,3)\), \(\lambda=0\),
-the proof of~\cite[Proposition~6.9]{PolzerTorus2026} gives the torus norm
-\(\tau^-_2(d)=\mathcal P_{1,1}(b_\star,d)\,\mathcal P_{1,4}(b_\star,d)\) (in
-the notation there), whose roots are the \(d_x=(x^2-1)/24\) for
-\(x=1,5\) and \(x=1,5,3,9,7,13,11,17\), so that
-\([d^2]\tau^-_2=\tfrac13\cdot\tfrac{10}{3}\cdot2\cdot7\cdot5\cdot12=\tfrac{2800}{3}\);
-and~\cite[Proposition~6.7]{PolzerTorus2026} gives
-\([d^2](\tau^-_2/\gamma_5)=-\tfrac14\).  Hence \(\gamma_5=-11200/3\).  The
-ancillary scripts check these values only in part.  The scripts in
-\texttt{sphere/tools/} reconstruct the blocks through level seven: the
-script \texttt{exact\_sphere\_block.py} checks the \(c=0\) coefficient at
-\(N=5\) against~\cite[eq.~(3.24)]{Ribault2019}, and it and the script
-\texttt{audit\_sphere\_top\_layer.py} check \(\gamma=-700700\) at
-\(\lambda=\tfrac12\), \(N=7\).  The Ising norms at levels ten and eleven
-are checked against the layer-coefficient formula only by the torus
-paper's script \texttt{tools/audit\_top\_layer.py}.  The proof does not use
-these checks.
+\((2,3)\), \(\lambda=0\).  At \((3,4)\) it equals \(7\), \(10\) and \(11\) for
+\(\lambda=\tfrac12\), \(\tfrac1{16}\) and \(0\).  At \(N=\ell_2\),
+Theorem~\ref{thm:top-layer} has the single term \(M=0\), where
+\(H_0=\mathcal B_0=1\), and \(\pi\) is given by
+Lemma~\ref{lem:pi-factorization}(ii) at \(j=1\).  The norm in this term is
+the second Jantzen norm \(\gamma=B^2(w^{\mathrm{small}}_2,w^{\mathrm{small}}_2)\),
+the same as on the torus.  The three Ising norms are listed
+in~\cite[Proposition~8.1]{PolzerTorus2026}.
+
+For \((2,3)\), \(\lambda=0\), the norm \(\gamma_5\) follows from two
+coefficients of the torus matrix element
+\(\tau^-_2(d)=\langle w^-_2|V_d(1)|w^-_2\rangle\).  By the proof
+of~\cite[Proposition~6.9]{PolzerTorus2026},
+\(\tau^-_2(d)=\mathcal P_{1,1}(b_\star,d)\,\mathcal P_{1,4}(b_\star,d)\) in
+the notation there, with roots \(d_x=(x^2-1)/24\) for \(x=1,5\) and for
+\(x=1,5,3,9,7,13,11,17\).  This root list and~\cite[Proposition~6.7]{PolzerTorus2026}
+give
+\[
+ [d^2]\tau^-_2=\tfrac13\cdot\tfrac{10}{3}\cdot2\cdot7\cdot5\cdot12=\tfrac{2800}{3},
+ \qquad
+ [d^2]\bigl(\tau^-_2/\gamma_5\bigr)=-\tfrac14.
+\]
+Their ratio is \(\gamma_5=-11200/3\).
 \end{proof}
 
 \section{Scope and outlook}\label{sec:scope}
 
-The theorems above cover the Verma-module \(s\)-channel sphere four-point
-block at every \(b_\star\in\mathbb C^\times\) (confluence) and at every
-minimal-model charge \(b_\star^2=-p'/p\) and interior Kac weight
-(Jantzen pole orders and sharpness).  Natural next directions include
-non-interior Kac weights at minimal-model charges, the logarithmic charges
-\(c_\star=1,25\), intrinsic formulas for subleading Laurent coefficients,
-and the sphere analogue of the irreducible minimal-model traces, which
-for the torus one-point function are treated
-in~\cite[Sections~9--14]{PolzerTorus2026}.
+The pole-order results of Section~\ref{sec:jantzen} concern interior Kac
+weights at minimal-model charges.  Non-interior Kac weights and the
+logarithmic charges \(c_\star=1,25\) are not treated here.  For the weights
+treated, Theorem~\ref{thm:top-layer} gives the leading Laurent coefficient at
+each pole; intrinsic formulas for the subleading Laurent coefficients would
+extend it.  Computing the irreducible minimal-model sphere blocks is a
+separate problem.  For the torus one-point function, the irreducible traces
+are treated in~\cite[Sections~9--14]{PolzerTorus2026}.
 
 \section*{AI-use disclosure}
 
@@ -1926,18 +1969,24 @@ claims, citations, computations, and wording.
 
 \section*{Code availability}
 
-The exact rational and symbolic verification suite (\texttt{sphere/tools/})
-checks the lemmas of Section~\ref{sec:asymp} at low orders, the
-fixed-\(b_\star\) confluent recursion of Section~\ref{sec:confluence}
-through level seven at \((2,3)\), \((2,5)\), and \((3,4)\) and at levels
-one to three at the irrational charge \(b_\star^2=\sqrt2\), the top-layer
-formula of Section~\ref{sec:jantzen} in selected cases through level seven,
-and the sharpness witnesses of Section~\ref{sec:jantzen} at shifted degrees
-\(M\leq4\) (these are not full reconstructions of \(\mathcal B_N\) or
-\(H_N\) at level \(N\)).  These are finite checks; the proofs do not use
-them.
-The repository is at \href{https://github.com/skypher/virasoro}%
-{github.com/skypher/virasoro}.
+The repository \href{https://github.com/skypher/virasoro}%
+{github.com/skypher/virasoro} contains the verification scripts in the
+directory \texttt{sphere/tools/}.  They are finite checks in exact rational and
+symbolic arithmetic, and the proofs do not use them.  They check the lemmas
+of Section~\ref{sec:asymp} at low orders.  They check the fixed-\(b_\star\)
+confluent recursion of Section~\ref{sec:confluence} through level seven at
+\((p,p')=(2,3)\), \((2,5)\) and \((3,4)\), and at levels one to three at the
+irrational charge \(b_\star^2=\sqrt2\).  The scripts \texttt{exact\_\allowbreak sphere\_\allowbreak block.py} and
+\texttt{audit\_\allowbreak sphere\_\allowbreak top\_\allowbreak layer.py} reconstruct the blocks through level
+seven.  The first checks the \(c=0\) coefficient of
+Proposition~\ref{prop:c0-example} at \(N=5\)
+against~\cite[eq.~(3.24)]{Ribault2019}, and both check \(\gamma=-700700\) at
+\(\lambda=\tfrac12\), \(N=7\).  The Ising norms at levels ten and eleven are
+checked against the layer-coefficient formula only by the torus paper's
+script \texttt{tools/\allowbreak audit\_\allowbreak top\_\allowbreak layer.py}.  The script
+\texttt{audit\_\allowbreak sphere\_\allowbreak top\_\allowbreak layer.py} also evaluates the witness polynomials
+of Theorems~\ref{thm:sharp-B} and~\ref{thm:sharp-H} through shifted degree
+\(M=4\); it does not reconstruct \(\mathcal B_N\) or \(H_N\) at level \(N\).
 
 {\small
 \begin{thebibliography}{GRSS22}
