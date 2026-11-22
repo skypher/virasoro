@@ -813,3 +813,44 @@ Route notes:
   parenthesis (the form descends, so V_d(1) is an operator on L and its trace is defined) is enough
   for a reader; Lean fills in.
 - Cor 9.4, the dual case through h_{r,s}(b) = h_{s,r}(b⁻¹): the paper's p ↔ p′ duality (l.3124).
+
+## 2026-11-22T07:39Z — run 20 results (torus Prop 6.8 reduced to two steps; Prop 6.9 first step)
+
+Checked by the main session (`../runs/lean2/checkR20.log`): `sub_h13_polynomial (hK) (hH) :
+Stmt_sub_h13_polynomial` (l.1224–1261), `sub_h13_values` (l.1248–1256), `sub_h13_valuation (hK)`
+(l.1380–1392), `sub_h13_lipschitz` (l.1392–1416), `prop_h13_nonvanishing_of_two (hK) (hH)
+(h1 : Stmt_sub_h13_integral) (h2 : Stmt_sub_h13_degree) : Stmt_prop_h13_nonvanishing`,
+`sub_tau_factorization (hH) (hU)` (l.1433–1446; the paper cites Iohara–Koga Prop. 5.1 there, which
+is `Cited_SingularUnique`); axioms [propext, Classical.choice, Quot.sound].  Committed files
+changed: two import lines in `Virasoro.lean`; no statement or cited file changed; no forbidden
+tokens in the 11 new modules; build green (`logs/H15-build-all.log`, 3784 jobs).  No new labelled
+result: 31 of 44.
+
+Sub-statements, checked against the frozen `Stmt_prop_h13_nonvanishing` (`Statements/Sec6c.lean`)
+and the paper:
+- `Stmt_sub_h13_values`, `Stmt_sub_h13_integral`, `Stmt_sub_h13_degree`: the conjuncts of clauses
+  (i) and (ii), compared clause by clause, for every family P with P(t, t²Δ) = `clearedH`, which
+  determines P.  Approved.
+- `Stmt_sub_h13_valuation`, `Stmt_sub_h13_lipschitz`: clause (iii)'s two parts, compared, with
+  clauses (i) (and (ii) for the bound) as hypotheses, which is how the proof uses them
+  (l.1385–1387, l.1393–1396).  Approved.
+- `Stmt_sub_tau_factorization` (l.1433–1446): the four factorizations, k odd with j = ⌊k/2⌋ and k
+  even with j − 1 = k/2 − 1, 2j − 1 = k − 1, checked against the printed indices.  Approved.
+
+Route notes:
+- l.1232–1248 (mode count): Lean proves G̃ = t^{ℓ(λ)+ℓ(μ)}G as an identity from rescaled
+  operators (L̃_k = τL_k, L̃_0 = τ²L_0) and reads D₀ at τ = 0.  This is the paper's count of modes
+  written as a grading identity; accepted.
+- l.1232–1235, 1257–1261: ℚ[t,t⁻¹] in place of ℤ[1/2][t,t⁻¹], since this step claims only ℚ[t,Y];
+  the ℤ[1/2] claim is `Stmt_sub_h13_integral`, proved by the paper separately (l.1261–1291).
+  Consumer strength; accepted.
+- l.1257–1258: K_M read off the top Δ-coefficient of det G_M.  Forced by `Cited_KacDeterminant`.
+- l.1224–1231: the recursion over ℚ(b) through t ↦ b², back by monic division.  Forced by
+  `GenericRecursionAt` (b must lie in the field).
+- l.1248–1253, l.1380–1384: the t = 0 value and the specialization at (t⋆, t⋆²μ) read from the
+  polynomial identity P·∏det G̃ = prefactor·numerator, which is the expansion the paper uses at
+  t = 0 and its value at the point.  Same content; accepted.
+- l.1393–1397: Newton's forward-difference formula with ℓ-integral β_u (|β_u|_ℓ ≤ 1) in place of
+  β_u ∈ ℤ[1/2]; (6.4) uses only |β_u|_ℓ ≤ 1 for odd ℓ.  Accepted.
+- l.1433–1446, even k: the L₋₁-coefficient of the composite vector up to sign from Lemma 5.7;
+  the sign does not matter because τ is quadratic.  Fills in.
