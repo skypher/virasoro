@@ -1068,3 +1068,26 @@ even k, whose other continuations are shown dead or not to reach the endpoint); 
 product and ρ_g/(ḣ_κ − ḣ_g) are the paper's values.  The moment step uses `moment_limit` (the
 numerator of ∑C_θ/(w − a_θ) is the constant a), as run 23 recorded.  The injectivity of i ↦ g_i
 uses 2n₁ ≠ N₀, which holds because n₁ = pp′ would give p ∣ p′r.
+
+## 2026-11-22T11:56Z — main session: Prop 6.7 labelled (Stmt_sub_layer_chain_limit proved)
+
+Proved by the main session (`../runs/lean2/checkP67.log`):
+`ChainLim.sub_layer_chain_limit (hrec : GenericRecursionUniform) (hK : Cited_KacDeterminant) :
+Stmt_sub_layer_chain_limit` (paper.tex l.1135–1148), in `Sec6LimGr` … `Sec6LimGr10` on top of the
+germ computation `germ_chain` (`Sec6LimPhi` … `Sec6LimChain`).  Then
+`prop_layer_coefficients_of_cited (hI) (hK) (hH) : Stmt_prop_layer_coefficients`
+(`Sec6LayerFinal`, Paper label: prop:layer-coefficients), with `hrec = genericRecursionUniform hK hH`.
+Axioms [propext, Classical.choice, Quot.sound]; no forbidden tokens in `Sec6Lim*`; statement files
+unchanged; `lake build Virasoro` green (3907 jobs).  Labelled: 35 of 44.
+
+Route: the paper's (l.1141–1146), its lowest-homogeneous-part argument written with power series in
+`t` over `ℂ[S,W,Y]` whose `t^i` coefficient is homogeneous of degree `i` (the line
+`(b⋆ + St, λ + Wt, Yt)`).  On `S = 1` the germ computation and the Kac formula give `P_i(1,·,·) = 0`
+for `i < e` and `P_e(1, 2b⋆w, 2b⋆y) = T_N(w,y) D_e(1, 2b⋆w)`; homogeneity gives `P_i = 0`; on `S = 0`
+the coefficients `[u^a d^n] P(c⋆, λ+u, d) = [W^a Y^n] P_{a+n}` give `[d^n]A = 0` (n < k) and
+`[d^k]A = [W^{e−k}Y^k]P_e / T₁(0)`; the limit `w → ∞` of `w^k [y^k] T_N` is read off from the
+`w`-degrees (both `e`) of numerator and denominator.  The order `e` of the denominator on both lines
+comes from the Kac formula (the paper's "D_e(0,W,Y) = W^e·unit").  Differences: (1) the paper's
+`b`-scaling of the chain sum is realised by evaluating the germ at `(2b⋆w, 2b⋆y)` (paper l.1139:
+`T^b = T_N(W/(2b⋆), Y/(2b⋆))`); (2) the lemma is proved for every level `N`, the statement uses it at
+`ℓ^±_k`.  Both are the paper's argument in coordinates.  Accepted.
