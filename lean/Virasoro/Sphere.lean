@@ -120,3 +120,16 @@ import Virasoro.Sphere.Proofs.Sec3LamData
 import Virasoro.Sphere.Proofs.Sec3LamFinal
 import Virasoro.Sphere.Proofs.Sec3ExtExp
 import Virasoro.Sphere.Proofs.Sec3ExtExpValues
+import Virasoro.Sphere.Proofs.Sec3ExtLinear
+import Virasoro.Sphere.Proofs.Sec3GaussLimit
+import Virasoro.Sphere.Proofs.Sec3GaussSubs
+import Virasoro.Sphere.Proofs.Sec3GaussExp
+import Virasoro.Sphere.Proofs.Sec3GaussWick
+import Virasoro.Sphere.Proofs.Sec3GaussShift
+import Virasoro.Sphere.Proofs.Sec3GaussFock
+import Virasoro.Sphere.Proofs.Sec3GaussQuad
+import Virasoro.Sphere.Proofs.Sec3GaussCov
+import Virasoro.Sphere.Proofs.Sec3GaussEuler
+import Virasoro.Sphere.Proofs.Sec3GaussDet
+import Virasoro.Sphere.Proofs.Sec3GaussRational
+import Virasoro.Sphere.Proofs.Sec3GaussCharged

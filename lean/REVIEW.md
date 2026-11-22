@@ -467,3 +467,43 @@ Route notes (paper is the authority):
   uses the top λ-power killed by every ∂_{u_k} and a descent on the t-order.  The agent's reason
   (no chosen basis of the level spaces) does not hold: the monomials are a basis.  Queued for
   route repair.
+
+## 2026-11-22T01:23Z — run 14 results (sphere Lemma 3.6 proved; Lemma 3.3(iii) reduced)
+
+Checked by the main session (`../runs/lean2/checkR14.log`): `lem_ext_exponents_of_cited (hF) (hK)
+(hJ1) (hJ2) : Stmt_lem_ext_exponents`, `lem_lambda_expansion_of_gauss (hF) (hK) (hJ1) (hJ2) (hc :
+Stmt_sub_lam_rational_c) (hg : Stmt_sub_lam_gauss) : Stmt_lem_lambda_expansion`,
+`sub_lam_limit_of_gauss`; axioms [propext, Classical.choice, Quot.sound]; frozen statements, cited
+inputs and the run 13 sub-statements unchanged since 7d0f63c; no forbidden tokens; build green
+(`logs/R2-build-all.log`, 3667 jobs).  Lemma 3.6 uses Lemma 3.3(i)–(ii) (proved) and Lemma 3.4;
+its hypotheses are the cited inputs of those, so it is labelled (Kac citation gap: run 8 entry).
+
+Sub-statements (`Sec3GaussSubs.lean`, `Sec3GaussRational.lean`):
+- `Stmt_sub_lam_gauss` (l.637–711): each z-coefficient of e^{−λ²𝓘₀}ℬ(z), a rational function of λ
+  (`gaussCoeff`, with ℬ_n as the Fock pairing `pairK` over ℂ(λ), equal to ℬ_n(λ²+μ²) at real λ by
+  Lemma 3.2(ii), `pairK_eval`), is regular at λ = ∞ with the coefficient of the limit (3.5) as its
+  value.  For a rational function, a finite limit along real λ → ∞ is the same as regularity at ∞
+  with that value, so this is the frozen limit, restated.  Faithful, approved.
+- `Stmt_sub_lam_rational`, `Stmt_sub_lam_rational_c`: the zℚ[[z]] clauses of 3.3(iii), as printed
+  (l.541–545).  Approved.  Φ₁, Φ₂ are done (from Lemma 3.6); Φ_c^raw is open.
+
+Paper: Lemma 3.3(iii) asserts 𝓘₀, Φ_c^raw, Φ₁, Φ₂ ∈ zℚ[[z]], and the proof asserts Ψ₁ ∈ zℚ[[z]]
+(l.705–706), with no argument for S_c^{(2)}(σ_*), S_j^{(2)}(σ_*) or Ψ₁ being rational.  They
+follow from Lemmas 3.4, 3.6 and 3.7 (closed forms; those lemmas use only 3.3(i)–(ii) and the
+limit).  Recorded for the prose-edit pass (receipt.md).
+
+Route notes:
+- l.546–553, 680–682: the Tendsto is obtained from regularity at ∞ of a rational function;
+  forced (the paper's λ⁻¹ extractions are algebraic, the frozen statement is a limit).
+- l.637–661: the paper's "algebraic Gaussian expectation" is undefined there; Lean defines it as
+  the linear functional determined by the Wick rule (uniqueness proved) over a ring with
+  z^{K+1} = 0.  Fills in the paper.
+- l.652–655: the Gaussian determinant formula, which the paper quotes, is proved from
+  θZ = Tr(DM²(I−M²)⁻¹)Z and `theta_detInvSqrt`.  Fills in the paper.
+- l.981–990 (Lemma 3.6, coefficients of g(±1)): Lean uses the closed forms `sum_n_psi`,
+  `sum_n_alt_psi`; the paper changes variable p = p(w) in the contour representation.  Queued
+  for route repair with the Lemma 3.4(iii) item.
+- l.1000–1004 (Lemma 3.6, σ¹ generating functions): Lean derives the coefficient identities
+  from the Lemma 3.4(i) identity `sum_halfBinom_Bcoef` and a binomial recursion; the paper checks
+  the generating-function identity directly as a rational identity in (s₁, s₂).  Not forced;
+  queued for route repair.
