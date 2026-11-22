@@ -128,40 +128,6 @@ theorem sum_reflect {M : Type*} [AddCommMonoid M] (k : ℕ) (f : ℕ → ℕ →
     show f n (k - n) = f (k - (k - n)) (k - n)
     rw [e]
 
-theorem pdA_add {A : Type*} [CommRing A] (n : ℕ) (T T' : MvPowerSeries ℕ+ A) :
-    pdA n (T + T') = pdA n T + pdA n T' := map_add _ _ _
-
-theorem pdA_sub {A : Type*} [CommRing A] (n : ℕ) (T T' : MvPowerSeries ℕ+ A) :
-    pdA n (T - T') = pdA n T - pdA n T' := map_sub _ _ _
-
-theorem pdA_smul {A : Type*} [CommRing A] (n : ℕ) (z : A) (T : MvPowerSeries ℕ+ A) :
-    pdA n (z • T) = z • pdA n T := Derivation.map_smul _ _ _
-
-theorem pdA_C {A : Type*} [CommRing A] (n : ℕ) (z : A) :
-    pdA n (MvPowerSeries.C z : MvPowerSeries ℕ+ A) = 0 := MvPowerSeries.pderiv_C
-
-theorem shiftA_add {A : Type*} [CommRing A] (k : ℕ) (T T' : MvPowerSeries ℕ+ A) :
-    shiftA k (T + T') = shiftA k T + shiftA k T' := by
-  ext α
-  simp only [coeff_shiftA, map_add, pdA_add, mul_add, Finset.sum_add_distrib]
-
-theorem shiftA_smul {A : Type*} [CommRing A] (k : ℕ) (z : A) (T : MvPowerSeries ℕ+ A) :
-    shiftA k (z • T) = z • shiftA k T := by
-  ext α
-  simp only [coeff_shiftA, pdA_smul, MvPowerSeries.coeff_smul, Finset.mul_sum]
-  exact Finset.sum_congr rfl fun j _ => by ring
-
-theorem levelA_add {A : Type*} [CommRing A] (T T' : MvPowerSeries ℕ+ A) :
-    levelA (T + T') = levelA T + levelA T' := by
-  ext α
-  simp only [coeff_levelA, map_add, mul_add]
-
-theorem levelA_smul {A : Type*} [CommRing A] (z : A) (T : MvPowerSeries ℕ+ A) :
-    levelA (z • T) = z • levelA T := by
-  ext α
-  simp only [coeff_levelA, MvPowerSeries.coeff_smul]
-  ring
-
 /-- `L_k^{(0)}` as a linear map. -/
 noncomputable def L0lin (k : ℕ) : MvPowerSeries ℕ+ ℂ →ₗ[ℂ] MvPowerSeries ℕ+ ℂ where
   toFun := L0 k

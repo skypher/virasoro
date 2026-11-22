@@ -1,17 +1,15 @@
 import Virasoro.Sphere.Proofs.Sec3LamInfty
 import Virasoro.Sphere.Proofs.Sec3LamSubs
 import Virasoro.Sphere.Proofs.Sec3FockLevel
+import Virasoro.Sphere.Proofs.Sec3LamLevelSys
 
 /-!
 # Regularity at `λ = ∞` (sphere paper Lemma 3.3(i))
 
-sphere/paper.tex l.569–600.  At oscillator level `m - k` equation (3.3) isolates `S_m` as
-`D_k(λ)S_m = R_{m,k}(S_1,…,S_{m-1};λ)`, and `𝒟_m(∞) = (i∂_k + ∑ nσ_n∂_{n+k})_k` is injective by
-the lowest-degree argument.  In terms of the order in `t = 1/λ`: if the coefficients of `S_m`
-have order `≥ -(n+1)`, then, by induction on the polynomial degree, the coefficient of `σ^β` in
-equation (3.3) for `k` gives order `≥ -n` for the coefficient of `σ^β σ_k`: the term
-`∑ nσ_n∂_{n+k}` involves lower degree, the term with `t²` gains two orders, and the remaining
-terms involve lower levels.
+Proof of Lemma 3.3(i).  At oscillator level `m - k` equation (3.3) isolates `S_m` as
+`D_k(λ)S_m = R_{m,k}(S_1,…,S_{m-1};λ)`; `𝒟_m(∞) = (i∂_k + ∑ nσ_n∂_{n+k})_k` is injective by the
+lowest-degree argument, so the rectangular system has an invertible square minor at `λ⁻¹ = 0`,
+which gives a left inverse regular in `λ⁻¹` (`Sec3LamMinor.lean`, `Sec3LamLevelSys.lean`).
 -/
 
 namespace Virasoro.Sphere
@@ -50,7 +48,10 @@ theorem ordGE_natCast_succ (n : ℕ) : OrdGE ((n : LL) + 1) 0 := (ordGE_natCast 
 
 /-- Regularity of the solution of (3.3): if the coefficients `a_k` have value `i` at `t = 0`,
 `b_k = O(t²)`, and `q_k, c_k` are regular, then every coefficient of a solution with zero
-constant term is regular. -/
+constant term is regular.  By induction on the level `m`: the level-`m` equations form the
+rectangular system `𝒟_m(λ)S_m = R_m` with `R_m` regular (`coeff_linLam_level`), whose value at
+`λ⁻¹ = 0` is the injective `𝒟_m(∞)` (`Dinf_injective`); an invertible square minor then gives a
+left inverse regular in `λ⁻¹` (`regular_of_rect_system`). -/
 theorem regular_of_pde (S : MvPowerSeries ℕ+ LL) (a q b c : ℕ → LL)
     (ha : ∀ k, RegVal (a k) Complex.I) (hq : ∀ k, OrdGE (q k) 0) (hb : ∀ k, OrdGE (b k) 2)
     (hc : ∀ k, OrdGE (c k) 0) (h0 : MvPowerSeries.coeff 0 S = 0)
@@ -65,155 +66,118 @@ theorem regular_of_pde (S : MvPowerSeries ℕ+ LL) (a q b c : ℕ → LL)
       · intro α hα
         rw [lvl_eq_zero hα, h0]
         exact OrdGE.zero 0
-      have step : ∀ n : ℕ,
-          (∀ α, lvl α = m → OrdGE (MvPowerSeries.coeff α S) (-((n : ℤ) + 1))) →
-          ∀ d : ℕ, ∀ α, lvl α = m → α.degree = d →
-            OrdGE (MvPowerSeries.coeff α S) (-(n : ℤ)) := by
-        intro n hn d
-        induction d using Nat.strong_induction_on with
-        | _ d ihd =>
-          intro α hα hd
-          have hα0 : α ≠ 0 := by
-            rintro rfl
-            simp [lvl] at hα
+      letI : Fintype {α : ℕ+ →₀ ℕ // lvl α = m} := (finite_level m).fintype
+      letI hfib : ∀ k : Fin m, Fintype {β : ℕ+ →₀ ℕ // lvl β + ((k : ℕ) + 1) = m} := fun k =>
+        ((finite_level (m - ((k : ℕ) + 1))).subset fun β (hβ : lvl β + ((k : ℕ) + 1) = m) =>
+          show lvl β = m - ((k : ℕ) + 1) by omega).fintype
+      -- the system: rows `(k, β)` with `lvl β + k = m`, unknowns the level-`m` coefficients
+      let M : Matrix (Σ k : Fin m, {β : ℕ+ →₀ ℕ // lvl β + ((k : ℕ) + 1) = m})
+          {α : ℕ+ →₀ ℕ // lvl α = m} LL := fun i α =>
+        MvPowerSeries.coeff i.2.1 (linLamL ((i.1 : ℕ) + 1) (a ((i.1 : ℕ) + 1))
+          (b ((i.1 : ℕ) + 1)) (MvPowerSeries.monomial α.1 1))
+      let N : Matrix (Σ k : Fin m, {β : ℕ+ →₀ ℕ // lvl β + ((k : ℕ) + 1) = m})
+          {α : ℕ+ →₀ ℕ // lvl α = m} ℂ := fun i α =>
+        MvPowerSeries.coeff i.2.1 (linLamL ((i.1 : ℕ) + 1) Complex.I 0
+          (MvPowerSeries.monomial α.1 (1 : ℂ)))
+      let x : {α : ℕ+ →₀ ℕ // lvl α = m} → LL := fun α => MvPowerSeries.coeff α.1 S
+      let r : (Σ k : Fin m, {β : ℕ+ →₀ ℕ // lvl β + ((k : ℕ) + 1) = m}) → LL := fun i =>
+        MvPowerSeries.coeff i.2.1 (levelA S) +
+          q ((i.1 : ℕ) + 1) * MvPowerSeries.coeff i.2.1
+            (∑ n ∈ Icc 1 ((i.1 : ℕ) + 1 - 1), pdA n S * pdA ((i.1 : ℕ) + 1 - n) S) +
+          MvPowerSeries.coeff i.2.1 (MvPowerSeries.C (c ((i.1 : ℕ) + 1)) : MvPowerSeries ℕ+ LL)
+      have hsys : M.mulVec x = r := by
+        funext i
+        obtain ⟨k, β, hβ⟩ := i
+        have hk1 : 1 ≤ (k : ℕ) + 1 := by omega
+        have hE := congrArg (MvPowerSeries.coeff β) (h ((k : ℕ) + 1) hk1)
+        have hlin := coeff_linLam_level hk1 (a ((k : ℕ) + 1)) (b ((k : ℕ) + 1)) S β hβ
+        rw [pdeLam] at hE
+        rw [linLamL_apply] at hlin
+        simp only [map_sub, map_add, map_zero, MvPowerSeries.coeff_smul, smul_eq_mul] at hE hlin
+        show ∑ α, M ⟨k, β, hβ⟩ α * x α = r ⟨k, β, hβ⟩
+        have e : ∑ α, M ⟨k, β, hβ⟩ α * x α = ∑ α : {α : ℕ+ →₀ ℕ // lvl α = m},
+            MvPowerSeries.coeff α.1 S * MvPowerSeries.coeff β (linLamL ((k : ℕ) + 1)
+              (a ((k : ℕ) + 1)) (b ((k : ℕ) + 1)) (MvPowerSeries.monomial α.1 1)) :=
+          sum_congr rfl fun α _ => mul_comm _ _
+        rw [e, ← hlin]
+        simp only [r]
+        linear_combination hE
+      have hr : ∀ i, OrdGE (r i) 0 := by
+        intro i
+        obtain ⟨k, β, hβ⟩ := i
+        simp only [r]
+        have h3 : OrdGE (MvPowerSeries.coeff β (levelA S)) 0 := by
+          rw [coeff_levelA]
+          exact ((ordGE_natCast _).mul (ihm (lvl β) (by omega) β rfl)).mono (by omega)
+        have h4 : OrdGE (q ((k : ℕ) + 1) * MvPowerSeries.coeff β
+            (∑ n ∈ Icc 1 ((k : ℕ) + 1 - 1), pdA n S * pdA ((k : ℕ) + 1 - n) S)) 0 := by
+          rw [map_sum]
+          refine ((hq _).mul (OrdGE.sum (n := 0) fun n' hn' => ?_)).mono (by omega)
+          have hn'' := Finset.mem_Icc.1 hn'
+          rw [MvPowerSeries.coeff_mul]
+          refine OrdGE.sum fun p hp => ?_
+          have hpβ : p.1 + p.2 = β := by simpa using hp
+          have e := congrArg lvl hpβ
+          rw [lvl_add] at e
+          have hj1 : ((n'.toPNat' : ℕ+) : ℕ) = n' := PNat.toPNat'_coe hn''.1
+          have hj2 : (((((k : ℕ) + 1 - n').toPNat' : ℕ+)) : ℕ) = (k : ℕ) + 1 - n' :=
+            PNat.toPNat'_coe (by omega)
+          have l1 : lvl (p.1 + Finsupp.single n'.toPNat' 1) < m := by
+            rw [lvl_add, lvl_single, hj1]
             omega
-          obtain ⟨k, hk⟩ := Finsupp.support_nonempty_iff.2 hα0
-          have hαβ := sub_add_single hk
-          have hlvl : lvl (α - Finsupp.single k 1) + (k : ℕ) = m := by
-            rw [← hα, ← lvl_single k, ← lvl_add, hαβ]
-          have hdeg : (α - Finsupp.single k 1).degree + 1 = d := by
-            have e := congrArg Finsupp.degree hαβ
-            rw [map_add, Finsupp.degree_single] at e
-            rw [e, hd]
-          generalize α - Finsupp.single k 1 = β at hαβ hlvl hdeg
-          have hk1 : 1 ≤ (k : ℕ) := k.pos
-          have hE := congrArg (MvPowerSeries.coeff β) (h (k : ℕ) hk1)
-          rw [pdeLam] at hE
-          simp only [map_sub, map_add, map_zero] at hE
-          have e1 : MvPowerSeries.coeff β (a (k : ℕ) • pdA (k : ℕ) S) =
-              a (k : ℕ) * (MvPowerSeries.coeff α S * ((β k : LL) + 1)) := by
-            rw [MvPowerSeries.coeff_smul, coeff_pdA, PNat.coe_toPNat', hαβ]
-          have h2 : OrdGE (MvPowerSeries.coeff β (shiftA (k : ℕ) S)) (-(n : ℤ)) := by
-            rw [coeff_shiftA]
-            refine OrdGE.sum fun j hj => ?_
-            have hj' : ((((j : ℕ) + (k : ℕ)).toPNat' : ℕ+) : ℕ) = (j : ℕ) + (k : ℕ) :=
-              PNat.toPNat'_coe (by omega)
-            have hβj := sub_add_single hj
-            have l1 : lvl (β - Finsupp.single j 1 +
-                Finsupp.single ((j : ℕ) + (k : ℕ)).toPNat' 1) = m := by
-              have e := congrArg lvl hβj
-              rw [lvl_add, lvl_single] at e
-              rw [lvl_add, lvl_single, hj']
-              omega
-            have d1 : (β - Finsupp.single j 1 +
-                Finsupp.single ((j : ℕ) + (k : ℕ)).toPNat' 1).degree = d - 1 := by
-              have e := congrArg Finsupp.degree hβj
-              rw [map_add, Finsupp.degree_single] at e
-              rw [map_add, Finsupp.degree_single]
-              omega
-            rw [coeff_pdA]
-            exact ((ordGE_natCast _).mul ((ihd (d - 1) (by omega) _ l1 d1).mul
-              (ordGE_natCast_succ _))).mono (by omega)
-          have h3 : OrdGE (MvPowerSeries.coeff β (levelA S)) (-(n : ℤ)) := by
-            rw [coeff_levelA]
-            exact ((ordGE_natCast _).mul (ihm (lvl β) (by omega) β rfl)).mono (by omega)
-          have h4 : OrdGE (MvPowerSeries.coeff β (q (k : ℕ) •
-              ∑ n' ∈ Icc 1 ((k : ℕ) - 1), pdA n' S * pdA ((k : ℕ) - n') S)) (-(n : ℤ)) := by
-            rw [MvPowerSeries.coeff_smul, map_sum]
-            refine ((hq _).mul (OrdGE.sum (n := 0) fun n' hn' => ?_)).mono (by omega)
-            have hn'' := Finset.mem_Icc.1 hn'
-            rw [MvPowerSeries.coeff_mul]
-            refine OrdGE.sum fun p hp => ?_
-            have hpβ : p.1 + p.2 = β := by simpa using hp
-            have e := congrArg lvl hpβ
-            rw [lvl_add] at e
-            have hj1 : ((n'.toPNat' : ℕ+) : ℕ) = n' := PNat.toPNat'_coe hn''.1
-            have hj2 : (((((k : ℕ) - n').toPNat' : ℕ+)) : ℕ) = (k : ℕ) - n' :=
-              PNat.toPNat'_coe (by omega)
-            have l1 : lvl (p.1 + Finsupp.single n'.toPNat' 1) < m := by
-              rw [lvl_add, lvl_single, hj1]
-              omega
-            have l2 : lvl (p.2 + Finsupp.single ((k : ℕ) - n').toPNat' 1) < m := by
-              rw [lvl_add, lvl_single, hj2]
-              omega
-            rw [coeff_pdA, coeff_pdA]
-            exact (((ihm _ l1 _ rfl).mul (ordGE_natCast_succ _)).mul
-              ((ihm _ l2 _ rfl).mul (ordGE_natCast_succ _))).mono (by omega)
-          have h5 : OrdGE (MvPowerSeries.coeff β (b (k : ℕ) •
-              ∑ n' ∈ Icc 1 ((k : ℕ) - 1), pdA n' (pdA ((k : ℕ) - n') S))) (-(n : ℤ)) := by
-            rw [MvPowerSeries.coeff_smul, map_sum]
-            refine ((hb _).mul (OrdGE.sum (n := -((n : ℤ) + 1)) fun n' hn' => ?_)).mono
-              (by omega)
-            have hn'' := Finset.mem_Icc.1 hn'
-            have hj1 : ((n'.toPNat' : ℕ+) : ℕ) = n' := PNat.toPNat'_coe hn''.1
-            have hj2 : (((((k : ℕ) - n').toPNat' : ℕ+)) : ℕ) = (k : ℕ) - n' :=
-              PNat.toPNat'_coe (by omega)
-            have l1 : lvl (β + Finsupp.single n'.toPNat' 1 +
-                Finsupp.single ((k : ℕ) - n').toPNat' 1) = m := by
-              rw [lvl_add, lvl_add, lvl_single, lvl_single, hj1, hj2]
-              omega
-            rw [coeff_pdA, coeff_pdA]
-            exact (((hn _ l1).mul (ordGE_natCast_succ _)).mul (ordGE_natCast_succ _)).mono
-              (by omega)
-          have h6 : OrdGE (MvPowerSeries.coeff β (MvPowerSeries.C (c (k : ℕ)) :
-              MvPowerSeries ℕ+ LL)) (-(n : ℤ)) := by
-            rw [MvPowerSeries.coeff_C]
-            split_ifs
-            · exact (hc _).mono (by omega)
-            · exact OrdGE.zero _
-          have hx : a (k : ℕ) * (MvPowerSeries.coeff α S * ((β k : LL) + 1)) =
-              -(MvPowerSeries.coeff β (shiftA (k : ℕ) S)) + MvPowerSeries.coeff β (levelA S) +
-              MvPowerSeries.coeff β (q (k : ℕ) •
-                ∑ n' ∈ Icc 1 ((k : ℕ) - 1), pdA n' S * pdA ((k : ℕ) - n') S) +
-              MvPowerSeries.coeff β (b (k : ℕ) •
-                ∑ n' ∈ Icc 1 ((k : ℕ) - 1), pdA n' (pdA ((k : ℕ) - n') S)) +
-              MvPowerSeries.coeff β (MvPowerSeries.C (c (k : ℕ)) : MvPowerSeries ℕ+ LL) := by
-            rw [← e1]
-            linear_combination hE
-          have hX : OrdGE (a (k : ℕ) * (MvPowerSeries.coeff α S * ((β k : LL) + 1)))
-              (-(n : ℤ)) := by
-            rw [hx]
-            exact (((h2.neg.add h3).add h4).add h5).add h6
-          have ha0 : a (k : ℕ) ≠ 0 := fun h0' => by
-            have := (ha (k : ℕ)).2
-            rw [h0'] at this
-            exact Complex.I_ne_zero (by simpa using this.symm)
-          have hc1 : RegVal (((β k + 1 : ℕ) : LL)) ((β k + 1 : ℕ) : ℂ) := regVal_natCast _
-          have hc0 : ((β k + 1 : ℕ) : ℂ) ≠ 0 := Nat.cast_ne_zero.2 (Nat.succ_ne_zero (β k))
-          have hc10 : ((β k : LL) + 1) ≠ 0 := fun h0' => by
-            have := hc1.2
-            rw [Nat.cast_add, Nat.cast_one, h0'] at this
-            exact hc0 (by simpa using this.symm)
-          have hinv1 : OrdGE (a (k : ℕ))⁻¹ 0 := ((ha (k : ℕ)).inv Complex.I_ne_zero).1
-          have hinv2 : OrdGE ((β k : LL) + 1)⁻¹ 0 := by
-            have := (hc1.inv hc0).1
-            rwa [Nat.cast_add, Nat.cast_one] at this
-          have hfin : MvPowerSeries.coeff α S = (a (k : ℕ))⁻¹ * (((β k : LL) + 1)⁻¹ *
-              (a (k : ℕ) * (MvPowerSeries.coeff α S * ((β k : LL) + 1)))) := by
-            field_simp
-          have hres := (hinv1.mul (hinv2.mul hX)).mono (m := -(n : ℤ)) (by omega)
-          rwa [← hfin] at hres
-      have desc : ∀ n : ℕ, (∀ α, lvl α = m → OrdGE (MvPowerSeries.coeff α S) (-(n : ℤ))) →
-          ∀ α, lvl α = m → OrdGE (MvPowerSeries.coeff α S) 0 := by
-        intro n
-        induction n with
-        | zero =>
-          intro h' α hα
-          simpa using h' α hα
-        | succ n ih =>
-          intro h'
-          exact ih fun α hα => step n (fun α hα => (h' α hα).mono (by push_cast; omega))
-            α.degree α hα rfl
-      let s := (finite_level m).toFinset
-      refine desc (s.sup fun α => (-(MvPowerSeries.coeff α S).order).toNat) fun α hα => ?_
-      have hmem : α ∈ s := (Set.Finite.mem_toFinset _).2 hα
-      have hle := Finset.le_sup (f := fun α => (-(MvPowerSeries.coeff α S).order).toNat) hmem
-      have h1 := Int.self_le_toNat (-(MvPowerSeries.coeff α S).order)
-      exact (ordGE_order _).mono (by
-        have h2 : ((-(MvPowerSeries.coeff α S).order).toNat : ℤ) ≤
-            ((s.sup fun α => (-(MvPowerSeries.coeff α S).order).toNat : ℕ) : ℤ) := by
-          exact_mod_cast hle
-        omega)
+          have l2 : lvl (p.2 + Finsupp.single ((k : ℕ) + 1 - n').toPNat' 1) < m := by
+            rw [lvl_add, lvl_single, hj2]
+            omega
+          rw [coeff_pdA, coeff_pdA]
+          exact (((ihm _ l1 _ rfl).mul (ordGE_natCast_succ _)).mul
+            ((ihm _ l2 _ rfl).mul (ordGE_natCast_succ _))).mono (by omega)
+        have h6 : OrdGE (MvPowerSeries.coeff β (MvPowerSeries.C (c ((k : ℕ) + 1)) :
+            MvPowerSeries ℕ+ LL)) 0 := by
+          rw [MvPowerSeries.coeff_C]
+          split_ifs
+          · exact hc _
+          · exact OrdGE.zero _
+        exact (h3.add h4).add h6
+      have hM : ∀ i α, RegVal (M i α) (N i α) := by
+        intro i α
+        obtain ⟨k, β, hβ⟩ := i
+        set P : MvPowerSeries ℕ+ ℂ := MvPowerSeries.monomial α.1 1 with hP
+        have hmono : (MvPowerSeries.monomial α.1 (1 : LL)) = MvPowerSeries.map HahnSeries.C P := by
+          simp only [hP, MvPowerSeries.map_monomial, map_one]
+        set u := MvPowerSeries.coeff β (pdA ((k : ℕ) + 1) P)
+        set v := MvPowerSeries.coeff β (shiftA ((k : ℕ) + 1) P)
+        set w := MvPowerSeries.coeff β
+          (∑ n ∈ Icc 1 ((k : ℕ) + 1 - 1), pdA n (pdA ((k : ℕ) + 1 - n) P))
+        have hMv : M ⟨k, β, hβ⟩ α =
+            a ((k : ℕ) + 1) * HahnSeries.C u + HahnSeries.C v - b ((k : ℕ) + 1) * HahnSeries.C w := by
+          show MvPowerSeries.coeff β (linLamL _ _ _ (MvPowerSeries.monomial α.1 1)) = _
+          rw [linLamL_apply, hmono, ← map_pdA, ← map_shiftA]
+          simp only [← map_pdA, ← map_sum, map_sub, map_add, MvPowerSeries.coeff_smul,
+            MvPowerSeries.coeff_map, smul_eq_mul]
+          rfl
+        have hNv : N ⟨k, β, hβ⟩ α = Complex.I * u + v := by
+          show MvPowerSeries.coeff β (linLamL _ _ _ (MvPowerSeries.monomial α.1 (1 : ℂ))) = _
+          rw [linLamL_apply]
+          simp only [zero_smul, sub_zero, map_add, MvPowerSeries.coeff_smul, smul_eq_mul]
+          rfl
+        have hbw : RegVal (b ((k : ℕ) + 1) * HahnSeries.C w) 0 :=
+          ⟨((hb _).mul (ordGE_C w)).mono (by norm_num),
+            ((hb _).mul (ordGE_C w)).coeff_eq_zero (by norm_num)⟩
+        rw [hMv, hNv]
+        simpa using (((ha _).mul (regVal_C u)).add (regVal_C v)).sub hbw
+      have hN : ∀ v : {α : ℕ+ →₀ ℕ // lvl α = m} → ℂ, N.mulVec v = 0 → v = 0 := by
+        intro v hv
+        refine Dinf_injective hm v fun k hk β hβ => ?_
+        have hkm : k - 1 < m := by omega
+        have e := congrFun hv ⟨⟨k - 1, hkm⟩, β, by
+          show lvl β + ((k - 1) + 1) = m
+          omega⟩
+        simp only [Matrix.mulVec, dotProduct, Pi.zero_apply, N] at e
+        rw [show k - 1 + 1 = k by omega] at e
+        exact (sum_congr rfl fun α _ => mul_comm _ _).trans e
+      have hx := regular_of_rect_system M N hM hN x r hr hsys
+      intro α hα
+      exact hx ⟨α, hα⟩
   intro α
   exact key (lvl α) α rfl
 

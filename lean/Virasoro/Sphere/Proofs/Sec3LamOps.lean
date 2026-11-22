@@ -158,6 +158,42 @@ theorem levelA_of_pd (G H T : MvPowerSeries ℕ+ A) (h : ∀ j, pdA j G = H * pd
   have hp' : p.1 + p.2 = α := by simpa using hp
   rw [coeff_levelA_eq T p.2 B fun j hj => hB j (support_subset_of_add hp' hj)]
 
+/-! ### Linearity -/
+
+theorem pdA_add {A : Type*} [CommRing A] (n : ℕ) (T T' : MvPowerSeries ℕ+ A) :
+    pdA n (T + T') = pdA n T + pdA n T' := map_add _ _ _
+
+theorem pdA_sub {A : Type*} [CommRing A] (n : ℕ) (T T' : MvPowerSeries ℕ+ A) :
+    pdA n (T - T') = pdA n T - pdA n T' := map_sub _ _ _
+
+theorem pdA_smul {A : Type*} [CommRing A] (n : ℕ) (z : A) (T : MvPowerSeries ℕ+ A) :
+    pdA n (z • T) = z • pdA n T := Derivation.map_smul _ _ _
+
+theorem pdA_C {A : Type*} [CommRing A] (n : ℕ) (z : A) :
+    pdA n (MvPowerSeries.C z : MvPowerSeries ℕ+ A) = 0 := MvPowerSeries.pderiv_C
+
+theorem shiftA_add {A : Type*} [CommRing A] (k : ℕ) (T T' : MvPowerSeries ℕ+ A) :
+    shiftA k (T + T') = shiftA k T + shiftA k T' := by
+  ext α
+  simp only [coeff_shiftA, map_add, pdA_add, mul_add, Finset.sum_add_distrib]
+
+theorem shiftA_smul {A : Type*} [CommRing A] (k : ℕ) (z : A) (T : MvPowerSeries ℕ+ A) :
+    shiftA k (z • T) = z • shiftA k T := by
+  ext α
+  simp only [coeff_shiftA, pdA_smul, MvPowerSeries.coeff_smul, Finset.mul_sum]
+  exact Finset.sum_congr rfl fun j _ => by ring
+
+theorem levelA_add {A : Type*} [CommRing A] (T T' : MvPowerSeries ℕ+ A) :
+    levelA (T + T') = levelA T + levelA T' := by
+  ext α
+  simp only [coeff_levelA, map_add, mul_add]
+
+theorem levelA_smul {A : Type*} [CommRing A] (z : A) (T : MvPowerSeries ℕ+ A) :
+    levelA (z • T) = z • levelA T := by
+  ext α
+  simp only [coeff_levelA, MvPowerSeries.coeff_smul]
+  ring
+
 /-! ### Base change -/
 
 variable {A' : Type*} [CommRing A'] (f : A →+* A')

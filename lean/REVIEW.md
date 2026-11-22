@@ -1459,3 +1459,26 @@ Author-side check, not a reviewer PASS.
 
 Still queued: sphere Lemma 3.4(iii) through (3.6) coefficientwise in `z`; Lemma 3.3, uniqueness
 and regularity through the injectivity of `𝒟_m(∞)` and an invertible square minor.
+
+## 2026-11-22T21:31Z — main session: route repair RR8 (sphere Lemma 3.3(i), regularity through a square minor)
+
+Queued item "Lemma 3.3, uniqueness and regularity through the injectivity of `𝒟_m(∞)` and an
+invertible square minor".  `regular_of_pde` (Sec3LamRegular.lean; consumer `SL_regular`,
+unchanged statement) now follows the paper: by induction on the level `m`, the level-`m`
+equations of (3.3) form the rectangular system `𝒟_m(λ)S_m = R_m` (`linLamL`, `coeff_linLam_level`:
+the coefficient of `σ^β`, `lvl β + k = m`, of `D_k(λ)T` reads only the level-`m` coefficients of
+`T`), with `R_m` regular by the induction hypothesis; its value at `λ⁻¹ = 0` is `𝒟_m(∞)`,
+injective by the lowest-degree argument (`Dinf_injective`); an invertible square minor of the
+value (`exists_square_minor`) gives a left inverse regular in `λ⁻¹` (`regular_of_rect_system`).
+New files Sphere/Proofs/Sec3LamMinor.lean, Sec3LamLevelSys.lean.  The earlier route (the order
+in `t` raised one step at a time by an induction on the polynomial degree) is deleted.  The
+linearity lemmas `pdA_add`, `pdA_sub`, `pdA_smul`, `pdA_C`, `shiftA_add`, `shiftA_smul`,
+`levelA_add`, `levelA_smul` moved from Sec3LamOrderZero.lean to Sec3LamOps.lean (import order).
+Uniqueness of `S` is unchanged: it comes from the unique Ward solution (Lemma 3.2(ii)), as the
+paper's "its unique solution" refers to the solution of the Ward equations.
+
+Checked by the main session (`../runs/lean2/checkRR8.log`): `lem_lambda_expansion_of_cited`,
+`thm_large_delta_of_cited` keep axioms [propext, Classical.choice, Quot.sound]; full build
+exit 0; no forbidden tokens; Statements unchanged.  Author-side check, not a reviewer PASS.
+
+Still queued: sphere Lemma 3.4(iii) through the Wiener–Hopf identity (3.6), coefficientwise in `z`.
