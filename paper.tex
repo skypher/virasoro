@@ -282,8 +282,8 @@ and level polynomiality of their Taylor coefficients
 (Proposition~\ref{prop:h13-nonvanishing}).  Together with the \(k\)-th
 Taylor coefficients of \(\tau^\pm_k/\gamma^\pm_k\) at \(d=0\)
 (Proposition~\ref{prop:layer-coefficients}), \(\ell\)-adic valuation and
-ratio separation settle every level with two singular vectors
-(Proposition~\ref{prop:two-term-criteria}).  Hence, for an indeterminate
+ratio separation settle every level at which both singular-vector
+contributions are present (Proposition~\ref{prop:two-term-criteria}).  Hence, for an indeterminate
 \(d\), with pole orders taken over the field of rational functions in \(d\),
 \(H_N(c_\star,\Delta,d)\) attains the Jantzen bound \(j_N(\lambda)\) at every
 minimal-model charge, every interior Kac weight and every level \(N\geq1\)
@@ -1815,7 +1815,7 @@ and the following ones solve the corresponding problems for the
 \emph{irreducible} minimal-model torus one-point traces
 \eqref{eq:irr-trace-def}.
 
-A small case shows that naive specialization fails.  For the Ising model \((p,p')=(3,4)\) at \(\lambda=h_{1,2}=1/16\) and
+For the Ising model \((p,p')=(3,4)\) at \(\lambda=h_{1,2}=1/16\) and
 \(d=h_{1,3}=1/2\), the Verma block \(F_N(1/2,\Delta,1/2)\) is regular at
 \(\Delta=1/16\) at every level, yet its value at \(\Delta=1/16\) does not equal
 the irreducible trace: at \(N=2\) one has \(F_2(1/2,1/16,1/2)=8/7\) whereas
@@ -1828,9 +1828,6 @@ with their slopes.  The discrepancy comes from the first Jantzen layer
 the \(O(x)\) vanishing of \(\rho_x\) cancels the \(O(x)\) vanishing of the
 Shapovalov form \(B_x\) on \(J^1\), leaving a finite \(O(x^0)\) contribution
 \(\sigma^\pm_1/\gamma^\pm_1\) that survives the limit \(\Delta\to\lambda\).
-
-Following this mechanism through the whole braided embedding diagram gives the
-three theorems below.
 
 \begin{theorem}[Fusion-descent and exact Verma regularity]\label{thm:descent-regularity}
 Let \(p,p'\geq2\) be coprime, \(b_\star^2=-p'/p\), and
@@ -2564,7 +2561,8 @@ Lemma~\ref{lem:bgg-arrows}(i) and the Ward-induction fact in the proof of
 Proposition~\ref{prop:jantzen-vertex}, this holds if and only if
 \(\rho(w^+_1,v_\lambda)=\rho(w^-_1,v_\lambda)=0\).  A singular vector of
 \(M(c_\star,\lambda)\) of a given level is unique up to a
-scalar~\cite[Proposition~5.1]{IoharaKoga2011}, so \(w^+_1\) and \(w^-_1\) are
+scalar~\cite[Theorem~3.1]{Astashkevich1997} (see
+also~\cite[Proposition~5.1]{IoharaKoga2011}), so \(w^+_1\) and \(w^-_1\) are
 nonzero multiples of the normalized vectors \(\chi_{r,s}(b_\star)\) and
 \(\chi_{p-r,p'-s}(b_\star)\) of levels \(rs\) and \((p-r)(p'-s)\).  By
 Proposition~\ref{prop:fusion-poly}(ii) the two vanishing conditions are

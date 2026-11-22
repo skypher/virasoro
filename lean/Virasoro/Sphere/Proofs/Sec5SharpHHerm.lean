@@ -9,14 +9,23 @@ The leading coefficient `[v^M] H_M(v)` is a nonzero multiple of `k_M = M! [t^M] 
 with `b = 2X/(pp')`, `g = 1/(pp')` (rational).  The sequence `k` satisfies the Hermite
 recurrence; with `r = b²/(4g)` (`= α²`), `k_{2m} = g^m E_m(r)` and `k_{2m+1} = -(b/2) g^m O_m(r)`,
 where `H_{2m}(x) = E_m(x²)` and `H_{2m+1}(x) = x O_m(x²)`.  For `m ≤ 1` the values are explicit
-(`E₁ = 4t - 2`, `O₁ = 8t - 12`); for `m ≥ 2` Schur's theorems exclude a rational root: a root
-`r` of `E_m` gives the factor `x² - r` of the irreducible `H_{2m}` of degree `2m ≥ 4`
-(l.1775–1781).
+(`E₁ = 4t - 2`, `O₁ = 8t - 12`); for `m ≥ 2` Schur's theorem excludes a rational root.  Schur
+states it for the monic `He_n`: with `He_{2m}(x) = K⁰_m(x²)`, `He_{2m+1}(x) = x K¹_m(x²)`, a
+rational root `s` of `K^ε_m` gives the factor `x² - s` of the irreducible `He_{2m+ε}/x^ε` of
+degree `2m ≥ 4`; and `E_m(t) = 2^m K⁰_m(2t)`, `O_m(t) = 2^{m+1} K¹_m(2t)` (proof of Theorem 5.5,
+case `M ≥ 4`).
 -/
 
 namespace Virasoro.Sphere
 
 open Polynomial
+
+/-- The physicists' Hermite polynomial `H_n(x)` over `ℚ` (the paper's `H_M`):
+`H_0 = 1`, `H_1 = 2x`, `H_{n+1} = 2x H_n - 2n H_{n-1}` (DLMF 18.9.1 with Table 18.9.1). -/
+noncomputable def hermH : ℕ → ℚ[X]
+  | 0 => 1
+  | 1 => C 2 * X
+  | n + 2 => C 2 * X * hermH (n + 1) - C (2 * ((n : ℚ) + 1)) * hermH n
 
 /-- Check of the definition: `H₂ = 4x² - 2` (DLMF Table 18.3.1). -/
 theorem hermH_two : hermH 2 = C 4 * X ^ 2 - C 2 := by
@@ -155,15 +164,112 @@ theorem no_root_of_irreducible {F G : ℚ[X]} (hirr : Irreducible F) (hF : F = e
     rw [← hFq, hq2, natDegree_zero_of_isUnit hu] at this
     omega
 
+/-- Check of the definition: `He₂ = x² - 1`. -/
+theorem hermHe_two : hermHe 2 = X ^ 2 - 1 := by
+  rw [hermHe.eq_3, hermHe.eq_2, hermHe.eq_1]
+  simp only [Nat.cast_zero, zero_add, map_one]
+  ring
+
+/-- Schur's `(K⁰_m, K¹_m)`, with `He_{2m}(x) = K⁰_m(x²)` and `He_{2m+1}(x) = x K¹_m(x²)`. -/
+noncomputable def schurK : ℕ → ℚ[X] × ℚ[X]
+  | 0 => (1, 1)
+  | m + 1 =>
+    (X * (schurK m).2 - C (2 * (m : ℚ) + 1) * (schurK m).1,
+      (X * (schurK m).2 - C (2 * (m : ℚ) + 1) * (schurK m).1) -
+        C (2 * ((m : ℚ) + 1)) * (schurK m).2)
+
+/-- `K⁰_m`. -/
+noncomputable def schurE (m : ℕ) : ℚ[X] := (schurK m).1
+
+/-- `K¹_m`. -/
+noncomputable def schurO (m : ℕ) : ℚ[X] := (schurK m).2
+
+theorem schurE_zero : schurE 0 = 1 := rfl
+
+theorem schurO_zero : schurO 0 = 1 := rfl
+
+theorem schurE_succ (m : ℕ) :
+    schurE (m + 1) = X * schurO m - C (2 * (m : ℚ) + 1) * schurE m := rfl
+
+theorem schurO_succ (m : ℕ) :
+    schurO (m + 1) = schurE (m + 1) - C (2 * ((m : ℚ) + 1)) * schurO m := rfl
+
+/-- `He_{2m} = K⁰_m(x²)` and `He_{2m+1} = x K¹_m(x²)`. -/
+theorem hermHe_K (m : ℕ) :
+    hermHe (2 * m) = expand ℚ 2 (schurE m) ∧ hermHe (2 * m + 1) = X * expand ℚ 2 (schurO m) := by
+  induction m with
+  | zero =>
+    refine ⟨?_, ?_⟩
+    · rw [schurE_zero, map_one]; rfl
+    · rw [schurO_zero, map_one, mul_one]; rfl
+  | succ m ih =>
+    have e1 : hermHe (2 * (m + 1)) = X * hermHe (2 * m + 1) -
+        C (((2 * m : ℕ) : ℚ) + 1) * hermHe (2 * m) := by
+      rw [show 2 * (m + 1) = 2 * m + 2 by ring, hermHe.eq_3]
+    have e2 : hermHe (2 * (m + 1) + 1) = X * hermHe (2 * (m + 1)) -
+        C (((2 * m + 1 : ℕ) : ℚ) + 1) * hermHe (2 * m + 1) := by
+      rw [show 2 * (m + 1) + 1 = (2 * m + 1) + 2 by ring, hermHe.eq_3,
+        show 2 * m + 1 + 1 = 2 * (m + 1) by ring]
+    have c1 : (((2 * m : ℕ) : ℚ) + 1) = 2 * (m : ℚ) + 1 := by push_cast; ring
+    have c2 : (((2 * m + 1 : ℕ) : ℚ) + 1) = 2 * ((m : ℚ) + 1) := by push_cast; ring
+    have hE : hermHe (2 * (m + 1)) = expand ℚ 2 (schurE (m + 1)) := by
+      rw [e1, c1, ih.1, ih.2, schurE_succ]
+      simp only [map_sub, map_mul, expand_C, expand_X]
+      ring
+    refine ⟨hE, ?_⟩
+    rw [e2, c2, hE, ih.2, schurO_succ]
+    simp only [map_sub, map_mul, expand_C]
+    ring
+
+/-- The rescaling `H_n(x) = 2^{n/2} He_n(√2 x)` on the parts:
+`E_m(t) = 2^m K⁰_m(2t)` and `O_m(t) = 2^{m+1} K¹_m(2t)`. -/
+theorem hermEO_scaled (m : ℕ) :
+    hermE m = C ((2 : ℚ) ^ m) * (schurE m).comp (C 2 * X) ∧
+      hermO m = C ((2 : ℚ) ^ (m + 1)) * (schurO m).comp (C 2 * X) := by
+  induction m with
+  | zero =>
+    refine ⟨?_, ?_⟩
+    · rw [hermE_zero, schurE_zero, one_comp, pow_zero, map_one, mul_one]
+    · rw [hermO_zero, schurO_zero, one_comp, zero_add, pow_one, mul_one]
+  | succ m ih =>
+    have hE : hermE (m + 1) = C ((2 : ℚ) ^ (m + 1)) * (schurE (m + 1)).comp (C 2 * X) := by
+      rw [hermE_succ, schurE_succ, ih.1, ih.2]
+      simp only [sub_comp, mul_comp, X_comp, C_comp]
+      simp only [map_add, map_mul, map_pow, map_natCast, map_ofNat, map_one]
+      ring
+    refine ⟨hE, ?_⟩
+    rw [hermO_succ, schurO_succ, hE, ih.2]
+    simp only [sub_comp, mul_comp, C_comp]
+    simp only [map_add, map_mul, map_pow, map_natCast, map_ofNat, map_one]
+    ring
+
+theorem natDegree_comp_two (p : ℚ[X]) : (p.comp (C 2 * X)).natDegree = p.natDegree := by
+  rw [natDegree_comp, natDegree_C_mul_X _ two_ne_zero, mul_one]
+
+theorem natDegree_schurEO (m : ℕ) : (schurE m).natDegree = m ∧ (schurO m).natDegree = m := by
+  have h := hermEO_scaled m
+  constructor
+  · have := natDegree_hermE m
+    rwa [h.1, natDegree_C_mul (pow_ne_zero _ two_ne_zero), natDegree_comp_two] at this
+  · have := natDegree_hermO m
+    rwa [h.2, natDegree_C_mul (pow_ne_zero _ two_ne_zero), natDegree_comp_two] at this
+
 /-- Schur: for `m ≥ 2`, neither `E_m` nor `O_m` has a rational root. -/
 theorem hermEO_no_root (hS : Cited_SchurHermite) {m : ℕ} (hm : 2 ≤ m) (r : ℚ) :
     (hermE m).eval r ≠ 0 ∧ (hermO m).eval r ≠ 0 := by
-  obtain ⟨hE, hO⟩ := hS m (by omega)
-  have h := hermH_eo m
-  refine ⟨no_root_of_irreducible hE h.1 (by rw [natDegree_hermE]; exact hm) r, ?_⟩
-  have hdiv : hermH (2 * m + 1) /ₘ X = expand ℚ 2 (hermO m) := by
+  obtain ⟨hE, hO⟩ := hS m hm
+  have h := hermHe_K m
+  have hsc := hermEO_scaled m
+  have hd := natDegree_schurEO m
+  have hdiv : hermHe (2 * m + 1) /ₘ X = expand ℚ 2 (schurO m) := by
     rw [h.2, mul_divByMonic_cancel_left _ monic_X]
-  exact no_root_of_irreducible (hdiv ▸ hO) rfl (by rw [natDegree_hermO]; exact hm) r
+  have nE := no_root_of_irreducible hE h.1 (by rw [hd.1]; exact hm) (2 * r)
+  have nO := no_root_of_irreducible (hdiv ▸ hO) rfl (by rw [hd.2]; exact hm) (2 * r)
+  refine ⟨?_, ?_⟩
+  · rw [hsc.1, eval_mul, eval_C, eval_comp, eval_mul, eval_C, eval_X]
+    exact mul_ne_zero (pow_ne_zero _ two_ne_zero) nE
+  · rw [hsc.2, eval_mul, eval_C, eval_comp, eval_mul, eval_C, eval_X]
+    exact mul_ne_zero (pow_ne_zero _ two_ne_zero) nO
 
 /-! ### The sequence `k_n = n! [t^n] exp(-bt - gt²)` -/
 

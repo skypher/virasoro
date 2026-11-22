@@ -1377,3 +1377,24 @@ Status of the other items of brief-phaseB.md item 5, re-examined against the for
   uniqueness and regularity through the injectivity of `𝒟_m(∞)` (lowest degree) and an
   invertible square minor; Lemma 3.6, the `σ¹` generating-function identity as a rational
   identity in `(s₁, s₂)`.
+
+## 2026-11-22T20:15Z — main session: Cited_SchurHermite restated to Schur's own statement
+
+Trigger: yang2's review of packet virasoro-20261122T195905Z-prose-fixes-lean-citations, Item 3b
+(PASS of the statement and its use, with the request to document the normalization bridge).
+The main session read Schur 1931 pp. 52–54 (GDZ scans): p. 52 defines `H_m(x) = (-1)^m
+e^{x²/2} d^m/dx^m e^{-x²/2}`, the monic `He_m`; Hilfssatz D on p. 54 states that `x⁻¹H₃, H₄,
+x⁻¹H₅, H₆, …` are irreducible over `ℚ`, quoting the 1929 paper (footnote 5, p. 53).  The old
+`Cited_SchurHermite` asserted irreducibility of the physicists' `H_{2m}`, `H_{2m+1}/x` (`m ≥ 1`),
+which is not the source's statement (the rescaling `x ↦ √2 x` is not rational).
+
+Change.  `Cited_SchurHermite` now states Hilfssatz D for `He_{2m}` and `He_{2m+1}/x` with `m ≥ 2`
+(the range the consumer uses: `hermEO_no_root`, case `M ≥ 4`).  New in Sec5SharpHHerm:
+`hermHe_two` (definition check, `He₂ = x² − 1`), `schurE`, `schurO` (Schur's `K⁰_m`, `K¹_m`),
+`hermHe_K` (`He_{2m} = K⁰_m(x²)`, `He_{2m+1} = x K¹_m(x²)`), `hermEO_scaled` (`E_m(t) = 2^m
+K⁰_m(2t)`, `O_m(t) = 2^{m+1} K¹_m(2t)`), `natDegree_schurEO`; `hermEO_no_root` now evaluates at
+`2r`.  `hermH` moved from CitedSchur to Sec5SharpHHerm.  The paper's proof of Theorem 5.5, case
+`M ≥ 4` (sphere l.1788–1807), was rewritten the same way first; the Lean mirrors it.
+Checked by the main session (`../runs/lean2/checkSCH1.log`): `thm_sharp_H_of_cited`,
+`thm_sharp_B_of_cited`, `hermEO_no_root` keep axioms [propext, Classical.choice, Quot.sound];
+full build exit 0; no forbidden tokens.  Author-side check, not a reviewer PASS.

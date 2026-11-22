@@ -397,7 +397,7 @@ removed from the paper.  Sphere: 21 rows; new and frozen 15, not frozen 6; CLEAN
 | Kac determinant | `Cited_KacDeterminant` | Kac 1979; Feigin–Fuchs 1982; Iohara–Koga 2011, Thm 4.2 and eqs (4.16)–(4.21) | paper.tex l.502–506, l.1252, l.2510 |
 | Jantzen layers at an interior weight | `Cited_JantzenLayers` | Iohara–Koga, Thm 6.3(i), eq (6.3), Prop 5.4, Fig 5.4, eqs (5.4), (5.22), (5.49); Astashkevich 1997, Thm B(e), case III₋ | paper.tex l.789–808 |
 | Injectivity of Verma homomorphisms | `Cited_VermaHomInjective` | Iohara–Koga, the paragraph preceding Cor 5.2 | paper.tex l.855, l.1038, l.1761; sphere l.1305 |
-| Uniqueness of a singular vector at a level | `Cited_SingularUnique` | Iohara–Koga, Prop 5.1 (with Prop 5.4; Astashkevich Thm 3.1 in the sphere paper) | paper.tex l.1438; sphere l.1530–1531 |
+| Uniqueness of a singular vector at a level | `Cited_SingularUnique` | Astashkevich 1997, Thm 3.1 (checked 2026-11-22: "At each level n only one singular vector w can exist"); Iohara–Koga, Prop 5.1 (with Prop 5.4) | paper.tex l.1438, l.2563–2565; sphere l.1530–1531 |
 | Normalized singular vector, `β_χ = 𝒜⁻¹`, torus norm `𝒫` | `Cited_HJSNormalizations` | Iohara–Koga, Props 5.1, 5.2, Cor 5.2; Hadasz–Jaskólski–Suchanek 2010, Section 3, eqs (7)–(9); Zamolodchikov 2004, eqs (6.1), (7.5) | paper.tex l.946, l.961–976, l.2262–2265; sphere l.1251, l.1268–1276 |
 | Existence of the two-weight pairing | `Cited_TwoWeightPairingExists` (new, Cited2) | Hadasz–Jaskólski–Suchanek 2010, Section 3, p. 4 | paper.tex l.2081–2085 |
 | Singular vector coefficients in `ℚ[b²,b⁻²]` | `Cited_SingularFamilyLaurent` (new, Cited2) | Astashkevich 1997, Thm 3.1; Iohara–Koga, Props 5.1–5.2, Cor 5.2 | paper.tex l.2149–2152 |
@@ -405,7 +405,7 @@ removed from the paper.  Sphere: 21 rows; new and frozen 15, not frozen 6; CLEAN
 | Jantzen layers on the whole orbit | `Cited_JantzenLayersOrbit` (new, Cited2) | Astashkevich 1997, Thm A(a), (b)(iii), (c), Thm B(e); Iohara–Koga, Prop 5.4, Fig 5.4, Thm 6.3 | paper.tex l.2232–2234 |
 | Fusion polynomial (sphere three-point scalar) | `Sphere.Cited_SphereFusionPolynomial` (new) | Zamolodchikov 1987, Section 2; Zamolodchikov 2004, Section 5, eqs (5.9)–(5.12); Ribault 2019, eq (3.4) | sphere l.1277–1281 |
 | BPZ equation for a block with `Φ_{2,1}` (coefficientwise, generic `b`) | `Sphere.Cited_BPZEquation` (new) | Belavin–Polyakov–Zamolodchikov 1984, eqs (5.2), (5.17), (5.19) | sphere l.1651–1661 |
-| Irreducibility of `H_{2m}` and `H_{2m+1}/x` over `ℚ` | `Sphere.Cited_SchurHermite` (new) | Schur 1929; Schur 1931 | sphere l.1775–1778 |
+| Irreducibility of the monic `He_{2m}` and `He_{2m+1}/x` over `ℚ`, `m ≥ 2` | `Sphere.Cited_SchurHermite` (restated 2026-11-22) | Schur 1929; Schur 1931, §1, Hilfssatz D (p. 54; `H_n` there is `He_n`, p. 52) | sphere l.1788–1807 |
 | Jacobi identities (2.3)–(2.5) | `Sphere.Cited_JacobiIdentities` (new; three of the five identities) | Whittaker–Watson 1927, §21.6, §22.3 | sphere l.348–357 |
 | `₂F₁(1/2,1/2;1;z(q)) = θ₃²` and the logarithmic derivative of `16q(z)/z` | not encoded | Whittaker–Watson 1927, §21.6, §22.3 | sphere l.351–353 |
 | Feigin–Fuchs differential operators | not encoded | Besken–Datta–Kraus 2019, §2.1 | sphere l.431 |

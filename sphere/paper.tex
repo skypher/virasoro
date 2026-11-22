@@ -1785,15 +1785,26 @@ where \(X:=m^{\mathrm{big}}_k-p'-p\) and \(\alpha:=X/\sqrt{pp'}\).
     for \(k=1\), \(m^{\mathrm{big}}_1=7\), \(X=2\), \(\alpha^2=\frac23\neq\frac32\);
     for \(k\geq2\), \(X\geq13-5=8\), \(\alpha^2\geq\frac{32}{3}>\frac32\).
     Hence \(H_3(\alpha)\neq0\).
-  \item \(M\geq4\): By Schur's irreducibility theorems, \(H_{2m}(x)\)
-    (\cite{Schur1929}) and \(H_{2m+1}(x)/x\) (\cite{Schur1931}) are
-    irreducible over \(\mathbb Q\) for every \(m\geq1\).  Consequently, as
-    polynomials in \(t=x^2\) of degree \(m\), \(H_{2m}(\sqrt{t})\) and
-    \(H_{2m+1}(\sqrt{t})/\sqrt{t}\) are irreducible over \(\mathbb Q\) (any
-    nontrivial factorization in \(t\) pulls back to one in \(x\)).  For
-    \(m\geq2\) (\(M\geq4\)), an irreducible polynomial of degree \(m\geq2\)
-    over \(\mathbb Q\) has no rational root, whereas \(\alpha^2=X^2/(pp')\in\mathbb Q\).
-    Hence \(H_M(\alpha)\neq0\).
+  \item \(M\geq4\): Write \(M=2m+\varepsilon\) with \(m\geq2\) and
+    \(\varepsilon\in\{0,1\}\).  Let \(\mathrm{He}_n(x)=2^{-n/2}H_n(x/\sqrt2)\)
+    be the monic Hermite polynomials (\(\mathrm{He}_0=1\),
+    \(\mathrm{He}_1=x\), \(\mathrm{He}_{n+1}=x\mathrm{He}_n-n\mathrm{He}_{n-1}\)),
+    and define \(K^{(0)}_m,K^{(1)}_m\in\mathbb Q[t]\), both of degree \(m\), by
+    \(\mathrm{He}_{2m}(x)=K^{(0)}_m(x^2)\) and
+    \(\mathrm{He}_{2m+1}(x)=xK^{(1)}_m(x^2)\).  Schur proved that
+    \(\mathrm{He}_{2m}(x)\) and \(\mathrm{He}_{2m+1}(x)/x\) are irreducible
+    over \(\mathbb Q\) for \(m\geq2\) \cite{Schur1929}; the statement is
+    Hilfssatz~D in \cite[\S1]{Schur1931}, where \(H_n\) denotes
+    \(\mathrm{He}_n\).  A rational root \(s\) of \(K^{(\varepsilon)}_m\)
+    would make \(x^2-s\) a factor of
+    \(\mathrm{He}_{2m+\varepsilon}(x)/x^{\varepsilon}\), which has degree
+    \(2m\geq4\), so \(K^{(\varepsilon)}_m\) has no rational root.  From
+    \(H_n(x)=2^{n/2}\mathrm{He}_n(\sqrt2\,x)\),
+    \[
+     H_{2m}(x)=2^mK^{(0)}_m(2x^2),\qquad H_{2m+1}(x)=2^{m+1}xK^{(1)}_m(2x^2).
+    \]
+    Since \(\alpha\neq0\) and \(2\alpha^2=2X^2/(pp')\in\mathbb Q\), we get
+    \(H_M(\alpha)\neq0\).
   \end{itemize}
 \end{enumerate}
 Therefore \(H_M(v)\not\equiv0\), so the right-hand side of~\eqref{eq:top-H}
