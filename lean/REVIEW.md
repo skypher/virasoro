@@ -684,3 +684,57 @@ Route notes:
   frozen statement quantifies over every such U.  Fills in.
 - l.1145–1149: the Gaussian identified through ∂_iΦ = Φ·∂_i g (`ext_of_pderiv`).  Fills in.
 - Adjoint, Ψ = U†α(U†)⁻¹ with the inverse series, uniqueness on matrix entries: follow the paper.
+
+## 2026-11-22T06:00Z — Part II run 1 results (second agent; Lemmas 10.1, 10.3, 11.1, Props 10.2, 12.1 proved)
+
+Checked by the main session (`../runs/lean2/checkP2R1.log`), all labelled, hypotheses only the
+inputs the paper cites at the step: `lem_fusion_injective : Stmt_lem_fusion_injective` (none);
+`lem_two_weight_ward_of_cited (hE : Cited_TwoWeightPairingExists)` (HJS 2010, l.2081–2085);
+`prop_fusion_poly_of_cited (hH) (hL : Cited_SingularFamilyLaurent) (hF : Cited_FusionPolynomial)`
+(Astashkevich, Prop. imported-normalizations, Zamolodchikov; l.2149–2155);
+`lem_bgg_arrows_of_cited (hJ : Cited_JantzenLayersOrbit) (hH)` (l.2232–2239, l.2261);
+`prop_bgg_cocycle : Stmt_prop_bgg_cocycle` (none).  Also `thm_first_layer_ratio_of_box`,
+`thm_descent_regularity_of_subs`, `descent_iff_of_cited`; axioms [propext, Classical.choice,
+Quot.sound].  No committed statement or cited file changed; no forbidden tokens in the 13 new
+modules (`../runs/lean2/p2r1-forbidden.log` empty).  `Virasoro.PartII` is now imported by
+`Virasoro.lean`; `lake build Virasoro` green with it (`../runs/lean2/p2r1-fullbuild.log`, 3760
+jobs).  With run 18: 27 of 44.
+
+Sub-statements, checked against the paper:
+- `Stmt_sub_first_layer_box` (l.2630–2715): the first three clauses of the frozen Theorem 9.2
+  after `boxDen ≠ 0`, same quantifiers.  Approved.
+- `Stmt_sub_irr_trace_unique` (l.1857–1858): descent gives a unique `IsIrrTrace` coefficient at
+  every N, the parenthesis of Theorem 9.1(i).  Approved.
+- `Stmt_sub_pole_outside` (l.2578–2606): some level with a pole at λ when d ∉ ℱ^±.  The paper
+  names N ∈ {ℓ_min, ℓ_max}; Theorem 9.1(ii) uses existence.  Consumer strength; approved.
+- `Stmt_sub_orbit_regular` (l.2570–2574): pole order 0 at every orbit weight for d ∈ ℱ^±, the
+  "hence" step from Lemma 11.3.  Approved.
+- `Stmt_sub_joint_denominator` (l.2508–2540): F_N · b^e ∏_{𝒦_N}(Δ − h_{R,S}(b)) is a polynomial
+  in (b, Δ), 𝒦_N = {RS ≤ N, R ≤ k or S ≤ m}, over ℂ.  The paper's denominator statement in
+  ℚ[b,b⁻¹,Δ]; e existential.  Approved.
+- `Stmt_sub_vertex_radical_zero` (l.2412–2421): J¹(c⋆,μ) in the radical of every primary pairing
+  of weight d, both slots.  The paper says ρ_{c⋆,μ,d}; a primary pairing on M(c⋆,μ) is determined
+  by its value at (v_μ, v_μ) through the Ward identity, so this is the same strength.  Approved.
+- `Stmt_sub_generic_tau_split` (l.2883–2913): (13.2) at generic b (b ≠ 0, b² ∉ ℚ) for every
+  N, multiplied by `boxDen`, with the regularity of F_N at h_{R,S}(b) and of F_{N−RS} at
+  h_{R,−S}(b) that the paper's values presuppose.  Approved.
+
+Route notes:
+- l.2089–2095 (Lemma 10.1, (10.3)): contravariance at n = 0 in place of B(u,v) = 0 for N₁ ≠ N₂.
+  Forced by the frozen `IsTwoWeightPairing` (Ward identity with L₀).  Accepted.
+- l.2149–2152 (Prop 10.2(i)): existence and uniqueness of the normalized family from
+  `Cited_HJSNormalizations`; the paper cites Prop. imported-normalizations there.  Follows the
+  paper's citations.
+- l.2250–2262 (Lemma 10.3(iii)): Lean lists the eight consecutive-layer labels and reads
+  (10.11)–(10.13) from them; the paper reduces p′R − pS = σn_μ mod p and p′ and uses
+  0 < n_ν − |n_μ| < 2pp′.  Not forced; queued for route repair (brief item 5).
+- l.2244–2247 (Lemma 10.3(ii), uniqueness): p′ ∤ S in place of p ∤ n_μ, p′ ∤ n_μ.  Not forced;
+  queued.
+- l.2799–2809 (Prop 12.1, Ψ(ϖ_μ; b⋆) ≠ 0): R ≡ ±r, S ≡ ±s in place of n_μ mod p and p′.  Not
+  forced; queued.
+- l.2810–2832 (Prop 12.1(ii)): telescoping of 1/Γ and the reduced value through ℚ[t].  Forced by
+  the frozen `PsiPot` (through 1/Γ) and the reduced `cMM`.  Accepted.
+- l.2563–2567 (Theorem 9.1(i)): w^±₁ identified with the normalized χ_{r,s}(b⋆),
+  χ_{p−r,p′−s}(b⋆) up to scalars through `Cited_SingularUnique`, which the paper uses without
+  saying so (recorded for the prose-edit pass, receipt.md); the unlabelled case by
+  (r,s) ↦ (p−r,p′−s), forced by `MinimalSetting` in `Cited_JantzenLayersOrbit`.
