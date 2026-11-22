@@ -1048,3 +1048,23 @@ U(Vir₋); not forced, queued for route repair with the earlier `layer_kernel` i
 differences (lattices in the Verma module over ℂ⟦X⟧, kernel identities over ℂ[b,b⁻¹] from infinitely
 many b, the simple-quotient clause of Lemma 10.3(i), division by the monic Δ − h_{R₂,S₂}) are forced
 or the paper's argument in the uniformizer X = b − b⋆.  Accepted.
+
+## 2026-11-22T10:28Z — main session: Prop 6.7, Stmt_sub_layer_chain_eval proved
+
+Proved by the main session after the wind-down (`../runs/lean2/checkMe1.log`, `checkMe2.log`):
+`sub_layer_chain_eval : Stmt_sub_layer_chain_eval` (paper.tex l.1150–1173), from
+`Setup.eval_plus_odd`, `Setup.eval_minus_odd` (k = 2j+1) and `Setup.eval_even` (k = 2q+2, both
+signs), in `Sec6ChainOddPlus`, `Sec6ChainOddMinus`, `Sec6ChainEvenBase`, `Sec6ChainEvenSteps`,
+`Sec6ChainEvenTail`, `Sec6ChainEven`, `Sec6ChainEvalFinal`, with the run 23 hand-over
+(`moment_limit`, `coeff_chainTN`, `gL`, `firstSteps_sub`) and the fixed `Sec6ChainSlopes`.
+Prop 6.7 is `prop_layer_coefficients_of_limit (hI) (h1 : Stmt_sub_layer_chain_limit)`.  Axioms
+[propext, Classical.choice, Quot.sound]; no forbidden tokens; `lake build Virasoro` green (3890 jobs).
+No new labelled result: 34 of 44.
+
+Route: the paper's (l.1157–1169).  The first steps are the g_i of l.1157–1160 (for ℓ⁻ odd one more
+first step, g_j, whose chains are shown dead, matching the paper's index range −j−1 ≤ i ≤ j−1); κ
+is the paper's (the endpoint step for odd k, n₁ + (j−1)N₀ followed by the step of l.1167–1168 for
+even k, whose other continuations are shown dead or not to reach the endpoint); C_κ, the slope
+product and ρ_g/(ḣ_κ − ḣ_g) are the paper's values.  The moment step uses `moment_limit` (the
+numerator of ∑C_θ/(w − a_θ) is the constant a), as run 23 recorded.  The injectivity of i ↦ g_i
+uses 2n₁ ≠ N₀, which holds because n₁ = pp′ would give p ∣ p′r.
