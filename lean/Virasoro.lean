@@ -187,4 +187,5 @@ import Virasoro.Proofs.Sec8IsingPoles
 import Virasoro.Proofs.Sec8IsingRows
 import Virasoro.Proofs.Sec8Ising11PP
 import Virasoro.Proofs.Sec8Ising11
+import Virasoro.Proofs.Sec8IsingTop
 import Virasoro.PartII

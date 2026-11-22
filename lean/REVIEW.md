@@ -1333,3 +1333,47 @@ the paper: `(Φ₁+Φ₂)/8 = −½ log θ₃ − ½ log θ₄ = −⅛ log(1−
 `fpow` form.  The comparison of 8th powers (`detInvSqrt_pow_eight`, `eq_of_pow_eq`) is gone from
 this step.  `Sec3FpowExp` now imports only `Sec3ExtExp`, `Sec3ExpLog`, `FpowBinom`, and
 `Sec3CentralFinal` imports it.
+
+## 2026-11-22T19:49Z — main session: route repair RR5 (Prop 8.1) and the status of the other queued repairs
+
+Checked by the main session (`../runs/lean2/checkRR5.log`): `prop_ising_double_poles_of_cited`,
+`Sphere.prop_c0_example_of_cited`, `Sphere.prop_ising_example_of_cited` keep axioms [propext,
+Classical.choice, Quot.sound]; statement files unchanged; `lake build Virasoro` green.
+
+RR5, Prop 8.1 (paper.tex l.1755–1771): the three rows now follow the paper (new file
+`Proofs/Sec8IsingTop.lean`).  At `N = min(ℓ⁺₂, ℓ⁻₂)` (7, 10, 11) equation (5.1) of Theorem 5.9
+has the single term `τ/γ` with `M = 0` (`top_two_single`, `top_two_single_plus`); Proposition 6.7
+with `c₂ = -1` applied to the same family gives `[d²]τ = -γρ²`, `ρ = -(4r-3s)/2`
+(`core_single`); the pole order `2` is Corollary 5.10.  `γ` is computed from `[d²]τ`:
+`[d²](𝒫_{2,1}𝒫_{1,5}) = 4379375`, `[d²](𝒫_{1,2}𝒫_{4,2}) = 1121229484375/192`,
+`[d²](𝒫_{1,1}𝒫_{2,5}) = 9911668641875000/104976` (`coeff_E2_P15`, `coeff_P2_P42`,
+`coeff_P11_P25`), giving `γ = -700700, -1121229484375/192, -2477917160468750/6561` as printed.
+The earlier route (the double pole read off Theorems 8.5 and 9.4 or Proposition 7.7, and `γ`
+from the PBW evaluation of Lemma 5.4(iii)) is no longer used for Prop 8.1; the PBW values remain
+in the tree (`x7_ker2_gamma`, used by `Sec8Smith7`) and agree, as the paper's remark after the
+proof says.
+
+Status of the other items of brief-phaseB.md item 5, re-examined against the formal setting:
+- Forced.  Torus Prop 6.4 and sphere Prop 4.4, residue from Lemma 5.4 with `k = 1`: the frozen
+  Lemma 5.4 quantifies over complex `c, h`, while the residue is needed over every field of
+  characteristic zero (`GenericRecursionUniform`, the field re-run in sphere Theorem 4.7);
+  `residue_inverse` is Lemma 5.4(iii) at `k = 1` over such a field.  Lemma 13.1 Step 2 and
+  Prop 11.2 `layer_kernel`, freeness of `M(c,h)` over `U(Vir₋)`: the argument needs that
+  `U(Vir₋)` has no zero divisors (PBW leading terms), which the tree does not have; the Lean uses
+  the injectivity of singular embeddings that the paper cites for the same step in Part I
+  (l.855, 1038, 1761).  Prop 11.2, `J^i/J^{i+1} ≅ L ⊕ L` and the orthogonality of non-isomorphic
+  irreducibles: needs quotient and contragredient modules, which the tree does not have (the same
+  reason as the forced trace item of Part II run 3).  Torus Prop 6.8(i), the local ring `𝒪_𝔭`:
+  needs that the localization is a DVR with uniformizer `ℓ`, not in Mathlib.  Sphere Lemma 3.6,
+  the change of variables `p = p(w)` in the contour representations of `g(±1)`: the formal
+  setting has no contour integrals; the Lean computes the same coefficients `c^±_m` from their
+  closed forms.
+- Not needed in the formal setting.  Sphere Theorem 4.7, holomorphy of `C_{λ,k}(t)` before
+  taking `t⁰` (l.1405–1417): the paper's holomorphy step justifies evaluating at `t = 0`; the Lean
+  takes the coefficient of `t⁰` of the Laurent identity, which needs no holomorphy, and obtains
+  the same `Ã = [t⁰]C_{λ,k}`.
+- Still queued (not forced): sphere Lemma 3.4(iii) through (3.6) coefficientwise in `z`;
+  Lemma 3.5, the double pole at `x₁ = x₂` through `S(x,x) = Y²`, `∂₁S(x,x) = YY'`; Lemma 3.3,
+  uniqueness and regularity through the injectivity of `𝒟_m(∞)` (lowest degree) and an
+  invertible square minor; Lemma 3.6, the `σ¹` generating-function identity as a rational
+  identity in `(s₁, s₂)`.

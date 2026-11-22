@@ -7,13 +7,13 @@ import Virasoro.Proofs.SingularPull
 import Virasoro.Proofs.LevelComp
 
 /-!
-# Proposition 8.1 of `paper.tex` at 70bac53: the row at level eleven, and the proposition
+# Proposition 8.1 of `paper.tex` at 70bac53: the singular vector at level eleven
 
 At `λ = 0` the singular vector that starts the second Jantzen layer has level `11 = 1 + 10`.
 It is the image of the normalized singular vector of level `10` in `M(1/2,1)` under the
 embedding defined by `L_{-1}|0⟩` (labels `(1,1)` and `(2,5)`), so its torus norm is
-`𝒫_{1,1}(b₀,d) 𝒫_{2,5}(b₀,d)` by Lemma 5.5 and Lemma 6.6.  Equation (5.1) at `N = 11` has the
-single term `τ/γ`, and the coefficient of `Δ^{-2}` computed from Proposition 7.7 gives `γ`.
+`𝒫_{1,1}(b₀,d) 𝒫_{2,5}(b₀,d)` by Lemma 5.5 and Lemma 6.6.  Equation (5.1) at a level with a
+single summand gives the coefficient `τ/γ` (`top_two_single`).
 -/
 
 namespace Virasoro
@@ -173,73 +173,5 @@ theorem exists_vec_eleven (hI : Cited_VermaHomInjective) (hH : Cited_HJSNormaliz
   obtain ⟨x', h1, hs', ht'⟩ := normalize_singular (by norm_num) x hxs hQ
     (fun d => by rw [hxt d, ht11 d, ht25 d, eval_mul, genPpoly_eval, genPpoly_eval])
   exact ⟨x', h1, hs', ht'⟩
-
-set_option maxRecDepth 100000 in
-/-- The row `λ = 0`, `N = 11` of the table of Proposition 8.1. -/
-theorem ising_row_eleven (hK : Cited_KacDeterminant) (hH : Cited_HJSNormalizations)
-    (hJ : Cited_JantzenLayers) (hI : Cited_VermaHomInjective) (hU : Cited_SingularUnique) :
-    IsingDoublePoleTop 0 11 1 1 2 5 (-2477917160468750 / 6561) := by
-  have hb : b0 ^ 2 = -((4 : ℕ) : ℂ) / ((3 : ℕ) : ℂ) := by
-    rw [b0_sq]
-    norm_num
-  have hset : MinimalSetting 3 4 1 1 b0 :=
-    ⟨by norm_num, by norm_num, by decide, by norm_num, by norm_num, by norm_num, by norm_num,
-      by norm_num, hb⟩
-  obtain ⟨wp, wm, hsg, hjan, -, -⟩ := thm_jantzen_smith hJ 3 4 1 1 (by norm_num) (by norm_num)
-    (by decide) (by norm_num) (by norm_num) (by norm_num) (by norm_num) (by norm_num) b0 hb
-  obtain ⟨hord, hpp⟩ := level_eleven_double_pole hK hH
-  obtain ⟨x, hx1, hxs, hxt⟩ := exists_vec_eleven hI hH
-  have h2 := top_two_single hI hU hset wp wm ⟨hsg, hjan⟩ (N := 11) (by decide) (by decide)
-    (by decide) x hxs
-  have e11 : kacH ((1 : ℕ) : ℤ) ((1 : ℕ) : ℤ) b0 = (0 : ℂ) := by
-    have a := kacHL_b0_cast (1, 1)
-    rw [kacHL] at a
-    rw [a]
-    norm_num [isingDelta]
-  have ept : pt (kacH ((1 : ℕ) : ℤ) ((1 : ℕ) : ℤ) b0) = pt 0 := by rw [e11]
-  have hQ : torusPolyForm (kacC b0) (kacH ((1 : ℕ) : ℤ) ((1 : ℕ) : ℤ) b0) x =
-      genPpoly 1 1 b0 * genPpoly 2 5 b0 := torusForm_poly_eq hxt
-  rw [ept, hpp, hQ, genP_Kd_poly, genP_Kd_poly, ← map_mul, div_eq_mul_inv] at h2
-  have hne : algebraMap ℂ[X] Kd (genPpoly 1 1 b0 * genPpoly 2 5 b0) ≠ 0 :=
-    (map_ne_zero_iff _ (RatFunc.algebraMap_injective ℂ)).2
-      ((genPpoly_monic 1 1 b0).mul (genPpoly_monic 2 5 b0)).ne_zero
-  have h3 := mul_left_cancel₀ hne h2
-  rw [← map_inv₀] at h3
-  have hγ : jform (kacC b0) (kacH ((1 : ℕ) : ℤ) ((1 : ℕ) : ℤ) b0) 11 2 x x =
-      -2477917160468750 / 6561 := (inv_injective (RatFunc.C_injective h3)).symm
-  have main : poleOrder (HN (kacC b0) 11) (pt 0) = 2 ∧
-      ppCoeff (HN (kacC b0) 11) (pt 0) 2 =
-        genP 1 1 (RatFunc.C b0 : Kd) dvar * genP 2 5 (RatFunc.C b0 : Kd) dvar /
-          RatFunc.C (-2477917160468750 / 6561 : ℂ) ∧
-      ∃ x : Nat.Partition 11 → ℂ, x (onesPartition 11) = 1 ∧
-        IsSingular (pbwCoord (c := kacC b0) (h := kacH ((1 : ℕ) : ℤ) ((1 : ℕ) : ℤ) b0) 11 x) 11 ∧
-        (∀ d : ℂ, torusForm (kacC b0) (kacH ((1 : ℕ) : ℤ) ((1 : ℕ) : ℤ) b0) d 11 x x =
-          genP 1 1 b0 d * genP 2 5 b0 d) ∧
-        jform (kacC b0) (kacH ((1 : ℕ) : ℤ) ((1 : ℕ) : ℤ) b0) 11 2 x x =
-          -2477917160468750 / 6561 :=
-    ⟨hord, hpp, x, hx1, hxs,
-      fun d => by rw [hxt d, eval_mul, genPpoly_eval, genPpoly_eval], hγ⟩
-  rw [e11, kacC_b0'] at main
-  exact main
-
-/-- The three rows of the table of Proposition 8.1 at the levels `7, 10, 11`. -/
-theorem sub_ising_rows_of_cited (hK : Cited_KacDeterminant) (hH : Cited_HJSNormalizations)
-    (hJ : Cited_JantzenLayers) (hI : Cited_VermaHomInjective) (hU : Cited_SingularUnique) :
-    Stmt_sub_ising_rows :=
-  ⟨ising_row_seven hK hH hJ, ising_row_ten hK hH, ising_row_eleven hK hH hJ hI hU⟩
-
-/-- Proposition 8.1, from the cited Kac determinant, the cited normalizations of
-Proposition 6.2, the cited Jantzen layers, the cited injectivity of Verma homomorphisms and the
-cited uniqueness of singular vectors.
-
-Paper label: prop:ising-double-poles -/
-theorem prop_ising_double_poles_of_cited (hK : Cited_KacDeterminant)
-    (hH : Cited_HJSNormalizations) (hJ : Cited_JantzenLayers) (hI : Cited_VermaHomInjective)
-    (hU : Cited_SingularUnique) : Stmt_prop_ising_double_poles :=
-  prop_ising_double_poles_of_rows hK hJ (sub_ising_rows_of_cited hK hH hJ hI hU)
-
-example (hK : Cited_KacDeterminant) (hH : Cited_HJSNormalizations) (hJ : Cited_JantzenLayers)
-    (hI : Cited_VermaHomInjective) (hU : Cited_SingularUnique) : Stmt_prop_ising_double_poles :=
-  prop_ising_double_poles_of_cited hK hH hJ hI hU
 
 end Virasoro

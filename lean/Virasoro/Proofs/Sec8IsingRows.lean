@@ -8,13 +8,11 @@ import Virasoro.Proofs.Family
 import Virasoro.Proofs.PairingConstr
 
 /-!
-# Proposition 8.1 of `paper.tex` at 70bac53: the rows at the levels `7` and `10`
+# Proposition 8.1 of `paper.tex` at 70bac53: the singular vectors at the levels `7` and `10`
 
 The singular vector that starts the second Jantzen layer is `ξ₇ = φ₅ ξ₂` at `λ = 1/2` and
 `χ₁₀ = ψ₈ χ₂` at `λ = 1/16`.  Its torus norm factorizes by Lemma 5.5 into the torus norms of
-the two factors, which are `𝒫_{R,S}(b₀,d)` by Proposition 6.2; its second Jantzen norm is the
-second crossing form of Lemma 5.4(iii), evaluated in the PBW basis; the coefficient of
-`(Δ-λ)^{-2}` is read off from the principal parts (8.1) and (9.1).
+the two factors, which are `𝒫_{R,S}(b₀,d)` by Proposition 6.2.
 -/
 
 namespace Virasoro
@@ -83,23 +81,16 @@ theorem torusForm_composite {h : ℂ} (d : ℂ) {ℓ m : ℕ} (s t x : List (Lis
 
 theorem isLevel_xi2Q : IsLevelSt 2 xi2Q := by unfold IsLevelSt PosWord; decide
 
-/-- The row `λ = 1/2`, `N = 7` of the table of Proposition 8.1. -/
-theorem ising_row_seven (hK : Cited_KacDeterminant) (hH : Cited_HJSNormalizations)
-    (hJ : Cited_JantzenLayers) : IsingDoublePoleTop (1 / 2) 7 2 1 1 5 (-700700) := by
-  obtain ⟨-, hPP, hord, -⟩ := thm_level_seven_principal_part hK hH hJ
-  have hA2 : -(algebraMap ℂ[X] Kd (E2 * P15)) / 700700 ≠ 0 := by
-    rw [map_mul, aM_E2, aM_P15]
-    exact div_ne_zero (neg_ne_zero.2 (mul_ne_zero (Pval_ne 2 1) (Pval_ne 1 5))) (by norm_num)
-  unfold poleTerm at hPP
-  have hpp := ppCoeff_two_of_PP _ _ _ _ hA2 hPP
-  obtain ⟨hv1, hker2, hγ⟩ := x7_ker2_gamma
-  have hsing : IsSingular (pbwCoord (c := (1 / 2 : ℂ)) (h := (1 / 2 : ℂ)) 7
-      (St.coords 7 (mapSt qC x7Q))) 7 := by
-    rw [← toVerma_eq_pbwCoord _ (isLevelSt_mapSt _ isLevel_x7Q)]; exact x7_singular
-  refine ⟨hord, ?_, St.coords 7 (mapSt qC x7Q), coords_one_of _ (by decide +kernel), hsing,
-    fun d => ?_, ?_⟩
-  · rw [hpp, genP_Kd genP_21, genP_Kd genP_15, map_mul, map_neg, map_ofNat]
-    ring
+/-- The normalized singular vector `ξ₇ = φ₅ ξ₂` of level `7` in `M(1/2,1/2)` and its torus norm
+`𝒫_{2,1}(b₀,d) 𝒫_{1,5}(b₀,d)` (Lemma 5.5 and Proposition 6.2). -/
+theorem vec_seven (hH : Cited_HJSNormalizations) :
+    St.coords 7 (mapSt qC x7Q) (onesPartition 7) = 1 ∧
+    IsSingular (pbwCoord (c := (1 / 2 : ℂ)) (h := (1 / 2 : ℂ)) 7
+      (St.coords 7 (mapSt qC x7Q))) 7 ∧
+    ∀ d : ℂ, torusForm (1 / 2 : ℂ) (1 / 2) d 7 (St.coords 7 (mapSt qC x7Q))
+      (St.coords 7 (mapSt qC x7Q)) = genP 2 1 b0 d * genP 1 5 b0 d := by
+  refine ⟨coords_one_of _ (by decide +kernel), ?_, fun d => ?_⟩
+  · rw [← toVerma_eq_pbwCoord _ (isLevelSt_mapSt _ isLevel_x7Q)]; exact x7_singular
   · have hξ2 : IsSingular (St.toVerma (c := (1 / 2 : ℂ)) (h := (1 / 2 : ℂ)) (mapSt qC xi2Q)) 2 := by
       rw [← xi2_eq_mapSt]; exact xi2_singular'
     have hprod : St.toOp (1 / 2 : ℂ) (mapSt qC phi5Q) •
@@ -123,8 +114,6 @@ theorem ising_row_seven (hK : Cited_KacDeterminant) (hH : Cited_HJSNormalization
     rw [show ((1 / 2 : ℂ) + ((2 : ℕ) : ℂ)) = 5 / 2 by norm_num] at h
     rw [← hid2.2 d, ← hid5.2 d]
     exact h
-  · rw [jform_two_of_ker2 hker2 hv1]
-    exact hγ
 
 theorem isLevel_chi2Q : IsLevelSt 2 chi2Q := by unfold IsLevelSt PosWord; decide
 
@@ -140,25 +129,16 @@ theorem x10_ones : St.coords 10 (mapSt qC x10Q) (onesPartition 10) = 1 :=
   coords_one_of _ (by decide +kernel)
 
 set_option maxRecDepth 100000 in
-/-- The row `λ = 1/16`, `N = 10` of the table of Proposition 8.1. -/
-theorem ising_row_ten (hK : Cited_KacDeterminant) (hH : Cited_HJSNormalizations) :
-    IsingDoublePoleTop (1 / 16) 10 1 2 4 2 (-1121229484375 / 192) := by
-  obtain ⟨-, hPP⟩ := thm_level_ten_principal_part hK hH
-  have hA2 : -(192 * algebraMap ℂ[X] Kd (P2 * P42)) / 1121229484375 ≠ 0 := by
-    rw [map_mul, aM_P2, aM_P42]
-    exact div_ne_zero (neg_ne_zero.2 (mul_ne_zero (by norm_num)
-      (mul_ne_zero (Pval_ne 1 2) (Pval_ne 4 2)))) (by norm_num)
-  unfold poleTerm at hPP
-  have hord := poleOrder_eq_two_of_PP _ _ _ _ hA2 hPP
-  have hpp := ppCoeff_two_of_PP _ _ _ _ hA2 hPP
-  obtain ⟨hv1, hker2, hγ⟩ := x10_ker2_gamma
-  have hsing : IsSingular (pbwCoord (c := (1 / 2 : ℂ)) (h := (1 / 16 : ℂ)) 10
-      (St.coords 10 (mapSt qC x10Q))) 10 := by
-    rw [← toVerma_eq_pbwCoord _ (isLevelSt_mapSt _ isLevel_x10Q)]; exact x10_singular
-  refine ⟨hord, ?_, St.coords 10 (mapSt qC x10Q), x10_ones, hsing,
-    fun d => ?_, ?_⟩
-  · rw [hpp, genP_Kd genP_12, genP_Kd genP_42, map_mul, map_div₀, map_neg, map_ofNat, map_ofNat]
-    ring
+/-- The normalized singular vector `χ₁₀ = ψ₈ χ₂` of level `10` in `M(1/2,1/16)` and its torus
+norm `𝒫_{1,2}(b₀,d) 𝒫_{4,2}(b₀,d)` (Lemma 5.5 and Proposition 6.2). -/
+theorem vec_ten (hH : Cited_HJSNormalizations) :
+    St.coords 10 (mapSt qC x10Q) (onesPartition 10) = 1 ∧
+    IsSingular (pbwCoord (c := (1 / 2 : ℂ)) (h := (1 / 16 : ℂ)) 10
+      (St.coords 10 (mapSt qC x10Q))) 10 ∧
+    ∀ d : ℂ, torusForm (1 / 2 : ℂ) (1 / 16) d 10 (St.coords 10 (mapSt qC x10Q))
+      (St.coords 10 (mapSt qC x10Q)) = genP 1 2 b0 d * genP 4 2 b0 d := by
+  refine ⟨x10_ones, ?_, fun d => ?_⟩
+  · rw [← toVerma_eq_pbwCoord _ (isLevelSt_mapSt _ isLevel_x10Q)]; exact x10_singular
   · have hχ2 : IsSingular (St.toVerma (c := (1 / 2 : ℂ)) (h := (1 / 16 : ℂ)) (mapSt qC chi2Q)) 2 := by
       rw [← chi2_eq_mapSt, chi2_eq]; exact chi2_singular ℂ
     have hprod : St.toOp (1 / 2 : ℂ) (mapSt qC psi8Q) •
@@ -183,7 +163,5 @@ theorem ising_row_ten (hK : Cited_KacDeterminant) (hH : Cited_HJSNormalizations)
     rw [show ((1 / 16 : ℂ) + ((2 : ℕ) : ℂ)) = 33 / 16 by norm_num] at h
     rw [← hid2.2 d, ← hid8.2 d]
     exact h
-  · rw [jform_two_of_ker2 hker2 hv1]
-    exact hγ
 
 end Virasoro

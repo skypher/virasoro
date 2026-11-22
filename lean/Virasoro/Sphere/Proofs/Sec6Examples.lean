@@ -2,7 +2,7 @@ import Virasoro.Sphere.Proofs.Sec5TopLayerH
 import Virasoro.Sphere.Proofs.Sec5PiFactorization
 import Virasoro.Sphere.Proofs.Sec5PoleBound
 import Virasoro.Sphere.Proofs.Sec4Imported
-import Virasoro.Proofs.Sec8Ising11
+import Virasoro.Proofs.Sec8IsingTop
 import Virasoro.Proofs.Sec6TTLabel
 import Virasoro.Proofs.P2Sec11LayerIndep
 import Mathlib.Algebra.MvPolynomial.Funext
