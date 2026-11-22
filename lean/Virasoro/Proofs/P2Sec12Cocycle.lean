@@ -238,16 +238,91 @@ variable (hset : MinimalSetting p p' r s b) {k m : ℕ} (hk : k < min r (p - r))
 
 include hset hk hm
 
-/-- `Ψ(ϖ_μ;b⋆) ≠ 0` at every node of the orbit (l.2799–2809). -/
+/-- `Ψ(ϖ_μ;b⋆) ≠ 0` at every node of the orbit, by the paper's argument (l.2803–2822): at
+`b = b⋆` the Gamma arguments are `1 + (±n_μ - jp)/p'` and `1 + m + (±n_μ - ip')/p`, and
+`n_μ ≡ ±ps (mod p')`, `n_μ ≡ ±p'r (mod p)` make none of them an integer. -/
 theorem psiNode_ne_zero (ε : Bool) (j : ℕ) :
     psiNode p' k m b (nOrb p p' r s ε j) ≠ 0 := by
   obtain ⟨hp2, hp2', hcop, hr0, hr, hs0, hs, hn1, hb⟩ := id hset
-  obtain ⟨R, S, -, -, -, hdiff, hcR, hcS, -⟩ := arrow_data hr0 hr hs0 hs ε j true
-  have h := PsiPot_in_ne_zero hcop hr0 hr hs0 hs hb hcR hcS hk hm
-  rw [PsiPot_in_node (by omega) (by omega) hb] at h
-  rcases hdiff with hd | hd
-  · rwa [hd] at h
-  · rwa [hd, psiNode_neg] at h
+  have hp : 0 < p := by omega
+  have hp' : 0 < p' := by omega
+  have hpc : (p : ℂ) ≠ 0 := by exact_mod_cast hp.ne'
+  have hpc' : (p' : ℂ) ≠ 0 := by exact_mod_cast hp'.ne'
+  have hb0 : b ≠ 0 := by
+    rintro rfl
+    rw [zero_pow two_ne_zero] at hb
+    exact div_ne_zero (neg_ne_zero.2 hpc') hpc hb.symm
+  have hc : IsCoprime (p : ℤ) (p' : ℤ) := Nat.isCoprime_iff_coprime.2 hcop
+  obtain ⟨⟨u, hu, hdu⟩, ⟨v, hv, hdv⟩⟩ := nOrb_mod (p := p) (p' := p') (r := r) (s := s) ε j
+  set n := nOrb p p' r s ε j with hn
+  have small : ∀ {q : ℕ} {t : ℤ}, 0 < t → t < q → ¬ (q : ℤ) ∣ t := fun h0 h1 hd =>
+    absurd (Int.le_of_dvd h0 hd) (not_le.2 h1)
+  -- `p' ∤ ±n_μ - jp` for `1 ≤ j ≤ m < min(s, p'-s)` (l.2817–2819)
+  have hS : ∀ i : ℕ, 1 ≤ i → i ≤ m → ¬ (p' : ℤ) ∣ n - i * p ∧ ¬ (p' : ℤ) ∣ -n - i * p := by
+    intro i hi1 him
+    have hi : (i : ℤ) < s ∧ (i : ℤ) < p' - s := ⟨by omega, by omega⟩
+    constructor
+    · intro h
+      have h2 := dvd_sub h hdv
+      rw [show n - i * p - (n - v * (p * s)) = (p : ℤ) * (v * s - i) by ring] at h2
+      have h3 := hc.symm.dvd_of_dvd_mul_left h2
+      rcases hv with rfl | rfl
+      · exact small (q := p') (t := s - i) (by linarith) (by linarith) (by simpa using h3)
+      · exact small (q := p') (t := s + i) (by linarith) (by linarith)
+          (dvd_neg.1 (by rw [show -((s : ℤ) + i) = -1 * s - i by ring]; exact h3))
+    · intro h
+      have h2 := dvd_add h hdv
+      rw [show -n - i * p + (n - v * (p * s)) = -((p : ℤ) * (v * s + i)) by ring] at h2
+      have h3 := hc.symm.dvd_of_dvd_mul_left (dvd_neg.1 h2)
+      rcases hv with rfl | rfl
+      · exact small (q := p') (t := s + i) (by linarith) (by linarith) (by simpa using h3)
+      · exact small (q := p') (t := s - i) (by linarith) (by linarith)
+          (dvd_neg.1 (by rw [show -((s : ℤ) - i) = -1 * s + i by ring]; exact h3))
+  -- `p ∤ ±n_μ - ip'` for `1 ≤ i ≤ k < min(r, p-r)` (l.2819–2822)
+  have hR : ∀ i : ℕ, 1 ≤ i → i ≤ k → ¬ (p : ℤ) ∣ -n - i * p' ∧ ¬ (p : ℤ) ∣ n - i * p' := by
+    intro i hi1 hik
+    have hi : (i : ℤ) < r ∧ (i : ℤ) < p - r := ⟨by omega, by omega⟩
+    constructor
+    · intro h
+      have h2 := dvd_add h hdu
+      rw [show -n - i * p' + (n - u * (p' * r)) = -((p' : ℤ) * (u * r + i)) by ring] at h2
+      have h3 := hc.dvd_of_dvd_mul_left (dvd_neg.1 h2)
+      rcases hu with rfl | rfl
+      · exact small (q := p) (t := r + i) (by linarith) (by linarith) (by simpa using h3)
+      · exact small (q := p) (t := r - i) (by linarith) (by linarith)
+          (dvd_neg.1 (by rw [show -((r : ℤ) - i) = -1 * r + i by ring]; exact h3))
+    · intro h
+      have h2 := dvd_sub h hdu
+      rw [show n - i * p' - (n - u * (p' * r)) = (p' : ℤ) * (u * r - i) by ring] at h2
+      have h3 := hc.dvd_of_dvd_mul_left h2
+      rcases hu with rfl | rfl
+      · exact small (q := p) (t := r - i) (by linarith) (by linarith) (by simpa using h3)
+      · exact small (q := p) (t := r + i) (by linarith) (by linarith)
+          (dvd_neg.1 (by rw [show -((r : ℤ) + i) = -1 * r - i by ring]; exact h3))
+  -- `Γ(N + x/q) ≠ 0` when `q ∤ x`
+  have gam : ∀ {q : ℕ}, 0 < q → ∀ {x : ℤ}, ¬ (q : ℤ) ∣ x → ∀ (z : ℂ) (N : ℤ),
+      z = (x : ℂ) / q + N → Complex.Gamma z ≠ 0 := by
+    intro q hq x hx z N hz
+    have hqc : (q : ℂ) ≠ 0 := by exact_mod_cast hq.ne'
+    refine Complex.Gamma_ne_zero fun M h => hx ?_
+    rw [hz] at h
+    have h1 : (x : ℂ) / q = -(M : ℂ) - N := by linear_combination h
+    have h2 : (x : ℂ) = (-(M : ℂ) - N) * q := by rw [← h1, div_mul_cancel₀ _ hqc]
+    have h3 : x = (-(M : ℤ) - N) * q := by exact_mod_cast h2
+    exact ⟨-(M : ℤ) - N, by rw [h3]; ring⟩
+  unfold psiNode PsiPot
+  refine mul_ne_zero (Finset.prod_ne_zero_iff.2 fun i hi => ?_)
+    (Finset.prod_ne_zero_iff.2 fun i hi => ?_) <;> rw [Finset.mem_Icc] at hi
+  · refine inv_ne_zero (mul_ne_zero (gam hp' (hS i hi.1 hi.2).1 _ 1 ?_)
+      (gam hp' (hS i hi.1 hi.2).2 _ 1 ?_))
+    · rw [hb]; push_cast; field_simp; ring
+    · rw [hb]; push_cast; field_simp; ring
+  · refine inv_ne_zero (mul_ne_zero (gam hp (hR i hi.1 hi.2).1 _ (1 + m) ?_)
+      (gam hp (hR i hi.1 hi.2).2 _ (1 + m) ?_))
+    · have e : 2 * ((n : ℂ) * b / (2 * p')) * b = (n : ℂ) * b ^ 2 / p' := by field_simp
+      rw [e, hb]; push_cast; field_simp; ring
+    · have e : 2 * ((n : ℂ) * b / (2 * p')) * b = (n : ℂ) * b ^ 2 / p' := by field_simp
+      rw [e, hb]; push_cast; field_simp; ring
 
 /-- Equation (12.3) (l.2825–2832): `c(α → β) Ψ(ϖ_α;b⋆) = Ψ(ϖ_β;b⋆)`. -/
 theorem cArrow_psi (ε : Bool) (j : ℕ) (ε' : Bool) :

@@ -115,6 +115,155 @@ theorem not_dvd_of_congr {p r R : ℕ} (hr0 : 0 < r) (hr : r < p)
     have := Nat.le_of_dvd (by omega) this
     omega
 
+/-- `p ∤ n_μ` and `p' ∤ n_μ` for every momentum of the orbit (l.2244–2245): `n_μ` is
+`±p'r ± ps` modulo `pp'`. -/
+theorem nOrb_not_dvd (hcop : Nat.Coprime p p') (hr0 : 0 < r) (hr : r < p) (hs0 : 0 < s)
+    (hs : s < p') (ε : Bool) (k : ℕ) :
+    ¬ (p : ℤ) ∣ nOrb p p' r s ε k ∧ ¬ (p' : ℤ) ∣ nOrb p p' r s ε k := by
+  have hc : IsCoprime (p : ℤ) (p' : ℤ) := Nat.isCoprime_iff_coprime.2 hcop
+  have hpr : ¬ (p : ℤ) ∣ (p' : ℤ) * r := fun h =>
+    not_dvd_of_congr hr0 hr ⟨0, Or.inl (by simp)⟩ (hc.dvd_of_dvd_mul_left h)
+  have hps : ¬ (p' : ℤ) ∣ (p : ℤ) * s := fun h =>
+    not_dvd_of_congr hs0 hs ⟨0, Or.inl (by simp)⟩ (hc.symm.dvd_of_dvd_mul_left h)
+  have key : ∀ (q x : ℤ) (A B : ℤ), x = q * A + B → q ∣ x → q ∣ B := fun q x A B e h => by
+    rw [e] at h
+    exact (dvd_add_right (dvd_mul_right _ _)).1 h
+  obtain ⟨j, rfl | rfl⟩ := Nat.even_or_odd' k <;> cases ε
+  · rw [nOrb_even_false]
+    exact ⟨fun h => hpr (dvd_neg.1 (key _ _ (2 * j * p' + s) _ (by ring) h)),
+      fun h => hps (key _ _ (2 * j * p - r) _ (by ring) h)⟩
+  · rw [nOrb_even_true]
+    exact ⟨fun h => hpr (key _ _ (2 * j * p' - s) _ (by ring) h),
+      fun h => hps (dvd_neg.1 (key _ _ (2 * j * p + r) _ (by ring) h))⟩
+  · rw [nOrb_odd_false]
+    exact ⟨fun h => hpr (dvd_neg.1 (key _ _ ((2 * j + 2) * p' - s) _ (by ring) h)),
+      fun h => hps (dvd_neg.1 (key _ _ ((2 * j + 2) * p - r) _ (by ring) h))⟩
+  · rw [nOrb_odd_true]
+    exact ⟨fun h => hpr (key _ _ (2 * j * p' + s) _ (by ring) h),
+      fun h => hps (key _ _ (2 * j * p + r) _ (by ring) h)⟩
+
+/-- `n_μ ≡ ±p'r (mod p)` and `n_μ ≡ ±ps (mod p')` (from (10.5), l.2250–2251). -/
+theorem nOrb_mod (ε : Bool) (k : ℕ) :
+    (∃ u : ℤ, (u = 1 ∨ u = -1) ∧ (p : ℤ) ∣ nOrb p p' r s ε k - u * (p' * r)) ∧
+      (∃ v : ℤ, (v = 1 ∨ v = -1) ∧ (p' : ℤ) ∣ nOrb p p' r s ε k - v * (p * s)) := by
+  obtain ⟨j, rfl | rfl⟩ := Nat.even_or_odd' k <;> cases ε
+  · rw [nOrb_even_false]
+    exact ⟨⟨-1, Or.inr rfl, ⟨2 * j * p' + s, by ring⟩⟩, ⟨1, Or.inl rfl, ⟨2 * j * p - r, by ring⟩⟩⟩
+  · rw [nOrb_even_true]
+    exact ⟨⟨1, Or.inl rfl, ⟨2 * j * p' - s, by ring⟩⟩, ⟨-1, Or.inr rfl, ⟨2 * j * p + r, by ring⟩⟩⟩
+  · rw [nOrb_odd_false]
+    exact ⟨⟨-1, Or.inr rfl, ⟨(2 * j + 2) * p' - s, by ring⟩⟩,
+      ⟨-1, Or.inr rfl, ⟨(2 * j + 2) * p - r, by ring⟩⟩⟩
+  · rw [nOrb_odd_true]
+    exact ⟨⟨1, Or.inl rfl, ⟨2 * j * p' + s, by ring⟩⟩, ⟨1, Or.inl rfl, ⟨2 * j * p + r, by ring⟩⟩⟩
+
+/-- `R ≡ ±r (mod p)` from `p ∣ R ∓ r`. -/
+theorem exists_of_dvd_pm {p r R : ℕ} (hr0 : 0 < r) (hr : r < p)
+    (h : (p : ℤ) ∣ (R : ℤ) - r ∨ (p : ℤ) ∣ (R : ℤ) + r) :
+    ∃ a : ℕ, R = a * p + r ∨ R = a * p + (p - r) := by
+  refine ⟨R / p, ?_⟩
+  have hdm := Nat.div_add_mod' R p
+  rcases h with h | h
+  · have hm : r % p = R % p := (Nat.modEq_iff_dvd.2 h)
+    rw [Nat.mod_eq_of_lt hr] at hm
+    left
+    omega
+  · have h' : (p : ℤ) ∣ (R : ℤ) - ((p - r : ℕ) : ℤ) := by
+      rw [Nat.cast_sub hr.le]
+      have := dvd_sub h (dvd_refl (p : ℤ))
+      rwa [show (R : ℤ) + r - p = R - (p - r) by ring] at this
+    have hm : (p - r) % p = R % p := (Nat.modEq_iff_dvd.2 h')
+    rw [Nat.mod_eq_of_lt (by omega : p - r < p)] at hm
+    right
+    omega
+
+/-- Reduction of `p'R - pS = ±n_μ` modulo `p` and modulo `p'` (l.2250–2253): `R ≡ ±r (mod p)`
+and `S ≡ ±s (mod p')`. -/
+theorem congr_of_reduce (hcop : Nat.Coprime p p') (hr0 : 0 < r) (hr : r < p) (hs0 : 0 < s)
+    (hs : s < p') {R S : ℕ} {n : ℤ}
+    (hn : (∃ u : ℤ, (u = 1 ∨ u = -1) ∧ (p : ℤ) ∣ n - u * (p' * r)) ∧
+      (∃ v : ℤ, (v = 1 ∨ v = -1) ∧ (p' : ℤ) ∣ n - v * (p * s)))
+    (hdiff : (p' : ℤ) * R - p * S = n ∨ (p' : ℤ) * R - p * S = -n) :
+    (∃ a : ℕ, R = a * p + r ∨ R = a * p + (p - r)) ∧
+      (∃ a : ℕ, S = a * p' + s ∨ S = a * p' + (p' - s)) := by
+  have hc : IsCoprime (p : ℤ) (p' : ℤ) := Nat.isCoprime_iff_coprime.2 hcop
+  obtain ⟨⟨u, hu, hdu⟩, ⟨v, hv, hdv⟩⟩ := hn
+  -- modulo `p`: `p ∣ p' (R - w r)` with `w = ±1`
+  have hR : ∃ w : ℤ, (w = 1 ∨ w = -1) ∧ (p : ℤ) ∣ (p' : ℤ) * ((R : ℤ) - w * r) := by
+    rcases hdiff with h | h
+    · refine ⟨u, hu, ?_⟩
+      rw [show (p' : ℤ) * ((R : ℤ) - u * r) = (n - u * (p' * r)) + p * S by linear_combination h]
+      exact dvd_add hdu (dvd_mul_right _ _)
+    · refine ⟨-u, by rcases hu with rfl | rfl <;> simp, ?_⟩
+      rw [show (p' : ℤ) * ((R : ℤ) - -u * r) = -(n - u * (p' * r)) + p * S by
+        linear_combination h]
+      exact dvd_add (dvd_neg.2 hdu) (dvd_mul_right _ _)
+  -- modulo `p'`: `p' ∣ p (S - w s)` with `w = ±1`
+  have hS : ∃ w : ℤ, (w = 1 ∨ w = -1) ∧ (p' : ℤ) ∣ (p : ℤ) * ((S : ℤ) - w * s) := by
+    rcases hdiff with h | h
+    · refine ⟨-v, by rcases hv with rfl | rfl <;> simp, ?_⟩
+      rw [show (p : ℤ) * ((S : ℤ) - -v * s) = p' * R - (n - v * (p * s)) by linear_combination -h]
+      exact dvd_sub (dvd_mul_right _ _) hdv
+    · refine ⟨v, hv, ?_⟩
+      rw [show (p : ℤ) * ((S : ℤ) - v * s) = p' * R + (n - v * (p * s)) by linear_combination -h]
+      exact dvd_add (dvd_mul_right _ _) hdv
+  obtain ⟨w, hw, hdw⟩ := hR
+  obtain ⟨w', hw', hdw'⟩ := hS
+  have h1 := hc.dvd_of_dvd_mul_left hdw
+  have h2 := hc.symm.dvd_of_dvd_mul_left hdw'
+  refine ⟨exists_of_dvd_pm hr0 hr ?_, exists_of_dvd_pm hs0 hs ?_⟩
+  · rcases hw with rfl | rfl
+    · exact Or.inl (by simpa using h1)
+    · exact Or.inr (by simpa using h1)
+  · rcases hw' with rfl | rfl
+    · exact Or.inl (by simpa using h2)
+    · exact Or.inr (by simpa using h2)
+
+/-- `0 < n_ν - |n_μ| < 2pp'` for every primitive arrow `μ → ν` (l.2254–2259). -/
+theorem nOrb_gap (hr0 : 0 < r) (hr : r < p) (hs0 : 0 < s) (hs : s < p') (hp : 0 < p)
+    (hp' : 0 < p') (ε : Bool) (k : ℕ) (ε' : Bool) :
+    0 < nOrb p p' r s ε' (k + 1) - |nOrb p p' r s ε k| ∧
+      nOrb p p' r s ε' (k + 1) - |nOrb p p' r s ε k| < 2 * p * p' := by
+  have a1 : (0 : ℤ) < (p' : ℤ) * r := by positivity
+  have a2 : (0 : ℤ) < (p : ℤ) * s := by positivity
+  have a3 : (p' : ℤ) * r < p * p' := by
+    have : (r : ℤ) < p := by exact_mod_cast hr
+    nlinarith
+  have a4 : (p : ℤ) * s < p * p' := by
+    have : (s : ℤ) < p' := by exact_mod_cast hs
+    nlinarith
+  obtain ⟨j, rfl | rfl⟩ := Nat.even_or_odd' k
+  · have a5 : (0 : ℤ) ≤ (j : ℤ) * p * p' := by positivity
+    have hle := le_abs_self (nOrb p p' r s ε (2 * j))
+    cases ε <;> cases ε' <;>
+      simp only [nOrb_even_false, nOrb_even_true, nOrb_odd_false, nOrb_odd_true] at hle ⊢ <;>
+      exact ⟨sub_pos.2 (abs_lt.2 ⟨by linarith, by linarith⟩), by linarith⟩
+  · have a5 : (0 : ℤ) ≤ (j : ℤ) * p * p' := by positivity
+    have e : 2 * j + 1 + 1 = 2 * (j + 1) := by ring
+    rw [e]
+    have hpos1 : 0 < 2 * (j : ℤ) * p * p' + ((p' : ℤ) * r + p * s) := by linarith
+    have hpos2 : 0 < (2 * (j : ℤ) + 2) * p * p' - ((p' : ℤ) * r + p * s) := by linarith
+    cases ε <;> cases ε' <;>
+      simp only [nOrb_even_false, nOrb_even_true, nOrb_odd_false, nOrb_odd_true,
+        abs_of_pos hpos1, abs_of_pos hpos2] <;> push_cast <;> constructor <;> linarith
+
+/-- `R < p` or `S < p'` from `n_ν - |n_μ| < 2pp'` (l.2259–2262). -/
+theorem small_of_gap (hp : 0 < p) (hp' : 0 < p') {R S : ℕ} {nμ nν : ℤ}
+    (hsum : (p' : ℤ) * R + p * S = nν)
+    (hdiff : (p' : ℤ) * R - p * S = nμ ∨ (p' : ℤ) * R - p * S = -nμ)
+    (hgap : nν - |nμ| < 2 * p * p') : R < p ∨ S < p' := by
+  have hpz : (0 : ℤ) < p := by exact_mod_cast hp
+  have hpz' : (0 : ℤ) < p' := by exact_mod_cast hp'
+  have hR : (p' : ℤ) * R < p' * p → R < p := fun h => by
+    exact_mod_cast lt_of_mul_lt_mul_left h hpz'.le
+  have hS : (p : ℤ) * S < p * p' → S < p' := fun h => by
+    exact_mod_cast lt_of_mul_lt_mul_left h hpz.le
+  rcases abs_cases nμ with ⟨ha, -⟩ | ⟨ha, -⟩ <;> rw [ha] at hgap <;> rcases hdiff with h | h
+  · exact Or.inr (hS (by linarith))
+  · exact Or.inl (hR (by linarith))
+  · exact Or.inl (hR (by linarith))
+  · exact Or.inr (hS (by linarith))
+
 theorem mod_of_congr {p r R : ℕ} (h : ∃ a : ℕ, R = a * p + r ∨ R = a * p + (p - r)) :
     R % p = r % p ∨ R % p = (p - r) % p := by
   obtain ⟨a, rfl | rfl⟩ := h
@@ -146,6 +295,29 @@ theorem arrowLabel_eq (hcop : Nat.Coprime p p') (hp : 0 < p) (hp' : 0 < p') {R S
       intro hd
       have hc : IsCoprime (p' : ℤ) (p : ℤ) := (Nat.isCoprime_iff_coprime.2 hcop).symm
       exact hS (hc.dvd_of_dvd_mul_left hd)
+    rw [if_neg hnd, e1, e2, Int.mul_ediv_cancel_left _ hp2', Int.mul_ediv_cancel_left _ hp2]
+
+/-- The label of Lemma 10.3(ii) is `arrowLabel`, by the paper's argument (l.2242–2247): if
+both signs made `n_ν ± n_μ` divisible by `2p'`, then `p' ∣ n_μ`. -/
+theorem arrowLabel_eq_of_not_dvd (hp : 0 < p) (hp' : 0 < p') {R S : ℕ} {nμ nν : ℤ}
+    (hsum : (p' : ℤ) * R + p * S = nν)
+    (hdiff : (p' : ℤ) * R - p * S = nμ ∨ (p' : ℤ) * R - p * S = -nμ)
+    (hμ : ¬ (p' : ℤ) ∣ nμ) : arrowLabel p p' nμ nν = ((R : ℤ), (S : ℤ)) := by
+  have hp2 : (2 * (p : ℤ)) ≠ 0 := by positivity
+  have hp2' : (2 * (p' : ℤ)) ≠ 0 := by positivity
+  unfold arrowLabel
+  rcases hdiff with h | h
+  · have e1 : nν + nμ = 2 * (p' : ℤ) * R := by linarith
+    have e2 : nν - nμ = 2 * (p : ℤ) * S := by linarith
+    rw [if_pos ⟨R, e1⟩, e1, e2, Int.mul_ediv_cancel_left _ hp2', Int.mul_ediv_cancel_left _ hp2]
+  · have e1 : nν + nμ = 2 * (p : ℤ) * S := by linarith
+    have e2 : nν - nμ = 2 * (p' : ℤ) * R := by linarith
+    have hnd : ¬ (2 * (p' : ℤ)) ∣ nν + nμ := by
+      intro hd
+      have h2 : 2 * (p' : ℤ) ∣ 2 * nμ := by
+        have h3 := dvd_sub hd (⟨R, e2⟩ : 2 * (p' : ℤ) ∣ nν - nμ)
+        rwa [show nν + nμ - (nν - nμ) = 2 * nμ by ring] at h3
+      exact hμ ((mul_dvd_mul_iff_left two_ne_zero).1 h2)
     rw [if_neg hnd, e1, e2, Int.mul_ediv_cancel_left _ hp2', Int.mul_ediv_cancel_left _ hp2]
 
 theorem momWt_neg (p p' : ℕ) (n : ℤ) : momWt p p' (-n) = momWt p p' n := by

@@ -66,10 +66,14 @@ theorem lem_bgg_arrows_of_cited (hJ : Cited_JantzenLayersOrbit) (hH : Cited_HJSN
     exact ht0 hb.symm
   refine ⟨ell_one_lt_two hr0 hr hs0 hs, fun ε k => ⟨hJ p p' r s b hset ε k, fun ε' => ?_, ?_⟩⟩
   · -- (ii) and (iii)
-    obtain ⟨R, S, hR, hS, hsum, hdiff, hcR, hcS, hsmall⟩ := arrow_data hr0 hr hs0 hs ε k ε'
+    -- existence from the consecutive-layer formulas (l.2246–2247)
+    obtain ⟨R, S, hR, hS, hsum, hdiff, -, -, -⟩ := arrow_data hr0 hr hs0 hs ε k ε'
+    -- (10.11)–(10.13) by reduction modulo `p`, `p'` and `0 < n_ν - |n_μ| < 2pp'` (l.2249–2262)
+    obtain ⟨hcR, hcS⟩ := congr_of_reduce hcop hr0 hr hs0 hs (nOrb_mod ε k) hdiff
+    have hsmall := small_of_gap hp hp' hsum hdiff (nOrb_gap hr0 hr hs0 hs hp hp' ε k ε').2
     have hRz : (0 : ℤ) < R := by exact_mod_cast hR
     have hSz : (0 : ℤ) < S := by exact_mod_cast hS
-    have hndS := not_dvd_of_congr hs0 hs hcS
+    have hnμ := nOrb_not_dvd hcop hr0 hr hs0 hs ε k
     have hμ : kacH R S b = muOrb p p' r s ε k := by
       rw [kacH_momWt hp hp' hb, muOrb]
       rcases hdiff with h | h
@@ -79,7 +83,7 @@ theorem lem_bgg_arrows_of_cited (hJ : Cited_JantzenLayersOrbit) (hH : Cited_HJSN
       rw [kacH_momWt hp hp' hb, muOrb, ← hsum]
       congr 1
       ring
-    refine ⟨R, S, hR, hS, arrowLabel_eq hcop hp hp' hsum hdiff hndS, hμ, hν, hsum, hdiff, ?_,
+    refine ⟨R, S, hR, hS, arrowLabel_eq_of_not_dvd hp hp' hsum hdiff hnμ.2, hμ, hν, hsum, hdiff, ?_,
       mod_of_congr hcR, mod_of_congr hcS, min_le_of_congr hcR, min_le_of_congr hcS, hsmall,
       box_clause hp hp' hsmall, ?_⟩
     · -- uniqueness of the label (l.2242–2247)
@@ -106,7 +110,11 @@ theorem lem_bgg_arrows_of_cited (hJ : Cited_JantzenLayersOrbit) (hH : Cited_HJSN
           · exact ⟨by linarith, by linarith⟩
       · exfalso
         have e : (p' : ℤ) * R' = p * S := by linarith
-        exact hndS (coprime_two_dvd hcop e).2
+        -- both signs would give `p' ∣ n_μ` (l.2244–2246)
+        refine hnμ.2 ?_
+        rcases hdiff with h | h
+        · exact ⟨R - R', by linear_combination e - h⟩
+        · exact ⟨R' - R, by linear_combination h - e⟩
     · -- `γ_{R,S}(b⋆) ≠ 0` (l.2262–2265)
       intro pc hpc1 hsing
       obtain ⟨-, -, -, -, hcross⟩ :=

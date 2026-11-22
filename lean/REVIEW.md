@@ -1303,3 +1303,21 @@ State after this entry: every result of paper.tex and sphere/paper.tex at 70bac5
 Lean theorem from `Cited_*` inputs only (author-side check by the main session, not a reviewer
 PASS).  Still open on the Lean side: the route repairs queued in the entries above (brief-phaseB.md
 item 5), where a Lean proof differs from the paper's argument without being forced to.
+
+## 2026-11-22T19:20Z — main session: route repairs RR1–RR3 (Part II, brief-phaseB.md item 5)
+
+Checked by the main session (`../runs/lean2/checkRR1.log`): `lem_bgg_arrows_of_cited`,
+`prop_bgg_cocycle`, `P2.thm_gen_rocha_caridi_of_cited` keep axioms [propext, Classical.choice,
+Quot.sound]; statement files unchanged; `lake build Virasoro` and `lake build Virasoro.PartIIWork`
+green.  The proofs now follow the paper at three places queued above:
+- RR1, Lemma 10.3(ii) uniqueness (l.2241–2247): `nOrb_not_dvd` (p ∤ n_μ, p′ ∤ n_μ from (10.5)),
+  `arrowLabel_eq_of_not_dvd` (if both signs made `n_ν ± n_μ` divisible by `2p′`, then
+  `p′ ∣ n_μ`), and the uniqueness step reduces to `p′ ∣ n_μ`; `p′ ∤ S` is no longer used there.
+- RR2, Lemma 10.3(iii) (l.2249–2262): (10.11)–(10.12) by reducing `p′R − pS = ±n_μ` modulo `p`
+  and `p′` (`nOrb_mod`, `congr_of_reduce`); (10.13) from `0 < n_ν − |n_μ| < 2pp′` for every
+  consecutive pair (`nOrb_gap`, the paper's eight differences) and `small_of_gap`.  The label
+  table `arrow_data` now supplies only existence with `R, S ≥ 1`, as in the paper (l.2246–2247).
+- RR3, Prop 12.1(ii) (l.2803–2822): `psiNode_ne_zero` evaluates the Gamma potential at `ϖ_μ`
+  directly; the arguments `1 + (±n_μ − jp)/p′` and `1 + m + (±n_μ − ip′)/p` are not integers
+  because `n_μ ≡ ±ps (mod p′)`, `n_μ ≡ ±p′r (mod p)` and `1 ≤ j ≤ m < min(s,p′−s)`,
+  `1 ≤ i ≤ k < min(r,p−r)`; the label `(R,S)` is no longer used there.
