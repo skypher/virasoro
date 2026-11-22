@@ -1015,3 +1015,36 @@ Route notes:
 - Main-session note on the stall: the agent wrote that the project has no operator algebra for
   ad(L₁)^p(L_μL_{−μ′}).  `VirEnv R c` (`Virasoro/Algebra.lean`) is that algebra (the enveloping
   algebra with c specialized, an associative R-algebra with `L_mul_L`); brief item 14 fixes its use.
+
+## 2026-11-22T09:50Z — hand-overs of run 23 and Part II run 6 (agents wound down on the user's instruction)
+
+The user asked the agents to wind down and hand over; both did.  Checked by the main session
+(`../runs/lean2/checkR23.log`, `../runs/lean2/checkP2R6.log`, each importing `Virasoro` and
+`Virasoro.PartIIWork`); axioms [propext, Classical.choice, Quot.sound] throughout; no forbidden
+tokens in the 16 new modules; no statement or cited file changed.  All Part II staging imports were
+moved into `PartII.lean`; `lake build Virasoro` green with everything landed
+(`../runs/lean2/land2-build.log`, 3882 jobs).  No new labelled result: 34 of 44.
+
+Run 23 (torus): Prop 6.8(ii) steps in namespace `H13C` (`pow_mul_eq_sum_ad` l.1316,
+`L1_pow_Lm1_pow` l.1317–1318, `gramWord_ones` l.1313–1322, `locBr_polyVal` l.1322–1332,
+`ward_pow` l.1337–1341, `L1_pow_mul_Lm1_pow` l.1342–1343, `mul_pow_eq_sum_nad` l.1334–1335);
+Prop 6.7 steps in namespace `ChainEval` (`moment_limit` l.1162–1164, `coeff_chainTN`
+l.1139–1141, the colliding chains l.1150–1156).  Its half-done `scratch/t3/Sec6ChainSlopes.lean`
+was fixed by the main session (three declarations) and compiles.  Route notes: l.1342–1343, products
+of the commuting factors 2L₀ + s as values of a polynomial at 2L₀ (forced: `VirEnv` is not
+commutative); l.1329–1332 and l.1162–1164, the paper's inductions and moment argument written out
+or in polynomial form.  Accepted.
+
+Part II run 6: Lemma 13.1 Steps 2 and 3 proved (`sub_tau_kernel_lift_of_cited`,
+`sub_tau_lattice_of_cited`, `orbit_length_two`, `tau_first_order_gram`,
+`sub_tau_depth_one_of_cited`); Lemma 13.1 reduced to Step 4,
+`P2.lem_degenerate_quotient_t_of_diag (…) (h4 : Stmt_sub_tau_diag_limit)`.  Sub-statements
+approved: `Stmt_sub_tau_kernel_lift`, `Stmt_sub_tau_deriv_chain`, `Stmt_sub_tau_depth_one`,
+`Stmt_sub_tau_lattice` (proved); `Stmt_sub_tau_diag_limit` (Step 4 for the lattice family) and
+`Stmt_sub_tau_ratio` ((13.3), second line, with the ratio Ω, l.2972–3023; the coefficient does not
+depend on the lift because χ_{R₂,S₂}(b⋆) is singular at μ) (open).  Route notes: l.2910–2913,
+independence of the descendants through `Cited_VermaHomInjective` in place of freeness of M over
+U(Vir₋); not forced, queued for route repair with the earlier `layer_kernel` instance.  The other
+differences (lattices in the Verma module over ℂ⟦X⟧, kernel identities over ℂ[b,b⁻¹] from infinitely
+many b, the simple-quotient clause of Lemma 10.3(i), division by the monic Δ − h_{R₂,S₂}) are forced
+or the paper's argument in the uniformizer X = b − b⋆.  Accepted.
