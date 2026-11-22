@@ -769,3 +769,47 @@ Route notes:
 - sphere l.386–397 (Theorem 4.7(iii)): only deg ψ_{N−m}(Δ+m) ≤ N − m is proved, which is what the
   degree count uses; the top coefficient of ψ_N from [q¹](16q/z) = 8 and [z¹]q(z) = 1/16, the same
   number as the paper's 16q/z = 1 + z/2 + O(z²).  Accepted.
+
+## 2026-11-22T06:41Z — Part II run 2 results (Lemma 11.3 and Theorem 9.1 proved, labelled)
+
+Checked by the main session (`../runs/lean2/checkP2R2.log`, a file importing `Virasoro` and
+`Virasoro.PartIIWork` together, so no name clash with the sphere tree):
+- `lem_joint_holomorphicity_of_cited (hK) (hH) : Stmt_lem_joint_holomorphicity`
+  (lem:joint-holomorphicity); the paper cites the Kac determinant (l.2509) and Prop 6.4 (l.2522),
+  which is proved from those two inputs;
+- `thm_descent_regularity_of_cited (hJ) (hH) (hU) (hF) (hK) (hI : Cited_VermaHomInjective) :
+  Stmt_thm_descent_regularity` (thm:descent-regularity), the cited inputs of Lemmas 10.3, 11.1,
+  11.3, Prop 10.2, Theorem 5.9 and `Cited_SingularUnique` (the silent step at l.2563–2567, paper
+  fix queued after Part II run 1);
+- the sub-statements `sub_joint_denominator`, `sub_orbit_regular`, `sub_pole_outside`,
+  `sub_irr_trace_unique`, `sub_vertex_radical_zero`, and the reductions `vertex_part_i_of_step`,
+  `cor_collision_free_of_trunc`.
+Axioms [propext, Classical.choice, Quot.sound].  No committed file changed; no forbidden tokens in
+the 11 new modules; `lake build Virasoro.PartIIWork` green (`logs/II-build-work3.log`, 3480 jobs).
+`PartIIWork.lean` is committed and is not yet imported by `Virasoro.lean`, to keep the other
+agent's whole-project builds unaffected; it moves into `PartII.lean` when no agent is building.
+31 of 44.
+
+Sub-statements, checked against the paper:
+- `Stmt_sub_vertex_step` (l.2423–2459): the induction step of Prop 11.2(i), from the four clauses at
+  i for all J^{(i)} families to the clauses at i + 1; `VertexClausesAt` is checked by an `example`
+  to be the body of part (i) of the frozen `Stmt_prop_jantzen_vertex`.  The paper's induction;
+  approved.
+- `Stmt_sub_truncated_recursion` (l.1975–1978, l.3153–3157): `TruncRecAt` is the fourth clause of
+  the frozen `CollisionFree`, compared character for character.  Approved.
+
+Route notes:
+- l.2510–2515 (Lemma 11.3): the Δ-leading coefficient of det G_N(c(b),Δ) is shown to be a unit of
+  ℂ[b,b⁻¹] (`kacLead_unit`), since `Cited_KacDeterminant` gives a nonzero constant for each b
+  without its dependence on b.  Forced; it is what the paper's step uses.
+- l.2525–2527: the finiteness of the shifted coefficient (Lemma 6.3) is already part of the Lean form
+  of the generic recursion.  Accepted.
+- l.2587–2603 (Theorem 9.1(ii)): the top-layer residue formula for F_N at a complex d, re-proved by
+  the steps of Theorem 5.9's proof (l.871–886), because the frozen Theorem 5.9 is over ℂ(d).
+  Forced; accepted.
+- Theorem 9.1(ii) relabelling (r,s) ↦ (p−r,p′−s) (l.2163–2165): forced by n₁ < pp′ in the frozen
+  Theorems 5.8–5.9.  Accepted.
+- l.1857–1858: T^irr well defined, by the Gram-matrix change of family modulo ker G_N.  The paper's
+  parenthesis (the form descends, so V_d(1) is an operator on L and its trace is defined) is enough
+  for a reader; Lean fills in.
+- Cor 9.4, the dual case through h_{r,s}(b) = h_{s,r}(b⁻¹): the paper's p ↔ p′ duality (l.3124).
