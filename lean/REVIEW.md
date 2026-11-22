@@ -987,3 +987,31 @@ Route notes:
   Kac determinant, Lemma 5.6 and Theorem 9.2.  Fills in.
 - l.2899–2903: the two-layer analogue of Prop 11.2(ii) for one summand in the basis {L_{−Z}χ},
   with G_M(c(b),h_{R,−S}(b)) invertible.  The paper's argument specialized; accepted.
+
+## 2026-11-22T09:10Z — run 22 results (Prop 6.8(i) proved; Prop 6.8(ii) reduced; Prop 6.9 reduced to the odd case)
+
+Checked by the main session (`../runs/lean2/checkR22.log`, with `Virasoro.PartIIWork` loaded):
+`sub_h13_lagrange`, `sub_h13_detD`, `sub_h13_integral (hK) : Stmt_sub_h13_integral` (all of
+clause (i) of Prop 6.8 now proved), `sub_h13_degree_of_chain`, `prop_h13_nonvanishing_of_chain
+(hK) (hH) (h : Stmt_sub_h13_degree_chain)`, `sub_two_term_nonzero_of_odd`; axioms [propext,
+Classical.choice, Quot.sound].  Committed files changed: import lines in `Virasoro.lean`; no
+forbidden tokens in the 6 new modules; build green (`logs/J2-build-all.log`, 3858 jobs).  No new
+labelled result: 34 of 44.
+
+Sub-statements, checked against the paper:
+- `Stmt_sub_h13_degree_chain` (l.1304–1378): for every r, [t^i Y^j] of the r-th term
+  (M!/2^M) Y^M Tr(D₀⁻¹(1 − G̃D₀⁻¹)^r ρ̃) is a polynomial in M of degree ≤ 2i + 2j for all M ≥ 0
+  (zero when 2i + 2j < 0); the consumer sums r ≤ i (l.1305–1306).  Approved.
+- `Stmt_sub_two_term_nonzero_odd` (l.1430–1565): the frozen statement with an odd prime ℓ ∣ p′,
+  the paper's reduction by b ↦ b⁻¹.  Approved.
+
+Route notes:
+- l.1299–1306: ℚ[Y,Y⁻¹][[t]] in place of ℚ(Y)[[t]]; the expansion lies there since D₀ is
+  invertible in it, and [t^i Y^j] with j ∈ ℤ is needed as a function.  Accepted.
+- l.1304–1305: (−t)^r D₀⁻¹(G₁D₀⁻¹)^r written D₀⁻¹(1 − G̃D₀⁻¹)^r, the paper's identity at l.1313.
+  Accepted.
+- l.1296–1299: all power sums by Faulhaber and the product coefficients by Newton's identities, the
+  tools the paper names at l.1352.  Accepted.
+- Main-session note on the stall: the agent wrote that the project has no operator algebra for
+  ad(L₁)^p(L_μL_{−μ′}).  `VirEnv R c` (`Virasoro/Algebra.lean`) is that algebra (the enveloping
+  algebra with c specialized, an associative R-algebra with `L_mul_L`); brief item 14 fixes its use.
