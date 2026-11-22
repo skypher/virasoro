@@ -1118,3 +1118,30 @@ have polynomial coefficients; (2) the paper's "finitely many chains contribute" 
 size ≤ `2(i+j)` (+`w₀` in the chain step); (3) the terms of `torus_ones` with `k > a₀` vanish on
 both sides (`a₀^{\underline{k}} = 0`) and are treated separately.  All three are the paper's
 argument in coordinates.  Accepted.
+
+## 2026-11-22T15:20Z — main session: Prop 6.9 and Cor 5.10 labelled
+
+Proved by the main session (`../runs/lean2/checkP69.log`):
+`prop_two_term_criteria_of_cited (hI) (hK) (hH) (hU) : Stmt_prop_two_term_criteria` (paper.tex
+l.1419–1565, Paper label: prop:two-term-criteria) and
+`cor_top_layer_sharp_of_cited (hJ) (hI) (hK) (hH) (hU) : Stmt_cor_top_layer_sharp` (l.892–917,
+Paper label: cor:top-layer-sharp), in `Sec6TTFrame` … `Sec6TTCase3`, `Sec6TTLabel`.  Axioms
+[propext, Classical.choice, Quot.sound]; no forbidden tokens; statement files unchanged;
+`lake build Virasoro` green (3934 jobs).  Labelled: 38 of 44.
+
+Route: the paper's (l.1428–1565).  `two_term_odd_of_core`: normalize `w^±_k` (`x = a·x̃`,
+`a = x(1^ℓ) ≠ 0`, Lemma 5.7), the factorization of `τ^±_k` into `𝒫_{R,S}`, the rational model at
+`b⋆` (`d_x = (x²−(p'−p)²)/(4pp')`) and `γ^±_k = [d^k]τ^±_k/(c_k(±ρ)^k)` (Prop 6.7) reduce `P_N ≢ 0`
+to `coreP = τ⁺/[d^k]τ⁺·H⁺ + (−1)^kτ⁻/[d^k]τ⁻·H⁻ ≠ 0` over `ℚ`.  Case 1 (`s ∈ {1,p'−1}`): the
+paper's solutions of `|p'a'±pl| = |p'−3p|` give `e_±`, `e₊ ≠ e₋`, and `H(d₁) ≠ 0` (Prop 6.8(iii)).
+Case 2: the pairing `(2jℓ+3ε, 2jℓ+ε)` for `ℓ ≥ 5` and the triples `{6j+1,6j+3,6j+5}` for `ℓ = 3`
+give the sign-independent `W`; the last sum vanishes (`m^±_k ≡ ±ps`); `M⁺ ≠ M⁻`.  Case 3: the
+`ε`-identity `∏(x²−x₁(ε)²)·G(−2R) = ∏(x²−x₂(ε)²)·G(2R)` (the `A ↦ −A` cancellation, exact in
+`ε`), cancelled by `ε^e` and evaluated at `ε = 0`, with the `v ↦ −v` cancellation, gives
+`ord_{d₂} = ord_{d₁}` per factor and `T_k = −m⁻((m⁻)²−p²)/(m⁺((m⁺)²−p²))`; (6.4) at `t₀ = −p'/p`,
+`Y^± = t₀²μ^±_k`, `e = v_ℓ(k)` gives `H_rat`.  Differences: (1) the paper's limit `ε → 0` is
+the polynomial identity in `ε` divided by `ε^e` and evaluated at `0` (same cancellations);
+(2) the `d₂`-order `k` follows from that identity rather than from a second count; (3) the
+convention `v_ℓ(0) = 0` replaces "skipping" vanishing factors in Case 2 (the paper's
+"both vanish" pairs contribute `0` on both sides).  All three are the paper's argument in
+coordinates.  Accepted.
