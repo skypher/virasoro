@@ -435,3 +435,35 @@ vacuously when none exists; pinning S₁^{(2)}, S₂^{(2)} needs the existence a
 and the equations L0 k S₂^{(2)} = k, L0 k S₁^{(2)} = −1, which are Lemma 3.3's content.  The
 paper's proof of 3.6 uses Lemma 3.3(ii) the same way.  Lemma 3.3 goes first; 3.6 and 3.7 follow
 from it.
+
+## 2026-11-22T00:20Z — run 13 results (sphere Lemma 3.3 (i)–(ii), Lemma 3.6 reduction)
+
+Checked by the main session (`../runs/lean2/checkR13.log`): `lem_lambda_expansion_of_limit (hF)
+(hK) (hJ2) (h5 : Stmt_sub_lam_limit) : Stmt_lem_lambda_expansion` and
+`lem_ext_exponents_of_linear (hF) (hK) (hJ1) (hJ2) (hlin : Stmt_sub_ext_linear) :
+Stmt_lem_ext_exponents`; `sub_lam_regular`, `sub_lam_order_zero`, `sub_lam_orders hF hK` at
+their types; axioms [propext, Classical.choice, Quot.sound]; frozen statements, cited inputs,
+`Saddle.lean` and `Fock.lean` unchanged since 31a4d61; no forbidden tokens; build green
+(`logs/N20-build-all.log`, 3653 jobs).  No label.
+
+Sub-statements (`Sphere/Proofs/Sec3LamSubs.lean`, `Sec3ExtExp.lean`):
+- `Stmt_sub_lam_ward`, `_regular`, `_order_zero`, `_orders`: the clauses of the frozen 3.3(i)–(ii),
+  split by proof step; all proved.
+- `Stmt_sub_lam_limit` (l.637–711): 3.3(iii) with 𝓘₀ = `I0def`, Φ_c^raw = `PhiCraw`,
+  Φ_j = S_j^{(2)}(σ) (the reading approved in the run 6 entry), for every expansion datum and
+  every saddle point; both are unique (`expansionData_unique`, Lemma 3.4), so the quantifiers
+  add nothing.  The limit is the frozen one verbatim.  Faithful, approved.
+- `Stmt_sub_ext_linear` (l.991–994): L0 k g(1) = −(k/2)(1−g(1)), L0 k g(−1) = ½(1−g(−1)), k ≥ 1,
+  as printed.  Approved.
+
+Route notes (paper is the authority):
+- l.513–514: rationality in λ of the Ward solution, which the paper states, is proved by
+  Cramer's rule over ℂ[λ] from Lemma 3.2(ii).  It fills in the paper's claim.
+- l.612–635: the universal series are defined as values at reference parameters, then the
+  paper's uniqueness argument gives the general formulas; `IsExpansionData` needs explicit
+  witnesses.  Same argument.
+- l.569–600, uniqueness and regularity: the paper uses injectivity of 𝒟_m(∞) on the lowest
+  polynomial degree and an invertible square minor with a left inverse regular in λ⁻¹; Lean
+  uses the top λ-power killed by every ∂_{u_k} and a descent on the t-order.  The agent's reason
+  (no chosen basis of the level spaces) does not hold: the monomials are a basis.  Queued for
+  route repair.
