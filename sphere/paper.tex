@@ -134,8 +134,10 @@ large-internal-dimension asymptotics: for every \(N\geq0\) and every
 \(\delta_{N,0}\) as \(\Delta\to\infty\).  The proof uses Feigin--Fuchs Fock
 oscillators, a half-pillow Wiener--Hopf saddle point and the Bergman-kernel
 evaluation \(\det(I-M(z)^2)^{-1/2}=(1-z)^{-1/8}\theta_3(q)^{-1}\) of a Gaussian
-determinant.  A Virasoro-diffeomorphism decomposition of the tensor product of
-two \(c=1\) Fock modules supplies the central-charge exponent.
+determinant.  The central-charge exponent follows from the orthogonal
+decomposition of the tensor product of two \(c=1\) Fock modules under the
+diagonal Virasoro action, and from a diffeomorphism that diagonalizes the
+transformed neutral wavefunction.
 
 Together with the generic simple-pole residues, this decay gives an exact
 finite confluence formula for \(H_N(c_\star,\Delta,\Delta_i)\) at every fixed
@@ -226,18 +228,23 @@ Section~\ref{sec:setup} fixes the normalizations.  The coefficient
 whereas \(H_N-\delta_{N,0}\) tends to zero as \(\Delta\to\infty\) and is
 therefore the sum of its principal parts.  Section~\ref{sec:asymp} proves this
 limit (Theorem~\ref{thm:large-delta}) at every
-\((c,\Delta_1,\dots,\Delta_4)\in\mathbb C^5\).  At \(c>1\) the Verma block is a
-unitary Fock pairing (Lemma~\ref{lem:fock-verma}), and
+\((c,\Delta_1,\dots,\Delta_4)\in\mathbb C^5\).  The computation starts at
+\(c=1+24\mu^2>1\), \(\Delta=\lambda^2+\mu^2\) and real external weights.  There
+the Verma block is a unitary Fock pairing (Lemma~\ref{lem:fock-verma}), and
 \(\lambda^{-2}\log F(\lambda\sigma;\lambda)\) is regular at
-\(\lambda=\infty\) (Lemma~\ref{lem:lambda-expansion}).  The limit is then a
-saddle-point value, which a half-pillow Wiener--Hopf factorization evaluates
-(Lemma~\ref{lem:saddle}), times the Gaussian determinant
-\(\det(I-M(z)^2)^{-1/2}=(1-z)^{-1/8}\theta_3(q)^{-1}\)
-(Lemma~\ref{lem:bergman-det}) and weight-dependent exponents.  Rational
-identities give the external-weight exponents (Lemma~\ref{lem:ext-exponents}).
-The central-charge exponent comes from the unitary orthogonal decomposition of
-the tensor product of two \(c=1\) Fock modules under a Virasoro diffeomorphism
-(Lemma~\ref{lem:central-charge}).
+\(\lambda=\infty\) (Lemma~\ref{lem:lambda-expansion}).  The saddle-point value
+\(\mathcal I_0(z)\), which a half-pillow Wiener--Hopf factorization evaluates
+(Lemma~\ref{lem:saddle}), gives the exponential \(e^{\lambda^2\mathcal I_0(z)}\)
+factored out of the cross-ratio block.  The remaining limit is the Gaussian
+determinant \(\det(I-M(z)^2)^{-1/2}=(1-z)^{-1/8}\theta_3(q)^{-1}\)
+(Lemma~\ref{lem:bergman-det}) times the exponentials of weight-dependent
+series.  Rational identities give the external-weight series
+(Lemma~\ref{lem:ext-exponents}).  The central-charge series follows from the
+orthogonal decomposition of the tensor product of two \(c=1\) Fock modules
+under the diagonal \(c=2\) Virasoro action, and from a diffeomorphism that
+diagonalizes the transformed neutral wavefunction
+(Lemma~\ref{lem:central-charge}).  The polynomial extension of
+Lemma~\ref{lem:fock-verma}(iii) then supplies complex parameters.
 
 Section~\ref{sec:confluence} derives the generic Zamolodchikov recursion
 (Proposition~\ref{prop:generic-recursion}) from Theorem~\ref{thm:large-delta}
@@ -715,9 +722,10 @@ Lemmas~\ref{lem:saddle}, \ref{lem:ext-exponents}
 and~\ref{lem:central-charge} below give \(\mathcal I_0=\log(16q(z)/z)\),
 \(\Phi_1=-4\log\theta_3(q(z))\), \(\Phi_2=-4\log\theta_4(q(z))\) and
 \(\Phi_c^{\mathrm{raw}}=\mathcal I_0+12\sum_{m\geq1}\log(1-q(z)^{2m})\), all in
-\(z\mathbb Q[[z]]\) because \(q(z)\in z\mathbb Q[[z]]\).  Those lemmas use
-only the limit identity~\eqref{eq:universal-limit} and the Gaussian
-evaluations above, and they establish the stated rationality.
+\(z\mathbb Q[[z]]\) because \(q(z)\in z\mathbb Q[[z]]\).  Where those proofs use
+this part of the lemma, they use the limit identity~\eqref{eq:universal-limit}
+and the Gaussian evaluations above.  Their explicit formulas establish the
+stated rationality.
 \end{proof}
 
 \subsection{Half-pillow saddle point and Bergman-kernel determinant}
@@ -860,9 +868,11 @@ being a finite linear combination of columns of \(M_2\).  The function
 \(|B_{m,n}|\leq C_\rho\rho^{-m-n}\) for every \(0<\rho<1\).  In particular the
 formal series
 \(\det(I-M(z)^2)^{-1/2}=\exp(\frac12\sum_{k\geq1}\frac1k\Tr(M(z)^{2k}))\) is
-well defined.  For sufficiently small \(|z|\) it agrees with the trace-class
-Fredholm determinant of the symmetrized matrix
-\(\widetilde M(z)_{m,n}=z^{(m+n)/2}B_{m,n}/\sqrt{mn}\).
+well defined.  Let \(\widetilde M(z)_{m,n}=z^{(m+n)/2}B_{m,n}/\sqrt{mn}\) be the
+symmetrized matrix.  For sufficiently small \(|z|\) the formal series equals
+\(\det_F(I-\widetilde M(z)^2)^{-1/2}\), with the branch equal to \(1\) at
+\(z=0\), where \(\det_F\) is the trace-class Fredholm determinant; this follows
+from the symmetry of \(B\) and the same trace expansion.
 
 Fix \(x_2\) with \(0<|x_2|<1\), and define the formal power series in \(z\),
 \(W(x_1,x_2):=\frac{1}{(x_1-x_2)^2}+W_{\mathrm{no}}(x_1,x_2)\), where
@@ -1149,7 +1159,8 @@ the adjoint of \(D_kU(W)=-l_k^{(2)}U(W)\) in real variables \(W\) yields
 \(f(x;W):=x\exp(-\sum_{m\geq1}W_m x^{-m})\), direct differentiation gives
 \(D_k(f(x;W))=-x^{1-k}f'(x;W)\), so \(f'(x;W)\alpha(f(x;W))\) solves the
 same system with the same initial value.  The solution is unique, by
-triangularity in the \(W\)-adic filtration and the injectivity of the \(D_k\),
+triangularity in the \(W\)-adic filtration and the joint injectivity of the
+family \((D_k)\) on each positive \(W\)-level,
 so \(U(W)^\dagger\alpha(x)(U(W)^\dagger)^{-1}=f'(x;W)\alpha(f(x;W))\) before
 specialization.
 
@@ -1231,8 +1242,11 @@ combining Lemmas~\ref{lem:lambda-expansion}--\ref{lem:central-charge} with
   \theta_3^{\frac{c-1}{2}-4(\Delta_1+\Delta_2+\Delta_3+\Delta_4)}\\
  &=\Bigl(\frac{16q}{z}\Bigr)^{-\Delta}\widetilde\Phi(c,\Delta,\Delta_i;q(z)).
 \end{align*}
-The right-hand side is the normalized prefactor of~\eqref{eq:H-def}, so
-\(\lim_{\Delta\to\infty}H(c,\Delta,\Delta_i;q)=1\) in \(\mathbb C[[q]]\), and
+The last expression is the prefactor \(\widetilde\Phi\) of~\eqref{eq:H-def}
+with its factor \((16q/z)^{\Delta}\) removed, and it does not depend on
+\(\Delta\).  Since \eqref{eq:H-def} gives \(\mathcal B=\widetilde\Phi H\), it
+follows that \(\lim_{\Delta\to\infty}H(c,\Delta,\Delta_i;q)=1\) in
+\(\mathbb C[[q]]\), and
 \(\lim_{\Delta\to\infty}H_N=\delta_{N,0}\) for all \(N\geq0\).
 Lemma~\ref{lem:fock-verma}(iii) extends this from \(c>1\) and real
 \(\Delta_i\) to all \((c,\Delta_1,\dots,\Delta_4)\in\mathbb C^5\).
@@ -1648,8 +1662,10 @@ For~\eqref{eq:top-H}, expand
 The prefactor is regular at \(x=0\):
 \(\widetilde\Phi(c_\star,\lambda+x,\Delta_i;q)^{-1}
 =\widetilde\Phi(c_\star,\lambda,\Delta_i;q)^{-1}+O(x)\).
-For \(m<\ell_k\) the coefficient \(\mathcal B_m\) has pole order below \(k\)
-at \(\Delta=\lambda\) and does not contribute to \([x^{-k}]\).  The
+For \(m<\ell_{k+1}\) the coefficient \(\mathcal B_m\) has pole order at most
+\(k\) at \(\Delta=\lambda\), so the \(O(x)\) term of the prefactor contributes
+nothing to \([x^{-k}]\).  For \(m<\ell_k\) the pole order is below \(k\), and
+\(\mathcal B_m\) does not contribute to \([x^{-k}]\) at all.  The
 prefactors at \(\lambda\) and at \(\mu^\pm_k\) are related by
 \[
  \widetilde\Phi(c_\star,\lambda,\Delta_i;q)^{-1}z(q)^{\ell^\pm_k}
@@ -1819,8 +1835,9 @@ with \(v\) an indeterminate.
    =\exp\bigl(-2\alpha v q-v^2q^2+O(vq^3,v^2q^4)\bigr).
   \]
   In the logarithm of the right-hand side, the monomials \(-2\alpha vq\) and
-  \(-v^2q^2\) have equal degree in \(v\) and in \(q\).  Every other monomial
-  \(v^aq^b\) has \(a<b\).  Thus
+  \(-v^2q^2\) have equal degree in \(v\) and in \(q\).  The remaining
+  \(v\)-independent factor is \(1+O(q)\).  Every other monomial \(v^aq^b\) has
+  \(a<b\).  Thus
   \(f(v):=H_M(c_\star,\mu,\mu,0,\Delta_3(v),\Delta_4(v))\) is a polynomial in
   \(v\) of degree at most \(M\).  Let \(H_M(x)\) denote the \(M\)-th
   physicist's Hermite polynomial, so that
@@ -1951,12 +1968,18 @@ Their ratio is \(\gamma_5=-11200/3\).
 
 \section{Scope and outlook}\label{sec:scope}
 
-The pole-order results of Section~\ref{sec:jantzen} concern interior Kac
-weights at minimal-model charges.  Non-interior Kac weights and the
-logarithmic charges \(c_\star=1,25\) are not treated here.  For the weights
-treated, Theorem~\ref{thm:top-layer} gives the leading Laurent coefficient at
-each pole; intrinsic formulas for the subleading Laurent coefficients would
-extend it.  Computing the irreducible minimal-model sphere blocks is a
+The confluence theorem covers every \(b_\star\in\mathbb C^\times\), and the
+large-\(\Delta\) theorem every complex \(c\).  The pole-order results of
+Section~\ref{sec:jantzen} concern interior Kac weights at minimal-model
+charges.  Pole orders at non-interior Kac weights and at the logarithmic
+charges \(c_\star=1,25\) are not treated here.  At positive depth,
+Theorem~\ref{thm:top-layer} gives the coefficient of
+\((\Delta-\lambda)^{-j_N(\lambda)}\).  Theorems~\ref{thm:sharp-B}
+and~\ref{thm:sharp-H} make it the leading Laurent coefficient over the
+rational function field of the external weights; at a specialization of the
+external weights it may vanish while a lower-order pole survives.  Intrinsic
+formulas for the subleading Laurent coefficients would extend
+Theorem~\ref{thm:top-layer}.  Computing the irreducible minimal-model sphere blocks is a
 separate problem.  For the torus one-point function, the irreducible traces
 are treated in~\cite[Sections~9--14]{PolzerTorus2026}.
 
@@ -1977,8 +2000,8 @@ of Section~\ref{sec:asymp} at low orders.  They check the fixed-\(b_\star\)
 confluent recursion of Section~\ref{sec:confluence} through level seven at
 \((p,p')=(2,3)\), \((2,5)\) and \((3,4)\), and at levels one to three at the
 irrational charge \(b_\star^2=\sqrt2\).  The scripts \texttt{exact\_\allowbreak sphere\_\allowbreak block.py} and
-\texttt{audit\_\allowbreak sphere\_\allowbreak top\_\allowbreak layer.py} reconstruct the blocks through level
-seven.  The first checks the \(c=0\) coefficient of
+\texttt{audit\_\allowbreak sphere\_\allowbreak top\_\allowbreak layer.py} reconstruct the blocks in
+selected cases through level seven, at fixed external weights.  The first checks the \(c=0\) coefficient of
 Proposition~\ref{prop:c0-example} at \(N=5\)
 against~\cite[eq.~(3.24)]{Ribault2019}, and both check \(\gamma=-700700\) at
 \(\lambda=\tfrac12\), \(N=7\).  The Ising norms at levels ten and eleven are
@@ -1986,7 +2009,8 @@ checked against the layer-coefficient formula only by the torus paper's
 script \texttt{tools/\allowbreak audit\_\allowbreak top\_\allowbreak layer.py}.  The script
 \texttt{audit\_\allowbreak sphere\_\allowbreak top\_\allowbreak layer.py} also evaluates the witness polynomials
 of Theorems~\ref{thm:sharp-B} and~\ref{thm:sharp-H} through shifted degree
-\(M=4\); it does not reconstruct \(\mathcal B_N\) or \(H_N\) at level \(N\).
+\(M=4\) in selected cases; these witness checks do not reconstruct the
+level-\(N\) blocks \(\mathcal B_N\) or \(H_N\).
 
 {\small
 \begin{thebibliography}{GRSS22}
