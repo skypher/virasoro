@@ -134,3 +134,13 @@ import Virasoro.Sphere.Proofs.Sec3GaussDet
 import Virasoro.Sphere.Proofs.Sec3GaussRational
 import Virasoro.Sphere.Proofs.Sec3GaussCharged
 import Virasoro.Sphere.Proofs.Sec3GaussStepThree
+import Virasoro.Sphere.Proofs.Sec3CovAlg
+import Virasoro.Sphere.Proofs.Sec3CovStable
+import Virasoro.Sphere.Proofs.Sec3CovEval
+import Virasoro.Sphere.Proofs.Sec3GaussCovFinal
+import Virasoro.Sphere.Proofs.Sec3RationalC
+import Virasoro.Sphere.Proofs.Sec3ExpLog
+import Virasoro.Sphere.Proofs.Sec3CentralSubs
+import Virasoro.Sphere.Proofs.Sec3CentralFinal
+import Virasoro.Sphere.Proofs.Sec3FpowExp
+import Virasoro.Sphere.Proofs.Sec3LargeDelta

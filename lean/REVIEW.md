@@ -542,3 +542,50 @@ Route notes:
   the truncation `PhiK N` and the truncated saddle equation.  Fills in the paper.
 - l.684–706 (λ¹ cancellation by ι-oddness, value at t = 0, expectation of the linear
   exponential): follow the paper.
+
+## 2026-11-22T03:19Z — run 16 results (Lemma 3.3(iii) Gaussian evaluation proved; Lemma 3.7 Step 4 and Theorem 3.1 from Lemma 3.7)
+
+Checked by the main session (`../runs/lean2/checkR16.log`): `sub_gauss_cov (hF) (hK) :
+Stmt_sub_gauss_cov`, `sub_lam_gauss (hF) (hK) : Stmt_sub_lam_gauss`,
+`sub_lam_rational_c_of_central (hF) (hK) (hJ2) (h37)`, `lem_lambda_expansion_of_central (hF) (hK)
+(hJ1) (hJ2) (h37) : Stmt_lem_lambda_expansion`, `lem_central_charge_of_c2 (hF) (hK) (hJ1) (hJ2) (h :
+Stmt_sub_c2_decomp) : Stmt_lem_central_charge`, `thm_large_delta_of_central`, `thm_large_delta_of_c2`;
+axioms [propext, Classical.choice, Quot.sound]; no committed file changed except imports in
+`Virasoro/Sphere.lean` (`../runs/lean2/r16-stmtdiff.log` empty); no forbidden tokens in the ten new
+modules; build green (`logs/V4-build-all.log`, 3694 jobs).  No paper result has a labelled theorem
+yet; Lemmas 3.3, 3.7 and Theorem 3.1 now rest on `Stmt_sub_c2_decomp` alone.  19 of 44.
+
+Non-circularity: `Stmt_sub_lam_rational_c` is proved only from `Stmt_lem_central_charge`, and
+`lem_central_charge_of_c2` takes only the cited inputs and `Stmt_sub_c2_decomp`, so Lemma 3.7 does
+not use the rationality of Φ_c^raw.
+
+Sub-statement `Stmt_sub_c2_decomp` (`Sec3CentralSubs.lean`, Steps 1–3 of the proof of Lemma 3.7,
+paper l.1029–1156).  Checked against the paper:
+- (3.8) coefficientwise: coeff_N(det^{−1/2} e^{λ²𝓘₀} det^{−1/2}) = ∑_{n≤N} c_n(λ) ℬ_{N−n}(2, λ²+n,
+  1/8), G_charged and G_neutral entered by their values (l.1037–1045), (16q/z)^{λ²} = e^{λ²𝓘₀} by
+  Lemma 3.4(iii).  The paper has every λ > 0; the sub-statement asks for all large λ at each N, which
+  is what Step 4 uses (λ → ∞ at fixed order, l.1158–1161).  Consumer strength; accepted.
+- c_n(λ) → c_n^∞ (l.1105–1108).  As printed.
+- (∑ 16ⁿ c_n^∞ qⁿ)² ∏(1 − q^{2m}) = 1 in place of ∑ 16ⁿ c_n^∞ qⁿ = ∏(1 − q^{2m})^{−1/2}
+  (l.1148–1155).  Step 4 then takes the 12th power of a square where the paper takes the 24th power
+  of a square root; the proof of the sub-statement still has to compute the series as the paper
+  does.  Accepted.
+Approved.  Its docstring line numbers are two to five lines off the paper at 5040b6d (e.g. Step 4
+starts at l.1158, not l.1156); correct them when the file is next edited.
+
+Route notes:
+- l.669–675: the stabilization uses the row bound O(z^m) for Cov(U_m, ·), weaker than the paper's
+  displayed O(z^{m+n}) and all the paper's argument needs.  Same argument; accepted.
+- l.703–706: symmetry of the Neumann covariance (from B_{m,n} = B_{n,m}), implicit in the paper.
+  Fills in.
+- l.1174–1176: Lean proves exp((Φ₁+Φ₂)/8) = det(I − M²)^{−1/2} by comparing 8th powers of
+  series with constant term 1 (`exp_Phi_eighth`); the paper takes logs.  Not forced (`exp_smul_log`
+  now exists); queued for route repair (brief, order of work item 5).
+- l.1186–1198 (Theorem 3.1): the paper's composition, done in log form (`Linf_subst`).  Follows the
+  paper.
+
+Representation choices for ℋ_λ and the Step 1–3 objects: fixed by the main session in the brief
+(`../runs/lean2/brief-phaseB.md`, "Sphere §3: representation choices", item 11): ℋ_λ = Fock ⊗[ℂ]
+Fock as printed, L^tot by `TensorProduct.map`, the product form, `MvPolynomial.tensorEquivSum`
+for products of the two variable sets, U(W) levelwise, α(x) coefficientwise in x, ∮ as the formal
+residue.
