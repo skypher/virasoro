@@ -738,3 +738,34 @@ Route notes:
   χ_{p−r,p′−s}(b⋆) up to scalars through `Cited_SingularUnique`, which the paper uses without
   saying so (recorded for the prose-edit pass, receipt.md); the unlabelled case by
   (r,s) ↦ (p−r,p′−s), forced by `MinimalSetting` in `Cited_JantzenLayersOrbit`.
+
+## 2026-11-22T06:39Z — run 19 results (sphere Prop 4.4 and Theorem 4.7 proved, labelled)
+
+Checked by the main session (`../runs/lean2/checkR19.log`): `Sphere.prop_generic_recursion_of_cited
+(hF) (hK) (hJ1) (hJ2) (hH : Cited_HJSNormalizations) (hFus : Cited_SphereFusionPolynomial) :
+Sphere.Stmt_prop_generic_recursion` (prop:generic-recursion, `Sec4GenericFinal.lean`) and
+`Sphere.thm_confluence_of_cited (same hypotheses) : Sphere.Stmt_thm_confluence` (thm:confluence,
+`Sec4PolyPart.lean`), and `sub_confluence_poly_part (hF) (hK) (hJ1) (hJ2)`; axioms [propext,
+Classical.choice, Quot.sound].  The hypotheses are the cited inputs of the results the proofs use
+(Theorem 3.1, Prop 4.3).  Committed files changed: imports in `Virasoro/Sphere.lean` only
+(`../runs/lean2/r19-stmtdiff.log` empty); no forbidden tokens in the 12 new modules; build green
+(`logs/R4-build-all.log`, 3772 jobs).  29 of 44.
+
+Sub-statement `Stmt_sub_confluence_poly_part` (`Sec4ConflFinal.lean`, l.1385–1388, 1421–1422): the
+third clause of the frozen `Stmt_thm_confluence`, character for character (compared).  Approved.
+
+Route notes:
+- sphere l.1300–1307 (Prop 4.4): the residue through `residue_inverse` (kernel = image of ι,
+  determinant order p(M), first crossing form), as the landed proof of torus Prop 6.4 does; the
+  sphere paper takes it from torus Lemma 5.4 (l.1306–1308), and the torus paper's Prop 6.4 now
+  does the same with k = 1.  Not forced (`lem_top_coefficient` is proved); queued for route repair
+  for both propositions (brief item 5).
+- sphere l.1317–1318: the degree form deg P_N < deg det G_N in place of lim H_N = 0.  Both are
+  clauses of Theorem 3.1 as printed (l.411–414), which the paper cites here.  Accepted.
+- sphere l.1392–1393 (Theorem 4.7): Prop 4.4 re-run over any field at a transcendental b, since
+  the frozen Prop 4.4 quantifies over complex b only.  Forced; accepted.
+- sphere l.1405–1411: the t⁰ coefficient extracted directly (`pole_support`); the paper first
+  shows each C_{λ,k}(t) holomorphic by uniqueness of partial fractions.  Not forced; queued.
+- sphere l.386–397 (Theorem 4.7(iii)): only deg ψ_{N−m}(Δ+m) ≤ N − m is proved, which is what the
+  degree count uses; the top coefficient of ψ_N from [q¹](16q/z) = 8 and [z¹]q(z) = 1/16, the same
+  number as the paper's 16q/z = 1 + z/2 + O(z²).  Accepted.

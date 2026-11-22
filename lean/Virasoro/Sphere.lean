@@ -176,3 +176,6 @@ import Virasoro.Sphere.Proofs.Sec3C2Step3Parts
 import Virasoro.Sphere.Proofs.Sec3C2DiagFinal
 import Virasoro.Sphere.Proofs.Sec3C2DiagNorm
 import Virasoro.Sphere.Proofs.Sec3Headline
+import Virasoro.Sphere.Proofs.Sec4GenericFinal
+import Virasoro.Sphere.Proofs.Sec4ConflFinal
+import Virasoro.Sphere.Proofs.Sec4PolyPart
