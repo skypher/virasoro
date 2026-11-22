@@ -474,8 +474,11 @@ Fix \(\mu>0\), \(\Delta_1,\dots,\Delta_4\in\mathbb R\), and \(N\geq0\).
 \(1<c<25\) then \(b=e^{i\theta}\) with \(\theta\in(0,\pi/2)\); then
 \(h_{r,r}=\frac14(1-r^2)Q^2\leq0<\Delta\), while for \(r\neq s\) one has
 \(\operatorname{Im}((rb+sb^{-1})^2)=(r^2-s^2)\sin(2\theta)\neq0\) so
-\(h_{r,s}\notin\mathbb R\).  Thus \(\det G_N(c,\Delta)\neq0\) for all
-\(N\geq0\), so \(M(c,\Delta)\) is irreducible and unitary, and the
+\(h_{r,s}\notin\mathbb R\).  By the Kac determinant
+formula~\cite[Theorem~4.2]{IoharaKoga2011}, \(\det G_N(c,\Delta)\) vanishes
+only at the weights \(h_{r,s}\) with \(rs\leq N\), so
+\(\det G_N(c,\Delta)\neq0\) for all \(N\geq0\).  Hence \(M(c,\Delta)\) is
+irreducible and unitary, and the
 intertwiner \(L_{-Y}v_\Delta\mapsto l_{-Y}1\) is a unitary isomorphism
 because \(\dim\mathcal F_{\mu,\lambda,N}=p(N)=\dim M(c,\Delta)_N\).
 
@@ -491,9 +494,10 @@ solution to the Ward equations with \(F_0=1\) and equals the image of
 real, \(\mathcal B_N=\langle w_N^{(4,3)},w_N^{(1,2)}\rangle\) equals the
 stated Fock pairing.
 
-(iii) Since \(\det G_m\mid\det G_N\) for \(m\leq N\) and
-\(\widetilde\Phi^{-1}\) has polynomial coefficients in
-\((c,\Delta,\Delta_i)\), we have
+(iii) By the Kac determinant formula~\cite[Theorem~4.2 and
+equations (4.16)--(4.21)]{IoharaKoga2011}, \(\det G_m\mid\det G_N\) for
+\(m\leq N\).  Since \(\widetilde\Phi^{-1}\) has polynomial coefficients in
+\((c,\Delta,\Delta_i)\), it follows that
 \(H_N(c,\Delta,\Delta_i)=P_N(c,\Delta,\Delta_i)/\det G_N(c,\Delta)\) with
 \(P_N\in\mathbb Q[c,\Delta,\Delta_1,\dots,\Delta_4]\), while
 \(\det G_N=K_N\Delta^{d_N}+O(\Delta^{d_N-1})\) (\(K_N>0\)).  For
@@ -700,12 +704,18 @@ graded \(z\)-filtration as
 with \(O(\lambda^{-1})\) coefficientwise in \(z\).  Evaluating the finite
 centered Gaussian expectation of the linear-in-\((U,V)\) exponential yields
 \(\exp(\mu^2\Psi_1(z))\) (half the covariance contraction of the gradient of
-\(\widetilde S^{(1)}\)), where \(\Psi_1\in z\mathbb Q[[z]]\) is independent of
+\(\widetilde S^{(1)}\)), where \(\Psi_1\in z\mathbb C[[z]]\) is independent of
 \((\mu,\Delta_i)\).  Using \(\iota\)-evenness of \(S^{(2)}\) to identify
 \(\widetilde S^{(2)}(\bar\sigma_*)\) and setting
 \(\Phi_c^{\mathrm{raw}}(z):=2S^{(2)}_c(\sigma_*(z))+\Psi_1(z)\),
 \(\Phi_j(z):=S^{(2)}_j(\sigma_*(z))\) (\(j=1,2\)) yields
-\eqref{eq:universal-limit} modulo \(z^{N+1}\).
+\eqref{eq:universal-limit} modulo \(z^{N+1}\).  The four series have rational
+coefficients.  Lemmas~\ref{lem:saddle}, \ref{lem:ext-exponents}
+and~\ref{lem:central-charge} below use only parts~(i) and~(ii) and
+\eqref{eq:universal-limit}, and they give \(\mathcal I_0=\log(16q(z)/z)\),
+\(\Phi_1=-4\log\theta_3(q(z))\), \(\Phi_2=-4\log\theta_4(q(z))\) and
+\(\Phi_c^{\mathrm{raw}}=\mathcal I_0+12\sum_{m\geq1}\log(1-q(z)^{2m})\), all in
+\(z\mathbb Q[[z]]\) because \(q(z)\in z\mathbb Q[[z]]\).
 \end{proof}
 
 \subsection{Half-pillow saddle point and Bergman-kernel determinant}
@@ -818,7 +828,7 @@ identity
  H(w)=1-g_*(w)+i\sum_{n=1}^\infty nt_{*,n}(w^n-w^{-n})
 \]
 therefore holds on that annulus; evaluating at \(w=1\) (\(p(1)=1\)) and
-\(w=-1\) (\(p(-1)=\infty\)) kills the sum and gives
+\(w=-1\) (\(p(-1)=\infty\)) kills the sum and gives, by~\eqref{eq:jacobi-1},
 \(1-g_*(1)=H(1)=\theta_4^{-2}\) and \(1-g_*(-1)=H(-1)=\theta_3^{-2}\).
 \end{proof}
 
@@ -1027,8 +1037,9 @@ of two \(c=1\) Fock modules (oscillators \(v_m\) of weight \(\lambda^2\),
 \(c=2\) Virasoro action \(L_k^{\mathrm{tot}}=l_k^{(1)}+l_k^{(2)}\).
 
 \emph{Step 1 (Exact \(c=2\) decomposition).}  At \(\mu=0\) and
-\(\Delta_1=\Delta_2=\frac1{16}\), Lemma~\ref{lem:lambda-expansion}(ii) and
-Lemma~\ref{lem:saddle}(i) show that the exact finite-\(\lambda\) Fock Ward
+\(\Delta_1=\Delta_2=\frac1{16}\), the formulas~\eqref{eq:AB-gf},
+equation~\eqref{eq:S-pde} at \(\mu=0\) and Lemma~\ref{lem:saddle}(i) show
+that the exact finite-\(\lambda\) Fock Ward
 equations \(l_k^{(1)}F_1=(l_0^{(1)}+\frac{k-1}{16})F_1\) and
 \(l_k^{(2)}F_2=(l_0^{(2)}+\frac{k-1}{16})F_2\) are solved identically by the
 pure Gaussians \(F_1(v)=\exp(\lambda\sum A_mv_m+\sum B_{m,n}v_mv_n)\) and
