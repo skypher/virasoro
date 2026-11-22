@@ -35,11 +35,11 @@ theorem evLam_wtL {b : ℂ} (hb : b ≠ 0) (β : Virasoro.P2.Lam) : evLam b hb (
     evLam_cst]
   field_simp
 
-theorem gammaY_map {R S : Type*} [CommRing R] [CommRing S] (f : R →+* S) (Δ Δa Δb : R) :
+theorem gammaY_ringHom {R S : Type*} [CommRing R] [CommRing S] (f : R →+* S) (Δ Δa Δb : R) :
     ∀ w : List ℕ, f (gammaY Δ Δa Δb w) = gammaY (f Δ) (f Δa) (f Δb) w
   | [] => by simp [gammaY]
   | y :: w => by
-    simp only [gammaY, map_mul, map_sub, map_add, map_natCast, gammaY_map f Δ Δa Δb w]
+    simp only [gammaY, map_mul, map_sub, map_add, map_natCast, gammaY_ringHom f Δ Δa Δb w]
 
 variable (βμ β₃ β₄ : ℂ)
 
@@ -83,7 +83,7 @@ theorem blockAt_eq {b : ℂ} (hb : b ≠ 0) (n : ℕ) (hdet : (gram (kacC b) (wt
     rw [← gram_map, evLam_cLam hb, μL, evLam_wtL hb, evLam_cst hb]
   have hadj := congrFun (congrFun (RingHom.map_adjugate (evLam b hb) (gram cLam (μL βμ) n)) Y) Z
   rw [RingHom.mapMatrix_apply, Matrix.map_apply, RingHom.mapMatrix_apply, hG] at hadj
-  rw [map_mul, map_mul, hadj, gammaY_map, gammaY_map, μL, evLam_wtL hb, evLam_cst hb,
+  rw [map_mul, map_mul, hadj, gammaY_ringHom, gammaY_ringHom, μL, evLam_wtL hb, evLam_cst hb,
     evLam_ΔeL βμ β₃ β₄ hb, evLam_ΔeL βμ β₃ β₄ hb, evLam_ΔeL βμ β₃ β₄ hb, evLam_ΔeL βμ β₃ β₄ hb,
     Matrix.inv_def, Ring.inverse_eq_inv', Matrix.smul_apply, smul_eq_mul]
   field_simp
