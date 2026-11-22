@@ -172,6 +172,7 @@ import Virasoro.Proofs.Sec6H13Lip
 import Virasoro.Proofs.Sec6TauFactor
 import Virasoro.Proofs.Sec6H13Integral
 import Virasoro.Proofs.Sec6H13Assembly
+import Virasoro.Proofs.Sec6H13Label
 import Virasoro.Proofs.Sec6TwoTermSwap
 import Virasoro.Proofs.Sec6H13ChainSl2
 import Virasoro.Proofs.Sec6ChainSteps

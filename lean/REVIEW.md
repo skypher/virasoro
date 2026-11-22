@@ -1091,3 +1091,30 @@ comes from the Kac formula (the paper's "D_e(0,W,Y) = W^e·unit").  Differences:
 `b`-scaling of the chain sum is realised by evaluating the germ at `(2b⋆w, 2b⋆y)` (paper l.1139:
 `T^b = T_N(W/(2b⋆), Y/(2b⋆))`); (2) the lemma is proved for every level `N`, the statement uses it at
 `ℓ^±_k`.  Both are the paper's argument in coordinates.  Accepted.
+
+## 2026-11-22T13:50Z — main session: Prop 6.8 labelled (Stmt_sub_h13_degree_chain proved)
+
+Proved by the main session (`../runs/lean2/checkP68.log`):
+`H13T.sub_h13_degree_chain : Stmt_sub_h13_degree_chain` (paper.tex l.1304–1378), in
+`Sec6H13TGood`, `Sec6H13TProd`, `Sec6H13TGram`, `Sec6H13TTorus`, `Sec6H13TBr`, `Sec6H13TRho`,
+`Sec6H13TGF`, `Sec6H13TPart`, `Sec6H13TStep`, `Sec6H13TChain`, `Sec6H13TRhoEnd`, `Sec6H13TFinal`.
+Then `prop_h13_nonvanishing_of_cited (hK) (hH) : Stmt_prop_h13_nonvanishing` (`Sec6H13Label`,
+Paper label: prop:h13-nonvanishing), via `prop_h13_nonvanishing_of_chain`.  Axioms [propext,
+Classical.choice, Quot.sound]; no forbidden tokens in the new modules; statement files unchanged;
+`lake build Virasoro` green (3920 jobs).  Labelled: 36 of 44.
+
+Route: the paper's (l.1306–1378) in `ℚ[Y,Y⁻¹]⸨t⸩` with `c = 6/t + 13 + 6t`, `Δ = Y/t²`,
+`d = −2/t + ζ`.  A family is good (`Good G D V`) when every `[t^iY^j]` is a polynomial in `M` of
+degree ≤ `2(i+j) − D` and vanishes for `2(i+j) < V`; products add `(D, V)`.  Partitions are
+`(1^{M−|μ|}, μ)` with all parts of `μ` at least 2 (l.1306–1309).  The E-step (l.1313–1332, `gram_step`) is
+good from `|μ'|` with valuation `max(0, |μ|−|μ'|)`, the binomial `C(M−|μ'|, p)` vanishing on
+`[|μ'|, |μ'|+p)` (root sets, l.1374–1378); the chain entries `K̂_s` follow by induction on `s`.  The
+ρ̃ end (l.1333–1352) is the adjoint-Ward expansion `torus_ones` with the bracket of degree
+`ℓ_b + ℓ_k` in `(c, Δ, d)` (`torBr_deg`).  Differences: (1) the factor `M^{\underline{w₀}}` is
+taken out of the ρ̃ end and the two descending factorials `(M−w_b)^{\underline{p₁+r}}`,
+`(M−w_k)^{\underline{k+q+s}}` serve as the root polynomial below the level where the three products
+have polynomial coefficients; (2) the paper's "finitely many chains contribute" is the lemma
+`GF.of_sum_sz`: the valuation of a term is at least its size, so each coefficient sees the terms of
+size ≤ `2(i+j)` (+`w₀` in the chain step); (3) the terms of `torus_ones` with `k > a₀` vanish on
+both sides (`a₀^{\underline{k}} = 0`) and are treated separately.  All three are the paper's
+argument in coordinates.  Accepted.
