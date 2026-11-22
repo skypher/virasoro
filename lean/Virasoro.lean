@@ -175,6 +175,7 @@ import Virasoro.Proofs.Sec6H13Assembly
 import Virasoro.Proofs.Sec6TwoTermSwap
 import Virasoro.Proofs.Sec6H13ChainSl2
 import Virasoro.Proofs.Sec6ChainSteps
+import Virasoro.Proofs.Sec6ChainSlopes
 import Virasoro.Proofs.Sec8IsingPoles
 import Virasoro.Proofs.Sec8IsingRows
 import Virasoro.Proofs.Sec8Ising11PP
