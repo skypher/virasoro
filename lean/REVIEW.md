@@ -1321,3 +1321,15 @@ green.  The proofs now follow the paper at three places queued above:
   directly; the arguments `1 + (±n_μ − jp)/p′` and `1 + m + (±n_μ − ip′)/p` are not integers
   because `n_μ ≡ ±ps (mod p′)`, `n_μ ≡ ±p′r (mod p)` and `1 ≤ j ≤ m < min(s,p′−s)`,
   `1 ≤ i ≤ k < min(r,p−r)`; the label `(R,S)` is no longer used there.
+
+## 2026-11-22T19:29Z — main session: route repair RR4 (sphere Lemma 3.7, Step 4)
+
+Checked by the main session (`../runs/lean2/checkRR4.log`): `Sphere.lem_central_charge_of_cited`,
+`Sphere.thm_large_delta_of_cited` keep axioms [propext, Classical.choice, Quot.sound]; statement
+files unchanged; `lake build Virasoro` green.  `exp_Phi_eighth` (sphere l.1174–1176) now follows
+the paper: `(Φ₁+Φ₂)/8 = −½ log θ₃ − ½ log θ₄ = −⅛ log(1−z) − log θ₃` (Lemma 3.6's closed forms,
+`log(fg) = log f + log g`, `log f^k = k log f`, and `(1−z)θ₃⁴ = θ₄⁴`), so
+`exp((Φ₁+Φ₂)/8) = (1−z)^{−1/8} θ₃^{−1}`, which is `det(I−M²)^{−1/2}` by Lemma 3.5 in its
+`fpow` form.  The comparison of 8th powers (`detInvSqrt_pow_eight`, `eq_of_pow_eq`) is gone from
+this step.  `Sec3FpowExp` now imports only `Sec3ExtExp`, `Sec3ExpLog`, `FpowBinom`, and
+`Sec3CentralFinal` imports it.

@@ -1,3 +1,4 @@
+import Virasoro.Sphere.Proofs.Sec3CentralFinal
 import Virasoro.Sphere.Proofs.Sec3FpowExp
 import Virasoro.Sphere.Proofs.Sec5TopLayerH
 import Virasoro.Sphere.Proofs.Sec3PolyH

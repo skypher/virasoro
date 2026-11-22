@@ -1,3 +1,4 @@
+import Virasoro.Sphere.Proofs.Sec3FpowExp
 import Virasoro.Sphere.Proofs.Sec3CentralSubs
 import Virasoro.Sphere.Proofs.Sec3BergmanZero
 
@@ -23,25 +24,6 @@ theorem fpow_pow {f : PowerSeries ℚ} (hf : constantCoeff f = 1) (a : ℚ) (k :
     congr 1
     push_cast
     ring
-
-theorem detInvSqrt_pow_eight (hJ2 : Cited_JacobiIdentities2) :
-    detInvSqrt ^ 8 * ((1 - X) * ((th3 ℚ).subst Q0) ^ 8) = 1 := by
-  have h := (lem_bergman_det_of_cited hJ2).2 Q0 constantCoeff_Q0 zq_subst_Q0
-  have hf := constantCoeff_one_sub_X
-  have hθ : constantCoeff ((th3 ℚ).subst Q0) = 1 :=
-    constantCoeff_subst_of_one' constantCoeff_Q0 _ constantCoeff_th3
-  have h1 : fpow (1 - X) (-1 / 8 : ℚ) ^ 8 * (1 - X) = 1 := by
-    rw [fpow_pow hf, show ((8 : ℕ) : ℚ) * (-1 / 8) = -1 by norm_num]
-    have := fpow_neg_mul hf (1 : ℚ)
-    rwa [fpow_one hf] at this
-  have h2 : ((th3 ℚ).subst Q0)⁻¹ ^ 8 * ((th3 ℚ).subst Q0) ^ 8 = 1 := by
-    rw [← mul_pow, PowerSeries.inv_mul_cancel _ (by rw [hθ]; exact one_ne_zero), one_pow]
-  rw [h, mul_pow]
-  calc fpow (1 - X) (-1 / 8 : ℚ) ^ 8 * ((th3 ℚ).subst Q0)⁻¹ ^ 8 *
-        ((1 - X) * ((th3 ℚ).subst Q0) ^ 8)
-      = (fpow (1 - X) (-1 / 8 : ℚ) ^ 8 * (1 - X)) *
-          (((th3 ℚ).subst Q0)⁻¹ ^ 8 * ((th3 ℚ).subst Q0) ^ 8) := by ring
-    _ = 1 := by rw [h1, h2, one_mul]
 
 /-- `exp(-k log θ) θ^k = 1`. -/
 theorem exp_neg_log_mul_pow (θ : PowerSeries ℂ) (hθ : constantCoeff θ = 1) (k : ℕ) :
@@ -95,6 +77,39 @@ theorem Q_eq_Q0 {Q : PowerSeries ℂ} (hQ0 : constantCoeff Q = 0) (hQ : (zq ℂ)
   rw [subst_comp_subst_apply hzs hQs, hQ, subst_X_self', subst_X hQs] at h
   exact h.symm
 
+/-- `log(fg) = log f + log g` for series with constant term `1`. -/
+theorem logMulPS (f g : PowerSeries ℂ) (hf : constantCoeff f = 1) (hg : constantCoeff g = 1) :
+    (log ℂ).subst (f * g - 1) = (log ℂ).subst (f - 1) + (log ℂ).subst (g - 1) := by
+  have h1 : constantCoeff (f - 1) = 0 := by rw [map_sub, hf, map_one, sub_self]
+  have h2 : constantCoeff (g - 1) = 0 := by rw [map_sub, hg, map_one, sub_self]
+  have hL1 : constantCoeff ((log ℂ).subst (f - 1)) = 0 :=
+    constantCoeff_subst_eq_zero h1 _ constantCoeff_log
+  have hL2 : constantCoeff ((log ℂ).subst (g - 1)) = 0 :=
+    constantCoeff_subst_eq_zero h2 _ constantCoeff_log
+  have e : f * g = (exp ℂ).subst ((log ℂ).subst (f - 1) + (log ℂ).subst (g - 1)) := by
+    rw [exp_subst_add _ _ hL1 hL2, exp_log_subst f hf, exp_log_subst g hg]
+  rw [e, log_exp_subst _ (by rw [map_add, hL1, hL2, add_zero])]
+
+/-- `log(f^k) = k log f` for a series with constant term `1`. -/
+theorem logPowPS (f : PowerSeries ℂ) (hf : constantCoeff f = 1) (k : ℕ) :
+    (log ℂ).subst (f ^ k - 1) = (k : ℂ) • (log ℂ).subst (f - 1) := by
+  have h1 : constantCoeff (f - 1) = 0 := by rw [map_sub, hf, map_one, sub_self]
+  have hL : constantCoeff ((log ℂ).subst (f - 1)) = 0 :=
+    constantCoeff_subst_eq_zero h1 _ constantCoeff_log
+  have e : f ^ k = (exp ℂ).subst ((k : ℂ) • (log ℂ).subst (f - 1)) := by
+    rw [← exp_subst_pow _ hL, exp_log_subst f hf]
+  rw [e, log_exp_subst _ (by rw [smul_eq_C_mul, map_mul, hL, mul_zero])]
+
+/-- The binomial power commutes with `ℚ → ℂ`. -/
+theorem fpowMapPS (f : PowerSeries ℚ) (a : ℚ) :
+    PowerSeries.map (algebraMap ℚ ℂ) (fpow f a) =
+      fpow (PowerSeries.map (algebraMap ℚ ℂ) f) (algebraMap ℚ ℂ a) := by
+  ext n
+  simp only [fpow, coeff_map, coeff_mk, map_sum, map_mul, gbinom, map_div₀, map_prod, map_sub,
+    map_natCast]
+  refine Finset.sum_congr rfl fun k _ => ?_
+  rw [← coeff_map, map_pow, map_sub, map_one]
+
 include hF hK in
 /-- `exp((Φ₁ + Φ₂)/8) = det(I - M²)^{-1/2}` (sphere/paper.tex l.1176). -/
 theorem exp_Phi_eighth (hJ1 : Cited_JacobiIdentities) (hJ2 : Cited_JacobiIdentities2)
@@ -127,48 +142,52 @@ theorem exp_Phi_eighth (hJ1 : Cited_JacobiIdentities) (hJ2 : Cited_JacobiIdentit
       (1 / 8 : ℂ) • MvPowerSeries.subst sigmaStar S22) = 0 := by
     rw [hsum, map_add, hl θ3c h3, hl θ4c h4, add_zero]
   refine ⟨hc, ?_⟩
-  have hY8 : (exp ℂ).subst ((1 / 8 : ℂ) • MvPowerSeries.subst sigmaStar S21 +
-        (1 / 8 : ℂ) • MvPowerSeries.subst sigmaStar S22) ^ 8 =
-      (exp ℂ).subst ((-((4 : ℕ) : ℂ)) • (log ℂ).subst (θ3c - 1)) *
-        (exp ℂ).subst ((-((4 : ℕ) : ℂ)) • (log ℂ).subst (θ4c - 1)) := by
-    rw [exp_subst_pow _ hc 8, ← exp_subst_add _ _ (hl θ3c h3 _) (hl θ4c h4 _), hsum, smul_add,
-      smul_smul, smul_smul]
-    norm_num
-  have hprod : (exp ℂ).subst ((1 / 8 : ℂ) • MvPowerSeries.subst sigmaStar S21 +
-        (1 / 8 : ℂ) • MvPowerSeries.subst sigmaStar S22) ^ 8 * (θ3c ^ 4 * θ4c ^ 4) = 1 := by
-    rw [hY8]
-    calc (exp ℂ).subst ((-((4 : ℕ) : ℂ)) • (log ℂ).subst (θ3c - 1)) *
-          (exp ℂ).subst ((-((4 : ℕ) : ℂ)) • (log ℂ).subst (θ4c - 1)) * (θ3c ^ 4 * θ4c ^ 4)
-        = ((exp ℂ).subst ((-((4 : ℕ) : ℂ)) • (log ℂ).subst (θ3c - 1)) * θ3c ^ 4) *
-            ((exp ℂ).subst ((-((4 : ℕ) : ℂ)) • (log ℂ).subst (θ4c - 1)) * θ4c ^ 4) := by ring
-      _ = 1 := by rw [exp_neg_log_mul_pow θ3c h3 4, exp_neg_log_mul_pow θ4c h4 4, one_mul]
-  have hD8 : detInvSqrt.map (algebraMap ℚ ℂ) ^ 8 * ((1 - X) * θ3c ^ 8) = 1 := by
-    have h := congrArg (PowerSeries.map (algebraMap ℚ ℂ)) (detInvSqrt_pow_eight hJ2)
-    have e : PowerSeries.map (algebraMap ℚ ℂ) ((th3 ℚ).subst Q0) = θ3c := by
-      rw [hθ3, ← map_th3 (algebraMap ℚ ℂ)]
-      exact PowerSeries.map_subst hQs (h := algebraMap ℚ ℂ) _
-    rw [map_mul, map_mul, map_pow, map_pow, map_sub, map_one, PowerSeries.map_X, e] at h
-    exact h
+  -- the paper's log form (l.1174–1176): `(Φ₁+Φ₂)/8 = -½ log(θ₃θ₄) = -⅛ log(1-z) - log θ₃`
+  have hz1 : constantCoeff (1 - X : PowerSeries ℂ) = 1 := by
+    rw [map_sub, map_one, constantCoeff_X, sub_zero]
   have hJ := one_sub_mul_th3 hJ1 hQ0c hQc
-  have hu : θ3c ^ 4 * θ4c ^ 4 = (1 - X) * θ3c ^ 8 := by
-    rw [← hJ]
-    ring
-  rw [hu] at hprod
-  refine eq_of_pow_eq (constantCoeff_exp_subst _ hc) ?_ (k := 8) (by norm_num) ?_
-  · have := constantCoeff_detInvSqrt
-    rw [← coeff_zero_eq_constantCoeff_apply, coeff_map, coeff_zero_eq_constantCoeff_apply, this,
-      map_one]
-  · calc (exp ℂ).subst ((1 / 8 : ℂ) • MvPowerSeries.subst sigmaStar S21 +
-          (1 / 8 : ℂ) • MvPowerSeries.subst sigmaStar S22) ^ 8
-        = (exp ℂ).subst ((1 / 8 : ℂ) • MvPowerSeries.subst sigmaStar S21 +
-            (1 / 8 : ℂ) • MvPowerSeries.subst sigmaStar S22) ^ 8 *
-            (detInvSqrt.map (algebraMap ℚ ℂ) ^ 8 * ((1 - X) * θ3c ^ 8)) := by
-          rw [hD8, mul_one]
-      _ = detInvSqrt.map (algebraMap ℚ ℂ) ^ 8 *
-            ((exp ℂ).subst ((1 / 8 : ℂ) • MvPowerSeries.subst sigmaStar S21 +
-              (1 / 8 : ℂ) • MvPowerSeries.subst sigmaStar S22) ^ 8 * ((1 - X) * θ3c ^ 8)) := by
-          ring
-      _ = detInvSqrt.map (algebraMap ℚ ℂ) ^ 8 := by rw [hprod, mul_one]
+  have hlog4 : (4 : ℂ) • (log ℂ).subst (θ4c - 1) =
+      (log ℂ).subst ((1 - X : PowerSeries ℂ) - 1) + (4 : ℂ) • (log ℂ).subst (θ3c - 1) := by
+    have e := congrArg (fun f => (log ℂ).subst (f - 1)) hJ
+    rw [logMulPS _ _ hz1 (by rw [map_pow, h3, one_pow]), logPowPS _ h3,
+      logPowPS _ h4] at e
+    simp only [Nat.cast_ofNat] at e
+    exact e.symm
+  have hS : (1 / 8 : ℂ) • MvPowerSeries.subst sigmaStar S21 +
+      (1 / 8 : ℂ) • MvPowerSeries.subst sigmaStar S22 =
+      (-(1 / 8) : ℂ) • (log ℂ).subst ((1 - X : PowerSeries ℂ) - 1) +
+        (-1 : ℂ) • (log ℂ).subst (θ3c - 1) := by
+    have e4 : (log ℂ).subst (θ4c - 1) = (1 / 4 : ℂ) • (log ℂ).subst ((1 - X : PowerSeries ℂ) - 1) +
+        (log ℂ).subst (θ3c - 1) := by
+      have h := congrArg (fun f => (1 / 4 : ℂ) • f) hlog4
+      simp only [smul_add, smul_smul] at h
+      rwa [show (1 / 4 : ℂ) * 4 = 1 by norm_num, one_smul, one_smul] at h
+    have key : ∀ A B C : PowerSeries ℂ, B = (1 / 4 : ℂ) • C + A →
+        (-(1 / 2) : ℂ) • A + (-(1 / 2) : ℂ) • B = (-(1 / 8) : ℂ) • C + (-1 : ℂ) • A := by
+      intro A B C h
+      rw [h]
+      module
+    rw [hsum]
+    exact key _ _ _ e4
+  have hcz := hl (1 - X) hz1 (-(1 / 8))
+  have hc3 := hl θ3c h3 (-1)
+  have hinv3 : (exp ℂ).subst ((-1 : ℂ) • (log ℂ).subst (θ3c - 1)) = θ3c⁻¹ := by
+    have h := exp_neg_log_mul_pow θ3c h3 1
+    rw [Nat.cast_one, pow_one] at h
+    exact (PowerSeries.eq_inv_iff_mul_eq_one (by rw [h3]; exact one_ne_zero)).2 h
+  have hθmap : PowerSeries.map (algebraMap ℚ ℂ) ((th3 ℚ).subst Q0) = θ3c := by
+    rw [hθ3, ← map_th3 (algebraMap ℚ ℂ)]
+    exact PowerSeries.map_subst hQs (h := algebraMap ℚ ℂ) _
+  have hθ0 : PowerSeries.constantCoeff ((th3 ℚ).subst Q0) ≠ 0 := by
+    rw [constantCoeff_subst_of_one' constantCoeff_Q0 _ constantCoeff_th3]
+    exact one_ne_zero
+  -- Lemma 3.5 in its `fpow` form (l.825–833)
+  have hD := (lem_bergman_det_of_cited hJ2).2 Q0 constantCoeff_Q0 zq_subst_Q0
+  have hq : (algebraMap ℚ ℂ) (-1 / 8 : ℚ) = (-(1 / 8) : ℂ) := by
+    rw [map_div₀, map_neg, map_one, map_ofNat]; ring
+  rw [hS, exp_subst_add _ _ hcz hc3, exp_smul_log _ hz1, hinv3, hD, map_mul,
+    map_inv_of_ne (algebraMap ℚ ℂ) _ hθ0, hθmap, fpowMapPS, map_sub, map_one,
+    PowerSeries.map_X, hq]
 
 include hF hK in
 theorem constantCoeff_PhiCraw {S1t S2c S21 S22 : MvPowerSeries ℕ+ ℂ}

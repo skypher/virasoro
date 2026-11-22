@@ -1,4 +1,6 @@
-import Virasoro.Sphere.Proofs.Sec3CentralFinal
+import Virasoro.Sphere.Proofs.Sec3ExtExp
+import Virasoro.Sphere.Proofs.Sec3ExpLog
+import Virasoro.Sphere.Proofs.FpowBinom
 
 /-!
 # `f^a = exp(a log f)` over `ℂ` (sphere paper, proof of Theorem 3.1)
