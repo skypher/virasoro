@@ -133,3 +133,4 @@ import Virasoro.Sphere.Proofs.Sec3GaussEuler
 import Virasoro.Sphere.Proofs.Sec3GaussDet
 import Virasoro.Sphere.Proofs.Sec3GaussRational
 import Virasoro.Sphere.Proofs.Sec3GaussCharged
+import Virasoro.Sphere.Proofs.Sec3GaussStepThree

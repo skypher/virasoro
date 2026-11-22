@@ -507,3 +507,38 @@ Route notes:
   from the Lemma 3.4(i) identity `sum_halfBinom_Bcoef` and a binomial recursion; the paper checks
   the generating-function identity directly as a rational identity in (s₁, s₂).  Not forced;
   queued for route repair.
+
+## 2026-11-22T02:25Z — run 15 results (Lemma 3.3(iii): steps l.637–706 proved, one sub-statement left)
+
+Checked by the main session (`../runs/lean2/checkR15.log`): `sub_lam_gauss_of_cov (hF) (hK) (h :
+Stmt_sub_gauss_cov) : Stmt_sub_lam_gauss`, `sub_lam_gauss_of_expect (hF) (hK) (h :
+Stmt_sub_gauss_expect)`, `EInf_gaussCoeff (hF) (hK)`, `gauss_expect_abstract (hF) (hK)`; axioms
+[propext, Classical.choice, Quot.sound]; no committed file changed except one import line in
+`Virasoro/Sphere.lean` (`../runs/lean2/r15-stmtdiff.log` empty); no forbidden tokens in the 17 new
+modules; build green (`logs/T1-build-all.log`, 3684 jobs).  No paper result moved: 19 of 44.
+
+Sub-statements:
+- `Stmt_sub_gauss_expect` (`Sec3GaussReduce.lean`, l.684–708): the z^n coefficient of the centered
+  expectation of the shifted factor is a power series in t = 1/λ with the (3.5) coefficient at
+  t = 0.  Now a theorem from `Stmt_sub_gauss_cov`.  Approved as an intermediate.
+- `Stmt_sub_gauss_cov` (`Sec3GaussStepThree.lean`, l.703–708).  Checked against the paper:
+  `constC` = S⁽²⁾(σ_*) + S̃⁽²⁾(σ̄_*); with `IsExpansionData` for F = ward(Δ₁, Δ₂) and
+  F′ = ward(Δ₄, Δ₃) and ι-evenness of S⁽²⁾ (l.706, last clause of `sub_lam_orders`) it is
+  2μ²S_c⁽²⁾(σ_*) + (Δ₁+Δ₄−1/8)S₁⁽²⁾(σ_*) + (Δ₂+Δ₃−1/8)S₂⁽²⁾(σ_*); `gradL` = μ·∇S̃⁽¹⁾ at the
+  saddle, so ½ gradL·covN·gradL is μ²Ψ₁ (l.703–705); Φ_c^raw = 2S_c⁽²⁾(σ_*) + Ψ₁ (l.707).  The
+  coefficients match `Stmt_sub_lam_gauss`.  Faithful, approved.  Its proof needs hF, hK (the Ward
+  solutions exist and fix the expansion data).
+
+Route notes:
+- l.637–702: Lean works in ℂ((t))[[z]]/(z^(n+1)), t = 1/λ, and lifts to ℂ[[t]][[z]]/(z^(n+1)).
+  Forced: the frozen statement is regularity at ∞ of rational functions of λ.
+- l.632–661: Lean's pairing `fockP` (run 14) has Cov(u_m, ū_m) = z^m/(2m), i.e. it is the
+  Gaussian in the variables (z^m u_m, ū_m).  These are the paper's own variables after the
+  rescaling by Z (l.652–654) and in U_m = z^m ξ_m (l.663), and the covariance is the paper's
+  displayed Cov(U_m, V_n) at l.671–673.  Same functional, same steps; accepted, no repair.
+- l.663–668: the saddle point is σ_* of Lemma 3.4 (`IsSaddle.eq_sigmaStar`); CJ = λ(σ_*, σ̄_*) by
+  uniqueness from nilpotency of Q₀⁻¹(Q − Q₀), the paper's argument.
+- l.684: the paper says the λ² saddle value "factors out"; Lean proves ½J·CJ = λ²𝓘₀ through
+  the truncation `PhiK N` and the truncated saddle equation.  Fills in the paper.
+- l.684–706 (λ¹ cancellation by ι-oddness, value at t = 0, expectation of the linear
+  exponential): follow the paper.
