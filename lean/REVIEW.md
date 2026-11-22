@@ -1170,3 +1170,34 @@ norm as on the torus", l.1838–1840).  Differences: (1) the Lean computes the i
 sphere's and the torus's normalized vectors explicitly from Cited_SingularUnique, which the paper
 uses without comment; (2) `[d²]τ⁻_2` is read off the split `τ = d²·Q`, `Q(0) = ∏ d_x` over the
 remaining roots, which is the paper's product.  Accepted.
+
+## 2026-11-22T16:58Z — main session: Part II Lemma 13.1 labelled
+
+Proved by the main session (`../runs/lean2/checkL131.log`):
+`P2.lem_degenerate_quotient_t_of_cited (hK) (hE) (hH) (hU) (hF) (hLau) (hJ) (hI) :
+Stmt_lem_degenerate_quotient_t` (paper.tex l.2851–3038, Paper label: lem:degenerate-quotient-t),
+from Step 4 `P2.sub_tau_diag_limit_of_cited` (P2Sec13DiagRat, P2Sec13DiagOrth, P2Sec13DiagForms,
+P2Sec13DiagTools, P2Sec13DiagFinal, P2Sec13DiagMain) and the second line of (13.3)
+`P2.sub_tau_ratio_of_cited` (P2Sec13TauRatio).  Axioms [propext, Classical.choice, Quot.sound];
+no forbidden tokens; statement files unchanged; `lake build Virasoro` green (3943 jobs).
+Labelled: 41 of 44.
+
+Route: the paper's Step 4 (l.2990–3028).  The trace in the basis `E` is the rational function
+`trNum/det G_E` over `ℂ[b,b⁻¹]` (generic value = the trace, by uniqueness of `T^irr`).  Its
+expansion at `b⋆` (`b = b⋆ + X`) through an orthogonal basis of `G_E` over `ℂ⟦X⟧` is
+`∑_a ρ_X(v_a,v_a)/(X^{e_a}u_a)`; `e_a ≤ 1` by Step 3 and the exact kernel lifts of Step 2;
+`e_a = 1` puts `v_a(0)` in `J¹ ⊂ rad ρ₀` (Prop 11.2(i) base case), so the expansion is a power
+series.  `e_a = 0`: the `v_a(0)` are an orthogonal complement of `J¹_N`, giving
+`T^irr_N(μ)`.  `e_a = 1`: `[X¹]B` and `[X¹]ρ` on lifts are well defined on `J¹`
+(`J¹ ⊂ rad B₀ ∩ rad ρ₀`), satisfy the Ward identities with `d = 0` and `d⋆` (`[X¹]` of the
+`n d(X)` term drops), so on `j₂(M(c⋆,ν₂))` they are `β·Shap_{ν₂}` and `β'·ρ_{ν₂,d⋆}`
+(`ward_eq_smul_pairing`); `β' = Ω_{u,v}(μ→ν₂) β`, `β ≠ 0` is (13.3) (Thm 9.2 at `b⋆`
+through `ℂ[b,b⁻¹]` and the reduced box fraction, Prop 12.1(i)); `v_a(0) = n_a + j₂(z_a)`
+with `n_a ∈ M(ν₁)` (Lemma 10.3(i)), where `n_a` drops out by its kernel lift; the `z_a` are an
+orthogonal complement of the radical of `M(c⋆,ν₂)_{N-R₂S₂}`, giving `Ω T^irr_{N-R₂S₂}(ν₂)`;
+for `N < R₂S₂` there is no `e_a = 1`.  Differences: (1) the paper's congruence
+diagonalization `Uᵀ B̄ U = diag(τ^{e_a}u_a)` is `exists_orth_basis` on the Gram matrix of `E`;
+(2) the complement property of the `z_a` in `M(c⋆,ν₂)` is derived from `R_B = β·Shap_{ν₂}`
+with `β ≠ 0` (the paper reads it off "a basis of `L(c⋆,ν₂)_{N-R₂S₂}`", l.2995–2996); (3) the
+Ward identity is proved on `J¹(c⋆,μ)` and pulled back along `j₂` rather than stated on the
+quotient `L(c⋆,ν₂)`, which carries the same content.  Accepted.
