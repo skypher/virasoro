@@ -404,6 +404,7 @@ removed from the paper.  Sphere: 21 rows; new and frozen 15, not frozen 6; CLEAN
 | Fusion polynomial (two-weight pairing) | `Cited_FusionPolynomial` (new, Cited2) | Zamolodchikov 2004, Section 5, eqs (5.9)–(5.12); Hadasz–Jaskólski–Suchanek, Section 3, eqs (7)–(9) | paper.tex l.2153–2155 |
 | Jantzen layers on the whole orbit | `Cited_JantzenLayersOrbit` (new, Cited2) | Astashkevich 1997, Thm A(a), (b)(iii), (c), Thm B(e); Iohara–Koga, Prop 5.4, Fig 5.4, Thm 6.3 | paper.tex l.2232–2234 |
 | Fusion polynomial (sphere three-point scalar) | `Sphere.Cited_SphereFusionPolynomial` (new) | Zamolodchikov 1987, Section 2; Zamolodchikov 2004, Section 5, eqs (5.9)–(5.12); Ribault 2019, eq (3.4) | sphere l.1277–1281 |
+| BPZ equation for a block with `Φ_{2,1}` (coefficientwise, generic `b`) | `Sphere.Cited_BPZEquation` (new) | Belavin–Polyakov–Zamolodchikov 1984, eqs (5.2), (5.17), (5.19) | sphere l.1651–1661 |
 | Jacobi identities (2.3)–(2.5) | `Sphere.Cited_JacobiIdentities` (new; three of the five identities) | Whittaker–Watson 1927, §21.6, §22.3 | sphere l.348–357 |
 | `₂F₁(1/2,1/2;1;z(q)) = θ₃²` and the logarithmic derivative of `16q(z)/z` | not encoded | Whittaker–Watson 1927, §21.6, §22.3 | sphere l.351–353 |
 | Feigin–Fuchs differential operators | not encoded | Besken–Datta–Kraus 2019, §2.1 | sphere l.431 |

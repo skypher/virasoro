@@ -1227,3 +1227,37 @@ layer from the scaled two-term identities, where the paper inverts the unitriang
 of the braided poset (l.3091–3100); the identity is the same; (2) for (b) the paper computes
 `T^irr_N` through Theorem 4.3 (general confluence); the Lean uses (9.3) and the rationality of
 `F_M` at rational regular points, which is what (b) claims (`T^irr_N ∈ ℚ`).  Accepted.
+
+## 2026-11-22T18:01Z — main session: sphere Thm 5.4 labelled
+
+Proved by the main session (`../runs/lean2/checkT54.log`):
+`Sphere.thm_sharp_B_of_cited (hJ) (hI) (hH) (hF) (hU) (hBPZ) (hK) : Stmt_thm_sharp_B`
+(sphere/paper.tex l.1607–1615, proof l.1617–1691, Paper label: thm:sharp-B), in
+Sphere/CitedBPZ, Sphere/Proofs/Sec5SharpLam, Sec5SharpPoint, Sec5SharpB.  Axioms [propext,
+Classical.choice, Quot.sound]; no forbidden tokens; statement files unchanged; `lake build
+Virasoro` green.  Labelled: 43 of 44.
+
+Route: the paper's.  `k = j_N(λ) = 0`: Thm 5.1.  `k ≥ 1`: Thm 5.3 gives pole order at most `k`
+and the coefficient of `(Δ-λ)^{-k}` as the sum of the two summands; each summand is the image
+in `K4 = ℂ(Δ₁,…,Δ₄)` of a polynomial in `Δ₁,…,Δ₄` (`topR`, `topTermSph_eq_topR`, through
+`evalBsph_K4` and `piScalar_K4`), and the sum of the two polynomials is evaluated at the
+rational point of l.1621–1628 (`bpzWeights b (-m/p) (a₃/p) (β4of …)`, `bpzWeights_min`):
+(a) `π^big(Δ₄,Δ₃) = 0` by Lemma 5.2(iii), since `a₄ - a₃ = -(m^big - p' - p)`; (b) the two
+lower-branch factors are nonzero by Lemma 5.2(iii), applied to the normalized vector
+(`pi_iii_any`); (c) `ℬ_M = (-1)^M binom(κ,M)` (`block_point`) with `κ = (kp-1)p'/(2p) ∉ ℕ`
+(`kappa_ne_nat`).  Differences: (1) for (c) the paper writes `ℬ_m = [z^m]((1-z)^κ ₂F₁(A,B;C;z))`
+as an identity of rational functions; the Lean takes the BPZ equation coefficientwise at
+generic `b` (`b ≠ 0`, `b² ∉ ℚ`, every `G_m(c(b),μ)` invertible), carries it to `b⋆` through
+`ℂ[b,b⁻¹]` (identity principle, `Sec5SharpLam`), and at `b⋆` checks that `(-1)^n binom(κ,n)`
+satisfies the same recursion (`gSeq_rec`, `B = 0`) with `P₀(s+n) = n(n-1+C)/b² ≠ 0` for
+`n ≤ M`; the paper's item 1 (`C = 1-u` forces `μ = h_{1,u}`, `det G_M = 0`) is the argument for
+`P₀ ≠ 0`.  The `₂F₁` closed form itself is not formalized; at `B = 0` it is `(1-z)^κ`, which is
+what is checked.  (2) In (b) the Lean uses `c₀ ≤ |c₀|` and `m^small < m^big` (from
+`ℓ^small < ℓ^big` and `m^small + m^big = 2kpp'`); the paper's `m^small - p' - p ≥ 0` is not needed.
+Accepted.
+
+New cited input `Sphere.Cited_BPZEquation` (Belavin–Polyakov–Zamolodchikov 1984, eqs (5.2),
+(5.17), (5.19); sphere l.1651–1661): the coefficient of `z^{s+n}` of the displayed equation times
+`z²(z-1)²`, `s = μ - Δ₁ - Δ₂`.  Checks of the transcription: at `n = 1` the recursion gives
+`ℬ₁ = -u(s+D)/C`, the level-1 block (hand check); at `B = 0` the coefficients of `(1-z)^κ`
+satisfy the encoded recursion for all `n` (`gSeq_rec`, machine-checked).

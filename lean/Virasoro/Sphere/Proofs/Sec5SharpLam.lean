@@ -22,13 +22,13 @@ open Virasoro Virasoro.P2 Polynomial
 section Lift
 
 /-- A constant of `ℂ[b,b⁻¹]`. -/
-noncomputable def cst (z : ℂ) : Virasoro.P2.Lam := algebraMap ℂ[X] Virasoro.P2.Lam (C z)
+noncomputable def cstL (z : ℂ) : Virasoro.P2.Lam := algebraMap ℂ[X] Virasoro.P2.Lam (C z)
 
-theorem evLam_cst {b : ℂ} (hb : b ≠ 0) (z : ℂ) : evLam b hb (cst z) = z := by
-  rw [cst, evLam_algebraMap, eval_C]
+theorem evLam_cst {b : ℂ} (hb : b ≠ 0) (z : ℂ) : evLam b hb (cstL z) = z := by
+  rw [cstL, evLam_algebraMap, eval_C]
 
 /-- `wt(β) = ((b²+1)² - β²)/(4b²)` over `ℂ[b,b⁻¹]`. -/
-noncomputable def wtL (β : Virasoro.P2.Lam) : Virasoro.P2.Lam := ((lamX ^ 2 + 1) ^ 2 - β ^ 2) * lamXi ^ 2 * cst (1 / 4)
+noncomputable def wtL (β : Virasoro.P2.Lam) : Virasoro.P2.Lam := ((lamX ^ 2 + 1) ^ 2 - β ^ 2) * lamXi ^ 2 * cstL (1 / 4)
 
 theorem evLam_wtL {b : ℂ} (hb : b ≠ 0) (β : Virasoro.P2.Lam) : evLam b hb (wtL β) = wtB b (evLam b hb β) := by
   simp only [wtL, wtB, map_mul, map_sub, map_pow, map_add, map_one, evLam_lamX, evLam_lamXi,
@@ -44,11 +44,11 @@ theorem gammaY_ringHom {R S : Type*} [CommRing R] [CommRing S] (f : R →+* S) (
 variable (βμ β₃ β₄ : ℂ)
 
 /-- `μ(b) = wt(β_μ)`. -/
-noncomputable def μL : Virasoro.P2.Lam := wtL (cst βμ)
+noncomputable def μL : Virasoro.P2.Lam := wtL (cstL βμ)
 
 /-- The external weights of the BPZ setting over `ℂ[b,b⁻¹]`. -/
 noncomputable def ΔeL : Fin 4 → Virasoro.P2.Lam :=
-  ![wtL (cst βμ + lamX ^ 2), hLam 2 1, wtL (cst β₃), wtL (cst β₄)]
+  ![wtL (cstL βμ + lamX ^ 2), hLam 2 1, wtL (cstL β₃), wtL (cstL β₄)]
 
 theorem evLam_ΔeL {b : ℂ} (hb : b ≠ 0) (i : Fin 4) :
     evLam b hb (ΔeL βμ β₃ β₄ i) = bpzWeights b βμ β₃ β₄ i := by
