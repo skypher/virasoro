@@ -170,6 +170,7 @@ import Virasoro.Proofs.Sec6H13Poles
 import Virasoro.Proofs.Sec6Chains
 import Virasoro.Proofs.Sec6H13Lip
 import Virasoro.Proofs.Sec6TauFactor
+import Virasoro.Proofs.Sec6H13Integral
 import Virasoro.Proofs.Sec8IsingPoles
 import Virasoro.Proofs.Sec8IsingRows
 import Virasoro.Proofs.Sec8Ising11PP
