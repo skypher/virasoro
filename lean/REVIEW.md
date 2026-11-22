@@ -1201,3 +1201,29 @@ diagonalization `Uᵀ B̄ U = diag(τ^{e_a}u_a)` is `exists_orth_basis` on the G
 with `β ≠ 0` (the paper reads it off "a basis of `L(c⋆,ν₂)_{N-R₂S₂}`", l.2995–2996); (3) the
 Ward identity is proved on `J¹(c⋆,μ)` and pulled back along `j₂` rather than stated on the
 quotient `L(c⋆,ν₂)`, which carries the same content.  Accepted.
+
+## 2026-11-22T17:21Z — main session: Part II Thm 9.3 labelled
+
+Proved by the main session (`../runs/lean2/checkT93.log`):
+`P2.thm_gen_rocha_caridi_of_cited (hK) (hE) (hH) (hU) (hF) (hLau) (hJ) (hI) :
+Stmt_thm_gen_rocha_caridi` (paper.tex l.1926–1960, proof l.3040–3105, Paper label:
+thm:gen-rocha-caridi), in P2Sec9GenRC … P2Sec9GenRC5.  Axioms [propext, Classical.choice,
+Quot.sound]; no forbidden tokens; statement files unchanged; `lake build Virasoro` green
+(3948 jobs).  Labelled: 42 of 44.
+
+Route: the paper's.  (9.3): Lemma 13.1 at a node, multiplied by `Ω(λ→μ)q^{μ-λ}`, with the
+cocycle `Ω(λ→μ)c(μ→ν) = Ω(λ→ν)` (Prop 12.1(ii) path independence; `pathProd_append_single`)
+gives `T̃(μ)+T̃(ν₂) = F̃(μ)-F̃(ν₁)` (`scaled_step`); along the alternating chain `σ_j = (j even)`
+the two sides telescope (`telescope_left`, `telescope_right`, `K = N`, layer `N+1` absent).
+Regularity at the orbit: Thm 9.1.  (a): `d = 0`, `cMM = 1` at `k = m = 0`, `F_N(c,Δ,0) = p(N)`
+(`torus_zero`).  (b): (9.3) with `Ω ∈ ℚ` and `F_M(c⋆,μ,d) ∈ ℚ` (`Fnum_map`: the coefficients
+come from `ℚ`; `Fval_rat`: at the rational regular point `μ` the value is
+`[e'=e]A(μ)/B(μ)` from the root-multiplicity factorizations).  (c): the inverse form
+`F̃(μ) = ∑_{ν⪰μ} T̃(ν)` (`inv_formula`), compared with Prop 11.2(ii) by strong induction on the
+pairwise distinct levels `ℓ^±_j` (`ellOrb_inj`: monotone across layers, `ℓ⁺_j ≠ ℓ⁻_j`), with
+`T^irr_0 = 1` (Lemma 13.1 at level 0); the family of Theorem 5.8 is transported to the orbit
+setting at `μ⁺_0 = λ`.  Differences: (1) the inverse form is derived by downward induction on the
+layer from the scaled two-term identities, where the paper inverts the unitriangular zeta matrix
+of the braided poset (l.3091–3100); the identity is the same; (2) for (b) the paper computes
+`T^irr_N` through Theorem 4.3 (general confluence); the Lean uses (9.3) and the rationality of
+`F_M` at rational regular points, which is what (b) claims (`T^irr_N ∈ ℚ`).  Accepted.

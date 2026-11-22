@@ -68,6 +68,7 @@ import Virasoro.Proofs.P2Sec13TauSteps
 import Virasoro.Proofs.P2Sec13Complement
 import Virasoro.Proofs.P2Sec13TauFinal
 import Virasoro.Proofs.P2Sec13DiagMain
+import Virasoro.Proofs.P2Sec9GenRC5
 
 /-!
 # Part II of the torus paper (Sections 9–13 of `paper.tex` at 70bac53): proofs
