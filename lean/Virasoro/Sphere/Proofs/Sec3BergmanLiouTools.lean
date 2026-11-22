@@ -8,9 +8,8 @@ import Mathlib.Analysis.Calculus.Deriv.ZPow
 
 `Y(x) = x √(1-x) √(1-z/x)` as a series in `z` (the branch `√(x-1) = ±i√(1-x)` only changes `Y`
 by a constant factor), with `g(x) Y(x) = 1` and `Y(x)² = -P(x)`.  Coefficientwise
-differentiability, boundedness near a point, and the cancellation of the double pole of
-`(Y(x₁) + g(x₂) S(x₁,x₂))/(x₁-x₂)²` at `x₁ = x₂` (`S(x,x) = Y(x)²`, `∂₁S(x,x) = Y(x)Y'(x)`,
-here through `S² - P₁P₂ = (x₁-x₂)²(x₁x₂-z)²/4`).
+differentiability and boundedness near a point.  The cancellation of the double pole at
+`x₁ = x₂` is in `Sec3BergmanPole.lean`.
 
 Consumer: `sub_bergman_const_of_patches`.
 -/
@@ -140,56 +139,6 @@ theorem BddNear.congr {f g : ℂ → ℂ} {c : ℂ} (hf : BddNear f c)
   refine ⟨min ε δ, lt_min hε hδ, M, fun x hx hxε => ?_⟩
   rw [hh x hx (lt_of_lt_of_le hxε (min_le_right _ _))]
   exact hM x hx (lt_of_lt_of_le hxε (min_le_left _ _))
-
-/-- If `H(x) F(x) = R(x)` near `c`, the coefficients of `F`, `R` are continuous at `c` and
-`[z⁰] F(c) ≠ 0`, then every coefficient of `H(x)` has a limit as `x → c`. -/
-theorem tendsto_coeff_of_mul {F H R : ℂ → PowerSeries ℂ} {c : ℂ} (hF : CoeffCont F c)
-    (hR : CoeffCont R c) (h0 : coeff 0 (F c) ≠ 0)
-    (hmul : ∀ᶠ x in 𝓝[≠] c, H x * F x = R x) (j : ℕ) :
-    ∃ L : ℂ, Tendsto (fun x => coeff j (H x)) (𝓝[≠] c) (𝓝 L) := by
-  induction j using Nat.strong_induction_on with
-  | _ j ih =>
-    choose! L hL using ih
-    have hF' : ∀ k, Tendsto (fun x => coeff k (F x)) (𝓝[≠] c) (𝓝 (coeff k (F c))) :=
-      fun k => (hF k).tendsto.mono_left nhdsWithin_le_nhds
-    have hR' : Tendsto (fun x => coeff j (R x)) (𝓝[≠] c) (𝓝 (coeff j (R c))) :=
-      (hR j).tendsto.mono_left nhdsWithin_le_nhds
-    have hF0 : ∀ᶠ x in 𝓝[≠] c, coeff 0 (F x) ≠ 0 := (hF' 0).eventually_ne h0
-    refine ⟨(coeff j (R c) - ∑ k ∈ range j, L k * coeff (j - k) (F c)) / coeff 0 (F c), ?_⟩
-    have ht : Tendsto (fun x => (coeff j (R x) - ∑ k ∈ range j,
-        coeff k (H x) * coeff (j - k) (F x)) / coeff 0 (F x)) (𝓝[≠] c)
-        (𝓝 ((coeff j (R c) - ∑ k ∈ range j, L k * coeff (j - k) (F c)) / coeff 0 (F c))) :=
-      (hR'.sub (tendsto_finsetSum _ fun k hk =>
-        (hL k (Finset.mem_range.1 hk)).mul (hF' (j - k)))).div (hF' 0) h0
-    refine ht.congr' ?_
-    filter_upwards [hmul, hF0] with x hx hx0
-    have e := congrArg (coeff j) hx
-    rw [coeff_mul, Finset.Nat.sum_antidiagonal_eq_sum_range_succ_mk, Finset.sum_range_succ,
-      Nat.sub_self] at e
-    rw [div_eq_iff hx0]
-    linear_combination (-1 : ℂ) * e
-
-/-- The double pole at `x₁ = x₂` cancels (l.918–924): for `x ≠ x₂`,
-`((Y(x) + g(x₂) S(x,x₂))/(x-x₂)²) · 4(Y(x)Y(x₂) - S(x,x₂)) = -g(x₂)(x x₂ - z)²`. -/
-theorem pole_identity {x x2 : ℂ} (h0 : x ≠ 0) (h1 : ‖x‖ < 1) (h20 : x2 ≠ 0) (h21 : ‖x2‖ < 1)
-    (hne : x ≠ x2) :
-    (Yser x + gser x2 * Sser x x2) * C (((x - x2) ^ 2)⁻¹) *
-        (C 4 * (Yser x * Yser x2 - Sser x x2)) =
-      -(gser x2 * (C x * C x2 - X) ^ 2) := by
-  have hh1 := gser_mul_Yser h20 h21
-  have hh2 := Yser_sq h0 h1
-  have hh3 := Yser_sq h20 h21
-  have hh4 := Sser_sq x x2
-  have hh5 : (C x - C x2) ^ 2 * C (((x - x2) ^ 2)⁻¹) = (1 : PowerSeries ℂ) := by
-    rw [← map_sub, ← map_pow, ← map_mul, mul_inv_cancel₀ (pow_ne_zero 2 (sub_ne_zero.2 hne)),
-      map_one]
-  have h4 : (C (4 : ℂ) : PowerSeries ℂ) = 4 := map_ofNat _ 4
-  rw [h4]
-  linear_combination (-(gser x2 * (C x * C x2 - X) ^ 2)) * hh5 -
-    gser x2 * C (((x - x2) ^ 2)⁻¹) * hh4 +
-    4 * C (((x - x2) ^ 2)⁻¹) * (Yser x * Sser x x2 + Pser x * Yser x2) * hh1 +
-    4 * C (((x - x2) ^ 2)⁻¹) * Yser x2 * hh2 -
-    4 * C (((x - x2) ^ 2)⁻¹) * Pser x * gser x2 * hh3
 
 /-- Coefficient of `g · S(x₁,x₂)` as a polynomial in `x₁`. -/
 theorem coeff_mul_Sser (g : PowerSeries ℂ) (x1 x2 : ℂ) (j : ℕ) :

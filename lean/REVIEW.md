@@ -1437,3 +1437,25 @@ Still queued: sphere Lemma 3.4(iii) through (3.6) coefficientwise in `z` (with t
 coefficients of `g(±1)`, which the Lean takes from closed forms); Lemma 3.5, the double pole at
 `x₁ = x₂` through `S(x,x) = Y²`, `∂₁S(x,x) = YY'`; Lemma 3.3, uniqueness and regularity through
 the injectivity of `𝒟_m(∞)` and an invertible square minor.
+
+## 2026-11-22T21:05Z — main session: route repair RR7 (sphere Lemma 3.5, the double pole at `x₁ = x₂`)
+
+Queued item "Lemma 3.5, the double pole at `x₁ = x₂` through `S(x,x) = Y²`, `∂₁S(x,x) = YY'`".
+The Lean now follows Step 2 of the paper's proof: the numerator
+`N(x) = [z^j](Y(x) + g(x₂)S(x,x₂))` is holomorphic near `x₂`; `N(x₂) = 0` by `S(x,x) = P(x) = −Y(x)²`
+(`pole_num_zero`) and `N'(x₂) = 0` by `∂₁S(x,x) = ½P'(x) = −Y(x)Y'(x)` (`dser_Sser_diag`,
+`Yser_dser`, `dser_pole_num`), in the branch `Y = x√(1−x)√(1−z/x)` of the formal setting (`Y² = −P`;
+the paper's `Y` differs by the constant factor `±i`).  Two divided differences give the bounded
+quotient (`bddNear_of_double_zero`, via `Complex.differentiableOn_dslope`), and `bddNear_pole` is
+what `sub_bergman_const_of_patches` consumes.  The coefficientwise derivative in `x` is `dser`,
+with the product rule `dser_mul`.  New file Sphere/Proofs/Sec3BergmanPole.lean.  The earlier route
+(`pole_identity` through `S² − P₁P₂ = ¼(x₁−x₂)²(x₁x₂−z)²` and `tendsto_coeff_of_mul`) is deleted;
+`Sser_sq` stays, as the coincidence limit of the zero-mode step (accepted fill-in, run 11) uses it.
+
+Checked by the main session (`../runs/lean2/checkRR7.log`): `lem_bergman_det_of_cited`,
+`lem_central_charge_of_cited`, `thm_large_delta_of_cited` keep axioms [propext,
+Classical.choice, Quot.sound]; full build exit 0; no forbidden tokens; Statements unchanged.
+Author-side check, not a reviewer PASS.
+
+Still queued: sphere Lemma 3.4(iii) through (3.6) coefficientwise in `z`; Lemma 3.3, uniqueness
+and regularity through the injectivity of `𝒟_m(∞)` and an invertible square minor.

@@ -1,4 +1,5 @@
 import Virasoro.Sphere.Proofs.Sec3BergmanLiouTools
+import Virasoro.Sphere.Proofs.Sec3BergmanPole
 import Virasoro.Sphere.Proofs.Sec3BergmanLiouGlue
 
 /-!
@@ -148,32 +149,8 @@ theorem sub_bergman_const_of_patches (hH : Stmt_sub_bergman_holo) (hI : Stmt_sub
       show BddNear (fun x => coeff j (LF x)) x2
       rw [hGeq]
       have hYc : CoeffCont Yser x2 := (coeffDiff_Yser h20' h21).coeffCont
-      have hF : CoeffCont (fun x => C 4 * (Yser x * Yser x2 - Sser x x2)) x2 :=
-        (CoeffCont.const (C 4) x2).mul
-          ((hYc.mul (CoeffCont.const (Yser x2) x2)).sub (coeffCont_Sser x2))
-      have hR : CoeffCont (fun x => -(gser x2 * (C x * C x2 - X) ^ 2)) x2 :=
-        ((CoeffCont.const (gser x2) x2).mul
-          ((((CoeffCont.C continuousAt_id).mul (CoeffCont.const (C x2) x2)).sub
-            (CoeffCont.const X x2)).pow 2)).neg
-      have hP0 : coeff 0 (Pser x2) = x2 ^ 2 * (x2 - 1) := by
-        simp [Pser]
-      have h0' : coeff 0 (C 4 * (Yser x2 * Yser x2 - Sser x2 x2)) ≠ 0 := by
-        rw [← pow_two, Yser_sq h20' h21, Sser_diag, coeff_C_mul, map_sub, map_neg, hP0]
-        intro h
-        apply mul_ne_zero (pow_ne_zero 2 h20') (sub_ne_zero.2 (ne_one_of_norm_lt h21))
-        linear_combination (-1 / 8 : ℂ) * h
-      have hopen : IsOpen {y : ℂ | 0 < ‖y‖ ∧ ‖y‖ < 1} :=
-        (isOpen_lt continuous_const continuous_norm).inter
-          (isOpen_lt continuous_norm continuous_const)
-      have hmul : ∀ᶠ x in 𝓝[≠] x2,
-          (Yser x + gser x2 * Sser x x2) * C (((x - x2) ^ 2)⁻¹) *
-            (C 4 * (Yser x * Yser x2 - Sser x x2)) = -(gser x2 * (C x * C x2 - X) ^ 2) := by
-        filter_upwards [nhdsWithin_le_nhds (hopen.mem_nhds ⟨h20, h21⟩), self_mem_nhdsWithin]
-          with x hx hxne
-        exact pole_identity (norm_pos_iff.1 hx.1) hx.2 h20' h21 hxne
-      obtain ⟨L, hL⟩ := tendsto_coeff_of_mul hF hR h0' hmul j
       exact (BddNear.of_continuousAt ((hYc.mul (coeffCont_Wnos h20 h21 h21)) j)).add
-        (BddNear.of_tendsto hL)
+        (bddNear_pole h20' h21 j)
     · -- the outer function is holomorphic on `|x| > |x₂|`
       intro x hx
       have hx' : ‖x2‖ < ‖x‖ := hx
