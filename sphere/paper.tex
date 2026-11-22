@@ -305,12 +305,12 @@ For indeterminate weights \(\Delta,\Delta_a,\Delta_b\) and a partition
  :=\prod_{j=1}^r\Bigl(\Delta+\sum_{i=j+1}^r y_i+y_j\Delta_b-\Delta_a\Bigr)
  \in\mathbb Z[\Delta,\Delta_a,\Delta_b],
 \end{equation}
-with \(\gamma_\emptyset=1\).  Writing \(\langle u\mid\Phi_b(1)\mid\Delta_a\rangle\)
-for the unique linear functional on \(M(c,\Delta)\) satisfying
+with \(\gamma_\emptyset=1\).  Let \(\langle u\mid\Phi_b(1)\mid\Delta_a\rangle\)
+denote the unique linear functional on \(M(c,\Delta)\) with
 \(\langle v_\Delta\mid\Phi_b(1)\mid\Delta_a\rangle=1\) and
 \(\langle L_{-n}u\mid\Phi_b(1)\mid\Delta_a\rangle
 =(h(u)+n\Delta_b-\Delta_a)\langle u\mid\Phi_b(1)\mid\Delta_a\rangle\) for
-homogeneous \(u\) of \(L_0\)-weight \(h(u)\) and \(n\geq1\), induction on
+homogeneous \(u\) of \(L_0\)-weight \(h(u)\) and \(n\geq1\).  Induction on
 \(r\) gives \(\langle L_{-Y}v_\Delta\mid\Phi_b(1)\mid\Delta_a\rangle
 =\gamma_Y(\Delta;\Delta_a,\Delta_b)\).
 
@@ -719,9 +719,9 @@ and~\ref{lem:central-charge} below give \(\mathcal I_0=\log(16q(z)/z)\),
 \(\Phi_1=-4\log\theta_3(q(z))\), \(\Phi_2=-4\log\theta_4(q(z))\) and
 \(\Phi_c^{\mathrm{raw}}=\mathcal I_0+12\sum_{m\geq1}\log(1-q(z)^{2m})\), all in
 \(z\mathbb Q[[z]]\) because \(q(z)\in z\mathbb Q[[z]]\).  Where those lemmas
-use part~(iii), they use the limit identity~\eqref{eq:universal-limit} and the
-Gaussian evaluations established above, not the rationality of the four
-series.
+use part~(iii), they use only the limit identity~\eqref{eq:universal-limit}
+and the Gaussian evaluations established above; they do not use the
+rationality of the four series.
 \end{proof}
 
 \subsection{Half-pillow saddle point and Bergman-kernel determinant}
@@ -1282,20 +1282,20 @@ of rational functions of \(b\).
 \end{proposition}
 
 \begin{proof}
-The first identity is Zamolodchikov's norm formula~\cite{Zamolodchikov1987}:
-in~\cite[\S6--\S7, eqs.~(6.1) and~(7.5)]{Zamolodchikov2004} the derivative of
+The first identity is Zamolodchikov's norm formula~\cite{Zamolodchikov1987}.
+In~\cite[\S6--\S7, eqs.~(6.1) and~(7.5)]{Zamolodchikov2004} the derivative of
 the singular-vector norm is computed with respect to the Liouville momentum
-\(\alpha\) at \(\alpha_{r,s}\), and dividing by
+\(\alpha\) at \(\alpha_{r,s}\).  Dividing by
 \(d\Delta/d\alpha|_{\alpha_{r,s}}=rb+s/b\) removes the top lattice factor
-\((rb+s/b)\) to yield \(\beta_{\chi_{r,s}(b)}=\mathcal A_{r,s}(b)^{-1}\)
-(see also~\cite[\S3]{HadaszJaskolskiSuchanek2010} for the \(\Delta\)-crossing
-convention, and~\cite[Prop.~6.2]{PolzerTorus2026}, whose first identity is the
-same normalized product at generic charge).  The second identity is
-Zamolodchikov's fusion polynomial~\cite[\S2]{Zamolodchikov1987}, proved
-directly in~\cite[\S5, eqs.~(5.9)--(5.12)]{Zamolodchikov2004} (see
-also~\cite[eq.~(3.4)]{Ribault2019} for the residue product); its sign in our
-convention is \(+1\), as the leading coefficient in \(\Delta_b-\Delta_a\) of
-both sides is \(+1\) from~\eqref{eq:gamma-Y} and~\eqref{eq:Prs-def}.
+\((rb+s/b)\) and gives \(\beta_{\chi_{r,s}(b)}=\mathcal A_{r,s}(b)^{-1}\).
+For the \(\Delta\)-crossing convention see~\cite[\S3]{HadaszJaskolskiSuchanek2010};
+the first identity of~\cite[Prop.~6.2]{PolzerTorus2026} is the same
+normalized product at generic charge.  The second identity is Zamolodchikov's
+fusion polynomial~\cite[\S2]{Zamolodchikov1987}, proved directly
+in~\cite[\S5, eqs.~(5.9)--(5.12)]{Zamolodchikov2004}; for the residue product
+see also~\cite[eq.~(3.4)]{Ribault2019}.  Its sign in our convention is \(+1\),
+because the leading coefficient in \(\Delta_b-\Delta_a\) of both sides is
+\(+1\) by~\eqref{eq:gamma-Y} and~\eqref{eq:Prs-def}.
 \end{proof}
 
 \begin{proposition}[Generic Zamolodchikov recursion]\label{prop:generic-recursion}
@@ -1526,14 +1526,14 @@ set \(\pi^\pm_k(\Delta_a,\Delta_b):=\langle w^\pm_k\mid\Phi_b(1)\mid\Delta_a\ran
 \item[(ii)] For even \(k=2j\) (\(j\geq1\)), with
   \((R^+_k,S^+_k)=(r+jp,jp'-s)\) and \((R^-_k,S^-_k)=(jp-r,jp'+s)\),
   \(\pi^\pm_k(\Delta_a,\Delta_b)=P_{r,s}(b_\star,\Delta_a,\Delta_b)\,P_{R^\pm_k,S^\pm_k}(b_\star,\Delta_a,\Delta_b)\).
-\item[(iii)] Writing \(\Lambda_a=ia_a/\sqrt{pp'}\) and
-  \(\Lambda_b=ia_b/\sqrt{pp'}\) (so
-  \(\Delta_a=(a_a^2-(p'-p)^2)/(4pp')\)), the zero locus of
+\item[(iii)] Write \(\Lambda_a=ia_a/\sqrt{pp'}\) and
+  \(\Lambda_b=ia_b/\sqrt{pp'}\), so that
+  \(\Delta_a=(a_a^2-(p'-p)^2)/(4pp')\).  The zero locus of
   \(\pi^\pm_k(\Delta_a,\Delta_b)\) is a union of hyperplanes
-  \(a_a\pm a_b=c\) with \(|c|\leq m^\pm_k-p'-p\): at every zero at least one
-  of \(|a_a+a_b|\) or \(|a_a-a_b|\) is at most \(m^\pm_k-p'-p\) (equivalently,
-  if both \(|a_a+a_b|\) and \(|a_a-a_b|\) strictly exceed \(m^\pm_k-p'-p\),
-  then \(\pi^\pm_k(\Delta_a,\Delta_b)\neq0\)), and both hyperplanes
+  \(a_a\pm a_b=c\) with \(|c|\leq m^\pm_k-p'-p\).  Thus at every zero at least
+  one of \(|a_a+a_b|\) or \(|a_a-a_b|\) is at most \(m^\pm_k-p'-p\);
+  equivalently, if both strictly exceed \(m^\pm_k-p'-p\), then
+  \(\pi^\pm_k(\Delta_a,\Delta_b)\neq0\).  Both hyperplanes
   \(a_a-a_b=\pm(m^\pm_k-p'-p)\) lie in the zero locus of
   \(\pi^\pm_k(\Delta_a,\Delta_b)\).
 \end{enumerate}
@@ -1587,14 +1587,14 @@ Then \(j_N(\lambda)=k\); for each sign with \(\ell^\pm_k\leq N\), one has
 \end{theorem}
 
 \begin{proof}
-By the proof of~\cite[Theorem~5.9]{PolzerTorus2026}, for every
-\(\ell_k\leq N'\leq N\), \(k\) is the maximal local Smith exponent of
-\(G_{N'}(c_\star,\lambda+x)\), the \(k\)-th Jantzen layer splits as the
+By the proof of~\cite[Theorem~5.9]{PolzerTorus2026}, the following hold for
+every \(\ell_k\leq N'\leq N\): \(k\) is the maximal local Smith exponent of
+\(G_{N'}(c_\star,\lambda+x)\); the \(k\)-th Jantzen layer splits as the
 \(B^k\)-orthogonal direct sum
 \(J^k_{N'}(c_\star,\lambda)=\bigoplus_{\pm:\ell^\pm_k\leq N'}(W^\pm_k)_{N'}\)
-with \(B^k(L_{-Z}w^\pm_k,L_{-Z'}w^\pm_k)=\gamma^\pm_k G_{N'-\ell^\pm_k}(c_\star,\mu^\pm_k)_{Z,Z'}\),
-\(\gamma^\pm_k\neq0\), and \(\det G_M(c_\star,\mu^\pm_k)\neq0\) for all
-\(M\leq N-\ell^\pm_k\).  Applying~\cite[Lemma~5.4(ii)]{PolzerTorus2026} to
+with \(B^k(L_{-Z}w^\pm_k,L_{-Z'}w^\pm_k)=\gamma^\pm_k G_{N'-\ell^\pm_k}(c_\star,\mu^\pm_k)_{Z,Z'}\);
+and \(\gamma^\pm_k\neq0\).  Moreover \(\det G_M(c_\star,\mu^\pm_k)\neq0\) for
+all \(M\leq N-\ell^\pm_k\).  Applying~\cite[Lemma~5.4(ii)]{PolzerTorus2026} to
 the bilinear form~\eqref{eq:B-def} and factoring via
 Lemma~\ref{lem:3pt-factor} gives~\eqref{eq:top-B} for every
 \(\ell_k\leq N'\leq N\).
@@ -1840,11 +1840,12 @@ with \(\gamma_5=-11200/3\), agreeing with~\cite[eq.~(3.24)]{Ribault2019} under
 
 \begin{proposition}[First double poles at the Ising charge \(c=\tfrac12\)]
 \label{prop:ising-example}
-At \((p,p')=(3,4)\) (\(c_\star=\tfrac12\), \(b_\star^2=-\tfrac43\)), at the
-three interior Kac weights \(\lambda=\tfrac12,\tfrac1{16},0\) (the energy,
-spin, and identity weights), the first double poles of both
-\(\mathcal B_N(\tfrac12,\Delta,\Delta_i)\) and
-\(H_N(\tfrac12,\Delta,\Delta_i)\) occur at \(N=7,10,11\) respectively, with
+Let \((p,p')=(3,4)\), so that \(c_\star=\tfrac12\) and
+\(b_\star^2=-\tfrac43\), and let \(\lambda\) be one of the three interior Kac
+weights \(\tfrac12,\tfrac1{16},0\) (the energy, spin and identity weights).
+The first double pole at \(\Delta=\lambda\) of
+\(\mathcal B_N(\tfrac12,\Delta,\Delta_i)\) and of
+\(H_N(\tfrac12,\Delta,\Delta_i)\) occurs at \(N=7,10,11\) respectively, with
 leading Laurent coefficient
 \(\pi(\Delta_4,\Delta_3)\,\pi(\Delta_1,\Delta_2)/\gamma\), where
 \[
@@ -1882,8 +1883,8 @@ script \texttt{exact\_sphere\_block.py} checks the \(c=0\) coefficient at
 \texttt{audit\_sphere\_top\_layer.py} check \(\gamma=-700700\) at
 \(\lambda=\tfrac12\), \(N=7\).  The Ising norms at levels ten and eleven
 are checked against the layer-coefficient formula only by the torus
-paper's script \texttt{tools/audit\_top\_layer.py}.  These are finite
-checks, not part of the proof.
+paper's script \texttt{tools/audit\_top\_layer.py}.  The proof does not use
+these checks.
 \end{proof}
 
 \section{Scope and outlook}\label{sec:scope}

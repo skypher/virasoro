@@ -1125,21 +1125,23 @@ Theorem~\ref{thm:jantzen-smith}), \(\rho=-n_0/(2(p'-p))\), and
 Put \(\nu=b^2\), \(\nu_\star=-p'/p\), \(N_0=2pp'\); dots denote \(d/d\nu\) at
 \(\nu_\star\).  By the proof of Lemma~\ref{lem:d-derivatives}, the factors of
 \({\mathcal P}_g(b,0)\) vanishing at \(\nu_\star\) (where \(\varphi(x,y)=0\) iff
-\((x,y)\in\mathbb Z(p,p')\)) are \(-d\) and
-\(\frac14\varphi(2jp,2jp')\varphi(2-2jp,2-2jp')\), \(0\neq j\),
-\((jp,jp')\in B_g\), of derivative \(j\kappa_0\), \(\kappa_0=p(p'-p)/p'\);
-\({\mathcal A}_g\) has a pole of order at most their number minus one, equal
-to it when \(\rho_g:=\partial_d{\mathcal R}_g|_{d=0}=-(p'u-pv)/(2(p'-p))\)
-(Lemma~\ref{lem:d-derivatives}) is nonzero; so along
+\((x,y)\in\mathbb Z(p,p')\)) are \(-d\) and the factors
+\(\frac14\varphi(2jp,2jp')\varphi(2-2jp,2-2jp')\) with \(j\neq0\) and
+\((jp,jp')\in B_g\), whose derivatives are \(j\kappa_0\), where
+\(\kappa_0=p(p'-p)/p'\).  The pole of \({\mathcal A}_g\) has order at most
+their number minus one, with equality when
+\(\rho_g:=\partial_d{\mathcal R}_g|_{d=0}=-(p'u-pv)/(2(p'-p))\)
+(Lemma~\ref{lem:d-derivatives}) is nonzero.  So along
 \((\nu,\Delta,d)=(\nu_\star+\tau,\lambda+\tau w,\tau y)\),
-\({\mathcal R}_g/\tau\to\rho_gy\prod_j(1-y/(j\kappa_0))\).  Expanding \(H_N\)
+\({\mathcal R}_g/\tau\to\rho_gy\prod_j(1-y/(j\kappa_0))\).  Expand \(H_N\)
 by Proposition~\ref{prop:generic-recursion} into chains \(g_1,\dots,g_n\)
-with denominators \(z_{i-1}-h_{g_i}\) (\(z_0=\Delta\),
-\(z_i=h_{g_i}+\ell_{g_i}\)), each of order \(\tau\) if
-\(h_{g_i}(\nu_\star)=z_{i-1}(\nu_\star)\) (consecutive slopes differ, see
-below) and a unit otherwise (generic \(w,y\)), \(H_N\) tends to \(T_N(w,y)\), the sum over such colliding chains
-of \(\prod_i\rho_{g_i}y\prod_j(1-y/(j\kappa_0))/(\zeta_{i-1}-\dot h_{g_i})\),
-\(\zeta_0=w\), \(\zeta_i=\dot h_{g_i}\).  The denominator of \(H_N\) is a
+with denominators \(z_{i-1}-h_{g_i}\), where \(z_0=\Delta\) and
+\(z_i=h_{g_i}+\ell_{g_i}\).  For generic \(w,y\), such a denominator is of
+order \(\tau\) if \(h_{g_i}(\nu_\star)=z_{i-1}(\nu_\star)\) (consecutive
+slopes differ, see below) and a unit otherwise.  Hence \(H_N\) tends to
+\(T_N(w,y)\), the sum over such colliding chains of
+\(\prod_i\rho_{g_i}y\prod_j(1-y/(j\kappa_0))/(\zeta_{i-1}-\dot h_{g_i})\),
+with \(\zeta_0=w\) and \(\zeta_i=\dot h_{g_i}\).  The denominator of \(H_N\) is a
 product of powers of \(\Delta-h_g\), with leading forms units or
 \(\Delta-\lambda-\dot h_g(\nu-\nu_\star)\); so \(T_N(w,y)=\Phi(1,w,y)\) for the
 lowest homogeneous part \(\Phi\) of \(H_N\) in
@@ -1328,20 +1330,20 @@ most \(\ell(\mu_m)+\lfloor p_m/2\rfloor\) non-negative modes; moving the
 rightmost non-negative mode to the right shows by induction that every
 monomial in the bracket satisfies
 \(d_\Delta^{(m)}+d_c^{(m)}\leq\ell(\mu_m)+p_m/2\).  In
-\(\widetilde\rho_{\lambda_r,\lambda_0}\), commuting \(L_1^{a_r}\) past
+\(\widetilde\rho_{\lambda_r,\lambda_0}\), commute \(L_1^{a_r}\) past
 \(L_{\mu_r}\) (\(p_1\) times) and \(L_{-1}^{a_0}\) past \(L_{-\mu_0}\)
-(\(q_1\) times) and applying the \(\mathfrak{sl}_2\) identities (proved by
-induction on the exponent), together with the contravariant adjoint of the
-first to move \(L_{-1}^{b'-k_r}\) past \(V_d(1)\),
+(\(q_1\) times), and apply the \(\mathfrak{sl}_2\) identities below, which
+are proved by induction on the exponent; the contravariant adjoint of the
+first one moves \(L_{-1}^{b'-k_r}\) past \(V_d(1)\):
 \begin{align*}
  \langle v|L_1^{a'}V_d(1)|W\rangle
  &=\sum_{m_L=0}^{a'}\tbinom{a'}{m_L}\!\Bigl(\prod_{u=0}^{m_L-1}(d+h_v-h_W+a'-1-u)\Bigr)
    \langle v|V_d(1)L_1^{a'-m_L}|W\rangle,\\
  L_1^{\tilde r}L_{-1}^{b'}
  &=\sum_{k_r=0}^{\min(\tilde r,b')}\!\tbinom{\tilde r}{k_r}\tfrac{b'!}{(b'-k_r)!}\,
-   L_{-1}^{b'-k_r}\!\Bigl(\prod_{u=0}^{k_r-1}(2L_0+b'+\tilde r-k_r-1-u)\Bigr)L_1^{\tilde r-k_r},
+   L_{-1}^{b'-k_r}\!\Bigl(\prod_{u=0}^{k_r-1}(2L_0+b'+\tilde r-k_r-1-u)\Bigr)L_1^{\tilde r-k_r}.
 \end{align*}
-yields a sum over \(p_1,q_1,p_2,q_2,k_r\geq0\) (putting
+This yields a sum over \(p_1,q_1,p_2,q_2,k_r\geq0\) (putting
 \(p_r^*=p_1+p_2\), \(q_r^*=q_1+q_2\), \(s_L=a_r-k_r-p_r^*\),
 \(s_R=a_0-k_r-q_r^*\)) of the product of
 \(\frac{M!}{s_R!}\frac{a_r!}{s_L!}\frac{1}{k_r!p_1!p_2!q_1!q_2!}\),
@@ -1479,15 +1481,15 @@ and combining with \eqref{eq:h13-valuation}, the two summands of
 In every factor \({\mathcal P}_{R,S}\) of \(\tau^\pm_k\), one has
 \(S\equiv\pm s\not\equiv\pm1\pmod\ell\).  If \(\ell\geq5\), the odd indices
 \(1\leq l<2S\) with \(l\equiv\pm3\pmod\ell\) pair bijectively with those with
-\(l\equiv\pm1\pmod\ell\) via \((2j\ell+3\epsilon,\,2j\ell+\epsilon)\)
-(\(\epsilon=+1\) for \(j\geq0\); \(\epsilon=-1\) for \(j\geq1\)); for
-\(\beta\in\{1,3\}\), \(\sigma\in\{\pm1\}\), and odd \(a'\), setting
-\(A=p'-\beta p\) and \(B=p'a'+\sigma p(2j\ell+\beta\epsilon)\) gives
-\(A^2-B^2=(A+\epsilon\sigma B)(A-\epsilon\sigma B)\) with
-\(A+\epsilon\sigma B=p'(1+\epsilon\sigma a')+2\epsilon j\ell p\) independent of
-\(\beta\) and \(A-\epsilon\sigma B\equiv-2\beta p\not\equiv0\pmod\ell\), so
-the paired factors either both vanish or share the same \(\ell\)-adic
-valuation.  If \(\ell=3\), then \(3\mid s\) and \(3\mid S\), so the odd indices
+\(l\equiv\pm1\pmod\ell\) via \((2j\ell+3\epsilon,\,2j\ell+\epsilon)\), with
+\(\epsilon=+1\), \(j\geq0\) and with \(\epsilon=-1\), \(j\geq1\).  For
+\(\beta\in\{1,3\}\), \(\sigma\in\{\pm1\}\) and odd \(a'\), put
+\(A=p'-\beta p\) and \(B=p'a'+\sigma p(2j\ell+\beta\epsilon)\).  Then
+\(A^2-B^2=(A+\epsilon\sigma B)(A-\epsilon\sigma B)\), where
+\(A+\epsilon\sigma B=p'(1+\epsilon\sigma a')+2\epsilon j\ell p\) does not
+depend on \(\beta\) and \(A-\epsilon\sigma B\equiv-2\beta p\not\equiv0\pmod\ell\)
+(as \(\ell\mid p'\)).  So the paired factors either both vanish or have the
+same \(\ell\)-adic valuation.  If \(\ell=3\), then \(3\mid s\) and \(3\mid S\), so the odd indices
 \(1\leq l<2S\) partition into triples \(\{6j+1,6j+3,6j+5\}\)
 (\(0\leq j<S/3\)).  For each odd \(a'\) and triple, at \(l=6j+3\) one has
 \(v_3(x_0^2-x^2)=0\) while \((x_1^2-(p'a'+pl)^2)(x_1^2-(p'a'-pl)^2)\) has
@@ -2226,13 +2228,13 @@ Let \(\mu\in\mathcal{O}_{p,p'}(r,s)\) lie at layer \(k\geq0\) (so
 
 \begin{proof}
 Part~(i) follows from \cite[Theorem~A(a),(b)(iii),(c) and
-Theorem~B(e)]{Astashkevich1997} (and \cite[Proposition~5.4, Figure~5.4, and
-Theorem~6.3]{IoharaKoga2011}): since \(n_\mu\equiv\pm n_0\) or \(\pm n_1\pmod{2pp'}\)
-is divisible by neither \(p\) nor \(p'\), the line \(p'x-py=n_\mu\) meets
-neither axis at an integer point, placing \(M(c_\star,\mu)\) in
-Class~\(\mathrm{III}_-\), and the fixed-\(c\) line \(c=c_\star\) is
-transverse to every Kac curve through \((c_\star,\mu)\) because
-\(dc/dt=6(1-t^{-2})\neq0\) at \(t_\star=-p'/p<0\).
+Theorem~B(e)]{Astashkevich1997}; see also \cite[Proposition~5.4, Figure~5.4,
+and Theorem~6.3]{IoharaKoga2011}.  Since \(n_\mu\equiv\pm n_0\) or
+\(\pm n_1\pmod{2pp'}\) is divisible by neither \(p\) nor \(p'\), the line
+\(p'x-py=n_\mu\) meets neither axis at an integer point, which places
+\(M(c_\star,\mu)\) in Class~\(\mathrm{III}_-\).  The fixed-\(c\) line
+\(c=c_\star\) is transverse to every Kac curve through \((c_\star,\mu)\)
+because \(dc/dt=6(1-t^{-2})\neq0\) at \(t_\star=-p'/p<0\).
 For part~(ii), \(h_{R,S}(b_\star)=\mu\) and \(h_{R,-S}(b_\star)=\nu\) are
 equivalent by \eqref{eq:mm-weight} to \(p'R+pS=n_\nu\) and
 \(p'R-pS=\sigma n_\mu\) for some \(\sigma\in\{+1,-1\}\), i.e.\
@@ -3089,13 +3091,13 @@ Part~(a) is immediate: when \(k=m=0\) we have \(d=0\),
 \(\Omega_{1,1}\equiv1\), and \(F_N(c_\star,\mu,0)=p(N)\) for all \(\mu\).
 For part~(b), Theorem~\ref{thm:general-confluence} computes the exact finite
 partial-fraction expansion of \(H_M(c_\star,\Delta,d)\) in \(\Delta\) from the
-generic Poghossian--HJS recursion with no numerical \(\varepsilon\)-limit; by
+generic Poghossian--HJS recursion with no numerical \(\varepsilon\)-limit.  By
 Theorem~\ref{thm:descent-regularity}, all poles at
 \(\Delta=\mu\in\mathcal{O}_{p,p'}(r,s)\) have identically zero Laurent
-coefficients, so omitting the identically zero principal part at \(\Delta=\mu\)
-lets \(H_M(c_\star,\mu,d)\) be evaluated by direct substitution of
-\(\Delta=\mu\) into the non-\(\mu\) partial-fraction summands, converting to
-\(F_M(c_\star,\mu,d)=\sum_{i=0}^Mp(i)H_{M-i}(c_\star,\mu,d)\) and summing the
+coefficients.  Omitting that principal part, one evaluates
+\(H_M(c_\star,\mu,d)\) by substituting \(\Delta=\mu\) into the remaining
+partial-fraction summands, converts to
+\(F_M(c_\star,\mu,d)=\sum_{i=0}^Mp(i)H_{M-i}(c_\star,\mu,d)\), and sums the
 finite truncation of \eqref{eq:gen-rocha-caridi} with \(\ell^\pm_j\leq N\).
 
 For part~(c), apply \eqref{eq:gen-rocha-caridi} with \(\lambda\) replaced by
@@ -3211,8 +3213,8 @@ layer \(2\) at \(N=9\), where \(F_9\) has a \(10\)-digit denominator containing
 \(7,11,13,17,\ldots\) and the BGG sum collapses to
 \(T^{\mathrm{irr}}_9=27946402/5^{10}\)).  Evaluating
 \eqref{eq:gen-rocha-caridi} via Corollary~\ref{cor:collision-free} for
-\(0\leq N\leq 25\) shows by exact calculation that every coefficient
-\(T^{\mathrm{irr}}_N\) in this checked range has a pure power of \(5\) as its
+\(0\leq N\leq 25\) in exact arithmetic shows that every coefficient
+\(T^{\mathrm{irr}}_N\) in this range has a power of \(5\) as its
 denominator, starting with
 \[
  1,\;\frac{2}{5},\;\frac{17}{25},\;\frac{98}{125},\;\frac{714}{625},\;
@@ -3238,7 +3240,7 @@ Theorem~\ref{thm:gen-rocha-caridi}.  The first-layer BGG weights
 \((77/39,32186/25857)\) for \(d=1/10\); all three match direct quotient-Gram
 inversion identically in \(\mathbb{Q}\) for \(0\leq N\leq 7\).
 
-\subsection{Audit summary}
+\subsection{Computer checks}
 
 The standalone script \texttt{irreducible/tools/audit\_irreducible\_torus.py}
 independently checks: (1)~Theorem~\ref{thm:descent-regularity} across allowed,
