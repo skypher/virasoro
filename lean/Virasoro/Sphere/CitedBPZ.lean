@@ -4,19 +4,20 @@ import Virasoro.Kac
 /-!
 # The BPZ equation for a block with the degenerate field `Φ_{2,1}` (cited input)
 
-Belavin–Polyakov–Zamolodchikov 1984, eqs. (5.2), (5.17), (5.19), as used at sphere/paper.tex
-l.1651–1661: for `Δ₂ = h_{2,1}(b)` and `Λ₁ = Λ_μ + b` (the level-2 null vector decouples,
+Belavin–Polyakov–Zamolodchikov 1984, eqs. (5.2), (5.17), (5.19), as used in the proof of
+Theorem 5.4 (Paper label: thm:sharp-B), step (c), of sphere/paper.tex: for `Δ₂ = h_{2,1}(b)` and `Λ₁ = Λ_μ + b` (the level-2 null vector decouples,
 `P_{2,1}(b,Δ₁,μ) = 0`), `𝓕(z) = z^{μ-Δ₁-Δ₂} ℬ(z)`, `ℬ(z) = ∑_n ℬ_n(c(b),μ,Δ_i) zⁿ`, solves
 `(b^{-2}∂² - (1/z + 1/(z-1))∂ + Δ₁/z² + Δ₃/(z-1)² + (Δ₁+Δ₂+Δ₃-Δ₄)/(z(1-z))) 𝓕 = 0`.
 
-Encoding.  External weights are parameterized by `Λ_j² = Q(b)² - 4Δ_j` (l.1209); with `β = bΛ`
+Encoding.  External weights are parameterized by `Λ_j² = Q(b)² - 4Δ_j` (opening of
+§4, sec:confluence); with `β = bΛ`
 the weight is `((b²+1)² - β²)/(4b²)` (`wtB`), and `Λ₁ = Λ_μ + b` reads `β₁ = β_μ + b²`.  The
 equation is stated through its coefficients: multiplying by `z²(z-1)²` and writing `θ = z∂_z`,
 the coefficient of `z^{s+n}`, `s = μ - Δ₁ - Δ₂`, is
 `P₀(s+n) ℬ_n + P₁(s+n-1) ℬ_{n-1} + P₂(s+n-2) ℬ_{n-2}` with
 `P₀(x) = b^{-2}x(x-1) - x + Δ₁`, `P₁(x) = -2b^{-2}x(x-1) + 3x + D - 2Δ₁`,
 `P₂(x) = b^{-2}x(x-1) - 2x + Δ₁ + Δ₃ - D`, `D = Δ₁+Δ₂+Δ₃-Δ₄` (`ℬ_{-1} = ℬ_{-2} = 0`).
-"Generic" (l.1652) is read as: `b ≠ 0`, `b² ∉ ℚ`, and the block is defined at `Δ = μ`
+"Generic" (step (c), first sentence) is read as: `b ≠ 0`, `b² ∉ ℚ`, and the block is defined at `Δ = μ`
 (every `G_m(c(b),μ)` invertible).
 -/
 
@@ -53,7 +54,7 @@ noncomputable def bpzCoeff (b βμ β₃ β₄ : ℂ) (n : ℕ) : ℂ :=
     (if 1 ≤ n then bpzP1 b (Δe 0) D (s + n - 1) * blockAt (kacC b) μ Δe (n - 1) else 0) +
     (if 2 ≤ n then bpzP2 b (Δe 0) (Δe 2) D (s + n - 2) * blockAt (kacC b) μ Δe (n - 2) else 0)
 
-/-- **Cited** (BPZ 1984, eqs. (5.2), (5.17), (5.19); sphere/paper.tex l.1651–1661): for generic
+/-- **Cited** (BPZ 1984, eqs. (5.2), (5.17), (5.19); proof of Theorem 5.4, step (c)): for generic
 `(b,Λ_μ,Λ₃,Λ₄)` with `Δ₂ = h_{2,1}(b)` and `Λ₁ = Λ_μ + b`, the block `z^{μ-Δ₁-Δ₂}ℬ(z)` solves
 the BPZ equation, coefficientwise. -/
 def Cited_BPZEquation : Prop :=

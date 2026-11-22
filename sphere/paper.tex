@@ -128,8 +128,8 @@ for sphere four-point Virasoro blocks}
 We study the Verma-module \(s\)-channel sphere four-point Virasoro conformal
 block with indeterminate external weights \(\Delta_1,\Delta_2,\Delta_3,\Delta_4\)
 and a fixed nonzero Coulomb-gas parameter \(b_\star\), with
-\(c_\star=1+6(b_\star+b_\star^{-1})^2\).  There are three main results.
-The first is a self-contained algebraic proof of Zamolodchikov's
+\(c_\star=1+6(b_\star+b_\star^{-1})^2\).  The first main result is a
+self-contained algebraic proof of Zamolodchikov's
 large-internal-dimension asymptotics: for every \(N\geq0\) and every
 \((c,\Delta_1,\dots,\Delta_4)\in\mathbb C^5\), the coefficient
 \(H_N(c,\Delta,\Delta_i)\) of the elliptic \(H\)-series tends to
@@ -174,8 +174,8 @@ Zamolodchikov~\cite{Zamolodchikov1984,Zamolodchikov1987} introduced the
 elliptic nome \(q(z)\) and a prefactor \(\Phi(c,\Delta,\Delta_i;q)\), wrote
 \(\mathcal F=\Phi\cdot H\) with
 \(H(c,\Delta,\Delta_i;q)=\sum_{N=0}^\infty H_N(c,\Delta,\Delta_i)(16q)^N\), and
-derived a recursion that expresses \(H_N\) as a sum of simple poles at the Kac
-weights \(h_{r,s}(b)\) with \(rs\leq N\).  This paper takes up three questions
+derived a recursion under which \(H_N\) has at most simple poles in \(\Delta\),
+all at the Kac weights \(h_{r,s}(b)\) with \(rs\leq N\).  This paper takes up three questions
 about that recursion.
 
 The first concerns the input of the recursion.  Zamolodchikov's recursion follows from
@@ -219,10 +219,11 @@ indeterminate external weight \(d\) the bound is attained at every \(N\geq1\),
 with the pole order taken over \(\mathbb Q(d)\); at the identity insertion
 \(d=0\) one has \(H_N=0\) for \(N\geq1\).  The sphere four-point block has four
 independent external weights and two standard normalizations, \(\mathcal B_N\)
-and \(H_N\).  The question is whether the same top-layer structure and the
-same unconditional sharpness hold for both.
+and \(H_N\).  The question is whether the same top-layer structure holds for
+both, and whether the bound is attained over the field of rational functions
+in the external weights.
 
-We answer all three.  Section~\ref{sec:setup} fixes the normalizations of
+Section~\ref{sec:setup} fixes the normalizations of
 \(\mathcal B_N\) and \(H_N\).  It also explains why \(H_N\) is the right
 normalization for pure-pole confluence: \(\mathcal B_N\) carries a polynomial
 part of degree \(N\) in \(\Delta\).  Section~\ref{sec:asymp} proves
@@ -584,16 +585,17 @@ and \(R_{m,k}\) is polynomial in \(S_1,\dots,S_{m-1}\) and
 by \(P\mapsto(D_1(\lambda)P,\dots,D_m(\lambda)P)\).  Its limit
 \(\mathcal D_m(\infty)\) has components
 \(D_k(\infty)=i\partial_{\sigma_k}+\sum_{n\geq1}n\sigma_n\partial_{\sigma_{n+k}}\),
-and is \emph{injective}: if \(P\in\mathbb C[\sigma]_m\setminus\{0\}\) lies
-in \(\ker\mathcal D_m(\infty)\) and \(P_d\neq0\) is its nonzero homogeneous
-part of minimal total polynomial degree \(d\geq1\) (since \(m\geq1\)), then
-\(\partial_{\sigma_k}\) lowers total degree by \(1\) while
-\(\sum n\sigma_n\partial_{\sigma_{n+k}}\) preserves it, so the
-degree-\((d-1)\) part of \(D_k(\infty)P=0\) gives \(i\partial_{\sigma_k}P_d=0\)
-for all \(1\leq k\leq m\), contradicting \(m\geq1\).  Hence the rectangular
-system \(\mathcal D_m(\lambda)\) has an invertible \(p(m)\times p(m)\) square
-minor at \(\lambda^{-1}=0\) (supplying a left inverse regular in
-\(\lambda^{-1}\)), so its unique solution is regular at \(\lambda^{-1}=0\).
+and it is injective.  Indeed, let \(P\in\mathbb C[\sigma]_m\setminus\{0\}\) lie
+in \(\ker\mathcal D_m(\infty)\), and let \(P_d\) be its nonzero homogeneous
+part of minimal total polynomial degree \(d\); then \(d\geq1\) because
+\(m\geq1\).  The operator \(\partial_{\sigma_k}\) lowers total degree by \(1\)
+and \(\sum n\sigma_n\partial_{\sigma_{n+k}}\) preserves it, so the
+degree-\((d-1)\) part of \(D_k(\infty)P=0\) reads \(i\partial_{\sigma_k}P_d=0\)
+for all \(1\leq k\leq m\).  Then \(P_d\) is a constant, which is impossible in
+weight \(m\geq1\).  Hence the rectangular system \(\mathcal D_m(\lambda)\) has
+an invertible \(p(m)\times p(m)\) square minor at \(\lambda^{-1}=0\), which
+gives a left inverse regular in \(\lambda^{-1}\), and its unique solution is
+regular at \(\lambda^{-1}=0\).
 Induction on \(m\geq1\) proves that every \(S_m(\sigma;\lambda)\) is regular
 at \(\lambda=\infty\).
 
@@ -682,13 +684,13 @@ conjugate.  Since \(\bar A_m=-A_m\) and \(B_{m,n}\in\mathbb R\), one has
  \operatorname{Cov}(U_m,V_n)&=\frac{\delta_{m,n}}{2m}z^m+O(z^{m+n}).
 \end{align*}
 Consequently, every Wick contraction of a pair of modes of weights \(m,n\) has
-\(z\)-order at least \(\frac{m+n}{2}\), so every Wick monomial in \((U,V)\) of
-total oscillator weight \(L\) has \(z\)-order at least \(\lceil L/2\rceil\),
-while every saddle factor \(\sigma_{*,m},\bar\sigma_{*,m}\) has \(z\)-order at
+\(z\)-order at least \(\frac{m+n}{2}\), and every Wick monomial in \((U,V)\) of
+total oscillator weight \(L\) has \(z\)-order at least \(\lceil L/2\rceil\).
+Every saddle factor \(\sigma_{*,m},\bar\sigma_{*,m}\) has \(z\)-order at
 least \(m\).  Modulo \(z^{N+1}\), only finitely many oscillator modes and
-finitely many Wick monomials (of total weight \(L\leq2N\)) contribute, making
-all algebraic shifts and \(\lambda^{-1}\)-extractions finite identities in
-\(\mathbb C[[z]]/(z^{N+1})\).
+finitely many Wick monomials contribute (those of total weight
+\(L\leq2N\)), and all algebraic shifts and \(\lambda^{-1}\)-extractions are
+finite identities in \(\mathbb C[[z]]/(z^{N+1})\).
 
 The \(\lambda^2\) saddle value factors out as \(e^{\lambda^2\mathcal I_0(z)}\).
 At order \(\lambda^1\), \(\iota\)-oddness of \(\widetilde S^{(1)}\) and
@@ -710,13 +712,16 @@ centered Gaussian expectation of the linear-in-\((U,V)\) exponential yields
 \(\widetilde S^{(2)}(\bar\sigma_*)\) and setting
 \(\Phi_c^{\mathrm{raw}}(z):=2S^{(2)}_c(\sigma_*(z))+\Psi_1(z)\),
 \(\Phi_j(z):=S^{(2)}_j(\sigma_*(z))\) (\(j=1,2\)) yields
-\eqref{eq:universal-limit} modulo \(z^{N+1}\).  The four series have rational
-coefficients.  Lemmas~\ref{lem:saddle}, \ref{lem:ext-exponents}
-and~\ref{lem:central-charge} below use only parts~(i) and~(ii) and
-\eqref{eq:universal-limit}, and they give \(\mathcal I_0=\log(16q(z)/z)\),
+\eqref{eq:universal-limit} modulo \(z^{N+1}\).  The four series lie in
+\(z\mathbb Q[[z]]\):
+Lemmas~\ref{lem:saddle}, \ref{lem:ext-exponents}
+and~\ref{lem:central-charge} below give \(\mathcal I_0=\log(16q(z)/z)\),
 \(\Phi_1=-4\log\theta_3(q(z))\), \(\Phi_2=-4\log\theta_4(q(z))\) and
 \(\Phi_c^{\mathrm{raw}}=\mathcal I_0+12\sum_{m\geq1}\log(1-q(z)^{2m})\), all in
-\(z\mathbb Q[[z]]\) because \(q(z)\in z\mathbb Q[[z]]\).
+\(z\mathbb Q[[z]]\) because \(q(z)\in z\mathbb Q[[z]]\).  Where those lemmas
+use part~(iii), they use the limit identity~\eqref{eq:universal-limit} and the
+Gaussian evaluations established above, not the rationality of the four
+series.
 \end{proof}
 
 \subsection{Half-pillow saddle point and Bergman-kernel determinant}
@@ -923,18 +928,18 @@ Fix \(0<|x_2|<1\) and use \(D+BK_{12}M_1=DK_{21}\) and \(BK_{12}=DK_{21}M_2\):
   \([z^j]\)-coefficient on compact subsets of \(|x_1|>|x_2|\), including
   \(x_1=\infty\).
 \end{itemize}
-With \(Y(x):=\sqrt{x(x-z)(x-1)}\) (\(Y(x)\sim x^{3/2}\) at \(\infty\)),
-multiplying the inner patch by \(\sqrt{x_1-1}\) (holomorphic on \(|x_1|<1\))
-and the outer patch by \(\sqrt{1-z/x_1}\) (coefficientwise in \(z\)) with
-consistent branch choice proves that at every order in \(z\),
+Put \(Y(x):=\sqrt{x(x-z)(x-1)}\), so that \(Y(x)\sim x^{3/2}\) at \(\infty\).
+Multiply the inner patch by \(\sqrt{x_1-1}\), which is holomorphic on
+\(|x_1|<1\), and the outer patch by \(\sqrt{1-z/x_1}\), coefficientwise in
+\(z\), with consistent branch choice.  This shows that at every order in \(z\),
 \([z^j](Y(x_1)W(x_1,x_2))\) extends to a single-valued meromorphic function on
-\(\mathbb P^1\), holomorphic at \(\infty\), whose only singularity is the pole
-at \(x_1=x_2\) matching \([z^j](Y(x_1)/(x_1-x_2)^2)\).  With the symmetric
+\(\mathbb P^1\) that is holomorphic at \(\infty\) and whose only singularity is
+the pole at \(x_1=x_2\), matching \([z^j](Y(x_1)/(x_1-x_2)^2)\).  The symmetric
 polynomial
 \(S(x_1,x_2):=\frac12[x_1x_2(x_1+x_2)-2(1+z)x_1x_2+z(x_1+x_2)]\)
-(satisfying \(S(x,x)=Y(x)^2\), \(\partial_{x_1}S(x,x)=Y(x)Y'(x)\), and
-\(\deg_{x_1}S=2\)), symmetry \(W(x_1,x_2)=W(x_2,x_1)\) and Liouville's theorem
-on \(\mathbb P^1\) applied coefficientwise in \(z\) force
+satisfies \(S(x,x)=Y(x)^2\), \(\partial_{x_1}S(x,x)=Y(x)Y'(x)\) and
+\(\deg_{x_1}S=2\).  The symmetry \(W(x_1,x_2)=W(x_2,x_1)\) and Liouville's
+theorem on \(\mathbb P^1\), applied coefficientwise in \(z\), force
 \[
  W(x_1,x_2)=\frac{S(x_1,x_2)}{Y(x_1)Y(x_2)(x_1-x_2)^2}+\frac{2C(z)}{Y(x_1)Y(x_2)}
 \]
@@ -1660,12 +1665,12 @@ always.  All four quantities
 \(\pi^{\mathrm{small}}_k(\Delta_4,\Delta_3)\neq0\) by
 Lemma~\ref{lem:pi-factorization}(iii).
 
-\emph{(c) Exact evaluation of \(\mathcal B_M\).}  For generic
-\((b,\Lambda_\mu,\Lambda_3,\Lambda_4)\) with \(\Delta_2=h_{2,1}(b)\) and
-\(\Lambda_1=\Lambda_\mu+b\), the level-\(2\) BPZ null vector
-\((L_{-2}+b^{-2}L_{-1}^2)v_{h_{2,1}}\) decouples
-(\(P_{2,1}(b,\Delta_1,\mu)=0\)), so \(\mathcal F(z)=z^{\mu-\Delta_1-\Delta_2}\mathcal B(z)\)
-solves the hypergeometric BPZ equation~\cite[eqs.~(5.2), (5.17), (5.19)]{BPZ1984}
+\emph{(c) Exact evaluation of \(\mathcal B_M\).}  Take
+\((b,\Lambda_\mu,\Lambda_3,\Lambda_4)\) generic, \(\Delta_2=h_{2,1}(b)\) and
+\(\Lambda_1=\Lambda_\mu+b\).  Then \(P_{2,1}(b,\Delta_1,\mu)=0\), so the
+level-\(2\) BPZ null vector \((L_{-2}+b^{-2}L_{-1}^2)v_{h_{2,1}}\) decouples
+and \(\mathcal F(z)=z^{\mu-\Delta_1-\Delta_2}\mathcal B(z)\) solves the
+hypergeometric BPZ equation~\cite[eqs.~(5.2), (5.17), (5.19)]{BPZ1984}
 \[
  \left(b^{-2}\partial_z^2-\Bigl(\frac1z+\frac{1}{z-1}\Bigr)\partial_z
  +\frac{\Delta_1}{z^2}+\frac{\Delta_3}{(z-1)^2}

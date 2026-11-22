@@ -1398,3 +1398,16 @@ K⁰_m(2t)`, `O_m(t) = 2^{m+1} K¹_m(2t)`), `natDegree_schurEO`; `hermEO_no_root
 Checked by the main session (`../runs/lean2/checkSCH1.log`): `thm_sharp_H_of_cited`,
 `thm_sharp_B_of_cited`, `hermEO_no_root` keep axioms [propext, Classical.choice, Quot.sound];
 full build exit 0; no forbidden tokens.  Author-side check, not a reviewer PASS.
+
+## 2026-11-22T20:23Z — main session: Jander's Item 3a note (stale doc pointers in CitedBPZ)
+
+Jander's review of packet virasoro-20261122T195905Z-prose-fixes-lean-citations, Item 3a: PASS of
+`Cited_BPZEquation` and its use (Sec5SharpLam, Sec5SharpPoint, Sec5SharpB), with the request to
+refresh the stale line pointers in Sphere/CitedBPZ.lean.  The pointers now name the proof of
+Theorem 5.4 (Paper label: thm:sharp-B), step (c), and the opening of §4 (sec:confluence) instead
+of line numbers.  Doc comments only; full build exit 0.
+
+Item 1, A1: the Iohara–Koga locators were checked in the book (Pdfs2 copy): Theorem 4.2 is the
+Kac determinant formula (4.16) on pp. 137–138; (4.21) is its form with the roots `h^±_{r,s}(c)` in
+the proof (§4.4.2); Proposition 5.1 (§5.2.1) states `dim {M(c,h)_{h+n}}^{Vir+} ≤ 1`.  No paper
+change was needed for A1.
