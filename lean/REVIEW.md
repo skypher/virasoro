@@ -685,7 +685,7 @@ Route notes:
 - l.1145–1149: the Gaussian identified through ∂_iΦ = Φ·∂_i g (`ext_of_pderiv`).  Fills in.
 - Adjoint, Ψ = U†α(U†)⁻¹ with the inverse series, uniqueness on matrix entries: follow the paper.
 
-## 2026-11-22T06:00Z — Part II run 1 results (second agent; Lemmas 10.1, 10.3, 11.1, Props 10.2, 12.1 proved)
+## 2026-11-22T05:56Z — Part II run 1 results (second agent; Lemmas 10.1, 10.3, 11.1, Props 10.2, 12.1 proved)
 
 Checked by the main session (`../runs/lean2/checkP2R1.log`), all labelled, hypotheses only the
 inputs the paper cites at the step: `lem_fusion_injective : Stmt_lem_fusion_injective` (none);
