@@ -1261,3 +1261,45 @@ New cited input `Sphere.Cited_BPZEquation` (Belavin–Polyakov–Zamolodchikov 1
 `z²(z-1)²`, `s = μ - Δ₁ - Δ₂`.  Checks of the transcription: at `n = 1` the recursion gives
 `ℬ₁ = -u(s+D)/C`, the level-1 block (hand check); at `B = 0` the coefficients of `(1-z)^κ`
 satisfy the encoded recursion for all `n` (`gSeq_rec`, machine-checked).
+
+## 2026-11-22T18:46Z — main session: sphere Thm 5.5 labelled; all 44 results labelled
+
+Proved by the main session (`../runs/lean2/checkT55.log`):
+`Sphere.thm_sharp_H_of_cited (hJ) (hI) (hH) (hF) (hU) (hS) : Stmt_thm_sharp_H`
+(sphere/paper.tex l.1693–1701, proof l.1703–1787, Paper label: thm:sharp-H), in Sphere/CitedSchur
+and Sphere/Proofs/Sec5SharpHRep, Sec5SharpHHerm, Sec5SharpHSym, Sec5SharpHLog, Sec5SharpH.
+Axioms [propext, Classical.choice, Quot.sound]; no forbidden tokens; statement files unchanged;
+`lake build Virasoro` green.  Labelled: 44 of 44.
+
+Route: the paper's.  `k = 0`: Thm 5.1.  `k ≥ 1`: the H clause of Thm 5.3; each summand is the image
+in `K4` of a polynomial in `Δ₁,…,Δ₄` (`topRH`; `HR` from the universal polynomials of `Φ̃⁻¹`,
+`isPolyFamU_PhiTilde_inv`).  Specialization `ψ : (Δ₁,Δ₂,Δ₃,Δ₄) ↦ (μ, 0, wt((w+X)/2), wt((w−X)/2))`
+(the paper's line with `w = √(pp')·v`).  (1) `π^big(Δ₄,Δ₃) ≡ 0` in `w` (Lemma 5.2(iii)); (2)
+`π^small(Δ₄,Δ₃) ≢ 0` (nonzero at `w = 1/2`) and `π^small(μ,0) ≠ 0`; (3) `ℬ_m = δ_{m0}` at
+`(μ,0)` (`gammaY_self_zero`), so `H_M = [q^M]Φ̃⁻¹/16^M`; over `ℂ`, `Φ̃⁻¹ = exp(S)`
+(`exp_smul_log`), on the line `S = s₀ + w s₁ + w² s₂` with `s₂ = O(q²)`; the filtration
+`deg_w [q^n] ≤ n` (`Fil`, `sym`) gives `[w^M][q^M] exp(S) = [t^M] exp(−bt − gt²)`,
+`b = 2X/(pp')`, `g = 1/(pp')`; (4) `k_M = M![t^M]exp(−bt − gt²)` satisfies the Hermite
+recurrence, `k_{2m} = g^m E_m(r)`, `k_{2m+1} = −(b/2)g^m O_m(r)`, `H_{2m} = E_m(x²)`,
+`H_{2m+1} = x O_m(x²)`, `r = X²/(pp') = α²`; `M ≤ 3` explicit, `M ≥ 4` Schur.
+Differences: (1) the variable `w = √(pp')·v` makes every coefficient rational; the leading
+coefficient is `k_M/(16^M M!)` in place of `(−1)^M H_M(α)/(16^M M!)`, a nonzero multiple of it.
+(2) The paper's rewriting of the `v`-dependent factor as `(θ₃θ₄)^{v²/4}(θ₄/θ₃)^{αv/2}` through
+`1 − z = (θ₄/θ₃)⁴` is not used: the Lean reads `[q]`, `[q²]` of `log(1−z)` and `log θ₃` off
+`z = 16q − 128q² + …` and `θ₃ = 1 + 2q + 0q² + …` (`coeff_zq_one'`, `logS_coeffs`), so no Jacobi
+input is needed.  (3) For `M = 3` the paper's monotonicity of `(x−1)²/x` is replaced by a case
+split on `p, p'` (`X_arith`); for `{p,p'} = {2,3}` the momenta are odd, so `X ≠ 3`
+(`X_ne_three_exc`), where the paper computes `X = 2` and `X ≥ 8`.  (4) For `M ≥ 4` the paper
+argues in `t = x²`; the Lean argues in `x`: a rational root `r` of `E_m` gives the factor
+`x² − r` of `H_{2m}`, impossible for degree `2m ≥ 4` (`no_root_of_irreducible`), the same
+argument.  Accepted.
+
+New cited input `Sphere.Cited_SchurHermite` (Schur 1929, Schur 1931; sphere l.1775–1778): for
+`m ≥ 1`, `H_{2m}` and `H_{2m+1}/x` are irreducible over `ℚ`, with `H_n` the physicists' Hermite
+polynomials by the three-term recurrence (DLMF 18.9.1); `H₂ = 4x² − 2` and `H₃ = 8x³ − 12x` are
+machine-checked (`hermH_two`, `hermH_three`).
+
+State after this entry: every result of paper.tex and sphere/paper.tex at 70bac53 has a labelled
+Lean theorem from `Cited_*` inputs only (author-side check by the main session, not a reviewer
+PASS).  Still open on the Lean side: the route repairs queued in the entries above (brief-phaseB.md
+item 5), where a Lean proof differs from the paper's argument without being forced to.

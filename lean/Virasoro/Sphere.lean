@@ -28,6 +28,7 @@ import Virasoro.Sphere.Proofs.Sec5PiEven
 import Virasoro.Sphere.Proofs.Sec5PiFactorization
 import Virasoro.Sphere.Proofs.Sec6ExLabel
 import Virasoro.Sphere.Proofs.Sec5SharpB
+import Virasoro.Sphere.Proofs.Sec5SharpH
 import Virasoro.Sphere.Proofs.Sec3FockOps
 import Virasoro.Sphere.Proofs.Sec3FockIrr
 import Virasoro.Sphere.Proofs.Sec3FockLevel
