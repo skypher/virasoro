@@ -1145,3 +1145,28 @@ the polynomial identity in `ε` divided by `ε^e` and evaluated at `0` (same can
 convention `v_ℓ(0) = 0` replaces "skipping" vanishing factors in Case 2 (the paper's
 "both vanish" pairs contribute `0` on both sides).  All three are the paper's argument in
 coordinates.  Accepted.
+
+## 2026-11-22T15:56Z — main session: sphere Props 6.1 and 6.2 labelled
+
+Proved by the main session (`../runs/lean2/checkS61.log`):
+`Sphere.prop_c0_example_of_cited (hJ) (hI) (hK) (hH) (hF) (hU) : Sphere.Stmt_prop_c0_example`
+(sphere/paper.tex l.1792–1810, Paper label: prop:c0-example) and
+`Sphere.prop_ising_example_of_cited (hJ) (hI) (hK) (hH) (hF) (hU) : Sphere.Stmt_prop_ising_example`
+(l.1812–1832, Paper label: prop:ising-example), proof l.1834–1849, in `Sphere/Proofs/Sec6Examples`
+and `Sphere/Proofs/Sec6ExLabel`.  Axioms [propext, Classical.choice, Quot.sound]; no forbidden
+tokens; statement files unchanged; `lake build Virasoro` green (3936 jobs).  Labelled: 40 of 44.
+
+Route: the paper's.  At `N = ℓ₂ = ℓ^small_2` (`ellMin3`: `ℓ^ε_2 < ℓ₃`) the sphere top-layer theorem
+(`thm:top-layer`, through `top_two`) leaves the single term `M = 0`; `small_value` evaluates it with
+Lemma 5.2(ii) at `j = 1` and the second Jantzen norm, and Lemma 5.2(iii) at `(1/2, 0)` gives
+`π ≠ 0`; levels below `ℓ₂` have Jantzen depth `≤ 1` (`jDepth_le_one`, Theorem 5.8 bound).  The
+norms: `(2,3)`, `λ = 0`: `jform_norm_minus` is the torus Prop 6.7 for the normalized `w⁻_2`,
+`τ⁻_2 = 𝒫_{1,1}𝒫_{1,4}` (the torus factorization `tau_min`), `[d²]τ⁻_2 = 2800/3` (`tau_c0`: the
+double root `d = 0` from `x = 1` twice, times the product `1·1/3·10/3·2·7·5·12` of the other
+roots), `c₂ρ² = −1/4`, so `γ₅ = −11200/3`.  Ising: the three norms of the torus Prop 8.1
+(`prop_ising_double_poles_of_cited`), transported to `M(c⋆, h_{r,s}(b⋆))` by the uniqueness of the
+normalized singular vector (`normalized_eq`, `gamma_transfer`; the paper's "the same second Jantzen
+norm as on the torus", l.1838–1840).  Differences: (1) the Lean computes the identification of the
+sphere's and the torus's normalized vectors explicitly from Cited_SingularUnique, which the paper
+uses without comment; (2) `[d²]τ⁻_2` is read off the split `τ = d²·Q`, `Q(0) = ∏ d_x` over the
+remaining roots, which is the paper's product.  Accepted.
