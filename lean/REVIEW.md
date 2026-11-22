@@ -1411,3 +1411,29 @@ Item 1, A1: the Iohara–Koga locators were checked in the book (Pdfs2 copy): Th
 Kac determinant formula (4.16) on pp. 137–138; (4.21) is its form with the roots `h^±_{r,s}(c)` in
 the proof (§4.4.2); Proposition 5.1 (§5.2.1) states `dim {M(c,h)_{h+n}}^{Vir+} ≤ 1`.  No paper
 change was needed for A1.
+
+## 2026-11-22T20:48Z — main session: route repair RR6 (sphere Lemma 3.6, the `σ¹` generating functions)
+
+Queued item "Lemma 3.6, the `σ¹` generating-function identity as a rational identity in
+`(s₁, s₂)`" (2026-11-22T19:20Z entry, "Still queued").  The Lean now follows the paper's proof of
+Lemma 3.6: the `σ¹`-part generating function
+`q∂_q((pC(q) − qC(p))/(q−p) − p/(1−p) C(q)) − B(p,q)C(p)` equals `p/(2(1−p)²) C_+(q)` for `g(1)`
+and `−p/(2(1−p)) C_−(q)` for `g(−1)`, proved as rational identities in `s₁ = √(1−p)`,
+`s₂ = √(1−q)` (`alg_ext_plus`, `alg_ext_minus`, new file Sphere/Proofs/Sec3ExtSigma1.lean),
+transported to series in `(p,q)` through the fraction field as for Lemma 3.4(i)
+(`ext_sigma1_plus`, `ext_sigma1_minus`), and read off at `p^k q^m` (`sigma1_plus_Icc`,
+`sigma1_minus_Icc`), which are the `σ_m`-coefficients of `L_k^{(0)} g(±1)` used by `L0_gAt_one`,
+`L0_gAt_neg_one`.  The factor `i` of `C_±` is carried outside the series.  The earlier route
+(`sum_weighted_hB`, `sum_weighted_hB_Icc`, `sum_hB_Icc`, from `sum_halfBinom_Bcoef` and a binomial
+recursion) is deleted; `hb_rec` moved to the new file.  Before writing the Lean, both identities
+were checked symbolically (sympy, `../runs/route36/check_sigma1.py`, difference 0).
+
+Checked by the main session (`../runs/lean2/checkRR6.log`): `lem_ext_exponents_of_cited`,
+`lem_central_charge_of_cited`, `thm_large_delta_of_cited` keep axioms [propext,
+Classical.choice, Quot.sound]; full build exit 0; no forbidden tokens; Statements files
+unchanged.  Author-side check, not a reviewer PASS.
+
+Still queued: sphere Lemma 3.4(iii) through (3.6) coefficientwise in `z` (with the Lemma 3.6
+coefficients of `g(±1)`, which the Lean takes from closed forms); Lemma 3.5, the double pole at
+`x₁ = x₂` through `S(x,x) = Y²`, `∂₁S(x,x) = YY'`; Lemma 3.3, uniqueness and regularity through
+the injectivity of `𝒟_m(∞)` and an invertible square minor.

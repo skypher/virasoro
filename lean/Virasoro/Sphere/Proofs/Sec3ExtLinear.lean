@@ -1,4 +1,5 @@
 import Virasoro.Sphere.Proofs.Sec3ExtExpValues
+import Virasoro.Sphere.Proofs.Sec3ExtSigma1
 
 /-!
 # Sphere paper Lemma 3.6 (sphere/paper.tex l.974–1010): the linear equations
@@ -7,9 +8,9 @@ import Virasoro.Sphere.Proofs.Sec3ExtExpValues
 `c⁻_m = [p^m] (-i/2) p (1-p)^{-1/2}` (l.981–990).  For a linear series `g = ∑ c_m σ_m`,
 `L_k^{(0)} g` has the `σ⁰`-part `i c_k - ½ ∑_n A_n c_{k-n}` and the `σ_m`-coefficient
 `m c_{m+k} - m c_m - ∑_n B_{n,m} c_{k-n}`.  The `σ⁰` identities are the coefficients of
-`(i - ½A(p)) C_±(p)` (l.995–999); the `σ¹` identities (l.1000–1004) follow from the identity
-for `(1-p)^{-1/2} B(p,q)` of Lemma 3.4(i) (`sum_halfBinom_Bcoef`), since
-`C_-(p) = -(i/2) p (1-p)^{-1/2}` and `C_+(p) = (i/2) p (1-p)^{-1} (1-p)^{-1/2}`.
+`(i - ½A(p)) C_±(p)`; the `σ¹` identities are the coefficients of the paper's `σ¹`-part
+generating functions, proved as rational identities in `(s₁, s₂)` (`Sec3ExtSigma1.lean`:
+`sigma1_plus_Icc`, `sigma1_minus_Icc`).
 -/
 
 namespace Virasoro.Sphere
@@ -128,6 +129,11 @@ noncomputable def cPlus (m : ℕ) : ℂ := Complex.I * (m : ℂ) * (halfBinom m 
 /-- `c⁻_m = [p^m] (-i/2) p (1-p)^{-1/2} = -(i/2) h_{m-1}`. -/
 noncomputable def cMinus (m : ℕ) : ℂ := -(Complex.I / 2) * (halfBinom (m - 1) : ℂ)
 
+theorem cMinus_eq (j : ℕ) (hj : 1 ≤ j) : cMinus j = Complex.I * (dM j : ℂ) := by
+  rw [cMinus, dM, if_neg (by omega)]
+  push_cast
+  ring
+
 theorem gAt_one_eq : gAt 1 = linSeries cPlus :=
   linSeries_congr fun m _ => gAt_one_coeff m
 
@@ -141,12 +147,6 @@ theorem gAt_neg_one_eq : gAt (-1) = linSeries cMinus := by
   ring
 
 /-! ### Identities for `h_n = [p^n](1-p)^{-1/2}` -/
-
-theorem hb_rec (j : ℕ) :
-    2 * ((j : ℚ) + 1) * halfBinom (j + 1) = (2 * j + 1) * halfBinom j := by
-  have hj : ((j : ℚ) + 1) ≠ 0 := by positivity
-  rw [halfBinom_succ]
-  field_simp
 
 theorem halfBinom_zero' : halfBinom 0 = 1 := by simp [halfBinom, gbinom]
 
@@ -172,61 +172,6 @@ theorem sum_weighted_hh (k : ℕ) (hk : 1 ≤ k) :
   rw [← h2] at h3
   linear_combination (1 / 2 : ℚ) * h3 + ((k : ℚ) / 2) * h1
 
-/-- `∑_{j=0}^{k} j h_j B_{k-j,m} = m(m+k)h_{m+k} - m²h_m - (k/2) m h_m`. -/
-theorem sum_weighted_hB (m k : ℕ) :
-    ∑ j ∈ range (k + 1), (j : ℚ) * halfBinom j * Bcoef (k - j) m =
-      (m : ℚ) * ((m : ℚ) + k) * halfBinom (m + k) - (m : ℚ) ^ 2 * halfBinom m -
-        (k : ℚ) / 2 * m * halfBinom m := by
-  induction k with
-  | zero =>
-    simp
-    ring
-  | succ k ih =>
-    have hT := sum_halfBinom_Bcoef k m
-    have h2 : 2 * ∑ j ∈ range (k + 1 + 1), (j : ℚ) * halfBinom j * Bcoef (k + 1 - j) m =
-        2 * ∑ j ∈ range (k + 1), (j : ℚ) * halfBinom j * Bcoef (k - j) m +
-          ∑ j ∈ range (k + 1), halfBinom j * Bcoef (k - j) m := by
-      rw [sum_range_succ' _ (k + 1)]
-      simp only [Nat.cast_zero, zero_mul, add_zero, Nat.add_sub_add_right]
-      rw [mul_sum, mul_sum, ← sum_add_distrib]
-      refine sum_congr rfl fun j _ => ?_
-      have := hb_rec j
-      push_cast
-      linear_combination (Bcoef (k - j) m) * this
-    have hrec := hb_rec (m + k)
-    rw [add_comm k m] at hT
-    have hrec' : (m : ℚ) * ((m : ℚ) + (k + 1 : ℕ)) * halfBinom (m + (k + 1)) =
-        (m : ℚ) * ((m : ℚ) + k) * halfBinom (m + k) + (m : ℚ) / 2 * halfBinom (m + k) := by
-      rw [← add_assoc m k 1]
-      push_cast at hrec ⊢
-      linear_combination ((m : ℚ) / 2) * hrec
-    rw [hrec']
-    push_cast
-    linarith
-
-/-- `∑_{n=1}^{k-1} B_{n,m} (k-n) h_{k-n} = m(m+k)h_{m+k} - m²h_m - (k/2) m h_m`. -/
-theorem sum_weighted_hB_Icc (m k : ℕ) (hk : 1 ≤ k) :
-    ∑ n ∈ Icc 1 (k - 1), Bcoef n m * (((k - n : ℕ) : ℚ) * halfBinom (k - n)) =
-      (m : ℚ) * ((m : ℚ) + k) * halfBinom (m + k) - (m : ℚ) ^ 2 * halfBinom m -
-        (k : ℚ) / 2 * m * halfBinom m := by
-  rw [← sum_weighted_hB m k,
-    sum_range_eq_Icc k hk (fun j => (j : ℚ) * halfBinom j * Bcoef (k - j) m) (by simp)
-      (by simp [Bcoef_zero_left])]
-  have h2 := sum_reflect k fun a b => Bcoef a m * ((b : ℚ) * halfBinom b)
-  rw [h2]
-  exact sum_congr rfl fun n _ => by ring
-
-/-- `∑_{n=1}^{k} B_{n,m} h_{k-n} = m(h_{k+m} - h_m)`. -/
-theorem sum_hB_Icc (m k : ℕ) :
-    ∑ n ∈ Icc 1 k, Bcoef n m * halfBinom (k - n) =
-      (m : ℚ) * (halfBinom (k + m) - halfBinom m) := by
-  rw [← sum_halfBinom_Bcoef k m, ← sum_range_reflect, range_succ_eq_insert_Icc,
-    sum_insert (by simp)]
-  simp only [Nat.add_sub_cancel, Nat.sub_zero, Nat.sub_self, Bcoef_zero_left, mul_zero, zero_add]
-  refine sum_congr rfl fun n hn => ?_
-  have hn' := mem_Icc.1 hn
-  rw [show k - (k - n) = n by omega, mul_comm]
-
 /-- `∑_{n=0}^{k} h_n h_{k-n} = 1` with the term `n = 0` split off. -/
 theorem sum_hh_Icc (k : ℕ) :
     halfBinom k + ∑ n ∈ Icc 1 k, halfBinom n * halfBinom (k - n) = 1 := by
@@ -240,7 +185,7 @@ theorem sum_hh_Icc (k : ℕ) :
 theorem L0_gAt_one (k : ℕ) (hk : 1 ≤ k) :
     L0 k (gAt 1) = -(((k : ℂ) / 2) • (1 - gAt 1)) := by
   rw [gAt_one_eq, neg_smul_one_sub_linSeries]
-  refine L0_linSeries k hk cPlus _ _ ?_ fun m _ => ?_
+  refine L0_linSeries k hk cPlus _ _ ?_ fun m hm => ?_
   · have hq := sum_weighted_hh k hk
     have hc : ∑ n ∈ Icc 1 (k - 1), (halfBinom n : ℂ) *
         (((k - n : ℕ) : ℂ) * (halfBinom (k - n) : ℂ)) =
@@ -258,14 +203,14 @@ theorem L0_gAt_one (k : ℕ) (hk : 1 ≤ k) :
         Complex.I_mul_I
     rw [e, hc, cPlus]
     linear_combination ((k : ℂ) * (halfBinom k : ℂ)) * Complex.I_mul_I
-  · have hq := sum_weighted_hB_Icc m k hk
-    have hc : ∑ n ∈ Icc 1 (k - 1), (Bcoef n m : ℂ) *
-        (((k - n : ℕ) : ℂ) * (halfBinom (k - n) : ℂ)) =
-        (m : ℂ) * ((m : ℂ) + k) * (halfBinom (m + k) : ℂ) - (m : ℂ) ^ 2 * (halfBinom m : ℂ) -
-          (k : ℂ) / 2 * m * (halfBinom m : ℂ) := by
+  · have hq := sigma1_plus_Icc k m hk hm
+    have hc : (m : ℂ) * ((((k + m : ℕ) : ℂ) * (halfBinom (k + m) : ℂ)) -
+        (m : ℂ) * (halfBinom m : ℂ)) -
+        ∑ n ∈ Icc 1 (k - 1), (Bcoef n m : ℂ) * (((k - n : ℕ) : ℂ) * (halfBinom (k - n) : ℂ)) =
+        (k : ℂ) / 2 * ((m : ℂ) * (halfBinom m : ℂ)) := by
       have h' := congrArg (fun x : ℚ => (x : ℂ)) hq
-      push_cast at h'
-      exact h'
+      push_cast at h' ⊢
+      linear_combination h'
     have e : ∑ n ∈ Icc 1 (k - 1), (Bcoef n m : ℂ) * cPlus (k - n) =
         Complex.I * ∑ n ∈ Icc 1 (k - 1), (Bcoef n m : ℂ) *
           (((k - n : ℕ) : ℂ) * (halfBinom (k - n) : ℂ)) := by
@@ -273,9 +218,8 @@ theorem L0_gAt_one (k : ℕ) (hk : 1 ≤ k) :
       refine sum_congr rfl fun n _ => ?_
       rw [cPlus]
       ring
-    rw [e, hc, cPlus, cPlus]
-    push_cast
-    ring
+    rw [e, add_comm m k, cPlus, cPlus]
+    linear_combination Complex.I * hc
 
 theorem L0_gAt_neg_one (k : ℕ) (hk : 1 ≤ k) :
     L0 k (gAt (-1)) = (1 / 2 : ℂ) • (1 - gAt (-1)) := by
@@ -296,24 +240,22 @@ theorem L0_gAt_neg_one (k : ℕ) (hk : 1 ≤ k) :
       linear_combination ((halfBinom n : ℂ) * (halfBinom (k' - n) : ℂ)) * Complex.I_mul_I
     rw [e, cMinus, Nat.add_sub_cancel]
     linear_combination (-(1 / 2 : ℂ) * (halfBinom k' : ℂ)) * Complex.I_mul_I + (1 / 2 : ℂ) * hc
-  · obtain ⟨j, rfl⟩ : ∃ j, m = j + 1 := ⟨m - 1, by omega⟩
-    have hq := sum_hB_Icc (j + 1) k'
-    have hc : ∑ n ∈ Icc 1 k', (Bcoef n (j + 1) : ℂ) * (halfBinom (k' - n) : ℂ) =
-        ((j + 1 : ℕ) : ℂ) * ((halfBinom (k' + (j + 1)) : ℂ) - (halfBinom (j + 1) : ℂ)) := by
-      exact_mod_cast hq
-    have hr : 2 * ((j : ℂ) + 1) * (halfBinom (j + 1) : ℂ) = (2 * j + 1) * (halfBinom j : ℂ) := by
-      exact_mod_cast hb_rec j
-    have e : ∑ n ∈ Icc 1 (k' + 1 - 1), (Bcoef n (j + 1) : ℂ) * cMinus (k' + 1 - n) =
-        -(Complex.I / 2) * ∑ n ∈ Icc 1 k', (Bcoef n (j + 1) : ℂ) * (halfBinom (k' - n) : ℂ) := by
-      rw [Nat.add_sub_cancel, mul_sum]
+  · have hq := sigma1_minus_Icc (k' + 1) m hk hm
+    have hc : (m : ℂ) * ((dM (k' + 1 + m) : ℂ) - (dM m : ℂ)) -
+        ∑ n ∈ Icc 1 (k' + 1 - 1), (Bcoef n m : ℂ) * (dM (k' + 1 - n) : ℂ) =
+        -(1 / 2) * (dM m : ℂ) := by
+      have h' := congrArg (fun x : ℚ => (x : ℂ)) hq
+      push_cast at h' ⊢
+      linear_combination h'
+    have e : ∑ n ∈ Icc 1 (k' + 1 - 1), (Bcoef n m : ℂ) * cMinus (k' + 1 - n) =
+        Complex.I * ∑ n ∈ Icc 1 (k' + 1 - 1), (Bcoef n m : ℂ) * (dM (k' + 1 - n) : ℂ) := by
+      rw [mul_sum]
       refine sum_congr rfl fun n hn => ?_
       have hn' := mem_Icc.1 hn
-      rw [cMinus, show k' + 1 - n - 1 = k' - n by omega]
+      rw [cMinus_eq (k' + 1 - n) (by omega)]
       ring
-    rw [e, hc, cMinus, cMinus, show j + 1 + (k' + 1) - 1 = k' + (j + 1) by omega,
-      Nat.add_sub_cancel]
-    push_cast
-    linear_combination (-(Complex.I / 4)) * hr
+    rw [e, add_comm m (k' + 1), cMinus_eq (k' + 1 + m) (by omega), cMinus_eq m hm]
+    linear_combination Complex.I * hc
 
 /-- The linear equations of sphere/paper.tex l.981–1006. -/
 theorem sub_ext_linear : Stmt_sub_ext_linear :=
