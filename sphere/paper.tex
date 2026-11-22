@@ -125,41 +125,41 @@ for sphere four-point Virasoro blocks}
 \maketitle
 
 \begin{abstract}
-We establish three structural theorems for the Verma-module \(s\)-channel
-sphere four-point Virasoro conformal block with indeterminate external
-weights \(\Delta_1,\Delta_2,\Delta_3,\Delta_4\) and fixed nonzero
-Coulomb-gas parameter \(b_\star\), where
-\(c_\star=1+6(b_\star+b_\star^{-1})^2\).  First, we give a self-contained
-algebraic proof of Zamolodchikov's large-internal-dimension asymptotics:
-for every \(N\geq0\) and every \((c,\Delta_1,\dots,\Delta_4)\in\mathbb C^5\),
-the coefficient \(H_N(c,\Delta,\Delta_i)\) of the elliptic
-\(H\)-series satisfies \(\lim_{\Delta\to\infty}H_N=\delta_{N,0}\).  The
-proof uses Feigin--Fuchs Fock oscillators, a half-pillow Wiener--Hopf
-saddle point, a Bergman-kernel evaluation of the Gaussian determinant
-\(\det(I-M(z)^2)^{-1/2}=(1-z)^{-1/8}\theta_3(q)^{-1}\), and a
-\(c=1+1=2\) Virasoro-diffeomorphism decomposition.  Second, combining this
-decay with the generic simple-pole residues yields an exact finite
-all-order confluence formula for \(H_N(c_\star,\Delta,\Delta_i)\) at every
-fixed \(b_\star\in\mathbb C^\times\): every principal-part coefficient is
-computed as a collision moment in the formal germ \(t=b-b_\star\) within an
-a priori finite jet budget, with no numerical regularization, and induces a
-finite expansion for the cross-ratio coefficient \(\mathcal B_N\).  Third,
-at every minimal-model charge \(b_\star^2=-p'/p\) (\(p,p'\geq2\) coprime)
-and every interior Kac weight \(\lambda=h_{r,s}(b_\star)\), the pole order
-of both \(\mathcal B_N\) and \(H_N\) at \(\Delta=\lambda\) is bounded by
-the Jantzen depth \(j_N(\lambda)\) (depth zero means no pole), for
-\(j_N(\lambda)\geq1\) the leading Laurent coefficient is given by the top
-Jantzen layer with the same Jantzen norms \(\gamma^\pm_k\) as on the torus,
-and the bound \(j_N(\lambda)\) is attained for all \(p,p'\), all interior
-\(\lambda\), and all \(N\geq1\), with the pole order taken over the field of
-rational functions of the external weights.  The bound survives every
-specialization of the external weights; attainment holds for generic
-external weights, not at every numerical specialization.  Sharpness
-is proved for \(\mathcal B_N\) via a single rational \((2,1)\) BPZ
-specialization and for \(H_N\) via an identity-insertion Hermite
-specialization together with Schur's irreducibility theorems for Hermite
-polynomials.  Explicit minimal-model examples include \(c=0\) at level five
-and the first Ising double poles at levels seven, ten and eleven.
+We study the Verma-module \(s\)-channel sphere four-point Virasoro conformal
+block with indeterminate external weights \(\Delta_1,\Delta_2,\Delta_3,\Delta_4\)
+and a fixed nonzero Coulomb-gas parameter \(b_\star\), with
+\(c_\star=1+6(b_\star+b_\star^{-1})^2\).  There are three main results.
+The first is a self-contained algebraic proof of Zamolodchikov's
+large-internal-dimension asymptotics: for every \(N\geq0\) and every
+\((c,\Delta_1,\dots,\Delta_4)\in\mathbb C^5\), the coefficient
+\(H_N(c,\Delta,\Delta_i)\) of the elliptic \(H\)-series tends to
+\(\delta_{N,0}\) as \(\Delta\to\infty\).  The proof uses Feigin--Fuchs Fock
+oscillators, a half-pillow Wiener--Hopf saddle point, the Bergman-kernel
+evaluation \(\det(I-M(z)^2)^{-1/2}=(1-z)^{-1/8}\theta_3(q)^{-1}\) of a Gaussian
+determinant, and a Virasoro-diffeomorphism decomposition of the
+\(c=1+1=2\) tensor product.  The second result combines this decay with the
+generic simple-pole residues into an exact finite confluence formula for
+\(H_N(c_\star,\Delta,\Delta_i)\) at every \(b_\star\in\mathbb C^\times\).  Each
+principal-part coefficient is a collision moment in the formal germ
+\(t=b-b_\star\), computed within a jet budget fixed in advance, with no
+numerical regularization; the formula also gives a finite expansion of the
+cross-ratio coefficient \(\mathcal B_N\).  The third result concerns the
+minimal-model charges \(b_\star^2=-p'/p\) (\(p,p'\geq2\) coprime) and the
+interior Kac weights \(\lambda=h_{r,s}(b_\star)\).  The pole order of
+\(\mathcal B_N\) and of \(H_N\) at \(\Delta=\lambda\) is at most the Jantzen
+depth \(j_N(\lambda)\); depth zero means that there is no pole.  When
+\(j_N(\lambda)\geq1\), the top Jantzen layer gives the leading Laurent
+coefficient, with the same Jantzen norms \(\gamma^\pm_k\) as on the torus.  For
+all \(p,p'\), all interior \(\lambda\) and all \(N\geq1\) the pole order is
+exactly \(j_N(\lambda)\) over the field of rational functions of the external
+weights.  The upper bound survives every specialization of the external
+weights; the exact order is a statement about generic external weights.  For
+\(\mathcal B_N\) the proof of exactness uses one rational \((2,1)\) BPZ
+specialization.  For \(H_N\) it uses an identity-insertion specialization
+whose leading coefficient is a Hermite value, together with Schur's
+irreducibility theorems for Hermite polynomials.  The examples include
+\(c=0\) at level five and the first Ising double poles, at levels seven, ten
+and eleven.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -167,118 +167,119 @@ and the first Ising double poles at levels seven, ten and eleven.
 The \(s\)-channel sphere four-point Virasoro conformal block
 \(\mathcal F(c,\Delta,\Delta_1,\Delta_2,\Delta_3,\Delta_4;z)
 =z^{\Delta-\Delta_1-\Delta_2}\sum_{N=0}^\infty\mathcal B_N(c,\Delta,\Delta_i)z^N\)
-is defined at each level \(N\) as a bilinear form in the inverse level-\(N\)
-Shapovalov Gram matrix \(G_N(c,\Delta)^{-1}\) of the Verma module
+is defined level by level: \(\mathcal B_N\) is a bilinear form in the inverse
+level-\(N\) Shapovalov Gram matrix \(G_N(c,\Delta)^{-1}\) of the Verma module
 \(M(c,\Delta)\).  For generic central charge \(c=c(b)=1+6(b+b^{-1})^2\),
 Zamolodchikov~\cite{Zamolodchikov1984,Zamolodchikov1987} introduced the
-elliptic nome \(q(z)\) and prefactor \(\Phi(c,\Delta,\Delta_i;q)\),
-writing \(\mathcal F=\Phi\cdot H\) with
-\(H(c,\Delta,\Delta_i;q)=\sum_{N=0}^\infty H_N(c,\Delta,\Delta_i)(16q)^N\),
-and derived a simple-pole recursion expressing \(H_N\) as a sum over Kac
-weights \(h_{r,s}(b)\) with \(rs\leq N\).
+elliptic nome \(q(z)\) and a prefactor \(\Phi(c,\Delta,\Delta_i;q)\), wrote
+\(\mathcal F=\Phi\cdot H\) with
+\(H(c,\Delta,\Delta_i;q)=\sum_{N=0}^\infty H_N(c,\Delta,\Delta_i)(16q)^N\), and
+derived a recursion that expresses \(H_N\) as a sum of simple poles at the Kac
+weights \(h_{r,s}(b)\) with \(rs\leq N\).  This paper takes up three questions
+about that recursion.
 
-Three foundational issues arise around this recursion.
-\begin{enumerate}\setlength{\itemsep}{2pt}\setlength{\topsep}{4pt}
-\item \emph{Large-\(\Delta\) asymptotics.}  Zamolodchikov's recursion
-  follows from Liouville's theorem for rational functions of \(\Delta\)
-  once one knows that \(\lim_{\Delta\to\infty}H_N(c,\Delta,\Delta_i)=\delta_{N,0}\)
-  for every \(N\geq0\).  To our knowledge, and as noted by
-  Ribault~\cite[\S4.3.4]{Ribault2026}, no complete proof of this asymptotic
-  statement at finite central charge has appeared: the derivation
-  of~\cite{Zamolodchikov1987} combines a semiclassical monodromy input with
-  a rational-degree argument and a comparison at \(c=1\), while the
-  oscillator calculation of
-  Be\c{s}ken--Datta--Kraus~\cite[\S4.3]{BeskenDattaKraus2019} establishes only
-  the leading exponential \((16q)^\Delta\) and omits the \(O(\Delta^0)\)
-  determinant, external-weight, and central-charge prefactors.  More recently, Artemev--Khromov~\cite{ArtemevKhromov2026} gave a WKB
-  derivation of large-intermediate-dimension asymptotics for multipoint
-  comb-channel sphere blocks using additional approximations.  For \(c>25\)
-  and a specified range of external momenta,
-  Ghosal--R\'emy--Sun--Sun~\cite[Theorem~1.2]{GhosalRemySunSun2022} prove
-  analyticity in the cross-ratio and meromorphy in the internal weight via
-  Liouville CFT without establishing the large-\(\Delta\) limit.
-\item \emph{Fixed-\(b_\star\) confluence.}  When \(b_\star^2\in\mathbb Q\)
-  (in particular at minimal-model charges \(b_\star^2=-p'/p\)), distinct Kac
-  weights \(h_{r,s}(b)\) collide at \(b=b_\star\) and the generic residues
-  \(\mathcal R^{\mathrm{sph}}_{r,s}\) (the inverse-norm factor
-  \(\mathcal A_{r,s}(b)\) times two fusion polynomials,
-  Definition~\ref{def:sphere-residues}) can acquire poles through
-  \(\mathcal A_{r,s}(b)\).  While collisions at low levels
-  were studied by Javerzat--Santachiara--Foda~\cite{JaverzatSantachiaraFoda2018}
-  and Ribault~\cite{Ribault2019} (with numerical \(\varepsilon\)-limits or
-  regularized minimal-model limits for special external weights), a finite
-  all-order algebraic formula for arbitrary fixed \(b_\star\in\mathbb C^\times\)
-  and indeterminate external weights has not been established.
-\item \emph{Minimal-model pole orders and sharpness.}  For the torus
-  one-point block, the companion work~\cite{PolzerTorus2026} showed that
-  at minimal-model charges and interior Kac weights \(\lambda\), the
-  Jantzen filtration bounds the pole order by \(j_N(\lambda)\), the top
-  Jantzen layer determines the leading Laurent coefficient at positive
-  depth, and for an indeterminate external weight \(d\) the bound is
-  attained at every \(N\geq1\), the pole order being taken over
-  \(\mathbb Q(d)\) (at the identity insertion \(d=0\), \(H_N=0\) for
-  \(N\geq1\)).  The sphere four-point
-  block has four independent external weights and two standard
-  normalizations (\(\mathcal B_N\) and \(H_N\)), and one asks whether the
-  same top-layer structure and unconditional sharpness hold for both.
-\end{enumerate}
+The first concerns the input of the recursion.  Zamolodchikov's recursion follows from
+Liouville's theorem for rational functions of \(\Delta\) once one knows that
+\(\lim_{\Delta\to\infty}H_N(c,\Delta,\Delta_i)=\delta_{N,0}\) for every
+\(N\geq0\).  To our knowledge no complete proof of this limit at finite
+central charge has appeared, as Ribault also notes~\cite[\S4.3.4]{Ribault2026}.
+The derivation in~\cite{Zamolodchikov1987} combines a semiclassical monodromy
+input, a rational-degree argument and a comparison at \(c=1\).  The oscillator
+calculation of Be\c{s}ken--Datta--Kraus~\cite[\S4.3]{BeskenDattaKraus2019}
+establishes the leading exponential \((16q)^\Delta\) and leaves out the
+\(O(\Delta^0)\) determinant, external-weight and central-charge prefactors.
+Artemev and Khromov~\cite{ArtemevKhromov2026} recently gave a WKB derivation of
+the large-intermediate-dimension asymptotics of multipoint comb-channel
+sphere blocks, using further approximations.  For \(c>25\) and a range of
+external momenta, Ghosal, R\'emy, Sun and
+Sun~\cite[Theorem~1.2]{GhosalRemySunSun2022} prove analyticity in the
+cross-ratio and meromorphy in the internal weight through Liouville CFT; they
+do not establish the large-\(\Delta\) limit.
 
-This paper resolves all three questions.  Section~\ref{sec:setup} fixes the
-exact normalizations of \(\mathcal B_N\) and \(H_N\) and explains why
-\(H_N\) (rather than \(\mathcal B_N\), which carries a degree-\(N\)
-polynomial part in \(\Delta\)) is the normalization for pure-pole
-confluence.  Section~\ref{sec:asymp} gives a self-contained proof of
-Theorem~\ref{thm:large-delta} (\(\lim_{\Delta\to\infty}H_N=\delta_{N,0}\))
-at all \((c,\Delta_1,\dots,\Delta_4)\in\mathbb C^5\): Lemma~\ref{lem:fock-verma}
-translates the Verma block at \(c>1\) to a unitary Fock pairing;
-Lemma~\ref{lem:lambda-expansion} proves regularity at \(\lambda=\infty\) of
-\(\lambda^{-2}\log F(\lambda\sigma;\lambda)\) by lowest-degree injectivity
-of the level-lowering differential operator and isolates the exact
-parameter dependence via an involution parity; Lemma~\ref{lem:saddle}
-evaluates the saddle point via a half-pillow Wiener--Hopf factorization;
-Lemma~\ref{lem:bergman-det} evaluates the Gaussian determinant
-\(\det(I-M(z)^2)^{-1/2}=(1-z)^{-1/8}\theta_3(q)^{-1}\) from the
-continuation to \(\mathbb P^1\), coefficientwise in \(z\), of a weighted
-matrix two-point function; Lemma~\ref{lem:ext-exponents}
-determines the external-weight prefactors by rational identities; and
-Lemma~\ref{lem:central-charge} determines the central-charge prefactor from
-the unitary orthogonal decomposition of the \(c=1+1=2\) tensor product via
-a Virasoro diffeomorphism that diagonalizes the \(\Delta=0\) wavefunction.
+The second question is what happens at a fixed parameter \(b_\star\).  When
+\(b_\star^2\in\mathbb Q\), for instance at the minimal-model charges
+\(b_\star^2=-p'/p\), distinct Kac weights \(h_{r,s}(b)\) collide at
+\(b=b_\star\).  The generic residues \(\mathcal R^{\mathrm{sph}}_{r,s}\) are the
+inverse-norm factor \(\mathcal A_{r,s}(b)\) times two fusion polynomials
+(Definition~\ref{def:sphere-residues}), and they can acquire poles through
+\(\mathcal A_{r,s}(b)\).  Collisions at low levels were studied by Javerzat,
+Santachiara and Foda~\cite{JaverzatSantachiaraFoda2018} and by
+Ribault~\cite{Ribault2019}, with numerical \(\varepsilon\)-limits or
+regularized minimal-model limits for special external weights.  A finite
+algebraic formula at all orders, for arbitrary fixed
+\(b_\star\in\mathbb C^\times\) and indeterminate external weights, has not
+been given.
 
-Section~\ref{sec:confluence} deduces the generic Zamolodchikov recursion
-(Proposition~\ref{prop:generic-recursion}) from
-Theorem~\ref{thm:large-delta} and establishes the fixed-\(b_\star\)
-all-order confluent recursion (Theorem~\ref{thm:confluence}), computing
-every principal-part coefficient of \(H_N(c_\star,\Delta,\Delta_i)\) as a
-collision moment in \(t=b-b_\star\) within a finite backward precision
-budget, together with the induced finite formula for \(\mathcal B_N\).
+The third question concerns pole orders at minimal-model charges.  For the
+torus one-point block, the companion work~\cite{PolzerTorus2026} showed that at
+minimal-model charges and interior Kac weights \(\lambda\) the Jantzen
+filtration bounds the pole order by \(j_N(\lambda)\), and that the top Jantzen
+layer gives the leading Laurent coefficient at positive depth.  For an
+indeterminate external weight \(d\) the bound is attained at every \(N\geq1\),
+with the pole order taken over \(\mathbb Q(d)\); at the identity insertion
+\(d=0\) one has \(H_N=0\) for \(N\geq1\).  The sphere four-point block has four
+independent external weights and two standard normalizations, \(\mathcal B_N\)
+and \(H_N\).  The question is whether the same top-layer structure and the
+same unconditional sharpness hold for both.
 
-Section~\ref{sec:jantzen} proves the minimal-model Jantzen pole-order bound
-(Theorem~\ref{thm:jantzen-bound}), the top-layer leading Laurent formula
-for both \(\mathcal B_N\) and \(H_N\) at positive depth
-(Theorem~\ref{thm:top-layer}), and
-unconditional sharpness at every minimal model, interior Kac weight, and
-level \(N\geq1\) for both \(\mathcal B_N\) (Theorem~\ref{thm:sharp-B}) and
-\(H_N\) (Theorem~\ref{thm:sharp-H}).  Sharpness is exactness of the pole
-order over the field of rational functions of the external weights: the
-upper bound holds at every specialization of \(\Delta_1,\dots,\Delta_4\),
-and the nonvanishing witnesses below show that the top coefficient is a
-nonzero rational function, which does not give attainment at every
-numerical specialization.  Notably, the four external weights
-make the sphere sharpness proofs substantially shorter than the torus
-\(\ell\)-adic proof of~\cite{PolzerTorus2026}: for \(\mathcal B_N\) a
-single rational \((2,1)\) BPZ specialization kills the higher-level branch
-and collapses the hypergeometric factor to \((1-z)^\kappa\) with
-\(\kappa=(kp-1)p'/(2p)\notin\mathbb Z\); for \(H_N\) setting
-\((\Delta_1,\Delta_2)=(\mu^{\mathrm{small}}_k,0)\) kills all
-\(\mathcal B_m\) (\(1\leq m\leq M\)) while the affine line
-\(\Lambda_3-\Lambda_4=i\alpha\) kills the higher-level branch and yields a
-polynomial in \(v=-i(\Lambda_3+\Lambda_4)\) whose \(v^M\)-coefficient is
-\((-1)^M H_M(\alpha)/(16^M M!)\), which is nonzero by elementary bounds
-for \(M\leq3\) and by Schur's irreducibility theorems~\cite{Schur1929,Schur1931}
-for \(M\geq4\).  Section~\ref{sec:examples} illustrates the formulas at
-\((2,3)\) (\(c=0\), \(N=5\), matching~\cite{Ribault2019}) and at the Ising
-charge \((3,4)\) (\(c=\tfrac12\), \(N=7,10,11\)).
+We answer all three.  Section~\ref{sec:setup} fixes the normalizations of
+\(\mathcal B_N\) and \(H_N\).  It also explains why \(H_N\) is the right
+normalization for pure-pole confluence: \(\mathcal B_N\) carries a polynomial
+part of degree \(N\) in \(\Delta\).  Section~\ref{sec:asymp} proves
+Theorem~\ref{thm:large-delta}, \(\lim_{\Delta\to\infty}H_N=\delta_{N,0}\), at
+every \((c,\Delta_1,\dots,\Delta_4)\in\mathbb C^5\).  Lemma~\ref{lem:fock-verma}
+turns the Verma block at \(c>1\) into a unitary Fock pairing.
+Lemma~\ref{lem:lambda-expansion} proves that
+\(\lambda^{-2}\log F(\lambda\sigma;\lambda)\) is regular at
+\(\lambda=\infty\), using the injectivity of the level-lowering differential
+operator on lowest-degree parts, and it separates the parameter dependence by
+the parity under an involution.  Lemma~\ref{lem:saddle} evaluates the saddle
+point by a half-pillow Wiener--Hopf factorization.  Lemma~\ref{lem:bergman-det}
+evaluates the Gaussian determinant
+\(\det(I-M(z)^2)^{-1/2}=(1-z)^{-1/8}\theta_3(q)^{-1}\) by continuing a weighted
+matrix two-point function to \(\mathbb P^1\), coefficientwise in \(z\).
+Lemma~\ref{lem:ext-exponents} finds the external-weight prefactors through
+rational identities.  Lemma~\ref{lem:central-charge} finds the central-charge
+prefactor from the unitary orthogonal decomposition of the \(c=1+1=2\) tensor
+product, using a Virasoro diffeomorphism that diagonalizes the \(\Delta=0\)
+wavefunction.
+
+Section~\ref{sec:confluence} derives the generic Zamolodchikov recursion
+(Proposition~\ref{prop:generic-recursion}) from Theorem~\ref{thm:large-delta}.
+It then proves the all-order confluent recursion at a fixed \(b_\star\)
+(Theorem~\ref{thm:confluence}): every principal-part coefficient of
+\(H_N(c_\star,\Delta,\Delta_i)\) is a collision moment in \(t=b-b_\star\),
+computed within a finite backward precision budget, and the same recursion
+gives a finite formula for \(\mathcal B_N\).
+
+Section~\ref{sec:jantzen} proves the Jantzen bound on pole orders at
+minimal-model charges (Theorem~\ref{thm:jantzen-bound}) and the top-layer
+formula for the leading Laurent coefficient of \(\mathcal B_N\) and \(H_N\) at
+positive depth (Theorem~\ref{thm:top-layer}).  It also proves that the bound is
+attained, at every minimal model, every interior Kac weight and every level
+\(N\geq1\), for \(\mathcal B_N\) (Theorem~\ref{thm:sharp-B}) and for \(H_N\)
+(Theorem~\ref{thm:sharp-H}).  Here attainment means that the pole order is
+exact over the field of rational functions of the external weights.  The upper
+bound holds at every specialization of \(\Delta_1,\dots,\Delta_4\).  The
+witnesses in the proofs show that the top coefficient is a nonzero rational
+function; this does not by itself give the exact order at a particular numerical
+specialization.
+
+These sharpness proofs are much shorter than the \(\ell\)-adic proof on the
+torus~\cite{PolzerTorus2026}, because four external weights leave room for
+specializations that isolate one branch.  For \(\mathcal B_N\), a single
+rational \((2,1)\) BPZ specialization removes the higher-level branch and
+reduces the hypergeometric factor to \((1-z)^\kappa\), with
+\(\kappa=(kp-1)p'/(2p)\notin\mathbb Z\).  For \(H_N\), setting
+\((\Delta_1,\Delta_2)=(\mu^{\mathrm{small}}_k,0)\) removes every
+\(\mathcal B_m\) with \(1\leq m\leq M\), and the affine line
+\(\Lambda_3-\Lambda_4=i\alpha\) removes the higher-level branch.  What remains
+is a polynomial in \(v=-i(\Lambda_3+\Lambda_4)\) whose coefficient of \(v^M\)
+is \((-1)^M H_M(\alpha)/(16^M M!)\).  It is nonzero by elementary bounds for
+\(M\leq3\) and by Schur's irreducibility theorems~\cite{Schur1929,Schur1931}
+for \(M\geq4\).  Section~\ref{sec:examples} works out the formulas at
+\((2,3)\), where \(c=0\) and \(N=5\) and the result matches~\cite{Ribault2019},
+and at the Ising charge \((3,4)\), where \(c=\tfrac12\) and \(N=7,10,11\).
 
 \section{Definitions and normalizations}\label{sec:setup}
 

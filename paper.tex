@@ -148,8 +148,8 @@ is a collision moment: the constant term of a finite sum of Laurent
 germs in \(t=b-b_\star\), computed within an a priori finite jet budget.
 Uniqueness of partial fractions identifies the construction
 coefficientwise in \(q\) with the inverse-Shapovalov definition of the
-meromorphic Verma block.  The formal germ is an exact algebraic device,
-not a numerical regularization.  At minimal-model charges the local
+meromorphic Verma block.  The germ is formal, so no numerical
+regularization enters.  At minimal-model charges the local
 Smith exponents of the Shapovalov matrix in the internal weight are the
 dimensions of the Jantzen layers of the Feigin--Fuchs embedding diagram,
 which bounds the pole order of every block coefficient.  We show that the
@@ -247,10 +247,10 @@ constant term, and \(\widehat M^\star_{\lambda,N}\) is an a priori pole
 bound.  Every ingredient is a finite jet of an explicit rational function
 of \(b\), and the moments are exactly the partial-fraction coefficients of
 the inverse-Shapovalov block.  Collisions occur only when \(b_\star^2\) is
-rational.  The formula is exact at fixed \(c_\star\), with no numerical
-\(\varepsilon\)-limit, but it combines generic summands through the
-formal germ \(b=b_\star+t\), so it is not an intrinsic recursion in the
-specialized representation category.
+rational.  The formula is exact at fixed \(c_\star\) and needs no
+numerical \(\varepsilon\)-limit.  It combines generic summands through the
+formal germ \(b=b_\star+t\); a recursion intrinsic to the specialized
+representation category is not given here.
 
 The second main result concerns the pole orders, which are governed by the
 specialized Verma module.  At a minimal-model charge and an interior Kac
@@ -279,16 +279,16 @@ collapses to labels \((u,1)\); a
 Feigin--Fuchs Fock factorization establishes odd-prime integrality of the
 cleared block polynomials \(P_M^{(1)},P_M^{(2)}\in\mathbb Z[\tfrac12][t,Y]\)
 and level polynomiality of their Taylor coefficients
-(Proposition~\ref{prop:h13-nonvanishing}).  Combined with the \(k\)-th Taylor
-coefficients of \(\tau^\pm_k/\gamma^\pm_k\) at \(d=0\)
-(Proposition~\ref{prop:layer-coefficients}), \(\ell\)-adic valuation and ratio
-separation settle every two-vector level
-(Proposition~\ref{prop:two-term-criteria}), proving unconditionally that
-for indeterminate \(d\) (pole orders over the field of rational functions
-in \(d\)) \(H_N(c_\star,\Delta,d)\) attains the Jantzen bound \(j_N(\lambda)\)
-at every minimal-model charge, interior Kac weight, and level \(N\geq1\)
-(Corollary~\ref{cor:top-layer-sharp}).  This does not hold at every
-specialization of \(d\): at \(d=0\), \(H_N=0\) for \(N>0\).
+(Proposition~\ref{prop:h13-nonvanishing}).  Together with the \(k\)-th
+Taylor coefficients of \(\tau^\pm_k/\gamma^\pm_k\) at \(d=0\)
+(Proposition~\ref{prop:layer-coefficients}), \(\ell\)-adic valuation and
+ratio separation settle every level with two singular vectors
+(Proposition~\ref{prop:two-term-criteria}).  Hence, for an indeterminate
+\(d\), with pole orders taken over the field of rational functions in \(d\),
+\(H_N(c_\star,\Delta,d)\) attains the Jantzen bound \(j_N(\lambda)\) at every
+minimal-model charge, every interior Kac weight and every level \(N\geq1\)
+(Corollary~\ref{cor:top-layer-sharp}).  This fails at some specializations of
+\(d\): at \(d=0\), \(H_N=0\) for \(N>0\).
 
 At the Ising charge the first double poles occur at levels \(7\), \(10\),
 and \(11\), at the energy, spin, and identity weights, and
@@ -1815,8 +1815,7 @@ and the following ones solve the corresponding problems for the
 \emph{irreducible} minimal-model torus one-point traces
 \eqref{eq:irr-trace-def}.
 
-A direct small-case computation reveals immediately why naive specialization
-fails.  For the Ising model \((p,p')=(3,4)\) at \(\lambda=h_{1,2}=1/16\) and
+A small case shows that naive specialization fails.  For the Ising model \((p,p')=(3,4)\) at \(\lambda=h_{1,2}=1/16\) and
 \(d=h_{1,3}=1/2\), the Verma block \(F_N(1/2,\Delta,1/2)\) is regular at
 \(\Delta=1/16\) at every level, yet its value at \(\Delta=1/16\) does not equal
 the irreducible trace: at \(N=2\) one has \(F_2(1/2,1/16,1/2)=8/7\) whereas
@@ -1830,8 +1829,8 @@ the \(O(x)\) vanishing of \(\rho_x\) cancels the \(O(x)\) vanishing of the
 Shapovalov form \(B_x\) on \(J^1\), leaving a finite \(O(x^0)\) contribution
 \(\sigma^\pm_1/\gamma^\pm_1\) that survives the limit \(\Delta\to\lambda\).
 
-Tracking this mechanism across the full braided embedding diagram yields three
-main theorems.
+Following this mechanism through the whole braided embedding diagram gives the
+three theorems below.
 
 \begin{theorem}[Fusion-descent and exact Verma regularity]\label{thm:descent-regularity}
 Let \(p,p'\geq2\) be coprime, \(b_\star^2=-p'/p\), and
@@ -2817,7 +2816,7 @@ and evaluate the Gamma potential \eqref{eq:gamma-potential} directly at
                          \Gamma\bigl(1+m+\tfrac{n_\mu-ip'}{p}\bigr)}.
  \end{aligned}
 \]
-None of the Gamma arguments is an integer!  Indeed, by \eqref{eq:bgg-momenta},
+None of the Gamma arguments is an integer.  By \eqref{eq:bgg-momenta},
 \(n_\mu\equiv\pm ps\pmod{p'}\) and \(n_\mu\equiv\pm p'r\pmod{p}\).  Hence
 \((n_\mu\pm jp)/p'\in\mathbb{Z}\) would require \(p'\mid(\pm s-j)\) for some
 \(1\leq j\leq m<\min(s,p'-s)\); this is impossible because
@@ -2841,7 +2840,7 @@ at \(t=t_\star=-p'/p\), giving
  c_{R,S}\Bigl(-\frac{p'}{p};2k+1,2m+1\Bigr)
  =\frac{\Psi_{2k+1,2m+1}(\varpi_\beta;b_\star)}{\Psi_{2k+1,2m+1}(\varpi_\alpha;b_\star)}.
 \end{equation}
-Multiplying along the two sides of any BGG diamond immediately gives
+Multiplying along the two sides of any BGG diamond gives
 \eqref{eq:diamond-cocycle}, and the path-independent product equals
 \(\Omega_{2k+1,2m+1}(\mu\to\xi)
 =\Psi_{2k+1,2m+1}(\varpi_\xi;b_\star)/\Psi_{2k+1,2m+1}(\varpi_\mu;b_\star)
