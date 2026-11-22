@@ -1,4 +1,4 @@
-import Virasoro.Sphere.Proofs.Sec3SaddleVal
+import Virasoro.Sphere.Proofs.Sec3WHValues
 import Virasoro.Sphere.CitedJacobi
 import Virasoro.Sphere.Cited
 
@@ -20,37 +20,6 @@ open Finset
 theorem aSer_zero : aSer 0 = 1 := by
   rw [aSer, Nat.cast_zero, OmegaCoef_zero]
 
-/-- `1 - ∑_m (i m c_m) σ_{*,m} = ∑_m c_m a_m z^m` for `c_0 = 1`. -/
-theorem one_sub_subst_lin (c : ℕ → ℚ) (hc0 : c 0 = 1) (g : ℕ → ℂ)
-    (hg : ∀ m, 1 ≤ m → g m = Complex.I * (m : ℂ) * (c m : ℂ)) :
-    1 - MvPowerSeries.subst sigmaStar (linSeries g) =
-      (ySer c).map (algebraMap ℚ ℂ) := by
-  ext k
-  rw [map_sub, coeff_subst_linSeries _ (fun m => by simpa using smul_sigmaStar_dvd 1 m),
-    PowerSeries.coeff_map, ySer, PowerSeries.coeff_mk, sum_range_succ']
-  have e := sum_Icc_one_eq_range
-    (fun m => c m * PowerSeries.coeff (k - m) (aSer m)) k
-  beta_reduce at e
-  rw [← e, hc0, aSer_zero, PowerSeries.coeff_one, Nat.sub_zero, PowerSeries.coeff_one]
-  have hsum : ∑ m ∈ Icc 1 k, g m * PowerSeries.coeff k (sigmaStar m.toPNat') =
-      -∑ m ∈ Icc 1 k, ((c m : ℂ) * ((PowerSeries.coeff (k - m) (aSer m) : ℚ) : ℂ)) := by
-    rw [← sum_neg_distrib]
-    refine sum_congr rfl fun m hm => ?_
-    have hm1 := mem_Icc.1 hm
-    have hcoe : ((m.toPNat' : ℕ+) : ℕ) = m := by rw [Nat.toPNat'_coe, if_pos (by omega)]
-    have hm0 : (m : ℂ) ≠ 0 := Nat.cast_ne_zero.2 (by omega)
-    rw [hg m hm1.1, coeff_sigmaStar, hcoe, if_pos hm1.2]
-    rw [show Complex.I * (m : ℂ) * (c m : ℂ) * (Complex.I * (1 / (m : ℂ)) *
-        ((PowerSeries.coeff (k - m) (aSer m) : ℚ) : ℂ)) =
-      (Complex.I * Complex.I) * ((m : ℂ) * (1 / (m : ℂ))) *
-        ((c m : ℂ) * ((PowerSeries.coeff (k - m) (aSer m) : ℚ) : ℂ)) by ring,
-      Complex.I_mul_I, mul_one_div_cancel hm0]
-    ring
-  rw [hsum]
-  simp only [eq_ratCast]
-  push_cast
-  split_ifs <;> ring
-
 theorem gAt_one_coeff (m : ℕ) :
     2 * Complex.I * ∑ n ∈ Icc 1 m, (n : ℂ) * (1 : ℂ) ^ n * tcoef n m =
       Complex.I * (m : ℂ) * (halfBinom m : ℂ) := by
@@ -61,36 +30,6 @@ theorem gAt_one_coeff (m : ℕ) :
     exact_mod_cast h
   rw [hc]
   ring
-
-theorem gAt_neg_one_coeff (m : ℕ) (hm : 1 ≤ m) :
-    2 * Complex.I * ∑ n ∈ Icc 1 m, (n : ℂ) * (-1 : ℂ) ^ n * tcoef n m =
-      Complex.I * (m : ℂ) * ((PowerSeries.coeff m sOne : ℚ) : ℂ) := by
-  have h := sum_n_alt_psi m hm
-  obtain ⟨j, rfl⟩ : ∃ j, m = j + 1 := ⟨m - 1, by omega⟩
-  have h2 := two_mul_coeff_sOne j
-  rw [Nat.add_sub_cancel] at h
-  have hq : ∑ n ∈ Icc 1 (j + 1), (n : ℚ) * ((-1) ^ n * PowerSeries.coeff (j + 1) (psi n)) =
-      ((j : ℚ) + 1) * PowerSeries.coeff (j + 1) sOne / 2 := by
-    rw [h]
-    linarith
-  have hc : ∑ n ∈ Icc 1 (j + 1), (n : ℂ) * (-1 : ℂ) ^ n * tcoef n (j + 1) =
-      ((j : ℂ) + 1) * ((PowerSeries.coeff (j + 1) sOne : ℚ) : ℂ) / 2 := by
-    simp only [tcoef_eq, mul_assoc]
-    exact_mod_cast hq
-  rw [hc]
-  push_cast
-  ring
-
-theorem one_sub_gAt_one :
-    1 - MvPowerSeries.subst sigmaStar (gAt 1) = (ySer halfBinom).map (algebraMap ℚ ℂ) :=
-  one_sub_subst_lin halfBinom (by simp [halfBinom, gbinom]) _ (fun m _ => gAt_one_coeff m)
-
-theorem one_sub_gAt_neg_one :
-    1 - MvPowerSeries.subst sigmaStar (gAt (-1)) =
-      (ySer fun m => PowerSeries.coeff m sOne).map (algebraMap ℚ ℂ) :=
-  one_sub_subst_lin (fun m => PowerSeries.coeff m sOne)
-    (by rw [PowerSeries.coeff_zero_eq_constantCoeff_apply, constantCoeff_sOne]) _
-    (fun m hm => gAt_neg_one_coeff m hm)
 
 /-! ### The Jacobi identities at `q(z)` -/
 
@@ -168,8 +107,9 @@ theorem one_sub_mul_th3 (hJ1 : Cited_JacobiIdentities) {Q : PowerSeries ℂ}
 theorem gStar_neg_one (hJ2 : Cited_JacobiIdentities2) {Q : PowerSeries ℂ}
     (hQ0 : PowerSeries.constantCoeff Q = 0) (hQ : (zq ℂ).subst Q = PowerSeries.X) :
     1 - MvPowerSeries.subst sigmaStar (gAt (-1)) = (((th3 ℂ).subst Q) ^ 2)⁻¹ := by
-  have h := congrArg (PowerSeries.map (algebraMap ℚ ℂ)) ySer_two
-  rw [map_mul, map_one, hyp2F1_eq_th3 hJ2 hQ0 hQ, ← one_sub_gAt_neg_one] at h
+  have h : (1 - MvPowerSeries.subst sigmaStar (gAt (-1))) * hyp2F1.map (algebraMap ℚ ℂ) = 1 := by
+    rw [one_sub_gAt_neg_one_WH, ← map_mul, PowerSeries.inv_mul_cancel _ hyp2F1_unit, map_one]
+  rw [hyp2F1_eq_th3 hJ2 hQ0 hQ] at h
   have hc : PowerSeries.constantCoeff (((th3 ℂ).subst Q) ^ 2) ≠ 0 := by
     rw [map_pow, constantCoeff_subst_of_one hQ0 _ constantCoeff_th3]
     norm_num
@@ -183,8 +123,10 @@ theorem gStar_one (hJ1 : Cited_JacobiIdentities) (hJ2 : Cited_JacobiIdentities2)
   set Y := 1 - MvPowerSeries.subst sigmaStar (gAt 1) with hY
   set T3 := (th3 ℂ).subst Q with hT3
   set T4 := (th4 ℂ).subst Q with hT4
-  have h := congrArg (PowerSeries.map (algebraMap ℚ ℂ)) ySer_one
-  rw [map_mul, hyp2F1_eq_th3 hJ2 hQ0 hQ, ← one_sub_gAt_one] at h
+  have h : Y * hyp2F1.map (algebraMap ℚ ℂ) = hser.map (algebraMap ℚ ℂ) := by
+    rw [hY, one_sub_gAt_one_WH, ← map_mul, mul_comm (hyp2F1⁻¹), mul_assoc,
+      PowerSeries.inv_mul_cancel _ hyp2F1_unit, mul_one]
+  rw [hyp2F1_eq_th3 hJ2 hQ0 hQ] at h
   have hs := congrArg (PowerSeries.map (algebraMap ℚ ℂ)) hser_sq
   rw [map_mul, map_pow, map_sub, map_one, PowerSeries.map_X] at hs
   have h4 := one_sub_mul_th3 hJ1 hQ0 hQ
@@ -193,9 +135,10 @@ theorem gStar_one (hJ1 : Cited_JacobiIdentities) (hJ2 : Cited_JacobiIdentities2)
       (Y * T3 ^ 2 + PowerSeries.map (algebraMap ℚ ℂ) hser) * h + hs
   have hT4c : PowerSeries.constantCoeff T4 = 1 := constantCoeff_subst_of_one hQ0 _ constantCoeff_th4
   have hYc : PowerSeries.constantCoeff Y = 1 := by
-    rw [hY, one_sub_gAt_one, ← PowerSeries.coeff_zero_eq_constantCoeff_apply,
-      PowerSeries.coeff_map, ySer, PowerSeries.coeff_mk]
-    simp [aSer_zero, halfBinom, gbinom]
+    rw [hY, one_sub_gAt_one_WH, ← PowerSeries.coeff_zero_eq_constantCoeff_apply,
+      PowerSeries.coeff_map, PowerSeries.coeff_zero_eq_constantCoeff_apply, map_mul,
+      PowerSeries.constantCoeff_inv, constantCoeff_hyp2F1, constantCoeff_hser]
+    simp
   have h0 : (Y * T4 ^ 2 - 1) * (Y * T4 ^ 2 + 1) = 0 := by linear_combination hsq
   have hc : PowerSeries.constantCoeff (T4 ^ 2) ≠ 0 := by
     rw [map_pow, hT4c]

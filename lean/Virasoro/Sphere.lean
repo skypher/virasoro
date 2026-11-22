@@ -53,7 +53,6 @@ import Virasoro.Sphere.Proofs.Sec3SaddleLin
 import Virasoro.Sphere.Proofs.Sec3SaddlePdeAll
 import Virasoro.Sphere.Proofs.Sec3SaddlePsi
 import Virasoro.Sphere.Proofs.Sec3SaddleII
-import Virasoro.Sphere.Proofs.Sec3SaddleSt
 import Virasoro.Sphere.Proofs.Sec3SaddleA
 import Virasoro.Sphere.Proofs.Sec3SaddleEx
 import Virasoro.Sphere.Proofs.Sec3SaddleUniq

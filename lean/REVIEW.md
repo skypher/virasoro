@@ -1482,3 +1482,46 @@ Checked by the main session (`../runs/lean2/checkRR8.log`): `lem_lambda_expansio
 exit 0; no forbidden tokens; Statements unchanged.  Author-side check, not a reviewer PASS.
 
 Still queued: sphere Lemma 3.4(iii) through the Wiener–Hopf identity (3.6), coefficientwise in `z`.
+
+## 2026-11-22T22:27Z — main session: route repair RR9 (sphere Lemma 3.4(iii) through (3.6); Lemma 3.6 coefficients)
+
+Queued item "sphere Lemma 3.4(iii) through (3.6) coefficientwise in `z` (with the Lemma 3.6
+coefficients of `g(±1)`)".  The Lean now follows the paper's proof of Lemma 3.4(iii) at each order
+`z^K`, with `p(w) = 4w/(1+w)²`, `s(w) = (1−w)/(1+w)`, and `p(w)^{-m}` carried as
+`P_m = (1+w)^{2m} = 4^m w^m p^{-m}` (new files Sphere/Proofs/Sec3WHSeries.lean,
+Sec3WHIdentity.lean, Sec3WHSaddle.lean, Sec3WHValues.lean):
+- `s² = 1 − p`, `(1−p(w))^{-1/2} s(w) = 1`; `w∂_w p^{-m} = −m s p^{-m}` (`X_deriv_Pm`, via
+  `PowerSeries.derivative`); the change of variables `[w^0](s p^{-m} G(p(w))) = [x^m]G`
+  (`coeff_change_var`).
+- `x^K Ω(x) = (∑_l c_l x^{K−l})(1−x)^{-1/2}` (`laurent_OmP`, from `OmegaCoef`); substituting
+  `x = p(w)`: `H(w) = s Ω(p) = ∑_l c_l p^{-l}` and `= sΩ_+(p) + ∑_m [z^{K−m}]a_m s p^{-m}`
+  (`H_two_ways`); `H` is even in `w ↔ w⁻¹`; comparing `[w^{∓n}]` gives (3.6):
+  `[w^n](sΩ_+(p)) = 2nτ_n` (`n ≥ 1`), `δ_{K0}` (`n = 0`), with `t_{*,n} = iτ_n`
+  (`WH_identity`, `WH_identity_zero`).
+- Saddle-point equations: `∂_{σ_m}S^{(0)}(σ_*) = [w^0]p^{-m}(−4iw/(1+w) + 2ig_*(w))` from
+  part (ii) (`Bcoef_eq_sum_psi`, `alt_sum_psi`), then (3.6) and the change of variables give
+  `−2i a_m` (`Dd_eq`, `sum_psi_Dd`, `coeff_aSer_WH`); `coeff_aSer` now has this proof.
+- Values: by (3.6), `1 − g_*(w)` is a polynomial at each order, and `H_two_ways` becomes a
+  polynomial identity (`Hpoly_eq`); evaluating at `w = 1` and `w = −1` (where `s p^{-m}` vanishes)
+  gives `1 − g_*(1) = (₂F₁√(1−z))⁻¹`, `1 − g_*(−1) = ₂F₁⁻¹` (`one_sub_gAt_one_WH`,
+  `one_sub_gAt_neg_one_WH`); `gStar_one`, `gStar_neg_one` now use them.
+- Lemma 3.6: the coefficients of `g(±1)` by the change of variables in the contour representation
+  (`nSer_eq`: `w/(1−w)² = s G₊(p)`, `G₊ = (x/4)(1−x)^{-3/2}`; `nAltSer_eq`: `−w/(1+w)² = s G₋(p)`,
+  `G₋ = −(x/4)(1−x)^{-1/2}`), giving `sum_n_psi`, `sum_n_alt_psi`.  The 2026-11-22T19:20Z entry had
+  classed this item as forced ("no contour integrals"); with `coeff_change_var` it is not forced, and
+  it now follows the paper.
+Deleted: Sec3SaddleSt.lean (`B = −q∂_q(√(1−q)D)` route: `alg_saddle`, `Bgf_eq_pderiv`,
+`halfBinom_add`); in Sec3SaddleVal.lean the closed-form `ψ_n` sums (`trunc_sum2`,
+`coeff_natCast_mul_sum`), `ySer`, `ySer_one`, `ySer_two`, `coeff_conv_F`, `two_mul_coeff_sOne`,
+`sum_sOne_hser`; in Sec3SaddleValC.lean `one_sub_subst_lin`, `one_sub_gAt_one`,
+`one_sub_gAt_neg_one`, `gAt_neg_one_coeff`.
+
+Checked by the main session (`../runs/lean2/checkRR9.log`): `lem_saddle_of_cited`,
+`lem_ext_exponents_of_cited`, `lem_central_charge_of_cited`, `thm_large_delta_of_cited` keep axioms
+[propext, Classical.choice, Quot.sound]; full build exit 0; no forbidden tokens; Statements
+unchanged.  Author-side check, not a reviewer PASS.
+
+State after this entry: the queued sphere §3 route repairs are done (RR6–RR9).  The remaining route
+differences are the ones classed as forced in the 2026-11-22T19:20Z entry (residue via Lemma 5.4
+over general fields; freeness over `U(Vir₋)`; `J^i/J^{i+1} ≅ L⊕L`; the DVR in Prop 6.8(i)) and
+the fill-ins recorded in the run entries.
