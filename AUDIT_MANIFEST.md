@@ -27,8 +27,9 @@ the archive).  It checks Theorem `thm:descent-regularity` on allowed,
 forbidden and half-fusion weights, Theorem `thm:first-layer-ratio` from the
 two-weight Ward identity, Theorem `thm:gen-rocha-caridi` against exact
 quotient-Gram traces (Lee--Yang N <= 9, Ising N <= 8, tricritical Ising
-N <= 7), and Corollary `cor:collision-free` (Ising N <= 30, Lee--Yang
-N <= 25).
+N <= 7), and Corollary `cor:collision-free` (Ising traces against Euler's
+coefficients for N <= 30; Lee--Yang denominators are powers of 5 for
+N <= 25, with the trace comparison only for N <= 9).
 
 From the repository root,
 
