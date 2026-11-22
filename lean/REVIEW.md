@@ -854,3 +854,33 @@ Route notes:
   β_u ∈ ℤ[1/2]; (6.4) uses only |β_u|_ℓ ≤ 1 for odd ℓ.  Accepted.
 - l.1433–1446, even k: the L₋₁-coefficient of the composite vector up to sign from Lemma 5.7;
   the sign does not matter because τ is quadratic.  Fills in.
+
+## 2026-11-22T08:04Z — Part II run 3 results (Prop 11.2 proved, labelled)
+
+Checked by the main session (`../runs/lean2/checkP2R3.log`, importing `Virasoro` and
+`Virasoro.PartIIWork` together): `prop_jantzen_vertex_of_cited (hJ) (hH) (hU) (hF) (hI) :
+Stmt_prop_jantzen_vertex` (prop:jantzen-vertex) and `sub_vertex_step`; axioms [propext,
+Classical.choice, Quot.sound].  The seven new sub-statements of part (ii) are proved and consumed
+by the labelled theorem, whose type is the frozen one.  No committed file changed except the
+appended imports of `PartIIWork.lean`; no forbidden tokens in the 18 new modules.  32 of 44.
+
+Name clash found at landing: `Virasoro.ev0` was defined in run 20's `Sec6H13Reg.lean` and in
+`P2Sec11Lattice.lean`.  The main session renamed the Part II one to `latEv0` (three files) and
+rebuilt `Virasoro.PartIIWork` (green, 3528 jobs, `../runs/lean2/p2r3-rebuild.log`).  New Part II
+declarations go in the namespace `Virasoro.P2` (brief-partII.md).
+
+Route notes:
+- l.2423–2437: lattices over ℂ[x] (`InLat`).  Forced by the frozen statement's polynomial
+  families.
+- l.2439–2453: M(μ^ε_{k₀+i}) ⊂ J^i through the embedding j_χ and `Cited_VermaHomInjective`,
+  since `Cited_JantzenLayersOrbit` gives these submodules as U(Vir₋)w.  Forced; the labelled
+  theorem carries hI.
+- l.2443–2447: `ward_eq_smul_pairing`, the uniqueness induction of Lemma 10.1 for an
+  unnormalized Ward form (σ may be 0).  Forced by the normalized frozen Lemma 10.1.
+- l.2466–2480: the adapted basis through S = Uᵀ·diag(x^{m−e_a}u_a⁻¹)·U with G·S = x^m and
+  truncation to polynomial families.  Forced by the representation of F_N and of part (i).
+- l.2472, 2486–2495: traces on J^i_N/J^{i+1}_N by families of representatives with proved basis
+  independence.  Forced: no quotient-module objects in the tree.
+- l.2487–2490: the orthogonality and independence of the two summands are derived from
+  contravariance, the levels of w^± and the nondegeneracy of B̄^{(i)}, without the clause
+  J^i/J^{i+1} ≅ L ⊕ L of Lemma 10.3(i).  Not forced; queued for route repair (brief item 5).
