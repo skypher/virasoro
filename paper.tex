@@ -202,16 +202,16 @@ and individual summands of
 the generic recursion develop poles in the deformation parameter.  Javerzat,
 Santachiara and Foda analyzed the cancellation of these poles in examples and
 in the identity-insertion character problem
-\cite[Sections~4--6, especially equations~(60)--(61)]%
+\cite[Sections~4--6, with the limits of the resonant terms in (60)--(61)]%
 {JaverzatSantachiaraFoda2018}.  Stocco constructed
 central-charge-pole-free torus expressions through fourth order
 \cite[Sections~II.B--II.C and Appendix~A]{Stocco2022} and conjectured an
 all-order Laurent-expansion procedure; the coefficients reconstructed from
 his expressions agree with \(H_2\) and \(H_3\) identically and with \(H_4\) at
-sample values.  Ribault identifies a recursion at rational \(b^2\) as an open
-problem, with torus one-point blocks as its simplest case
-\cite[Section~4.3.3]{Ribault2026}, and~\cite[Section~3]{Ribault2019} analyzes
-higher-order poles and rational limits of sphere four-point blocks.
+sample values.  Ribault calls a recursion at rational \(b^2\) an open problem
+whose simplest case is the torus one-point block
+\cite[Section~4.3.3]{Ribault2026}, and analyzes higher-order poles and
+rational limits of sphere four-point blocks \cite[Section~3]{Ribault2019}.
 
 Theorem~\ref{thm:general-confluence} is an all-order coefficientwise formula
 for the meromorphic Verma-module block at every fixed nonzero \(b_\star\).
@@ -238,8 +238,7 @@ block of Definition~\ref{def:shifted-laurent}, \(\operatorname{CT}_t\) the
 constant term in \(t\), and \(\widehat M^\star_{\lambda,N}\) an a priori pole
 bound.  The formula uses finite jets of explicit rational functions of
 \(b\), and uniqueness of partial fractions identifies the moments with the
-coefficients of the inverse-Shapovalov block.  The constant term gives the
-block at \(c_\star\) from generic summands.
+coefficients of the inverse-Shapovalov block.
 
 At a minimal-model charge and an interior Kac weight \(\lambda\), the
 Feigin--Fuchs embedding diagram describes the Jantzen filtration
@@ -259,9 +258,10 @@ Theorem~\ref{thm:top-layer} computes the coefficient at this bound.  Let
  \frac{\langle w^\pm_k|V_d(1)|w^\pm_k\rangle}{\gamma^\pm_k}\,
  H_{N-\ell^\pm_k}\bigl(c_\star,\lambda+\ell^\pm_k,d\bigr),
 \end{equation}
-where \(\gamma^\pm_k\neq0\) is the \(k\)-th Jantzen norm of \(w^\pm_k\); we write \(\tau^\pm_k(d)=\langle w^\pm_k|V_d(1)|w^\pm_k\rangle\).
-This is a fixed-\(c\) analogue of Zamolodchikov's residue formula for the
-deepest pole.  Every quantity in it is defined by the specialized module.
+where \(\gamma^\pm_k\) is the nonzero \(k\)-th Jantzen norm of \(w^\pm_k\).  We
+write \(\tau^\pm_k(d)=\langle w^\pm_k|V_d(1)|w^\pm_k\rangle\).  This is a
+fixed-\(c\) analogue of Zamolodchikov's residue formula for the deepest pole,
+with every quantity defined by the specialized module.
 
 The sharpness proof specializes to \(d_1=h_{1,3}(b)\) and
 \(d_2=h_{1,-3}(b)\).  At these weights the generic recursion collapses to
@@ -280,12 +280,8 @@ with pole orders taken over the field of rational functions in \(d\),
 \(H_N(c_\star,\Delta,d)\) attains the Jantzen bound \(j_N(\lambda)\) at every
 minimal-model charge, every interior Kac weight and every level \(N\geq1\).
 This fails at some specializations of \(d\): at \(d=0\), \(H_N=0\) for
-\(N>0\).
-
-At the Ising charge the first double poles at the energy, spin and identity
-weights occur at levels \(7\), \(10\) and \(11\), respectively.
-Equation~\eqref{eq:intro-top} gives their coefficients in closed form, with
-the second Jantzen norms of Proposition~\ref{prop:ising-double-poles}.
+\(N>0\).  Proposition~\ref{prop:ising-double-poles} gives the first Ising
+double poles.
 
 Section~\ref{sec:irr-results} turns to the irreducible quotient
 \(L(c_\star,\lambda)\), whose trace differs from the Verma block at a
@@ -299,9 +295,7 @@ Theorem~\ref{thm:gen-rocha-caridi} writes the irreducible trace as an
 alternating sum of Verma torus blocks over the braided embedding diagram.
 Its weights are explicit nonzero rational numbers, products of first-layer
 Jantzen vertex ratios, and Theorem~\ref{thm:first-layer-ratio} evaluates
-these ratios as ratios of Gamma potentials.  Substituting
-Theorem~\ref{thm:general-confluence} for each Verma block gives each trace
-coefficient.
+these ratios as ratios of Gamma potentials.
 
 
 \section{Blocks and the reduced series}\label{sec:blocks}
@@ -381,7 +375,7 @@ orders in \(\Delta\) are understood over \(\mathbb Q(c,d)\), or over
 \section{Fixed specializations and collision classes}
 \label{sec:resonance}
 
-\begin{definition}[Kac weights and fixed algebraic specializations]
+\begin{definition}[Kac weights and fixed specializations]
 \label{def:fixed-specialization}
 For \(b\in\mathbb C^\times\), set
 \(c(b)=1+6(b+b^{-1})^2\) and
@@ -1698,12 +1692,13 @@ as rational functions of \((b,\Delta,d)\).  Expand both sides in
 nonzero in \(K_\star(\Delta)\), and \(1/(\Delta-h_a(t))=1/(x-\delta_a(t))\)
 expands by Lemma~\ref{lem:collision-pole-support}.
 
-By Lemma~\ref{lem:polynomial-entries} and Cramer's rule, the left side of
-\eqref{eq:generic-grouped} has denominator \(\det G_N(c(b_\star+t),\Delta)\);
-every \(\det G_m\) with \(m\leq N\) divides it, because the exponents
-\(p(m-rs)\) in the Kac determinant formula are nondecreasing in \(m\).  Its
-value at \(t=0\) is \(\det G_N(c_\star,\Delta)\neq0\); hence it lies in
-\(K_\star(\Delta)[[t]]\) with constant term \(H_N(c_\star,\Delta,d)\).  By
+By Lemma~\ref{lem:polynomial-entries} and Cramer's rule, \(F_m\) has a
+denominator dividing \(\det G_m\).  The exponents \(p(m-rs)\) in the Kac
+determinant formula are nondecreasing in \(m\), so
+\(\det G_N(c(b_\star+t),\Delta)\) is a common denominator for the left side
+of~\eqref{eq:generic-grouped}.  Its value at \(t=0\) is
+\(\det G_N(c_\star,\Delta)\neq0\) in \(K_\star(\Delta)\); hence the left side
+lies in \(K_\star(\Delta)[[t]]\) with constant term \(H_N(c_\star,\Delta,d)\).  By
 Lemma~\ref{lem:collision-pole-support} and Definition~\ref{def:collision-moments},
 the constant term of \({\mathcal G}^\star_{\lambda,N}\) is
 \(g_\lambda(\Delta)=\sum_{k=1}^{\widehat M^\star_{\lambda,N}}
@@ -1810,21 +1805,18 @@ condition), the irreducible torus one-point trace is
  =\Tr_{L(c_\star,\lambda)}\bigl(q^{L_0-\lambda}V_d(1)\bigr)
  =\sum_{N=0}^\infty T^{\mathrm{irr}}_N(c_\star,\lambda,d)\,q^N.
 \end{equation}
-We set \(p(n)=0\) and \(F_n=T^{\mathrm{irr}}_n=0\) for \(n<0\).  Coulomb-gas
-screening integrals in Felder's Fock-space BRST complex
-\cite{Felder1989,FelderSilvotti1989} give integral representations of such
-traces; Section~\ref{sec:examples} compares the results below with direct
-level-by-level inversion of the quotient Shapovalov matrix.  Write
-\(\mathcal{F}^{\mathrm{Verma}}_{c,\Delta,d}(q)
+Write \(\mathcal{F}^{\mathrm{Verma}}_{c,\Delta,d}(q)
 =\sum_{N\geq0}F_N(c,\Delta,d)q^N\) for the Verma torus one-point block
-(Definition~\ref{def:matrices}).  For \(d=0\), Javerzat, Santachiara and
-Foda obtained the minimal-model characters by a three-parameter limit of the
-generic torus recursion and checked the resulting rational chain sum
-numerically to about order \(300\)
+(Definition~\ref{def:matrices}), and set \(p(n)=0\) and
+\(F_n=T^{\mathrm{irr}}_n=0\) for \(n<0\).  Coulomb-gas screening integrals in
+Felder's Fock-space BRST complex \cite{Felder1989,FelderSilvotti1989} give
+integral representations of such traces; Section~\ref{sec:examples} compares
+the results below with direct level-by-level inversion of the quotient
+Shapovalov matrix.  For \(d=0\), Javerzat, Santachiara and Foda obtained the
+minimal-model characters by a three-parameter limit of the generic torus
+recursion and checked the resulting rational chain sum numerically to about
+order \(300\)
 \cite[Section~5 and the check after equation~(83)]{JaverzatSantachiaraFoda2018}.
-For indeterminate \(d\), the pole order \(j_N(\lambda)\) of
-\(H_N(c_\star,\Delta,d)\) at \(\Delta=\lambda\) grows without bound as
-\(N\to\infty\) (Corollary~\ref{cor:top-layer-sharp}).
 
 For the Ising model \((p,p')=(3,4)\) at \(\lambda=h_{1,2}=1/16\) and
 \(d=d_\star=h_{1,3}=1/2\), the Verma block \(F_N(1/2,\Delta,1/2)\) is regular at
@@ -1965,10 +1957,11 @@ Consequently:
 \end{enumerate}
 \end{theorem}
 
-Single-index fusion insertions, those with \(k=0\) or \(m=0\), include every
-nontrivial primary in Lee--Yang \((2,5)\), Ising \((3,4)\), \((2,7)\) and
-\((3,5)\), and both \(d=3/5\) and \(d=3/2\) in Tricritical Ising \((4,5)\).
-For them the truncated recursion has no active collisions.
+Single-index fusion insertions are those with \(k=0\) or \(m=0\).  In
+Lee--Yang \((2,5)\), Ising \((3,4)\), \((2,7)\) and \((3,5)\) every insertion in
+the fusion set is single-index, since \(p\leq3\) forces \(k=0\); in
+Tricritical Ising \((4,5)\) this includes \(d=3/5\) and \(d=3/2\).  For them the
+truncated recursion has no active collisions.
 
 \begin{corollary}[Collision-free single-index recursion]\label{cor:collision-free}
 In Theorem~\ref{thm:gen-rocha-caridi}, suppose \(d=h_{1,2m+1}(b_\star)\) with
@@ -1984,23 +1977,12 @@ every \(\mathcal{F}^{\mathrm{Verma}}_{c_\star,\mu^\pm_j,d}(q)\) in
 unmodified truncated recursion, without expanding in \(b-b_\star\).
 \end{corollary}
 
-The proof of Theorem~\ref{thm:gen-rocha-caridi} works in a family of
-degenerate quotients.  Let \(\mu\) be a weight in the BGG orbit whose
-primitive singular vectors, of labels \((R_1,S_1)\) and \((R_2,S_2)\), lead to
-\(\nu_1\) and \(\nu_2\).  Deform \(b^2=b_\star^2+\tau\) and consider the
-generic degenerate quotient
-\[
- V_{R_1,S_1}(b):=M\bigl(c(b),h_{R_1,S_1}(b)\bigr)\big/
-                 M\bigl(c(b),h_{R_1,-S_1}(b)\bigr).
-\]
-At \(\tau=0\) the radical of its specialization
-\(M(c_\star,\mu)/M(c_\star,\nu_1)\) is the simple factor \(L(c_\star,\nu_2)\), and
-the first two graded pieces of its \(\tau\)-Jantzen filtration give a two-term
-identity relating \(\mathcal{T}^{\mathrm{irr}}(\mu)\),
-\(\mathcal{T}^{\mathrm{irr}}(\nu_2)\), \(\mathcal{F}^{\mathrm{Verma}}(\mu)\) and
-\(\mathcal{F}^{\mathrm{Verma}}(\nu_1)\).  The identity telescopes along the BGG
-chain to \eqref{eq:gen-rocha-caridi}.  Section~\ref{sec:telescoping} proves
-the length two, the freeness over \(\mathbb C[[\tau]]\) and the depth one.
+The proof of Theorem~\ref{thm:gen-rocha-caridi} in
+Section~\ref{sec:telescoping} deforms each degenerate quotient
+\(M(c_\star,\mu)/M(c_\star,\nu_1)\) of the BGG orbit in
+\(b^2=b_\star^2+\tau\); its \(\tau\)-Jantzen filtration gives a two-term
+identity between irreducible traces and Verma blocks, which telescopes along
+the BGG chain.
 
 \section{Two-weight Ward identities and braided orbits}\label{sec:setup}
 
@@ -2100,19 +2082,14 @@ satisfies \(B_{c,\Delta}(v_\Delta,v_\Delta)=1\), \(B_{c,\Delta}(u,v)=0\) for
 
 We abbreviate \(\rho_{\Delta,d}:=\rho_{\Delta,\Delta;d}\) and denote its
 level-\(N\) matrix by \(\rho_N(c,\Delta,d)\); by \eqref{eq:two-weight-sym},
-\(\rho_N^{\mathsf{T}}=\rho_N\).  The Verma torus one-point block coefficients
-are \(F_N(c,\Delta,d):=\Tr(G_N(c,\Delta)^{-1}\rho_N(c,\Delta,d))\), with
-generating series \(\mathcal{F}^{\mathrm{Verma}}_{c,\Delta,d}(q)
-=\sum_{N\geq0}F_N(c,\Delta,d)q^N\).  The eta-reduced block is
-\(H(c,\Delta,d;q)=\phi(q)\mathcal{F}^{\mathrm{Verma}}_{c,\Delta,d}(q)\), where
-\(\phi(q)=\prod_{m=1}^\infty(1-q^m)\).  By the uniqueness in
+\(\rho_N^{\mathsf{T}}=\rho_N\).  By the uniqueness in
 Lemma~\ref{lem:two-weight-ward} and the normalization at the highest-weight
 vectors, \(\rho_N(c,\Delta,d)\) is the matrix of
-Definition~\ref{def:matrices}, and symmetry identifies the trace with the
-contraction defining \(F_N\) there.  In the notation of
+Definition~\ref{def:matrices}, so
+\(F_N(c,\Delta,d)=\Tr(G_N(c,\Delta)^{-1}\rho_N(c,\Delta,d))\).  In the notation of
 Definition~\ref{def:eta-reduced},
 \(\mathcal{F}^{\mathrm{Verma}}_{c,\Delta,d}(q)=q^{-\Delta+c/24}\mathcal F^{(c)}_\Delta(d\mid q)\)
-and \(H(c,\Delta,d;q)=H^{(c)}_\Delta(d\mid q)=\sum_{N\geq0}H_N(c,\Delta,d)q^N\).
+and \(\phi(q)\mathcal{F}^{\mathrm{Verma}}_{c,\Delta,d}(q)=H^{(c)}_\Delta(d\mid q)=\sum_{N\geq0}H_N(c,\Delta,d)q^N\).
 
 \begin{proposition}[Singular vectors and fusion polynomials]\label{prop:fusion-poly}
 Fix positive integers \(R,S\geq1\).
@@ -3193,11 +3170,10 @@ Jantzen layers \(0,1,2,3\)) are
 \]
 By Corollary~\ref{cor:collision-free}, the truncated recursion for
 \(H_N(1/2,\mu,1/2)\) retains only labels \((R,1)\) (\(R\geq1\)) and is
-pole-free and collision-free at \(b=b_\star\).  Evaluating
-\eqref{eq:gen-rocha-caridi} cancels every denominator prime
-\(7,11,17,19,23,\ldots\) for \(0\leq N\leq30\), and through level \(30\) the
-resulting coefficients agree with the Euler pentagonal series \(\phi(q)\),
-whose normalized form is the eta function:
+pole-free and collision-free at \(b=b_\star\).  Through level \(30\), all
+denominators in~\eqref{eq:gen-rocha-caridi} cancel and the coefficients agree
+with the Euler pentagonal series \(\phi(q)\), whose normalized form is the eta
+function:
 \[
  q^{1/16-1/48}\,\phi(q)=\eta(\tau),\qquad q=e^{2\pi i\tau}.
 \]
@@ -3255,8 +3231,7 @@ in \(\mathbb{Q}\) for \(0\leq N\leq 7\).
 \subsection{Computer checks}
 
 The script \texttt{irreducible/tools/audit\_irreducible\_torus.py} reproduces
-all data of this section in exact rational and symbolic arithmetic, and also
-checks the following finite cases.
+these examples in exact arithmetic and checks two further cases.
 \begin{enumerate}
  \item Theorem~\ref{thm:descent-regularity} at allowed, forbidden and both
    types of half-fusion weights; for instance, at \((p,p')=(3,5)\),
