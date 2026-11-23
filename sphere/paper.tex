@@ -133,19 +133,18 @@ Feigin--Fuchs oscillators, a half-pillow Wiener--Hopf saddle point and a Bergman
 determinant. A decomposition of two \(c=1\) Fock modules under the diagonal
 Virasoro action gives the central-charge exponent.
 
-For every fixed \(b_\star\ne0\), the generic residues and this limit give the
-principal parts of \(H_N\) at \(c_\star=1+6(b_\star+b_\star^{-1})^2\) as
-constant terms of grouped Laurent sums with finite precision bounds. This
-also gives a finite expansion of the cross-ratio coefficient \(\mathcal B_N\).
+For every fixed \(b_\star\ne0\) and \(N\geq1\), generic residues give the
+principal parts of \(H_N\) at \(c_\star=1+6(b_\star+b_\star^{-1})^2\) by
+grouped Laurent sums at finite precision. The limit fixes the polynomial
+part. This also gives a finite expansion of the cross-ratio coefficient \(\mathcal B_N\).
 
-At an interior minimal-model weight \(\lambda\), both coefficients have
-pole order at most the Jantzen depth \(j_N(\lambda)\) for all external
-weights. At positive depth the top layer gives the coefficient at that
-order, using the same Jantzen norms as in the torus block. The bound is attained over the external
-weight function field at every level \(N\geq1\). A BPZ specialization proves
-sharpness for \(\mathcal B_N\); an identity insertion and Schur's Hermite
-irreducibility results prove it for \(H_N\). Examples include \(c=0\) at level
-five and the first Ising double poles at levels seven, ten and eleven.
+At an interior minimal-model weight \(\lambda\), both pole orders are
+at most the Jantzen depth \(j_N(\lambda)\) for all external weights.
+At positive depth the top layer gives the coefficient at that order using
+the torus Jantzen norms. For \(N\geq1\) the bound is attained over the external
+weight function field, by a BPZ specialization for \(\mathcal B_N\) and a Hermite
+value for \(H_N\). Over that field the first double pole at \(c=0,\lambda=0\) is at
+level five. The first Ising double poles are at levels seven, ten and eleven.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -183,11 +182,11 @@ large-\(\Delta\) limit.
 At rational \(b_\star^2\), Kac weights can coincide and the generic residues
 can have poles. Javerzat, Santachiara and Foda regularize minimal-model
 examples~\cite[\S\S3.4--3.6, (32)--(34)]{JaverzatSantachiaraFoda2018}.
-Ribault finds cancellations and a double pole for generic external momenta
+Ribault finds cancellations and double poles for generic external momenta
 and then treats degenerate representations~\cite[\S\S3.2--3.3]{Ribault2019}.
 We know of no prior finite all-order formula for every fixed
 \(b_\star\ne0\) with indeterminate external weights.
-Theorem~\ref{thm:confluence} gives such a formula for \(H_N\) and \(\mathcal B_N\).
+Theorem~\ref{thm:confluence} gives it for \(H_N\) and \(\mathcal B_N\), \(N\geq1\).
 
 At interior Kac weights of the minimal models, the torus companion gives the
 Jantzen bound and the top coefficient and proves sharpness over \(\mathbb Q(d)\)
@@ -198,8 +197,9 @@ For the sphere see Theorems~\ref{thm:jantzen-bound}, \ref{thm:top-layer},
 has degree \(N\) in \(\Delta\), while \(H_N-\delta_{N,0}\) consists of principal
 parts. To prove the limit, Section~\ref{sec:asymp} starts at \(c=1+24\mu^2>1\), real
 external weights and \(\Delta=\lambda^2+\mu^2\) with \(\lambda>0\).
-The Fock pairing and Ward solution give the \(\lambda^{-1}\) expansion
-(Lemmas~\ref{lem:fock-verma} and~\ref{lem:lambda-expansion}).
+The Fock pairing expresses the block, and the scaled logarithm of the Ward
+solution expands in \(\lambda^{-1}\) (Lemmas~\ref{lem:fock-verma}
+and~\ref{lem:lambda-expansion}).
 After removing the saddle exponential (Lemma~\ref{lem:saddle}), the
 determinant and the weight and charge factors give the prefactor
 (Lemmas~\ref{lem:bergman-det}, \ref{lem:ext-exponents} and~\ref{lem:central-charge}).
@@ -208,11 +208,11 @@ Lemma~\ref{lem:fock-verma}(iii) extends the limit to complex parameters.
 For sharpness the torus proof uses an \(\ell\)-adic
 argument on strict two-vector levels~\cite[Propositions~6.8--6.9]{PolzerTorus2026}. The sphere proof
 isolates one branch by specializing external weights. The \((2,1)\) BPZ
-specialization reduces the surviving \(\mathcal B_N\) factor to a
-nonintegral power of \(1-z\). An identity insertion and an affine line
-in the remaining momenta give a Hermite value for \(H_N\), nonzero by
-elementary bounds through degree three and Schur's
-theorems~\cite{Schur1929,Schur1931} above degree three.
+specialization makes the shifted cross-ratio series a nonintegral power
+of \(1-z\) through the required degree. With an identity insertion, the
+degree-\(M\) term of the shifted \(H_M\) on a momentum line is proportional
+to a Hermite value. Elementary bounds through degree three and Schur's
+theorems~\cite{Schur1929,Schur1931} at higher degrees give nonvanishing.
 
 \section{Definitions and normalizations}\label{sec:setup}
 
@@ -1866,12 +1866,10 @@ Their ratio is \(\gamma_5=-11200/3\).
 
 \section{Scope and outlook}\label{sec:scope}
 
-The confluence theorem covers every \(b_\star\in\mathbb C^\times\), and the
-large-\(\Delta\) theorem every complex \(c\).  The sharp pole-order results of
-Section~\ref{sec:jantzen} concern interior Kac weights at minimal-model
-charges; at non-interior Kac weights and at \(c_\star=1,25\) the confluence
-formula gives the principal parts, and no sharp pole order is proved.  At
-positive depth,
+Confluence covers every \(b_\star\ne0\), and the large-\(\Delta\) limit all complex
+charges and external weights. Section~\ref{sec:jantzen} proves sharpness at interior
+minimal-model Kac weights. At other Kac weights and at \(c_\star=1,25\),
+confluence still gives the principal parts. At positive depth,
 Theorem~\ref{thm:top-layer} gives the coefficient of
 \((\Delta-\lambda)^{-j_N(\lambda)}\); it is nonzero over the rational function
 field of the external weights (Theorems~\ref{thm:sharp-B}
