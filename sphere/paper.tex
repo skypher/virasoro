@@ -538,11 +538,13 @@ gives, for every \(k\geq1\),
 \end{multline}
 At oscillator level \(m-k\) (\(1\leq k\leq m\)), since \(S_0=0\), the part of
 \eqref{eq:S-pde} that involves \(S_m\) reads
-\(D_k(\lambda)S_m=R_{m,k}(S_1,\dots,S_{m-1};\lambda)\).  Here
-\(D_k(\lambda):=(i+\frac{\mu k}{\lambda})\partial_{\sigma_k}
-+\sum_{n\geq1}n\sigma_n\partial_{\sigma_{n+k}}
--\frac{1}{4\lambda^2}\sum_{n=1}^{k-1}\partial_{\sigma_n}\partial_{\sigma_{k-n}}\),
-and \(R_{m,k}\) is polynomial in \(S_1,\dots,S_{m-1}\) and \(\lambda^{-2}\).
+\(D_k(\lambda)S_m=R_{m,k}(S_1,\dots,S_{m-1};\lambda)\), where
+\[
+ D_k(\lambda):=\left(i+\frac{\mu k}{\lambda}\right)\partial_{\sigma_k}
+ +\sum_{n\geq1}n\sigma_n\partial_{\sigma_{n+k}}
+ -\frac{1}{4\lambda^2}\sum_{n=1}^{k-1}\partial_{\sigma_n}\partial_{\sigma_{k-n}}.
+\]
+The remainder \(R_{m,k}\) is polynomial in \(S_1,\dots,S_{m-1}\) and \(\lambda^{-2}\).
 Together these equations form the map
 \(\mathcal D_m(\lambda):\mathbb C[\sigma]_m\to\bigoplus_{k=1}^m\mathbb C[\sigma]_{m-k}\),
 \(P\mapsto(D_1(\lambda)P,\dots,D_m(\lambda)P)\).  Its limit
@@ -1312,9 +1314,12 @@ satisfies
  \frac{\widetilde\Phi(c,h_a+\ell_a,\Delta_i;q)}{\widetilde\Phi(c,h_a,\Delta_i;q)}
  =\Bigl(\frac{16q}{z(q)}\Bigr)^{\ell_a},
 \]
-so multiplying by \(z(q)^{\ell_a}\) gives \((16q)^{\ell_a}\), and the residue above
-gives \(\Res_{\Delta=h_a}H_N=\mathcal R^{\mathrm{sph}}_a(b,\Delta_i)H_{N-\ell_a}(c,h_a+\ell_a,\Delta_i)\),
-and all poles of \(H_N\) are simple and lie at \(\{h_a(b):\ell_a\leq N\}\).
+The factor \(z(q)^{\ell_a}\) turns the right side into \((16q)^{\ell_a}\). Thus
+\[
+ \Res_{\Delta=h_a}H_N
+ =\mathcal R^{\mathrm{sph}}_a(b,\Delta_i)H_{N-\ell_a}(c,h_a+\ell_a,\Delta_i).
+\]
+All poles of \(H_N\) are simple and lie at \(\{h_a(b):\ell_a\leq N\}\).
 By Theorem~\ref{thm:large-delta} the polynomial part of \(H_N\) vanishes,
 which gives~\eqref{eq:generic-rec}.
 \end{proof}
@@ -1362,12 +1367,17 @@ Define the \emph{collision moments}
 
 \begin{lemma}[Laurent precision for the recursion]\label{lem:precision-budget}
 To compute \(S_{a,M}(t)\) through \(t^U\), it suffices to compute, for each
-\(g\) with \(\ell_g\leq M\), the factor \(R_g/(z_a-h_g)\) through
-\(t^{U+W_{g,M-\ell_g}}\) and the factor \(S_{g,M-\ell_g}\) through
-\(t^{U+\pi_g+\sigma_{a,g}}\).  Each recursive step lowers the level, so
-iterating gives a finite precision bound for every factor that occurs.  For the collision
-moments at level \(N\) it suffices to compute \(R_a\) through
-\(t^{W_{a,N-\ell_a}}\), \(S_{a,N-\ell_a}\) through \(t^{\pi_a}\), and
+\(g\) with \(\ell_g\leq M\),
+\[
+ \frac{R_g}{z_a-h_g}\quad\text{through }t^{\,U+W_{g,M-\ell_g}},
+ \qquad
+ S_{g,M-\ell_g}\quad\text{through }t^{\,U+\pi_g+\sigma_{a,g}}.
+\]
+Each recursive step lowers the level, so iterating gives a finite precision
+bound for every factor that occurs.
+
+For the collision moments at level \(N\) it suffices to compute \(R_a\)
+through \(t^{W_{a,N-\ell_a}}\), \(S_{a,N-\ell_a}\) through \(t^{\pi_a}\), and
 \(\delta_a^{k-1}\) through \(t^{\widehat v_{a,N}}\).
 \end{lemma}
 
@@ -1560,10 +1570,10 @@ factor \(P_{r,s}\) have magnitude at most \(n_1-p'-p\), and
 \begin{theorem}[Top Jantzen layer for \(\mathcal B_N\) and \(H_N\)]
 \label{thm:top-layer}
 Let \(k\geq1\) and \(\ell_k\leq N<\ell_{k+1}\).  Let \(B^k\) be the \(k\)-th
-Jantzen form of \(M(c_\star,\lambda)\)~\cite[Lemma~5.4]{PolzerTorus2026}, let
-\(W^\pm_k:=U(\Vir_-)w^\pm_k\), and let \(\gamma^\pm_k:=B^k(w^\pm_k,w^\pm_k)\)
-be the \(k\)-th Jantzen norms of \(w^\pm_k\), as
-in~\cite[Theorem~5.9]{PolzerTorus2026}.
+Jantzen form of \(M(c_\star,\lambda)\)~\cite[Lemma~5.4]{PolzerTorus2026}, and let
+\(\gamma^\pm_k:=B^k(w^\pm_k,w^\pm_k)\) be the \(k\)-th Jantzen norms of
+\(w^\pm_k\), as in~\cite[Theorem~5.9]{PolzerTorus2026}.
+
 Then \(j_N(\lambda)=k\).  For each sign with \(\ell^\pm_k\leq N\) one has
 \(\gamma^\pm_k\neq0\), and \(\det G_M(c_\star,\mu^\pm_k)\neq0\) for every
 \(M\) with \(0\leq M\leq N-\ell^\pm_k\).  Moreover
@@ -1584,8 +1594,9 @@ Then \(j_N(\lambda)=k\).  For each sign with \(\ell^\pm_k\leq N\) one has
 \begin{proof}
 The proof of~\cite[Theorem~5.9]{PolzerTorus2026} gives the following
 facts at every level \(N'\) with \(\ell_k\leq N'<\ell_{k+1}\).  The maximal
-local Smith exponent of \(G_{N'}(c_\star,\lambda+x)\) is \(k\).  The \(k\)-th
-Jantzen layer is the \(B^k\)-orthogonal direct sum
+local Smith exponent of \(G_{N'}(c_\star,\lambda+x)\) is \(k\).  With
+\(W^\pm_k:=U(\Vir_-)w^\pm_k\), the \(k\)-th Jantzen layer is the
+\(B^k\)-orthogonal direct sum
 \(J^k_{N'}(c_\star,\lambda)=\bigoplus_{\pm:\ell^\pm_k\leq N'}(W^\pm_k)_{N'}\).
 On each summand the form is
 \(B^k(L_{-Z}w^\pm_k,L_{-Z'}w^\pm_k)=\gamma^\pm_k G_{N'-\ell^\pm_k}(c_\star,\mu^\pm_k)_{Z,Z'}\).
@@ -1859,13 +1870,14 @@ have their first double pole at \(\Delta=\lambda\) at the listed level \(N\),
 with coefficient \(\pi(\Delta_4,\Delta_3)\,\pi(\Delta_1,\Delta_2)/\gamma\) of
 \((\Delta-\lambda)^{-2}\):
 \[
- \begin{array}{c|c|c|c}
+ \begin{array}{ccl r}
   \lambda & N & \pi(\Delta_a,\Delta_b) & \gamma \\ \hline
-  \tfrac12 & 7 & P_{2,1}(b_\star,\Delta_a,\Delta_b)\,P_{1,5}(b_\star,\Delta_a,\Delta_b) & -700700 \\
-  \tfrac1{16} & 10 & P_{1,2}(b_\star,\Delta_a,\Delta_b)\,P_{4,2}(b_\star,\Delta_a,\Delta_b) & -1121229484375/192 \\
-  0 & 11 & P_{1,1}(b_\star,\Delta_a,\Delta_b)\,P_{2,5}(b_\star,\Delta_a,\Delta_b) & -2477917160468750/6561
+  1/2 & 7 & P_{2,1}P_{1,5} & -700700 \\
+  1/16 & 10 & P_{1,2}P_{4,2} & -1121229484375/192 \\
+  0 & 11 & P_{1,1}P_{2,5} & -2477917160468750/6561
  \end{array}
 \]
+In the third column all factors are evaluated at \((b_\star,\Delta_a,\Delta_b)\).
 The second Jantzen norms are those in~\cite[Proposition~8.1]{PolzerTorus2026}.
 \end{proposition}
 
