@@ -125,18 +125,18 @@ for sphere four-point Virasoro blocks}
 \maketitle
 
 \begin{abstract}
-We give a self-contained algebraic proof of Zamolodchikov's
-large-internal-weight limit for the sphere four-point Virasoro block.
-For every fixed \(N\geq0\) and all complex central charges and external weights, the elliptic
-coefficient \(H_N\) tends to \(\delta_{N,0}\) as \(\Delta\to\infty\). The proof uses
-Feigin--Fuchs oscillators, a half-pillow Wiener--Hopf saddle point and a Bergman-kernel
-determinant. A decomposition of two \(c=1\) Fock modules under the diagonal
-Virasoro action gives the central-charge exponent.
+We give a self-contained algebraic proof of Zamolodchikov's large-internal-weight
+limit \(H_N\to\delta_{N,0}\) for the elliptic coefficients of the sphere four-point
+Virasoro block, for each fixed \(N\geq0\) and all complex central charges and
+external weights.  The Feigin--Fuchs oscillator calculation reduces to a
+half-pillow Wiener--Hopf saddle point and its Bergman-kernel determinant, and the
+diagonal Virasoro action on two \(c=1\) Fock modules gives the central-charge
+exponent.
 
 For every fixed \(b_\star\ne0\) and \(N\geq1\), generic residues give the
 principal parts of \(H_N\) at \(c_\star=1+6(b_\star+b_\star^{-1})^2\) by
-grouped Laurent sums at finite precision. The limit fixes the polynomial
-part. This also gives a finite expansion of the cross-ratio coefficient \(\mathcal B_N\).
+grouped Laurent sums at finite precision.  The limit fixes the polynomial part,
+giving a finite expansion for the cross-ratio coefficient \(\mathcal B_N\) as well.
 
 At an interior minimal-model weight \(\lambda\), both pole orders are
 at most the Jantzen depth \(j_N(\lambda)\) for all external weights.
@@ -158,10 +158,10 @@ Each \(\mathcal B_N\) pairs two three-point vectors through the inverse
 level-\(N\) Shapovalov matrix of the Verma module \(M(c,\Delta)\)
 (Section~\ref{sec:setup}). Zamolodchikov gave a
 central-charge recursion at fixed internal weight~\cite[(8)]{Zamolodchikov1984}.
-For generic \(c=c(b)=1+6(b+b^{-1})^2\) he wrote \(\mathcal F=\Phi H\) with the
-elliptic prefactor \(\Phi\) (Definition~\ref{def:H-series}) in the nome \(q(z)\), with
-\(H=\sum_{N\geq0}H_N(c,\Delta,\Delta_i)(16q)^N\) and at most simple poles of
-\(H_N\) at the Kac weights \(h_{r,s}(b)\) (Section~\ref{sec:confluence}),
+For generic \(c=c(b)=1+6(b+b^{-1})^2\) he wrote \(\mathcal F=\Phi H\) in the nome
+\(q(z)\), where \(\Phi\) is the elliptic prefactor (Definition~\ref{def:H-series}).
+In \(H=\sum_{N\geq0}H_N(c,\Delta,\Delta_i)(16q)^N\), \(H_N\) has at most simple
+poles at the Kac weights \(h_{r,s}(b)\) (Section~\ref{sec:confluence}) with
 \(rs\leq N\)~\cite[(5)--(6) and \S3]{Zamolodchikov1987}.
 
 The recursion follows once the large-weight limit fixes the polynomial part
@@ -172,9 +172,9 @@ to be missing~\cite[\S4.3.4]{Ribault2026}.
 Be\c{s}ken--Datta--Kraus obtain the leading exponential \((16q)^\Delta\)
 and set aside the determinant and Jacobian prefactors
 \cite[\S4.3, (4.23)--(4.25)]{BeskenDattaKraus2019}.
-Artemev and Khromov obtain large-intermediate-dimension asymptotics of
-classical comb-channel blocks by WKB for the classical BPZ
-equation~\cite{ArtemevKhromov2026}.  Ghosal, R\'emy, Sun and Sun prove that the normalized sphere block is
+Artemev and Khromov use WKB for the classical BPZ equation to obtain
+large-intermediate-dimension asymptotics of comb-channel
+blocks~\cite{ArtemevKhromov2026}.  Ghosal, R\'emy, Sun and Sun prove that the normalized sphere block is
 analytic in \(z\) for \(|z|<1\) and meromorphic in \(\Delta\), for
 \(c>25\) and their stated range of external momenta
 \cite[Theorem~1.2]{GhosalRemySunSun2022}. Their theorem gives no
@@ -187,12 +187,14 @@ Ribault finds cancellations and double poles for generic external momenta
 and then treats degenerate representations~\cite[\S\S3.2--3.3]{Ribault2019}.
 We know of no prior finite all-order formula for every fixed
 \(b_\star\ne0\) with indeterminate external weights.
-Theorem~\ref{thm:confluence} gives it for \(H_N\) and \(\mathcal B_N\), \(N\geq1\).
+Theorem~\ref{thm:confluence} gives the formula for \(H_N\) and \(\mathcal B_N\) at
+\(N\geq1\).
 
-At interior Kac weights of the minimal models, the torus companion gives the
-Jantzen bound and the top coefficient and proves sharpness over \(\mathbb Q(d)\),
-with \(d\) the torus external weight, for \(N\geq1\)~\cite[Theorems~5.8--5.9 and Corollary~5.10]{PolzerTorus2026}; at
-\(d=0\) the torus \(H_N\) vanishes for \(N\geq1\)~\cite[Lemma~6.5]{PolzerTorus2026}.
+At interior minimal-model Kac weights, the torus companion bounds the pole
+order, computes the coefficient at the bound and proves attainment over
+\(\mathbb Q(d)\) for \(N\geq1\), where \(d\) is the torus external
+weight~\cite[Theorems~5.8--5.9 and Corollary~5.10]{PolzerTorus2026}.  At \(d=0\)
+its \(H_N\) vanishes for \(N\geq1\)~\cite[Lemma~6.5]{PolzerTorus2026}.
 For the sphere see Theorems~\ref{thm:jantzen-bound}, \ref{thm:top-layer},
 \ref{thm:sharp-B} and~\ref{thm:sharp-H}. The polynomial part of \(\mathcal B_N\)
 has degree \(N\) in \(\Delta\), while \(H_N-\delta_{N,0}\) consists of principal
@@ -331,10 +333,9 @@ where \(\psi_r(c,\Delta,\Delta_i)\in\mathbb Q[c,\Delta,\Delta_1,\dots,\Delta_4]\
 Since \(16q(z)/z=1+\tfrac12 z+O(z^2)\), the coefficient \(\psi_r\) has degree
 \(r\) in \(\Delta\) with leading term \(\frac{1}{2^r r!}\Delta^r\).
 Theorem~\ref{thm:large-delta} below gives \(H_m\to\delta_{m,0}\) as
-\(\Delta\to\infty\).  Hence \(\mathcal B_N\sim\frac{1}{2^N N!}\Delta^N\), so its
-polynomial part has degree \(N\) in \(\Delta\); the pure-pole recursion
-(Proposition~\ref{prop:generic-recursion}) and its fixed-\(b_\star\)
-confluence are therefore stated for \(H_N\).
+\(\Delta\to\infty\), so \(\mathcal B_N\sim\frac{1}{2^N N!}\Delta^N\) and its
+polynomial part has degree \(N\).  Proposition~\ref{prop:generic-recursion} and
+its fixed-\(b_\star\) extension give the pure-pole recursion for \(H_N\).
 
 \section{Large-\texorpdfstring{\(\Delta\)}{Delta} asymptotics of the elliptic \texorpdfstring{\(H\)}{H}-series}\label{sec:asymp}
 
@@ -389,8 +390,8 @@ Fix \(\mu>0\), \(\Delta_1,\dots,\Delta_4\in\mathbb R\), and \(N\geq0\).
   obtained from \(F(u;\lambda)\) by sending \(u_m\mapsto\bar u_m\),
   \(i\mapsto-i\) and \((\Delta_1,\Delta_2)\mapsto(\Delta_4,\Delta_3)\).  Pair
   the coefficients of matching monomials \(u^\alpha\) and \(\bar u^\alpha\)
-  with weight \(\prod_m\alpha_m!/(2m)^{\alpha_m}\); the coefficients on the
-  tilde side are already conjugated, so no second conjugation is applied.
+  with weight \(\prod_m\alpha_m!/(2m)^{\alpha_m}\), using the tilde
+  coefficients as written.
   Then \(\mathcal B_N(1+24\mu^2,\lambda^2+\mu^2,\Delta_i)
   =\langle\widetilde F_N(\bar u;\lambda),F_N(u;\lambda)\rangle\).
 \item[(iii)] If \(\lim_{\lambda\to+\infty}H_N(1+24\mu^2,\lambda^2+\mu^2,\Delta_i)=\delta_{N,0}\)
@@ -451,7 +452,7 @@ oscillator level \(m\).
 \begin{enumerate}\setlength{\itemsep}{1pt}\setlength{\topsep}{3pt}
 \item[(i)] For each \(m\geq1\), the coefficients of \(S_m(\sigma;\lambda)\)
   are rational functions of \(\lambda\) that are regular at
-  \(\lambda=\infty\), giving an exact expansion
+  \(\lambda=\infty\), so
   \(S(\sigma;\lambda)=\sum_{r=0}^\infty\lambda^{-r}S^{(r)}(\sigma)\).
 \item[(ii)] The first three terms are:
   \begin{itemize}\setlength{\itemsep}{1pt}
@@ -624,9 +625,9 @@ Consequently, every Wick contraction of a pair of modes of weights \(m,n\) has
 \(z\)-order at least \(\frac{m+n}{2}\), and every Wick monomial in \((U,V)\) of
 total oscillator weight \(L\) has \(z\)-order at least \(\lceil L/2\rceil\).
 Every saddle factor \(\sigma_{*,m},\bar\sigma_{*,m}\) has \(z\)-order at
-least \(m\).  Modulo \(z^{N+1}\), only finitely many oscillator modes and only
-the Wick monomials of total oscillator weight at most \(2N\) contribute, so all
-algebraic shifts and \(\lambda^{-1}\)-extractions are finite identities in
+least \(m\).  Modulo \(z^{N+1}\), finitely many modes contribute, and the contributing
+Wick monomials have total oscillator weight at most \(2N\).  The shifts and
+\(\lambda^{-1}\)-extractions therefore take place in
 \(\mathbb C[[z]]/(z^{N+1})\).
 
 The \(\lambda^2\) saddle value factors out as \(e^{\lambda^2\mathcal I_0(z)}\).
@@ -648,12 +649,10 @@ centered Gaussian expectation of the linear-in-\((U,V)\) exponential is
 \(\widetilde S^{(2)}(\bar\sigma_*)\) and setting
 \(\Phi_c^{\mathrm{raw}}(z):=2S^{(2)}_c(\sigma_*(z))+\Psi_1(z)\),
 \(\Phi_j(z):=S^{(2)}_j(\sigma_*(z))\) (\(j=1,2\)) yields
-\eqref{eq:universal-limit} modulo \(z^{N+1}\).  The explicit evaluations of
-Lemmas~\ref{lem:saddle}, \ref{lem:ext-exponents} and~\ref{lem:central-charge}
-below put the four series in \(z\mathbb Q[[z]]\), since
-\(q(z)\in z\mathbb Q[[z]]\); those proofs use only the limit
-identity~\eqref{eq:universal-limit} and the Gaussian evaluations above, not
-this rationality.
+\eqref{eq:universal-limit} modulo \(z^{N+1}\).  Lemmas~\ref{lem:saddle}, \ref{lem:ext-exponents}
+and~\ref{lem:central-charge} below evaluate the four series in terms of \(q(z)\)
+from~\eqref{eq:universal-limit} and the Gaussian evaluations above.  Since
+\(q(z)\in z\mathbb Q[[z]]\), the four series lie in \(z\mathbb Q[[z]]\).
 \end{proof}
 
 \subsection{Half-pillow saddle point and Bergman-kernel determinant}
@@ -730,9 +729,9 @@ The function
  \Xi(w):=\frac{1-w}{1+w}\Omega(p(w);z)
  =\Bigl({}_2F_1\!\left(\tfrac12,\tfrac12;1;z\right)\sqrt{1-z/p(w)}\Bigr)^{-1}
 \]
-is invariant under \(w\leftrightarrow w^{-1}\) for the same reason.  The series \(\frac{1-w}{1+w}\Omega_+(p(w))=1+\sum_{n=1}^\infty c_n w^n\) has
-only non-negative powers of \(w\).  Equating \([w^{-n}]\Xi(w)=[w^n]\Xi(w)\) for
-\(n\geq1\) gives \(-int_{*,n}=c_n+int_{*,n}\), so \(c_n=-2int_{*,n}\) and
+is invariant under \(w\leftrightarrow w^{-1}\) for the same reason.  Write
+\(\frac{1-w}{1+w}\Omega_+(p(w))=1+\sum_{n=1}^\infty c_n w^n\).  Equating
+\([w^{-n}]\Xi(w)=[w^n]\Xi(w)\) for \(n\geq1\) gives \(-int_{*,n}=c_n+int_{*,n}\), so \(c_n=-2int_{*,n}\) and
 \begin{equation}\label{eq:wh-identity}
  \frac{1-w}{1+w}\Omega_+(p(w))=1-g_*(w).
 \end{equation}
@@ -793,10 +792,9 @@ finite row support, and \([z^j]K_{21}\) has finite column support, each column
 being a finite linear combination of columns of \(M_2\).  The function
 \(B(p,q)\) is holomorphic on \(\{|p|<1,|q|<1\}\), where
 \(\operatorname{Re}\sqrt{1-p}>0\), so Cauchy's inequality gives
-\(|B_{m,n}|\leq C_\rho\rho^{-m-n}\) for every \(0<\rho<1\).  In particular the
-formal series
+\(|B_{m,n}|\leq C_\rho\rho^{-m-n}\) for every \(0<\rho<1\).  The formal series
 \(\det(I-M(z)^2)^{-1/2}=\exp(\frac12\sum_{k\geq1}\frac1k\Tr(M(z)^{2k}))\) is
-well defined.  Let \(\widetilde M(z)_{m,n}=z^{(m+n)/2}B_{m,n}/\sqrt{mn}\) be the
+therefore well defined coefficientwise.  Let \(\widetilde M(z)_{m,n}=z^{(m+n)/2}B_{m,n}/\sqrt{mn}\) be the
 symmetrized matrix.  For sufficiently small \(|z|\) the formal series equals
 \(\det_F(I-\widetilde M(z)^2)^{-1/2}\), with the branch equal to \(1\) at
 \(z=0\), where \(\det_F\) is the trace-class Fredholm determinant; this follows
@@ -867,7 +865,7 @@ Fix \(0<|x_2|<1\) and use \(D+BK_{12}M_1=DK_{21}\) and \(BK_{12}=DK_{21}M_2\):
 Put \(Y(x):=\sqrt{x(x-z)(x-1)}\), so that \(Y(x)\sim x^{3/2}\) at \(\infty\).
 Multiply the inner patch by \(\sqrt{x_1-1}\), which is holomorphic on
 \(|x_1|<1\), and the outer patch by \(\sqrt{1-z/x_1}\), coefficientwise in
-\(z\), with consistent branch choice.  This shows that at every order in \(z\),
+\(z\), with consistent branch choice.  Then each coefficient
 \([z^j](Y(x_1)W(x_1,x_2))\) extends to a single-valued meromorphic function on
 \(\mathbb P^1\), holomorphic at \(\infty\).  Its only singularity is the pole at
 \(x_1=x_2\), with the principal part of \([z^j](Y(x_1)/(x_1-x_2)^2)\).  The
@@ -891,7 +889,7 @@ for \(0<r<1\) with \(r\neq|x_2|\).  As \(x_2\to\infty\), the coefficient of
 \(\oint_{|x_1|=r}(x_1/2+2C(z))Y(x_1)^{-1}\frac{dx_1}{2\pi i}=0\).  With
 \begin{align*}
  E_0(z)&:=[x^0](1-z/x)^{-1/2}(1-x)^{-1/2}
-  =\sum_{n\geq0}\tbinom{-1/2}{n}^2z^n={}_2E_1(\tfrac12,\tfrac12;1;z),\\
+  =\sum_{n\geq0}\tbinom{-1/2}{n}^2z^n={}_2F_1(\tfrac12,\tfrac12;1;z),\\
  E_1(z)&:=[x^{-1}](1-z/x)^{-1/2}(1-x)^{-1/2}
   =\sum_{n\geq0}\tbinom{-1/2}{n}^2\frac{n+1/2}{n+1}z^{n+1},
 \end{align*}
@@ -996,10 +994,9 @@ Ward equations \(l_k^{(1)}F_1=(l_0^{(1)}+\frac{k-1}{16})F_1\) and
 \(l_k^{(2)}F_2=(l_0^{(2)}+\frac{k-1}{16})F_2\).  This follows
 from~\eqref{eq:AB-gf} and~\eqref{eq:S-pde} at \(\mu=0\), with the diagonal
 value \(-\frac12\sum_{n=1}^{k-1}B_{n,k-n}=\frac{k-1}{16}\) of
-Lemma~\ref{lem:saddle}(i).  Evaluate these pairings directly in the Fock
-spaces, without a Verma inverse Gram matrix at \((c,\Delta)=(1,0)\), by
-Gaussian evaluation (Lemma~\ref{lem:lambda-expansion}(iii) and
-Lemma~\ref{lem:saddle}(iii)):
+Lemma~\ref{lem:saddle}(i).  Gaussian evaluation in the Fock spaces
+(Lemmas~\ref{lem:lambda-expansion}(iii) and~\ref{lem:saddle}(iii)) gives the
+pairings below; the Verma Gram matrix is singular at \((c,\Delta)=(1,0)\):
 \begin{align*}
  G_{\mathrm{charged}}(\lambda;z)
  &:=\langle\widetilde F_1(\bar v),F_1(z^\bullet v)\rangle_{\mathcal F^{(1)}_{0,\lambda}}
@@ -1083,8 +1080,8 @@ the adjoint of \(D_kU(W)=-l_k^{(2)}U(W)\) in real variables \(W\) yields
 \(\alpha_{-n}=-i\sqrt2\,n u_n\) (\(n\geq1\)), which satisfies
 \([l_{-k}^{(2)},\alpha(x)]=\partial_x(x^{1-k}\alpha(x))\).  Then
 \(\Psi(W,x):=U(W)^\dagger\alpha(x)(U(W)^\dagger)^{-1}\) satisfies
-\(D_k\Psi=-\partial_x(x^{1-k}\Psi)\) with \(\Psi(0,x)=\alpha(x)\).  For
-\(f(x;W):=x\exp(-\sum_{m\geq1}W_m x^{-m})\), direct differentiation gives
+\(D_k\Psi=-\partial_x(x^{1-k}\Psi)\) with \(\Psi(0,x)=\alpha(x)\).  Differentiating
+\(f(x;W):=x\exp(-\sum_{m\geq1}W_m x^{-m})\) gives
 \(D_k(f(x;W))=-x^{1-k}f'(x;W)\), so \(f'(x;W)\alpha(f(x;W))\) solves the
 same system with the same initial value.  The solution is unique, by
 triangularity in the \(W\)-adic filtration and the joint injectivity of the
@@ -1168,11 +1165,10 @@ combining Lemmas~\ref{lem:lambda-expansion}--\ref{lem:central-charge} with
   \theta_3^{\frac{c-1}{2}-4(\Delta_1+\Delta_2+\Delta_3+\Delta_4)}\\
  &=\Bigl(\frac{16q}{z}\Bigr)^{-\Delta}\widetilde\Phi(c,\Delta,\Delta_i;q(z)).
 \end{align*}
-The last expression is \(\widetilde\Phi\) of~\eqref{eq:H-def} without its factor
-\((16q/z)^{\Delta}\), and it does not depend on \(\Delta\).  Dividing by it and
-using \(\mathcal B=\widetilde\Phi H\) gives \(\lim_{\Delta\to\infty}H=1\)
-coefficientwise in \(q\), that is, \(\lim_{\Delta\to\infty}H_N=\delta_{N,0}\) for
-all \(N\geq0\).  Lemma~\ref{lem:fock-verma}(iii) extends this to all
+Divide by the \(\Delta\)-independent last expression and use
+\(\mathcal B=\widetilde\Phi H\) (\eqref{eq:H-def}).  This gives
+\(\lim_{\Delta\to\infty}H_N=\delta_{N,0}\) for every \(N\geq0\), and
+Lemma~\ref{lem:fock-verma}(iii) extends the limit to all
 \((c,\Delta_1,\dots,\Delta_4)\in\mathbb C^5\).
 \end{proof}
 
@@ -1241,10 +1237,10 @@ of~\cite[\S3, (17)]{Zamolodchikov1987}.  It also follows from the
 and evaluated in~\cite[(7.5)]{Zamolodchikov2004}: with \((m,n)=(s,r)\), changing
 from \(\alpha\) to \(\Delta\) divides by \(d\Delta/d\alpha|_{\alpha_{r,s}}=rb+s/b\) and
 gives \(\beta_{\chi_{r,s}(b)}=\mathcal A_{r,s}(b)^{-1}\).  The formula after (7)
-in~\cite[\S3]{HadaszJaskolskiSuchanek2010} gives \(\mathcal A_{r,s}\) directly as
+in~\cite[\S3]{HadaszJaskolskiSuchanek2010} gives \(\mathcal A_{r,s}\) as
 the reciprocal \(\Delta\)-derivative of the norm, as
 in~\cite[Proposition~6.2]{PolzerTorus2026}.  The second identity is Zamolodchikov's
-fusion polynomial~\cite[\S3, (17)]{Zamolodchikov1987}, proved directly
+fusion polynomial~\cite[\S3, (17)]{Zamolodchikov1987}, proved
 in~\cite[\S5, (5.9)--(5.12)]{Zamolodchikov2004}.  Its sign in our convention is \(+1\),
 because the leading coefficient in \(\Delta_b-\Delta_a\) of both sides is
 \(+1\) by~\eqref{eq:gamma-Y} and~\eqref{eq:Prs-def}.
@@ -1293,12 +1289,12 @@ The factor \(z(q)^{\ell_a}\) turns the right side into \((16q)^{\ell_a}\). Thus
  \Res_{\Delta=h_a}H_N
  =\mathcal R^{\mathrm{sph}}_a(b,\Delta_i)H_{N-\ell_a}(c,h_a+\ell_a,\Delta_i).
 \]
-All poles of \(H_N\) are simple and lie at \(\{h_a(b):\ell_a\leq N\}\).
-By Theorem~\ref{thm:large-delta} the polynomial part of \(H_N\) vanishes,
-which gives~\eqref{eq:generic-rec}.
+These residues exhaust the poles of \(H_N\), which are simple and lie at
+\(\{h_a(b):\ell_a\leq N\}\).  Theorem~\ref{thm:large-delta} gives zero
+polynomial part, so their partial fractions sum to~\eqref{eq:generic-rec}.
 \end{proof}
 
-Fix an arbitrary \(b_\star\in\mathbb C^\times\) and put
+Fix \(b_\star\in\mathbb C^\times\) and put
 \(c_\star=c(b_\star)\) and \(t=b-b_\star\).  We work in \(K_\star((t))\), where
 \(K_\star=\mathbb Q(b_\star,\Delta_1,\Delta_2,\Delta_3,\Delta_4)\).  For a label
 \(a=(r,s)\) with \(\ell_a=rs\), write \(h_a(t)=h_{r,s}(b_\star+t)\),
@@ -1614,8 +1610,8 @@ regularity.  For \(k\geq1\), so that \(\ell_k\leq N<\ell_{k+1}\), set
 \(M:=N-\ell^{\mathrm{small}}_k\geq0\), \(\mu:=\mu^{\mathrm{small}}_k\) and
 \(\Lambda_\mu:=im^{\mathrm{small}}_k/\sqrt{pp'}\).
 By Theorem~\ref{thm:top-layer}, \(\det G_m(c_\star,\mu)\neq0\) for
-\(0\leq m\leq M\).  We specialize the external weights to the rational values
-\(\Delta_j=(\tilde a_j^2-(p'-p)^2)/(4pp')\), that is
+\(0\leq m\leq M\).  Specialize the external weights to
+\(\Delta_j=(\tilde a_j^2-(p'-p)^2)/(4pp')\), so
 \(\Lambda_j=i\tilde a_j/\sqrt{pp'}\), where
 \[
  \tilde a_2=2p'-p,\quad
@@ -1768,8 +1764,7 @@ with \(v\) an indeterminate.
   \item \(M=1\): \(\mathrm{Herm}_1(\alpha)=2\alpha>0\).
   \item \(M=2\): \(\mathrm{Herm}_2(\alpha)=4\alpha^2-2>0\) since
     \(\alpha^2\geq\frac{1^2\cdot 2^2}{2\cdot 3}=\frac23>\frac12\).
-  \item \(M=3\): \(\mathrm{Herm}_3(\alpha)=4\alpha(2\alpha^2-3)\), so it suffices that
-    \(\alpha^2\neq\frac32\).  The function \((x-1)^2/x\) increases strictly
+  \item \(M=3\): \(\mathrm{Herm}_3(\alpha)=4\alpha(2\alpha^2-3)\).  The function \((x-1)^2/x\) increases strictly
     on \(x\geq1\).  Hence for coprime \(p'>p\geq2\) with
     \((p,p')\neq(2,3)\), either \(p=2\) and \(p'\geq5\), or \(p\geq3\) and
     \(p'\geq4\); so \(\alpha^2\geq\min(\frac{16}{10},\frac{36}{12})=\frac85>\frac32\).  At
@@ -1801,8 +1796,8 @@ with \(v\) an indeterminate.
     \(\mathrm{Herm}_M(\alpha)\neq0\).
   \end{itemize}
 \end{enumerate}
-Therefore \(f\) is a nonzero polynomial in \(v\), and so is the right-hand
-side of~\eqref{eq:top-H}.
+Hence \([v^M]f\neq0\), and by items 1--2 the right-hand side
+of~\eqref{eq:top-H} is a nonzero polynomial in \(v\).
 \end{proof}
 
 \section{Explicit minimal-model examples}\label{sec:examples}
@@ -1883,10 +1878,10 @@ Theorem~\ref{thm:top-layer} gives the coefficient of
 \((\Delta-\lambda)^{-j_N(\lambda)}\); it is nonzero over the rational function
 field of the external weights (Theorems~\ref{thm:sharp-B}
 and~\ref{thm:sharp-H}) and can vanish at a specialization
-(Lemma~\ref{lem:pi-factorization}(iii)).  The collision formula computes the
-subleading principal-part coefficients; intrinsic formulas for them in the
-specialized module are not given, and neither are the irreducible
-minimal-model sphere blocks.  The irreducible torus traces are treated
+(Lemma~\ref{lem:pi-factorization}(iii)).  The collision formula gives the
+subleading principal-part coefficients.  Intrinsic formulas for them in the
+specialized module, and the irreducible minimal-model sphere blocks, are
+outside this paper's scope; the companion treats the irreducible torus traces
 in~\cite[\S\S9--14]{PolzerTorus2026}.
 
 \section*{AI-use disclosure}
@@ -1898,11 +1893,11 @@ for all mathematical claims, citations, computations and wording.
 
 \section*{Code availability}
 
-The repository \href{https://github.com/skypher/virasoro}{github.com/skypher/virasoro}
-contains exact rational and symbolic checks in \texttt{sphere/tools/}.
-The proofs use no computer calculation. The checks cover low-order
-asymptotics and confluence through level seven for \((2,3),(2,5),(3,4)\)
-and level three at \(b_\star^2=\sqrt2\).
+The scripts in \texttt{sphere/tools/} of
+\href{https://github.com/skypher/virasoro}{github.com/skypher/virasoro} check
+low-order asymptotics and confluence in exact rational and symbolic arithmetic,
+through level seven for \((2,3),(2,5),(3,4)\) and level three at
+\(b_\star^2=\sqrt2\).  The proofs use no computer calculation.
 \texttt{exact\_\allowbreak sphere\_\allowbreak block.py} reconstructs selected blocks through
 level seven and checks the \(c=0\) level-five coefficient~\cite[(3.24)]{Ribault2019}
 and the Ising coefficient with \(\gamma=-700700\).
