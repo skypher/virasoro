@@ -155,13 +155,14 @@ The \(s\)-channel sphere four-point Virasoro conformal block is
  =z^{\Delta-\Delta_1-\Delta_2}\sum_{N=0}^\infty\mathcal B_N(c,\Delta,\Delta_i)z^N.
 \]
 Each \(\mathcal B_N\) pairs two three-point vectors through the inverse
-level-\(N\) Shapovalov matrix of \(M(c,\Delta)\). Zamolodchikov gave a
+level-\(N\) Shapovalov matrix of the Verma module \(M(c,\Delta)\)
+(Section~\ref{sec:setup}). Zamolodchikov gave a
 central-charge recursion at fixed internal weight~\cite[(8)]{Zamolodchikov1984}.
-For generic \(c=c(b)=1+6(b+b^{-1})^2\) he wrote \(\mathcal F=\Phi H\) in
-the elliptic nome \(q(z)\), with
+For generic \(c=c(b)=1+6(b+b^{-1})^2\) he wrote \(\mathcal F=\Phi H\) with the
+elliptic prefactor \(\Phi\) (Definition~\ref{def:H-series}) in the nome \(q(z)\), with
 \(H=\sum_{N\geq0}H_N(c,\Delta,\Delta_i)(16q)^N\) and at most simple poles of
-\(H_N\) at the Kac weights \(h_{r,s}(b)\), \(rs\leq N\)
-\cite[(5)--(6) and \S3]{Zamolodchikov1987}.
+\(H_N\) at the Kac weights \(h_{r,s}(b)\) (Section~\ref{sec:confluence}),
+\(rs\leq N\)~\cite[(5)--(6) and \S3]{Zamolodchikov1987}.
 
 The recursion follows once the large-weight limit fixes the polynomial part
 of \(H_N\) to \(\delta_{N,0}\).  The original derivation uses semiclassical
@@ -189,8 +190,8 @@ We know of no prior finite all-order formula for every fixed
 Theorem~\ref{thm:confluence} gives it for \(H_N\) and \(\mathcal B_N\), \(N\geq1\).
 
 At interior Kac weights of the minimal models, the torus companion gives the
-Jantzen bound and the top coefficient and proves sharpness over \(\mathbb Q(d)\)
-for \(N\geq1\)~\cite[Theorems~5.8--5.9 and Corollary~5.10]{PolzerTorus2026}; at
+Jantzen bound and the top coefficient and proves sharpness over \(\mathbb Q(d)\),
+with \(d\) the torus external weight, for \(N\geq1\)~\cite[Theorems~5.8--5.9 and Corollary~5.10]{PolzerTorus2026}; at
 \(d=0\) the torus \(H_N\) vanishes for \(N\geq1\)~\cite[Lemma~6.5]{PolzerTorus2026}.
 For the sphere see Theorems~\ref{thm:jantzen-bound}, \ref{thm:top-layer},
 \ref{thm:sharp-B} and~\ref{thm:sharp-H}. The polynomial part of \(\mathcal B_N\)
@@ -224,7 +225,9 @@ highest-weight vector \(v_\Delta\), so that \(L_0v_\Delta=\Delta v_\Delta\)
 and \(L_n v_\Delta=0\) for \(n>0\).  For a partition
 \(Y=(y_1\geq\dots\geq y_r\geq1)\) of \(N\) write
 \(L_{-Y}=L_{-y_1}\cdots L_{-y_r}\); the vectors \(L_{-Y}v_\Delta\) with
-\(|Y|=N\) form the PBW basis of level \(N\).  Let
+\(|Y|=N\) form the PBW basis of level \(N\), of dimension the number \(p(N)\) of
+partitions of \(N\).  We write \(\Vir_-\) for the span of the \(L_{-n}\),
+\(n\geq1\).  Let
 \(G_N(c,\Delta)_{Y,Z}=\langle L_{-Y}v_\Delta,L_{-Z}v_\Delta\rangle\) be the
 Shapovalov Gram matrix for the contravariant bilinear form normalized by
 \(\langle v_\Delta,v_\Delta\rangle=1\) and \((L_n)^\dagger=L_{-n}\).
@@ -453,8 +456,9 @@ oscillator level \(m\).
 \item[(ii)] The first three terms are:
   \begin{itemize}\setlength{\itemsep}{1pt}
   \item \(S^{(0)}(\sigma)=\sum_{m=1}^\infty A_m\sigma_m+\sum_{m,n=1}^\infty B_{m,n}\sigma_m\sigma_n\)
-    is independent of \((\mu,\Delta_1,\Delta_2)\), with generating functions
-    as in~\cite[(4.20)--(4.21)]{BeskenDattaKraus2019}
+    is independent of \((\mu,\Delta_1,\Delta_2)\), with generating functions in
+    local variables \(p,q\) (only \(q(z)\) denotes the nome) as
+    in~\cite[(4.20)--(4.21)]{BeskenDattaKraus2019}
     \begin{align}\label{eq:AB-gf}
      A(p)&:=\sum_{m\geq1}A_mp^m=-2i\bigl((1-p)^{-1/2}-1\bigr),\nonumber\\
      B(p,q)&:=\sum_{m,n\geq1}B_{m,n}p^mq^n=-\frac{pq}{2\sqrt{1-p}\sqrt{1-q}\,(\sqrt{1-p}+\sqrt{1-q})^2};
@@ -475,7 +479,8 @@ oscillator level \(m\).
     \]
   \end{itemize}
 \item[(iii)] The function
-  \(-2\sum_m m z^{-m}\sigma_m\bar\sigma_m+S^{(0)}(\sigma)+\widetilde S^{(0)}(\bar\sigma)\)
+  \(-2\sum_m m z^{-m}\sigma_m\bar\sigma_m+S^{(0)}(\sigma)+\widetilde S^{(0)}(\bar\sigma)\),
+  with the tilde defined as for \(\widetilde F\) in Lemma~\ref{lem:fock-verma}(ii),
   has a unique saddle point, with \(\sigma\)-component
   \(\sigma_*(z)\in iz\mathbb Q[[z]]^{\mathbb N}\).  There exist universal series
   \(\mathcal I_0,\Phi_c^{\mathrm{raw}},\Phi_1,\Phi_2\in z\mathbb Q[[z]]\),
@@ -689,7 +694,7 @@ rational functions in \((s_1,s_2,s_3)\):
  (2i-A(p))B(p,q)+q\partial_q\Bigl(\frac{pA(q)-qA(p)}{q-p}-\frac{p}{1-p}A(q)\Bigr)&=0,\\
  q\partial_q\Bigl(\frac{pB(q,r)-qB(p,r)}{q-p}-\frac{p}{1-p}B(q,r)\Bigr)\qquad\qquad&\\
  +r\partial_r\Bigl(\frac{pB(q,r)-rB(p,q)}{r-p}-\frac{p}{1-p}B(q,r)\Bigr)
- -B(p,q)B(p,r)&=0,
+ -B(p,q)B(p,r)&=0.
 \end{align*}
 On the diagonal, \(-\frac12 B(p,p)=\frac{p^2}{16(1-p)^2}
 =\sum_{k=2}^\infty\frac{k-1}{16}p^k\).
@@ -885,14 +890,14 @@ for \(0<r<1\) with \(r\neq|x_2|\).  As \(x_2\to\infty\), the coefficient of
 \(x_2^{-3/2}\) in this identity is
 \(\oint_{|x_1|=r}(x_1/2+2C(z))Y(x_1)^{-1}\frac{dx_1}{2\pi i}=0\).  With
 \begin{align*}
- F_0(z)&:=[x^0](1-z/x)^{-1/2}(1-x)^{-1/2}
-  =\sum_{n\geq0}\tbinom{-1/2}{n}^2z^n={}_2F_1(\tfrac12,\tfrac12;1;z),\\
- F_1(z)&:=[x^{-1}](1-z/x)^{-1/2}(1-x)^{-1/2}
+ E_0(z)&:=[x^0](1-z/x)^{-1/2}(1-x)^{-1/2}
+  =\sum_{n\geq0}\tbinom{-1/2}{n}^2z^n={}_2E_1(\tfrac12,\tfrac12;1;z),\\
+ E_1(z)&:=[x^{-1}](1-z/x)^{-1/2}(1-x)^{-1/2}
   =\sum_{n\geq0}\tbinom{-1/2}{n}^2\frac{n+1/2}{n+1}z^{n+1},
 \end{align*}
-this gives \(2C(z)=-\frac12 F_1(z)/F_0(z)\).  Because \([z^{n+1}]z(1-z)F_0'(z)=\frac{1}{4(n+1)}\binom{-1/2}{n}^2\), we
-have \(F_1(z)=zF_0(z)-2z(1-z)F_0'(z)\) and
-\(2C(z)=-\frac{z}{2}+z(1-z)F_0'(z)/F_0(z)\).
+this gives \(2C(z)=-\frac12 E_1(z)/E_0(z)\).  Because \([z^{n+1}]z(1-z)E_0'(z)=\frac{1}{4(n+1)}\binom{-1/2}{n}^2\), we
+have \(E_1(z)=zE_0(z)-2z(1-z)E_0'(z)\) and
+\(2C(z)=-\frac{z}{2}+z(1-z)E_0'(z)/E_0(z)\).
 
 On \(0<|x|<1\), only the diagonal entries of \(A_{-+}\) and
 \(A_{+-}\) contribute to \([x^{-2}]W_{\mathrm{no}}(x,x)\), so in
@@ -909,17 +914,17 @@ Write \(P(x)=x(x-1)(x-z)\).  The polynomial identity
  W_{\mathrm{no}}(x,x)=\lim_{x_1\to x}\bigl(W(x_1,x)-(x_1-x)^{-2}\bigr)
  =\frac{(x^2-z)^2}{8x^2(x-1)^2(x-z)^2}+\frac{2C(z)}{x(x-1)(x-z)}.
 \]
-At each order in \(z\), the contour integral is the sum of the residues
-inside \(|x|=r\), at \(x=0\) and \(x=z\):
+For \(0<|z|<r<1\), sum the residues at \(x=0\) and \(x=z\), then expand at
+\(z=0\):
 \[
- \Res_{x=0,z}\!\left(\frac{x}{2}W_{\mathrm{no}}(x,x)\right)
+ \sum_{a\in\{0,z\}}\Res_{x=a}\!\left(\frac{x}{2}W_{\mathrm{no}}(x,x)\right)
  =\frac{z}{8(z-1)}+\frac{2C(z)}{2(z-1)}
- =\frac{z}{8(1-z)}-\frac12 z\frac{F_0'(z)}{F_0(z)}.
+ =\frac{z}{8(1-z)}-\frac12 z\frac{E_0'(z)}{E_0(z)}.
 \]
 Dividing by \(z\) and integrating gives
-\(\det(I-M(z)^2)^{-1/2}=(1-z)^{-1/8}F_0(z)^{-1/2}\); the constant of
+\(\det(I-M(z)^2)^{-1/2}=(1-z)^{-1/8}E_0(z)^{-1/2}\); the constant of
 integration is fixed by the value \(1\) of both sides at \(z=0\).
-By~\eqref{eq:jacobi-1}, \(F_0(z)^{1/2}=\theta_3(q(z))\).
+By~\eqref{eq:jacobi-1}, \(E_0(z)^{1/2}=\theta_3(q(z))\).
 \end{proof}
 
 \subsection{External-weight and central-charge exponents}
@@ -1010,8 +1015,9 @@ At \(c=2\), every Kac weight is either nonpositive or nonreal, as in the
 proof of Lemma~\ref{lem:fock-verma}(i), so every Verma module
 \(M(2,\lambda^2+n)\) (\(n\geq0\), \(\lambda>0\)) is irreducible and unitary.
 Hence \(\mathcal H_\lambda\) decomposes orthogonally as
-\(\mathcal H_\lambda=\bigoplus_{n=0}^\infty\bigoplus_{j=1}^{p(n)}M_{2,\lambda^2+n}^{(j)}\).
-The multiplicities come from the graded characters,
+\(\mathcal H_\lambda=\bigoplus_{n=0}^\infty\bigoplus_{j=1}^{p(n)}M_{2,\lambda^2+n}^{(j)}\),
+where \(M^{(j)}_{2,\lambda^2+n}\) is the \(j\)-th copy of \(M(2,\lambda^2+n)\).  The
+multiplicities come from the graded characters in the grading variable \(t\),
 \(\prod_{m\geq1}(1-t^m)^{-2}/\prod_{m\geq1}(1-t^m)^{-1}=\sum_{n\geq0}p(n)t^n\),
 so the primary space
 \(\mathcal P_n(\lambda):=\{P\in(\mathcal H_\lambda)_n:L_k^{\mathrm{tot}}P=0\ \forall k\geq1\}\)
@@ -1026,12 +1032,15 @@ gives, in \(\mathbb C[[z]]\),
 where
 \(c_n(\lambda^2)=\sum_{a,b}\overline{\langle P_a,F_1F_2\rangle}(G^{(n)}(\lambda)^{-1})_{a,b}\langle P_b,F_1F_2\rangle\)
 for any basis \(\{P_a\}\) of \(\mathcal P_n(\lambda)\) with Gram matrix
-\(G^{(n)}(\lambda)_{a,b}=\langle P_a,P_b\rangle\).
+\(G^{(n)}(\lambda)_{a,b}=\langle P_a,P_b\rangle\); in~\eqref{eq:c2-decomp} the scalar
+\(\tfrac18\) in the external slot means that all four external weights are
+\(\tfrac18\).
 
 \emph{Step 2 (Large-\(\lambda\) primaries and Virasoro diffeomorphism).}
 Rescaling \(v_m=i\lambda W_m\) gives
 \(l_k^{(1)}=D_k+\frac{1}{4\lambda^2}\sum_{r=1}^{k-1}\partial_{W_r}\partial_{W_{k-r}}\),
-where \(D_k:=\partial_{W_k}+\sum_{m\geq1}mW_m\partial_{W_{m+k}}\).  Fix a
+where \(D_k:=\partial_{W_k}+\sum_{m\geq1}mW_m\partial_{W_{m+k}}\) is \(D_k(\infty)\) of
+Lemma~\ref{lem:lambda-expansion} after \(\sigma_m=iW_m\).  Fix a
 level \(n\geq0\).  On the finite-dimensional space \((\mathcal H_\lambda)_n\),
 consider the joint map given by the primary conditions
 \((L_k^{(1)}+L_k^{(2)})P\) (\(1\leq k\leq n\)) and the evaluation
@@ -1101,8 +1110,8 @@ Applying \(U(W_*)^\dagger\) and changing variables to \(X=f(x;W_*)\) gives
 \]
 The function \(x(X)\) is invariant under \(X\mapsto\frac{1}{16X}\) and has
 leading term \(X\), so, by triangularity, the Laurent polynomials
-\(x(X)^{k-1}(X-\frac{1}{16X})\) (\(k\geq1\)) span
-\(\operatorname{span}_{m\geq1}\{X^m-16^{-m}X^{-m}\}\).  Hence
+\(x(X)^{k-1}(X-\frac{1}{16X})\) (\(k\geq1\)) span the same space as the
+Laurent polynomials \(X^m-16^{-m}X^{-m}\), \(m\geq1\).  Hence
 \((\alpha_m-16^{-m}\alpha_{-m})(U(W_*)^\dagger F_2)=0\) for every \(m\geq1\).
 In the variables \(u_m\) this reads
 \(\partial_{u_m}(U(W_*)^\dagger F_2)=-\frac{2m}{16^m}u_m(U(W_*)^\dagger F_2)\).  Because \(l_{-k}^{(2)}\) strictly raises level,
@@ -1236,7 +1245,7 @@ in~\cite[\S3]{HadaszJaskolskiSuchanek2010} gives \(\mathcal A_{r,s}\) directly a
 the reciprocal \(\Delta\)-derivative of the norm, as
 in~\cite[Proposition~6.2]{PolzerTorus2026}.  The second identity is Zamolodchikov's
 fusion polynomial~\cite[\S3, (17)]{Zamolodchikov1987}, proved directly
-in~\cite[\S5, eqs.~(5.9)--(5.12)]{Zamolodchikov2004}.  Its sign in our convention is \(+1\),
+in~\cite[\S5, (5.9)--(5.12)]{Zamolodchikov2004}.  Its sign in our convention is \(+1\),
 because the leading coefficient in \(\Delta_b-\Delta_a\) of both sides is
 \(+1\) by~\eqref{eq:gamma-Y} and~\eqref{eq:Prs-def}.
 \end{proof}
@@ -1266,7 +1275,7 @@ kernel of \(G_m(c(b),h_a(b))\) is the \(p(m-\ell_a)\)-dimensional level-\(m\)
 part of \(U(\Vir_-)\chi_a(b)\), and \(\det G_m\) vanishes to that order at
 \(\Delta=h_a(b)\).  So every positive local Smith exponent there is \(1\).  For
 \(m<\ell_a\) there is no pole at \(h_a(b)\).  By Smith-form residue extraction
-(\cite[Lemma~5.4]{PolzerTorus2026}), Lemma~\ref{lem:3pt-factor} and
+(\cite[Lemma~5.4(ii)]{PolzerTorus2026}), Lemma~\ref{lem:3pt-factor} and
 Proposition~\ref{prop:imported},
 \[
  \Res_{\Delta=h_a}\mathcal B_m(c,\Delta,\Delta_i)
@@ -1277,7 +1286,7 @@ The prefactor \(\widetilde\Phi(c,\Delta,\Delta_i;q)\) is regular in \(\Delta\) a
 satisfies
 \[
  \frac{\widetilde\Phi(c,h_a+\ell_a,\Delta_i;q)}{\widetilde\Phi(c,h_a,\Delta_i;q)}
- =\Bigl(\frac{16q}{z(q)}\Bigr)^{\ell_a},
+ =\Bigl(\frac{16q}{z(q)}\Bigr)^{\ell_a}.
 \]
 The factor \(z(q)^{\ell_a}\) turns the right side into \((16q)^{\ell_a}\). Thus
 \[
@@ -1639,7 +1648,7 @@ and \(\Lambda_1=\Lambda_\mu+b\), with \((b,\Lambda_\mu,\Lambda_3,\Lambda_4)\)
 generic.  The fusion factor \(P_{2,1}(b,\Delta_1,\mu)\) vanishes, so the
 level-\(2\) null vector \((L_{-2}+b^{-2}L_{-1}^2)v_{h_{2,1}}\) and its
 descendants decouple, and \(\mathcal F(z)=z^{\mu-\Delta_1-\Delta_2}\mathcal B(z)\) solves the
-hypergeometric BPZ equation~\cite[eqs.~(5.2), (5.17), (5.19)]{BPZ1984}
+hypergeometric BPZ equation~\cite[(5.2), (5.17), (5.19)]{BPZ1984}
 \[
  \left(b^{-2}\partial_z^2-\Bigl(\frac1z+\frac{1}{z-1}\Bigr)\partial_z
  +\frac{\Delta_1}{z^2}+\frac{\Delta_3}{(z-1)^2}
@@ -1743,11 +1752,11 @@ with \(v\) an indeterminate.
   \(f(v):=H_M(c_\star,\mu,\mu,0,\Delta_3(v),\Delta_4(v))\) is a polynomial in
   \(v\) of degree at most \(M\).  Let \(\mathrm{Herm}_M(x)\) denote the \(M\)-th
   physicist's Hermite polynomial, so that
-  \(\exp(2xt-t^2)=\sum_n\mathrm{Herm}_n(x)t^n/n!\).  The \([v^M]\) coefficient of \(f\)
+  \(\exp(2x\xi-\xi^2)=\sum_{n\geq0}\mathrm{Herm}_n(x)\xi^n/n!\).  The \([v^M]\) coefficient of \(f\)
   is
   \[
    [v^M]f(v)
-   =16^{-M}[t^M]\exp(-2\alpha t-t^2)
+   =16^{-M}[\xi^M]\exp(-2\alpha\xi-\xi^2)
    =\frac{(-1)^M}{16^M M!}\mathrm{Herm}_M(\alpha).
   \]
 \item \emph{Nonvanishing of \(\mathrm{Herm}_M(\alpha)\).}  Because
@@ -1813,7 +1822,7 @@ where Theorem~\ref{thm:top-layer} gives
          P_{1,1}(b_\star,\Delta_1,\Delta_2)\,P_{1,4}(b_\star,\Delta_1,\Delta_2)}{\gamma_5}
 \end{align*}
 with the second Jantzen norm \(\gamma_5=-11200/3\).  The \(H_5\) coefficient
-matches~\cite[\S3.2, eq.~(3.24)]{Ribault2019} after setting \(b=i\beta\) and
+matches~\cite[\S3.2, (3.24)]{Ribault2019} after setting \(b=i\beta\) and
 \(P_j=i\Lambda_j/2\) and exchanging \(\Delta_3\) and \(\Delta_4\); the exchange
 multiplies \(P_{1,1}P_{1,4}\) by \((-1)^5=-1\).
 \end{proposition}
@@ -1878,7 +1887,7 @@ and~\ref{thm:sharp-H}) and can vanish at a specialization
 subleading principal-part coefficients; intrinsic formulas for them in the
 specialized module are not given, and neither are the irreducible
 minimal-model sphere blocks.  The irreducible torus traces are treated
-in~\cite[Sections~9--14]{PolzerTorus2026}.
+in~\cite[\S\S9--14]{PolzerTorus2026}.
 
 \section*{AI-use disclosure}
 
@@ -1895,7 +1904,7 @@ The proofs use no computer calculation. The checks cover low-order
 asymptotics and confluence through level seven for \((2,3),(2,5),(3,4)\)
 and level three at \(b_\star^2=\sqrt2\).
 \texttt{exact\_\allowbreak sphere\_\allowbreak block.py} reconstructs selected blocks through
-level seven and checks the \(c=0\) level-five coefficient~\cite[eq.~(3.24)]{Ribault2019}
+level seven and checks the \(c=0\) level-five coefficient~\cite[(3.24)]{Ribault2019}
 and the Ising coefficient with \(\gamma=-700700\).
 \texttt{audit\_\allowbreak sphere\_\allowbreak top\_\allowbreak layer.py}
 extracts that norm and checks selected sharpness witnesses through shifted
