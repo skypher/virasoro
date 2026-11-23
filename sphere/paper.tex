@@ -194,12 +194,12 @@ equation to obtain large-intermediate-dimension asymptotics of classical
 comb-channel sphere blocks.  For \(c>25\) and external momenta in a stated range, Ghosal,
 R\'emy, Sun and Sun~\cite[Theorem~1.2]{GhosalRemySunSun2022} prove through
 Liouville CFT that the block is analytic in the cross-ratio for \(|z|<1\) and
-meromorphic in the internal weight.  Their theorem does not include the large-\(\Delta\)
-limit.
+meromorphic in the internal weight; the large-\(\Delta\) limit is not part of
+that theorem.
 
-When \(b_\star^2\in\mathbb Q\), for instance at the minimal-model charges
-\(b_\star^2=-p'/p\), distinct Kac weights \(h_{r,s}(b)\) collide at
-\(b=b_\star\), and the generic residues can acquire poles there.  Javerzat,
+At rational \(b_\star^2\), including \(b_\star^2=-p'/p\), different Kac labels
+can give the same weight at \(b=b_\star\), and the generic residues can then
+have poles at \(b_\star\).  Javerzat,
 Santachiara and Foda give regularized minimal-model
 examples~\cite[\S\S3.4--3.6, (32)--(34)]{JaverzatSantachiaraFoda2018}.
 Ribault exhibits pole cancellations and a double pole in the internal weight
@@ -218,23 +218,20 @@ Section~\ref{sec:jantzen} proves the analogous statements for both sphere
 normalizations \(\mathcal B_N\) and \(H_N\) (Theorems~\ref{thm:jantzen-bound},
 \ref{thm:top-layer}, \ref{thm:sharp-B} and~\ref{thm:sharp-H}).
 
-The coefficient \(\mathcal B_N\) has a polynomial part of degree \(N\) in
-\(\Delta\), while \(H_N-\delta_{N,0}\) is the sum of its principal parts.
-Section~\ref{sec:asymp} proves the limit (Theorem~\ref{thm:large-delta}).  The
-computation starts at
-\(c=1+24\mu^2>1\), \(\Delta=\lambda^2+\mu^2\) with a real Fock parameter
-\(\lambda>0\), and real external weights.  There the Verma block is a unitary
-Fock pairing (Lemma~\ref{lem:fock-verma}), and the logarithm of the Fock Ward
-solution, divided by \(\lambda^2\), has a coefficientwise expansion in
-\(\lambda^{-1}\) (Lemma~\ref{lem:lambda-expansion}).  A half-pillow
-Wiener--Hopf factorization evaluates its saddle exponent \(\mathcal I_0(z)\)
-(Lemma~\ref{lem:saddle}).  After the factor \(e^{\lambda^2\mathcal I_0(z)}\) is
-removed, the limit is the Gaussian determinant \(\det(I-M(z)^2)^{-1/2}=(1-z)^{-1/8}\theta_3(q)^{-1}\)
-(Lemma~\ref{lem:bergman-det}) times the exponentials of weight-dependent
-series, given by rational identities (Lemma~\ref{lem:ext-exponents}) and, for
-the central charge, by two \(c=1\) Fock modules under the diagonal \(c=2\)
-action (Lemma~\ref{lem:central-charge}).  The polynomial extension of
-Lemma~\ref{lem:fock-verma}(iii) then supplies complex parameters.
+The polynomial part of \(\mathcal B_N\) has degree \(N\) in \(\Delta\), whereas
+\(H_N-\delta_{N,0}\) is the sum of its principal parts.  To prove the
+large-\(\Delta\) limit (Theorem~\ref{thm:large-delta}), Section~\ref{sec:asymp}
+first works at \(c=1+24\mu^2>1\) and \(\Delta=\lambda^2+\mu^2\) with \(\lambda>0\)
+and real external weights.  There the Verma block is a unitary Fock pairing
+(Lemma~\ref{lem:fock-verma}), and the logarithm of the Fock Ward solution,
+divided by \(\lambda^2\), has a coefficientwise expansion in \(\lambda^{-1}\)
+(Lemma~\ref{lem:lambda-expansion}).  A half-pillow Wiener--Hopf factorization
+gives the saddle exponent \(\mathcal I_0(z)\) (Lemma~\ref{lem:saddle}).  After
+\(e^{\lambda^2\mathcal I_0(z)}\) is removed, the Gaussian determinant
+(Lemma~\ref{lem:bergman-det}) and the weight- and charge-dependent exponentials
+(Lemmas~\ref{lem:ext-exponents} and~\ref{lem:central-charge}) give the
+remaining elliptic prefactor.  The polynomial extension of
+Lemma~\ref{lem:fock-verma}(iii) then gives complex parameters.
 
 On the torus, attainment needed an \(\ell\)-adic
 argument~\cite[Propositions~6.8--6.9]{PolzerTorus2026}.  On the sphere, specializations of the four
@@ -352,9 +349,9 @@ where
 lies in \(1+q\mathbb Q[c,\Delta,\Delta_1,\dots,\Delta_4][[q]]\).
 \end{definition}
 
-Write
-\(\widetilde\Phi(c,\Delta,\Delta_i;q(z))=\sum_{r=0}^\infty\psi_r(c,\Delta,\Delta_i)z^r\).
-Using \((16q(z))^m=z^m(16q(z)/z)^m\) gives
+Let \(\psi_r(c,\Delta,\Delta_i)\) be the coefficient of \(z^r\) in
+\(\widetilde\Phi(c,\Delta,\Delta_i;q(z))\).  Since
+\((16q(z))^m=z^m(16q(z)/z)^m\),
 \begin{equation}\label{eq:B-from-H}
  \mathcal B_N(c,\Delta,\Delta_i)
  =\sum_{m=0}^N\psi_{N-m}(c,\Delta+m,\Delta_i)\,H_m(c,\Delta,\Delta_i),
@@ -551,16 +548,13 @@ Together these equations form the map
 \(P\mapsto(D_1(\lambda)P,\dots,D_m(\lambda)P)\).  Its limit
 \(\mathcal D_m(\infty)\) has components
 \(D_k(\infty)=i\partial_{\sigma_k}+\sum_{n\geq1}n\sigma_n\partial_{\sigma_{n+k}}\),
-and it is injective.  Let \(P\in\mathbb C[\sigma]_m\setminus\{0\}\) lie
-in \(\ker\mathcal D_m(\infty)\), let \(d\) be the minimal total polynomial
-degree of a nonzero homogeneous part of \(P\), and let \(P_d\) be that part;
-\(d\geq1\) because \(m\geq1\).  The operator \(\partial_{\sigma_k}\) lowers total degree by \(1\)
-and \(\sum n\sigma_n\partial_{\sigma_{n+k}}\) preserves it, so the
-degree-\((d-1)\) part of \(D_k(\infty)P=0\) reads \(i\partial_{\sigma_k}P_d=0\)
-for all \(1\leq k\leq m\).  Then \(P_d\) is a constant, which is impossible in
-weight \(m\geq1\).  Since \(\mathcal D_m(\infty)\) is injective, some
-\(p(m)\times p(m)\) square minor of \(\mathcal D_m(\lambda)\) is invertible at
-\(\lambda^{-1}=0\) and gives a left inverse regular in \(\lambda^{-1}\).
+and it is injective: if \(P\neq0\) lies in the kernel, let \(P_d\) be its
+nonzero part of lowest total degree \(d\); since \(m\geq1\), \(d\geq1\).  The
+second term of \(D_k(\infty)\) preserves total degree, so the degree-\((d-1)\)
+equation is \(i\partial_{\sigma_k}P_d=0\) for every \(k\leq m\), which would make
+\(P_d\) constant.  A full-rank \(p(m)\times p(m)\) minor of \(\mathcal D_m(\lambda)\)
+is therefore invertible at \(\lambda^{-1}=0\) and gives a left inverse regular
+in \(\lambda^{-1}\).
 Induction on \(m\) in the Ward system then gives regularity of every
 \(S_m(\sigma;\lambda)\) at \(\lambda=\infty\).
 
@@ -761,7 +755,7 @@ The function
  \Xi(w):=\frac{1-w}{1+w}\Omega(p(w);z)
  =\Bigl({}_2F_1\!\left(\tfrac12,\tfrac12;1;z\right)\sqrt{1-z/p(w)}\Bigr)^{-1}
 \]
-is \emph{even} under \(w\leftrightarrow w^{-1}\), because \(p(w)=p(w^{-1})\).
+is invariant under \(w\leftrightarrow w^{-1}\), because \(p(w)=p(w^{-1})\).
 The series \(\frac{1-w}{1+w}\Omega_+(p(w))=1+\sum_{n=1}^\infty c_n w^n\) has
 only non-negative powers of \(w\).  Equating \([w^{-n}]\Xi(w)=[w^n]\Xi(w)\) for
 \(n\geq1\) gives \(-int_{*,n}=c_n+int_{*,n}\), so \(c_n=-2int_{*,n}\) and
@@ -1028,19 +1022,19 @@ Ward equations \(l_k^{(1)}F_1=(l_0^{(1)}+\frac{k-1}{16})F_1\) and
 \(l_k^{(2)}F_2=(l_0^{(2)}+\frac{k-1}{16})F_2\).  This follows
 from~\eqref{eq:AB-gf} and~\eqref{eq:S-pde} at \(\mu=0\), with the diagonal
 value \(-\frac12\sum_{n=1}^{k-1}B_{n,k-n}=\frac{k-1}{16}\) of
-Lemma~\ref{lem:saddle}(i).  These pairings are evaluated directly in the Fock
-spaces, including the neutral module at the resonant point
-\((c,\Delta)=(1,0)\), by Gaussian evaluation
-(Lemma~\ref{lem:lambda-expansion}(iii) and Lemma~\ref{lem:saddle}(iii)):
+Lemma~\ref{lem:saddle}(i).  Evaluate these pairings directly in the Fock
+spaces, without a Verma inverse Gram matrix at \((c,\Delta)=(1,0)\), by
+Gaussian evaluation (Lemma~\ref{lem:lambda-expansion}(iii) and
+Lemma~\ref{lem:saddle}(iii)):
 \begin{align*}
  G_{\mathrm{charged}}(\lambda;z)
  &:=\langle\widetilde F_1(\bar v),F_1(z^\bullet v)\rangle_{\mathcal F^{(1)}_{0,\lambda}}
   =\det\bigl(I-M(z)^2\bigr)^{-1/2}\Bigl(\frac{16q(z)}{z}\Bigr)^{\lambda^2},\\
  G_{\mathrm{neutral}}(z)
  &:=\langle\widetilde F_2(\bar u),F_2(z^\bullet u)\rangle_{\mathcal F^{(2)}_{0,0}}
-  =\det\bigl(I-M(z)^2\bigr)^{-1/2};
+  =\det\bigl(I-M(z)^2\bigr)^{-1/2}.
 \end{align*}
-no Verma inverse Gram matrix is used at \((c,\Delta)=(1,0)\).  Their product \(F_{\mathrm{tot}}=F_1F_2\) solves the
+Their product \(F_{\mathrm{tot}}=F_1F_2\) solves the
 exact \(c=2\), \(\Delta_1=\Delta_2=\frac18\) Ward equation
 \(L_k^{\mathrm{tot}}F_{\mathrm{tot}}=(L_0^{\mathrm{tot}}+\frac{k-1}{8})F_{\mathrm{tot}}\).
 At \(c=2\), every Kac weight is either nonpositive or nonreal, as in the
@@ -1073,13 +1067,11 @@ level \(n\geq0\).  On the finite-dimensional space \((\mathcal H_\lambda)_n\),
 consider the joint map given by the primary conditions
 \((L_k^{(1)}+L_k^{(2)})P\) (\(1\leq k\leq n\)) and the evaluation
 \(\operatorname{ev}_0(P):=P|_{W=0}\in(\mathcal F^{(2)}_{0,0})_n\).  At
-\(\lambda^{-2}=0\) this map is injective.  Let \(P\neq0\) be in its
-kernel.  Since \(\operatorname{ev}_0P=0\), the lowest \(W\)-level of \(P\) is
-positive, and the part of \(P\) of that level lies in
-\(\bigcap_{k=1}^n\ker D_k\); by the lowest-degree injectivity of
-Lemma~\ref{lem:lambda-expansion}(i) it vanishes, a contradiction.  Thus a full
-square minor is nonzero at \(\lambda^{-2}=0\) and remains nonzero for all
-sufficiently large \(\lambda\).  Since
+\(\lambda^{-2}=0\) this map is injective: a nonzero \(P\) in its kernel has
+\(\operatorname{ev}_0P=0\), so its nonzero part of lowest positive \(W\)-level
+lies in \(\bigcap_{k=1}^n\ker D_k\), contrary to the injectivity in the proof of
+Lemma~\ref{lem:lambda-expansion}(i).  A full-rank minor therefore stays
+nonzero for all sufficiently large \(\lambda\).  Since
 \(\dim\mathcal P_n(\lambda)=p(n)=\dim(\mathcal F^{(2)}_{0,0})_n\), the
 restriction
 \(\operatorname{ev}_0|_{\mathcal P_n(\lambda)}:\mathcal P_n(\lambda)\to(\mathcal F^{(2)}_{0,0})_n\)
@@ -1200,13 +1192,12 @@ combining Lemmas~\ref{lem:lambda-expansion}--\ref{lem:central-charge} with
   \theta_3^{\frac{c-1}{2}-4(\Delta_1+\Delta_2+\Delta_3+\Delta_4)}\\
  &=\Bigl(\frac{16q}{z}\Bigr)^{-\Delta}\widetilde\Phi(c,\Delta,\Delta_i;q(z)).
 \end{align*}
-The last expression is the prefactor \(\widetilde\Phi\) of~\eqref{eq:H-def}
-without its factor \((16q/z)^{\Delta}\), so it does not depend on \(\Delta\).
-Since \(\mathcal B=\widetilde\Phi H\), dividing by it gives
-\(\lim_{\Delta\to\infty}H(c,\Delta,\Delta_i;q)=1\) coefficientwise in \(q\),
-that is, \(\lim_{\Delta\to\infty}H_N=\delta_{N,0}\) for all \(N\geq0\).
-Lemma~\ref{lem:fock-verma}(iii) extends this from \(c>1\) and real
-\(\Delta_i\) to all \((c,\Delta_1,\dots,\Delta_4)\in\mathbb C^5\).
+The last expression is \(\widetilde\Phi\) of~\eqref{eq:H-def} without its factor
+\((16q/z)^{\Delta}\), and it does not depend on \(\Delta\).  Dividing by it and
+using \(\mathcal B=\widetilde\Phi H\) gives \(\lim_{\Delta\to\infty}H=1\)
+coefficientwise in \(q\), that is, \(\lim_{\Delta\to\infty}H_N=\delta_{N,0}\) for
+all \(N\geq0\).  Lemma~\ref{lem:fock-verma}(iii) extends this to all
+\((c,\Delta_1,\dots,\Delta_4)\in\mathbb C^5\).
 \end{proof}
 
 \section{Generic recursion and all-order algebraic confluence}\label{sec:confluence}
