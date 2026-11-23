@@ -234,7 +234,7 @@ For every \(N\geq1\),
 Here \(H_N\) is the \(N\)-th eta-reduced block coefficient,
 \({\mathcal C}^\star_{\lambda,N}\) is the finite class of labels
 \(a=(r,s)\) with \(rs\leq N\) that collide at \(\lambda\),
-\(t=b-b_\star\) is the exact Coulomb-gas germ, \(R_a\) is the generic
+\(t=b-b_\star\) is the Coulomb-gas germ, \(R_a\) is the generic
 residue, \(S_{a,M}\) is the shifted Laurent block of
 Definition~\ref{def:shifted-laurent}, \(\operatorname{CT}_t\) extracts the
 constant term, and \(\widehat M^\star_{\lambda,N}\) is an a priori pole
@@ -793,8 +793,8 @@ Lemma~\ref{lem:jantzen-smith} converts the layers into Smith exponents.
 The space \((W^+_i+W^-_i)_N\) is nonzero exactly when
 \(\min(\ell^+_i,\ell^-_i)\leq N\), so Lemma~\ref{lem:smith} gives the
 pole order \(j_N(\lambda)\) of \(G_N^{-1}\).  The trace \(F_N\) cannot have
-a higher pole.  Finally, \(j_{N-j}(\lambda)\leq j_N(\lambda)\), and
-\(H_N=\sum_j\eta_jF_{N-j}\).
+a higher pole.  Since \(j_{N-j}(\lambda)\leq j_N(\lambda)\) and
+\(H_N=\sum_j\eta_jF_{N-j}\), the same bound holds for \(H_N\).
 \end{proof}
 
 \begin{theorem}[Top Jantzen layer]\label{thm:top-layer}
@@ -982,7 +982,7 @@ here \(r\mp u\neq0\), because \(r=u\) would force \(s+v=0\) and
 \(r+u>0\).  Similarly
 \(h_{r,s}=h_{u,v}\) means \((r\mp u)b^2=\pm v-s\); as an identity this
 forces \((r,s)=(u,v)\), and at a point with \((r,s)\neq(u,v)\) it forces
-\(b^2\in\mathbb Q\).  Finally, each factor \(pb+qb^{-1}\) of
+\(b^2\in\mathbb Q\).  Each factor \(pb+qb^{-1}\) of
 \({\mathcal A}_{r,s}\) is finite at \(b_\star\neq0\), and it vanishes only
 if \(p\neq0\) and \(b_\star^2=-q/p\).
 \end{proof}
@@ -2376,11 +2376,11 @@ Let \(\mu\in\mathcal{O}_{p,p'}(r,s)\) (at layer \(k_0\geq0\)) and let
 \end{proposition}
 
 \begin{proof}
-We first record a general Ward-induction fact: if a symmetric bilinear form
+We use a general Ward-induction fact: if a symmetric bilinear form
 \(\eta\) on a Verma module \(M(c_\star,\nu)\) satisfies the \(V_d(1)\) Ward
 identity \eqref{eq:two-weight-ward} and \(w\in M(c_\star,\nu)_\ell\) is a
 singular vector with \(\eta(w,v_\nu)=0\), then
-\(U(\Vir_-)w\subset\rad\eta\).  Indeed, for \(n>0\) and homogeneous \(u\),
+\(U(\Vir_-)w\subset\rad\eta\).  For \(n>0\) and homogeneous \(u\),
 \(L_nw=0\) and \eqref{eq:two-weight-ward} give
 \(\eta(w,L_{-n}u)=-(\ell-|u|-nd)\eta(w,u)\).  Induction on \(|u|\) yields
 \(\eta(w,M(c_\star,\nu))=0\).  A second induction, on PBW length, using
@@ -2523,7 +2523,7 @@ coefficient \(F_N\) already had no vertical prime factor in
 \(\prod_{(R,S)\in\mathcal{K}_N}(\Delta-h_{R,S}(b))\), where
 \(\mathcal{K}_N:=\{(R,S):RS\leq N,\; R\leq k\text{ or }S\leq m\}\).
 
-Finally, for any \((R,S)\) with
+For any \((R,S)\) with
 \(h_{R,S}(b_\star)=\mu\in\mathcal{O}_{p,p'}(r,s)\), \eqref{eq:mm-weight} gives
 \(p'R-pS=\pm n_\mu\equiv\pm(p'r\pm ps)\pmod{2pp'}\); reducing modulo \(p\) and
 \(p'\) forces \(R\geq\min(r,p-r)\geq k+1\) and \(S\geq\min(s,p'-s)\geq m+1\),
@@ -2611,7 +2611,7 @@ Set \(x_2=0\).  The singular vector
 weight \(h_{R,-S}(b)=h_{R,S}(b)+RS\) and generates a Verma submodule
 isomorphic to \(M(c(b),h_{R,-S}(b))\).  Restrict the second slot of
 \(\rho_{h_{R,S}(b)+x_1,\,h_{R,S}(b);\,d}\) to this submodule.  The restriction
-satisfies the exact \(V_d(1)\) Ward identity \eqref{eq:two-weight-ward}
+satisfies the \(V_d(1)\) Ward identity \eqref{eq:two-weight-ward}
 between \(M(c(b),h_{R,S}(b)+x_1)\) and \(M(c(b),h_{R,-S}(b))\), so uniqueness
 in Lemma~\ref{lem:two-weight-ward} gives, for every
 \(u\in M(c(b),h_{R,S}(b)+x_1)\),
@@ -2631,7 +2631,7 @@ yields
   \bigl(\mathcal{O}_{R,S}v_{h_{R,S}(b)+x_1},v_{h_{R,-S}(b)}\bigr).
  \end{aligned}
 \]
-Now specialize to \(d=h_{2k+1,2m+1}(b)\) with \(0\leq k<R\) and
+Specialize to \(d=h_{2k+1,2m+1}(b)\) with \(0\leq k<R\) and
 \(0\leq m<S\); this includes \(d=h_{1,1}(b)=0\) for \(k=m=0\).  Then the
 first factor vanishes at \(x_1=0\): \(P_{R,S}(b;h_{R,S}(b),d)=0\).  At
 \(x_1=0\) the second factor evaluates, by
@@ -2812,7 +2812,7 @@ zeros and has poles only at \(\mathbb{Z}_{\leq0}\), every factor in
 \eqref{eq:gamma-potential} is even in \(\varpi\), this value depends only on
 \(\mu\).
 
-Now for any primitive BGG arrow \(\alpha\to\beta\) of label \((R,S)\) with
+For any primitive BGG arrow \(\alpha\to\beta\) of label \((R,S)\) with
 \(p'R-pS=\sigma n_\alpha\) (\(\sigma\in\{+1,-1\}\)) and \(p'R+pS=n_\beta\),
 we have \(R+S/t_\star=\sigma n_\alpha/p'\), \(R-S/t_\star=n_\beta/p'\),
 \(Rt_\star+S=-\sigma n_\alpha/p\), and \(Rt_\star-S=-n_\beta/p\).  Since
@@ -3045,7 +3045,7 @@ by \(\Omega_{u,v}(\lambda\to\mu)q^{\mu-\lambda}\) yields
  =\widetilde{\mathcal{F}}(\mu)-\widetilde{\mathcal{F}}(\nu_1)
 \end{equation}
 for every \(\mu\in\mathcal{O}_{p,p'}(r,s)\) with primitive children
-\(\{\nu_1,\nu_2\}\).  Now apply \eqref{eq:scaled-two-term} along the alternating
+\(\{\nu_1,\nu_2\}\).  Apply \eqref{eq:scaled-two-term} along the alternating
 chain \(\mu_0:=\lambda\), \(\mu_1:=\mu^-_1\), \(\mu_2:=\mu^+_2\),
 \(\mu_3:=\mu^-_3\), \(\ldots\).  At step \(j\geq0\) choose
 \(\nu_2=\mu_{j+1}\); the other child is \(\nu_1=\mu^{\epsilon_j}_{j+1}\) with
@@ -3074,7 +3074,7 @@ Since \(\ell^\pm_{K+1}>N\), its final term vanishes modulo \(q^{N+1}\).  As
 For part~(a), \(k=m=0\) gives \(d=0\), \(\Omega_{1,1}\equiv1\) and
 \(F_N(c_\star,\mu,0)=p(N)\) for all \(\mu\).
 
-For part~(b), Theorem~\ref{thm:general-confluence} computes the exact finite
+For part~(b), Theorem~\ref{thm:general-confluence} computes the finite
 partial-fraction expansion of \(H_M(c_\star,\Delta,d)\) in \(\Delta\) from the
 generic Poghossian--HJS recursion.  By Theorem~\ref{thm:descent-regularity},
 the principal part vanishes at each orbit weight
@@ -3090,7 +3090,7 @@ For part~(c), the same telescoping argument, started from any
 \(\lambda\) replaced by \(\mu\).  Let \(U_0\) be the unitriangular zeta matrix
 of the braided poset on the ordered orbit \(\mathcal{O}_{p,p'}(r,s)\), with
 \((U_0)_{\mu,\nu}=1\) for \(\nu\succeq\mu\).  Its inverse has entries
-\((U_0^{-1})_{\mu,\nu}=(-1)^{\mathrm{dist}(\mu,\nu)}\).  Indeed, an interval
+\((U_0^{-1})_{\mu,\nu}=(-1)^{\mathrm{dist}(\mu,\nu)}\), since an interval
 \([\mu,\nu]\) of layer distance \(d>0\) contains one bottom vertex \(\mu\), two
 vertices at each intermediate distance \(1\leq i\leq d-1\), and one top vertex
 \(\nu\), and \(1+2\sum_{i=1}^{d-1}(-1)^i+(-1)^d=0\).  In matrix form, the

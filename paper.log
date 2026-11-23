@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.1)  23 NOV 2026 08:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.1)  23 NOV 2026 08:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1367,6 +1367,17 @@ he residue at $\OML/lmm/m/it/10 h[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 b\OT1/lmr/
 m/n/10 )$
  []
 
+
+Underfull \hbox (badness 1253) in paragraph at lines 2526--2533
+[]\T1/lmr/m/n/10 For any $\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 R; S\OT1/lmr/m/n/10
+ )$ \T1/lmr/m/n/10 with $\OML/lmm/m/it/10 h[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 
+b[]\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 ^^V \OMS/lmsy/m/n/10 2 O[]\OT1/lmr/m/n/
+10 (\OML/lmm/m/it/10 r; s\OT1/lmr/m/n/10 )$\T1/lmr/m/n/10 , ([][]\TS1/lmr/m/n/1
+0 10.2[][]\T1/lmr/m/n/10 ) gives $\OML/lmm/m/it/10 p[]R \OMS/lmsy/m/n/10 ^^@ \O
+ML/lmm/m/it/10 pS \OT1/lmr/m/n/10 = \OMS/lmsy/m/n/10 ^^F\OML/lmm/m/it/10 n[] \O
+MS/lmsy/m/n/10 ^^Q
+ []
+
 [31]
 Underfull \hbox (badness 2229) in paragraph at lines 2566--2584
 \T1/lmr/m/n/10 is fi-nite. If $\OML/lmm/m/it/10 ^^\[]\OT1/lmr/m/n/10 (\OML/lmm/
@@ -1390,12 +1401,21 @@ it/10 u \OT1/lmr/m/n/10 =
  []
 
 
-Underfull \hbox (badness 2205) in paragraph at lines 2633--2642
-\T1/lmr/m/n/10 Now spe-cial-ize to $\OML/lmm/m/it/10 d \OT1/lmr/m/n/10 = \OML/l
-mm/m/it/10 h[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 b\OT1/lmr/m/n/10 )$ \T1/lmr/m/n
-/10 with $\OT1/lmr/m/n/10 0 \OMS/lmsy/m/n/10 ^^T \OML/lmm/m/it/10 k < R$ \T1/lm
-r/m/n/10 and $\OT1/lmr/m/n/10 0 \OMS/lmsy/m/n/10 ^^T \OML/lmm/m/it/10 m < S$\T1
-/lmr/m/n/10 ; this in-
+Underfull \hbox (badness 2635) in paragraph at lines 2633--2642
+\T1/lmr/m/n/10 Specialize to $\OML/lmm/m/it/10 d \OT1/lmr/m/n/10 = \OML/lmm/m/i
+t/10 h[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 b\OT1/lmr/m/n/10 )$ \T1/lmr/m/n/10 wi
+th $\OT1/lmr/m/n/10 0 \OMS/lmsy/m/n/10 ^^T \OML/lmm/m/it/10 k < R$ \T1/lmr/m/n/
+10 and $\OT1/lmr/m/n/10 0 \OMS/lmsy/m/n/10 ^^T \OML/lmm/m/it/10 m < S$\T1/lmr/m
+/n/10 ; this in-cludes
+ []
+
+
+Underfull \hbox (badness 5091) in paragraph at lines 2633--2642
+\OML/lmm/m/it/10 d \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 h[]\OT1/lmr/m/n/10 (\OML/
+lmm/m/it/10 b\OT1/lmr/m/n/10 ) = 0$ \T1/lmr/m/n/10 for $\OML/lmm/m/it/10 k \OT1
+/lmr/m/n/10 = \OML/lmm/m/it/10 m \OT1/lmr/m/n/10 = 0$\T1/lmr/m/n/10 . Then the 
+first fac-tor van-ishes at $\OML/lmm/m/it/10 x[] \OT1/lmr/m/n/10 = 0$\T1/lmr/m/
+n/10 :
  []
 
 
@@ -1484,7 +1504,7 @@ mtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msa
 m10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
 10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7
 .pfb>
-Output written on paper.pdf (42 pages, 791502 bytes).
+Output written on paper.pdf (42 pages, 791457 bytes).
 PDF statistics:
  983 PDF objects out of 1000 (max. 8388607)
  861 compressed objects within 9 object streams
