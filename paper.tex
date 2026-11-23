@@ -526,8 +526,8 @@ Fix \(b_\star\in\mathbb C^\times\).  For every \(N\geq1\),
 and \(m^{\star}_{\lambda,N}\leq\widehat M^{\star}_{\lambda,N}\).
 The sums and constant-term calculations are finite, the level-decreasing
 recursion of Definitions~\ref{def:shifted-laurent}--\ref{def:collision-moments}
-terminates, and its backward precision rule supplies a finite truncation order
-for every intermediate Laurent germ.  The resulting locally finite series
+terminates, and Lemma~\ref{lem:precision-budget} supplies a finite truncation
+order for every intermediate Laurent germ.  The resulting locally finite series
 agrees coefficientwise in \(q\) with the inverse-Shapovalov meromorphic
 Verma-module block.  If \(b_\star^2\notin\mathbb Q\), every collision class is
 a singleton, every \(\widehat M^{\star}_{\lambda,N}\) equals \(1\), and
@@ -871,7 +871,7 @@ coefficients and summing as in Definition~\ref{def:eta-reduced} gives
 Lemma~\ref{lem:singular-degree}.
 \end{proof}
 
-\begin{corollary}[Sharpness of the Jantzen bound]
+\begin{corollary}[Sharp pole order for \(H_N\)]
 \label{cor:top-layer-sharp}
 In the setting of Theorem~\ref{thm:top-layer}, for every coprime pair
 \(p,p'\geq2\), every interior Kac weight \(\lambda=h_{r,s}(b_\star)\), and
@@ -903,7 +903,7 @@ Proposition~\ref{prop:two-term-criteria}.
 
 \section{Generic residue data}\label{sec:generic-data}
 
-\begin{definition}[Generic residue data used for algebraic confluence]
+\begin{definition}[Generic residue data]
 \label{def:generic-residue}
 With \(c(b)\) and \(h_{r,s}(b)\) from Definition~\ref{def:fixed-specialization}
 and \(\Lambda^2=(b+b^{-1})^2-4d\), define
@@ -921,7 +921,7 @@ For generic \(b\), \({\mathcal R}_{r,s}\) is the residue coefficient in the
 eta-reduced torus recursion (Proposition~\ref{prop:generic-recursion}).
 \end{definition}
 
-\begin{proposition}[Imported generic normalization identities]
+\begin{proposition}[Crossing scalar and torus norm of singular vectors]
 \label{prop:imported-normalizations}
 For positive \(r,s\) and generic \(b\), let \(\chi_{r,s}(b)\) be the
 singular vector of level \(rs\) in \(M(c(b),h_{r,s}(b))\) whose
@@ -1819,7 +1819,7 @@ Shapovalov form \(B_x\) on \(J^1\).  This leaves a finite \(O(x^0)\)
 contribution \(\sigma^\pm_1/\gamma^\pm_1\) that survives the limit
 \(\Delta\to\lambda\).
 
-\begin{theorem}[Fusion-descent and exact Verma regularity]\label{thm:descent-regularity}
+\begin{theorem}[Fusion descent and exact Verma regularity]\label{thm:descent-regularity}
 Let \(p,p'\geq2\) be coprime, \(b_\star^2=-p'/p\), and
 \(\lambda=h_{r,s}(b_\star)\) with \(0<r<p\) and \(0<s<p'\).  Define the
 minimal-model fusion set and its reflected enlargement
@@ -1931,8 +1931,7 @@ Consequently:
  \item[(b)] For every \(N\geq0\), combining \eqref{eq:gen-rocha-caridi} with
    fixed-\(b_\star\) Verma confluence (Theorem~\ref{thm:general-confluence})
    computes \(T^{\mathrm{irr}}_N(c_\star,\lambda,d)\in\mathbb{Q}\) exactly from
-   the generic Poghossian--HJS recursion by a finite algebraic procedure with
-   no numerical \(\varepsilon\)-limit.
+   the generic Poghossian--HJS recursion by a finite algebraic procedure.
  \item[(c)] For every layer \(j\geq1\), the \(j\)-th Jantzen vertex ratio on
    \(M(c_\star,\lambda)\) satisfies
    \[
