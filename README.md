@@ -21,10 +21,11 @@ fixed-central-charge partial-fraction coefficients are collision moments,
 constant terms of finite sums of Laurent germs. Collisions occur only when
 `b_star^2` is rational.
 
-At minimal-model charges the local Smith exponents of the Shapovalov matrix
-are the dimensions of the Feigin-Fuchs embedding layers, which bounds every
-pole order by the Jantzen depth `j_N(lambda)`; the top Jantzen layer gives the
-leading Laurent coefficient. For an indeterminate external weight `d` (pole
+At minimal-model charges the dimensions of the Jantzen filtration, read off
+from the Feigin-Fuchs embedding diagram, determine the multiplicities of the
+local Smith exponents of the Shapovalov matrix. The deepest nonzero layer
+bounds every pole order by the Jantzen depth `j_N(lambda)`, and the top
+Jantzen layer gives the leading Laurent coefficient. For an indeterminate external weight `d` (pole
 orders over the field of rational functions in `d`) the bound is attained at
 every minimal-model charge, interior Kac weight and level `N >= 1`; the proof
 specializes to `d = h_{1,3}(b)` and `d = h_{1,-3}(b)` and uses a Feigin-Fuchs
@@ -59,8 +60,9 @@ sharpness (for generic external weights) at minimal-model charges.
 - [`irreducible/tools/`](irreducible/tools) — audit script for Sections 9-14 of
   the torus paper; `irreducible/paper.tex` is the separate draft those
   sections were merged from.
-- [`lean/`](lean) — Lean 4 formalization of earlier parts of the torus paper
-  (status in `lean/STATUS.md`).
+- [`lean/`](lean) — Lean 4 formalization of both papers: all 44 labelled
+  results are proved from the cited inputs (`Cited_*`); status in
+  `lean/STATUS.md`, review log in `lean/REVIEW.md`.
 - [`AUDIT_MANIFEST.md`](AUDIT_MANIFEST.md) — audit scope, commands, success
   conditions, and source hashes.
 - [`ARXIV_ANCILLARY_README.md`](ARXIV_ANCILLARY_README.md) — instructions
