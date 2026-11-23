@@ -147,21 +147,24 @@ finite Laurent sum in \(b-b_\star\), with a bound on the precision needed.
 At interior minimal-model weights, the Feigin--Fuchs diagram gives the
 Jantzen filtration, whose dimensions determine the local Smith exponents
 of the Shapovalov matrix. The Jantzen depth bounds the pole order. At
-positive depth the top layer gives the coefficient at that order as a sum
-of shifted blocks weighted by ratios of torus and Jantzen norms. The bound is attained over \(\mathbb Q(d)\)
-at every interior weight and level \(N\geq1\), by an \(\ell\)-adic argument at
-\(d=h_{1,\pm3}(b)\) where the recursion reduces to labels \((u,1)\). The first
-Ising double poles at the energy, spin and identity weights occur at levels
-seven, ten and eleven, respectively.
+positive depth the top layer gives the coefficient at that bound as a sum of
+shifted blocks weighted by torus matrix elements divided by Jantzen norms.
+For indeterminate \(d\) the bound is attained over \(\mathbb Q(d)\) at every
+interior weight and \(N\geq1\); on strict two-vector levels the proof uses
+\(\ell\)-adic comparisons at \(d=h_{1,\pm3}(b)\), up to \(b\leftrightarrow b^{-1}\),
+where the generic recursion uses only labels \((u,1)\).  Over \(\mathbb Q(d)\), the
+first Ising double poles at the energy, spin and identity weights occur at
+levels seven, ten and eleven, respectively.
 
-At an interior weight \(\lambda\), the normalized pairing descends to the
-irreducible module exactly when \(d\) lies in the minimal-model fusion set.
-The Verma coefficients are regular at \(\lambda\) at all levels exactly
-when \(d\) lies in the larger reflected set. For fusion
+At an interior minimal-model weight \(\lambda\), the normalized pairing
+descends to the irreducible module exactly when \(d\) lies in the minimal-model
+fusion set.  For fixed \(d\), the Verma coefficients \(F_N\) are regular at
+\(\lambda\) for all \(N\geq0\) exactly when \(d\) lies in the larger reflected set. For fusion
 insertions a generalized Rocha--Caridi identity expresses the irreducible trace as an
 alternating sum over the braided diagram, with explicit nonzero rational
-weights given by products of first-layer Jantzen vertex ratios, each a
-ratio of Gamma potentials. Confluence then gives each trace coefficient.
+weights given by products of first-layer Jantzen vertex ratios, evaluated by
+rational continuation of the Gamma-potential ratios.  With Verma confluence
+this alternating sum gives each trace coefficient.
 
 \vskip5pt
 \noindent\textbf{Keywords.}\enspace Virasoro algebra; conformal blocks; torus
@@ -233,7 +236,7 @@ matrix: \(\dim J^i_N=\#\{j:e_j\geq i\}\) (Lemma~\ref{lem:jantzen-smith}).
 Thus the pole order of \(H_N\) at \(\lambda\) is at most \(j_N(\lambda)\),
 the number of layers that have reached level \(N\). Let \(w^\pm_k\) be the
 \(k\)-th layer's singular vectors at levels \(\ell^\pm_k\).
-Put \(\ell_k=\min(\ell^+_k,\ell^-_k)\). For \(\ell_k\leq N<\ell_{k+1}\),
+Put \(\ell_k=\min(\ell^+_k,\ell^-_k)\). For \(k\geq1\) and \(\ell_k\leq N<\ell_{k+1}\),
 Theorem~\ref{thm:top-layer} gives
 \begin{equation}\label{eq:intro-top}
  \lim_{\Delta\to\lambda}(\Delta-\lambda)^kH_N(c_\star,\Delta,d)
@@ -241,29 +244,32 @@ Theorem~\ref{thm:top-layer} gives
  \frac{\langle w^\pm_k|V_d(1)|w^\pm_k\rangle}{\gamma^\pm_k}\,
  H_{N-\ell^\pm_k}\bigl(c_\star,\lambda+\ell^\pm_k,d\bigr),
 \end{equation}
-where \(\gamma^\pm_k\) is the nonzero \(k\)-th Jantzen norm of \(w^\pm_k\).  We
-write \(\tau^\pm_k(d)=\langle w^\pm_k|V_d(1)|w^\pm_k\rangle\).  This is a
-fixed-\(c\) analogue of Zamolodchikov's residue formula for the deepest pole,
-with every quantity defined by the specialized module.
+where \(\gamma^\pm_k\), nonzero for each sign in the sum, is the \(k\)-th Jantzen
+norm of \(w^\pm_k\).  We write \(\tau^\pm_k(d)=\langle w^\pm_k|V_d(1)|w^\pm_k\rangle\).
+This is a fixed-\(c\) analogue of Zamolodchikov's residue formula for the
+coefficient at the Jantzen bound; the Jantzen form uses the fixed-charge
+deformation, and this coefficient can vanish at specialized \(d\).
 
 At \(d=h_{1,\pm3}(b)\) the generic recursion reduces to labels \((u,1)\).
-Feigin--Fuchs factorization gives integrality of the cleared block polynomials
-and polynomial dependence of their normalized Taylor coefficients on the
-level (Proposition~\ref{prop:h13-nonvanishing}). The top-layer Taylor
+Feigin--Fuchs factorization gives the cleared block polynomials coefficients
+in \(\mathbb Z[\tfrac12]\) and normalized Taylor coefficients polynomial in the
+level (Proposition~\ref{prop:h13-nonvanishing}(i)--(ii)). The top-layer Taylor
 coefficients at \(d=0\) (Proposition~\ref{prop:layer-coefficients}) give the
 norm ratios for the odd-prime valuation and ratio comparison when both
 shifted levels are positive (Proposition~\ref{prop:two-term-criteria}). Corollary~\ref{cor:top-layer-sharp}
 treats the remaining levels. The result is sharp over \(\mathbb Q(d)\) for
-every interior weight and \(N\geq1\); for example, at \(d=0\) it can drop
-because \(H_N=0\) for \(N>0\). Proposition~\ref{prop:ising-double-poles}
+every interior weight and \(N\geq1\).  At specialized \(d\) the pole can
+disappear: for \(d=0\), \(H_N=0\) for \(N\geq1\) (Lemma~\ref{lem:d-derivatives}). Proposition~\ref{prop:ising-double-poles}
 gives the first Ising double poles.
 
-Theorem~\ref{thm:descent-regularity} gives the fusion set for descent to
-\(L(c_\star,\lambda)\times L(c_\star,\lambda)\) and the larger reflected set
-for regularity. For fusion insertions Theorem~\ref{thm:gen-rocha-caridi}
-gives the irreducible trace as a weighted alternating sum over the
-braided diagram. Theorem~\ref{thm:first-layer-ratio} evaluates the
-first-layer vertex ratios that give those weights.
+For fixed \(d\) and an interior minimal-model weight,
+Theorem~\ref{thm:descent-regularity} identifies the fusion set for descent to
+\(L(c_\star,\lambda)\times L(c_\star,\lambda)\) and the larger reflected set for
+regularity of all \(F_N\).  For fusion insertions only,
+Theorem~\ref{thm:gen-rocha-caridi} gives the irreducible trace as a weighted
+alternating sum over the braided diagram; Theorem~\ref{thm:first-layer-ratio}
+gives the generic vertex ratio, and Proposition~\ref{prop:bgg-cocycle} its
+finite nonzero specialization and path-independent products.
 
 \section{Blocks and the reduced series}\label{sec:blocks}
 
