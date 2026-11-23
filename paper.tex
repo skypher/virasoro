@@ -190,14 +190,16 @@ filtration; Ising model; irreducible modules; Rocha--Caridi formula.
 
 Residue recursions for Virasoro blocks go back to Zamolodchikov's recursive
 representation of the sphere four-point block
-\cite{Zamolodchikov1984,Zamolodchikov1987}; \cite{ChoCollierYin2017} gives
-\(c\)-recursions on plumbing surfaces of arbitrary genus and
-\(\Delta\)-recursions in linear and necklace channels.  For generic central charge, the coefficients \(H_N\) of the
-eta-reduced torus one-point block (Definition~\ref{def:eta-reduced}) obey the
-residue recursion conjectured by Poghossian
-\cite[Section~5, equations~(5.3)--(5.7)]{Poghossian2009} and derived
-in \cite[Section~3, equations~(7)--(9)]{HadaszJaskolskiSuchanek2010}; its
-light limit \(b\to0\) is treated in \cite[Section~2.2]{PoghosyanPoghosyan2026}.  At
+\cite{Zamolodchikov1984,Zamolodchikov1987}.  Cho, Collier and Yin derive
+central-charge recursions for arbitrary genus in the plumbing frame and
+internal-weight recursions in the sphere linear and torus necklace
+channels~\cite{ChoCollierYin2017}.  For generic central charge, the
+coefficients \(H_N\) of the eta-reduced torus one-point block
+(Definition~\ref{def:eta-reduced}) satisfy Poghossian's recursion
+\cite[Section~5, equations~(5.3)--(5.7)]{Poghossian2009}, derived by Hadasz,
+Jask\'olski and Suchanek \cite[Section~3, equations~(7)--(9)]{HadaszJaskolskiSuchanek2010}.
+Poghosyan and Poghosyan treat its limit \(b\to0\)
+\cite[Section~2.2]{PoghosyanPoghosyan2026}.  At
 rational values of \(b^2\), distinct Kac labels
 (Definition~\ref{def:fixed-specialization}) have the same degenerate weight,
 and individual summands of
@@ -215,9 +217,8 @@ whose simplest case is the torus one-point block
 \cite[Section~4.3.3]{Ribault2026}, and analyzes higher-order poles and
 rational limits of sphere four-point blocks \cite[Section~3]{Ribault2019}.
 
-Theorem~\ref{thm:general-confluence} is an all-order coefficientwise formula
-for the meromorphic Verma-module block at every fixed nonzero \(b_\star\).
-For every \(N\geq1\),
+At every fixed \(b_\star\neq0\), Theorem~\ref{thm:general-confluence} gives the
+coefficients of the meromorphic Verma block for \(N\geq1\):
 \begin{equation}\label{eq:intro-main}
  \begin{aligned}
  H_N(c_\star,\Delta,d)
@@ -270,13 +271,13 @@ The sharpness proof specializes to \(d_1=h_{1,3}(b)\) and
 labels \((u,1)\).  A Feigin--Fuchs Fock factorization shows that the cleared
 block polynomials have coefficients in \(\mathbb Z[\tfrac12]\) and that the
 Taylor coefficients of the normalized polynomials are polynomial in the level
-(Proposition~\ref{prop:h13-nonvanishing}).  With the \(k\)-th Taylor
+(Proposition~\ref{prop:h13-nonvanishing}).  Using the \(k\)-th Taylor
 coefficients of \(\tau^\pm_k/\gamma^\pm_k\) at \(d=0\)
-(Proposition~\ref{prop:layer-coefficients}), a valuation argument at an odd
-prime dividing \(p'\) (after the symmetry \(p\leftrightarrow p'\)) and a ratio
-separation settle the strict two-vector range
-\(\max(\ell^+_k,\ell^-_k)<N<\ell_{k+1}\)
-(Proposition~\ref{prop:two-term-criteria}).  Corollary~\ref{cor:top-layer-sharp}
+(Proposition~\ref{prop:layer-coefficients}),
+Proposition~\ref{prop:two-term-criteria} treats
+\(\max(\ell^+_k,\ell^-_k)<N<\ell_{k+1}\) by a valuation argument at an odd
+prime dividing \(p'\) and a ratio comparison, swapping \(p\) and \(p'\) when
+needed.  Corollary~\ref{cor:top-layer-sharp}
 treats the remaining levels and proves sharpness: for an indeterminate \(d\),
 with pole orders taken over the field of rational functions in \(d\),
 \(H_N(c_\star,\Delta,d)\) attains the Jantzen bound \(j_N(\lambda)\) at every
@@ -285,14 +286,11 @@ This fails at some specializations of \(d\): at \(d=0\), \(H_N=0\) for
 \(N>0\).  Proposition~\ref{prop:ising-double-poles} gives the first Ising
 double poles.
 
-Section~\ref{sec:irr-results} turns to the irreducible quotient
-\(L(c_\star,\lambda)\), whose trace differs from the Verma block at a
-degenerate weight.  The normalized primary three-point pairing descends to
-\(L(c_\star,\lambda)\times L(c_\star,\lambda)\) exactly when \(d\) lies in the
-minimal-model fusion set (Theorem~\ref{thm:descent-regularity}).  The same
-theorem shows that the Verma coefficients \(F_N(c_\star,\Delta,d)\) are
-regular at \(\Delta=\lambda\) for every \(N\) exactly when \(d\) lies in a
-larger reflected set.  For fusion insertions,
+At a degenerate weight, the irreducible trace is not in general the
+specialized Verma block.  Theorem~\ref{thm:descent-regularity} characterizes
+descent of the normalized pairing to \(L(c_\star,\lambda)\times L(c_\star,\lambda)\)
+by the minimal-model fusion set, and regularity of every \(F_N\) at
+\(\Delta=\lambda\) by a larger reflected set.  For fusion insertions,
 Theorem~\ref{thm:gen-rocha-caridi} writes the irreducible trace as an
 alternating sum of Verma torus blocks over the braided embedding diagram.
 Its weights are explicit nonzero rational numbers, products of first-layer
@@ -349,11 +347,10 @@ Repeated use of the Virasoro commutator moves every positive mode in
 \(\Delta\) and \(c\), respectively.  This gives the first assertion.
 
 For the second assertion use, in addition,
-\([L_n,V_d(z)]=z^n(z\partial_z+(n+1)d)V_d(z)\).  Move positive modes through \(V_d(z)\), then move the remaining negative
-modes through \(V_d(z)\) toward the bra.  The process terminates because
-each commutation removes one mode from one side of the insertion.
-The remaining derivatives act on \(z^{-d}\); after setting \(z=1\), their
-values are polynomials in \(d\).  The other commutators contribute only
+\([L_n,V_d(z)]=z^n(z\partial_z+(n+1)d)V_d(z)\).  Move the positive modes to the
+ket through \(V_d(z)\), then the remaining negative modes to the bra; each
+Ward commutator removes a mode.  The remaining derivatives of \(z^{-d}\) at
+\(z=1\) are polynomial in \(d\), and the other commutators contribute only
 polynomials in \(c\) and \(\Delta\).
 \end{proof}
 
@@ -483,12 +480,10 @@ By Lemma~\ref{lem:polynomial-entries},
 \cite{Kac1979}, \cite[Section~3.2, Theorem~3.1]{FeiginFuchs1982}, in the form of
 \cite[Theorem~4.2, (4.16) and (4.21)]{IoharaKoga2011}, gives
 \(\det G_N(c,\Delta)=C_N\prod_{rs\leq N}(\Delta-\Delta_{r,s}(c))^{p(N-rs)}\)
-with \(C_N\neq0\) independent of \(\Delta\).  At \(c=c_\star\), the distinct zeros belong to the finite set
-\(\Lambda_N(b_\star)\).  Since \(H_N\) is a finite integer linear
-combination of \(F_0,\ldots,F_N\), it has the same pole containment.
-Lemma~\ref{lem:large-weight} shows that \(H_N\) tends to zero at infinity
-for \(N\geq1\), so its partial-fraction expansion has no polynomial part
-and is unique.
+with \(C_N\neq0\) independent of \(\Delta\).  At \(c=c_\star\), the determinant
+roots lie in \(\Lambda_N(b_\star)\), and the finite sum defining \(H_N\)
+introduces no other poles.  For \(N\geq1\), Lemma~\ref{lem:large-weight} rules
+out a polynomial part, so the partial fractions are unique.
 
 The field \(\mathbb Q(b_\star^2)\) contains \(c_\star\) and every pole
 \(\lambda=h_{r,s}(b_\star)\).  The matrix entries belong to
@@ -499,9 +494,8 @@ Coefficientwise local finiteness follows because \(rs\leq N\) leaves
 only finitely many labels.
 \end{proof}
 
-Section~\ref{sec:all-order} defines the collision moments and their finite
-precision bounds after the generic residue data, and proves the following
-theorem.
+Section~\ref{sec:all-order} defines the collision moments and proves the
+following theorem, including a finite precision bound.
 
 \begin{theorem}[Finite algebraic confluence at fixed \(b_\star\)]
 \label{thm:general-confluence}
@@ -767,7 +761,7 @@ and \((r,s)\) lies in the interior set \((K^+_{p,p'})^\circ\), so
 \(h\mapsto h+x\) at fixed \(c\) \cite[equation (5.49)]{IoharaKoga2011},
 so \(J^i(c_\star,\lambda)\) is the Jantzen filtration of
 \cite[Theorem~6.3]{IoharaKoga2011}.  Part~(i) of that theorem, with
-equation~(6.3) there, identifies the \(i\)-th layer with the sum of the
+equation~(6.3) there, identifies the \(i\)-th filtration term with the sum of the
 two Verma submodules of highest weights \(\xi_{\pm i}\) in the braided
 embedding diagram \cite[Proposition~5.4 and Figure~5.4]{IoharaKoga2011}.
 By \cite[equations (5.4) and (5.22)]{IoharaKoga2011}, \(\xi_0=\lambda\)
@@ -918,16 +912,15 @@ For positive \(r,s\) and generic \(b\), let \(\chi_{r,s}(b)\) be the
 singular vector of level \(rs\) in \(M(c(b),h_{r,s}(b))\) whose
 \(L_{-1}^{rs}\)-coefficient is \(1\); it exists and is unique by
 \cite[Propositions~5.1, 5.2 and Corollary~5.2]{IoharaKoga2011}
-(with \(t=-b^2\) there).  Let
+(with \(t=-b^2\) in their (5.4)).  Let
 \(\beta_{\chi_{r,s}(b)}\) be its crossing scalar from
 Lemma~\ref{lem:singular-crossing}.  Then
 \begin{align}
  \beta_{\chi_{r,s}(b)}&={\mathcal A}_{r,s}(b)^{-1},\label{eq:crossing-normalization}\\
  \langle\chi_{r,s}(b)|V_d(1)|\chi_{r,s}(b)\rangle&={\mathcal P}_{r,s}(b,d).\label{eq:fusion-normalization}
 \end{align}
-Both identities are identities of rational functions in \(b\), and hence
-continue to every specialization at which the normalized singular vector
-is regular.
+Both identities are rational in \(b\) and specialize wherever the normalized
+singular vector is regular.
 \end{proposition}
 
 \begin{proof}
@@ -1079,10 +1072,10 @@ Let \(e\geq0\) be minimal such that \((b-b_\star)^e\chi_{r,s}(b)\) is
 regular at \(b_\star\), with value \(w\neq0\).  The conditions
 \(L_1v=L_2v=0\) are linear with coefficients Laurent-polynomial in \(b\), and
 \(L_1,L_2\) generate the positive modes, so \(w\) is singular in
-\(M(c_\star,h_{r,s}(b_\star))\).  Its \(L_{-1}^{rs}\)-coefficient is the value
-of \((b-b_\star)^e\), which is nonzero by Lemma~\ref{lem:singular-degree};
-so \(e=0\).  The identities of Proposition~\ref{prop:imported-normalizations}
-are identities of rational functions of \(b\) and specialize.
+\(M(c_\star,h_{r,s}(b_\star))\).  The \(L_{-1}^{rs}\)-coefficient of \(w\) is
+\((b-b_\star)^e\) evaluated at \(b_\star\).  By Lemma~\ref{lem:singular-degree} it
+cannot vanish; hence \(e=0\).  The rational identities of
+Proposition~\ref{prop:imported-normalizations} then specialize as stated.
 \end{proof}
 
 
@@ -1598,8 +1591,7 @@ For positive labels \(a,g\), set \(\pi_g=\max\{0,-\ord_tR_g(t)\}\) and
 \(\sigma_{a,g}=\max\{0,\ord_t(z_a(t)-h_g(t))\}\).  Define nonnegative integers
 \(W_{a,M}\) recursively by \(W_{a,0}=0\) and, for \(M\geq1\),
 \(W_{a,M}=\max(\{0\}\cup\{\pi_g+\sigma_{a,g}+W_{g,M-\ell_g}:\ell_g\leq M\})\).
-Then \(\ord_t S_{a,M}(t)\geq-W_{a,M}\).  Thus \(W_{a,M}\) bounds the pole
-order using the residue and denominator valuations alone.
+Then \(\ord_t S_{a,M}(t)\geq-W_{a,M}\).
 \end{lemma}
 
 \begin{proof}
@@ -1652,16 +1644,13 @@ suffices to compute \(R_a\) through \(t^{W_{a,N-\ell_a}}\),
 \end{lemma}
 
 \begin{proof}
-The first factor has valuation at least \(-\pi_g-\sigma_{a,g}\), and the
-second at least \(-W_{g,M-\ell_g}\).  In a product coefficient of degree
-at most \(U\), the first bound means that no coefficient of the second
-factor above degree \(U+\pi_g+\sigma_{a,g}\) can occur; the second means
-that no coefficient of the first factor above degree
-\(U+W_{g,M-\ell_g}\) can occur.  This proves
-\eqref{eq:precision-propagation}.  For \(B_{a,N}=R_aS_{a,N-\ell_a}\) through degree zero, the same argument
-gives the stated precisions, and \(\ord_tB_{a,N}\geq-\widehat v_{a,N}\)
-shows that only coefficients of \(\delta_a^{k-1}\) through degree
-\(\widehat v_{a,N}\) can enter a constant term.
+For factors of valuations at least \(-\alpha\) and \(-\beta\), the product
+through \(t^U\) uses the first factor through \(t^{U+\beta}\) and the second
+through \(t^{U+\alpha}\).  With \(\alpha=\pi_g+\sigma_{a,g}\) and
+\(\beta=W_{g,M-\ell_g}\) this gives~\eqref{eq:precision-propagation}, and with
+\(U=0\) it gives the stated bounds for \(B_{a,N}=R_aS_{a,N-\ell_a}\).  Since
+\(\ord_tB_{a,N}\geq-\widehat v_{a,N}\), only terms of \(\delta_a^{k-1}\) through
+\(t^{\widehat v_{a,N}}\) can contribute to the constant term.
 \end{proof}
 
 \begin{lemma}[Coefficientwise pole support of a collision germ]
@@ -1712,9 +1701,10 @@ Theorem~\ref{thm:general-partial-fractions} gives
 \(g_\lambda=\PP_{\Delta=\lambda}H_N(c_\star,\Delta,d)\), i.e.\
 \(\widetilde A^{\star}_{\lambda,k,N}=A^{\star}_{\lambda,k,N}\) for all
 \(k\geq1\), \(m^{\star}_{\lambda,N}\leq\widehat M^{\star}_{\lambda,N}\), and
-\(\widetilde A^\star_{\lambda,k,N}\in\mathbb Q(b_\star^2)[d]\).  The finite-jet
-statements are Lemma~\ref{lem:precision-budget}, and local finiteness follows
-from finiteness of \(\Lambda_N(b_\star)\).
+\(\widetilde A^\star_{\lambda,k,N}\in\mathbb Q(b_\star^2)[d]\).
+Lemma~\ref{lem:precision-budget} gives the finite-jet bounds.  Since
+\(\Lambda_N(b_\star)\) is finite for each \(N\), the \(q\)-series is locally
+finite coefficientwise.
 
 If \(b_\star^2\notin\mathbb Q\), Lemma~\ref{lem:no-generic-shifted-pole}
 shows that every class is a singleton, every \(R_g\) is regular at \(t=0\), and
@@ -1780,11 +1770,11 @@ Proposition~\ref{prop:layer-coefficients} with \(c_2=-1\) gives
 \(\gamma=-[d^2]\tau/\rho^2\), where \(\rho=-n_0/2\).
 \end{proof}
 
-The ancillary scripts check \(\gamma_7\) and \(\gamma_{10}\) against direct
-evaluations of Lemma~\ref{lem:top-coefficient}(iii) in the PBW bases.  They
-also reconstruct the double-pole coefficients by direct inverse-Shapovalov
-computation at \(N=7\), and at \(N=10\) in the deep suite
-(\texttt{make audit-deep}); the level \(N=11\) is not reconstructed.
+The ancillary scripts compare \(\gamma_7\) and \(\gamma_{10}\) with direct PBW
+evaluations of Lemma~\ref{lem:top-coefficient}(iii).  They also reconstruct
+the double-pole coefficient by Shapovalov inversion at level \(7\) and, in
+the deep suite (\texttt{make audit-deep}), at level \(10\).  They do not
+reconstruct level \(11\).
 
 \sloppy
 \section{Irreducible minimal-model traces}\label{sec:irr-results}
@@ -2127,8 +2117,11 @@ PBW coefficients polynomial in \((c,h)\); see also
 \cite[Propositions~5.1--5.2 and Corollary~5.2]{IoharaKoga2011},
 Proposition~\ref{prop:imported-normalizations} and
 Lemma~\ref{lem:regular-everywhere}.  Substituting the Laurent expressions of
-\(c(b)\) and \(h_{R,S}(b)\) in \(t=b^2\) gives Laurent polynomials in \(t\),
-which proves part~(i).  Part~(ii) is Zamolodchikov's fusion polynomial
+\(c(b)\) and \(h_{R,S}(b)\) in \(t=b^2\) gives Laurent polynomials in \(t\).
+Their coefficients are rational: the normalized singular-vector equations
+have coefficients in \(\mathbb Q(t)\) and a unique solution, so the PBW
+coefficients lie in \(\mathbb Q(t)\cap\mathbb C[t,t^{-1}]=\mathbb Q[t,t^{-1}]\).
+This proves part~(i).  Part~(ii) is Zamolodchikov's fusion polynomial
 \cite[Section~5, equations~(5.9)--(5.12)]{Zamolodchikov2004}; see also the
 fusion-polynomial display preceding (8) in
 \cite[Section~3]{HadaszJaskolskiSuchanek2010}.  For the
@@ -2973,7 +2966,7 @@ submodules of \(V_0\) are \(V_0\), \(L(c_\star,\nu_2)\) and \(0\), this forces
 \(J_\tau^2=0\).  For comparison, \cite[Theorem~C(e)]{Astashkevich1997} describes
 the Jantzen filtration of the Verma module along such a deformation: from some
 step on its terms are generated by the singular vector of the deforming label,
-which spans the branch \(M(c_\star,\nu_1)\) removed in \(V_0\).
+which generates the branch \(M(c_\star,\nu_1)\) removed in \(V_0\).
 
 \emph{Step 4: Taking \(\tau\to0\).}
 Diagonalize the symmetric matrix \(\bar B_{V,\tau}\) on the free
@@ -3250,8 +3243,8 @@ these examples in exact arithmetic and checks two further cases.
 
 The confluence theorem holds at every \(b_\star\neq0\).  The sharp
 pole-order and irreducible-trace results concern interior minimal-model
-weights.  Boundary weights, whose Jantzen filtrations are also given by
-\cite[Theorem~6.3]{IoharaKoga2011}, and the charges \(c_\star=1,25\) lie
+weights.  Boundary weights of Class \(R^+\), whose Jantzen filtrations are
+given by \cite[Theorem~6.3(ii)--(iv) and (6.4)]{IoharaKoga2011}, and the charges \(c_\star=1,25\) lie
 outside their scope.  A recursion intrinsic to the specialized module and
 intrinsic formulas for the lower Laurent coefficients are not given here.
 
