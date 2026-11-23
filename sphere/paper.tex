@@ -170,14 +170,14 @@ The \(s\)-channel sphere four-point Virasoro conformal block is
 \]
 Each coefficient \(\mathcal B_N\) pairs two three-point vectors through the
 inverse level-\(N\) Shapovalov Gram matrix \(G_N(c,\Delta)^{-1}\) of the Verma
-module \(M(c,\Delta)\).  For generic central charge
-\(c=c(b)=1+6(b+b^{-1})^2\),
-Zamolodchikov~\cite{Zamolodchikov1984,Zamolodchikov1987} introduced the
-elliptic nome \(q(z)\) and a prefactor \(\Phi(c,\Delta,\Delta_i;q)\), and wrote
-\(\mathcal F=\Phi\cdot H\) with
+module \(M(c,\Delta)\).  After a recursion in the central charge at fixed
+internal weight~\cite[(8)]{Zamolodchikov1984}, Zamolodchikov introduced, for
+generic \(c=c(b)=1+6(b+b^{-1})^2\), the elliptic nome \(q(z)\) and a prefactor
+\(\Phi(c,\Delta,\Delta_i;q)\)~\cite[(5)--(6) and \S3]{Zamolodchikov1987}, and
+wrote \(\mathcal F=\Phi\cdot H\) with
 \(H(c,\Delta,\Delta_i;q)=\sum_{N=0}^\infty H_N(c,\Delta,\Delta_i)(16q)^N\).
-His recursion gives \(H_N\) at most simple poles in \(\Delta\), all at the Kac
-weights \(h_{r,s}(b)\) with \(rs\leq N\).
+His recursion in the internal weight gives \(H_N\) at most simple poles in
+\(\Delta\), all at the Kac weights \(h_{r,s}(b)\) with \(rs\leq N\).
 
 The recursion follows from Liouville's theorem for rational functions of
 \(\Delta\) once one knows that
@@ -190,8 +190,8 @@ calculation of Be\c{s}ken--Datta--Kraus~\cite[\S4.3, (4.23)--(4.25)]{BeskenDatta
 gives the leading exponential \((16q)^\Delta\) and sets aside the determinant
 and Jacobian prefactors, which the limit also needs.  Artemev and
 Khromov~\cite{ArtemevKhromov2026} apply the WKB method to the classical BPZ
-equation to obtain large-intermediate-dimension asymptotics of comb-channel
-sphere blocks.  For \(c>25\) and external momenta in a stated range, Ghosal,
+equation to obtain large-intermediate-dimension asymptotics of classical
+comb-channel sphere blocks.  For \(c>25\) and external momenta in a stated range, Ghosal,
 R\'emy, Sun and Sun~\cite[Theorem~1.2]{GhosalRemySunSun2022} prove through
 Liouville CFT that the block is analytic in the cross-ratio for \(|z|<1\) and
 meromorphic in the internal weight.  Their theorem does not include the large-\(\Delta\)
@@ -199,16 +199,17 @@ limit.
 
 When \(b_\star^2\in\mathbb Q\), for instance at the minimal-model charges
 \(b_\star^2=-p'/p\), distinct Kac weights \(h_{r,s}(b)\) collide at
-\(b=b_\star\), and the generic residues can acquire poles there.  Collisions at low levels were studied by Javerzat,
-Santachiara and Foda~\cite{JaverzatSantachiaraFoda2018} and by
-Ribault~\cite{Ribault2019}, with numerical \(\varepsilon\)-limits or
-regularized minimal-model limits for special external weights.  We are not
+\(b=b_\star\), and the generic residues can acquire poles there.  Javerzat, Santachiara and
+Foda~\cite[\S\S3.4--3.6, (32)--(34)]{JaverzatSantachiaraFoda2018} and
+Ribault~\cite[\S\S3.2--3.3]{Ribault2019} examine the cancellations in
+low-level resonant sums and regularized minimal-model limits for special
+external weights.  We are not
 aware of a finite algebraic formula at all orders for arbitrary fixed
 \(b_\star\in\mathbb C^\times\) and indeterminate external weights.
 Theorem~\ref{thm:confluence} gives one, for \(H_N\) and for \(\mathcal B_N\).
 
 For the torus one-point block at minimal-model charges and interior Kac
-weights \(\lambda\), the companion paper~\cite{PolzerTorus2026} showed that the
+weights \(\lambda\), the companion paper~\cite[Theorems~5.8--5.9 and Corollary~5.10]{PolzerTorus2026} showed that the
 Jantzen depth \(j_N(\lambda)\) bounds the pole order and that the top layer
 gives the coefficient at that order.  For \(N\geq1\) the bound is attained over
 \(\mathbb Q(d)\), with \(d\) the external weight; at \(d=0\), \(H_N=0\).
@@ -235,7 +236,7 @@ action (Lemma~\ref{lem:central-charge}).  The polynomial extension of
 Lemma~\ref{lem:fock-verma}(iii) then supplies complex parameters.
 
 On the torus, attainment needed an \(\ell\)-adic
-argument~\cite{PolzerTorus2026}.  On the sphere, specializations of the four
+argument~\cite[Propositions~6.8--6.9]{PolzerTorus2026}.  On the sphere, specializations of the four
 external weights isolate one branch.  For \(\mathcal B_N\), a rational
 \((2,1)\) BPZ specialization removes the higher-level branch and reduces the
 hypergeometric factor to a power of \(1-z\) with non-integral exponent.
@@ -323,7 +324,7 @@ identities~\cite[\S\S21.2--21.61, 22.3--22.302]{WhittakerWatson1927}:
  16q\prod_{m=1}^\infty(1-q^{2m})^{12}=z(q)(1-z(q))\theta_3(q)^{12}.
  \label{eq:jacobi-3}
 \end{gather}
-Define Zamolodchikov's prefactor~\cite{Zamolodchikov1987}
+Define Zamolodchikov's prefactor~\cite[\S3, the formula after (18)]{Zamolodchikov1987}
 \begin{multline}\label{eq:Phi-def}
  \Phi(c,\Delta,\Delta_i;q)
  :=(16q)^{\Delta-\frac{c-1}{24}}\,
@@ -1266,16 +1267,18 @@ there.
 \end{proposition}
 
 \begin{proof}
-The first identity is Zamolodchikov's norm formula~\cite{Zamolodchikov1987}.
-In~\cite[\S6--\S7, eqs.~(6.1) and~(7.5)]{Zamolodchikov2004} the derivative of
-the singular-vector norm is computed with respect to the Liouville momentum
-\(\alpha\) at \(\alpha_{r,s}\).  Dividing by
+The first identity is Zamolodchikov's norm formula, the product
+of~\cite[\S3, (17)]{Zamolodchikov1987}.  In~\cite{Zamolodchikov2004}, (6.1)
+defines the derivative of the singular-vector norm with respect to the
+Liouville momentum \(\alpha\) at \(\alpha_{r,s}\), with labels \((m,n)=(s,r)\),
+and (7.5) gives it as a product.  Dividing by
 \(d\Delta/d\alpha|_{\alpha_{r,s}}=rb+s/b\) removes the top lattice factor
 \((rb+s/b)\) and gives \(\beta_{\chi_{r,s}(b)}=\mathcal A_{r,s}(b)^{-1}\).
-For the \(\Delta\)-crossing convention see~\cite[\S3]{HadaszJaskolskiSuchanek2010};
+The formula after (7) in~\cite[\S3]{HadaszJaskolskiSuchanek2010} gives
+\(\mathcal A_{r,s}\) directly as the reciprocal \(\Delta\)-derivative of the norm;
 the first identity of~\cite[Proposition~6.2]{PolzerTorus2026} is the same
 normalized product at generic charge.  The second identity is Zamolodchikov's
-fusion polynomial~\cite[\S2]{Zamolodchikov1987}, proved directly
+fusion polynomial~\cite[\S3, (17)]{Zamolodchikov1987}, proved directly
 in~\cite[\S5, eqs.~(5.9)--(5.12)]{Zamolodchikov2004}.  Its sign in our convention is \(+1\),
 because the leading coefficient in \(\Delta_b-\Delta_a\) of both sides is
 \(+1\) by~\eqref{eq:gamma-Y} and~\eqref{eq:Prs-def}.
