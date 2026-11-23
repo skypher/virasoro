@@ -199,15 +199,13 @@ limit.
 
 When \(b_\star^2\in\mathbb Q\), for instance at the minimal-model charges
 \(b_\star^2=-p'/p\), distinct Kac weights \(h_{r,s}(b)\) collide at
-\(b=b_\star\).  The generic residue \(\mathcal R^{\mathrm{sph}}_{r,s}\) is the
-inverse-norm factor \(\mathcal A_{r,s}(b)\) times two fusion polynomials
-(Definition~\ref{def:sphere-residues}), and it can acquire poles through
-\(\mathcal A_{r,s}(b)\).  Collisions at low levels were studied by Javerzat,
+\(b=b_\star\), and the generic residues can acquire poles there.  Collisions at low levels were studied by Javerzat,
 Santachiara and Foda~\cite{JaverzatSantachiaraFoda2018} and by
 Ribault~\cite{Ribault2019}, with numerical \(\varepsilon\)-limits or
 regularized minimal-model limits for special external weights.  We are not
 aware of a finite algebraic formula at all orders for arbitrary fixed
 \(b_\star\in\mathbb C^\times\) and indeterminate external weights.
+Theorem~\ref{thm:confluence} gives one, for \(H_N\) and for \(\mathcal B_N\).
 
 For the torus one-point block at minimal-model charges and interior Kac
 weights \(\lambda\), the companion paper~\cite{PolzerTorus2026} showed that the
@@ -219,10 +217,9 @@ normalizations \(\mathcal B_N\) and \(H_N\) (Theorems~\ref{thm:jantzen-bound},
 \ref{thm:top-layer}, \ref{thm:sharp-B} and~\ref{thm:sharp-H}).
 
 The coefficient \(\mathcal B_N\) has a polynomial part of degree \(N\) in
-\(\Delta\), while \(H_N-\delta_{N,0}\) tends to zero as \(\Delta\to\infty\) and
-is the sum of its principal parts.  Section~\ref{sec:asymp} proves this limit
-(Theorem~\ref{thm:large-delta}) at every
-\((c,\Delta_1,\dots,\Delta_4)\in\mathbb C^5\).  The computation starts at
+\(\Delta\), while \(H_N-\delta_{N,0}\) is the sum of its principal parts.
+Section~\ref{sec:asymp} proves Theorem~\ref{thm:large-delta}.  The computation
+starts at
 \(c=1+24\mu^2>1\), \(\Delta=\lambda^2+\mu^2\) with a real Fock parameter
 \(\lambda>0\), and real external weights.  There the Verma block is a unitary
 Fock pairing (Lemma~\ref{lem:fock-verma}), and the logarithm of the Fock Ward
@@ -236,9 +233,6 @@ series, given by rational identities (Lemma~\ref{lem:ext-exponents}) and, for
 the central charge, by two \(c=1\) Fock modules under the diagonal \(c=2\)
 action (Lemma~\ref{lem:central-charge}).  The polynomial extension of
 Lemma~\ref{lem:fock-verma}(iii) then supplies complex parameters.
-Section~\ref{sec:confluence} derives the generic recursion from
-Theorem~\ref{thm:large-delta} and proves the confluence formula
-(Theorem~\ref{thm:confluence}), which also gives \(\mathcal B_N\).
 
 On the torus, attainment needed an \(\ell\)-adic
 argument~\cite{PolzerTorus2026}.  On the sphere, specializations of the four
@@ -250,9 +244,7 @@ coefficients vanish through the needed shifted degree, and an affine line in
 the remaining momenta removes the higher branch.  The surviving shifted
 elliptic coefficient has a leading term proportional to a Hermite value,
 which is nonzero by elementary bounds in degree at most three and by Schur's
-irreducibility theorems~\cite{Schur1929,Schur1931} in higher degree.  Section~\ref{sec:examples}
-treats \((p,p')=(2,3)\), \(c=0\), whose first double pole is at level five, in
-agreement with~\cite{Ribault2019}, and the Ising charge \((3,4)\).
+irreducibility theorems~\cite{Schur1929,Schur1931} in higher degree.
 
 \section{Definitions and normalizations}\label{sec:setup}
 
@@ -358,8 +350,7 @@ where
 lies in \(1+q\mathbb Q[c,\Delta,\Delta_1,\dots,\Delta_4][[q]]\).
 \end{definition}
 
-Inverting~\eqref{eq:H-def} expresses \(\mathcal B_N\) in terms of
-\(H_0,\dots,H_N\).  Write
+Write
 \(\widetilde\Phi(c,\Delta,\Delta_i;q(z))=\sum_{r=0}^\infty\psi_r(c,\Delta,\Delta_i)z^r\).
 Using \((16q(z))^m=z^m(16q(z)/z)^m\) gives
 \begin{equation}\label{eq:B-from-H}
@@ -567,10 +558,9 @@ degree-\((d-1)\) part of \(D_k(\infty)P=0\) reads \(i\partial_{\sigma_k}P_d=0\)
 for all \(1\leq k\leq m\).  Then \(P_d\) is a constant, which is impossible in
 weight \(m\geq1\).  Since \(\mathcal D_m(\infty)\) is injective, some
 \(p(m)\times p(m)\) square minor of \(\mathcal D_m(\lambda)\) is invertible at
-\(\lambda^{-1}=0\).  It gives a left inverse regular in \(\lambda^{-1}\), so
-the unique solution \(S_m\) is regular at \(\lambda^{-1}=0\).
-Induction on \(m\geq1\) proves that every \(S_m(\sigma;\lambda)\) is regular
-at \(\lambda=\infty\).
+\(\lambda^{-1}=0\) and gives a left inverse regular in \(\lambda^{-1}\).
+Induction on \(m\) in the Ward system then gives regularity of every
+\(S_m(\sigma;\lambda)\) at \(\lambda=\infty\).
 
 (ii) In the linearized operator \(L_k^{(0)}\), the terms
 \(-\sum n\sigma_n\partial_{\sigma_n}\) and
@@ -687,16 +677,12 @@ centered Gaussian expectation of the linear-in-\((U,V)\) exponential is
 \(\widetilde S^{(2)}(\bar\sigma_*)\) and setting
 \(\Phi_c^{\mathrm{raw}}(z):=2S^{(2)}_c(\sigma_*(z))+\Psi_1(z)\),
 \(\Phi_j(z):=S^{(2)}_j(\sigma_*(z))\) (\(j=1,2\)) yields
-\eqref{eq:universal-limit} modulo \(z^{N+1}\).  The four series lie in
-\(z\mathbb Q[[z]]\):
-Lemmas~\ref{lem:saddle}, \ref{lem:ext-exponents}
-and~\ref{lem:central-charge} below give \(\mathcal I_0=\log(16q(z)/z)\),
-\(\Phi_1=-4\log\theta_3(q(z))\), \(\Phi_2=-4\log\theta_4(q(z))\) and
-\(\Phi_c^{\mathrm{raw}}=\mathcal I_0+12\sum_{m\geq1}\log(1-q(z)^{2m})\), all in
-\(z\mathbb Q[[z]]\) because \(q(z)\in z\mathbb Q[[z]]\).  Where those proofs use
-this part of the lemma, they use the limit identity~\eqref{eq:universal-limit}
-and the Gaussian evaluations above.  Their explicit formulas establish the
-stated rationality.
+\eqref{eq:universal-limit} modulo \(z^{N+1}\).  The explicit evaluations of
+Lemmas~\ref{lem:saddle}, \ref{lem:ext-exponents} and~\ref{lem:central-charge}
+below put the four series in \(z\mathbb Q[[z]]\), since
+\(q(z)\in z\mathbb Q[[z]]\); those proofs use only the limit
+identity~\eqref{eq:universal-limit} and the Gaussian evaluations above, not
+this rationality.
 \end{proof}
 
 \subsection{Half-pillow saddle point and Bergman-kernel determinant}
@@ -1192,10 +1178,8 @@ Lemmas~\ref{lem:lambda-expansion}--\ref{lem:ext-exponents}, at \(c=2\)
 Since \(\frac18(\Phi_1+\Phi_2)=-\frac12\log(\theta_3\theta_4)=-\frac18\log(1-z)-\log\theta_3\),
 the factor \((1-z)^{-1/4}\theta_3^{-2}\) cancels on both sides, leaving
 \(\exp(\frac{1}{24}(\Phi_c^{\mathrm{raw}}-\mathcal I_0))=\prod_{m\geq1}(1-q^{2m})^{1/2}\).
-Raising to the \(24\)th power gives
-\(\exp(\Phi_c^{\mathrm{raw}}-\mathcal I_0)=\prod_{m\geq1}(1-q^{2m})^{12}\),
-and~\eqref{eq:jacobi-3} gives the second form
-\(\frac{z}{16q}(1-z)\theta_3^{12}\).
+Taking the \(24\)th power and using~\eqref{eq:jacobi-3} proves the two
+expressions.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:large-delta}]
@@ -1259,10 +1243,8 @@ For any homogeneous vector \(w\in M(c,h)_\ell\) and any partition \(Z\),
 \end{lemma}
 
 \begin{proof}
-Apply the Ward recursion
-\(\langle L_{-n}u\mid\Phi_{\Delta_b}(1)\mid\Delta_a\rangle
-=(h(u)+n\Delta_b-\Delta_a)\langle u\mid\Phi_{\Delta_b}(1)\mid\Delta_a\rangle\) of
-Definition~\ref{def:sphere-block} successively to the parts of \(Z\).
+Apply the Ward recursion of Definition~\ref{def:sphere-block} successively to
+the parts of \(Z\).
 \end{proof}
 
 \begin{proposition}[Singular-vector norm and three-point factor]\label{prop:imported}
@@ -1331,7 +1313,7 @@ Proposition~\ref{prop:imported},
  =\mathcal R^{\mathrm{sph}}_a(b,\Delta_i)\,\mathcal B_{m-\ell_a}(c,h_a+\ell_a,\Delta_i)
  \qquad(\ell_a\leq m\leq N).
 \]
-The residue vanishes for \(m<\ell_a\).  The prefactor
+The prefactor
 \(\widetilde\Phi(c,\Delta,\Delta_i;q)\) is regular in \(\Delta\), and
 \[
  \frac{\widetilde\Phi(c,h_a+\ell_a,\Delta_i;q)}{\widetilde\Phi(c,h_a,\Delta_i;q)}
@@ -1341,8 +1323,7 @@ which combines with \(z(q)^{\ell_a}\) to give \((16q)^{\ell_a}\).  Dividing by
 \(\widetilde\Phi\) therefore gives
 \(\Res_{\Delta=h_a}H_N=\mathcal R^{\mathrm{sph}}_a(b,\Delta_i)H_{N-\ell_a}(c,h_a+\ell_a,\Delta_i)\),
 and all poles of \(H_N\) are simple and lie at \(\{h_a(b):\ell_a\leq N\}\).
-By Theorem~\ref{thm:large-delta}, \(\lim_{\Delta\to\infty}H_N=0\) for
-\(N\geq1\), so \(H_N\) equals the sum of its principal parts.
+Theorem~\ref{thm:large-delta} eliminates the polynomial part.
 \end{proof}
 
 Fix an arbitrary \(b_\star\in\mathbb C^\times\) and put
@@ -1438,21 +1419,17 @@ we expand in \(K_\star(\Delta)((t))\):
  =\sum_{\lambda\in\Lambda_N(b_\star)}\sum_{k=1}^\infty
   \frac{C_{\lambda,k}(t)}{(\Delta-\lambda)^k}.
 \end{align*}
-By the valuation bound of Definition~\ref{def:confluence},
-\(\ord_t C_{\lambda,k}\geq1\) whenever \(k>\widehat M^\star_{\lambda,N}\).  So
-for each integer \(m\leq0\), only the terms with
-\(1\leq k\leq\widehat M^\star_{\lambda,N}\) contribute to the coefficient of
-\(t^m\) on the right-hand side.  Since \(\det G_N(c(b_\star+t),\Delta)\) does
-not vanish identically in \(\Delta\) at \(t=0\), the left-hand side lies in
-\(K_\star(\Delta)[[t]]\), with constant term \(H_N(c_\star,\Delta,\Delta_i)\).
-Hence for every \(m<0\) the finite partial-fraction sum
-\(\sum_{\lambda\in\Lambda_N(b_\star)}\sum_{k=1}^{\widehat M^\star_{\lambda,N}}
-([t^m]C_{\lambda,k}(t))(\Delta-\lambda)^{-k}\) vanishes identically in
-\(K_\star(\Delta)\).  Partial-fraction decompositions at the distinct poles
-\(\lambda\in\Lambda_N(b_\star)\) are unique, so \([t^m]C_{\lambda,k}(t)=0\) for
-every \(m<0\), and each grouped numerator \(C_{\lambda,k}(t)\) lies in
-\(K_\star[[t]]\).  The coefficient of \(t^0\) then gives~\eqref{eq:confluence-H}
-with \(\widetilde A^\star_{\lambda,k,N}=C_{\lambda,k}(0)\).  By the proof of
+For \(k>\widehat M^\star_{\lambda,N}\) the valuation bound of
+Definition~\ref{def:confluence} gives \(\ord_t C_{\lambda,k}\geq1\), so only
+finitely many \(k\) contribute to each nonpositive power of \(t\).  Since the
+Gram denominator \(\det G_N(c(b_\star+t),\Delta)\) is nonzero at \(t=0\) as a
+polynomial in \(\Delta\), the left side lies in \(K_\star(\Delta)[[t]]\) and
+specializes to \(H_N(c_\star,\Delta,\Delta_i)\).  For each \(m<0\), uniqueness of
+partial fractions at the distinct \(\lambda\in\Lambda_N(b_\star)\) forces
+\([t^m]C_{\lambda,k}=0\) for all \(k\), so every \(C_{\lambda,k}\) lies in
+\(K_\star[[t]]\).  Taking \(t=0\) now
+gives~\eqref{eq:confluence-H} with
+\(\widetilde A^\star_{\lambda,k,N}=C_{\lambda,k}(0)\).  By the proof of
 Lemma~\ref{lem:fock-verma}(iii), \(H_N(c_\star,\Delta,\Delta_i)\) is a
 polynomial in \((\Delta,\Delta_i)\) over \(\mathbb Q(b_\star)\) divided by
 \(\det G_N(c_\star,\Delta)\), which does not depend on the external weights.
@@ -1463,11 +1440,9 @@ follows from~\eqref{eq:B-from-H}.
 
 \begin{remark}[Computing in \(\nu=b^2\)]\label{rem:nu-parameter}
 All ingredients \(h_{r,s}\), \(\mathcal A_{r,s}\), and \(P_{r,s}\) are rational
-functions of \(\nu=b^2\) over \(\mathbb Q\): we have
-\(\mathcal A_{r,s}=\frac12\nu^{2rs-1}\prod(p\nu+q)^{-1}\), while in
-\(P_{r,s}(b,\Delta_a,\Delta_b)\) pairing opposite lattice labels
-\((j,l)\leftrightarrow(-j,-l)\) yields factors rational in \(\nu\) (and the
-\((0,0)\) factor, when \(r,s\) are both odd, is already \(\Delta_b-\Delta_a\)).
+functions of \(\nu=b^2\) over \(\mathbb Q\): one has
+\(\mathcal A_{r,s}=\frac12\nu^{2rs-1}\prod(p\nu+q)^{-1}\), and
+Definition~\ref{def:sphere-residues} gives \(P_{r,s}\in\mathbb Q[b^2,b^{-2},\Delta_a,\Delta_b]\).
 Under the invertible coordinate change \(u=\nu-b_\star^2=2b_\star t+t^2\)
 (\(du/dt|_{t=0}=2b_\star\neq0\)), the constant term of a general Laurent series
 is not preserved: \(t^{-1}=2b_\star u^{-1}+(2b_\star)^{-1}+O(u)\).  By the proof of Theorem~\ref{thm:confluence}, each grouped numerator
@@ -1621,21 +1596,15 @@ local Smith exponent of \(G_{N'}(c_\star,\lambda+x)\) is \(k\).  The \(k\)-th
 Jantzen layer is the \(B^k\)-orthogonal direct sum
 \(J^k_{N'}(c_\star,\lambda)=\bigoplus_{\pm:\ell^\pm_k\leq N'}(W^\pm_k)_{N'}\).
 On each summand the form is
-\(B^k(L_{-Z}w^\pm_k,L_{-Z'}w^\pm_k)=\gamma^\pm_k G_{N'-\ell^\pm_k}(c_\star,\mu^\pm_k)_{Z,Z'}\),
-with \(\gamma^\pm_k\neq0\).  For each sign with \(\ell^\pm_k\leq N'\), the
-shifted Gram determinants \(\det G_M(c_\star,\mu^\pm_k)\) are nonzero for
-\(M\leq N'-\ell^\pm_k\).  Applying~\cite[Lemma~5.4(ii)]{PolzerTorus2026} to
+\(B^k(L_{-Z}w^\pm_k,L_{-Z'}w^\pm_k)=\gamma^\pm_k G_{N'-\ell^\pm_k}(c_\star,\mu^\pm_k)_{Z,Z'}\).
+The same result gives the stated nonvanishing of \(\gamma^\pm_k\) and of
+\(\det G_M(c_\star,\mu^\pm_k)\) for \(M\leq N'-\ell^\pm_k\).  Applying~\cite[Lemma~5.4(ii)]{PolzerTorus2026} to
 the bilinear form~\eqref{eq:B-def} and factoring via
 Lemma~\ref{lem:3pt-factor} gives~\eqref{eq:top-B} at every such level
 \(N'\).
 
-For~\eqref{eq:top-H}, expand
-\[
- H(c_\star,\lambda+x,\Delta_i;q)
- =\widetilde\Phi(c_\star,\lambda+x,\Delta_i;q)^{-1}
-  \sum_{m=0}^\infty\mathcal B_m(c_\star,\lambda+x,\Delta_i)\,z(q)^m.
-\]
-The prefactor is regular at \(x=0\):
+For~\eqref{eq:top-H}, apply~\eqref{eq:H-def} at \(\Delta=\lambda+x\).  The
+prefactor is regular at \(x=0\):
 \(\widetilde\Phi(c_\star,\lambda+x,\Delta_i;q)^{-1}
 =\widetilde\Phi(c_\star,\lambda,\Delta_i;q)^{-1}+O(x)\).
 For \(m<\ell_{k+1}\) the coefficient \(\mathcal B_m\) has pole order at most
@@ -1762,10 +1731,8 @@ viewed as a rational function of \(\Delta\) over
 \end{theorem}
 
 \begin{proof}
-Fix \(k=j_N(\lambda)\).  For \(k=0\), Theorem~\ref{thm:jantzen-bound} gives
-regularity.  For \(k\geq1\) set \(M:=N-\ell^{\mathrm{small}}_k\geq0\) and
-\(\mu:=\mu^{\mathrm{small}}_k\).  By Theorem~\ref{thm:top-layer},
-\(\det G_m(c_\star,\mu)\neq0\) for \(0\leq m\leq M\).  Specialize
+Use \(k\), \(M\) and \(\mu\) as in the proof of Theorem~\ref{thm:sharp-B}; the
+case \(k=0\) is the same.  For \(k\geq1\) specialize
 \((\Delta_1,\Delta_2):=(\mu,0)\); then \(a_1=m^{\mathrm{small}}_k\) and
 \(a_2=p'-p\).  Put \(X:=m^{\mathrm{big}}_k-p'-p\) and
 \(\alpha:=X/\sqrt{pp'}\), and restrict the momenta \((\Lambda_3,\Lambda_4)\) to the affine
@@ -1918,15 +1885,11 @@ These norms depend only on the Verma module, and
 \end{proposition}
 
 \begin{proof}[Proof of Propositions~\ref{prop:c0-example} and~\ref{prop:ising-example}]
-The second-layer cutoff \(\ell_2=\min(\ell^+_2,\ell^-_2)\) equals \(5\) at
-\((2,3)\), \(\lambda=0\).  At \((3,4)\) it equals \(7\), \(10\) and \(11\) for
-\(\lambda=\tfrac12\), \(\tfrac1{16}\) and \(0\).  At \(N=\ell_2\),
+In each case the level formulas give the listed \(N=\ell_2\).  At this level
 Theorem~\ref{thm:top-layer} has the single term \(M=0\), where
-\(H_0=\mathcal B_0=1\), and \(\pi\) is given by
-Lemma~\ref{lem:pi-factorization}(ii) at \(j=1\).  The norm in this term is
-the second Jantzen norm \(\gamma=B^2(w^{\mathrm{small}}_2,w^{\mathrm{small}}_2)\),
-the same as on the torus, where~\cite[Proposition~8.1]{PolzerTorus2026} lists
-the three Ising norms.
+\(H_0=\mathcal B_0=1\); Lemma~\ref{lem:pi-factorization}(ii) at \(j=1\) gives
+\(\pi\), and the norm is
+\(\gamma=B^2(w^{\mathrm{small}}_2,w^{\mathrm{small}}_2)\).
 
 For \((2,3)\), \(\lambda=0\), the norm \(\gamma_5\) follows from two
 coefficients of the torus matrix element
@@ -1948,17 +1911,20 @@ Their ratio is \(\gamma_5=-11200/3\).
 \section{Scope and outlook}\label{sec:scope}
 
 The confluence theorem covers every \(b_\star\in\mathbb C^\times\), and the
-large-\(\Delta\) theorem every complex \(c\).  The pole-order results of
+large-\(\Delta\) theorem every complex \(c\).  The sharp pole-order results of
 Section~\ref{sec:jantzen} concern interior Kac weights at minimal-model
-charges.  Pole orders at non-interior Kac weights and at the charges
-\(c_\star=1,25\) are not treated here.  At positive depth,
+charges; at non-interior Kac weights and at \(c_\star=1,25\) the confluence
+formula gives the principal parts, and no sharp pole order is proved.  At
+positive depth,
 Theorem~\ref{thm:top-layer} gives the coefficient of
 \((\Delta-\lambda)^{-j_N(\lambda)}\); it is nonzero over the rational function
 field of the external weights (Theorems~\ref{thm:sharp-B}
 and~\ref{thm:sharp-H}) and can vanish at a specialization
-(Lemma~\ref{lem:pi-factorization}(iii)).  Subleading coefficients and the
-irreducible minimal-model sphere blocks are not computed here; the irreducible
-torus traces are treated in~\cite[Sections~9--14]{PolzerTorus2026}.
+(Lemma~\ref{lem:pi-factorization}(iii)).  The collision formula computes the
+subleading principal-part coefficients; intrinsic formulas for them in the
+specialized module are not given, and neither are the irreducible
+minimal-model sphere blocks.  The irreducible torus traces are treated
+in~\cite[Sections~9--14]{PolzerTorus2026}.
 
 \section*{AI-use disclosure}
 
@@ -1973,17 +1939,19 @@ claims, citations, computations and wording.
 The repository \href{https://github.com/skypher/virasoro}%
 {github.com/skypher/virasoro} contains the verification scripts in the
 directory \texttt{sphere/tools/}.  They are finite checks in exact rational and
-symbolic arithmetic, and the proofs do not use them.  They check the lemmas
-of Section~\ref{sec:asymp} at low orders.  They check the fixed-\(b_\star\)
-confluent recursion of Section~\ref{sec:confluence} through level seven at
+symbolic arithmetic, which the proofs do not use, of the lemmas of
+Section~\ref{sec:asymp} at low orders and of the fixed-\(b_\star\) confluent
+recursion of Section~\ref{sec:confluence} through level seven at
 \((p,p')=(2,3)\), \((2,5)\) and \((3,4)\), and at levels one to three at the
-irrational value \(b_\star^2=\sqrt2\).  The scripts \texttt{exact\_\allowbreak sphere\_\allowbreak block.py} and
+irrational value \(b_\star^2=\sqrt2\).  The scripts
+\texttt{exact\_\allowbreak sphere\_\allowbreak block.py} and
 \texttt{audit\_\allowbreak sphere\_\allowbreak top\_\allowbreak layer.py} reconstruct the blocks in
-selected cases through level seven, at fixed external weights.  The first checks the \(c=0\) coefficient of
-Proposition~\ref{prop:c0-example} at \(N=5\)
-against~\cite[eq.~(3.24)]{Ribault2019}, and both check \(\gamma=-700700\) at
-\(\lambda=\tfrac12\), \(N=7\).  The Ising norms at levels ten and eleven are
-checked only by the torus script
+selected cases through level seven, at fixed external weights.  The first
+checks the \(c=0\) coefficient of Proposition~\ref{prop:c0-example} at \(N=5\)
+against~\cite[eq.~(3.24)]{Ribault2019} and compares the coefficient at
+\(\lambda=\tfrac12\), \(N=7\) with the value given by \(\gamma=-700700\); the
+second extracts this norm.  The Ising norms at levels ten and eleven are
+checked against the layer-coefficient formula only by the torus script
 \texttt{tools/\allowbreak audit\_\allowbreak top\_\allowbreak layer.py}.  The second script also evaluates
 the witness polynomials of Theorems~\ref{thm:sharp-B} and~\ref{thm:sharp-H}
 through shifted degree \(M=4\) in selected cases, without reconstructing
