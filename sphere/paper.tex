@@ -151,8 +151,8 @@ At the minimal-model charges \(b_\star^2=-p'/p\) (\(p,p'\geq2\) coprime) and
 the interior Kac weights \(\lambda=h_{r,s}(b_\star)\), the pole order of
 \(\mathcal B_N\) and of \(H_N\) at \(\Delta=\lambda\) is at most the Jantzen
 depth \(j_N(\lambda)\).  At positive depth the top Jantzen layer gives the
-leading Laurent coefficient, with the Jantzen norms \(\gamma^\pm_k\) of the
-torus.  For all \(p,p'\), all interior \(\lambda\) and all \(N\geq1\) the
+coefficient of \((\Delta-\lambda)^{-j_N(\lambda)}\), with the Jantzen norms
+\(\gamma^\pm_k\) of the torus.  For all \(p,p'\), all interior \(\lambda\) and all \(N\geq1\) the
 bound holds at every specialization of the external weights and is attained
 over their rational function field.  The proof of attainment uses a rational
 \((2,1)\) BPZ specialization for \(\mathcal B_N\), and for \(H_N\) an
@@ -212,9 +212,9 @@ aware of a finite algebraic formula at all orders for arbitrary fixed
 For the torus one-point block at minimal-model charges and interior Kac
 weights \(\lambda\), the companion paper~\cite{PolzerTorus2026} showed that the
 Jantzen filtration bounds the pole order by \(j_N(\lambda)\) and that the top
-layer gives the leading Laurent coefficient at positive depth.  There the
-bound is attained over \(\mathbb Q(d)\) for an indeterminate external weight
-\(d\).  The sphere block has four external weights and two normalizations,
+layer gives the leading Laurent coefficient at positive depth.  There, for
+\(N\geq1\), the bound is attained over \(\mathbb Q(d)\) for an indeterminate
+external weight \(d\); at \(d=0\) one has \(H_N=0\).  The sphere block has four external weights and two normalizations,
 \(\mathcal B_N\) and \(H_N\).  Section~\ref{sec:jantzen} proves the same
 statements for both (Theorems~\ref{thm:jantzen-bound}, \ref{thm:top-layer},
 \ref{thm:sharp-B} and~\ref{thm:sharp-H}).
@@ -249,13 +249,12 @@ argument~\cite{PolzerTorus2026}.  On the sphere, specializations of the four
 external weights isolate one branch.  For \(\mathcal B_N\), a rational
 \((2,1)\) BPZ specialization removes the higher-level branch and reduces the
 hypergeometric factor to a power of \(1-z\) with non-integral exponent.
-For \(H_N\), setting \(\Delta_2=0\) and \(\Delta_1\) equal to the lower
-shifted weight of the layer removes the lower-level blocks
-\(\mathcal B_m\), and restricting \((\Delta_3,\Delta_4)\) to a line in their
-Liouville momenta removes the higher-level branch.  The surviving coefficient is a polynomial in one
-variable whose top coefficient is a Hermite value.  It is nonzero by
-elementary bounds in degree at most three and by Schur's irreducibility
-theorems~\cite{Schur1929,Schur1931} in higher degree.  Section~\ref{sec:examples}
+For \(H_N\), an identity insertion makes the positive-degree cross-ratio
+coefficients vanish through the needed shifted degree, and an affine line in
+the remaining momenta removes the higher branch.  The surviving shifted
+elliptic coefficient has a leading term proportional to a Hermite value,
+which is nonzero by elementary bounds in degree at most three and by Schur's
+irreducibility theorems~\cite{Schur1929,Schur1931} in higher degree.  Section~\ref{sec:examples}
 treats \((p,p')=(2,3)\), \(c=0\), whose first double pole is at level five, in
 agreement with~\cite{Ribault2019}, and the Ising charge \((3,4)\).
 
@@ -1768,7 +1767,7 @@ regularity.  For \(k\geq1\) set \(M:=N-\ell^{\mathrm{small}}_k\geq0\) and
 \(\det G_m(c_\star,\mu)\neq0\) for \(0\leq m\leq M\).  Specialize
 \((\Delta_1,\Delta_2):=(\mu,0)\); then \(a_1=m^{\mathrm{small}}_k\) and
 \(a_2=p'-p\).  Put \(X:=m^{\mathrm{big}}_k-p'-p\) and
-\(\alpha:=X/\sqrt{pp'}\), and restrict \((\Delta_3,\Delta_4)\) to the affine
+\(\alpha:=X/\sqrt{pp'}\), and restrict the momenta \((\Lambda_3,\Lambda_4)\) to the affine
 line
 \[
  \Lambda_3-\Lambda_4=i\alpha,\qquad \Lambda_3+\Lambda_4=iv,
