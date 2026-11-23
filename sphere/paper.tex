@@ -179,10 +179,9 @@ prefactor \(\Phi(c,\Delta,\Delta_i;q)\) to write \(\mathcal F=\Phi\cdot H\) with
 His recursion in the internal weight gives \(H_N\) at most simple poles in
 \(\Delta\), all at the Kac weights \(h_{r,s}(b)\) with \(rs\leq N\).
 
-The recursion follows from Liouville's theorem for rational functions of
-\(\Delta\) once one knows that
-\(\lim_{\Delta\to\infty}H_N(c,\Delta,\Delta_i)=\delta_{N,0}\) for every
-\(N\geq0\).  To our knowledge no complete proof of this limit at finite
+By Liouville's theorem for rational functions of \(\Delta\), \(H_N\) minus its
+principal parts is a constant, and the recursion follows once this constant is
+identified as \(\delta_{N,0}\), the limit of \(H_N\) as \(\Delta\to\infty\).  To our knowledge no complete proof of this limit at finite
 central charge has appeared, as Ribault also notes~\cite[\S4.3.4]{Ribault2026}.
 The derivation in~\cite{Zamolodchikov1987} combines a semiclassical monodromy
 input, a rational-degree argument and a comparison at \(c=1\).  The oscillator
@@ -233,13 +232,13 @@ gives the saddle exponent \(\mathcal I_0(z)\) (Lemma~\ref{lem:saddle}).  After
 remaining elliptic prefactor.  The polynomial extension of
 Lemma~\ref{lem:fock-verma}(iii) then gives complex parameters.
 
-On the torus, attainment needed an \(\ell\)-adic
-argument~\cite[Propositions~6.8--6.9]{PolzerTorus2026}.  On the sphere, specializations of the four
-external weights isolate one branch.  For \(\mathcal B_N\), a rational
+The torus proof of sharpness uses an \(\ell\)-adic
+argument~\cite[Propositions~6.8--6.9]{PolzerTorus2026}.  On the sphere,
+specializing the four external weights isolates one branch.  For \(\mathcal B_N\), a rational
 \((2,1)\) BPZ specialization removes the higher-level branch and reduces the
 hypergeometric factor to a power of \(1-z\) with non-integral exponent.
 For \(H_N\), an identity insertion makes the positive-degree cross-ratio
-coefficients vanish through the needed shifted degree, and an affine line in
+coefficients vanish through the shifted degree used in the proof, and an affine line in
 the remaining momenta removes the higher branch.  The surviving shifted
 elliptic coefficient has a leading term proportional to a Hermite value,
 which is nonzero by elementary bounds in degree at most three and by Schur's
@@ -294,9 +293,8 @@ with \(\mathcal B_0=1\) and, for \(N\geq1\),
 \end{multline}
 \end{definition}
 
-In the operator ordering of~\eqref{eq:B-def}, the four external primaries
-sit at \((\infty,1,z,0)\) with weights \((\Delta_4,\Delta_3,\Delta_2,\Delta_1)\),
-so \(\mathcal B_1=(\Delta+\Delta_3-\Delta_4)(\Delta+\Delta_2-\Delta_1)/(2\Delta)\).
+The order in~\eqref{eq:B-def} places the external primaries of weights
+\((\Delta_4,\Delta_3,\Delta_2,\Delta_1)\) at \((\infty,1,z,0)\), so \(\mathcal B_1=(\Delta+\Delta_3-\Delta_4)(\Delta+\Delta_2-\Delta_1)/(2\Delta)\).
 
 \begin{definition}[Elliptic nome and Zamolodchikov \(H\)-series]\label{def:H-series}
 Define the Jacobi theta series
@@ -538,16 +536,16 @@ gives, for every \(k\geq1\),
 \end{multline}
 At oscillator level \(m-k\) (\(1\leq k\leq m\)), since \(S_0=0\), the part of
 \eqref{eq:S-pde} that involves \(S_m\) reads
-\(D_k(\lambda)S_m=R_{m,k}(S_1,\dots,S_{m-1};\lambda)\), where
+\(D_k(\lambda)S_m=R_{m,k}(S_1,\dots,S_{m-1};\lambda)\), with \(R_{m,k}\)
+polynomial in \(S_1,\dots,S_{m-1}\) and \(\lambda^{-2}\), and
 \[
  D_k(\lambda):=\left(i+\frac{\mu k}{\lambda}\right)\partial_{\sigma_k}
  +\sum_{n\geq1}n\sigma_n\partial_{\sigma_{n+k}}
  -\frac{1}{4\lambda^2}\sum_{n=1}^{k-1}\partial_{\sigma_n}\partial_{\sigma_{k-n}}.
 \]
-The remainder \(R_{m,k}\) is polynomial in \(S_1,\dots,S_{m-1}\) and \(\lambda^{-2}\).
-Together these equations form the map
-\(\mathcal D_m(\lambda):\mathbb C[\sigma]_m\to\bigoplus_{k=1}^m\mathbb C[\sigma]_{m-k}\),
-\(P\mapsto(D_1(\lambda)P,\dots,D_m(\lambda)P)\).  Its limit
+Together these equations define the map
+\(\mathcal D_m(\lambda)\colon P\mapsto(D_1(\lambda)P,\dots,D_m(\lambda)P)\) from
+\(\mathbb C[\sigma]_m\) to \(\bigoplus_{k=1}^m\mathbb C[\sigma]_{m-k}\).  Its limit
 \(\mathcal D_m(\infty)\) has components
 \(D_k(\infty)=i\partial_{\sigma_k}+\sum_{n\geq1}n\sigma_n\partial_{\sigma_{n+k}}\),
 and it is injective: if \(P\neq0\) lies in the kernel, let \(P_d\) be its
@@ -749,16 +747,15 @@ Then \(p\partial_p f_*(p)=-i(\Omega_-(p)-1)\), hence
  w\partial_w f_*\bigl(p(w)\bigr)
  =-i\frac{1-w}{1+w}\bigl(\Omega_-(p(w))-1\bigr).
 \]
-Since \(f_*(p(w))\) is \(w\leftrightarrow w^{-1}\) invariant with
-\([w^{-n}]f_*(p(w))=t_{*,n}\), we get
+Since \(p(w)=p(w^{-1})\), the function \(f_*(p(w))\) is invariant under
+\(w\leftrightarrow w^{-1}\); its \(w^{-n}\) coefficient is \(t_{*,n}\), so
 \(\frac{1-w}{1+w}(\Omega_-(p(w))-1)=i\sum_{n=1}^\infty n t_{*,n}(w^n-w^{-n})\).
 The function
 \[
  \Xi(w):=\frac{1-w}{1+w}\Omega(p(w);z)
  =\Bigl({}_2F_1\!\left(\tfrac12,\tfrac12;1;z\right)\sqrt{1-z/p(w)}\Bigr)^{-1}
 \]
-is invariant under \(w\leftrightarrow w^{-1}\), because \(p(w)=p(w^{-1})\).
-The series \(\frac{1-w}{1+w}\Omega_+(p(w))=1+\sum_{n=1}^\infty c_n w^n\) has
+is invariant under \(w\leftrightarrow w^{-1}\) for the same reason.  The series \(\frac{1-w}{1+w}\Omega_+(p(w))=1+\sum_{n=1}^\infty c_n w^n\) has
 only non-negative powers of \(w\).  Equating \([w^{-n}]\Xi(w)=[w^n]\Xi(w)\) for
 \(n\geq1\) gives \(-int_{*,n}=c_n+int_{*,n}\), so \(c_n=-2int_{*,n}\) and
 \begin{equation}\label{eq:wh-identity}
@@ -1084,17 +1081,15 @@ is a linear isomorphism for all sufficiently large \(\lambda\) at each fixed
 homogeneous component and uniquely solves \((D_k+l_k^{(2)})U(W)=0\)
 (\(\forall k\geq1\)) with \(U(0)=\mathrm{id}\).
 
-Because every \(v_m\) in \(P_w\) carries \(\lambda^{-1}\), the Gram matrix
-satisfies
+Since \(W_m=v_m/(i\lambda)\), the part of \(P_w\) of charged degree \(k\) is
+\(O(\lambda^{-k})\), and parts of different charged degree are orthogonal, so
 \(G^{(n)}(\lambda)_{w_1,w_2}=\langle w_1,w_2\rangle_{\mathcal F^{(2)}}+O(\lambda^{-2})\).
 In the pairing \(\langle P_w,F_1F_2\rangle\), each monomial in
 \(\overline{W_m}=i\bar v_m/\lambda\) paired against the charged Gaussian
 \(F_1(v)\) evaluates by Wick's theorem to the product of saddle means
 \(W_{*,m}:=\frac{iA_m}{2m}=\frac{1}{m\cdot 4^m}\binom{2m}{m}\in\mathbb R\)
-plus \(O(\lambda^{-2})\) from quadratic contractions.  Define the adjoint
-\(U(W)^\dagger\) levelwise on the completed neutral Fock space, in real
-variables \(W\); equivalently, conjugate coefficientwise and specialize to the
-real point \(W_*\).  Then
+plus \(O(\lambda^{-2})\) from quadratic contractions.  Take the adjoint of
+\(U(W)\) level by level for real \(W\) and evaluate at \(W_*\).  Then
 \[
  c_n^\infty:=\lim_{\lambda\to\infty}c_n(\lambda^2)
  =\bigl\|\bigl(U(W_*)^\dagger F_2\bigr)_n\bigr\|_{\mathcal F^{(2)}}^2.
@@ -1247,9 +1242,9 @@ For positive integers \(r,s\) and generic \(b\), let
 \(\chi_{r,s}(b)\in M(c(b),h_{r,s}(b))_{rs}\) be the unique singular vector
 with \(L_{-1}^{rs}\)-coefficient \(1\)~\cite[Propositions~5.1--5.2 and Corollary~5.2]{IoharaKoga2011},
 \cite[Theorem~3.1 and Corollary~3.2]{Astashkevich1997}.
-Its Shapovalov crossing scalar \(\beta_{\chi_{r,s}(b)}\) is the derivative of
-its norm in \(\Delta\) at fixed \(c(b)\) and fixed PBW coefficients.  The crossing scalar and the
-sphere three-point scalar are
+Its Shapovalov crossing scalar \(\beta_{\chi_{r,s}(b)}\), the
+\(\Delta\)-derivative of its norm at fixed \(c(b)\) and fixed PBW coefficients,
+and its sphere three-point scalar are
 \begin{equation}\label{eq:imported-ids}
  \beta_{\chi_{r,s}(b)}=\mathcal A_{r,s}(b)^{-1},\qquad
  \langle\chi_{r,s}(b)\mid\Phi_{\Delta_b}(1)\mid\Delta_a\rangle=P_{r,s}(b,\Delta_a,\Delta_b).
@@ -1592,9 +1587,8 @@ Then \(j_N(\lambda)=k\).  For each sign with \(\ell^\pm_k\leq N\) one has
 \end{theorem}
 
 \begin{proof}
-The proof of~\cite[Theorem~5.9]{PolzerTorus2026} gives the following
-facts at every level \(N'\) with \(\ell_k\leq N'<\ell_{k+1}\).  The maximal
-local Smith exponent of \(G_{N'}(c_\star,\lambda+x)\) is \(k\).  With
+For \(\ell_k\leq N'<\ell_{k+1}\), the proof of~\cite[Theorem~5.9]{PolzerTorus2026}
+gives maximal local Smith exponent \(k\) for \(G_{N'}(c_\star,\lambda+x)\).  With
 \(W^\pm_k:=U(\Vir_-)w^\pm_k\), the \(k\)-th Jantzen layer is the
 \(B^k\)-orthogonal direct sum
 \(J^k_{N'}(c_\star,\lambda)=\bigoplus_{\pm:\ell^\pm_k\leq N'}(W^\pm_k)_{N'}\).
@@ -1745,13 +1739,11 @@ with \(v\) an indeterminate.
 \item \emph{Nonvanishing of the lower-branch factors.}  Both
   \(a_1\pm a_2=m^{\mathrm{small}}_k\pm(p'-p)\) exceed the nonnegative
   threshold \(m^{\mathrm{small}}_k-p'-p\), so
-  \(\pi^{\mathrm{small}}_k(\mu,0)\neq0\).  On the affine line, each linear
-  factor of \(\pi^{\mathrm{small}}_k(\Delta_4,\Delta_3)\) is either
-  nonconstant in \(v\) or a constant \(\alpha\pm c\) with
-  \(|c|\leq(m^{\mathrm{small}}_k-p'-p)/\sqrt{pp'}\).  This bound is smaller
-  than \(\alpha\), so the constant factors are nonzero, and
-  \(\pi^{\mathrm{small}}_k(\Delta_4,\Delta_3)\) is a nonzero polynomial in
-  \(v\).
+  \(\pi^{\mathrm{small}}_k(\mu,0)\neq0\).  On the affine line, every linear
+  factor of \(\pi^{\mathrm{small}}_k(\Delta_4,\Delta_3)\) is either nonconstant
+  in \(v\) or a constant \(\alpha\pm c\) with
+  \(|c|\leq(m^{\mathrm{small}}_k-p'-p)/\sqrt{pp'}<\alpha\), so
+  \(\pi^{\mathrm{small}}_k(\Delta_4,\Delta_3)\) is a nonzero polynomial in \(v\).
 \item \emph{Identity insertion and the Hermite coefficient.}
   At \((\Delta_1,\Delta_2)=(\mu,0)\), the three-point polynomial
   \(\gamma_Z(\mu;\mu,0)\) of~\eqref{eq:gamma-Y} vanishes for every nonempty
@@ -1815,15 +1807,13 @@ with \(v\) an indeterminate.
     \end{gather*}
     Define \(K^{(0)}_m,K^{(1)}_m\in\mathbb Q[t]\), both of degree \(m\), by
     \(\mathrm{He}_{2m}(x)=K^{(0)}_m(x^2)\) and
-    \(\mathrm{He}_{2m+1}(x)=xK^{(1)}_m(x^2)\).  Schur proved that
-    \(\mathrm{He}_{2m}(x)\) and \(\mathrm{He}_{2m+1}(x)/x\) are irreducible
-    over \(\mathbb Q\) for \(m\geq2\) \cite{Schur1929}.  The statement is
-    Hilfssatz~D in \cite[\S1, p.~54]{Schur1931}; Schur writes \(H_n\) for
-    \(\mathrm{He}_n\).  If \(K^{(\varepsilon)}_m\) had a rational root \(s\),
-    then \(x^2-s\) would divide
-    \(\mathrm{He}_{2m+\varepsilon}(x)/x^{\varepsilon}\).  This quotient has
-    degree \(2m\geq4\), so \(x^2-s\) would be a proper factor, contradicting
-    irreducibility.  Hence \(K^{(\varepsilon)}_m\) has no rational root.  From
+    \(\mathrm{He}_{2m+1}(x)=xK^{(1)}_m(x^2)\).  By Schur~\cite{Schur1929}
+    (stated as Hilfssatz~D in~\cite[\S1, p.~54]{Schur1931}, where \(H_n\)
+    denotes \(\mathrm{He}_n\)), \(\mathrm{He}_{2m+\varepsilon}(x)/x^\varepsilon\) is
+    irreducible over \(\mathbb Q\) for \(m\geq2\).  A rational root \(s\) of
+    \(K^{(\varepsilon)}_m\) would give the proper factor \(x^2-s\) of this
+    quotient of degree \(2m\geq4\); hence \(K^{(\varepsilon)}_m\) has no rational
+    root.  From
     \(\mathrm{Herm}_n(x)=2^{n/2}\mathrm{He}_n(\sqrt2\,x)\),
     \[
      \mathrm{Herm}_{2m}(x)=2^mK^{(0)}_m(2x^2),\qquad \mathrm{Herm}_{2m+1}(x)=2^{m+1}xK^{(1)}_m(2x^2).
@@ -1852,11 +1842,10 @@ where Theorem~\ref{thm:top-layer} gives
  &=\frac{P_{1,1}(b_\star,\Delta_4,\Delta_3)\,P_{1,4}(b_\star,\Delta_4,\Delta_3)\,
          P_{1,1}(b_\star,\Delta_1,\Delta_2)\,P_{1,4}(b_\star,\Delta_1,\Delta_2)}{\gamma_5}
 \end{align*}
-with the second Jantzen norm \(\gamma_5=-11200/3\).  For \(H_5\)
-this agrees with~\cite[\S3.2, eq.~(3.24)]{Ribault2019}
-under \(b=i\beta\) and \(P_j=i\Lambda_j/2\), after the swap
-\(\Delta_3\leftrightarrow\Delta_4\) of the right pair, which multiplies
-\(P_{1,1}P_{1,4}\) by \((-1)^5=-1\).
+with the second Jantzen norm \(\gamma_5=-11200/3\).  The \(H_5\) coefficient
+matches~\cite[\S3.2, eq.~(3.24)]{Ribault2019} after setting \(b=i\beta\) and
+\(P_j=i\Lambda_j/2\) and exchanging \(\Delta_3\) and \(\Delta_4\); the exchange
+multiplies \(P_{1,1}P_{1,4}\) by \((-1)^5=-1\).
 \end{proposition}
 
 \begin{proposition}[First double poles at the Ising charge \(c=\tfrac12\)]
