@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.1)  23 NOV 2026 08:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.1)  23 NOV 2026 08:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1064,19 +1064,19 @@ it/10 p[]$\T1/lmr/m/n/10 , $\OML/lmm/m/it/10 r \OMS/lmsy/m/n/10 $ \OML/lmm/m/it
  []
 
 
-Underfull \hbox (badness 2042) in paragraph at lines 1422--1441
-\OMS/lmsy/m/n/10 P[]$\T1/lmr/m/n/10 , and for $\OML/lmm/m/it/10 k \OT1/lmr/m/n/
-10 = 2\OML/lmm/m/it/10 j$\T1/lmr/m/n/10 , $\OML/lmm/m/it/10 ^^\[] \OT1/lmr/m/n/
-10 = \OMS/lmsy/m/n/10 P[] P[]$\T1/lmr/m/n/10 , $\OML/lmm/m/it/10 ^^\[] \OT1/lmr
-/m/n/10 =
+Underfull \hbox (badness 1205) in paragraph at lines 1422--1441
+\T1/lmr/m/n/10 Lem-mas [][]6.6[][] and [][]5.5[][] and [[], Propo-si-tion 5.1],
+ at $\OML/lmm/m/it/10 b \OT1/lmr/m/n/10 = \OML/lmm/m/it/10 b[]$\T1/lmr/m/n/10 ,
+ $\OML/lmm/m/it/10 ^^\[] \OT1/lmr/m/n/10 = \OMS/lmsy/m/n/10 P[]$\T1/lmr/m/n/10 
+,
  []
 
 
-Underfull \hbox (badness 2409) in paragraph at lines 1422--1441
-\OMS/lmsy/m/n/10 P[] P[]$\T1/lmr/m/n/10 , where $\OMS/lmsy/m/n/10 P[]\OT1/lmr/m
-/n/10 (\OML/lmm/m/it/10 b[]; d\OT1/lmr/m/n/10 ) = [][](\OML/lmm/m/it/10 d \OMS/
-lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 d[]\OT1/lmr/m/n/10 )(\OML/lmm/m/it/10 d \OMS/l
-msy/m/n/10 ^^@ \OML/lmm/m/it/10 d[]\OT1/lmr/m/n/10 )$
+Underfull \hbox (badness 10000) in paragraph at lines 1422--1441
+\OML/lmm/m/it/10 ^^\[] \OT1/lmr/m/n/10 = \OMS/lmsy/m/n/10 P[] P[]$\T1/lmr/m/n/1
+0 , where $\OMS/lmsy/m/n/10 P[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 b[]; d\OT1/lmr
+/m/n/10 ) = [][](\OML/lmm/m/it/10 d \OMS/lmsy/m/n/10 ^^@ \OML/lmm/m/it/10 d[]\O
+T1/lmr/m/n/10 )(\OML/lmm/m/it/10 d \OMS/lmsy/m/n/10 ^^@
  []
 
 
@@ -1504,7 +1504,7 @@ mtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msa
 m10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
 10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7
 .pfb>
-Output written on paper.pdf (42 pages, 791731 bytes).
+Output written on paper.pdf (42 pages, 791751 bytes).
 PDF statistics:
  984 PDF objects out of 1000 (max. 8388607)
  862 compressed objects within 9 object streams
