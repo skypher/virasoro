@@ -150,17 +150,15 @@ formula also gives a finite expansion of the cross-ratio coefficient
 At the minimal-model charges \(b_\star^2=-p'/p\) (\(p,p'\geq2\) coprime) and
 the interior Kac weights \(\lambda=h_{r,s}(b_\star)\), the pole order of
 \(\mathcal B_N\) and of \(H_N\) at \(\Delta=\lambda\) is at most the Jantzen
-depth \(j_N(\lambda)\); depth zero means that there is no pole.  When
-\(j_N(\lambda)\geq1\), the top Jantzen layer gives the leading Laurent
-coefficient, with the same Jantzen norms \(\gamma^\pm_k\) as on the torus.  For
-all \(p,p'\), all interior \(\lambda\) and all \(N\geq1\) the bound is attained
-over the field of rational functions of the external weights, and it holds at
-every specialization of them.  For \(\mathcal B_N\) the proof of attainment
-uses one rational \((2,1)\) BPZ specialization.  For \(H_N\) it uses an
-identity-insertion specialization whose leading coefficient is a Hermite value,
-together with Schur's irreducibility theorems for Hermite polynomials.  The examples include
-\(c=0\) at level five and the first Ising double poles, at levels seven, ten
-and eleven.
+depth \(j_N(\lambda)\).  At positive depth the top Jantzen layer gives the
+leading Laurent coefficient, with the Jantzen norms \(\gamma^\pm_k\) of the
+torus.  For all \(p,p'\), all interior \(\lambda\) and all \(N\geq1\) the
+bound holds at every specialization of the external weights and is attained
+over their rational function field.  The proof of attainment uses a rational
+\((2,1)\) BPZ specialization for \(\mathcal B_N\), and for \(H_N\) an
+identity-insertion specialization with a Hermite leading coefficient and
+Schur's irreducibility theorems.  The examples include \(c=0\) at level five
+and the first Ising double poles, at levels seven, ten and eleven.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -211,23 +209,20 @@ regularized minimal-model limits for special external weights.  We are not
 aware of a finite algebraic formula at all orders for arbitrary fixed
 \(b_\star\in\mathbb C^\times\) and indeterminate external weights.
 
-For the torus one-point block, the companion work~\cite{PolzerTorus2026}
+For the torus one-point block, the companion paper~\cite{PolzerTorus2026}
 showed that at minimal-model charges and interior Kac weights \(\lambda\) the
-Jantzen filtration bounds the pole order by \(j_N(\lambda)\), and that the top
-Jantzen layer gives the leading Laurent coefficient at positive depth.  For an
-indeterminate external weight \(d\) the bound is attained at every
-\(N\geq1\), with the pole order taken over \(\mathbb Q(d)\); at the identity
-insertion \(d=0\) one has \(H_N=0\) for \(N\geq1\).  The sphere four-point
-block has four independent external weights and two standard normalizations,
-\(\mathcal B_N\) and \(H_N\).  We show that the same top-layer structure holds
-for both, and that the bound is attained over the field of rational functions
-in the external weights.
+Jantzen filtration bounds the pole order by \(j_N(\lambda)\), that the top
+layer gives the leading Laurent coefficient at positive depth, and that the
+bound is attained over \(\mathbb Q(d)\) for an indeterminate external weight
+\(d\).  The sphere block has four external weights and two normalizations,
+\(\mathcal B_N\) and \(H_N\).  Section~\ref{sec:jantzen} proves the same
+statements for both (Theorems~\ref{thm:jantzen-bound}, \ref{thm:top-layer},
+\ref{thm:sharp-B} and~\ref{thm:sharp-H}).
 
-Section~\ref{sec:setup} fixes the normalizations.  The coefficient
-\(\mathcal B_N\) carries a polynomial part of degree \(N\) in \(\Delta\),
-whereas \(H_N-\delta_{N,0}\) tends to zero as \(\Delta\to\infty\) and is
-therefore the sum of its principal parts.  Section~\ref{sec:asymp} proves this
-limit (Theorem~\ref{thm:large-delta}) at every
+The coefficient \(\mathcal B_N\) has a polynomial part of degree \(N\) in
+\(\Delta\), while \(H_N-\delta_{N,0}\) tends to zero as \(\Delta\to\infty\) and
+is the sum of its principal parts.  Section~\ref{sec:asymp} proves this limit
+(Theorem~\ref{thm:large-delta}) at every
 \((c,\Delta_1,\dots,\Delta_4)\in\mathbb C^5\).  The computation starts at
 \(c=1+24\mu^2>1\), \(\Delta=\lambda^2+\mu^2\) and real external weights.  There
 the Verma block is a unitary Fock pairing (Lemma~\ref{lem:fock-verma}), and
@@ -245,40 +240,25 @@ under the diagonal \(c=2\) Virasoro action, and from a diffeomorphism that
 diagonalizes the transformed neutral wavefunction
 (Lemma~\ref{lem:central-charge}).  The polynomial extension of
 Lemma~\ref{lem:fock-verma}(iii) then supplies complex parameters.
-
-Section~\ref{sec:confluence} derives the generic Zamolodchikov recursion
-(Proposition~\ref{prop:generic-recursion}) from Theorem~\ref{thm:large-delta}
-and proves the all-order confluent recursion at a fixed \(b_\star\)
-(Theorem~\ref{thm:confluence}).  Every principal-part coefficient of
-\(H_N(c_\star,\Delta,\Delta_i)\) is a collision moment in \(t=b-b_\star\),
-computed from a finite Laurent truncation, and the same recursion gives a
-finite formula for \(\mathcal B_N\).  Section~\ref{sec:jantzen} proves the
-Jantzen bound on pole orders at minimal-model charges
-(Theorem~\ref{thm:jantzen-bound}), the top-layer formula for the leading
-Laurent coefficient of \(\mathcal B_N\) and \(H_N\) at positive depth
-(Theorem~\ref{thm:top-layer}), and its attainment for \(\mathcal B_N\)
-(Theorem~\ref{thm:sharp-B}) and \(H_N\) (Theorem~\ref{thm:sharp-H}) at every
-minimal model, every interior Kac weight and every level \(N\geq1\).  The bound
-holds at every specialization and is attained over the field of rational
-functions in the four external weights.
+Section~\ref{sec:confluence} derives the generic recursion from
+Theorem~\ref{thm:large-delta} and proves the confluence formula
+(Theorem~\ref{thm:confluence}), which also gives \(\mathcal B_N\).
 
 On the torus, attainment needed an \(\ell\)-adic
-argument~\cite{PolzerTorus2026}.  On the sphere, the four external weights
-admit specializations that isolate one branch.  For \(\mathcal B_N\), a single
-rational \((2,1)\) BPZ specialization removes the higher-level branch and
-reduces the hypergeometric factor to \((1-z)^\kappa\), with
+argument~\cite{PolzerTorus2026}.  On the sphere, specializations of the four
+external weights isolate one branch.  For \(\mathcal B_N\), a rational
+\((2,1)\) BPZ specialization removes the higher-level branch and reduces the
+hypergeometric factor to \((1-z)^\kappa\), with
 \(\kappa=(kp-1)p'/(2p)\notin\mathbb Z\).  For \(H_N\), setting
 \((\Delta_1,\Delta_2)=(\mu^{\mathrm{small}}_k,0)\) removes every
 \(\mathcal B_m\) with \(1\leq m\leq M\), and the affine line
 \(\Lambda_3-\Lambda_4=i\alpha\) removes the higher-level branch.  The
-surviving coefficient is a polynomial in \(v=-i(\Lambda_3+\Lambda_4)\) whose
-coefficient of \(v^M\) is \((-1)^M H_M(\alpha)/(16^M M!)\).  It is nonzero by
+surviving coefficient is a polynomial in \(v=-i(\Lambda_3+\Lambda_4)\) with
+\([v^M]\) coefficient \((-1)^M H_M(\alpha)/(16^M M!)\).  It is nonzero by
 elementary bounds for \(M\leq3\) and by Schur's irreducibility
 theorems~\cite{Schur1929,Schur1931} for \(M\geq4\).  Section~\ref{sec:examples}
-works out the formulas at \((p,p')=(2,3)\), where \(c=0\) and the first double
-pole is at level five, in agreement with~\cite{Ribault2019}, and at the Ising
-charge \((3,4)\), where \(c=\tfrac12\) and the first double poles are at
-levels seven, ten and eleven.
+treats \((p,p')=(2,3)\), \(c=0\), whose first double pole is at level five, in
+agreement with~\cite{Ribault2019}, and the Ising charge \((3,4)\).
 
 \section{Definitions and normalizations}\label{sec:setup}
 
