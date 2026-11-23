@@ -249,12 +249,11 @@ Feigin--Fuchs embedding diagram describes the Jantzen filtration
 (Theorem~\ref{thm:jantzen-smith}).  Its dimensions determine the
 multiplicities of the local Smith exponents \(e_j\) of the Shapovalov
 matrix: \(\dim J^i_N=\#\{j:e_j\geq i\}\) (Lemma~\ref{lem:jantzen-smith}).
-Hence the pole order of \(H_N\) at \(\lambda\) is at most the number
-\(j_N(\lambda)\) of layers that have reached level \(N\).
-Theorem~\ref{thm:top-layer} computes the coefficient at this bound.  Let
-\(w^\pm_k\) be the singular vectors of the \(k\)-th layer, at levels
-\(\ell^\pm_k\), and put \(\ell_k=\min(\ell^+_k,\ell^-_k)\).  Then for
-\(\ell_k\leq N<\ell_{k+1}\),
+Thus the pole order of \(H_N\) at \(\lambda\) is at most \(j_N(\lambda)\),
+the number of layers that have reached level \(N\). Let \(w^\pm_k\) be the
+\(k\)-th layer's singular vectors at levels \(\ell^\pm_k\).
+Put \(\ell_k=\min(\ell^+_k,\ell^-_k)\). For \(\ell_k\leq N<\ell_{k+1}\),
+Theorem~\ref{thm:top-layer} gives
 \begin{equation}\label{eq:intro-top}
  \lim_{\Delta\to\lambda}(\Delta-\lambda)^kH_N(c_\star,\Delta,d)
  =\sum_{\pm:\ \ell^\pm_k\leq N}
@@ -326,12 +325,11 @@ Whenever \(G_N\) is invertible, put
 \end{definition}
 
 \begin{definition}[Eta-reduced block]\label{def:eta-reduced}
-Write \(\mathcal F_\Delta^{(c)}(d\mid q)=q^{\Delta-c/24}\sum_{N\geq0}F_N(c,\Delta,d)q^N\)
-and define
-\(H_\Delta^{(c)}(d\mid q)=\phi(q)\sum_{N\geq0}F_N(c,\Delta,d)q^N=\sum_{N\geq0}H_N(c,\Delta,d)q^N\),
-where \(\phi(q)=\prod_{m\geq1}(1-q^m)\).
-With \(\phi(q)=\sum_{j\geq0}\eta_jq^j\) (\(\eta_0=1\),
-\(\eta_1=\eta_2=-1\), \(\eta_3=\eta_4=0\)), one has \(H_N=\sum_{j=0}^N\eta_jF_{N-j}\).
+Set \(\phi(q)=\prod_{m\geq1}(1-q^m)=\sum_{j\geq0}\eta_jq^j\) and write
+\(\mathcal F_\Delta^{(c)}(d\mid q)=q^{\Delta-c/24}\sum_{N\geq0}F_N(c,\Delta,d)q^N\).
+Define \(H_\Delta^{(c)}(d\mid q)=\phi(q)q^{c/24-\Delta}\mathcal F_\Delta^{(c)}(d\mid q)\).
+The coefficient of \(q^N\) in \(H_\Delta^{(c)}\) is \(H_N=\sum_{j=0}^N\eta_jF_{N-j}\),
+with \(\eta_0=1\), \(\eta_1=\eta_2=-1\) and \(\eta_3=\eta_4=0\).
 \end{definition}
 
 \begin{lemma}[Polynomial matrix entries]\label{lem:polynomial-entries}
@@ -983,19 +981,15 @@ algebraic values.  For the remaining \(b\) the weights \(h_{r,s}(b)\) with
 \(rs\leq N\) are pairwise distinct, and no shifted weight
 \(z_{r,s}=h_{r,s}(b)+rs\) is a degenerate weight of level at most \(N\).
 
-Fix such a \(b\), write \(c=c(b)\), and fix a label \(a=(r,s)\) with
-\(rs\leq N\).  By distinctness, \(h_{r,s}(b)\) lies on no other Kac
-divisor of level at most \(N\), so the level-\(N\) Kac determinant has
-valuation exactly \(p(N-rs)\) at \(\Delta=h_{r,s}(b)\).  The
-level-\(N\) image of the injective singular embedding
-\(j_{\chi_{r,s}(b)}\), whose injectivity is the result stated in
-\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011}, is a
-\(p(N-rs)\)-dimensional subspace of the
-kernel of the specialized Gram matrix.  By Lemma~\ref{lem:smith} the
-nullity is at most the valuation, so the kernel is exactly that image,
-and every positive local Smith exponent equals \(1\).  Hence
-Lemma~\ref{lem:top-coefficient}, with \(k=1\), gives the residue of
-\(G_N^{-1}\) as \(\iota(B^1)^{-1}\iota^*\) on this kernel, and by
+Fix such a \(b\), write \(c=c(b)\), and take \(a=(r,s)\) with \(rs\leq N\).
+By distinctness, the Kac determinant has valuation \(p(N-rs)\) at \(\Delta=h_{r,s}(b)\).
+The level-\(N\) image of the singular embedding \(j_{\chi_{r,s}(b)}\) is a
+\(p(N-rs)\)-dimensional subspace of the specialized Gram kernel by
+injectivity~\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011}.
+By Lemma~\ref{lem:smith} the nullity is at most the valuation, so the kernel
+is that image and every positive local Smith exponent equals \(1\).
+With \(k=1\), Lemma~\ref{lem:top-coefficient} gives the inverse Gram residue
+\(\iota(B^1)^{-1}\iota^*\) on this kernel, and by
 Lemmas~\ref{lem:top-coefficient}(iii) and~\ref{lem:singular-crossing},
 \(B^1=\beta_{\chi}\,G_{N-rs}(c,z_{r,s})\) in the basis
 \(L_{-Z}\chi_{r,s}(b)\), where
@@ -1162,7 +1156,9 @@ In particular, for every coprime pair \(p,p'\geq2\) (using the symmetry
 \(p\leftrightarrow p'\) when \(p'\) has no odd prime factor), every \(M\geq1\)
 and every integer momentum \(m\) with
 \(\det G_M(c_\star,\mu)\neq0\), one has \(H_M(c_\star,\mu,d)\not\equiv0\) in
-\(\mathbb Q[d]\).  Moreover, if \(t_0\in\ell^a\mathbb Z_\ell\),
+\(\mathbb Q[d]\).
+
+   For the comparison of two levels: if \(t_0\in\ell^a\mathbb Z_\ell\),
 \(Y_1,Y_2\in\ell^{a+1}\mathbb Z_\ell\), and integers \(M_1,M_2\geq1\),
 \(e\geq0\) satisfy \(v_\ell(M_1-M_2)\geq e\) and \(v_\ell(Y_1-Y_2)\geq e+a\),
 then
@@ -1694,12 +1690,12 @@ At \(c=1/2\) one has \(b_0^2=-4/3\), \((p,p')=(3,4)\), and
 and \(n_0=1,5,-2\), and Theorem~\ref{thm:jantzen-smith} gives the layer
 levels
 \[
-\begin{array}{c|c|c|c|c}
-\lambda&\text{colliding labels}&\ell^+_1,\ \ell^-_1&
- \ell^+_2,\ \ell^-_2&\ell^+_3,\ \ell^-_3\\ \hline
-0&(1,1),(2,3)&1,\ 6&13,\ 11&20,\ 35\\
-\tfrac12&(2,1),(1,3)&2,\ 3&17,\ 7&25,\ 28\\
-\tfrac1{16}&(1,2),(2,2)&2,\ 4&10,\ 14&24,\ 30
+\begin{array}{ccccc}
+\lambda&\text{colliding labels}&(\ell^+_1,\ell^-_1)&
+ (\ell^+_2,\ell^-_2)&(\ell^+_3,\ell^-_3)\\ \hline
+0&(1,1),(2,3)&(1,6)&(13,11)&(20,35)\\
+1/2&(2,1),(1,3)&(2,3)&(17,7)&(25,28)\\
+1/16&(1,2),(2,2)&(2,4)&(10,14)&(24,30)
 \end{array}
 \]
 
@@ -1710,10 +1706,10 @@ simple.  Over \(\mathbb Q(d)\), the first double pole at each interior weight
 Laurent coefficient is
 \(\lim_{\Delta\to\lambda}(\Delta-\lambda)^2H_N(\tfrac12,\Delta,d)=\tau(d)/\gamma\):
 \[
-\begin{array}{c|c|c|c}
+\begin{array}{cclr}
 \lambda&N&\tau(d)&\gamma\\ \hline
-\tfrac12&7&{\mathcal P}_{2,1}{\mathcal P}_{1,5}&-700700\\
-\tfrac1{16}&10&{\mathcal P}_{1,2}{\mathcal P}_{4,2}&-1121229484375/192\\
+1/2&7&{\mathcal P}_{2,1}{\mathcal P}_{1,5}&-700700\\
+1/16&10&{\mathcal P}_{1,2}{\mathcal P}_{4,2}&-1121229484375/192\\
 0&11&{\mathcal P}_{1,1}{\mathcal P}_{2,5}&-2477917160468750/6561
 \end{array}
 \]
