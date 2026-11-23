@@ -14,7 +14,7 @@ namespace Virasoro.Sphere
 open Polynomial
 
 /-- Zamolodchikov's fusion polynomial for the sphere three-point scalar.
-Source: A. B. Zamolodchikov (1987), Section 2; proved in Al. Zamolodchikov (2004), Section 5,
+Source: Al. B. Zamolodchikov (1987), Section 2; proved in Al. Zamolodchikov (2004), Section 5,
 equations (5.9)–(5.12); see also S. Ribault (2019), equation (3.4) (proof of Proposition 4.3,
 sphere/paper.tex l.1276–1281).  For the singular vector `χ_{r,s}(b)` over `ℚ(b)` with
 `L_{-1}^{rs}`-coefficient `1`, `⟨χ_{r,s}(b)|Φ_b(1)|Δ_a⟩ = P_{r,s}(b,Δ_a,Δ_b)`, with sign `+1`. -/
