@@ -1269,16 +1269,14 @@ there.
 
 \begin{proof}
 The first identity is Zamolodchikov's norm formula, the product
-of~\cite[\S3, (17)]{Zamolodchikov1987}.  In~\cite{Zamolodchikov2004}, (6.1)
-defines the derivative of the singular-vector norm with respect to the
-Liouville momentum \(\alpha\) at \(\alpha_{r,s}\), with labels \((m,n)=(s,r)\),
-and (7.5) gives it as a product.  Dividing by
-\(d\Delta/d\alpha|_{\alpha_{r,s}}=rb+s/b\) removes the top lattice factor
-\((rb+s/b)\) and gives \(\beta_{\chi_{r,s}(b)}=\mathcal A_{r,s}(b)^{-1}\).
-The formula after (7) in~\cite[\S3]{HadaszJaskolskiSuchanek2010} gives
-\(\mathcal A_{r,s}\) directly as the reciprocal \(\Delta\)-derivative of the norm;
-the first identity of~\cite[Proposition~6.2]{PolzerTorus2026} is the same
-normalized product at generic charge.  The second identity is Zamolodchikov's
+of~\cite[\S3, (17)]{Zamolodchikov1987}.  It also follows from the
+\(\alpha\)-derivative of the singular-vector norm defined in~\cite[(6.1)]{Zamolodchikov2004}
+and evaluated in~\cite[(7.5)]{Zamolodchikov2004}: with \((m,n)=(s,r)\), changing
+from \(\alpha\) to \(\Delta\) divides by \(d\Delta/d\alpha|_{\alpha_{r,s}}=rb+s/b\) and
+gives \(\beta_{\chi_{r,s}(b)}=\mathcal A_{r,s}(b)^{-1}\).  The formula after (7)
+in~\cite[\S3]{HadaszJaskolskiSuchanek2010} gives \(\mathcal A_{r,s}\) directly as
+the reciprocal \(\Delta\)-derivative of the norm, as
+in~\cite[Proposition~6.2]{PolzerTorus2026}.  The second identity is Zamolodchikov's
 fusion polynomial~\cite[\S3, (17)]{Zamolodchikov1987}, proved directly
 in~\cite[\S5, eqs.~(5.9)--(5.12)]{Zamolodchikov2004}.  Its sign in our convention is \(+1\),
 because the leading coefficient in \(\Delta_b-\Delta_a\) of both sides is
@@ -1317,15 +1315,14 @@ Proposition~\ref{prop:imported},
  =\mathcal R^{\mathrm{sph}}_a(b,\Delta_i)\,\mathcal B_{m-\ell_a}(c,h_a+\ell_a,\Delta_i)
  \qquad(\ell_a\leq m\leq N).
 \]
-The prefactor
-\(\widetilde\Phi(c,\Delta,\Delta_i;q)\) is regular in \(\Delta\), and
+The prefactor \(\widetilde\Phi(c,\Delta,\Delta_i;q)\) is regular in \(\Delta\) and
+satisfies
 \[
  \frac{\widetilde\Phi(c,h_a+\ell_a,\Delta_i;q)}{\widetilde\Phi(c,h_a,\Delta_i;q)}
  =\Bigl(\frac{16q}{z(q)}\Bigr)^{\ell_a},
 \]
-which combines with \(z(q)^{\ell_a}\) to give \((16q)^{\ell_a}\).  Dividing by
-\(\widetilde\Phi\) therefore gives
-\(\Res_{\Delta=h_a}H_N=\mathcal R^{\mathrm{sph}}_a(b,\Delta_i)H_{N-\ell_a}(c,h_a+\ell_a,\Delta_i)\),
+so multiplying by \(z(q)^{\ell_a}\) gives \((16q)^{\ell_a}\), and the residue above
+gives \(\Res_{\Delta=h_a}H_N=\mathcal R^{\mathrm{sph}}_a(b,\Delta_i)H_{N-\ell_a}(c,h_a+\ell_a,\Delta_i)\),
 and all poles of \(H_N\) are simple and lie at \(\{h_a(b):\ell_a\leq N\}\).
 By Theorem~\ref{thm:large-delta} the polynomial part of \(H_N\) vanishes,
 which gives~\eqref{eq:generic-rec}.
@@ -1435,12 +1432,10 @@ partial fractions at the distinct \(\lambda\in\Lambda_N(b_\star)\) forces
 \(K_\star[[t]]\).  Taking \(t=0\) now
 gives~\eqref{eq:confluence-H} with
 \(\widetilde A^\star_{\lambda,k,N}=C_{\lambda,k}(0)\).  By the proof of
-Lemma~\ref{lem:fock-verma}(iii), \(H_N(c_\star,\Delta,\Delta_i)\) is a
-polynomial in \((\Delta,\Delta_i)\) over \(\mathbb Q(b_\star)\) divided by
-\(\det G_N(c_\star,\Delta)\), which does not depend on the external weights.
-Hence its principal-part coefficients \(\widetilde A^\star_{\lambda,k,N}\) lie
-in \(\mathbb Q(b_\star)[\Delta_1,\dots,\Delta_4]\).  Part~(iii)
-follows from~\eqref{eq:B-from-H}.
+Lemma~\ref{lem:fock-verma}(iii), the denominator \(\det G_N(c_\star,\Delta)\) of
+\(H_N\) does not depend on the external weights, so every principal-part
+coefficient is polynomial in them over \(\mathbb Q(b_\star)\).
+Equation~\eqref{eq:B-from-H} gives part~(iii).
 \end{proof}
 
 \begin{remark}[Computing in \(\nu=b^2\)]\label{rem:nu-parameter}
@@ -1460,8 +1455,9 @@ If \(b_\star^2\in\mathbb Q\), computing in \(u\) takes place over
 
 \section{Minimal-model pole orders, top Jantzen layer, and sharpness}\label{sec:jantzen}
 
-Let \(p,p'\geq2\) be coprime integers.  By the \(b\leftrightarrow b^{-1}\)
-symmetry of \(c(b)\) we may assume \(p'>p\), and we set
+Let \(p,p'\geq2\) be coprime integers.  Exchanging \(p\) with \(p'\) and \(r\)
+with \(s\) leaves the charge and the Kac weight unchanged, so we take
+\(p'>p\) and set
 \[
  b_\star=i\sqrt{\frac{p'}{p}},\qquad
  c_\star=1-\frac{6(p'-p)^2}{pp'},\qquad
@@ -1550,16 +1546,15 @@ and~\cite[Proposition~5.1]{IoharaKoga2011} bounds each singular space by one
 dimension; see also~\cite[Theorem~3.1]{Astashkevich1997}.
 
 For odd \(k=2j+1\), \(h_{R^\pm_k,S^\pm_k}(b_\star)=\lambda\) and
-\(R^\pm_kS^\pm_k=\ell^\pm_k\), so \(w^\pm_k=\chi_{R^\pm_k,S^\pm_k}(b_\star)\);
-this proves (i).
+\(R^\pm_kS^\pm_k=\ell^\pm_k\), so \(w^\pm_k=\chi_{R^\pm_k,S^\pm_k}(b_\star)\).
 
 For even \(k=2j\), \(R^\pm_k,S^\pm_k\geq1\),
 \(h_{R^\pm_k,S^\pm_k}(b_\star)=\mu^+_1=\lambda+rs\) and
-\(R^\pm_kS^\pm_k=\ell^\pm_k-rs\).  Pushing \(\chi_{R^\pm_k,S^\pm_k}(b_\star)\)
-forward along the injective Verma embedding
+\(R^\pm_kS^\pm_k=\ell^\pm_k-rs\).  The injective Verma map
 \(M(c_\star,\mu^+_1)\hookrightarrow M(c_\star,\lambda)\),
-\(v_{\mu^+_1}\mapsto\chi_{r,s}(b_\star)\), gives \(w^\pm_k\), and
-Lemma~\ref{lem:3pt-factor} proves (ii).
+\(v_{\mu^+_1}\mapsto\chi_{r,s}(b_\star)\), takes
+\(\chi_{R^\pm_k,S^\pm_k}(b_\star)\) to \(w^\pm_k\); apply
+Lemma~\ref{lem:3pt-factor} to this image.
 
 For (iii), \(b_\star=ip'/\sqrt{pp'}\) and \(b_\star^{-1}=-ip/\sqrt{pp'}\), so
 the roots of \(P_{R,S}(b_\star,\Delta_a,\Delta_b)\) are
@@ -1610,20 +1605,16 @@ Lemma~\ref{lem:3pt-factor} gives~\eqref{eq:top-B} at every such level
 \(N'\).
 
 For~\eqref{eq:top-H}, apply~\eqref{eq:H-def} at \(\Delta=\lambda+x\).  The
-prefactor is regular at \(x=0\):
-\(\widetilde\Phi(c_\star,\lambda+x,\Delta_i;q)^{-1}
-=\widetilde\Phi(c_\star,\lambda,\Delta_i;q)^{-1}+O(x)\).
-For \(m<\ell_{k+1}\) the coefficient \(\mathcal B_m\) has pole order at most
-\(k\) at \(\Delta=\lambda\), so the \(O(x)\) term of the prefactor contributes
-nothing to \([x^{-k}]\).  For \(m<\ell_k\) the pole order is below \(k\), and
-\(\mathcal B_m\) does not contribute to \([x^{-k}]\) at all.  The
-prefactors at \(\lambda\) and at \(\mu^\pm_k\) are related by
+reciprocal prefactor is regular at \(x=0\).  Since \(\mathcal B_m\) has pole
+order at most \(k\) for \(m<\ell_{k+1}\), only the constant term of the
+prefactor contributes to \([x^{-k}]\), and levels \(m<\ell_k\) contribute zero.
+The prefactors at \(\lambda\) and at \(\mu^\pm_k\) are related by
 \[
  \widetilde\Phi(c_\star,\lambda,\Delta_i;q)^{-1}z(q)^{\ell^\pm_k}
  =(16q)^{\ell^\pm_k}\widetilde\Phi(c_\star,\mu^\pm_k,\Delta_i;q)^{-1}.
 \]
-Extracting \([x^{-k}]\) modulo \(q^{\ell_{k+1}}\) and
-using~\eqref{eq:top-B} at each level of the layer gives
+Extracting \([x^{-k}]\) and using~\eqref{eq:top-B} at each level of the layer
+gives
 \begin{multline*}
  \sum_{N'=\ell_k}^{\ell_{k+1}-1}[x^{-k}]H_{N'}(16q)^{N'}\\
  \equiv\sum_{\pm}\frac{\pi^\pm_k(\Delta_4,\Delta_3)\pi^\pm_k(\Delta_1,\Delta_2)}{\gamma^\pm_k}
@@ -1657,8 +1648,7 @@ By Theorem~\ref{thm:top-layer}, \(\det G_m(c_\star,\mu)\neq0\) for
  \tilde a_3=-(kpp'-p),\quad
  \tilde a_4=-\frac{m^{\mathrm{small}}_k-m^{\mathrm{big}}_k+2p'}{2}.
 \]
-Setting \(a_3:=-\tilde a_3\) and \(a_4:=-\tilde a_4\), we have
-\(a_3-a_4=m^{\mathrm{big}}_k-p'-p\) and \(a_3+a_4=m^{\mathrm{small}}_k+p'-p\).
+Put \(a_3:=-\tilde a_3\) and \(a_4:=-\tilde a_4\).
 
 \emph{(a) Vanishing of the higher branch.}  Since
 \(a_4-a_3=-(m^{\mathrm{big}}_k-p'-p)\), Lemma~\ref{lem:pi-factorization}(iii)
@@ -1712,13 +1702,12 @@ At our specialization \(\Delta_2=h_{2,1}(b_\star)\),
   \(m^{\mathrm{small}}_k=up-p'\), so
   \(\Lambda_\mu=-(b_\star+ub_\star^{-1})\) and \(\mu=h_{1,u}(b_\star)\),
   forcing \(\det G_M(c_\star,\mu)=0\), contradicting
-  Theorem~\ref{thm:top-layer}.  Hence \((C)_M\neq0\).  For
-  \(0\leq m\leq M\) both sides of the identity for \(\mathcal B_m\) are
-  therefore regular at the specialization: the left side because
-  \(\det G_m(c_\star,\mu)\neq0\), the right side because \((C)_m\neq0\).
-\item \(B=\frac12(1-\frac{p'+m^{\mathrm{small}}_k}{p}+\frac{m^{\mathrm{small}}_k+p'-p}{p})=0\).
-  The hypergeometric series \({}_2F_1(A,0;C;z)\) equals \(1\) through degree
-  \(M\).
+  Theorem~\ref{thm:top-layer}.  Both sides of the identity for \(\mathcal B_m\)
+  specialize through degree \(M\), since \(\det G_m(c_\star,\mu)\neq0\) and
+  \((C)_m\neq0\) for \(m\leq M\).
+\item Substitution gives
+  \(B=\frac12(1-\frac{p'+m^{\mathrm{small}}_k}{p}+\frac{m^{\mathrm{small}}_k+p'-p}{p})=0\),
+  so the hypergeometric factor is \(1\) through degree \(M\).
 \item \(\kappa=\frac12(1-\frac{p'}{p}+\frac{kpp'-p}{p})=\frac{(kp-1)p'}{2p}\).
   Since \(\gcd(p,(kp-1)p')=1\) and \(p\geq2\), \(\kappa\notin\mathbb Z\).
 \end{enumerate}
@@ -1861,7 +1850,7 @@ where Theorem~\ref{thm:top-layer} gives
  &=\frac{P_{1,1}(b_\star,\Delta_4,\Delta_3)\,P_{1,4}(b_\star,\Delta_4,\Delta_3)\,
          P_{1,1}(b_\star,\Delta_1,\Delta_2)\,P_{1,4}(b_\star,\Delta_1,\Delta_2)}{\gamma_5}
 \end{align*}
-with the second Jantzen norm \(\gamma_5=-11200/3\) at level five.  For \(H_5\)
+with the second Jantzen norm \(\gamma_5=-11200/3\).  For \(H_5\)
 this agrees with~\cite[\S3.2, eq.~(3.24)]{Ribault2019}
 under \(b=i\beta\) and \(P_j=i\Lambda_j/2\), after the swap
 \(\Delta_3\leftrightarrow\Delta_4\) of the right pair, which multiplies
@@ -1886,8 +1875,7 @@ with coefficient \(\pi(\Delta_4,\Delta_3)\,\pi(\Delta_1,\Delta_2)/\gamma\) of
   0 & 11 & P_{1,1}(b_\star,\Delta_a,\Delta_b)\,P_{2,5}(b_\star,\Delta_a,\Delta_b) & -2477917160468750/6561
  \end{array}
 \]
-These norms depend only on the Verma module, and
-\cite[Proposition~8.1]{PolzerTorus2026} gives the same values.
+The second Jantzen norms are those in~\cite[Proposition~8.1]{PolzerTorus2026}.
 \end{proposition}
 
 \begin{proof}[Proof of Propositions~\ref{prop:c0-example} and~\ref{prop:ising-example}]
@@ -1897,10 +1885,10 @@ Theorem~\ref{thm:top-layer} has the single term \(M=0\), where
 \(\pi\), and the norm is
 \(\gamma=B^2(w^{\mathrm{small}}_2,w^{\mathrm{small}}_2)\).
 
-For \((2,3)\), \(\lambda=0\), the norm \(\gamma_5\) follows from two
-coefficients of the torus matrix element
-\(\tau^-_2(d)=\langle w^-_2|V_d(1)|w^-_2\rangle\), where \(V_d\) is the torus
-insertion, a primary field of weight \(d\).  By the proof
+For \((p,p')=(2,3)\) and \(\lambda=0\), compute \(\gamma_5\) from the \(d^2\)
+coefficients of \(\tau^-_2\) and of \(\tau^-_2/\gamma_5\), where
+\(\tau^-_2(d)=\langle w^-_2|V_d(1)|w^-_2\rangle\) is the torus matrix element and
+\(V_d\) is the torus insertion, a primary field of weight \(d\).  By the proof
 of~\cite[Proposition~6.9]{PolzerTorus2026},
 \(\tau^-_2(d)=\mathcal P_{1,1}(b_\star,d)\,\mathcal P_{1,4}(b_\star,d)\) in
 the notation there, with roots \(d_x=(x^2-1)/24\) for \(x=1,5\) and for
