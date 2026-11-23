@@ -146,17 +146,18 @@ finite Laurent sum in \(b-b_\star\), with a bound on the precision needed.
 
 At interior minimal-model weights, the Feigin--Fuchs diagram gives the
 Jantzen filtration, whose dimensions determine the local Smith exponents
-of the Shapovalov matrix. The deepest layer bounds the pole order, and at
-positive depth its coefficient is a sum of shifted blocks weighted by
-ratios of torus and Jantzen norms. The bound is attained over \(\mathbb Q(d)\)
+of the Shapovalov matrix. The Jantzen depth bounds the pole order. At
+positive depth the top layer gives the coefficient at that order as a sum
+of shifted blocks weighted by ratios of torus and Jantzen norms. The bound is attained over \(\mathbb Q(d)\)
 at every interior weight and level \(N\geq1\), by an \(\ell\)-adic argument at
 \(d=h_{1,\pm3}(b)\) where the recursion reduces to labels \((u,1)\). The first
 Ising double poles at the energy, spin and identity weights occur at levels
 seven, ten and eleven, respectively.
 
 At an interior weight \(\lambda\), the normalized pairing descends to the
-irreducible module exactly when \(d\) lies in the minimal-model fusion set; the Verma coefficients are
-regular at \(\lambda\) at all levels exactly on a larger reflected set. For fusion
+irreducible module exactly when \(d\) lies in the minimal-model fusion set.
+The Verma coefficients are regular at \(\lambda\) at all levels exactly
+when \(d\) lies in the larger reflected set. For fusion
 insertions a generalized Rocha--Caridi identity expresses the irreducible trace as an
 alternating sum over the braided diagram, with explicit nonzero rational
 weights given by products of first-layer Jantzen vertex ratios, each a
@@ -249,10 +250,9 @@ At \(d=h_{1,\pm3}(b)\) the generic recursion reduces to labels \((u,1)\).
 Feigin--Fuchs factorization gives integrality of the cleared block polynomials
 and polynomial dependence of their normalized Taylor coefficients on the
 level (Proposition~\ref{prop:h13-nonvanishing}). The top-layer Taylor
-coefficients at \(d=0\) (Proposition~\ref{prop:layer-coefficients}) feed
-the odd-prime valuation and ratio comparison when both shifted levels
-are positive
-(Proposition~\ref{prop:two-term-criteria}). Corollary~\ref{cor:top-layer-sharp}
+coefficients at \(d=0\) (Proposition~\ref{prop:layer-coefficients}) give the
+norm ratios for the odd-prime valuation and ratio comparison when both
+shifted levels are positive (Proposition~\ref{prop:two-term-criteria}). Corollary~\ref{cor:top-layer-sharp}
 treats the remaining levels. The result is sharp over \(\mathbb Q(d)\) for
 every interior weight and \(N\geq1\); for example, at \(d=0\) it can drop
 because \(H_N=0\) for \(N>0\). Proposition~\ref{prop:ising-double-poles}
@@ -3106,15 +3106,15 @@ intrinsic formulas for the lower Laurent coefficients are not given here.
 
 \section*{AI-use disclosure}
 
-AI systems had a substantial role in developing and checking the proofs,
-writing the exact verification scripts, and drafting and revising the
-manuscript.  The author directed the research and takes responsibility for all
-mathematical claims, citations, computations and wording.
+AI systems contributed substantially to developing and checking the
+proofs, writing the verification scripts, and drafting and revising the
+manuscript. The author directed the research and takes responsibility
+for all mathematical claims, citations, computations and wording.
 
 \section*{Code availability}
 
-The source package is at \href{https://github.com/skypher/virasoro}%
-{github.com/skypher/virasoro}.  The proofs use no computer calculation.  The
+The repository \href{https://github.com/skypher/virasoro}%
+{github.com/skypher/virasoro} contains the source and audit scripts.  The proofs use no computer calculation.  The
 ancillary scripts (thirteen audit scripts and two shared libraries for
 Sections~\ref{sec:blocks}--\ref{sec:ising},
 \path{irreducible/tools/audit_irreducible_torus.py} for

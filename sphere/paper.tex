@@ -126,10 +126,9 @@ for sphere four-point Virasoro blocks}
 
 \begin{abstract}
 We give a self-contained algebraic proof of Zamolodchikov's
-large-internal-weight limit for the sphere four-point Virasoro block: at
-every fixed \(N\geq0\), the coefficient \(H_N\) of the elliptic \(H\)-series
-tends to \(\delta_{N,0}\) as \(\Delta\to\infty\), for all complex central
-charges and external weights. The proof uses
+large-internal-weight limit for the sphere four-point Virasoro block.
+For every fixed \(N\geq0\) and all complex central charges and external weights, the elliptic
+coefficient \(H_N\) tends to \(\delta_{N,0}\) as \(\Delta\to\infty\). The proof uses
 Feigin--Fuchs oscillators, a half-pillow Wiener--Hopf saddle point and a Bergman-kernel
 determinant. A decomposition of two \(c=1\) Fock modules under the diagonal
 Virasoro action gives the central-charge exponent.
@@ -141,8 +140,8 @@ also gives a finite expansion of the cross-ratio coefficient \(\mathcal B_N\).
 
 At an interior minimal-model weight \(\lambda\), both coefficients have
 pole order at most the Jantzen depth \(j_N(\lambda)\) for all external
-weights. The top layer gives the coefficient at positive depth with the
-same Jantzen norms as on the torus. The bound is attained over the external
+weights. At positive depth the top layer gives the coefficient at that
+order, using the same Jantzen norms as in the torus block. The bound is attained over the external
 weight function field at every level \(N\geq1\). A BPZ specialization proves
 sharpness for \(\mathcal B_N\); an identity insertion and Schur's Hermite
 irreducibility results prove it for \(H_N\). Examples include \(c=0\) at level
@@ -175,10 +174,10 @@ and set aside the determinant and Jacobian prefactors
 \cite[\S4.3, (4.23)--(4.25)]{BeskenDattaKraus2019}.
 Artemev and Khromov obtain large-intermediate-dimension asymptotics of
 classical comb-channel blocks by WKB for the classical BPZ
-equation~\cite{ArtemevKhromov2026}.  Ghosal, R\'emy, Sun and Sun prove
-cross-ratio analyticity for \(|z|<1\) and
-internal-weight meromorphy for \(c>25\) and a range of external
-momenta~\cite[Theorem~1.2]{GhosalRemySunSun2022}, without the
+equation~\cite{ArtemevKhromov2026}.  Ghosal, R\'emy, Sun and Sun prove that the normalized sphere block is
+analytic in \(z\) for \(|z|<1\) and meromorphic in \(\Delta\), for
+\(c>25\) and their stated range of external momenta
+\cite[Theorem~1.2]{GhosalRemySunSun2022}. Their theorem gives no
 large-\(\Delta\) limit.
 
 At rational \(b_\star^2\), Kac weights can coincide and the generic residues
@@ -186,12 +185,12 @@ can have poles. Javerzat, Santachiara and Foda regularize minimal-model
 examples~\cite[\S\S3.4--3.6, (32)--(34)]{JaverzatSantachiaraFoda2018}.
 Ribault finds cancellations and a double pole for generic external momenta
 and then treats degenerate representations~\cite[\S\S3.2--3.3]{Ribault2019}.
-Theorem~\ref{thm:confluence} gives, to our knowledge for the first time, a
-finite formula at every fixed \(b_\star\ne0\) for both \(H_N\) and
-\(\mathcal B_N\) with indeterminate external weights.
+We know of no prior finite all-order formula for every fixed
+\(b_\star\ne0\) with indeterminate external weights.
+Theorem~\ref{thm:confluence} gives such a formula for \(H_N\) and \(\mathcal B_N\).
 
 The torus companion proves the Jantzen bound, its top coefficient and
-sharpness over \(\mathbb Q(d)\) for \(N\geq1\); at \(d=0\), \(H_N=0\)
+sharpness over \(\mathbb Q(d)\) for \(N\geq1\). At \(d=0\), \(H_N=0\) for \(N\geq1\)
 \cite[Theorems~5.8--5.9 and Corollary~5.10]{PolzerTorus2026}.
 For the sphere see Theorems~\ref{thm:jantzen-bound}, \ref{thm:top-layer},
 \ref{thm:sharp-B} and~\ref{thm:sharp-H}. The polynomial part of \(\mathcal B_N\)
@@ -1884,24 +1883,25 @@ in~\cite[Sections~9--14]{PolzerTorus2026}.
 
 \section*{AI-use disclosure}
 
-AI systems had a substantial role in developing and checking the proofs,
-writing the exact verification scripts, and drafting and revising the
-manuscript.  The
-author directed the research and takes responsibility for all mathematical
-claims, citations, computations and wording.
+AI systems contributed substantially to developing and checking the
+proofs, writing the verification scripts, and drafting and revising the
+manuscript. The author directed the research and takes responsibility
+for all mathematical claims, citations, computations and wording.
 
 \section*{Code availability}
 
 The repository \href{https://github.com/skypher/virasoro}{github.com/skypher/virasoro}
-has exact rational and symbolic checks in \texttt{sphere/tools/}, which the
-proofs do not use: low-order asymptotics, and confluence through level seven
-for \((2,3),(2,5),(3,4)\) and through level three at \(b_\star^2=\sqrt2\).
+contains exact rational and symbolic checks in \texttt{sphere/tools/}.
+The proofs use no computer calculation. The checks cover low-order
+asymptotics and confluence through level seven for \((2,3),(2,5),(3,4)\)
+and level three at \(b_\star^2=\sqrt2\).
 \texttt{exact\_\allowbreak sphere\_\allowbreak block.py} reconstructs selected blocks through
-level seven and checks the \(c=0\) level-five coefficient~\cite[eq.~(3.24)]{Ribault2019} and the Ising coefficient given by
-\(\gamma=-700700\), which \texttt{audit\_\allowbreak sphere\_\allowbreak top\_\allowbreak layer.py}
-extracts; the latter also checks the sharpness witnesses through shifted
-degree four.  The level-ten and level-eleven Ising norms are checked only by
-the torus script.
+level seven and checks the \(c=0\) level-five coefficient~\cite[eq.~(3.24)]{Ribault2019}
+and the Ising coefficient with \(\gamma=-700700\).
+\texttt{audit\_\allowbreak sphere\_\allowbreak top\_\allowbreak layer.py}
+extracts that norm and checks selected sharpness witnesses through shifted
+degree four. The companion torus audit checks the Ising norms at levels
+ten and eleven from the layer formula.
 
 {\small
 \begin{thebibliography}{GRSS22}
