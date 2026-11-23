@@ -212,9 +212,8 @@ all-order Laurent-expansion procedure; the coefficients reconstructed from
 his expressions agree with \(H_2\) and \(H_3\) identically and with \(H_4\) at
 sample values.  Ribault identifies a recursion at rational \(b^2\) as an open
 problem, with torus one-point blocks as its simplest case
-\cite[Section~4.3.3]{Ribault2026}; higher-order internal-weight poles and
-rational limits of sphere four-point blocks are analyzed
-in~\cite[Section~3]{Ribault2019}.
+\cite[Section~4.3.3]{Ribault2026}, and~\cite[Section~3]{Ribault2019} analyzes
+higher-order poles and rational limits of sphere four-point blocks.
 
 Theorem~\ref{thm:general-confluence} is an all-order coefficientwise formula
 for the meromorphic Verma-module block at every fixed nonzero \(b_\star\).
@@ -242,8 +241,7 @@ constant term in \(t\), and \(\widehat M^\star_{\lambda,N}\) an a priori pole
 bound.  The formula uses finite jets of explicit rational functions of
 \(b\), and uniqueness of partial fractions identifies the moments with the
 coefficients of the inverse-Shapovalov block.  The constant term gives the
-block at \(c_\star\) from generic summands.  A recursion intrinsic to the
-specialized representation category is not given here.
+block at \(c_\star\) from generic summands.
 
 At a minimal-model charge and an interior Kac weight \(\lambda\), the
 Feigin--Fuchs embedding diagram describes the Jantzen filtration
@@ -266,9 +264,6 @@ Theorem~\ref{thm:top-layer} computes the coefficient at this bound.  Let
 where \(\gamma^\pm_k\neq0\) is the \(k\)-th Jantzen norm of \(w^\pm_k\); we write \(\tau^\pm_k(d)=\langle w^\pm_k|V_d(1)|w^\pm_k\rangle\).
 This is a fixed-\(c\) analogue of Zamolodchikov's residue formula for the
 deepest pole.  Every quantity in it is defined by the specialized module.
-The torus norm \(\langle w|V_d(1)|w\rangle\) of a singular vector
-of level \(\ell\) has exact degree \(2\ell\) in \(d\)
-(Lemma~\ref{lem:singular-degree}).
 
 The sharpness proof specializes to \(d_1=h_{1,3}(b)\) and
 \(d_2=h_{1,-3}(b)\).  At these weights the generic recursion collapses to
@@ -307,12 +302,9 @@ alternating sum of Verma torus blocks over the braided embedding diagram.
 Its weights are explicit nonzero rational numbers, products of first-layer
 Jantzen vertex ratios, and Theorem~\ref{thm:first-layer-ratio} evaluates
 these ratios as ratios of Gamma potentials.  Substituting
-Theorem~\ref{thm:general-confluence} for each Verma block gives every
-coefficient of the irreducible trace exactly.
+Theorem~\ref{thm:general-confluence} for each Verma block gives each trace
+coefficient.
 
-Sections~\ref{sec:blocks}--\ref{sec:ising} treat Verma blocks, and
-Sections~\ref{sec:irr-results}--\ref{sec:examples} treat irreducible
-traces.
 
 \section{Blocks and the reduced series}\label{sec:blocks}
 
@@ -625,8 +617,7 @@ depend on the family of \(u\), by symmetry neither on that of \(v\), and it
 is symmetric.  The proof of Lemma~\ref{lem:jantzen-smith} shows that
 \(L_{-n}u(x)\) and \(L_nv(x)\), computed in \(M(c,h+x)\), are families for
 \(L_{-n}u\) and \(L_nv\).  Contravariance of the Shapovalov form of
-\(M(c,h+x)\) and extraction of the coefficient of \(x^i\) give the last
-identity.
+\(M(c,h+x)\), at order \(x^i\), gives the last identity.
 
 (ii) With \(UG_NV=\operatorname{diag}(x^{e_1},\ldots,x^{e_{p(N)}})\) as in
 Lemma~\ref{lem:smith}, \(G_N^{-1}=V\operatorname{diag}(x^{-e_j})U\), so
@@ -923,8 +914,8 @@ and \(\Lambda^2=(b+b^{-1})^2-4d\), define
 and \({\mathcal R}_{r,s}(b,d)={\mathcal A}_{r,s}(b){\mathcal P}_{r,s}(b,d)\),
 where
 \({\mathcal A}_{r,s}(b)=\frac12\prod_{(p,q)\in[1-r,r]\times[1-s,s]\setminus\{(0,0),(r,s)\}}(pb+qb^{-1})^{-1}\).
-For generic \(b\), \({\mathcal R}_{r,s}\) is the residue coefficient in the
-eta-reduced torus recursion (Proposition~\ref{prop:generic-recursion}).
+For generic \(b\), \({\mathcal R}_{r,s}\) is the residue coefficient of the
+recursion of Proposition~\ref{prop:generic-recursion}.
 \end{definition}
 
 \begin{proposition}[Crossing scalar and torus norm of singular vectors]
@@ -1604,8 +1595,7 @@ Define the shifted Laurent blocks recursively by \(S_{a,0}(t)=1\) and, for
 \]
 Every denominator is a nonzero rational function of \(b\) by
 Lemma~\ref{lem:no-generic-shifted-pole}, so each summand has a well-defined
-Laurent expansion, and the recursion terminates because its second index
-strictly decreases.
+Laurent expansion, and the recursion terminates since the level decreases.
 \end{definition}
 
 \begin{lemma}[A priori shifted valuation bound]
@@ -2011,9 +2001,8 @@ the first two graded pieces of its \(\tau\)-Jantzen filtration give a two-term
 identity relating \(\mathcal{T}^{\mathrm{irr}}(\mu)\),
 \(\mathcal{T}^{\mathrm{irr}}(\nu_2)\), \(\mathcal{F}^{\mathrm{Verma}}(\mu)\) and
 \(\mathcal{F}^{\mathrm{Verma}}(\nu_1)\).  The identity telescopes along the BGG
-chain to \eqref{eq:gen-rocha-caridi}.  Section~\ref{sec:telescoping} supplies
-the exact length two, the freeness over \(\mathbb C[[\tau]]\) and the
-depth-one calculation.
+chain to \eqref{eq:gen-rocha-caridi}.  Section~\ref{sec:telescoping} proves
+the length two, the freeness over \(\mathbb C[[\tau]]\) and the depth one.
 
 \section{Two-weight Ward identities and braided orbits}\label{sec:setup}
 
@@ -2734,7 +2723,7 @@ where the four bijections are \((a,b')=((R+1+p')/2,(S+1+q')/2)\),
 with the unique omitted factor at \((a,b')=(-k,-m)\) in the second line.  The
 four quadrants partition \([1-R,R]\times[1-S,S]\setminus\{(-k,-m)\}\), and the
 total sign \((-1)^{2RS-1}\) and power of \(2b\) are independent of \((k,m)\).
-Dividing by the \(k=m=0\) case therefore gives \eqref{eq:box-formula}.
+Dividing by the case \(k=m=0\) gives \eqref{eq:box-formula}.
 
 For the Gamma factorization \eqref{eq:gamma-potential}, cancel the common
 intersection between the two boxes in \eqref{eq:box-formula} in two steps:
@@ -3190,10 +3179,6 @@ truncated recursion for \(H_N(c_\star,\mu,d_\star)\) is nonzero at
 
 \section{Minimal-model examples for the irreducible traces}\label{sec:examples}
 
-All data in this section are reproduced in exact rational and symbolic
-arithmetic by the script \texttt{audit\_irreducible\_torus.py} in
-\texttt{irreducible/tools/}.
-
 \subsection{Ising model \texorpdfstring{\((3,4)\), \(\lambda=1/16\), \(d=1/2\)}{(3,4), lambda=1/16, d=1/2}}
 
 Here \(c_\star=1/2\), \(t_\star=-4/3\), \((r,s)=(1,2)\), and
@@ -3249,9 +3234,9 @@ denominator.  The first coefficients are
 \]
 The reflected weight
 \(d=h_{1,-3}(b_\star)=14/5\in\mathcal{F}^\pm_{2,5}(1,2)\setminus\mathcal{F}_{2,5}(1,2)\)
-shows that the inclusion in Theorem~\ref{thm:descent-regularity} is strict.
-At this weight every \(F_N(-22/5,\Delta,14/5)\) is regular at
-\(\Delta=-1/5\), although the level-\(2\) vertex form
+shows that the inclusion in Theorem~\ref{thm:descent-regularity} is strict:
+every \(F_N(-22/5,\Delta,14/5)\) is regular at \(\Delta=-1/5\), while the
+level-\(2\) vertex form
 \(\rho_2(-22/5,-1/5,14/5)\) does not descend to \(L_2(-22/5,-1/5)\).
 
 \subsection{Tricritical Ising model \texorpdfstring{\((4,5)\), \(\lambda=3/80\)}{(4,5), lambda=3/80}, two-index fusion}
@@ -3271,24 +3256,18 @@ in \(\mathbb{Q}\) for \(0\leq N\leq 7\).
 
 \subsection{Computer checks}
 
-The standalone script \texttt{irreducible/tools/audit\_irreducible\_torus.py}
+The script \texttt{irreducible/tools/audit\_irreducible\_torus.py} reproduces
+all data of this section in exact rational and symbolic arithmetic, and also
 checks the following finite cases.
 \begin{enumerate}
  \item Theorem~\ref{thm:descent-regularity} at allowed, forbidden and both
-   types of half-fusion weights.  One half-fusion case is \((p,p')=(3,5)\),
-   \((r,s)=(1,3)\), \(d=h_{1,5}=8/5\): there \(P_{1,3}(d)=0\) gives
-   \(\ord_xF_3=0\), while \(P_{2,2}(d)\neq0\) produces \(\ord_xF_4=-1\).
+   types of half-fusion weights; for instance, at \((p,p')=(3,5)\),
+   \((r,s)=(1,3)\), \(d=h_{1,5}=8/5\), \(P_{1,3}(d)=0\) gives \(\ord_xF_3=0\)
+   and \(P_{2,2}(d)\neq0\) gives \(\ord_xF_4=-1\).
  \item Theorem~\ref{thm:first-layer-ratio} at four choices of
    \((R,S;k,m)\), computed from the two-weight Ward identity at \(t=3/5\),
    and its Gamma-potential form at five choices, as identities in
    \(\mathbb{Q}(t)\).
- \item Theorem~\ref{thm:gen-rocha-caridi} against exact quotient-Gram traces
-   in \(\mathbb{Q}\): Lee--Yang for \(N\leq9\), Ising for \(N\leq8\), and all
-   three nonzero Tricritical Ising fusion insertions for \(N\leq7\).
- \item Corollary~\ref{cor:collision-free}.  For Ising, the traces agree with
-   Euler's coefficients for \(N\leq30\).  For Lee--Yang, the computed
-   denominators are powers of \(5\) for \(N\leq25\); the comparison with
-   direct quotient-Gram traces covers only \(N\leq9\) (item~3).
 \end{enumerate}
 
 \fussy
@@ -3298,32 +3277,26 @@ The confluence theorem holds at every \(b_\star\neq0\).  The sharp
 pole-order and irreducible-trace results concern interior minimal-model
 weights.  Boundary weights, whose Jantzen filtrations are also given by
 \cite[Theorem~6.3]{IoharaKoga2011}, and the charges \(c_\star=1,25\) lie
-outside their scope.  Intrinsic formulas for the lower Laurent coefficients
-are not given here.
+outside their scope.  A recursion intrinsic to the specialized module and
+intrinsic formulas for the lower Laurent coefficients are not given here.
 
 \section*{AI-use disclosure}
 
 AI systems had a substantial role in developing and checking the proofs,
 writing the exact verification scripts, and drafting and revising the
 manuscript.  The author directed the research and takes responsibility for all
-mathematical claims, citations, computations, and wording.
+mathematical claims, citations, computations and wording.
 
 \section*{Code availability}
 
-The proofs use no computer calculation.  The ancillary scripts reproduce
-finite computations from the paper in exact rational arithmetic; they do not
-check the theorems in general.  The arXiv ancillary directory contains the
-thirteen audit scripts and two shared libraries for
-Sections~\ref{sec:blocks}--\ref{sec:ising}, the script
+The source package is at \href{https://github.com/skypher/virasoro}%
+{github.com/skypher/virasoro}.  The proofs use no computer calculation.  The
+ancillary scripts (thirteen audit scripts and two shared libraries for
+Sections~\ref{sec:blocks}--\ref{sec:ising},
 \path{irreducible/tools/audit_irreducible_torus.py} for
-Sections~\ref{sec:irr-results}--\ref{sec:examples}, and
-\path{AUDIT_MANIFEST.md}, which lists commands, dependencies and hashes.  The
-command \texttt{make audit} runs the exact suite.  The command
-\texttt{make audit-deep} adds the direct level-ten reconstruction.  The
-command \texttt{make audit-irreducible} replays the examples of
-Section~\ref{sec:examples}.  The source package is at
-\href{https://github.com/skypher/virasoro}%
-{github.com/skypher/virasoro}.
+Sections~\ref{sec:irr-results}--\ref{sec:examples}) reproduce finite
+computations from the paper in exact rational arithmetic;
+\path{AUDIT_MANIFEST.md} lists commands, dependencies and hashes.
 
 {\small
 \begin{thebibliography}{CCY19}
