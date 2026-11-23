@@ -232,9 +232,11 @@ For every \(N\geq1\),
  \end{aligned}
 \end{equation}
 Here \(H_N\) is the \(N\)-th eta-reduced block coefficient,
-\({\mathcal C}^\star_{\lambda,N}\) is the finite class of labels
+\(\Lambda_N(b_\star)\) is the set of Kac weights \(h_{r,s}(b_\star)\) with
+\(rs\leq N\), \({\mathcal C}^\star_{\lambda,N}\) is the finite class of labels
 \(a=(r,s)\) with \(rs\leq N\) that collide at \(\lambda\),
-\(t=b-b_\star\) is the Coulomb-gas germ, \(R_a\) is the generic
+\(t=b-b_\star\) is the Coulomb-gas germ, \(h_a(t)=h_{r,s}(b_\star+t)\),
+\(\ell_a=rs\), \(R_a\) is the generic
 residue, \(S_{a,M}\) is the shifted Laurent block of
 Definition~\ref{def:shifted-laurent}, \(\operatorname{CT}_t\) extracts the
 constant term, and \(\widehat M^\star_{\lambda,N}\) is an a priori pole
@@ -263,7 +265,7 @@ Theorem~\ref{thm:top-layer} computes the coefficient at this bound.  Let
  \frac{\langle w^\pm_k|V_d(1)|w^\pm_k\rangle}{\gamma^\pm_k}\,
  H_{N-\ell^\pm_k}\bigl(c_\star,\lambda+\ell^\pm_k,d\bigr),
 \end{equation}
-where \(\gamma^\pm_k\neq0\) is the \(k\)-th Jantzen norm of \(w^\pm_k\).
+where \(\gamma^\pm_k\neq0\) is the \(k\)-th Jantzen norm of \(w^\pm_k\); we write \(\tau^\pm_k(d)=\langle w^\pm_k|V_d(1)|w^\pm_k\rangle\).
 This is a fixed-\(c\) analogue of Zamolodchikov's residue formula for the
 deepest pole.  Every quantity in it is defined by the specialized module.
 The torus norm \(\langle w|V_d(1)|w\rangle\) of a singular vector
@@ -273,8 +275,8 @@ of level \(\ell\) has exact degree \(2\ell\) in \(d\)
 The sharpness proof specializes to \(d_1=h_{1,3}(b)\) and
 \(d_2=h_{1,-3}(b)\).  At these weights the generic recursion collapses to
 labels \((u,1)\).  A Feigin--Fuchs Fock factorization shows that the cleared
-block polynomials \(P_M^{(1)},P_M^{(2)}\) lie in \(\mathbb Z[\tfrac12][t,Y]\)
-and that their Taylor coefficients are polynomial in the level
+block polynomials have coefficients in \(\mathbb Z[\tfrac12]\) and that their
+Taylor coefficients are polynomial in the level
 (Proposition~\ref{prop:h13-nonvanishing}).  With the \(k\)-th Taylor
 coefficients of \(\tau^\pm_k/\gamma^\pm_k\) at \(d=0\)
 (Proposition~\ref{prop:layer-coefficients}), an \(\ell\)-adic valuation and
