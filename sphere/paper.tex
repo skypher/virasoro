@@ -125,40 +125,28 @@ for sphere four-point Virasoro blocks}
 \maketitle
 
 \begin{abstract}
-We study the Verma-module \(s\)-channel sphere four-point Virasoro conformal
-block with indeterminate external weights \(\Delta_1,\Delta_2,\Delta_3,\Delta_4\).
 We give a self-contained algebraic proof of Zamolodchikov's
-large-internal-dimension asymptotics: for each fixed \(N\geq0\) and
-\((c,\Delta_1,\dots,\Delta_4)\in\mathbb C^5\), the coefficient
-\(H_N(c,\Delta,\Delta_i)\) of the elliptic \(H\)-series tends to
-\(\delta_{N,0}\) as \(\Delta\to\infty\).  The proof uses Feigin--Fuchs Fock
-oscillators, a half-pillow Wiener--Hopf saddle point and the Bergman-kernel
-evaluation \(\det(I-M(z)^2)^{-1/2}=(1-z)^{-1/8}\theta_3(q)^{-1}\) of a Gaussian
-determinant.  The central-charge exponent follows from the orthogonal
-decomposition of the tensor product of two \(c=1\) Fock modules under the
-diagonal Virasoro action, and from a diffeomorphism that diagonalizes the
-transformed neutral wavefunction.
+large-internal-weight limit for the sphere four-point Virasoro block: at
+every fixed \(N\geq0\), the coefficient \(H_N\) of the elliptic \(H\)-series
+tends to \(\delta_{N,0}\) as \(\Delta\to\infty\), for all complex central
+charges and external weights. The proof uses
+Feigin--Fuchs oscillators, a half-pillow Wiener--Hopf saddle point and a Bergman-kernel
+determinant. A decomposition of two \(c=1\) Fock modules under the diagonal
+Virasoro action gives the central-charge exponent.
 
-Together with the generic simple-pole residues, this decay gives an exact
-finite confluence formula for \(H_N(c_\star,\Delta,\Delta_i)\) at every fixed
-\(b_\star\in\mathbb C^\times\), \(c_\star=1+6(b_\star+b_\star^{-1})^2\).  Each
-principal-part coefficient is the constant term in \(t=b-b_\star\) of a grouped
-Laurent sum, and a finite Taylor--Laurent truncation computes it.  The
-formula also gives a finite expansion of the cross-ratio coefficient
-\(\mathcal B_N\).
+For every fixed \(b_\star\ne0\), the generic residues and this limit give the
+principal parts of \(H_N\) at \(c_\star=1+6(b_\star+b_\star^{-1})^2\) as
+constant terms of grouped Laurent sums with finite precision bounds. This
+also gives a finite expansion of the cross-ratio coefficient \(\mathcal B_N\).
 
-At the minimal-model charges \(b_\star^2=-p'/p\) (\(p,p'\geq2\) coprime) and
-the interior Kac weights \(\lambda=h_{r,s}(b_\star)\), the pole order of
-\(\mathcal B_N\) and of \(H_N\) at \(\Delta=\lambda\) is at most the Jantzen
-depth \(j_N(\lambda)\).  At positive depth the top Jantzen layer gives the
-coefficient of \((\Delta-\lambda)^{-j_N(\lambda)}\), using the same Jantzen
-norms as in the torus block.  For all \(p,p'\), all interior \(\lambda\) and all \(N\geq1\) the
-bound holds at every specialization of the external weights and is attained
-over their rational function field.  The proof of attainment uses a rational
-\((2,1)\) BPZ specialization for \(\mathcal B_N\), and for \(H_N\) an
-identity-insertion specialization with a Hermite leading coefficient and
-Schur's irreducibility theorems.  The examples include \(c=0\) at level five
-and the first Ising double poles, at levels seven, ten and eleven.
+At an interior minimal-model weight \(\lambda\), both coefficients have
+pole order at most the Jantzen depth \(j_N(\lambda)\) for all external
+weights. The top layer gives the coefficient at positive depth with the
+same Jantzen norms as on the torus. The bound is attained over the external
+weight function field at every level \(N\geq1\). A BPZ specialization proves
+sharpness for \(\mathcal B_N\); an identity insertion and Schur's Hermite
+irreducibility results prove it for \(H_N\). Examples include \(c=0\) at level
+five and the first Ising double poles at levels seven, ten and eleven.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -168,81 +156,62 @@ The \(s\)-channel sphere four-point Virasoro conformal block is
  \mathcal F(c,\Delta,\Delta_1,\Delta_2,\Delta_3,\Delta_4;z)
  =z^{\Delta-\Delta_1-\Delta_2}\sum_{N=0}^\infty\mathcal B_N(c,\Delta,\Delta_i)z^N.
 \]
-Each coefficient \(\mathcal B_N\) pairs two three-point vectors through the
-inverse level-\(N\) Shapovalov Gram matrix \(G_N(c,\Delta)^{-1}\) of the Verma
-module \(M(c,\Delta)\).  Zamolodchikov first gave a recursion in the central
-charge at fixed internal weight~\cite[(8)]{Zamolodchikov1984}.  For generic
-\(c=c(b)=1+6(b+b^{-1})^2\) he later used the elliptic nome \(q(z)\) and a
-prefactor \(\Phi(c,\Delta,\Delta_i;q)\) to write \(\mathcal F=\Phi\cdot H\) with
-\(H(c,\Delta,\Delta_i;q)=\sum_{N=0}^\infty H_N(c,\Delta,\Delta_i)(16q)^N\)
+Each \(\mathcal B_N\) pairs two three-point vectors through the inverse
+level-\(N\) Shapovalov matrix of \(M(c,\Delta)\). Zamolodchikov gave a
+central-charge recursion at fixed internal weight~\cite[(8)]{Zamolodchikov1984}.
+For generic \(c=c(b)=1+6(b+b^{-1})^2\) he wrote \(\mathcal F=\Phi H\) in
+the elliptic nome \(q(z)\), with
+\(H=\sum_{N\geq0}H_N(c,\Delta,\Delta_i)(16q)^N\) and at most simple poles of
+\(H_N\) at the Kac weights \(h_{r,s}(b)\), \(rs\leq N\)
 \cite[(5)--(6) and \S3]{Zamolodchikov1987}.
-His recursion in the internal weight gives \(H_N\) at most simple poles in
-\(\Delta\), all at the Kac weights \(h_{r,s}(b)\) with \(rs\leq N\).
 
-By Liouville's theorem for rational functions of \(\Delta\), \(H_N\) minus its
-principal parts is a constant, and the recursion follows once this constant is
-identified as \(\delta_{N,0}\), the limit of \(H_N\) as \(\Delta\to\infty\).  To our knowledge no complete proof of this limit at finite
-central charge has appeared, as Ribault also notes~\cite[\S4.3.4]{Ribault2026}.
-The derivation in~\cite{Zamolodchikov1987} combines a semiclassical monodromy
-input, a rational-degree argument and a comparison at \(c=1\).  The oscillator
-calculation of Be\c{s}ken--Datta--Kraus~\cite[\S4.3, (4.23)--(4.25)]{BeskenDattaKraus2019}
-gives the leading exponential \((16q)^\Delta\) and sets aside the determinant
-and Jacobian prefactors, which the limit also needs.  Artemev and
-Khromov~\cite{ArtemevKhromov2026} apply the WKB method to the classical BPZ
-equation to obtain large-intermediate-dimension asymptotics of classical
-comb-channel sphere blocks.  For \(c>25\) and external momenta in a stated range, Ghosal,
-R\'emy, Sun and Sun~\cite[Theorem~1.2]{GhosalRemySunSun2022} prove through
-Liouville CFT that the block is analytic in the cross-ratio for \(|z|<1\) and
-meromorphic in the internal weight; the large-\(\Delta\) limit is not part of
-that theorem.
+The recursion follows once the large-weight limit fixes the polynomial part
+of \(H_N\) to \(\delta_{N,0}\).  The original derivation uses semiclassical
+monodromy, a degree argument and a comparison at \(c=1\)
+\cite{Zamolodchikov1987}; a complete finite-charge proof of the limit appears
+to be missing~\cite[\S4.3.4]{Ribault2026}.
+Be\c{s}ken--Datta--Kraus obtain the leading exponential \((16q)^\Delta\)
+and set aside the determinant and Jacobian prefactors
+\cite[\S4.3, (4.23)--(4.25)]{BeskenDattaKraus2019}.
+Artemev and Khromov obtain large-intermediate-dimension asymptotics of
+classical comb-channel blocks by WKB for the classical BPZ
+equation~\cite{ArtemevKhromov2026}.  Ghosal, R\'emy, Sun and Sun prove
+cross-ratio analyticity for \(|z|<1\) and
+internal-weight meromorphy for \(c>25\) and a range of external
+momenta~\cite[Theorem~1.2]{GhosalRemySunSun2022}, without the
+large-\(\Delta\) limit.
 
-At rational \(b_\star^2\), including \(b_\star^2=-p'/p\), different Kac labels
-can give the same weight at \(b=b_\star\), and the generic residues can then
-have poles at \(b_\star\).  Javerzat,
-Santachiara and Foda give regularized minimal-model
+At rational \(b_\star^2\), Kac weights can coincide and the generic residues
+can have poles. Javerzat, Santachiara and Foda regularize minimal-model
 examples~\cite[\S\S3.4--3.6, (32)--(34)]{JaverzatSantachiaraFoda2018}.
-Ribault exhibits pole cancellations and a double pole in the internal weight
-for generic external momenta, and then treats degenerate
-representations~\cite[\S\S3.2--3.3]{Ribault2019}.  We are not
-aware of a finite algebraic formula at all orders for arbitrary fixed
-\(b_\star\in\mathbb C^\times\) and indeterminate external weights.
-Theorem~\ref{thm:confluence} gives one, for \(H_N\) and for \(\mathcal B_N\).
+Ribault finds cancellations and a double pole for generic external momenta
+and then treats degenerate representations~\cite[\S\S3.2--3.3]{Ribault2019}.
+Theorem~\ref{thm:confluence} gives a finite formula at every fixed
+\(b_\star\ne0\) for both \(H_N\) and \(\mathcal B_N\).
 
-For the torus one-point block at minimal-model charges and interior Kac
-weights \(\lambda\), the companion paper~\cite[Theorems~5.8--5.9 and Corollary~5.10]{PolzerTorus2026} showed that the
-Jantzen depth \(j_N(\lambda)\) bounds the pole order and that the top layer
-gives the coefficient at that order.  For \(N\geq1\) the bound is attained over
-\(\mathbb Q(d)\), with \(d\) the external weight; at \(d=0\), \(H_N=0\).
-Section~\ref{sec:jantzen} proves the analogous statements for both sphere
-normalizations \(\mathcal B_N\) and \(H_N\) (Theorems~\ref{thm:jantzen-bound},
-\ref{thm:top-layer}, \ref{thm:sharp-B} and~\ref{thm:sharp-H}).
+The torus companion proves the Jantzen bound, its top coefficient and
+sharpness over \(\mathbb Q(d)\) for \(N\geq1\); at \(d=0\), \(H_N=0\)
+\cite[Theorems~5.8--5.9 and Corollary~5.10]{PolzerTorus2026}.
+For the sphere see Theorems~\ref{thm:jantzen-bound}, \ref{thm:top-layer},
+\ref{thm:sharp-B} and~\ref{thm:sharp-H}. The polynomial part of \(\mathcal B_N\)
+has degree \(N\) in \(\Delta\), while \(H_N-\delta_{N,0}\) consists of principal
+parts. To prove the limit, Section~\ref{sec:asymp} starts at \(c=1+24\mu^2>1\), real
+external weights and \(\Delta=\lambda^2+\mu^2\) with \(\lambda>0\).
+The Fock pairing and Ward solution give the \(\lambda^{-1}\) expansion
+(Lemmas~\ref{lem:fock-verma} and~\ref{lem:lambda-expansion}).
+After removing the saddle exponential (Lemma~\ref{lem:saddle}), the
+determinant and the weight and charge factors give the prefactor
+(Lemmas~\ref{lem:bergman-det}, \ref{lem:ext-exponents} and~\ref{lem:central-charge}).
+Lemma~\ref{lem:fock-verma}(iii) extends the limit to complex parameters.
 
-The polynomial part of \(\mathcal B_N\) has degree \(N\) in \(\Delta\), whereas
-\(H_N-\delta_{N,0}\) is the sum of the principal parts of \(H_N\).  To prove the
-large-\(\Delta\) limit (Theorem~\ref{thm:large-delta}), Section~\ref{sec:asymp}
-first works at \(c=1+24\mu^2>1\) and \(\Delta=\lambda^2+\mu^2\) with \(\lambda>0\)
-and real external weights.  There the Verma block is a unitary Fock pairing
-(Lemma~\ref{lem:fock-verma}), and the logarithm of the Fock Ward solution,
-divided by \(\lambda^2\), has a coefficientwise expansion in \(\lambda^{-1}\)
-(Lemma~\ref{lem:lambda-expansion}).  A half-pillow Wiener--Hopf factorization
-gives the saddle exponent \(\mathcal I_0(z)\) (Lemma~\ref{lem:saddle}).  After
-\(e^{\lambda^2\mathcal I_0(z)}\) is removed, the Gaussian determinant
-(Lemma~\ref{lem:bergman-det}) and the weight- and charge-dependent exponentials
-(Lemmas~\ref{lem:ext-exponents} and~\ref{lem:central-charge}) give the
-remaining elliptic prefactor.  The polynomial extension of
-Lemma~\ref{lem:fock-verma}(iii) then gives complex parameters.
-
-The torus proof of sharpness uses an \(\ell\)-adic
-argument~\cite[Propositions~6.8--6.9]{PolzerTorus2026}.  On the sphere,
-specializing the four external weights isolates one branch.  For \(\mathcal B_N\), a rational
-\((2,1)\) BPZ specialization removes the higher-level branch and reduces the
-hypergeometric factor to a power of \(1-z\) with non-integral exponent.
-For \(H_N\), an identity insertion makes the positive-degree cross-ratio
-coefficients vanish through the shifted degree used in the proof, and an affine line in
-the remaining momenta removes the higher branch.  The surviving shifted
-elliptic coefficient has a leading term proportional to a Hermite value,
-which is nonzero by elementary bounds in degree at most three and by Schur's
-irreducibility theorems~\cite{Schur1929,Schur1931} in higher degree.
+For sharpness the torus proof uses an \(\ell\)-adic
+argument~\cite[Propositions~6.8--6.9]{PolzerTorus2026}. The sphere proof
+isolates one branch by specializing external weights. The \((2,1)\) BPZ
+specialization reduces the surviving \(\mathcal B_N\) factor to a
+nonintegral power of \(1-z\). An identity insertion and an affine line
+in the remaining momenta give a Hermite value for \(H_N\), nonzero by
+elementary bounds through degree three and Schur's
+theorems~\cite{Schur1929,Schur1931} above degree three.
 
 \section{Definitions and normalizations}\label{sec:setup}
 
@@ -1922,26 +1891,16 @@ claims, citations, computations and wording.
 
 \section*{Code availability}
 
-The repository \href{https://github.com/skypher/virasoro}%
-{github.com/skypher/virasoro} contains the verification scripts in the
-directory \texttt{sphere/tools/}.  They are finite checks in exact rational and
-symbolic arithmetic, which the proofs do not use, of the lemmas of
-Section~\ref{sec:asymp} at low orders and of the fixed-\(b_\star\) confluent
-recursion of Section~\ref{sec:confluence} through level seven at
-\((p,p')=(2,3)\), \((2,5)\) and \((3,4)\), and at levels one to three at the
-irrational value \(b_\star^2=\sqrt2\).  The scripts
-\texttt{exact\_\allowbreak sphere\_\allowbreak block.py} and
-\texttt{audit\_\allowbreak sphere\_\allowbreak top\_\allowbreak layer.py} reconstruct the blocks in
-selected cases through level seven, at fixed external weights.  The first
-checks the \(c=0\) coefficient of Proposition~\ref{prop:c0-example} at \(N=5\)
-against~\cite[eq.~(3.24)]{Ribault2019} and compares the coefficient at
-\(\lambda=\tfrac12\), \(N=7\) with the value given by \(\gamma=-700700\); the
-second extracts this norm.  The Ising norms at levels ten and eleven are
-checked against the layer-coefficient formula only by the torus script
-\texttt{tools/\allowbreak audit\_\allowbreak top\_\allowbreak layer.py}.  The second script also evaluates
-the witness polynomials of Theorems~\ref{thm:sharp-B} and~\ref{thm:sharp-H}
-through shifted degree \(M=4\) in selected cases, without reconstructing
-\(\mathcal B_N\) or \(H_N\).
+The repository \href{https://github.com/skypher/virasoro}{github.com/skypher/virasoro}
+has exact rational and symbolic checks in \texttt{sphere/tools/}, which the
+proofs do not use: low-order asymptotics, and confluence through level seven
+for \((2,3),(2,5),(3,4)\) and through level three at \(b_\star^2=\sqrt2\).
+\texttt{exact\_\allowbreak sphere\_\allowbreak block.py} reconstructs selected blocks through
+level seven and checks the \(c=0\) level-five coefficient~\cite[eq.~(3.24)]{Ribault2019} and the Ising coefficient given by
+\(\gamma=-700700\), which \texttt{audit\_\allowbreak sphere\_\allowbreak top\_\allowbreak layer.py}
+extracts; the latter also checks the sharpness witnesses through shifted
+degree four.  The level-ten and level-eleven Ising norms are checked only by
+the torus script.
 
 {\small
 \begin{thebibliography}{GRSS22}
