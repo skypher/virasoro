@@ -630,10 +630,6 @@ families, and the coefficient of \(x^2\) in
 term vanishes.
 \end{proof}
 
-The case \(k=1\) of (ii) is the residue formula behind the generic
-recursion of Section~\ref{sec:generic-data}, and \(B^2\) is the second
-crossing form evaluated in Section~\ref{sec:ising}.
-
 \begin{lemma}[Torus form on a singular submodule]
 \label{lem:singular-factorization}
 Let \(\chi\in M(c,h)\) be a singular vector of level \(\ell\), normalized
@@ -724,13 +720,10 @@ or of the central element, or an annihilation at \(\lvert h\rangle\) or
 the only pair with \(\ell(Y)+\ell(Y')=2\ell\) is \(Y=Y'=(1^\ell)\).
 \end{proof}
 
-The filtration \(J^\bullet(c,h)\) of Definition~\ref{def:jantzen-layers} is
-the Jantzen filtration of \(M(c,h)\) along the deformation \(h\mapsto h+x\),
-which fixes the central charge.  For \(c\neq1,25\) it agrees with the
-filtration of \cite[\S5.5 and equation (5.49)]{IoharaKoga2011}, and it is a
-Jantzen filtration along a curve in the sense of
-\cite[\S4 and \S5.2]{Astashkevich1997}.  At minimal-model charges the
-Feigin--Fuchs structure theorem gives the following description.
+For \(c\neq1,25\), the fixed-charge filtration in
+Definition~\ref{def:jantzen-layers} agrees with~\cite[\S5.5, (5.49)]{IoharaKoga2011},
+and it is a Jantzen filtration along a curve in the sense
+of~\cite[\S4 and \S5.2]{Astashkevich1997}.
 
 \begin{theorem}[Smith layers at minimal-model charges]
 \label{thm:jantzen-smith}
@@ -754,16 +747,12 @@ there.
 \end{theorem}
 
 \begin{proof}
-In the notation of \cite[\S5.1.4]{IoharaKoga2011}, \(c_\star=c_{p,p'}\)
-and \((r,s)\) lies in the interior set \((K^+_{p,p'})^\circ\), so
-\((c_\star,\lambda)\) belongs to Class~\(R^+\), Case~\(1+\).  Since
-\(c_\star\neq1,25\), the deformation used there is
-\(h\mapsto h+x\) at fixed \(c\) \cite[equation (5.49)]{IoharaKoga2011},
-so \(J^i(c_\star,\lambda)\) is the Jantzen filtration of
-\cite[Theorem~6.3]{IoharaKoga2011}.  Part~(i) of that theorem, with
-equation~(6.3) there, identifies the \(i\)-th filtration term with the sum of the
-two Verma submodules of highest weights \(\xi_{\pm i}\) in the braided
-embedding diagram \cite[Proposition~5.4 and Figure~5.4]{IoharaKoga2011}.
+In the notation of~\cite[\S5.1.4]{IoharaKoga2011}, \(c_\star=c_{p,p'}\), and
+\(p'r+ps<pp'\) puts \((r,s)\) in the interior set, so \((c_\star,\lambda)\) is in
+Class~\(R^+\), Case~\(1+\).  Since \(c_\star\neq1,25\),
+\cite[Theorem~6.3(i), (6.3)]{IoharaKoga2011} identifies \(J^i(c_\star,\lambda)\)
+with the sum of the two Verma submodules of highest weights \(\xi_{\pm i}\) in
+the braided diagram of~\cite[Proposition~5.4 and Figure~5.4]{IoharaKoga2011}.
 By \cite[equations (5.4) and (5.22)]{IoharaKoga2011}, \(\xi_0=\lambda\)
 and, for \(k\geq1\), the weights \(\xi_{\pm k}\) correspond to the
 Coulomb-gas momenta \(2jpp'\mp n_0\) when \(k=2j\), and
@@ -775,12 +764,10 @@ The same layers follow from \cite[Theorem~B(e), case \(\mathrm{III}_-\)]{Astashk
 which applies because the line \(c=c_\star\) is transverse to every Kac
 curve through \((\lambda,c_\star)\) (as \(c'(b_\star)\neq0\)).
 
-Lemma~\ref{lem:jantzen-smith} converts the layers into Smith exponents.
-The space \((W^+_i+W^-_i)_N\) is nonzero exactly when
-\(\min(\ell^+_i,\ell^-_i)\leq N\), so Lemma~\ref{lem:smith} gives the
-pole order \(j_N(\lambda)\) of \(G_N^{-1}\).  The trace \(F_N\) cannot have
-a higher pole.  Since \(j_{N-j}(\lambda)\leq j_N(\lambda)\) and
-\(H_N=\sum_j\eta_jF_{N-j}\), the same bound holds for \(H_N\).
+By Lemmas~\ref{lem:jantzen-smith} and~\ref{lem:smith}, the pole order of
+\(G_N^{-1}\) is the largest \(i\) with \((W^+_i+W^-_i)_N\neq0\), and this space is
+nonzero exactly when \(\min(\ell^+_i,\ell^-_i)\leq N\). The trace \(F_N\) has at most
+this order, and so does \(H_N=\sum_j\eta_jF_{N-j}\) since \(j_{N-j}\leq j_N\).
 \end{proof}
 
 \begin{theorem}[Top Jantzen layer]\label{thm:top-layer}
@@ -902,8 +889,6 @@ and \(\Lambda^2=(b+b^{-1})^2-4d\), define
 and \({\mathcal R}_{r,s}(b,d)={\mathcal A}_{r,s}(b){\mathcal P}_{r,s}(b,d)\),
 where
 \({\mathcal A}_{r,s}(b)=\frac12\prod_{(p,q)\in[1-r,r]\times[1-s,s]\setminus\{(0,0),(r,s)\}}(pb+qb^{-1})^{-1}\).
-For generic \(b\), \({\mathcal R}_{r,s}\) is the residue coefficient of the
-recursion of Proposition~\ref{prop:generic-recursion}.
 \end{definition}
 
 \begin{proposition}[Crossing scalar and torus norm of singular vectors]
@@ -993,7 +978,7 @@ and \(z_a-h_g\), where \(z_a=h_a+\ell_a\)
 (Lemma~\ref{lem:no-generic-shifted-pole}), of the nonzero
 coefficients of \({\mathcal R}_a\) and \({\mathcal A}_a\), and of the
 nonzero normalized singular-vector coefficients.  These are finitely many
-algebraic values.  Then the weights \(h_{r,s}(b)\) with
+algebraic values.  For the remaining \(b\) the weights \(h_{r,s}(b)\) with
 \(rs\leq N\) are pairwise distinct, and no shifted weight
 \(z_{r,s}=h_{r,s}(b)+rs\) is a degenerate weight of level at most \(N\).
 
@@ -1022,10 +1007,8 @@ The difference between \(F_N\) and the sum of these principal parts has no
 finite pole and tends to \(p(N)\) as \(\Delta\to\infty\)
 (Lemma~\ref{lem:large-weight}), so
 \(F_N(c,\Delta,d)=p(N)+\sum_{\ell_a\leq N}({\mathcal R}_a(b,d)/(\Delta-h_a(b)))F_{N-\ell_a}(c,z_a,d)\).
-Multiplying by the Euler coefficients \(\eta_j\)
-(Definition~\ref{def:eta-reduced}) and using \(\sum_j\eta_jp(N-j)=\delta_{N,0}\)
-gives \(H_N(c,\Delta,d)=\delta_{N,0}+\sum_{\ell_a\leq N}({\mathcal R}_a(b,d)/(\Delta-h_a(b)))H_{N-\ell_a}(c,z_a,d)\),
-which for \(N\geq1\) is the displayed recursion.
+Convolving with \(\eta_j\) gives the stated recursion because
+\(\sum_j\eta_jp(N-j)=\delta_{N,0}\).
 \end{proof}
 
 \begin{lemma}[The external weight \(d=0\)]
@@ -1580,9 +1563,7 @@ Define the shifted Laurent blocks recursively by \(S_{a,0}(t)=1\) and, for
  \frac{R_g(t)}
  {z_a(t)-h_g(t)}S_{g,M-\ell_g}(t).
 \]
-Every denominator is a nonzero rational function of \(b\) by
-Lemma~\ref{lem:no-generic-shifted-pole}, so each summand has a well-defined
-Laurent expansion, and the recursion terminates since the level decreases.
+Lemma~\ref{lem:no-generic-shifted-pole} ensures each denominator is nonzero.
 \end{definition}
 
 \begin{lemma}[A priori shifted valuation bound]
@@ -1595,11 +1576,8 @@ Then \(\ord_t S_{a,M}(t)\geq-W_{a,M}\).
 \end{lemma}
 
 \begin{proof}
-For \(M=0\), \(S_{a,0}=1\) and \(W_{a,0}=0\).  If the bound holds at lower
-levels, the \(g\)-summand in Definition~\ref{def:shifted-laurent} has
-valuation at least \(-\pi_g-\sigma_{a,g}-W_{g,M-\ell_g}\geq-W_{a,M}\).  The
-valuation of a finite sum is at least the minimum of the valuations of its
-summands.
+The claim holds at \(M=0\). By induction the \(g\)-summand has valuation at
+least \(-\pi_g-\sigma_{a,g}-W_{g,M-\ell_g}\geq-W_{a,M}\), as does their sum.
 \end{proof}
 
 \begin{definition}[Collision moments]\label{def:collision-moments}
@@ -1635,12 +1613,9 @@ suffices to know
  \qquad
  S_{g,M-\ell_g}\quad\text{through }t^{\,U+\pi_g+\sigma_{a,g}}.
 \end{equation}
-Each request concerns a shifted block \(S_{g,M-\ell_g}\) of strictly lower
-level, so iterating the requests terminates and gives a finite precision for
-every factor that occurs.  For the collision moments at level \(N\) it
-suffices to compute \(R_a\) through \(t^{W_{a,N-\ell_a}}\),
-\(S_{a,N-\ell_a}\) through \(t^{\pi_a}\), and \(\delta_a^{\,k-1}\) through
-\(t^{\widehat v_{a,N}}\).
+The level decreases at each request. For the collision moments it suffices to compute
+\(R_a\) through \(t^{W_{a,N-\ell_a}}\), \(S_{a,N-\ell_a}\) through \(t^{\pi_a}\),
+and \(\delta_a^{\,k-1}\) through \(t^{\widehat v_{a,N}}\).
 \end{lemma}
 
 \begin{proof}
@@ -1683,13 +1658,10 @@ as rational functions of \((b,\Delta,d)\).  Expand both sides in
 nonzero in \(K_\star(\Delta)\), and \(1/(\Delta-h_a(t))=1/(x-\delta_a(t))\)
 expands by Lemma~\ref{lem:collision-pole-support}.
 
-By Lemma~\ref{lem:polynomial-entries} and Cramer's rule, \(F_m\) has a
-denominator dividing \(\det G_m\).  The exponents \(p(m-rs)\) in the Kac
-determinant formula are nondecreasing in \(m\), so
-\(\det G_N(c(b_\star+t),\Delta)\) is a common denominator for the left side
-of~\eqref{eq:generic-grouped}.  Its value at \(t=0\) is
-\(\det G_N(c_\star,\Delta)\neq0\) in \(K_\star(\Delta)\); hence the left side
-lies in \(K_\star(\Delta)[[t]]\) with constant term \(H_N(c_\star,\Delta,d)\).  By
+The Kac exponents \(p(m-rs)\) increase weakly with \(m\). By Cramer's rule
+\(\det G_N(c(b_\star+t),\Delta)\) is a common denominator for~\eqref{eq:generic-grouped}.
+It is nonzero in \(K_\star(\Delta)\) at \(t=0\), so the left side is regular
+there with value \(H_N(c_\star,\Delta,d)\).  By
 Lemma~\ref{lem:collision-pole-support} and Definition~\ref{def:collision-moments},
 the constant term of \({\mathcal G}^\star_{\lambda,N}\) is
 \(g_\lambda(\Delta)=\sum_{k=1}^{\widehat M^\star_{\lambda,N}}
@@ -1702,9 +1674,6 @@ Theorem~\ref{thm:general-partial-fractions} gives
 \(\widetilde A^{\star}_{\lambda,k,N}=A^{\star}_{\lambda,k,N}\) for all
 \(k\geq1\), \(m^{\star}_{\lambda,N}\leq\widehat M^{\star}_{\lambda,N}\), and
 \(\widetilde A^\star_{\lambda,k,N}\in\mathbb Q(b_\star^2)[d]\).
-Lemma~\ref{lem:precision-budget} gives the finite-jet bounds.  Since
-\(\Lambda_N(b_\star)\) is finite for each \(N\), the \(q\)-series is locally
-finite coefficientwise.
 
 If \(b_\star^2\notin\mathbb Q\), Lemma~\ref{lem:no-generic-shifted-pole}
 shows that every class is a singleton, every \(R_g\) is regular at \(t=0\), and
@@ -1744,27 +1713,23 @@ Laurent coefficient is
 0&11&{\mathcal P}_{1,1}{\mathcal P}_{2,5}&-2477917160468750/6561
 \end{array}
 \]
-Here \({\mathcal P}_{R,S}={\mathcal P}_{R,S}(b_0,d)\) is the monic
-polynomial of degree \(2RS\) defined in the proof of
-Proposition~\ref{prop:two-term-criteria}.  The entry \(\tau\) is the torus
-norm of the singular vector that starts the second Jantzen layer, and
-\(\gamma\) is its second Jantzen norm.
+Here \({\mathcal P}_{R,S}={\mathcal P}_{R,S}(b_0,d)\) is the monic degree-\(2RS\)
+polynomial defined in the proof of Proposition~\ref{prop:two-term-criteria}, and
+\(\tau\) and \(\gamma\) are the torus and second Jantzen norms of the singular
+vector that starts the second Jantzen layer.
 \end{proposition}
 
 \begin{proof}
-The labels with \(rs\leq6\) have \(|4r-3s|=1,2,5,8,11,14,5,2,1,9,6,13,17,21\)
-for \((r,s)=(1,1),\ldots,(1,6),(2,1),(2,2),(2,3),(3,1),(3,2),(4,1),(5,1),(6,1)\),
-so only the three classes in the table contain two of them.  Consider a
+For \(rs\leq6\), the only repeated values of \(|4r-3s|\) are \(1,2,5\), giving
+the three classes in the table. Consider a
 weight with a single label \(a\) of level \(\ell_a\leq N\).  The injective
 singular embedding \cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011}
 puts \(p(N-\ell_a)\) independent vectors in the radical.  This number is the
 valuation of the Kac determinant, so all positive Smith exponents are \(1\)
-(Lemma~\ref{lem:smith}).  At \(\lambda=\tfrac12\), \(\tfrac1{16}\) and \(0\),
-Theorem~\ref{thm:jantzen-smith} gives \(j_N(\lambda)\leq1\) for
-\(N<\min(\ell^+_2,\ell^-_2)\), and \(\min(\ell^+_2,\ell^-_2)\) equals \(7\),
-\(10\) and \(11\), respectively.  At \(N=\min(\ell^+_2,\ell^-_2)\),
-\eqref{eq:top-layer} has the single term \(\tau/\gamma\), with \(M=0\).  The
-factorization of \(\tau\) is that of the proof of
+(Lemma~\ref{lem:smith}).  At the three interior weights,
+Theorem~\ref{thm:jantzen-smith} gives \(j_N(\lambda)\leq1\) below the
+second-layer levels \(7\), \(10\) and \(11\).  At those levels~\eqref{eq:top-layer} has the single term \(\tau/\gamma\),
+with \(M=0\). For the factors of \(\tau\), use the proof of
 Proposition~\ref{prop:two-term-criteria} with \(j=1\).
 Proposition~\ref{prop:layer-coefficients} with \(c_2=-1\) gives
 \(\gamma=-[d^2]\tau/\rho^2\), where \(\rho=-n_0/2\).
