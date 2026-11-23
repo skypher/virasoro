@@ -170,10 +170,10 @@ The \(s\)-channel sphere four-point Virasoro conformal block is
 \]
 Each coefficient \(\mathcal B_N\) pairs two three-point vectors through the
 inverse level-\(N\) Shapovalov Gram matrix \(G_N(c,\Delta)^{-1}\) of the Verma
-module \(M(c,\Delta)\).  After a recursion in the central charge at fixed
-internal weight~\cite[(8)]{Zamolodchikov1984}, Zamolodchikov introduced, for
-generic \(c=c(b)=1+6(b+b^{-1})^2\), the elliptic nome \(q(z)\) and a prefactor
-\(\Phi(c,\Delta,\Delta_i;q)\), and wrote \(\mathcal F=\Phi\cdot H\) with
+module \(M(c,\Delta)\).  Zamolodchikov first gave a recursion in the central
+charge at fixed internal weight~\cite[(8)]{Zamolodchikov1984}.  For generic
+\(c=c(b)=1+6(b+b^{-1})^2\) he later used the elliptic nome \(q(z)\) and a
+prefactor \(\Phi(c,\Delta,\Delta_i;q)\) to write \(\mathcal F=\Phi\cdot H\) with
 \(H(c,\Delta,\Delta_i;q)=\sum_{N=0}^\infty H_N(c,\Delta,\Delta_i)(16q)^N\)
 \cite[(5)--(6) and \S3]{Zamolodchikov1987}.
 His recursion in the internal weight gives \(H_N\) at most simple poles in
@@ -199,11 +199,12 @@ limit.
 
 When \(b_\star^2\in\mathbb Q\), for instance at the minimal-model charges
 \(b_\star^2=-p'/p\), distinct Kac weights \(h_{r,s}(b)\) collide at
-\(b=b_\star\), and the generic residues can acquire poles there.  Javerzat, Santachiara and
-Foda~\cite[\S\S3.4--3.6, (32)--(34)]{JaverzatSantachiaraFoda2018} and
-Ribault~\cite[\S\S3.2--3.3]{Ribault2019} examine the cancellations in
-low-level resonant sums and regularized minimal-model limits for special
-external weights.  We are not
+\(b=b_\star\), and the generic residues can acquire poles there.  Javerzat,
+Santachiara and Foda give regularized minimal-model
+examples~\cite[\S\S3.4--3.6, (32)--(34)]{JaverzatSantachiaraFoda2018}.
+Ribault exhibits pole cancellations and a double pole in the internal weight
+for generic external momenta, and then treats degenerate
+representations~\cite[\S\S3.2--3.3]{Ribault2019}.  We are not
 aware of a finite algebraic formula at all orders for arbitrary fixed
 \(b_\star\in\mathbb C^\times\) and indeterminate external weights.
 Theorem~\ref{thm:confluence} gives one, for \(H_N\) and for \(\mathcal B_N\).
@@ -458,8 +459,8 @@ solution to the Ward equations with \(F_0=1\) and equals the image of
 real, \(\mathcal B_N=\langle w_N^{(4,3)},w_N^{(1,2)}\rangle\) equals the
 stated Fock pairing.
 
-(iii) By the Kac determinant formula~\cite[Theorem~4.2 and
-equations (4.16)--(4.21)]{IoharaKoga2011}, \(\det G_m\mid\det G_N\) for
+(iii) By the Kac determinant formula~\cite[Theorem~4.2, (4.16) and
+(4.21)]{IoharaKoga2011}, \(\det G_m\mid\det G_N\) for
 \(m\leq N\).  Since \(\widetilde\Phi^{-1}\) has polynomial coefficients in
 \((c,\Delta,\Delta_i)\), it follows that
 \(H_N(c,\Delta,\Delta_i)=P_N(c,\Delta,\Delta_i)/\det G_N(c,\Delta)\) with
@@ -1505,7 +1506,7 @@ at \(\Delta=\lambda\).
 \end{theorem}
 
 \begin{proof}
-By~\cite[Theorem~5.8]{PolzerTorus2026} (from~\cite[Theorem~6.3]{IoharaKoga2011}
+By~\cite[Theorem~5.8]{PolzerTorus2026} (from~\cite[Theorem~6.3(i) and (6.3)]{IoharaKoga2011}
 and~\cite[Theorem~B(e)]{Astashkevich1997}), \(G_N(c_\star,\Delta)^{-1}\) has
 a pole of order exactly \(j_N(\lambda)\) at \(\Delta=\lambda\).  Since
 \(\gamma_Y(\Delta;\Delta_a,\Delta_b)\) is polynomial in \(\Delta\),
@@ -1542,10 +1543,11 @@ set \(\pi^\pm_k(\Delta_a,\Delta_b):=\langle w^\pm_k\mid\Phi_{\Delta_b}(1)\mid\De
 \begin{proof}
 By Proposition~\ref{prop:imported}, every \(\chi_{R,S}(b_\star)\) is regular
 with \(L_{-1}^{RS}\)-coefficient \(1\) and three-point scalar
-\(P_{R,S}(b_\star,\Delta_a,\Delta_b)\).  The singular space at each weight
-\(\lambda+\ell^\pm_k\) in \(M(c_\star,\lambda)\) is
-\(1\)-dimensional~\cite[Propositions~5.1 and~5.4]{IoharaKoga2011}; see
-also~\cite[Theorem~3.1]{Astashkevich1997}.
+\(P_{R,S}(b_\star,\Delta_a,\Delta_b)\).  The embeddings
+of~\cite[Proposition~5.4 and Figure~5.4]{IoharaKoga2011} give a nonzero
+singular vector at each weight \(\lambda+\ell^\pm_k\) in \(M(c_\star,\lambda)\),
+and~\cite[Proposition~5.1]{IoharaKoga2011} bounds each singular space by one
+dimension; see also~\cite[Theorem~3.1]{Astashkevich1997}.
 
 For odd \(k=2j+1\), \(h_{R^\pm_k,S^\pm_k}(b_\star)=\lambda\) and
 \(R^\pm_kS^\pm_k=\ell^\pm_k\), so \(w^\pm_k=\chi_{R^\pm_k,S^\pm_k}(b_\star)\);

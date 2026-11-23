@@ -481,7 +481,7 @@ By Lemma~\ref{lem:polynomial-entries},
 \(\Delta\), and its poles are contained in the zero locus of
 \(\det G_N\).  The Kac determinant formula
 \cite{Kac1979}, \cite[Section~3.2, Theorem~3.1]{FeiginFuchs1982}, in the form of
-\cite[Theorem~4.2 and equations (4.16)--(4.21)]{IoharaKoga2011}, gives
+\cite[Theorem~4.2, (4.16) and (4.21)]{IoharaKoga2011}, gives
 \(\det G_N(c,\Delta)=C_N\prod_{rs\leq N}(\Delta-\Delta_{r,s}(c))^{p(N-rs)}\)
 with \(C_N\neq0\) independent of \(\Delta\).  At \(c=c_\star\), the distinct zeros belong to the finite set
 \(\Lambda_N(b_\star)\).  Since \(H_N\) is a finite integer linear
@@ -1791,11 +1791,10 @@ computation at \(N=7\), and at \(N=10\) in the deep suite
 
 In a Virasoro minimal model \(\mathcal{M}(p,p')\) with coprime integers
 \(p,p'\geq2\) and central charge \(c_\star=1-6(p'-p)^2/(pp')\), the physical
-highest-weight representations are the irreducible quotients
-\(L(c_\star,\lambda)=M(c_\star,\lambda)/J(c_\star,\lambda)\), where
-\(J(c_\star,\lambda)\) is the radical of the Shapovalov form, of Verma modules
-at interior Kac weights \(\lambda=h_{r,s}(b_\star)\) (\(0<r<p\), \(0<s<p'\),
-\(b_\star^2=-p'/p\)).  When the external operator is the identity (\(d=0\)),
+highest-weight representation at an interior Kac weight
+\(\lambda=h_{r,s}(b_\star)\) (\(0<r<p\), \(0<s<p'\), \(b_\star^2=-p'/p\)) is the
+irreducible quotient \(L(c_\star,\lambda)=M(c_\star,\lambda)/J(c_\star,\lambda)\).
+Here \(J(c_\star,\lambda)\) is the radical of the Shapovalov form.  When the external operator is the identity (\(d=0\)),
 the torus trace is the minimal-model character, expressed by Rocha--Caridi
 \cite{RochaCaridi1985} as an alternating sum of Verma characters over the
 braided Feigin--Fuchs embedding diagram of \(M(c_\star,\lambda)\).  For a
@@ -1828,11 +1827,10 @@ irreducible trace.  At level \(2\) the Verma value is
 computation along the fixed-\(c_\star\) ray
 \((\Delta,d)=(\lambda+x,d_\star+\alpha x)\) shows that the slope \(\alpha=5\)
 removes the discrepancy at \(N=2,3\), while \(N=4\) requires \(\alpha=17/19\).
-The discrepancy comes from the first Jantzen layer \(J^1/J^2\).  The pairing
-at \(x=0\) vanishes on \(J^1\).  On the first layer it vanishes to order at
-least one, so its ratio with the first Shapovalov form can have a finite
-nonzero limit; this is the term \(\sigma^\pm_1/\gamma^\pm_1\) of the layer
-trace formula~\eqref{eq:jantzen-trace-decomp}.
+On the first Jantzen layer \(J^1/J^2\), the vertex and Shapovalov forms both
+vanish at \(x=0\).  Their first-order terms give the ratio
+\(\sigma^\pm_1/\gamma^\pm_1\) in the layer trace
+formula~\eqref{eq:jantzen-trace-decomp}, which accounts for the discrepancy.
 
 \begin{theorem}[Fusion descent and exact Verma regularity]\label{thm:descent-regularity}
 Let \(p,p'\geq2\) be coprime, \(b_\star^2=-p'/p\), and
@@ -1903,13 +1901,11 @@ where
 \end{theorem}
 
 The proof of Theorem~\ref{thm:first-layer-ratio} uses the symmetric
-two-weight three-point form \(\rho_{\Delta_1,\Delta_2;d}\).  It fixes
-\(\Delta_2=h_{R,S}(b)\) and differentiates the factorization of this form in
-\(\Delta_1\) at \(\Delta_1=\Delta_2\); by symmetry, twice this derivative is the
-derivative along the diagonal.  This is done once at \(d=h_{2k+1,2m+1}(b)\)
-and once at \(d=0\), where \(\rho_{\Delta,\Delta;0}\equiv B_\Delta\) is the
-Shapovalov form.  The vertex ratio is the quotient of the two diagonal
-derivatives.
+two-weight three-point form \(\rho_{\Delta_1,\Delta_2;d}\).  By symmetry, its
+diagonal derivative is twice the derivative in \(\Delta_1\) at fixed
+\(\Delta_2=h_{R,S}(b)\).  The vertex ratio divides this derivative at
+\(d=h_{2k+1,2m+1}(b)\) by the same derivative at \(d=0\), where
+\(\rho_{\Delta,\Delta;0}=B_\Delta\) is the Shapovalov form.
 
 Let \(\{\mu^\pm_j\}_{j\geq1}\) be the BGG orbit weights of
 \(\lambda=h_{r,s}(b_\star)\) at levels \(\ell^\pm_j=\mu^\pm_j-\lambda\)
@@ -2007,12 +2003,12 @@ Proposition~\ref{prop:imported-normalizations},
 \(\langle\chi_{r,s}(b)|V_d(1)|\chi_{r,s}(b)\rangle\) of the normalized
 singular vector and \(\mathcal{A}_{r,s}(b)^{-1}\) is its crossing scalar.
 
-In Sections~\ref{sec:irr-results}--\ref{sec:examples} we write \(t=b^2\), as
+Here and in Sections~\ref{sec:irr-results}--\ref{sec:examples}, \(t=b^2\) as
 in Section~\ref{sec:generic-data}; Sections~\ref{sec:partial-fractions}
-and~\ref{sec:all-order} use \(t\) for the germ \(b-b_\star\) instead.  A
-deformation of the charge is written \(b^2=b_\star^2+\tau\).
+and~\ref{sec:all-order} use \(t=b-b_\star\).  We write the charge deformation
+as \(b^2=b_\star^2+\tau\).
 For \(b\in\mathbb{C}^\times\) we set \(Q=b+b^{-1}\),
-\(c(b)=1+6Q^2=13+6t+6t^{-1}\), and for any integers \(r,s\in\mathbb{Z}\),
+\(c(b)=1+6Q^2=13+6t+6t^{-1}\), and for \(r,s\in\mathbb{Z}\),
 \begin{equation}\label{eq:kac-weight}
  h_{r,s}(b)
  :=\frac{Q^2-(rb+sb^{-1})^2}{4}
@@ -2415,10 +2411,12 @@ and \(L_nb(x)\) lie in the \(\Vir\)-submodule \(\mathcal{J}^{(i)}\), and in
 \((\mu+x+N_a)-(\mu+x+N_b)=N_a-N_b\) is independent of \(x\); taking \([x^i]\)
 gives the exact \(V_d(1)\) Ward identity for \(\rho^{(i)}\) on \(J^i\).
 
-It remains to show \(J^{i+1}\subset\rad\rho^{(i)}\) for \(i\geq1\).  By
-Lemma~\ref{lem:bgg-arrows}(i), \(J^i=M(\mu^+_{k_0+i})+M(\mu^-_{k_0+i})\) and
+For \(i\geq1\) we show \(J^{i+1}\subset\rad\rho^{(i)}\).  By
+Lemma~\ref{lem:bgg-arrows}(i), \(J^i=M(\mu^+_{k_0+i})+M(\mu^-_{k_0+i})\), and the
+next layer is the intersection of these two Verma submodules,
 \(J^{i+1}=M(\mu^+_{k_0+i})\cap M(\mu^-_{k_0+i})
-=U(\Vir_-)w^+_{k_0+i+1}+U(\Vir_-)w^-_{k_0+i+1}\).  On each Verma submodule \(M(\mu^\epsilon_{k_0+i})\subset J^i\)
+=U(\Vir_-)w^+_{k_0+i+1}+U(\Vir_-)w^-_{k_0+i+1}\), generated by the two
+primitive singular vectors of layer \(k_0+i+1\).  On each Verma submodule \(M(\mu^\epsilon_{k_0+i})\subset J^i\)
 (\(\epsilon\in\{+,-\}\)), the Ward identity and
 Lemma~\ref{lem:two-weight-ward} force the restriction of \(\rho^{(i)}\) to
 \(M(\mu^\epsilon_{k_0+i})\times M(\mu^\epsilon_{k_0+i})\) to equal
@@ -2607,13 +2605,12 @@ consider the two-variable polynomial
 By Lemma~\ref{lem:two-weight-ward}, \(f_d(x_1,x_2)=f_d(x_2,x_1)\).
 
 Set \(x_2=0\).  The singular vector
-\(\chi_{R,S}(b)=\mathcal{O}_{R,S}v_{h_{R,S}(b)}\) of \(M(c(b),h_{R,S}(b))\) has
-weight \(h_{R,-S}(b)=h_{R,S}(b)+RS\) and generates a Verma submodule
-isomorphic to \(M(c(b),h_{R,-S}(b))\).  Restrict the second slot of
-\(\rho_{h_{R,S}(b)+x_1,\,h_{R,S}(b);\,d}\) to this submodule.  The restriction
-satisfies the \(V_d(1)\) Ward identity \eqref{eq:two-weight-ward}
-between \(M(c(b),h_{R,S}(b)+x_1)\) and \(M(c(b),h_{R,-S}(b))\), so uniqueness
-in Lemma~\ref{lem:two-weight-ward} gives, for every
+\(\chi_{R,S}(b)=\mathcal{O}_{R,S}v_{h_{R,S}(b)}\) generates the Verma submodule of
+\(M(c(b),h_{R,S}(b))\) of highest weight \(h_{R,-S}(b)=h_{R,S}(b)+RS\).
+Restricting the second slot of \(\rho_{h_{R,S}(b)+x_1,\,h_{R,S}(b);\,d}\) to it
+gives a form satisfying~\eqref{eq:two-weight-ward} for the weights
+\(h_{R,S}(b)+x_1\) and \(h_{R,-S}(b)\), so uniqueness in
+Lemma~\ref{lem:two-weight-ward} gives, for every
 \(u\in M(c(b),h_{R,S}(b)+x_1)\),
 \begin{multline*}
  \rho_{h_{R,S}(b)+x_1,\,h_{R,S}(b);\,d}\bigl(u,\chi_{R,S}(b)\bigr)\\
@@ -2916,14 +2913,13 @@ By the second isomorphism theorem,
  =L(c_\star,\nu_2),
 \]
 and \(V_0/\bigl(J^1(c_\star,\mu)/M(c_\star,\nu_1)\bigr)
-=M(c_\star,\mu)/J^1(c_\star,\mu)=L(c_\star,\mu)\).  Thus \(V_0\) has exact
-length two, with short exact sequence
-\(0\to L(c_\star,\nu_2)\to V_0\to L(c_\star,\mu)\to0\).  A submodule
-\(W\subset V_0\) that maps onto the head \(L(c_\star,\mu)\) contains the
-highest-weight line of \(V_0\), by the \(L_0\)-grading, and hence equals the
-cyclic module \(V_0\).  Every other submodule lies in the simple socle
-\(L(c_\star,\nu_2)\).  So the only submodules of \(V_0\) are \(V_0\),
-\(L(c_\star,\nu_2)\) and \(0\).
+=M(c_\star,\mu)/J^1(c_\star,\mu)=L(c_\star,\mu)\).  The resulting short exact
+sequence is \(0\to L(c_\star,\nu_2)\to V_0\to L(c_\star,\mu)\to0\).  A
+submodule that surjects onto the head \(L(c_\star,\mu)\) contains the
+highest-weight line by the \(L_0\)-grading and hence generates \(V_0\); a proper
+submodule therefore lies in the simple socle \(L(c_\star,\nu_2)\).  So \(V_0\)
+has length two, and its only submodules are \(V_0\), \(L(c_\star,\nu_2)\)
+and \(0\).
 
 \emph{Step 3: Exact depth-one \(\tau\)-Jantzen filtration on \(\mathcal{V}_N\).}
 Define the \(\tau\)-Jantzen filtration
@@ -3175,14 +3171,15 @@ Jantzen layers \(0,1,2,3\)) are
 \]
 By Corollary~\ref{cor:collision-free}, the truncated recursion for
 \(H_N(1/2,\mu,1/2)\) retains only labels \((R,1)\) (\(R\geq1\)) and is
-pole-free and collision-free at \(b=b_\star\).  Through level \(30\), all
-denominators in~\eqref{eq:gen-rocha-caridi} cancel and the coefficients agree
-with the Euler pentagonal series \(\phi(q)\), whose normalized form is the eta
-function:
+regular and collision-free at \(b=b_\star\).  Through level \(30\), the BGG sum
+in~\eqref{eq:gen-rocha-caridi} has integer coefficients and agrees with the
+Euler pentagonal series \(\phi(q)\); with the prefactor
+\(q^{\lambda-c_\star/24}\) this is the eta function,
 \[
  q^{1/16-1/48}\,\phi(q)=\eta(\tau),\qquad q=e^{2\pi i\tau}.
 \]
-For \(0\leq N\leq 8\) they also agree with direct quotient-Gram inversion.
+For \(0\leq N\leq 8\) the coefficients also agree with direct quotient-Gram
+inversion.
 
 \subsection{Lee--Yang model \texorpdfstring{\((2,5)\), \(\lambda=-1/5\), \(d=-1/5\)}{(2,5), lambda=-1/5, d=-1/5}}
 
