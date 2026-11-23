@@ -68,6 +68,7 @@
 \newcommand{\rad}{\operatorname{rad}}
 \newcommand{\wt}{\operatorname{wt}}
 \newcommand{\Res}{\operatorname{Res}}
+\newcommand{\CT}{\operatorname{CT}}
 
 \title{Exact algebraic confluence for torus one-point Virasoro\\
 blocks and irreducible minimal-model traces}
@@ -149,7 +150,7 @@ Jantzen filtration, whose dimensions determine the local Smith exponents
 of the Shapovalov matrix. The Jantzen depth bounds the pole order. At
 positive depth the top layer gives the coefficient at that bound as a sum of
 shifted blocks weighted by torus matrix elements divided by Jantzen norms.
-For indeterminate \(d\) the bound is attained over \(\mathbb Q(d)\) at every
+For indeterminate weight \(d\), the bound is attained over \(\mathbb Q(d)\) at each
 interior weight and \(N\geq1\); on strict two-vector levels the proof uses
 \(\ell\)-adic comparisons at \(d=h_{1,\pm3}(b)\), up to \(b\leftrightarrow b^{-1}\),
 where the generic recursion uses only labels \((u,1)\).  Over \(\mathbb Q(d)\), the
@@ -204,7 +205,7 @@ and analyzes higher-order poles and rational limits of sphere
 blocks~\cite[\S3]{Ribault2019}.
 
 At every fixed \(b_\star\neq0\), Theorem~\ref{thm:general-confluence} gives the
-coefficients of the meromorphic Verma block for \(N\geq1\):
+coefficients of the Verma block at internal weight \(\Delta\), for \(N\geq1\):
 \begin{equation}\label{eq:intro-main}
  \begin{aligned}
  H_N(c_\star,\Delta,d)
@@ -212,7 +213,7 @@ coefficients of the meromorphic Verma block for \(N\geq1\):
    \sum_{k=1}^{\widehat M^\star_{\lambda,N}}
  \frac{A^\star_{\lambda,k,N}(d)}{(\Delta-\lambda)^k},\\
  A^\star_{\lambda,k,N}(d)
- &=\operatorname{CT}_t
+ &=\CT_t
  \sum_{a\in{\mathcal C}^\star_{\lambda,N}}
  R_a(t)\,S_{a,N-\ell_a}(t)\,
  \bigl(h_a(t)-\lambda\bigr)^{k-1}.
@@ -220,9 +221,9 @@ coefficients of the meromorphic Verma block for \(N\geq1\):
 \end{equation}
 Here \(\Lambda_N(b_\star)\) consists of the Kac weights with \(rs\leq N\);
 \({\mathcal C}^\star_{\lambda,N}\) contains the labels attaining \(\lambda\).
-Set \(t=b-b_\star\), \(h_a(t)=h_{r,s}(b_\star+t)\) and \(\ell_a=rs\);
+For \(a=(r,s)\), set \(t=b-b_\star\), \(h_a(t)=h_{r,s}(b_\star+t)\), \(\ell_a=rs\).
 \(R_a\) is the generic residue, \(S_{a,M}\) the shifted Laurent block
-(Definition~\ref{def:shifted-laurent}), \(\operatorname{CT}_t\) the constant term,
+(Definition~\ref{def:shifted-laurent}), \(\CT_t\) the constant term,
 and \(\widehat M^\star_{\lambda,N}\) a pole bound.  The formula uses finite jets
 of explicit rational functions of \(b\), and uniqueness of partial fractions
 identifies it with the inverse-Shapovalov block.
@@ -251,7 +252,7 @@ coefficient at the Jantzen bound; the Jantzen form uses the fixed-charge
 deformation, and this coefficient can vanish at specialized \(d\).
 
 At \(d=h_{1,\pm3}(b)\) the generic recursion reduces to labels \((u,1)\).
-Feigin--Fuchs factorization gives the cleared block polynomials coefficients
+By Feigin--Fuchs factorization, the cleared block polynomials have coefficients
 in \(\mathbb Z[\tfrac12]\) and normalized Taylor coefficients polynomial in the
 level (Proposition~\ref{prop:h13-nonvanishing}(i)--(ii)). The top-layer Taylor
 coefficients at \(d=0\) (Proposition~\ref{prop:layer-coefficients}) give the
@@ -332,11 +333,13 @@ Cramer's rule, each \(F_N\) and \(H_N\) is a rational function of
 function \(f\) of \(\Delta\) and a point \(\lambda\),
 \(\PP_{\Delta=\lambda}f\) denotes the principal part of \(f\) at \(\lambda\),
 the sum of the negative-power terms of its Laurent expansion.
-\(\operatorname*{Res}_{\Delta=\lambda}f\) denotes the coefficient of
+\(\Res_{\Delta=\lambda}f\) denotes the coefficient of
 \((\Delta-\lambda)^{-1}\).
 Unless \(d\) is explicitly specialized, it is an indeterminate and pole
 orders in \(\Delta\) are understood over \(\mathbb Q(c,d)\), or over
-\(\mathbb Q(b_\star,d)\) after fixing \(b=b_\star\).
+\(\mathbb Q(b_\star,d)\) after fixing \(b=b_\star\).  We write \(\Vir_-\) for the span
+of the \(L_{-n}\), \(n\geq1\), call \(\{L_{-Y}\lvert\Delta\rangle\}\) the PBW
+(Poincar\'e--Birkhoff--Witt) basis, and \(\ord_x\) is the order at \(x=0\).
 \end{remark}
 
 \section{Fixed specializations and collision classes}
@@ -409,7 +412,7 @@ terms since \(\langle\Delta|V_d(1)|\Delta\rangle=1\). Each Ward
 commutator spends a mode without producing a factor \(\Delta\), lowering
 the degree below the top degree at equal lengths. The two rescaled matrices
 therefore tend to the same invertible diagonal matrix \(D_N\).
-Then \(F_N\to\operatorname{tr}(D_N^{-1}D_N)=p(N)\), and
+Then \(F_N\to\Tr(D_N^{-1}D_N)=p(N)\), and
 \((\sum_j\eta_jq^j)(\sum_kp(k)q^k)=1\) gives the limit of \(H_N\).
 \end{proof}
 
@@ -436,12 +439,12 @@ locally finite coefficientwise in \(q\).
 
 \begin{proof}
 By Lemma~\ref{lem:polynomial-entries},
-\(F_N=\operatorname{tr}(G_N^{-1}\rho_N^{\mathsf T})\) is rational in
+\(F_N=\Tr(G_N^{-1}\rho_N^{\mathsf T})\) is rational in
 \(\Delta\), and its poles are contained in the zero locus of
 \(\det G_N\).  The Kac determinant formula
-\cite{Kac1979}, \cite[Section~3.2, Theorem~3.1]{FeiginFuchs1982}, in the form of
+\cite{Kac1979}, \cite[\S3.2, Theorem~3.1]{FeiginFuchs1982}, in the form of
 \cite[Theorem~4.2, (4.16) and (4.21)]{IoharaKoga2011}, gives
-\(\det G_N(c,\Delta)=C_N\prod_{rs\leq N}(\Delta-\Delta_{r,s}(c))^{p(N-rs)}\)
+\(\det G_N(c(b),\Delta)=C_N\prod_{rs\leq N}(\Delta-h_{r,s}(b))^{p(N-rs)}\)
 with \(C_N\neq0\) independent of \(\Delta\).  At \(c=c_\star\), the determinant
 roots lie in \(\Lambda_N(b_\star)\), and the finite sum defining \(H_N\)
 introduces no other poles.  For \(N\geq1\), Lemma~\ref{lem:large-weight} rules
@@ -697,7 +700,7 @@ Class~\(R^+\), Case~\(1+\).  Since \(c_\star\neq1,25\),
 \cite[Theorem~6.3(i), (6.3)]{IoharaKoga2011} identifies \(J^i(c_\star,\lambda)\)
 with the sum of the two Verma submodules of highest weights \(\xi_{\pm i}\) in
 the braided diagram of~\cite[Proposition~5.4 and Figure~5.4]{IoharaKoga2011}.
-By \cite[equations (5.4) and (5.22)]{IoharaKoga2011}, \(\xi_0=\lambda\)
+By \cite[(5.4) and (5.22)]{IoharaKoga2011}, \(\xi_0=\lambda\)
 and, for \(k\geq1\), the weights \(\xi_{\pm k}\) have squared Coulomb-gas
 momenta \((2jpp'\mp n_0)^2\) when \(k=2j\), and \((2(j+1)pp'-n_1)^2\) and
 \((2jpp'+n_1)^2\) when \(k=2j+1\).  Since
@@ -779,7 +782,7 @@ above and Lemma~\ref{lem:singular-factorization} give
  F_{N'-\ell^\pm_k}(c_\star,\mu^\pm_k,d),
  \end{aligned}
 \]
-with the sums over the signs with \(\ell^\pm_k\leq N'\).  For
+where the sums run over signs with \(\ell^\pm_k\leq N'\).  For
 \(N'<\ell_k\), \(F_{N'}\) has a pole of order at most
 \(j_{N'}(\lambda)<k\) at \(\lambda\).  Multiplying by the Euler
 coefficients and summing as in Definition~\ref{def:eta-reduced} gives
@@ -938,7 +941,7 @@ Lemmas~\ref{lem:top-coefficient}(iii) and~\ref{lem:singular-crossing},
 \eqref{eq:crossing-normalization}.  Taking the trace of the residue of \(G_N^{-1}\) against \(\rho_N\) and
 factoring the pulled-back torus form by Lemma~\ref{lem:singular-factorization}
 and \eqref{eq:fusion-normalization} gives
-\(\operatorname*{Res}_{\Delta=h_{r,s}(b)}F_N(c,\Delta,d)={\mathcal R}_{r,s}(b,d)\,F_{N-rs}(c,z_{r,s},d)\).
+\(\Res_{\Delta=h_{r,s}(b)}F_N(c,\Delta,d)={\mathcal R}_{r,s}(b,d)\,F_{N-rs}(c,z_{r,s},d)\).
 The difference between \(F_N\) and the sum of these principal parts has no
 finite pole and tends to \(p(N)\) as \(\Delta\to\infty\)
 (Lemma~\ref{lem:large-weight}), so
@@ -1140,7 +1143,7 @@ In \(\rho_{M,\lambda,\mu}\), each \(d\) consumes at least one mode and each
 \(d_d+2d_\Delta+d_c\leq\ell(\lambda)+\ell(\mu)\), giving
 \(\widetilde\rho\in\operatorname{Mat}_{p(M)}(\mathbb Z[\tfrac12][t,Y,\zeta])\)
 with \(\widetilde\rho(0,Y;\zeta)\) independent of \(\zeta\).  Thus
-\(F_M=\operatorname{Tr}(\widetilde G^{-1}\widetilde\rho)\) and
+\(F_M=\Tr(\widetilde G^{-1}\widetilde\rho)\) and
 \(H_M=\sum_s\eta_sF_{M-s}\) lie in \(\mathbb Q(Y)[[t]]\) with \(t=0\) value
 independent of \(\zeta\).  Since
 \(t^{2M}\prod_{u=1}^M(2\Delta-2h_{u,1})=\prod_{u=1}^M(2Y+(u-1)t^2+\tfrac{u^2-1}{2}t^3)\),
@@ -1212,7 +1215,7 @@ where \(M(M-1)\cdots(M-s+1)\) has degree \(s\leq2s\) and vanishes for
 
 Expand
 \[
- R_M=(M!/2^M)Y^M\sum_{r\geq0}(-t)^r\operatorname{Tr}\bigl(D_0^{-1}(G_1D_0^{-1})^r\widetilde\rho\bigr);
+ R_M=(M!/2^M)Y^M\sum_{r\geq0}(-t)^r\Tr\bigl(D_0^{-1}(G_1D_0^{-1})^r\widetilde\rho\bigr);
 \]
 only \(0\leq r\leq i\) contribute to \([t^iY^j]\).  Write each
 \(\lambda_m\vdash M\) (\(0\leq m\leq r\)) as \(\lambda_m=(1^{a_m},\mu_m)\)
@@ -1532,11 +1535,11 @@ Lemma~\ref{lem:shifted-valuation-bound}.  Define the a priori pole bound
 \(\varepsilon_a=\infty\)) and, for \(k\geq1\), the \emph{collision moments}
 \begin{equation}\label{eq:collision-moments}
  \widetilde A^{\star}_{\lambda,k,N}(d)
- =\operatorname{CT}_{t}
+ =\CT_{t}
  \sum_{a\in{\mathcal C}^{\star}_{\lambda,N}}
  B_{a,N}(t)\delta_a(t)^{k-1},
 \end{equation}
-where \(\operatorname{CT}_t\) extracts the coefficient of \(t^0\).  For
+where \(\CT_t\) extracts the coefficient of \(t^0\).  For
 \(k>\widehat M^{\star}_{\lambda,N}\) every summand has positive valuation,
 since \((k-1)\varepsilon_a>\widehat v_{a,N}\), so
 \(\widetilde A^{\star}_{\lambda,k,N}=0\).
@@ -1703,7 +1706,7 @@ Felder's Fock-space BRST complex \cite{Felder1989,FelderSilvotti1989} give
 integral representations of such traces.  For \(d=0\), Javerzat, Santachiara and Foda obtained the
 minimal-model characters by a three-parameter limit of the generic torus
 recursion, and numerically checked the coefficient identity following (83)
-up to \(N\approx300\) \cite[Section~5]{JaverzatSantachiaraFoda2018}.
+up to \(N\approx300\) \cite[\S5]{JaverzatSantachiaraFoda2018}.
 
 At the Ising point \((p,p')=(3,4)\), \(\lambda=h_{1,2}=1/16\),
 \(d=d_\star=h_{1,3}=1/2\), the Verma coefficients are regular at \(\Delta=\lambda\)
@@ -1714,8 +1717,8 @@ computation along the fixed-\(c_\star\) ray
 removes the discrepancy at \(N=2,3\), while \(N=4\) requires \(\alpha=17/19\).
 On the first Jantzen layer \(J^1/J^2\), the vertex and Shapovalov forms both
 vanish at \(x=0\).  Their first-order terms give the ratio
-\(\sigma^\pm_1/\gamma^\pm_1\) in the layer trace
-formula~\eqref{eq:jantzen-trace-decomp}, which accounts for the discrepancy.
+\(\sigma^\pm_1/\gamma^\pm_1\) (Proposition~\ref{prop:jantzen-vertex}) in the layer
+trace formula~\eqref{eq:jantzen-trace-decomp}, which accounts for the discrepancy.
 
 \begin{theorem}[Fusion descent and exact Verma regularity]\label{thm:descent-regularity}
 Let \(p,p'\geq2\) be coprime, \(b_\star^2=-p'/p\), and
@@ -1747,7 +1750,8 @@ If \(d\in\mathcal{F}_{p,p'}(r,s)\), then \(V_d(1)\) descends to a primary
 operator on \(L(c_\star,\lambda)\), and
 \(\mathcal{T}^{\mathrm{irr}}_{c_\star,\lambda,d}(q)\) is well-defined.  When \(d=h_{2k+1,\epsilon(2m+1)}(b_\star)\in\mathcal{F}^\pm_{p,p'}(r,s)\)
 (\(\epsilon\in\{+,-\}\)), \(F_N(c_\star,\Delta,d)\) is regular at every weight
-\(\mu\) in the braided BGG orbit \(\mathcal{O}_{p,p'}(r,s)\) of \(\lambda\),
+\(\mu\) in the braided Bernstein--Gelfand--Gelfand (BGG) orbit
+\(\mathcal{O}_{p,p'}(r,s)\) of \(\lambda\) (Section~\ref{sec:setup}),
 and \(F_N(c(b),\Delta,h_{2k+1,\epsilon(2m+1)}(b))\) is jointly regular in
 \((b,\Delta)\) at \((b_\star,\mu)\) for every \(N\geq0\).
 \end{theorem}
@@ -1866,10 +1870,10 @@ Definition~\ref{def:generic-residue}: \(\mathcal{P}_{r,s}\) is the torus norm of
 the normalized singular vector and \(\mathcal{A}_{r,s}^{-1}\) its crossing scalar
 (Proposition~\ref{prop:imported-normalizations}).
 
-Here and in Sections~\ref{sec:irr-results}--\ref{sec:examples}, \(t=b^2\) as
-in Section~\ref{sec:generic-data}; Sections~\ref{sec:partial-fractions}
-and~\ref{sec:all-order} use \(t=b-b_\star\).  We write the charge deformation
-as \(b^2=b_\star^2+\tau\).
+In Sections~\ref{sec:irr-results}--\ref{sec:examples}, \(t=b^2\), and
+\(h_{R,S}(t)\) denotes the Kac weight in this coordinate. Confluence
+(Section~\ref{sec:all-order}) uses \(t=b-b_\star\). The charge deformation is
+\(b^2=b_\star^2+\tau\).
 For \(b\in\mathbb{C}^\times\) we set \(Q=b+b^{-1}\),
 \(c(b)=1+6Q^2=13+6t+6t^{-1}\), and for \(r,s\in\mathbb{Z}\),
 \begin{equation}\label{eq:kac-weight}
@@ -1918,14 +1922,15 @@ primary Ward identity
 \[
  [L_m,V_d(z)]=z^m(z\partial_z+(m+1)d)V_d(z)=z^m([L_0,V_d(z)]+mdV_d(z))
 \]
-acting on \(\langle u|V_d(z)|v\rangle=z^{\wt(u)-\wt(v)-d}\rho(u,v)\).  Induction
+acting on \(\langle u|V_d(z)|v\rangle=z^{\wt(u)-\wt(v)-d}\rho(u,v)\), where \(\wt(u)\)
+is the \(L_0\)-weight of \(u\).  Induction
 on \(N_1+N_2\) computes \(\rho_{\Delta_1,\Delta_2;d}(L_{-Y}v_{\Delta_1},
 L_{-Y'}v_{\Delta_2})\) uniquely.  It moves positive modes from left to right,
 using \(m>0\), and then negative modes from right to left, using \(m<0\) and
 \(L_{-m}v_{\Delta_1}=0\) for \(m<0\); the results are polynomials in
 \(\mathbb{Q}[c,\Delta_1,\Delta_2,d]\).  Existence of this coefficientwise
 formal bilinear pairing is standard: it is the normalized three-Verma
-three-point block \cite[Section~3, p.~4]{HadaszJaskolskiSuchanek2010},
+three-point block \cite[\S3, p.~4]{HadaszJaskolskiSuchanek2010},
 equivalently the \(z=1\) evaluation of the unique \(\Vir\)-covariant formal
 pairing into \(z^{\Delta_1-\Delta_2-d}\mathbb{C}[z,z^{-1}]\).
 
@@ -1992,9 +1997,9 @@ Their coefficients are rational: the normalized singular-vector equations
 have coefficients in \(\mathbb Q(t)\) and a unique solution, so the PBW
 coefficients lie in \(\mathbb Q(t)\cap\mathbb C[t,t^{-1}]=\mathbb Q[t,t^{-1}]\).
 This proves part~(i).  Part~(ii) is Zamolodchikov's fusion polynomial
-\cite[Section~5, equations~(5.9)--(5.12)]{Zamolodchikov2004}; see also the
+\cite[\S5, (5.9)--(5.12)]{Zamolodchikov2004}; see also the
 fusion-polynomial display preceding (8) in
-\cite[Section~3]{HadaszJaskolskiSuchanek2010}.  For the
+\cite[\S3]{HadaszJaskolskiSuchanek2010}.  For the
 root list \eqref{eq:P-RS-roots}, set \(\lambda_1=Rb+Sb^{-1}\).  Then
 \(\lambda_2=\pm(\lambda_1+p'b+q'b^{-1})\) ranges over \(\pm(ub+vb^{-1})\) with
 \(u=R+p'\in\{1,3,\ldots,2R-1\}\) and \(v=S+q'\in\{1,3,\ldots,2S-1\}\).
@@ -3018,7 +3023,7 @@ Jantzen layers \(0,1,2,3\)) are
  \begin{array}{c|ccccccc}
   \ell & 0 & 2 & 4 & 10 & 14 & 24 & 30 \\\hline\noalign{\vskip2pt}
   (-1)^j\Omega_{1,3} & 1 & -\dfrac{15}{7} & \dfrac{195}{77} & -\dfrac{663}{209} & \dfrac{16575}{4807} & -\dfrac{160225}{40641} & \dfrac{1185665}{284487}
- \end{array}
+ \end{array}.
 \]
 By Corollary~\ref{cor:collision-free}, the truncated recursion for
 \(H_N(1/2,\mu,1/2)\) retains only labels \((R,1)\) (\(R\geq1\)) and is
@@ -3027,7 +3032,7 @@ in~\eqref{eq:gen-rocha-caridi} has integer coefficients and agrees with the
 Euler pentagonal series \(\phi(q)\); with the prefactor
 \(q^{\lambda-c_\star/24}\) this is the eta function,
 \[
- q^{1/16-1/48}\,\phi(q)=\eta(\tau),\qquad q=e^{2\pi i\tau}.
+ q^{1/16-1/48}\,\phi(q)=\eta(\tau_{\mathrm{mod}}),\qquad q=e^{2\pi i\tau_{\mathrm{mod}}}.
 \]
 For \(0\leq N\leq 8\) the coefficients also agree with direct quotient-Gram
 inversion.
@@ -3043,7 +3048,7 @@ level \(25\) (layers
  \begin{array}{c|ccccccc}
   \ell & 0 & 2 & 3 & 9 & 11 & 21 & 24 \\\hline\noalign{\vskip2pt}
   (-1)^j\Omega_{1,3} & 1 & -\dfrac{3}{7} & -\dfrac{2}{3} & \dfrac{44}{119} & \dfrac{78}{133} & -\dfrac{52}{153} & -\dfrac{299}{551}
- \end{array}
+ \end{array}.
 \]
 Exact quotient-Gram inversion agrees with~\eqref{eq:gen-rocha-caridi} through
 \(N=9\), the first level crossing Jantzen layer \(2\).  The primes other than
@@ -3079,7 +3084,7 @@ Theorem~\ref{thm:gen-rocha-caridi}.  The first-layer BGG weights
   3/5 & 17/3 & -154/39\\
   3/2 & -1463/39 & 33649/663\\
   1/10 & 77/39 & 32186/25857
- \end{array}
+ \end{array}.
 \]
 For all three insertions, the traces
 computed from \eqref{eq:gen-rocha-caridi} match direct quotient-Gram inversion
