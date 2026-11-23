@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Exact replay of the regularity minors of Lemma lem:regular-families.
+"""Exact regularity minors at the Ising weights (cross-check of Lemma
+lem:regular-everywhere).
 
 Usage: python3 -u tools/audit_regular_families.py [-h|--help]
 
@@ -8,8 +9,8 @@ matrix S_m(1/2,h) of v -> (L_1 v, L_2 v) on the level-m PBW space is built
 by exact Virasoro commutation, with partitions in decreasing lexicographic
 order and L_1-rows before L_2-rows.  B_m consists of its first p(m)-1 rows
 followed by the coordinate row of L_{-1}^m.  Each determinant is compared
-with the value displayed in the manuscript; a nonzero determinant makes the
-normalized singular-vector family regular at b_0 by Cramer's rule.
+with the value stored in CASES; a nonzero determinant makes the normalized
+singular-vector family regular at b_0 by Cramer's rule.
 """
 
 import argparse

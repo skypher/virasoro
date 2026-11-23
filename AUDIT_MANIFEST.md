@@ -60,7 +60,8 @@ The ordinary suite runs, in order:
    polynomials, and the spin crossing form.
 3. `tools/audit_regular_families.py` — the eight regularity minors of the
    normalized singular-vector families at the Ising parent and child
-   weights (Lemma `lem:regular-families`).
+   weights (a cross-check of Lemma `lem:regular-everywhere` at these weights;
+   the expected determinants are stored in the script).
 4. `tools/audit_grade10_direct.py --crossing-only` — intrinsic construction
    of the level-ten second crossing form from the exact 42-by-42 Gram matrix,
    without generic-residue or confluence input.
@@ -144,7 +145,7 @@ dab3557d933399d1deced4f28983534f13730378f0c065f4f965fc11fd1822a8  tools/audit_la
 440b1a744cae37788512e6db19f41c132e8d42e0a813ad9101b217bc54946c38  tools/audit_low_levels.py
 06276e2ade35ef9da04baa303216474e7b319fecf9c1e9f23f4583608a1c87c9  tools/audit_minimal_models.py
 bbf9f2dd80e80dfe18f13d4abc34c052229ea7146deb00e889a0276948006d9f  tools/audit_one_screening.py
-4c7eba13ca7b7988107a4bd4ca6191a7a07b37dc579f8a818e47bde2929b0ce1  tools/audit_regular_families.py
+6abd73a34f2ba613ff19b847341554045822c04a231a68d0c08a05f98deac4a0  tools/audit_regular_families.py
 f979190e290b2e57649d01dc6ba0fcaf225ff21fb085e92431c370a2b4f0aeb8  tools/audit_stocco_comparison.py
 1151440942f319d548965bc51a2cd0baa84b940a661735981a8b2b3afe887a98  tools/audit_top_layer.py
 34c9a27ab97bb28b78f1c2e559c8dabf4bc5a2903d362ad43222f103c7910390  tools/direct_reconstruction.py
