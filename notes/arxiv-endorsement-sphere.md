@@ -1,5 +1,7 @@
 # arXiv endorsement for the sphere paper
 
+Ribault is out as a candidate (user, tmp terminal, 2026-11-24 about 14:00 Taiwan: "also ribault is out.").
+
 Researched 2026-11-22 (14:2x Taiwan, 06:25Z) at the user's request ("who can endorse thr sphere paperbfor arxiv"; "ok save this result.").
 
 Category: hep-th primary, cross-listed to math-ph (recommended).
@@ -20,7 +22,7 @@ Counts are hep-th papers in the window 2021-11-22 to 2026-08-22, from an arXiv A
 
 | Author | hep-th papers in window | Link to the paper |
 |---|---|---|
-| Sylvain Ribault (IPhT Saclay) | 7 or more (2023-02 to 2025-12), plus math-ph 2025-10, 2026-04 | Cited as [Rib19] and [Rib26]. His review arXiv:2411.17262v4, §4.3.4, says no complete derivation of the large-Δ limit existed, which is the paper's lead result. Best fit. |
+| Sylvain Ribault (IPhT Saclay) | 7 or more (2023-02 to 2025-12), plus math-ph 2025-10, 2026-04 | Cited as [Rib19] and [Rib26]. His review arXiv:2411.17262v4, §4.3.4, says no complete derivation of the large-Δ limit existed, which is the paper's lead result. Out (user, 2026-11-24). |
 | Per Kraus (UCLA) | 9 or more (2022-01 to 2026-07) | Co-author of [BDK19], arXiv:1910.04169, which the paper uses. |
 | Aleksandr Artemev | 7 or more (2022-03 to 2026-03) | First author of [AK26], arXiv:2603.08194. |
 | Leszek Hadasz (Kraków) | 3 (2023-12, 2024-05, 2026-08) | Co-author of [HJS10]. Probably enough. |
