@@ -184,17 +184,16 @@ numerically~\cite[\S\S1 and~5]{HadaszJaskolskiSuchanek2010}.  The one-point
 function is a sum over the spectrum, or an integral for a continuous
 spectrum, of a structure constant times a torus one-point block and its
 antiholomorphic
-counterpart~\cite[\S2, (3)--(4) and the display after (4)]{HadaszJaskolskiSuchanek2010}.  The torus one-point Virasoro block with internal weight \(\Delta\) and
+counterpart~\cite[\S2]{HadaszJaskolskiSuchanek2010}.\footnote{Equations (3)--(4) of~\cite{HadaszJaskolskiSuchanek2010} and the display after (4).}  The torus one-point Virasoro block with internal weight \(\Delta\) and
 external weight \(d\) is a power series in \(q\).  Its coefficient \(F_N\)
 pairs the level-\(N\) subspace of the Verma module \(M(c,\Delta)\) with itself
 through the inverse Shapovalov matrix and the matrix elements of a primary
-field of weight \(d\) (Section~\ref{sec:blocks}).  Multiplying the series by
-\(\prod_{m\geq1}(1-q^m)\) gives the eta-reduced coefficients \(H_N\)
-(Definition~\ref{def:eta-reduced}).  Write \(c=1+6(b+b^{-1})^2\).  For
+field of weight \(d\).  Multiplying the series by
+\(\prod_{m\geq1}(1-q^m)\) gives the eta-reduced coefficients \(H_N\).  Write \(c=1+6(b+b^{-1})^2\).  For
 generic \(b\), each \(H_N\) has only simple poles in \(\Delta\), at the Kac
 weights \(h_{r,s}(b)\) with \(rs\leq N\), and the residues satisfy
-Poghossian's recursion~\cite[\S5, (5.3)--(5.7)]{Poghossian2009}, derived
-in~\cite[\S3, (7)--(9)]{HadaszJaskolskiSuchanek2010}; see
+Poghossian's recursion~\cite[\S5]{Poghossian2009}, derived
+in~\cite[\S3]{HadaszJaskolskiSuchanek2010};\footnote{The recursion is (5.3)--(5.7) of~\cite{Poghossian2009} and (7)--(9) of~\cite{HadaszJaskolskiSuchanek2010}.} see
 \cite[\S2.2]{PoghosyanPoghosyan2026} for the light limit \(b\to0\) at fixed
 weights.  The recursion computes \(H_N\) from lower coefficients without
 inverting the Shapovalov matrix, whose size at level \(N\) is the number of
@@ -231,8 +230,7 @@ Here \(\operatorname{Kac}_N(b_\star)\) consists of the Kac weights with
 \(rs\leq N\), and \({\mathcal C}^\star_{\lambda,N}\) contains the labels
 attaining \(\lambda\).  For \(a=(r,s)\), set \(t=b-b_\star\),
 \(h_a(t)=h_{r,s}(b_\star+t)\) and \(\ell_a=rs\).  \(R_a\) is the generic
-residue, \(S_{a,M}\) the shifted Laurent block
-(Definition~\ref{def:shifted-laurent}), \(\CT_t\) the constant term, and
+residue, \(S_{a,M}\) the shifted Laurent block, \(\CT_t\) the constant term, and
 \(\widehat M^\star_{\lambda,N}\) an explicit bound on the pole order.  In the
 generic recursion each label \(a\) contributes a simple pole at \(h_a(b)\), and
 as \(b\to b_\star\) the poles of the labels in \({\mathcal C}^\star_{\lambda,N}\)
@@ -249,7 +247,7 @@ formula uses finite jets of explicit rational functions of \(b\), and
 uniqueness of partial fractions identifies it with the coefficient defined
 through the inverse Shapovalov matrix.  It is obtained by expanding the generic
 recursion in \(b-b_\star\), so it uses generic-\(b\) jets and is not a
-recursion expressed solely in specialized data (Section~\ref{sec:scope}).  The
+recursion expressed solely in specialized data.  The
 example after Theorem~\ref{thm:general-confluence} works this out at \(c=0\)
 and level five for indeterminate \(d\): two residue terms each have a simple pole in \(t\), the poles
 cancel in the first moment, and the second moment, which gives the double pole
@@ -261,8 +259,7 @@ Feigin--Fuchs embedding diagram describes the Jantzen filtration
 \(J^\bullet\) of the specialized Verma module
 (Theorem~\ref{thm:jantzen-smith} and Figure~\ref{fig:braided}).  Its dimensions
 determine the multiplicities of the local Smith exponents \(e_j\) of the
-Shapovalov matrix: \(\dim J^i_N=\#\{j:e_j\geq i\}\)
-(Lemma~\ref{lem:jantzen-smith}).  Thus the pole order of \(H_N\) at
+Shapovalov matrix: \(\dim J^i_N=\#\{j:e_j\geq i\}\).  Thus the pole order of \(H_N\) at
 \(\lambda\) is at most the Jantzen depth \(j_N(\lambda)\), the number of
 layers that have reached level \(N\).  A pole of order \(m\) at \(\lambda\)
 allows principal-part terms from \((\Delta-\lambda)^{-1}\) through
@@ -285,11 +282,10 @@ coefficient can vanish at specialized \(d\).
 For indeterminate \(d\), Corollary~\ref{cor:top-layer-sharp} shows that the
 bound \(j_N(\lambda)\) is attained at every interior weight and every
 \(N\geq1\).  On the levels where both layer vectors contribute, the proof
-compares \(\ell\)-adic valuations of the two terms of~\eqref{eq:intro-top} at
-the external weights \(d=h_{1,\pm3}(b_\star)\)
-(Propositions~\ref{prop:h13-nonvanishing} and~\ref{prop:two-term-criteria}).
+compares \(\varpi\)-adic valuations of the two terms of~\eqref{eq:intro-top} at
+the external weights \(d=h_{1,\pm3}(b_\star)\) (Section~\ref{sec:sharpness}).
 At specialized \(d\) the pole can disappear: for \(d=0\), \(H_N=0\) for
-\(N\geq1\) (Lemma~\ref{lem:d-derivatives}).
+\(N\geq1\).
 Proposition~\ref{prop:ising-double-poles} gives the first Ising double poles,
 at levels \(7\), \(10\) and \(11\) for the energy, spin and identity weights.
 From that level on, \(H_N(\tfrac12,\Delta,d)\) has a pole of order at least
@@ -297,8 +293,7 @@ two at that weight, for indeterminate \(d\).
 
 The Verma coefficients at \(\Delta=\lambda\) do not give the irreducible
 traces of Part~II, even where they are finite: in the Ising model at \(\lambda=\tfrac1{16}\) and \(d=\tfrac12\), the
-level-two Verma coefficient is \(F_2=8/7\) and the trace coefficient is \(-1\)
-(Section~\ref{sec:irr-results}).  Write \(\lambda=h_{r,s}(b_\star)\) with
+level-two Verma coefficient is \(F_2=8/7\) and the trace coefficient is \(-1\).  Write \(\lambda=h_{r,s}(b_\star)\) with
 \(0<r<p\), \(0<s<p'\).  The matrix elements of \(V_d(1)\) between vectors of
 \(M(c_\star,\lambda)\) define a bilinear form on \(L(c_\star,\lambda)\) exactly
 when \(d\) is a weight allowed by the chiral minimal-model fusion of the
@@ -336,7 +331,7 @@ internal-weight recursions in the sphere linear and torus necklace
 channels~\cite{ChoCollierYin2017}.  At rational \(b^2\), Javerzat,
 Santachiara and Foda analyze the cancellation of the colliding poles in
 examples and for the identity
-insertion~\cite[\S\S4--6; the resonant-term limits are (60)--(61)]{JaverzatSantachiaraFoda2018}.
+insertion~\cite[\S\S4--6]{JaverzatSantachiaraFoda2018}.\footnote{The limits of the resonant terms are (60)--(61) of~\cite{JaverzatSantachiaraFoda2018}.}
 For \(d=0\) they also obtain the minimal-model characters by a
 three-parameter limit of the generic torus recursion, and check the
 coefficient identity following their (83) numerically up to
@@ -484,7 +479,7 @@ Symbol & Meaning (where defined)\\
 \(c(b)\), \(h_{r,s}(b)\), \(\ell_a=rs\) & central charge, Kac weights, level of the label \(a=(r,s)\) (Definition~\ref{def:fixed-specialization}, \eqref{eq:kac-weight})\\
 \(\operatorname{Kac}_N(b_\star)\), \({\mathcal C}^\star_{\lambda,N}\) & Kac weights with \(rs\leq N\) at \(b_\star\); labels attaining \(\lambda\) (Definition~\ref{def:fixed-specialization})\\
 \(A^\star_{\lambda,k,N}\), \(m^\star_{\lambda,N}\) & partial-fraction coefficients and pole order at \(\lambda\) (Theorem~\ref{thm:general-partial-fractions})\\
-\({\mathcal A}_{r,s}\), \({\mathcal P}_{r,s}\), \({\mathcal R}_{r,s}\) & inverse norm factor, torus norm and residue multiplier of the generic recursion (Definition~\ref{def:generic-residue})\\
+\({\mathcal A}_{r,s}\), \({\mathcal N}_{r,s}\), \({\mathcal R}_{r,s}\) & inverse norm factor, torus norm and residue multiplier of the generic recursion (Definition~\ref{def:generic-residue})\\
 \(S_{a,M}\), \(\widehat M^\star_{\lambda,N}\) & shifted Laurent blocks and pole-order bound (Definitions~\ref{def:shifted-laurent}, \ref{def:collision-moments})\\
 \(J^i\), \(B^i\) & Jantzen filtration and Jantzen forms (Definition~\ref{def:jantzen-layers}, Lemma~\ref{lem:top-coefficient})\\
 \(n_0,n_1\), \(\ell^\pm_k\), \(j_N(\lambda)\) & momenta, layer levels and Jantzen depth at an interior weight (Section~\ref{sec:smith})\\
@@ -494,6 +489,7 @@ Symbol & Meaning (where defined)\\
 \(\mathcal F_{p,p'}(r,s)\), \(\mathcal F^\pm_{p,p'}(r,s)\) & fusion set and reflected set (Theorem~\ref{thm:descent-regularity})\\
 \(c_{R,S}\), \(\Omega_{u,v}\) & first-layer vertex ratio and its path products (Theorem~\ref{thm:first-layer-ratio}, Proposition~\ref{prop:bgg-cocycle})\\
 \(T^{\mathrm{irr}}_N\) & coefficients of the irreducible trace \eqref{eq:irr-trace-def}\\
+\(\varpi\) & odd prime dividing \(p'\) in Section~\ref{sec:sharpness} and Appendix~\ref{app:h13}; momentum \((Rb\pm Sb^{-1})/2\) in Part~II\\
 \(t\), \(\delta\) & \(t=b-b_\star\) in Section~\ref{sec:all-order}; \(t=b^2\) in Proposition~\ref{prop:h13-nonvanishing}, Appendix~\ref{app:h13} and Part~II; \(\delta\) is the charge deformation \(b^2=b_\star^2+\delta\) in Section~\ref{sec:telescoping}\\
 \(\tau\) & modular parameter of the torus, \(q=e^{2\pi i\tau}\) (Sections~\ref{sec:blocks} and~\ref{sec:examples})\\
 \hline
@@ -533,11 +529,11 @@ Let \(p,p'\) be coprime positive integers and choose
  =\frac{(p'r-ps)^2-(p'-p)^2}{4pp'}.
 \]
 For positive pairs \((r,s)\) and \((r',s')\), their specialized weights
-are equal if and only if, for some \(\ell\in\mathbb Z\),
+are equal if and only if, for some \(n\in\mathbb Z\),
 \[
- (r',s')=(r+p\ell,s+p'\ell)
+ (r',s')=(r+pn,s+p'n)
  \quad\text{or}\quad
- (r',s')=(p\ell-r,p'\ell-s).
+ (r',s')=(pn-r,p'n-s).
 \]
 \end{proposition}
 
@@ -545,8 +541,8 @@ are equal if and only if, for some \(\ell\in\mathbb Z\),
 The displayed formulas follow by substituting \(b_\star^2=-p'/p\) in
 Definition~\ref{def:fixed-specialization}.  Equality of the two weights is
 equivalent to \(p'r'-ps'=\pm(p'r-ps)\).  For the plus sign, coprimality gives
-\((r'-r,s'-s)=(p\ell,p'\ell)\); for the minus sign it gives
-\((r'+r,s'+s)=(p\ell,p'\ell)\).  Conversely, both operations preserve
+\((r'-r,s'-s)=(pn,p'n)\); for the minus sign it gives
+\((r'+r,s'+s)=(pn,p'n)\).  Conversely, both operations preserve
 \((p'r-ps)^2\) and hence the weight.
 \end{proof}
 
@@ -1018,13 +1014,13 @@ Theorem~\ref{thm:jantzen-smith} is attained for indeterminate \(d\)
 With \(c(b)\) and \(h_{r,s}(b)\) from Definition~\ref{def:fixed-specialization}
 and \(\Lambda^2=(b+b^{-1})^2-4d\), define
 \[
- {\mathcal P}_{r,s}(b,d)
+ {\mathcal N}_{r,s}(b,d)
  =\prod_{\substack{1\leq k\leq2r-1\\k\ {\rm odd}}}
   \prod_{\substack{1\leq l\leq2s-1\\l\ {\rm odd}}}
  \frac{\Lambda^2-(kb+lb^{-1})^2}{4}\,
  \frac{\Lambda^2-(kb-lb^{-1})^2}{4},
 \]
-and \({\mathcal R}_{r,s}(b,d)={\mathcal A}_{r,s}(b){\mathcal P}_{r,s}(b,d)\),
+and \({\mathcal R}_{r,s}(b,d)={\mathcal A}_{r,s}(b){\mathcal N}_{r,s}(b,d)\),
 where
 \({\mathcal A}_{r,s}(b)=\frac12\prod_{(a,b')\in[1-r,r]\times[1-s,s]\setminus\{(0,0),(r,s)\}}(ab+b'b^{-1})^{-1}\).
 \end{definition}
@@ -1040,7 +1036,7 @@ singular vector of level \(rs\) in \(M(c(b),h_{r,s}(b))\) whose
 Lemma~\ref{lem:singular-crossing}.  Then
 \begin{align}
  \beta_{\chi_{r,s}(b)}&={\mathcal A}_{r,s}(b)^{-1},\label{eq:crossing-normalization}\\
- \langle\chi_{r,s}(b)|V_d(1)|\chi_{r,s}(b)\rangle&={\mathcal P}_{r,s}(b,d).\label{eq:fusion-normalization}
+ \langle\chi_{r,s}(b)|V_d(1)|\chi_{r,s}(b)\rangle&={\mathcal N}_{r,s}(b,d).\label{eq:fusion-normalization}
 \end{align}
 The identities specialize wherever the normalized singular vector is regular.
 \end{proposition}
@@ -1152,7 +1148,7 @@ rational functions of \((b,\Delta)\),
 \begin{proof}
 Write \(\varphi(x,y)=xb+yb^{-1}\) and \(B=[1-r,r]\times[1-s,s]\).  Since
 \(\Lambda^2=\varphi(1,1)^2-4d\), at \(d=0\) the factors of
-\({\mathcal P}_{r,s}\) in Definition~\ref{def:generic-residue} are
+\({\mathcal N}_{r,s}\) in Definition~\ref{def:generic-residue} are
 \(\frac14(\varphi(1,1)^2-\varphi(k,\pm l)^2)
 =\frac14\varphi(1-k,1\mp l)\varphi(1+k,1\pm l)\), and over the odd \(k,l\) and
 both signs these products run once over \(\varphi(2a,2b')\),
@@ -1197,13 +1193,73 @@ weight equals \(j_N(\lambda)\) as soon as the right side
 of~\eqref{eq:top-layer} is a nonzero polynomial in \(d\).  On a level where
 only one layer vector contributes, this follows from the nonvanishing of the
 shifted block (Proposition~\ref{prop:h13-nonvanishing}).  Where both
-contribute, the two terms could cancel.  Proposition~\ref{prop:two-term-criteria}
-rules this out by comparing their \(\ell\)-adic valuations at the two external
-weights \(d=h_{1,\pm3}(b_\star)\), where the generic recursion keeps only the
-labels \((u,1)\).  Proposition~\ref{prop:layer-coefficients} supplies the
-leading behaviour of the torus norms at \(d=0\), and
-Proposition~\ref{prop:h13-nonvanishing} the integrality and the dependence on
-the level that the comparison needs.
+contribute, the right side is the sum of the two products
+\(\mathcal N^\pm_kH_{M^\pm}(c_\star,\mu^\pm_k,d)/\gamma^\pm_k\) with
+\(M^\pm=N-\ell^\pm_k\geq1\), and Theorem~\ref{thm:top-layer} does not exclude
+that they cancel.
+
+To show that they do not, it suffices to find one value of \(d\) and one
+Taylor coefficient there at which the sum is nonzero.  The first candidate is
+\(d=0\).  Both products vanish there to order at least \(k+1\), and
+Proposition~\ref{prop:layer-coefficients} with Lemma~\ref{lem:d-derivatives}
+gives the coefficient of \(d^{k+1}\) in closed form: up to a nonzero factor it
+is \(f(M^+,m^+_k)+(-1)^kf(M^-,m^-_k)\), where
+\(f(M,m)=\sum_{uv=M}x_{u,v}/(m^2-x_{u,v}^2)\), \(x_{u,v}=p'u-pv\), and
+\(m^\pm_k\) is the Coulomb momentum of \(\mu^\pm_k\), so that
+\(\mu^\pm_k=((m^\pm_k)^2-(p'-p)^2)/(4pp')\).  The two sums take both
+signs, and we do not have a proof that they never cancel.  They do not cancel
+on any two-vector level with \(p,p'\leq13\) and \(k\leq3\) (see the code
+availability section).
+
+The proof below uses the external weights \(d_1=h_{1,3}(b_\star)\) and
+\(d_2=h_{1,-3}(b_\star)\) instead, where the size of each shifted block at an
+odd prime \(\varpi\) dividing \(p'\) is known.  At these weights the generic
+recursion keeps only the labels \((u,1)\).  After its denominators are
+cleared, \(H_M\) becomes a polynomial in \(t=b^2\) and \(Y=\Delta t^2\) with
+coefficients in \(\mathbb Z[\frac12]\) and constant term \(4^M\)
+(Proposition~\ref{prop:h13-nonvanishing}(i)).  At \(b=b_\star\) and
+\(\Delta=\mu\) both \(t\) and \(Y\) are divisible by \(\varpi\), so this
+polynomial takes a \(\varpi\)-adic unit value, and the \(\varpi\)-adic
+valuation of \(H_M(c_\star,\mu,d_\nu)\) is minus that of the cleared
+denominator, given by~\eqref{eq:h13-valuation}.  When the last sum in~\eqref{eq:h13-valuation}
+vanishes, this valuation is \(-v_\varpi(M!)-Mv_\varpi(p')\), which decreases strictly
+with \(M\).  The torus norms are products of linear forms in \(d\)
+(Definition~\ref{def:generic-residue}), so the valuations of their Taylor
+coefficients at \(d_1\), and through Proposition~\ref{prop:layer-coefficients}
+those of the Jantzen norms, can be counted factor by factor.
+
+Proposition~\ref{prop:two-term-criteria} splits into three cases by \(s\).  In
+Case~2, the main one, the count shows that
+\([(d-d_1)^k]\mathcal N^\pm_k/\gamma^\pm_k\) has the same valuation for both
+signs, and the last sum in~\eqref{eq:h13-valuation} vanishes.  The valuations
+of the two products at \(d_1\) then differ by
+\(-v_\varpi(M^+!)+v_\varpi(M^-!)-(M^+-M^-)v_\varpi(p')\neq0\), and two rational numbers
+of different valuation cannot cancel.  Case~1 is simpler: the two torus norms
+vanish to different orders at \(d_1\).  In Case~3 the last sum
+in~\eqref{eq:h13-valuation} can make the two valuations equal.  The proof then
+compares the ratio of the two products at \(d_1\) with the ratio at \(d_2\),
+using Proposition~\ref{prop:h13-nonvanishing}(iv) to control how the ratio of
+shifted blocks changes with the level.
+
+The smallest two-vector level shows Case~2 in numbers.  Take the Lee--Yang
+model, \((p,p')=(2,5)\), and \(\lambda=h_{1,2}(b_\star)=-\frac15\).  The first
+layer has singular vectors at levels \(2\) and \(3\), so
+\(\mu^+_1=\frac95\) and \(\mu^-_1=\frac{14}5\), and the second layer starts at
+level \(9\).  At \(N=4\) one has \(M^+=2\), \(M^-=1\), \(\varpi=5\) and
+\(s=2\), and \(d_1=h_{1,3}(b_\star)=-\frac15\) is the weight of the Lee--Yang
+field itself.  Both products vanish to first order at \(d_1\), and their first
+Taylor coefficients there are
+\begin{align*}
+ \frac{[(d-d_1)]\mathcal N^+_1}{\gamma^+_1}\,H_2\bigl(c_\star,\tfrac95,d_1\bigr)
+ &=\frac3{14}\cdot\frac{349}{425}=\frac{1047}{5950},\\
+ \frac{[(d-d_1)]\mathcal N^-_1}{\gamma^-_1}\,H_1\bigl(c_\star,\tfrac{14}5,d_1\bigr)
+ &=-\frac13\cdot\frac3{70}=-\frac1{70}.
+\end{align*}
+The norm ratios \(\frac3{14}\) and \(-\frac13\) are \(5\)-adic units.  The
+shifted blocks have \(5\)-adic valuations \(-2\) and \(-1\),
+as~\eqref{eq:h13-valuation} gives with \(a=1\), so the sum
+\(\frac{481}{2975}\) is nonzero.  (Here \(\gamma^+_1=-\frac{84}{25}\),
+\(\gamma^-_1=\frac{4536}{625}\) and \(H_1(c,\Delta,d)=d(d-1)/(2\Delta)\).)
 
 \begin{proposition}[Layer coefficients at \(d=0\)]
 \label{prop:layer-coefficients}
@@ -1220,7 +1276,7 @@ We read off \(\mathcal N^\pm_k/\gamma^\pm_k\) from the generic recursion by lett
 \(b^2\), \(\Delta\) and \(d\) tend to \((b_\star^2,\lambda,0)\) at the same
 rate.  Along such a curve only the chains of labels whose poles collide at
 every step survive (Steps~1 and~2), and the limit is the lowest homogeneous
-part of \(H_N\), whose behaviour at large slope \(\omega\) gives
+part of \(H_N\), whose behaviour at large slope \(\zeta\) gives
 \([d^k](\mathcal N^\pm_k/\gamma^\pm_k)\) (Step~3).  Steps~4 and~5 list the colliding
 chains and evaluate the resulting moments.
 
@@ -1231,7 +1287,7 @@ Put \(\nu=b^2\), \(\nu_\star=-p'/p\), \(N_0=2pp'\); dots denote \(d/d\nu\) at
 \(g=(u,v)\).
 
 \emph{Step 1: the multipliers along a blow-up.}  By the proof of
-Lemma~\ref{lem:d-derivatives}, the factors of \({\mathcal P}_g(b,d)\) vanishing
+Lemma~\ref{lem:d-derivatives}, the factors of \({\mathcal N}_g(b,d)\) vanishing
 at \((\nu,d)=(\nu_\star,0)\) are \(-d\) and the factors whose restrictions to
 \(d=0\) are \(\frac14\varphi(2jp,2jp')\varphi(2-2jp,2-2jp')\) with \(j\neq0\)
 and \((jp,jp')\in B_g\).  At \(d=0\) their \(\nu\)-derivatives are
@@ -1240,41 +1296,41 @@ has order at most their number minus one, with equality when
 \(\varrho_g:=\partial_d{\mathcal R}_g|_{d=0}=-(p'u-pv)/(2(p'-p))\)
 (Lemma~\ref{lem:d-derivatives}) is nonzero.  So along the curve
 \[
- (\nu,\Delta,d)=(\nu_\star+\delta,\ \lambda+\delta\omega,\ \delta y)
- \qquad(\delta\to0)
+ (\nu,\Delta,d)=(\nu_\star+\varepsilon,\ \lambda+\varepsilon\zeta,\ \varepsilon y)
+ \qquad(\varepsilon\to0)
 \]
-with \(\omega\) and \(y\) fixed,
+with \(\zeta\) and \(y\) fixed,
 \[
- \frac{{\mathcal R}_g}{\delta}\to\varrho_g\,y\prod_j\Bigl(1-\frac{y}{j\kappa_0}\Bigr).
+ \frac{{\mathcal R}_g}{\varepsilon}\to\varrho_g\,y\prod_j\Bigl(1-\frac{y}{j\kappa_0}\Bigr).
 \]
 
 \emph{Step 2: the limit along the curve.}  Expand \(H_N\) by
 Proposition~\ref{prop:generic-recursion} into chains \(g_1,\dots,g_n\) with
 denominators \(z_{i-1}-h_{g_i}\), where \(z_0=\Delta\) and
-\(z_i=h_{g_i}+\ell_{g_i}\).  For generic \(\omega,y\), such a denominator is of
-order \(\delta\) if \(h_{g_i}(\nu_\star)=z_{i-1}(\nu_\star)\), and a unit
+\(z_i=h_{g_i}+\ell_{g_i}\).  For generic \(\zeta,y\), such a denominator is of
+order \(\varepsilon\) if \(h_{g_i}(\nu_\star)=z_{i-1}(\nu_\star)\), and a unit
 otherwise; consecutive slopes differ, as Step~4 shows.  Only the chains whose
-denominators are all of order \(\delta\) contribute to the limit, and \(H_N\)
+denominators are all of order \(\varepsilon\) contribute to the limit, and \(H_N\)
 tends to
 \[
- T_N(\omega,y)=\sum_{\text{colliding chains}}\ \prod_i
+ T_N(\zeta,y)=\sum_{\text{colliding chains}}\ \prod_i
  \frac{\varrho_{g_i}\,y\prod_j(1-y/(j\kappa_0))}{\zeta_{i-1}-\dot h_{g_i}},
- \qquad \zeta_0=\omega,\quad\zeta_i=\dot h_{g_i}.
+ \qquad \zeta_0=\zeta,\quad\zeta_i=\dot h_{g_i}.
 \]
 
-\emph{Step 3: reduction to a limit in \(\omega\).}  The denominator of
+\emph{Step 3: reduction to a limit in \(\zeta\).}  The denominator of
 \(H_N\) is a product of powers of \(\Delta-h_g\), whose leading forms are
 units or \(\Delta-\lambda-\dot h_g(\nu-\nu_\star)\).  So
-\(T_N(\omega,y)=\Phi(1,\omega,y)\) for the lowest homogeneous part \(\Phi\) of
+\(T_N(\zeta,y)=\Phi(1,\zeta,y)\) for the lowest homogeneous part \(\Phi\) of
 \(H_N\) in \((\nu-\nu_\star,\Delta-\lambda,d)\), which has degree \(0\) and is
-regular at \((0,1,\cdot)\).  Hence \([y^k]T_N=O(\omega^{-k})\) as
-\(\omega\to\infty\), and
+regular at \((0,1,\cdot)\).  Hence \([y^k]T_N=O(\zeta^{-k})\) as
+\(\zeta\to\infty\), and
 \(H_N(c_\star,\lambda+\varepsilon,\varepsilon y)\to\Phi(0,1,y)\) as
 \(\varepsilon\to0\).  With Theorems~\ref{thm:jantzen-smith}
 and~\ref{thm:top-layer} and Lemma~\ref{lem:d-derivatives} this gives
 \[
  [d^k]\frac{\mathcal N^\pm_k}{\gamma^\pm_k}
- =\lim_{\omega\to\infty}\omega^k[y^k]T_{\ell^\pm_k}.
+ =\lim_{\zeta\to\infty}\zeta^k[y^k]T_{\ell^\pm_k}.
 \]
 
 \emph{Step 4: the colliding chains.}  By integrality of \(u,v\), the colliding
@@ -1299,22 +1355,22 @@ with \(-j\leq i\leq j\), \(-j-1\leq i\leq j-1\) and \(-j\leq i\leq j-1\) in
 these three cases; these are \(k\) distinct slopes.
 
 \emph{Step 5: the moments.}  As
-\([y^k]T_N=\sum_\theta C_\theta/(\omega-\dot h_\theta)\) is
-\(O(\omega^{-k})\), its moments of order \(\leq k-2\) vanish, and for each
-\(\kappa\)
+\([y^k]T_N=\sum_\theta C_\theta/(\zeta-\dot h_\theta)\) is
+\(O(\zeta^{-k})\), its moments of order \(\leq k-2\) vanish, and for each
+\(\theta_0\)
 \[
- \lim_{\omega\to\infty}\omega^k[y^k]T_N
- =C_\kappa\prod_{\theta\neq\kappa}\frac{n_0(x_\theta-x_\kappa)}{4p'^2}.
+ \lim_{\zeta\to\infty}\zeta^k[y^k]T_N
+ =C_{\theta_0}\prod_{\theta\neq\theta_0}\frac{n_0(x_\theta-x_{\theta_0})}{4p'^2}.
 \]
-For \(k=2j+1\) take \(\kappa\) the endpoint, \((r+jp,s+jp')\) or
+For \(k=2j+1\) take \(\theta_0\) the endpoint, \((r+jp,s+jp')\) or
 \(((j+1)p-r,(j+1)p'-s)\), whose box meets \(\mathbb Z(p,p')\) for
 \(|j'|\leq j\) (as \(0<r<p\), \(0<s<p'\)).  Then
-\(C_\kappa=\pm\varrho(-1)^j/(j!^2\kappa_0^{2j})\), the product is
+\(C_{\theta_0}=\pm\varrho(-1)^j/(j!^2\kappa_0^{2j})\), the product is
 \((n_0N_0/4p'^2)^{2j}(2j)!\), and \(n_0N_0/(4p'^2\kappa_0)=-\varrho\).  For
-\(k=2j\) take \(\kappa=n_1+(j-1)N_0\) and then the step \(g\) to the endpoint,
+\(k=2j\) take \(\theta_0=n_1+(j-1)N_0\) and then the step \(g\) to the endpoint,
 \((r+(2j-1)p,p'-s)\) or \((p-r,s+(2j-1)p')\), whose box meets
 \(\mathbb Z(p,p')\) only at \(0\).  Then
-\(\varrho_g/(\dot h_\kappa-\dot h_g)=-2p'^2/((p'-p)jN_0)\), and the product is
+\(\varrho_g/(\dot h_{\theta_0}-\dot h_g)=-2p'^2/((p'-p)jN_0)\), and the product is
 \(-(n_0N_0/4p'^2)^{2j-1}(2j-1)!\).  Both cases give \(c_k(\pm\varrho)^k\).
 \end{proof}
 
@@ -1332,25 +1388,25 @@ H_M(c(b),\Delta,d_\nu)|_{\Delta=Y/t^2}\).
 \(c_{i,j}^{(\nu)}(M):=[t^iY^j](P_M^{(\nu)}(t,Y)/4^M)\) is a polynomial in
 \(M\) of degree at most \(2i+2j\), valid for all integers \(M\geq0\).
 \item[(iii)] Let \(p,p'\geq2\) be coprime, \(b_\star^2=-p'/p\), and let
-\(\ell\mid p'\) be an odd prime with \(a=v_\ell(p')\geq1\).  If
+\(\varpi\mid p'\) be an odd prime with \(a=v_\varpi(p')\geq1\).  If
 \(M\geq1\) and \(\mu=(m^2-(p'-p)^2)/(4pp')\) (\(m\in\mathbb Z\)) satisfy
 \(\det G_M(c_\star,\mu)\neq0\), then \(H_M(c_\star,\mu,d_\nu)\) (\(\nu=1,2\))
 is regular and nonzero with
 \begin{equation}\label{eq:h13-valuation}
- v_\ell\bigl(H_M(c_\star,\mu,d_\nu)\bigr)
- =-v_\ell(M!)-Ma-\sum_{u=1}^M v_\ell\bigl(m^2-(p'u-p)^2\bigr).
+ v_\varpi\bigl(H_M(c_\star,\mu,d_\nu)\bigr)
+ =-v_\varpi(M!)-Ma-\sum_{u=1}^M v_\varpi\bigl(m^2-(p'u-p)^2\bigr).
 \end{equation}
 In particular, for every coprime pair \(p,p'\geq2\) (using the symmetry
 \(p\leftrightarrow p'\) when \(p'\) has no odd prime factor), every \(M\geq1\)
 and every integer momentum \(m\) with
 \(\det G_M(c_\star,\mu)\neq0\), one has \(H_M(c_\star,\mu,d)\not\equiv0\) in
 \(\mathbb Q[d]\).
-\item[(iv)] In the setting of~(iii), if \(t_0\in\ell^a\mathbb Z_\ell\),
-\(Y_1,Y_2\in\ell^{a+1}\mathbb Z_\ell\), and integers \(M_1,M_2\geq1\),
-\(e\geq0\) satisfy \(v_\ell(M_1-M_2)\geq e\) and \(v_\ell(Y_1-Y_2)\geq e+a\),
+\item[(iv)] In the setting of~(iii), if \(t_0\in\varpi^a\mathbb Z_\varpi\),
+\(Y_1,Y_2\in\varpi^{a+1}\mathbb Z_\varpi\), and integers \(M_1,M_2\geq1\),
+\(e\geq0\) satisfy \(v_\varpi(M_1-M_2)\geq e\) and \(v_\varpi(Y_1-Y_2)\geq e+a\),
 then
 \begin{equation}\label{eq:second-screening-lip}
- v_\ell\!\left(
+ v_\varpi\!\left(
  \frac{P_{M_1}^{(1)}(t_0,Y_1)\,P_{M_2}^{(2)}(t_0,Y_2)}
       {P_{M_1}^{(2)}(t_0,Y_1)\,P_{M_2}^{(1)}(t_0,Y_2)}-1\right)
  \geq e+a.
@@ -1367,11 +1423,11 @@ determinant formula, \(\det G_M(c_\star,\mu)\neq0\) gives
 \(\mu\neq h_{u,1}(b_\star)\) (\(1\leq u\leq M\)), so
 \(H_M(c(b),\Delta,d_\nu)\) is regular at \((b_\star,\mu)\).  Both \(t_\star\)
 and \(Y_\star=\mu t_\star^2=p'(m^2-(p'-p)^2)/(4p^3)\) lie in
-\(\ell\mathbb Z_\ell\), so~(i) gives
-\(P_M^{(\nu)}(t_\star,Y_\star)\equiv4^M\not\equiv0\pmod{\ell\mathbb Z_\ell}\),
-whence \(v_\ell(P_M^{(\nu)}(t_\star,Y_\star))=0\) and
+\(\varpi\mathbb Z_\varpi\), so~(i) gives
+\(P_M^{(\nu)}(t_\star,Y_\star)\equiv4^M\not\equiv0\pmod{\varpi\mathbb Z_\varpi}\),
+whence \(v_\varpi(P_M^{(\nu)}(t_\star,Y_\star))=0\) and
 \(H_M(c_\star,\mu,d_\nu)\neq0\); since
-\(2\mu-2h_{u,1}(b_\star)=(m^2-(p'u-p)^2)/(2pp')\), taking \(v_\ell\) gives
+\(2\mu-2h_{u,1}(b_\star)=(m^2-(p'u-p)^2)/(2pp')\), taking \(v_\varpi\) gives
 \eqref{eq:h13-valuation}.  Every coprime pair \(p,p'\geq2\) has an odd prime
 factor, so \(b\mapsto b^{-1}\) gives \(H_M(c_\star,\mu,d)\not\equiv0\) in
 general.
@@ -1383,18 +1439,18 @@ and~(ii), each \(c_{i,j}^{(\nu)}(M)\) has degree \(D\leq2i+2j\) and lies in
 (\(\beta_u\in\mathbb Z[\tfrac12]\)).  For \(D=0\),
 \(c_{i,j}^{(\nu)}(M_1)=c_{i,j}^{(\nu)}(M_2)\).  For \(i+j\geq1\) and
 \(1\leq u\leq D\), \((M_1-M_2)\mid u!(\binom{M_1}{u}-\binom{M_2}{u})\), so
-\(v_\ell(\binom{M_1}{u}-\binom{M_2}{u})\geq e-v_\ell(D!)\); since \(\ell\geq3\),
-Legendre's formula gives \(v_\ell(D!)\leq(D-1)/(\ell-1)\leq(D-1)/2\), hence
-\(v_\ell(D!)\leq i+j-1\).  Since \(v_\ell(t_0)\geq a\) and
-\(v_\ell(Y_1)\geq a+1\), each term with \(i+j\geq1\) in
+\(v_\varpi(\binom{M_1}{u}-\binom{M_2}{u})\geq e-v_\varpi(D!)\); since \(\varpi\geq3\),
+Legendre's formula gives \(v_\varpi(D!)\leq(D-1)/(\varpi-1)\leq(D-1)/2\), hence
+\(v_\varpi(D!)\leq i+j-1\).  Since \(v_\varpi(t_0)\geq a\) and
+\(v_\varpi(Y_1)\geq a+1\), each term with \(i+j\geq1\) in
 \(P_{M_1}^{(\nu)}(t_0,Y_1)/4^{M_1}-P_{M_2}^{(\nu)}(t_0,Y_1)/4^{M_2}
 =\sum_{i+j\geq1}(c_{i,j}^{(\nu)}(M_1)-c_{i,j}^{(\nu)}(M_2))t_0^iY_1^j\)
 has valuation at least \(e-(i+j-1)+ia+j(a+1)=e+(i+j)(a-1)+j+1\geq e+a\).
-As \(P_{M_2}^{(\nu)}(t_0,Y)/4^{M_2}\in\mathbb Z_\ell[Y]\),
-\(v_\ell(P_{M_2}^{(\nu)}(t_0,Y_1)/4^{M_2}-P_{M_2}^{(\nu)}(t_0,Y_2)/4^{M_2})
-\geq v_\ell(Y_1-Y_2)\geq e+a\).  Combining gives
-\(v_\ell(P_{M_1}^{(\nu)}(t_0,Y_1)/4^{M_1}-P_{M_2}^{(\nu)}(t_0,Y_2)/4^{M_2})\geq e+a\)
-(\(\nu=1,2\)), and since all four values are \(\ell\)-adic units,
+As \(P_{M_2}^{(\nu)}(t_0,Y)/4^{M_2}\in\mathbb Z_\varpi[Y]\),
+\(v_\varpi(P_{M_2}^{(\nu)}(t_0,Y_1)/4^{M_2}-P_{M_2}^{(\nu)}(t_0,Y_2)/4^{M_2})
+\geq v_\varpi(Y_1-Y_2)\geq e+a\).  Combining gives
+\(v_\varpi(P_{M_1}^{(\nu)}(t_0,Y_1)/4^{M_1}-P_{M_2}^{(\nu)}(t_0,Y_2)/4^{M_2})\geq e+a\)
+(\(\nu=1,2\)), and since all four values are \(\varpi\)-adic units,
 \eqref{eq:second-screening-lip} follows.
 \end{proof}
 
@@ -1413,13 +1469,13 @@ looking at them near \(d_1=h_{1,3}(b_\star)\) and, if needed,
 \(d_2=h_{1,-3}(b_\star)\), where Proposition~\ref{prop:h13-nonvanishing}
 controls the shifted blocks.  In Case~1 the two terms vanish to different
 orders at \(d_1\).  In Case~2 they vanish to the same order, and their leading
-coefficients at \(d_1\) have different \(\ell\)-adic valuations.  In Case~3 the
+coefficients at \(d_1\) have different \(\varpi\)-adic valuations.  In Case~3 the
 valuations can agree, and we show instead that the ratio of the two leading
 coefficients at \(d_1\) differs from the ratio at \(d_2\).
 
 By \(b\mapsto b^{-1}\) (swapping \(p\leftrightarrow p'\),
-\(r\leftrightarrow s\)), assume an odd prime \(\ell\mid p'\) with
-\(a=v_\ell(p')\geq1\).  Write \(M^\pm=N-\ell^\pm_k\geq1\) and
+\(r\leftrightarrow s\)), assume an odd prime \(\varpi\mid p'\) with
+\(a=v_\varpi(p')\geq1\).  Write \(M^\pm=N-\ell^\pm_k\geq1\) and
 \[
  d_x=\frac{x^2-(p'-p)^2}{4pp'},\qquad x_0=|p'-p|,\quad x_1=|p'-3p|,\quad
  x_2=p'+3p,
@@ -1432,17 +1488,17 @@ so that \(d_{x_0}=0\), \(d_{x_1}=d_1=h_{1,3}(b_\star)\) and
 Lemmas~\ref{lem:regular-everywhere} and~\ref{lem:singular-factorization} and
 \cite[Proposition~5.1]{IoharaKoga2011}, at \(b=b_\star\),
 \[
- \mathcal N^+_{2j+1}={\mathcal P}_{r+jp,\,s+jp'},\qquad
- \mathcal N^-_{2j+1}={\mathcal P}_{(j+1)p-r,\,(j+1)p'-s},
+ \mathcal N^+_{2j+1}={\mathcal N}_{r+jp,\,s+jp'},\qquad
+ \mathcal N^-_{2j+1}={\mathcal N}_{(j+1)p-r,\,(j+1)p'-s},
 \]
 and for \(k=2j\),
-\[
- \mathcal N^+_{2j}={\mathcal P}_{r+(j-1)p,\,s+(j-1)p'}\,{\mathcal P}_{(2j-1)p+r,\,p'-s},\qquad
- \mathcal N^-_{2j}={\mathcal P}_{r+(j-1)p,\,s+(j-1)p'}\,{\mathcal P}_{p-r,\,(2j-1)p'+s},
-\]
+\begin{gather*}
+ \mathcal N^+_{2j}={\mathcal N}_{r+(j-1)p,\,s+(j-1)p'}\,{\mathcal N}_{(2j-1)p+r,\,p'-s},\\
+ \mathcal N^-_{2j}={\mathcal N}_{r+(j-1)p,\,s+(j-1)p'}\,{\mathcal N}_{p-r,\,(2j-1)p'+s},
+\end{gather*}
 where, by Definition~\ref{def:generic-residue},
 \[
- {\mathcal P}_{R,S}(b_\star,d)=\prod_{a',l}(d-d_{p'a'-pl})(d-d_{p'a'+pl})
+ {\mathcal N}_{R,S}(b_\star,d)=\prod_{a',l}(d-d_{p'a'-pl})(d-d_{p'a'+pl})
  \qquad(\text{odd }1\leq a'<2R,\ \text{odd }1\leq l<2S).
 \]
 Moreover \(M^+-M^-=\ell^-_k-\ell^+_k\) equals \(k(pp'-n_1)>0\) for odd \(k\)
@@ -1451,11 +1507,11 @@ multiplicity of \(d_1\) in \(\mathcal N^\pm_k\).
 
 \emph{Case 1: \(s\in\{1,p'-1\}\).}  Solve \(|p'a'\pm pl|=|p'-3p|\) in odd
 positive integers \((a',l)\).  The plus sign gives \(p'(a'+1)=p(3-l)\), which
-forces \(l=1\) and \(p'\mid2\), impossible as \(\ell\mid p'\), or
+forces \(l=1\) and \(p'\mid2\), impossible as \(\varpi\mid p'\), or
 \(p'(a'-1)=-p(l+3)\), which is impossible.  The minus sign gives
 \(p'(a'-1)=p(l-3)\) or \(p'(a'+1)=p(l+3)\), with solutions
 \((1+2ip,3+2ip')\) (\(i\geq0\)) and \((2ip-1,2ip'-3)\) (\(i\geq1\)).  Thus the
-multiplicity of \(d_1\) in \({\mathcal P}_{R,S}\) is
+multiplicity of \(d_1\) in \({\mathcal N}_{R,S}\) is
 \[
  \#\{i\geq0:ip\leq R-1,\ ip'\leq S-2\}+\#\{i\geq1:ip\leq R,\ ip'\leq S+1\}.
 \]
@@ -1473,7 +1529,7 @@ otherwise.  When \(e_+\neq e_-\), extracting
 leaves a nonzero multiple of \(H_{M^{\min}}(c_\star,\mu^{\min}_k,d_1)\), which
 is nonzero by Proposition~\ref{prop:h13-nonvanishing}(iii).
 
-\emph{Case 2: \(2\leq s\leq p'-2\) and \(s\not\equiv\pm1\pmod\ell\).}  Now
+\emph{Case 2: \(2\leq s\leq p'-2\) and \(s\not\equiv\pm1\pmod\varpi\).}  Now
 \(e_+=e_-=k\).  By Proposition~\ref{prop:layer-coefficients},
 \(\gamma^\pm_k=[d^k]\mathcal N^\pm_k/(c_k(\pm\varrho)^k)\).  We have
 \begin{align*}
@@ -1481,35 +1537,35 @@ is nonzero by Proposition~\ref{prop:h13-nonvanishing}(iii).
  [d^k]\mathcal N^\pm_k&=(4pp')^{k-2\ell^\pm_k}\prod_{x\neq x_0}(x_0^2-x^2)^{o^\pm_k(x)}.
 \end{align*}
 Combined with~\eqref{eq:h13-valuation}, this shows that the two summands of
-\([(d-d_1)^k]P_N(d)\) have \(\ell\)-adic valuations differing by
-\(V_\ell^+(N)-V_\ell^-(N)\), where
+\([(d-d_1)^k]P_N(d)\) have \(\varpi\)-adic valuations differing by
+\(V_\varpi^+(N)-V_\varpi^-(N)\), where
 \[
  \begin{aligned}
- V_\ell^\pm(N):={}&\sum_{x\neq x_1}o^\pm_k(x)\,v_\ell(x_1^2-x^2)
- -\sum_{x\neq x_0}o^\pm_k(x)\,v_\ell(x_0^2-x^2)\\
- &-v_\ell(M^\pm!)-M^\pm a-\sum_{u=1}^{M^\pm}v_\ell\bigl((m^\pm_k)^2-(p'u-p)^2\bigr).
+ V_\varpi^\pm(N):={}&\sum_{x\neq x_1}o^\pm_k(x)\,v_\varpi(x_1^2-x^2)
+ -\sum_{x\neq x_0}o^\pm_k(x)\,v_\varpi(x_0^2-x^2)\\
+ &-v_\varpi(M^\pm!)-M^\pm a-\sum_{u=1}^{M^\pm}v_\varpi\bigl((m^\pm_k)^2-(p'u-p)^2\bigr).
  \end{aligned}
 \]
 We show that the first two sums give the same total for both signs.  In
-every factor \({\mathcal P}_{R,S}\) of \(\mathcal N^\pm_k\), one has
-\(S\equiv\pm s\not\equiv\pm1\pmod\ell\).
+every factor \({\mathcal N}_{R,S}\) of \(\mathcal N^\pm_k\), one has
+\(S\equiv\pm s\not\equiv\pm1\pmod\varpi\).
 
-If \(\ell\geq5\), the odd indices \(1\leq l<2S\) with
-\(l\equiv\pm3\pmod\ell\) pair bijectively with those with
-\(l\equiv\pm1\pmod\ell\) via \((2i\ell+3\epsilon,\,2i\ell+\epsilon)\), with
+If \(\varpi\geq5\), the odd indices \(1\leq l<2S\) with
+\(l\equiv\pm3\pmod\varpi\) pair bijectively with those with
+\(l\equiv\pm1\pmod\varpi\) via \((2i\varpi+3\epsilon,\,2i\varpi+\epsilon)\), with
 \(\epsilon=+1\), \(i\geq0\) and with \(\epsilon=-1\), \(i\geq1\).  For
 \(\beta\in\{1,3\}\), \(\sigma\in\{\pm1\}\) and odd \(a'\), put
-\(A=p'-\beta p\) and \(B=p'a'+\sigma p(2i\ell+\beta\epsilon)\).  Then
+\(A=p'-\beta p\) and \(B=p'a'+\sigma p(2i\varpi+\beta\epsilon)\).  Then
 \[
  A^2-B^2=(A+\epsilon\sigma B)(A-\epsilon\sigma B),\qquad
- A+\epsilon\sigma B=p'(1+\epsilon\sigma a')+2\epsilon i\ell p,
+ A+\epsilon\sigma B=p'(1+\epsilon\sigma a')+2\epsilon i\varpi p,
 \]
 where \(A+\epsilon\sigma B\) does not depend on \(\beta\), and
-\(A-\epsilon\sigma B\equiv-2\beta p\not\equiv0\pmod\ell\) (as \(\ell\mid p'\)).
-So the paired factors either both vanish or have the same \(\ell\)-adic
+\(A-\epsilon\sigma B\equiv-2\beta p\not\equiv0\pmod\varpi\) (as \(\varpi\mid p'\)).
+So the paired factors either both vanish or have the same \(\varpi\)-adic
 valuation.
 
-If \(\ell=3\), then \(3\mid s\) and \(3\mid S\), so the odd indices
+If \(\varpi=3\), then \(3\mid s\) and \(3\mid S\), so the odd indices
 \(1\leq l<2S\) partition into triples \(\{6i+1,6i+3,6i+5\}\)
 (\(0\leq i<S/3\)).  Fix an odd \(a'\) and a triple.  At \(l=6i+3\) one has
 \(v_3(x_0^2-x^2)=0\), while \((x_1^2-(p'a'+pl)^2)(x_1^2-(p'a'-pl)^2)\) has the
@@ -1526,18 +1582,18 @@ matching zero, whose partner \(\pm2(p'-p)\) is a \(3\)-adic unit, and keeps
 \(2(p'-3p)\).  Thus the first two sums in \(V_3^\pm(N)\) total
 \(-e_\pm v_3(p'-3p)=-kv_3(p'-3p)\), independent of the sign.
 
-In both cases these sums cancel in \(V_\ell^+(N)-V_\ell^-(N)\).  Since
+In both cases these sums cancel in \(V_\varpi^+(N)-V_\varpi^-(N)\).  Since
 \(m^\pm_k\equiv\pm ps\pmod{p'}\) gives
-\((m^\pm_k)^2-(p'u-p)^2\equiv p^2(s^2-1)\not\equiv0\pmod\ell\), the last sum
+\((m^\pm_k)^2-(p'u-p)^2\equiv p^2(s^2-1)\not\equiv0\pmod\varpi\), the last sum
 also vanishes, leaving
 \[
- V_\ell^+(N)-V_\ell^-(N)=-\bigl(v_\ell(M^+!)-v_\ell(M^-!)\bigr)-(M^+-M^-)a,
+ V_\varpi^+(N)-V_\varpi^-(N)=-\bigl(v_\varpi(M^+!)-v_\varpi(M^-!)\bigr)-(M^+-M^-)a,
 \]
-which is nonzero because \(M^+\neq M^-\), \(a\geq1\) and \(v_\ell(M!)\) does not
-decrease with \(M\).  Two numbers of different \(\ell\)-adic valuation do not
+which is nonzero because \(M^+\neq M^-\), \(a\geq1\) and \(v_\varpi(M!)\) does not
+decrease with \(M\).  Two numbers of different \(\varpi\)-adic valuation do not
 cancel, so \([(d-d_1)^k]P_N(d)\neq0\).
 
-\emph{Case 3: \(2\leq s\leq p'-2\) and \(s\equiv\pm1\pmod\ell\).}  Solving
+\emph{Case 3: \(2\leq s\leq p'-2\) and \(s\equiv\pm1\pmod\varpi\).}  Solving
 \(|p'a'\pm pl|=p'+3p\) in odd positive \((a',l)\) yields \((1,3)\),
 \((1+2ip,2ip'-3)\) and \((2ip-1,2ip'+3)\) (\(i\geq1\)); counting on
 \(\mathcal N^\pm_k\) as in Case~1 gives
@@ -1547,23 +1603,23 @@ cancel, so \([(d-d_1)^k]P_N(d)\neq0\).
 \(1\leq a'<2R\), \(A\in\{1-a',1+a'\}\) runs once over
 \(\{0,\pm2,\ldots,\pm2(R-1),2R\}\), so
 \[
- \frac{{\mathcal P}_{R,S}(b_\star,d_{x_1(\varepsilon)})}
-      {{\mathcal P}_{R,S}(b_\star,d_{x_2(\varepsilon)})}
+ \frac{{\mathcal N}_{R,S}(b_\star,d_{x_1(\varepsilon)})}
+      {{\mathcal N}_{R,S}(b_\star,d_{x_2(\varepsilon)})}
  =\prod_{A}\prod_{\text{odd }1\leq l<2S}
  \frac{(p'A-p(3+l)+\varepsilon)(p'A-p(3-l)+\varepsilon)}
       {(p'A+p(3+l)-\varepsilon)(p'A+p(3-l)-\varepsilon)}.
 \]
 Sending \(A\mapsto-A\) in the denominator cancels every
 \(A\in\{0,\pm2,\ldots,\pm2(R-1)\}\) (with \((-1)^{2S}=+1\)), leaving
-\(A=2R\).  For each factor \({\mathcal P}_{R,S}\) of \(\mathcal N^\pm_k\) that is not
+\(A=2R\).  For each factor \({\mathcal N}_{R,S}\) of \(\mathcal N^\pm_k\) that is not
 common to both signs, \(p\nmid R\), so no factor \(2Rp'\pm2ip\) vanishes at
 \(\varepsilon=0\).  The values \(3\pm l\) form \(\{4-2S,6-2S,\dots,2S+2\}\);
 cancelling \(\{4-2S,\dots,2S-4\}\) with its negation leaves
 \(\{2S-2,2S,2S+2\}\), so
 \[
  \lim_{\varepsilon\to0}
- \frac{{\mathcal P}_{R,S}(b_\star,d_{x_1(\varepsilon)})}
-      {{\mathcal P}_{R,S}(b_\star,d_{x_2(\varepsilon)})}
+ \frac{{\mathcal N}_{R,S}(b_\star,d_{x_1(\varepsilon)})}
+      {{\mathcal N}_{R,S}(b_\star,d_{x_2(\varepsilon)})}
  =\prod_{\epsilon\in\{-1,0,1\}}\frac{Rp'-Sp-\epsilon p}{Rp'+Sp+\epsilon p}.
 \]
 Since
@@ -1588,18 +1644,18 @@ Using \(m^+_k+m^-_k=2kpp'\) and factoring \((m^+_k)^3+(m^-_k)^3\) gives
  T_k-1=\frac{-2kpp'\bigl(3(m^+_k)^2-p^2-6kpp'm^+_k+4k^2p^2p'^2\bigr)}
             {m^+_k\bigl((m^+_k)^2-p^2\bigr)}.
 \]
-Because \(m^+_k\equiv\pm ps\equiv\pm p\pmod\ell\) and \(\ell\nmid2p\), both
-\(m^+_k\) and the parenthesized factor (\(\equiv2p^2\pmod\ell\)) are
-\(\ell\)-adic units, while \(v_\ell((m^+_k)^2-p^2)\geq1\).  Hence either
-\(v_\ell(T_k)\neq0\) or
+Because \(m^+_k\equiv\pm ps\equiv\pm p\pmod\varpi\) and \(\varpi\nmid2p\), both
+\(m^+_k\) and the parenthesized factor (\(\equiv2p^2\pmod\varpi\)) are
+\(\varpi\)-adic units, while \(v_\varpi((m^+_k)^2-p^2)\geq1\).  Hence either
+\(v_\varpi(T_k)\neq0\) or
 \[
- v_\ell(T_k-1)=v_\ell(k)+a-v_\ell\bigl((m^+_k)^2-p^2\bigr)\leq v_\ell(k)+a-1.
+ v_\varpi(T_k-1)=v_\varpi(k)+a-v_\varpi\bigl((m^+_k)^2-p^2\bigr)\leq v_\varpi(k)+a-1.
 \]
 Put \(t_0=-p'/p\) and \(Y^\pm=p'((m^\pm_k)^2-(p'-p)^2)/(4p^3)\).  Then
-\(v_\ell(t_0)=a\), \(v_\ell(Y^\pm)\geq a+1\) (as
-\((m^\pm_k)^2\equiv p^2\pmod\ell\)), \(v_\ell(M^+-M^-)\geq v_\ell(k)\), and
+\(v_\varpi(t_0)=a\), \(v_\varpi(Y^\pm)\geq a+1\) (as
+\((m^\pm_k)^2\equiv p^2\pmod\varpi\)), \(v_\varpi(M^+-M^-)\geq v_\varpi(k)\), and
 \(Y^+-Y^-=p'(2kpp')(m^+_k-m^-_k)/(4p^3)\) has
-\(v_\ell(Y^+-Y^-)\geq v_\ell(k)+2a\).  By
+\(v_\varpi(Y^+-Y^-)\geq v_\varpi(k)+2a\).  By
 Proposition~\ref{prop:h13-nonvanishing}(iii),
 \(H_{M^\pm}(c_\star,\mu^\pm_k,d_\nu)\) is regular and nonzero for \(\nu=1,2\).
 Put
@@ -1608,12 +1664,12 @@ Put
 \]
 the common denominators \(\prod_u(2\mu^\pm_k-2h_{u,1})\) cancel in this ratio.
 Proposition~\ref{prop:h13-nonvanishing}(iii) gives
-\(v_\ell(H_{\mathrm{rat}})=0\), and
-Proposition~\ref{prop:h13-nonvanishing}(iv) with \(e=v_\ell(k)\) gives
-\(v_\ell(H_{\mathrm{rat}}-1)\geq v_\ell(k)+a\).  If \(v_\ell(T_k)\neq0\), then
-\(v_\ell(T_kH_{\mathrm{rat}})\neq0\); otherwise
+\(v_\varpi(H_{\mathrm{rat}})=0\), and
+Proposition~\ref{prop:h13-nonvanishing}(iv) with \(e=v_\varpi(k)\) gives
+\(v_\varpi(H_{\mathrm{rat}}-1)\geq v_\varpi(k)+a\).  If \(v_\varpi(T_k)\neq0\), then
+\(v_\varpi(T_kH_{\mathrm{rat}})\neq0\); otherwise
 \(T_kH_{\mathrm{rat}}-1=(T_k-1)H_{\mathrm{rat}}+(H_{\mathrm{rat}}-1)\) has
-valuation \(v_\ell(T_k-1)\leq v_\ell(k)+a-1\).  So \(T_kH_{\mathrm{rat}}\neq1\).
+valuation \(v_\varpi(T_k-1)\leq v_\varpi(k)+a-1\).  So \(T_kH_{\mathrm{rat}}\neq1\).
 If \([(d-d_1)^k]P_N(d)\) and \([(d-d_2)^k]P_N(d)\) both vanished, then at
 \(d_\nu\) (\(\nu=1,2\)) the leading coefficients
 \([(d-d_\nu)^k]\mathcal N^\pm_k\,H_{M^\pm}(d_\nu)/\gamma^\pm_k\) of the two
@@ -1859,7 +1915,7 @@ constant.  Since the pole of \(H_5\) at \(\Delta=0\) has order at most
  =\widetilde A^\star_{0,2,5}(d)
  =\frac{{\mathcal R}_{1,2}{\mathcal R}_{3,1}}{7}
  =\frac{{\mathcal R}_{1,1}{\mathcal R}_{1,4}}{5}
- =-\frac{3}{11200}\,{\mathcal P}_{1,1}(b_\star,d)\,{\mathcal P}_{1,4}(b_\star,d),
+ =-\tfrac{3}{11200}\,{\mathcal N}_{1,1}(b_\star,d)\,{\mathcal N}_{1,4}(b_\star,d),
 \]
 because \({\mathcal A}_{1,1}=\tfrac12\) and
 \({\mathcal A}_{1,4}(b_\star)=-\tfrac3{1120}\).  So, for indeterminate \(d\), the
@@ -1869,7 +1925,7 @@ Lemma~\ref{lem:d-derivatives}.
 Theorem~\ref{thm:top-layer} gives the same coefficient as
 \(\mathcal N^-_2/\gamma^-_2\): here \(\ell^-_2=5<\ell^+_2=7\), the proof of
 Proposition~\ref{prop:two-term-criteria} with \(j=1\) gives
-\(\mathcal N^-_2={\mathcal P}_{1,1}{\mathcal P}_{1,4}\), and
+\(\mathcal N^-_2={\mathcal N}_{1,1}{\mathcal N}_{1,4}\), and
 Proposition~\ref{prop:layer-coefficients}, with \(c_2=-1\) and
 \(\varrho=-\tfrac12\), gives \(\gamma^-_2=-[d^2]\mathcal N^-_2/\varrho^2=-11200/3\).
 A script listed under Code availability checks each step in exact arithmetic.
@@ -1930,12 +1986,12 @@ Laurent coefficient is
 \[
 \begin{array}{cclr}
 \lambda&N&\mathcal N(d)&\gamma\\ \hline
-1/2&7&{\mathcal P}_{2,1}{\mathcal P}_{1,5}&-700700\\
-1/16&10&{\mathcal P}_{1,2}{\mathcal P}_{4,2}&-1121229484375/192\\
-0&11&{\mathcal P}_{1,1}{\mathcal P}_{2,5}&-2477917160468750/6561
+1/2&7&{\mathcal N}_{2,1}{\mathcal N}_{1,5}&-700700\\
+1/16&10&{\mathcal N}_{1,2}{\mathcal N}_{4,2}&-1121229484375/192\\
+0&11&{\mathcal N}_{1,1}{\mathcal N}_{2,5}&-2477917160468750/6561
 \end{array}
 \]
-Here \({\mathcal P}_{R,S}={\mathcal P}_{R,S}(b_\star,d)\) is the polynomial of
+Here \({\mathcal N}_{R,S}={\mathcal N}_{R,S}(b_\star,d)\) is the polynomial of
 Definition~\ref{def:generic-residue}, monic of degree \(2RS\) in \(d\), and
 \(\mathcal N\) and \(\gamma\) are the torus and second Jantzen norms of the singular
 vector that starts the second Jantzen layer.
@@ -1977,9 +2033,9 @@ Gram matrices are \(G_N(c,\Delta)\).  Its radical
 \(J(c,\Delta)=\rad B_\Delta\) is the unique maximal proper submodule; it equals
 the first Jantzen layer \(J^1(c,\Delta)\) by Lemma~\ref{lem:jantzen-smith}.  The
 induced form \(\bar B\) on the irreducible quotient
-\(L(c,\Delta)=M(c,\Delta)/J(c,\Delta)\) is nondegenerate.  We use \(\mathcal{A}_{r,s}\), \(\mathcal{P}_{r,s}\) and
-\(\mathcal{R}_{r,s}=\mathcal{A}_{r,s}\mathcal{P}_{r,s}\) from
-Definition~\ref{def:generic-residue}: \(\mathcal{P}_{r,s}\) is the torus norm of
+\(L(c,\Delta)=M(c,\Delta)/J(c,\Delta)\) is nondegenerate.  We use \(\mathcal{A}_{r,s}\), \(\mathcal{N}_{r,s}\) and
+\(\mathcal{R}_{r,s}=\mathcal{A}_{r,s}\mathcal{N}_{r,s}\) from
+Definition~\ref{def:generic-residue}: \(\mathcal{N}_{r,s}\) is the torus norm of
 the normalized singular vector and \(\mathcal{A}_{r,s}^{-1}\) its crossing scalar
 (Proposition~\ref{prop:imported-normalizations}).
 
@@ -2098,13 +2154,11 @@ Fix integers \(R,S\geq1\).
 \end{enumerate}
 \end{proposition}
 
-The fusion polynomial \(P_{R,S}(b;\Delta_1,\Delta_2)\), a function of two
-weights, should not be confused with the torus norm
-\({\mathcal P}_{R,S}(b,d)\) of Definition~\ref{def:generic-residue}, a
-polynomial in the external weight alone.  By
-Definition~\ref{def:generic-residue}, the roots of
-\({\mathcal P}_{R,S}(b,d)\) in \(d\) are the weights \(h_{u,\pm v}(b)\) with
-\(u,v\) as in~\eqref{eq:P-RS-roots}.
+The fusion polynomial \(P_{R,S}(b;\Delta_1,\Delta_2)\) depends on two
+weights.  The torus norm \({\mathcal N}_{R,S}(b,d)\) of
+Definition~\ref{def:generic-residue} depends on the external weight alone, and
+its roots in \(d\) are the weights \(h_{u,\pm v}(b)\) with \(u,v\) as
+in~\eqref{eq:P-RS-roots}.
 
 \begin{proof}
 By \cite[Theorem~3.1]{Astashkevich1997}, the normalized singular vector has
@@ -2478,7 +2532,7 @@ Let \(p,p'\geq2\) be coprime and \(0<r<p\), \(0<s<p'\).
  \item[(ii)] The map \((k,m)\mapsto h_{2k+1,2m+1}(b_\star)\) is injective on
    \(0\leq k<\min(r,p-r)\), \(0\leq m<\min(s,p'-s)\).
  \item[(iii)] The common roots \(d\in\mathbb{C}\) of
-   \(\mathcal{P}_{r,s}(b_\star,d)=0\) and \(\mathcal{P}_{p-r,p'-s}(b_\star,d)=0\) are
+   \(\mathcal{N}_{r,s}(b_\star,d)=0\) and \(\mathcal{N}_{p-r,p'-s}(b_\star,d)=0\) are
    precisely the elements of \(\mathcal{F}^\pm_{p,p'}(r,s)\) in
    \eqref{eq:fusion-set-pm}.
 \end{enumerate}
@@ -2504,9 +2558,9 @@ same weight, the same argument applies since
 \(u_1+u_2\leq 4\min(r,p-r)-2\leq 2p-2<2p\) and \(|u_1-u_2|<p\).
 
 For~(iii), by Definition~\ref{def:generic-residue} the roots of
-\(\mathcal{P}_{R,S}(b_\star,d)=0\) are \(d=h_{u,\pm v}(b_\star)\) with
+\(\mathcal{N}_{R,S}(b_\star,d)=0\) are \(d=h_{u,\pm v}(b_\star)\) with
 \(u\in\{1,3,\ldots,2R-1\}\), \(v\in\{1,3,\ldots,2S-1\}\).  A common root of
-\(\mathcal{P}_{r,s}\) and \(\mathcal{P}_{p-r,p'-s}\) therefore has
+\(\mathcal{N}_{r,s}\) and \(\mathcal{N}_{p-r,p'-s}\) therefore has
 \(p'u_1-\epsilon_1pv_1=\pm(p'u_2-\epsilon_2pv_2)\) with
 \(\epsilon_1,\epsilon_2\in\{+1,-1\}\).  If \(\epsilon_1=\epsilon_2=+1\),
 part~(i) gives \(d\in\mathcal{F}_{p,p'}(r,s)\).  If
@@ -2713,11 +2767,11 @@ sum of simple poles at \(\Delta=h_{R,S}(b)\) (\(RS\leq M\)).  The residue at
  \mathcal{R}_{R,S}(b,d(b))\,H_{M-RS}\bigl(c(b),h_{R,S}(b)+RS,d(b)\bigr),
 \]
 with the recursion multiplier
-\(\mathcal{R}_{R,S}=\mathcal{A}_{R,S}\mathcal{P}_{R,S}\)
+\(\mathcal{R}_{R,S}=\mathcal{A}_{R,S}\mathcal{N}_{R,S}\)
 (Definition~\ref{def:generic-residue}).  The shifted coefficient
 \(H_{M-RS}(c(b),h_{R,S}(b)+RS,d(b))\) is finite for generic \(b\) by
 Lemma~\ref{lem:no-generic-shifted-pole}.  The explicit product for
-\(\mathcal{P}_{R,S}(b,d)\) vanishes at \(d=h_{u,\pm v}(b)\) for all odd
+\(\mathcal{N}_{R,S}(b,d)\) vanishes at \(d=h_{u,\pm v}(b)\) for all odd
 \(1\leq u\leq 2R-1\) and \(1\leq v\leq 2S-1\).  Hence, whenever \(R\geq k+1\)
 and \(S\geq m+1\), the multiplier \(\mathcal{R}_{R,S}(b,d(b))\) vanishes
 identically in \(b\), and so does the residue.  Over \(\mathbb{Q}(b)\), every
@@ -2780,8 +2834,8 @@ together with the Jantzen trace decomposition \eqref{eq:jantzen-trace-decomp}.
 
 \emph{Part~(ii), converse.}  Suppose \(d\notin\mathcal{F}^\pm_{p,p'}(r,s)\).
 By Lemma~\ref{lem:fusion-injective}(iii), at least one of the torus norms
-\(\mathcal N^+_1(d)=\mathcal{P}_{r,s}(b_\star,d)\) and
-\(\mathcal N^-_1(d)=\mathcal{P}_{p-r,p'-s}(b_\star,d)\) is nonzero.
+\(\mathcal N^+_1(d)=\mathcal{N}_{r,s}(b_\star,d)\) and
+\(\mathcal N^-_1(d)=\mathcal{N}_{p-r,p'-s}(b_\star,d)\) is nonzero.
 Let \(\ell_{\min}:=\min(\ell^+_1,\ell^-_1)\) and
 \(\ell_{\max}:=\max(\ell^+_1,\ell^-_1)\), with corresponding branch labels
 \(\mathrm{small}\) and \(\mathrm{big}\).  By Lemma~\ref{lem:bgg-arrows}(iv),
@@ -3665,12 +3719,12 @@ expresses \(L_{-Z}|\alpha\rangle\) in \(a_{-Z'}|\alpha\rangle\) and
 \(|\det D_M|=2^{-\sum_Z\ell(Z)}K_M\), taking determinants gives
 \(\det B_M(q_0,2q_0-\alpha)\det B_M(q_0,\alpha)
 =\pm2^{\sum\ell(Z)}\prod_{uv\leq M}(\Delta-h_{u,v})^{p(M-uv)}\), whose
-leading \(\alpha\)-coefficient is a power of \(2\).  Fix an odd prime \(\ell\),
-put \(R=\mathbb Z_{(\ell)}[b,b^{-1},\alpha]_{(\ell)}\) (a DVR where
-\(b+b^{-1}\) is a unit), and let \(\mathfrak p\) be a prime above \((\ell)\) in
+leading \(\alpha\)-coefficient is a power of \(2\).  Fix an odd prime \(\varpi\),
+put \(R=\mathbb Z_{(\varpi)}[b,b^{-1},\alpha]_{(\varpi)}\) (a DVR where
+\(b+b^{-1}\) is a unit), and let \(\mathfrak p\) be a prime above \((\varpi)\) in
 \({\mathcal S}=R[q_0]\) (finite \'etale over \(R\) as \(u=q_0/(b+b^{-1})\)
 satisfies \(u^2=-\tfrac12\)).  Then \({\mathcal S}_{\mathfrak p}\) is a DVR
-with uniformizer \(\ell\) in which \(\det B_M(q_0,\alpha)\) and
+with uniformizer \(\varpi\) in which \(\det B_M(q_0,\alpha)\) and
 \(\det B_M(q_0,2q_0-\alpha)\) are units.  By Lagrange's theorem for the
 centralizer of cycle type \(Z\) in \(S_M\),
 \(\prod_n m_n!n^{m_n}\mid M!\), so
@@ -3678,10 +3732,10 @@ centralizer of cycle type \(Z\) in \(S_M\),
 \(M!G_{M-s}^{-1}\in\operatorname{Mat}_{p(M-s)}({\mathcal S}_{\mathfrak p})\)
 for all \(0\leq s\leq M\) (as \((M-s)!\mid M!\)).  Hence
 \(P_M^{(\nu)}(t,Y)\in{\mathcal S}_{\mathfrak p}\cap\mathbb Q[t,Y]
-=\mathbb Z_{(\ell)}[t,Y]\) (since \(t=b^2\) and
+=\mathbb Z_{(\varpi)}[t,Y]\) (since \(t=b^2\) and
 \(Y=\frac12b^4\alpha(\alpha-2q_0)\) are algebraically independent over
-\(\mathbb F_\ell\) in \({\mathcal S}_{\mathfrak p}/\mathfrak p{\mathcal S}_{\mathfrak p}\));
-as \(\ell\) was arbitrary, \(P_M^{(\nu)}(t,Y)\in\mathbb Z[\tfrac12][t,Y]\).
+\(\mathbb F_\varpi\) in \({\mathcal S}_{\mathfrak p}/\mathfrak p{\mathcal S}_{\mathfrak p}\));
+as \(\varpi\) was arbitrary, \(P_M^{(\nu)}(t,Y)\in\mathbb Z[\tfrac12][t,Y]\).
 
 (ii) Factor
 \(\prod_{u=1}^M(2Y+(u-1)t^2+\tfrac{u^2-1}{2}t^3)
@@ -3820,7 +3874,13 @@ Shapovalov inversion at \(N=7\), and at \(N=10\) in the deep suite
 \path{tools/check_c0_level5_example.py}, which is not part of the archive,
 checks the example after Theorem~\ref{thm:general-confluence} and, with
 \texttt{--torus-direct}, compares both collision moments with Shapovalov
-inversion at \(N=5\).
+inversion at \(N=5\).  The repository script
+\path{tools/check_leeyang_level4_example.py} recomputes the Lee--Yang example in
+Section~\ref{sec:sharpness} by Shapovalov inversion up to level four, and the
+C++ program \path{tools/check_d0_coefficient.cpp} evaluates the coefficient of
+\(d^{k+1}\) at \(d=0\) described there on all two-vector levels with
+\(p,p'\leq13\) and \(k\leq3\) and finds no zero.  Neither is part of the
+archive.
 
 {\small
 \begin{thebibliography}{CCY19}
