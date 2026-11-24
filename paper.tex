@@ -360,9 +360,10 @@ functions of highest-weight states in the Lee--Yang, Ising and tricritical
 Ising models; in general the
 solutions do not seem to be expressible through standard
 functions~\cite[\S\S2--4]{GaberdielLang2009}.
-Theorem~\ref{thm:gen-rocha-caridi} gives every coefficient of the trace at
-every minimal-model charge and fusion weight by a finite algebraic
-calculation, and Section~\ref{sec:examples} compares it with their closed
+Theorem~\ref{thm:gen-rocha-caridi} gives every coefficient of the trace, for
+every interior Kac weight of every minimal model and every insertion weight
+that fusion allows, by a finite algebraic calculation, and
+Section~\ref{sec:examples} compares it with their closed
 forms.
 
 Part~I (Sections~\ref{sec:blocks}--\ref{sec:ising}) concerns Verma blocks.
@@ -1530,9 +1531,11 @@ In both cases these sums cancel in \(V_\ell^+(N)-V_\ell^-(N)\).  Since
 \((m^\pm_k)^2-(p'u-p)^2\equiv p^2(s^2-1)\not\equiv0\pmod\ell\), the last sum
 also vanishes, leaving
 \[
- V_\ell^+(N)-V_\ell^-(N)=-\bigl(v_\ell(M^+!)-v_\ell(M^-!)\bigr)-(M^+-M^-)a\neq0,
+ V_\ell^+(N)-V_\ell^-(N)=-\bigl(v_\ell(M^+!)-v_\ell(M^-!)\bigr)-(M^+-M^-)a,
 \]
-so \([(d-d_1)^k]P_N(d)\neq0\).
+which is nonzero because \(M^+\neq M^-\), \(a\geq1\) and \(v_\ell(M!)\) does not
+decrease with \(M\).  Two numbers of different \(\ell\)-adic valuation do not
+cancel, so \([(d-d_1)^k]P_N(d)\neq0\).
 
 \emph{Case 3: \(2\leq s\leq p'-2\) and \(s\equiv\pm1\pmod\ell\).}  Solving
 \(|p'a'\pm pl|=p'+3p\) in odd positive \((a',l)\) yields \((1,3)\),
@@ -1607,9 +1610,16 @@ the common denominators \(\prod_u(2\mu^\pm_k-2h_{u,1})\) cancel in this ratio.
 Proposition~\ref{prop:h13-nonvanishing}(iii) gives
 \(v_\ell(H_{\mathrm{rat}})=0\), and
 Proposition~\ref{prop:h13-nonvanishing}(iv) with \(e=v_\ell(k)\) gives
-\(v_\ell(H_{\mathrm{rat}}-1)\geq v_\ell(k)+a\).  Therefore
-\(T_kH_{\mathrm{rat}}\neq1\), so \([(d-d_1)^k]P_N(d)\) and
-\([(d-d_2)^k]P_N(d)\) cannot both vanish, proving \(P_N\not\equiv0\).
+\(v_\ell(H_{\mathrm{rat}}-1)\geq v_\ell(k)+a\).  If \(v_\ell(T_k)\neq0\), then
+\(v_\ell(T_kH_{\mathrm{rat}})\neq0\); otherwise
+\(T_kH_{\mathrm{rat}}-1=(T_k-1)H_{\mathrm{rat}}+(H_{\mathrm{rat}}-1)\) has
+valuation \(v_\ell(T_k-1)\leq v_\ell(k)+a-1\).  So \(T_kH_{\mathrm{rat}}\neq1\).
+If \([(d-d_1)^k]P_N(d)\) and \([(d-d_2)^k]P_N(d)\) both vanished, then at
+\(d_\nu\) (\(\nu=1,2\)) the leading coefficients
+\([(d-d_\nu)^k]\mathcal N^\pm_k\,H_{M^\pm}(d_\nu)/\gamma^\pm_k\) of the two
+summands of \(P_N\) would be opposite, and dividing their ratio at \(d_1\) by
+their ratio at \(d_2\) removes \(\gamma^\pm_k\) and gives
+\(T_kH_{\mathrm{rat}}=1\).  Hence \(P_N\not\equiv0\).
 \end{proof}
 
 \begin{corollary}[Sharp pole order for \(H_N\)]
@@ -3511,9 +3521,9 @@ in \(\mathbb{Q}\) for \(0\leq N\leq 7\).
 
 Gaberdiel and Lang solve the modular differential equations of these three
 insertions in this module~\cite[\S3.4, (3.38)--(3.48)]{GaberdielLang2009}.
-Here \(\lambda-c_\star/24=1/120\), and with \(T^{\mathrm{irr}}_0=1\) their
-formulas (3.39), (3.46) and the series displayed after (3.44) give,
-respectively,
+Here \(\lambda-c_\star/24=1/120\), and with \(T^{\mathrm{irr}}_0=1\) the
+expressions in (3.39), (3.45)--(3.46), and (3.40)--(3.44) with the series
+following (3.44) give, respectively,
 \[
  \begin{aligned}
  \mathcal{T}^{\mathrm{irr}}_{7/10,3/80,1/10}(q)&=\phi(q)^{1/5},\\
