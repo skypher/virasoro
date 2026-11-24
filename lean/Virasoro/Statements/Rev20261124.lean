@@ -9,7 +9,9 @@ The presentation pass of 2026-11-24 (307908d) stated a new numbered lemma, Lemma
 (`lem:ward-induction`), and restated Theorem 4.3 of 70bac53 as Theorem 7.6
 (`thm:general-confluence`) without the precision rule and the power-series form.  This file gives
 both in the paper's current form.  `Stmt_thm_general_confluence` (Statements/Sec4.lean) keeps the
-70bac53 form, which contains the current one.
+70bac53 form, which contains the current one.  The readability pass of 2026-11-24 put the
+theorem ahead of the precision lemma, so the theorem is now Theorem 7.4 and the precision lemma
+(`lem:precision-budget`) is Lemma 7.6.
 -/
 
 namespace Virasoro
@@ -33,7 +35,7 @@ def Stmt_lem_ward_induction : Prop :=
       ∀ (w : Verma ℂ (kacC b) ν) (ℓ : ℕ), IsSingular w ℓ → ψ w hw = 0 →
         ∀ u ∈ negSpan w, ∀ v, ψ u v = 0 ∧ ψ v u = 0
 
-/-- Theorem 7.6 (`thm:general-confluence`), in the paper's current form.  Fix `b⋆ ∈ ℂ^×` and
+/-- Theorem 7.4 (`thm:general-confluence`), in the paper's current form.  Fix `b⋆ ∈ ℂ^×` and
 `N ≥ 1`.  For every `λ ∈ Kac_N(b⋆)` and `k ≥ 1`, the partial-fraction coefficients of
 Theorem 4.2 are the collision moments (7.1): `A⋆_{λ,k,N} = Ã⋆_{λ,k,N}`.  Hence
 `m⋆_{λ,N} ≤ M̂⋆_{λ,N}` for every `λ`, and

@@ -43,9 +43,9 @@ Sphere/Statements/Rev20261124.lean).  Every listed theorem depends only on
 | Definition 7.1 | `def:shifted-laurent` | definitions: Shifted.lean | — |
 | Lemma 7.2 | `lem:shifted-valuation-bound` | `Stmt_lem_shifted_valuation_bound` | `Virasoro.lem_shifted_valuation_bound` (Virasoro/Proofs/Sec7Val.lean) |
 | Definition 7.3 | `def:collision-moments` | definitions: `AtildeC`, `MhatC` (Shifted.lean, Statements/Sec4.lean) | — |
-| Lemma 7.4 | `lem:precision-budget` | `Stmt_lem_precision_budget` | `Virasoro.lem_precision_budget` (Virasoro/Proofs/Sec7Val.lean) |
+| Theorem 7.4 | `thm:general-confluence` | `Stmt_thm_general_confluence_paper` | `Virasoro.thm_general_confluence_paper_of_cited` (Virasoro/Proofs/Rev20261124.lean) |
 | Lemma 7.5 | `lem:collision-pole-support` | `Stmt_lem_collision_pole_support` | `Virasoro.lem_collision_pole_support` (Virasoro/Proofs/Sec7Pole.lean) |
-| Theorem 7.6 | `thm:general-confluence` | `Stmt_thm_general_confluence_paper` | `Virasoro.thm_general_confluence_paper_of_cited` (Virasoro/Proofs/Rev20261124.lean) |
+| Lemma 7.6 | `lem:precision-budget` | `Stmt_lem_precision_budget` | `Virasoro.lem_precision_budget` (Virasoro/Proofs/Sec7Val.lean) |
 | Proposition 8.1 | `prop:ising-double-poles` | `Stmt_prop_ising_double_poles` | `Virasoro.prop_ising_double_poles_of_cited` (Virasoro/Proofs/Sec8IsingTop.lean) |
 | Lemma 9.1 | `lem:two-weight-ward` | `Stmt_lem_two_weight_ward` | `Virasoro.lem_two_weight_ward_of_cited` (Virasoro/Proofs/P2Sec10Ward.lean) |
 | Proposition 9.2 | `prop:fusion-poly` | `Stmt_prop_fusion_poly` | `Virasoro.prop_fusion_poly_of_cited` (Virasoro/Proofs/P2Sec10FusionPoly.lean) |

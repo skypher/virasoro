@@ -2,7 +2,7 @@
 # py-rules-ok: exact polynomial arithmetic for one worked example, about a minute
 """Check the worked confluence example at c = 0, lambda = 0, N = 5.
 
-Torus paper, Section 7 (example after Theorem 7.6), and sphere paper,
+Torus paper, Section 7 (example after Theorem 7.4), and sphere paper,
 Section 4 (example after Theorem 4.7).  At b_star^2 = -3/2 (c = 0) the labels
 (1,1) and (1,2) both have weight 0.  With the generic residue data of the
 papers (torus Definition 6.1, sphere Definition 4.1) the script checks:

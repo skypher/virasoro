@@ -175,7 +175,15 @@ filtration; Ising model; irreducible modules; Rocha--Caridi formula.
 \baselineskip=13.5pt
 \section{Introduction}
 
-The torus one-point Virasoro block with internal weight \(\Delta\) and
+The one-point function of a primary field on a torus with modular parameter
+\(\tau\) must transform covariantly under \(\tau\mapsto-1/\tau\).  Together
+with crossing symmetry of the sphere four-point function, this is one of the
+basic consistency conditions of a conformal field theory on closed surfaces,
+and recursions for the torus one-point block are used to test it
+numerically~\cite[\S\S1 and~5]{HadaszJaskolskiSuchanek2010}.  The one-point
+function is a sum over the spectrum of a structure constant times a torus
+one-point block and its antiholomorphic
+counterpart~\cite[\S2, (3)--(4) and the display after (4)]{HadaszJaskolskiSuchanek2010}.  The torus one-point Virasoro block with internal weight \(\Delta\) and
 external weight \(d\) is a power series in \(q\).  Its coefficient \(F_N\)
 pairs the level-\(N\) subspace of the Verma module \(M(c,\Delta)\) with itself
 through the inverse Shapovalov matrix and the matrix elements of a primary
@@ -255,7 +263,9 @@ determine the multiplicities of the local Smith exponents \(e_j\) of the
 Shapovalov matrix: \(\dim J^i_N=\#\{j:e_j\geq i\}\)
 (Lemma~\ref{lem:jantzen-smith}).  Thus the pole order of \(H_N\) at
 \(\lambda\) is at most the Jantzen depth \(j_N(\lambda)\), the number of
-layers that have reached level \(N\).  Let \(w^\pm_k\) be the \(k\)-th
+layers that have reached level \(N\).  The pole order is the number of
+Laurent coefficients that a recursion in \(\Delta\) at fixed \(c_\star\) has
+to carry at \(\lambda\); at generic \(b\) it is one.  Let \(w^\pm_k\) be the \(k\)-th
 layer's singular vectors, at levels \(\ell^\pm_k\), and put
 \(\ell_k=\min(\ell^+_k,\ell^-_k)\).  For \(k\geq1\) and
 \(\ell_k\leq N<\ell_{k+1}\), Theorem~\ref{thm:top-layer} gives
@@ -279,16 +289,33 @@ the external weights \(d=h_{1,\pm3}(b_\star)\)
 (Propositions~\ref{prop:h13-nonvanishing} and~\ref{prop:two-term-criteria}).
 At specialized \(d\) the pole can disappear: for \(d=0\), \(H_N=0\) for
 \(N\geq1\) (Lemma~\ref{lem:d-derivatives}).
-Proposition~\ref{prop:ising-double-poles} gives the first Ising double poles.
+Proposition~\ref{prop:ising-double-poles} gives the first Ising double poles,
+at levels \(7\), \(10\) and \(11\) for the energy, spin and identity weights.
+From that level on, a recursion at \(c=\tfrac12\) has to carry at least two
+coefficients at the weight, for indeterminate \(d\).
 
-For fixed \(d\) and an interior minimal-model weight,
-Theorem~\ref{thm:descent-regularity} identifies the fusion set for descent to
-\(L(c_\star,\lambda)\times L(c_\star,\lambda)\) and the larger reflected set for
-regularity of all \(F_N\).  For fusion insertions,
-Theorem~\ref{thm:gen-rocha-caridi} gives the irreducible trace as a weighted
-alternating sum over the braided diagram; Theorem~\ref{thm:first-layer-ratio}
-gives the generic vertex ratio, and Proposition~\ref{prop:bgg-cocycle} its
-finite nonzero specialization and path-independent products.
+The Verma coefficients at \(\Delta=\lambda\) do not give the irreducible
+traces of Part~II, even where they are finite: in the Ising model at \(\lambda=\tfrac1{16}\) and \(d=\tfrac12\), the
+level-two Verma coefficient is \(F_2=8/7\) and the trace coefficient is \(-1\)
+(Section~\ref{sec:irr-results}).  Write \(\lambda=h_{r,s}(b_\star)\) with
+\(0<r<p\), \(0<s<p'\).  The matrix elements of \(V_d(1)\) between vectors of
+\(M(c_\star,\lambda)\) define a bilinear form on \(L(c_\star,\lambda)\) exactly
+when \(d\) is the weight of a field in the fusion of the field of weight
+\(\lambda\) with itself, that is \(d=h_{2k+1,2m+1}(b_\star)\) with
+\(0\leq k<\min(r,p-r)\) and \(0\leq m<\min(s,p'-s)\).  All Verma coefficients
+are regular at \(\lambda\) exactly when \(d\) lies in a larger set, which also
+contains the reflected weights \(h_{2k+1,-(2m+1)}(b_\star)\)
+(Theorem~\ref{thm:descent-regularity}).  For the fusion weights,
+Theorem~\ref{thm:gen-rocha-caridi} writes the trace as an alternating sum of
+Verma blocks over the weights of the embedding diagram, as in the
+Rocha--Caridi character formula, with a nonzero rational weight in front of
+each block.  This weight is a product, along a path in the diagram, of ratios
+of the first-order terms of the torus form and the Shapovalov form on a
+singular vector.  Theorem~\ref{thm:first-layer-ratio} gives each ratio at
+generic charge as a quotient of two products of linear forms in \(b^2\), and
+Proposition~\ref{prop:bgg-cocycle} shows that the ratios are finite and
+nonzero at \(b_\star\) and that the product does not depend on the path.  At
+\(d=0\) every weight is \(1\), and the formula is the Rocha--Caridi formula.
 
 Zamolodchikov introduced residue
 recursions for sphere four-point
@@ -309,7 +336,9 @@ them~\cite[\S\S II.B--II.C and Appendix~A]{Stocco2022}.  In our comparison
 (see the code availability section) his expressions reproduce \(H_2\) and
 \(H_3\) identically and \(H_4\) at sample values of \(b\).  Ribault analyzes
 higher-order poles and rational limits of sphere
-blocks~\cite[\S3]{Ribault2019}.  For irreducible minimal-model modules,
+blocks~\cite[\S3]{Ribault2019}, and asks for a recursion at rational central
+charge that is manifestly finite and exhibits the higher-order
+poles~\cite[end of \S3.2]{Ribault2019}.  For irreducible minimal-model modules,
 Coulomb-gas screening integrals in Felder's Fock-space BRST
 complex~\cite{Felder1989,FelderSilvotti1989} give integral representations
 of torus traces with a primary insertion.
@@ -1592,6 +1621,20 @@ Proposition~\ref{prop:two-term-criteria}.
 
 \section{All-order confluent recursion}\label{sec:all-order}
 
+This section proves Theorem~\ref{thm:general-confluence}: at a fixed charge
+\(b_\star\), the principal parts of \(H_N\) are obtained by expanding the
+generic recursion in \(t=b-b_\star\), grouping the labels whose poles tend to
+the same weight \(\lambda\), and taking the coefficient of \(t^0\) in the
+moments of each group.  Definition~\ref{def:shifted-laurent} writes the
+shifted coefficients that enter the recursion as Laurent series in \(t\).
+Lemma~\ref{lem:shifted-valuation-bound} bounds their poles in \(t\), and
+Definition~\ref{def:collision-moments} defines the moments and an a priori
+bound on the pole order in \(\Delta\).  The proof of the theorem uses
+uniqueness of partial fractions and Lemma~\ref{lem:collision-pole-support}.
+The example after the proof works out the case \(c=0\), \(N=5\), and
+Lemma~\ref{lem:precision-budget} at the end of the section gives the order in
+\(t\) to which each Laurent series has to be expanded.
+
 \begin{definition}[Shifted Laurent recursion]\label{def:shifted-laurent}
 Fix \(b_\star\in\mathbb C^\times\), put \(c_\star=c(b_\star)\) and
 \(t=b-b_\star\), and work in \(K_\star((t))\) with
@@ -1621,11 +1664,7 @@ have a pole at \(t=0\), for example from a pole of \(R_g\), from a denominator
 regular at \(t=0\) when \(z_a(0)\) differs from every \(h_g(0)\) with
 \(\ell_g\leq M\), since then \(\det G_M(c_\star,z_a(0))\neq0\); when
 \(z_a(0)=h_g(0)\) for such a \(g\), it can have a pole, although cancellations
-may remove it.  Lemmas~\ref{lem:shifted-valuation-bound}
-and~\ref{lem:precision-budget} bound how far each expansion has to be carried,
-and Lemma~\ref{lem:collision-pole-support} gives the shape of the principal
-part.  The example after Theorem~\ref{thm:general-confluence} shows the
-mechanism in a low-level case.
+may remove it.
 
 \begin{lemma}[A priori shifted valuation bound]
 \label{lem:shifted-valuation-bound}
@@ -1670,45 +1709,6 @@ to \(\lambda\) contribute to the coefficient of \((\Delta-\lambda)^{-k}\): the
 expansion \(1/(\Delta-\lambda-\delta_a)=\sum_{j\geq0}\delta_a^j(\Delta-\lambda)^{-j-1}\)
 puts \(B_{a,N}\delta_a^{k-1}\) at that order.
 
-\begin{lemma}[Laurent precision for the recursion]
-\label{lem:precision-budget}
-Suppose \(S_{a,M}\) is needed modulo \(t^{U+1}\).  For its \(g\)-summand it
-suffices to know
-\begin{equation}\label{eq:precision-propagation}
- \frac{R_g}{z_a-h_g}\quad\text{through }t^{\,U+W_{g,M-\ell_g}},
- \qquad
- S_{g,M-\ell_g}\quad\text{through }t^{\,U+\pi_g+\sigma_{a,g}}.
-\end{equation}
-The level decreases at each request. For the collision moments it suffices to compute
-\(R_a\) through \(t^{W_{a,N-\ell_a}}\), \(S_{a,N-\ell_a}\) through \(t^{\pi_a}\),
-and \(\delta_a^{\,k-1}\) through \(t^{\widehat v_{a,N}}\).
-\end{lemma}
-
-\begin{proof}
-For factors of valuations at least \(-\alpha\) and \(-\beta\), the product
-through \(t^U\) uses the first factor through \(t^{U+\beta}\) and the second
-through \(t^{U+\alpha}\).  With \(\alpha=\pi_g+\sigma_{a,g}\) and
-\(\beta=W_{g,M-\ell_g}\) this gives~\eqref{eq:precision-propagation}; applied to
-\(B_{a,N}=R_aS_{a,N-\ell_a}\) with \(U=0\), \(\alpha=\pi_a\) and
-\(\beta=W_{a,N-\ell_a}\), it gives the stated bounds.  Since
-\(\ord_tB_{a,N}\geq-\widehat v_{a,N}\), only terms of \(\delta_a^{k-1}\) through
-\(t^{\widehat v_{a,N}}\) can contribute to the constant term.
-\end{proof}
-
-\begin{lemma}[Coefficientwise pole support of a collision germ]
-\label{lem:collision-pole-support}
-Let \(B(t)\in K_\star((t))\) and
-\(\delta(t)\in tK_\star[[t]]\).  Every coefficient of
-\(B(t)/(x-\delta(t))=\sum_{j\geq0}B(t)\delta(t)^jx^{-j-1}\), as a Laurent
-series in \(t\), is a finite \(K_\star\)-linear combination of
-\(x^{-1},x^{-2},\ldots\).
-\end{lemma}
-
-\begin{proof}
-If \(\ord_tB\geq-v\), the term \(B\delta^j\) has valuation at least
-\(j-v\), so only \(j\leq m+v\) contribute to the coefficient of \(t^m\).
-\end{proof}
-
 We can now state the main result of Part~I.
 
 \begin{theorem}[Finite algebraic confluence at fixed \(b_\star\)]
@@ -1734,8 +1734,23 @@ Proposition~\ref{prop:generic-recursion} evaluated at \(b=b_\star\).
 
 The computation of the right side is finite: the recursion of
 Definition~\ref{def:shifted-laurent} lowers the level at each step, and
-Lemma~\ref{lem:precision-budget} gives a truncation order for every Laurent
-germ that occurs.
+Lemma~\ref{lem:precision-budget} below gives a truncation order for every
+Laurent germ that occurs.  The proof uses one elementary fact about such
+germs.
+
+\begin{lemma}[Coefficientwise pole support of a collision germ]
+\label{lem:collision-pole-support}
+Let \(B(t)\in K_\star((t))\) and
+\(\delta(t)\in tK_\star[[t]]\).  Every coefficient of
+\(B(t)/(x-\delta(t))=\sum_{j\geq0}B(t)\delta(t)^jx^{-j-1}\), as a Laurent
+series in \(t\), is a finite \(K_\star\)-linear combination of
+\(x^{-1},x^{-2},\ldots\).
+\end{lemma}
+
+\begin{proof}
+If \(\ord_tB\geq-v\), the term \(B\delta^j\) has valuation at least
+\(j-v\), so only \(j\leq m+v\) contribute to the coefficient of \(t^m\).
+\end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:general-confluence}]
 Fix \(N\geq1\).  For generic \(b\), Proposition~\ref{prop:generic-recursion}
@@ -1825,7 +1840,35 @@ Proposition~\ref{prop:two-term-criteria} with \(j=1\) gives
 Proposition~\ref{prop:layer-coefficients}, with \(c_2=-1\) and
 \(\varrho=-\tfrac12\), gives \(\gamma^-_2=-[d^2]\tau^-_2/\varrho^2=-11200/3\).
 A script listed under Code availability checks each step in exact arithmetic.
+Ribault found the double pole of the sphere block at this level from the same
+two pairs of labels, \((1,1)\) with \((1,4)\) and \((1,2)\) with
+\((3,1)\)~\cite[\S3.2, (3.19) and (3.24)]{Ribault2019}.
 \end{example*}
+
+\begin{lemma}[Laurent precision for the recursion]
+\label{lem:precision-budget}
+Suppose \(S_{a,M}\) is needed modulo \(t^{U+1}\).  For its \(g\)-summand it
+suffices to know
+\begin{equation}\label{eq:precision-propagation}
+ \frac{R_g}{z_a-h_g}\quad\text{through }t^{\,U+W_{g,M-\ell_g}},
+ \qquad
+ S_{g,M-\ell_g}\quad\text{through }t^{\,U+\pi_g+\sigma_{a,g}}.
+\end{equation}
+The level decreases at each request. For the collision moments it suffices to compute
+\(R_a\) through \(t^{W_{a,N-\ell_a}}\), \(S_{a,N-\ell_a}\) through \(t^{\pi_a}\),
+and \(\delta_a^{\,k-1}\) through \(t^{\widehat v_{a,N}}\).
+\end{lemma}
+
+\begin{proof}
+For factors of valuations at least \(-\alpha\) and \(-\beta\), the product
+through \(t^U\) uses the first factor through \(t^{U+\beta}\) and the second
+through \(t^{U+\alpha}\).  With \(\alpha=\pi_g+\sigma_{a,g}\) and
+\(\beta=W_{g,M-\ell_g}\) this gives~\eqref{eq:precision-propagation}; applied to
+\(B_{a,N}=R_aS_{a,N-\ell_a}\) with \(U=0\), \(\alpha=\pi_a\) and
+\(\beta=W_{a,N-\ell_a}\), it gives the stated bounds.  Since
+\(\ord_tB_{a,N}\geq-\widehat v_{a,N}\), only terms of \(\delta_a^{k-1}\) through
+\(t^{\widehat v_{a,N}}\) can contribute to the constant term.
+\end{proof}
 
 \section{The Ising model}\label{sec:ising}
 

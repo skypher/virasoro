@@ -213,9 +213,27 @@ interior minimal-model Kac weight \(\lambda\), Theorems~\ref{thm:jantzen-bound}
 and~\ref{thm:top-layer} bound the pole orders of \(H_N\) and \(\mathcal B_N\)
 by the Jantzen depth \(j_N(\lambda)\) and give the coefficient at that order,
 and Theorems~\ref{thm:sharp-B} and~\ref{thm:sharp-H} show that the bound is
-attained for indeterminate external weights.  The polynomial part of
+attained for indeterminate external weights.  The pole order is the number of
+Laurent coefficients that a recursion in \(\Delta\) at fixed \(c_\star\) has
+to carry at \(\lambda\); at generic \(b\) it is one.  The polynomial part of
 \(\mathcal B_N\) has degree \(N\) in \(\Delta\), while \(H_N-\delta_{N,0}\)
 consists of principal parts.
+
+In one case the prefactor is the whole block: at \(c=1\) with
+\(\Delta_1=\dots=\Delta_4=\frac1{16}\), the weight of the spin fields of the
+critical Ashkin--Teller model, \(H=1\) for every
+\(\Delta\)~\cite[(2.28)]{Zamolodchikov1986} (see the remark at the end of
+Section~\ref{sec:asymp}).  Theorem~\ref{thm:large-delta} says that for all
+parameters \(H\) tends to \(1\) as \(\Delta\to\infty\), coefficient by
+coefficient in \(q\).  Ribault reviews a geometric reading of the factors of
+\(\Phi\) through the conformal map from the four-punctured sphere to a pillow, the quotient by \(u\mapsto-u\)
+of the torus \(y^2=x(x-1)(x-z)\) with coordinate \(u\) proportional to
+\(\int^x dx'/y\)~\cite[\S4.3.4, (4.42)--(4.44)]{Ribault2026}.  There the factor
+\(q^\Delta\) is time evolution along the pillow, the factors that depend on
+the \(\Delta_i\) come from transforming the four fields, which sit at its
+corners, and the factor that depends on \(c\) comes from the Weyl anomaly.
+Our proof obtains these factors in the Fock space, and the Gaussian
+determinant from a kernel on the same torus (Lemma~\ref{lem:bergman-det}).
 
 The proof of the limit is a saddle-point computation.  Take
 \(c=1+24\eta^2>1\), real external weights and \(\Delta=\omega^2+\eta^2\) with
@@ -294,6 +312,16 @@ Foda regularize
 examples~\cite[\S\S3.4--3.6, (32)--(34)]{JaverzatSantachiaraFoda2018}, and
 Ribault finds cancellations and double poles for generic external momenta and
 then treats degenerate representations~\cite[\S\S3.2--3.3]{Ribault2019}.
+He asks for a recursion at rational central charge that is manifestly finite
+and exhibits the higher-order poles~\cite[end of \S3.2]{Ribault2019}.
+Theorem~\ref{thm:confluence} exhibits them at every level through finite
+expansions in \(b-b_\star\), and Section~\ref{sec:jantzen} gives their orders
+and top coefficients at interior minimal-model weights from the specialized
+Verma module.  In four-point
+functions, the same kind of cancellation, between terms whose dimensions
+differ by \(O(b-b_\star)\), produces logarithmic
+terms~\cite[\S4.2, (4.22)--(4.24)]{Ribault2019}, and such limits may belong to
+logarithmic conformal field theories~\cite[\S2.2.1]{Ribault2026}.
 
 Section~\ref{sec:setup} fixes definitions and normalizations.
 Section~\ref{sec:asymp} proves the large-\(\Delta\) limit,
