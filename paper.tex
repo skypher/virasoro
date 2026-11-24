@@ -181,8 +181,9 @@ with crossing symmetry of the sphere four-point function, this is one of the
 basic consistency conditions of a conformal field theory on closed surfaces,
 and recursions for the torus one-point block are used to test it
 numerically~\cite[\S\S1 and~5]{HadaszJaskolskiSuchanek2010}.  The one-point
-function is a sum over the spectrum of a structure constant times a torus
-one-point block and its antiholomorphic
+function is a sum over the spectrum, or an integral for a continuous
+spectrum, of a structure constant times a torus one-point block and its
+antiholomorphic
 counterpart~\cite[\S2, (3)--(4) and the display after (4)]{HadaszJaskolskiSuchanek2010}.  The torus one-point Virasoro block with internal weight \(\Delta\) and
 external weight \(d\) is a power series in \(q\).  Its coefficient \(F_N\)
 pairs the level-\(N\) subspace of the Verma module \(M(c,\Delta)\) with itself
@@ -300,8 +301,8 @@ level-two Verma coefficient is \(F_2=8/7\) and the trace coefficient is \(-1\)
 (Section~\ref{sec:irr-results}).  Write \(\lambda=h_{r,s}(b_\star)\) with
 \(0<r<p\), \(0<s<p'\).  The matrix elements of \(V_d(1)\) between vectors of
 \(M(c_\star,\lambda)\) define a bilinear form on \(L(c_\star,\lambda)\) exactly
-when \(d\) is the weight of a field in the fusion of the field of weight
-\(\lambda\) with itself, that is \(d=h_{2k+1,2m+1}(b_\star)\) with
+when \(d\) is a weight allowed by the chiral minimal-model fusion of the
+weight \(\lambda\) with itself, that is \(d=h_{2k+1,2m+1}(b_\star)\) with
 \(0\leq k<\min(r,p-r)\) and \(0\leq m<\min(s,p'-s)\).  All Verma coefficients
 are regular at \(\lambda\) exactly when \(d\) lies in a larger set, which also
 contains the reflected weights \(h_{2k+1,-(2m+1)}(b_\star)\)
@@ -310,8 +311,9 @@ Theorem~\ref{thm:gen-rocha-caridi} writes the trace as an alternating sum of
 Verma blocks over the weights of the embedding diagram, as in the
 Rocha--Caridi character formula, with a nonzero rational weight in front of
 each block.  This weight is a product, along a path in the diagram, of ratios
-of the first-order terms of the torus form and the Shapovalov form on a
-singular vector.  Theorem~\ref{thm:first-layer-ratio} gives each ratio at
+of the \(\Delta\)-derivatives of the torus form and of the Shapovalov form on
+a singular vector, taken at fixed \(c\) and \(d\) with the PBW coefficients
+of the singular vector held fixed.  Theorem~\ref{thm:first-layer-ratio} gives each ratio at
 generic charge as a quotient of two products of linear forms in \(b^2\), and
 Proposition~\ref{prop:bgg-cocycle} shows that the ratios are finite and
 nonzero at \(b_\star\) and that the product does not depend on the path.  At
@@ -1621,8 +1623,8 @@ Proposition~\ref{prop:two-term-criteria}.
 
 \section{All-order confluent recursion}\label{sec:all-order}
 
-This section proves Theorem~\ref{thm:general-confluence}: at a fixed charge
-\(b_\star\), the principal parts of \(H_N\) are obtained by expanding the
+This section proves Theorem~\ref{thm:general-confluence}: at a fixed
+parameter \(b_\star\) (central charge \(c_\star\)), the principal parts of \(H_N\) are obtained by expanding the
 generic recursion in \(t=b-b_\star\), grouping the labels whose poles tend to
 the same weight \(\lambda\), and taking the coefficient of \(t^0\) in the
 moments of each group.  Definition~\ref{def:shifted-laurent} writes the
