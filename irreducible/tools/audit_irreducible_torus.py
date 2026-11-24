@@ -619,7 +619,18 @@ def audit_corollary_collision_free(maxN_ising, maxN_ly):
         return n == 1
 
     assert all(is_pow5(x.denominator) for x in T_ly)
-    print(f"  PASS: Lee-Yang (2,5) (1,2) d=-1/5 matches direct quotient-Gram N<=9 and has pure 5-power denominators for all N=0..{maxN_ly} ({len(terms_ly)} BGG terms)", flush=True)
+
+    # Closed form: phi(q)^(-2/5) = prod_{n>=1} (1 - q^n)^(-2/5), via log-derivative recursion
+    # f_n = (1/n) sum_{k=1}^n k g_k f_{n-k}, with g_k = (2/5) sigma(k)/k the coefficients of log f.
+    a = Fraction(-2, 5)
+    g = [Fraction(0)] + [-a * Fraction(sum(e for e in range(1, k + 1) if k % e == 0), k)
+                         for k in range(1, maxN_ly + 1)]
+    f = [Fraction(1)]
+    for n in range(1, maxN_ly + 1):
+        f.append(sum(k * g[k] * f[n - k] for k in range(1, n + 1)) / n)
+    for N in range(maxN_ly + 1):
+        assert T_ly[N] == f[N], f"LY closed-form mismatch at N={N}: {T_ly[N]} vs {f[N]}"
+    print(f"  PASS: Lee-Yang (2,5) (1,2) d=-1/5 matches direct quotient-Gram N<=9, equals phi(q)^(-2/5) and has pure 5-power denominators for all N=0..{maxN_ly} ({len(terms_ly)} BGG terms)", flush=True)
 
 
 def main():

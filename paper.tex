@@ -318,6 +318,13 @@ generic charge as a quotient of two products of linear forms in \(b^2\), and
 Proposition~\ref{prop:bgg-cocycle} shows that the ratios are finite and
 nonzero at \(b_\star\) and that the product does not depend on the path.  At
 \(d=0\) every weight is \(1\), and the formula is the Rocha--Caridi formula.
+In the Ising model at \(\lambda=\tfrac1{16}\), \(d=\tfrac12\) and in the
+Lee--Yang model at \(\lambda=d=-\tfrac15\), the inserted field has a singular
+vector at level two, and \(q^{\lambda-c_\star/24}\) times the trace is the
+power \(\eta(\tau)^{2d}\) of the Dedekind function: \(\eta(\tau)\) for the
+Ising energy field~\cite[\S3.2]{DiFrancescoSaleurZuber1987},
+\cite[\S4.2.4]{BrehmRunkel2022}, and \(\eta(\tau)^{-2/5}\) by the same
+argument.  Section~\ref{sec:examples} compares both with the alternating sum.
 
 Zamolodchikov introduced residue
 recursions for sphere four-point
@@ -467,13 +474,14 @@ Symbol & Meaning (where defined)\\
 \(S_{a,M}\), \(\widehat M^\star_{\lambda,N}\) & shifted Laurent blocks and pole-order bound (Definitions~\ref{def:shifted-laurent}, \ref{def:collision-moments})\\
 \(J^i\), \(B^i\) & Jantzen filtration and Jantzen forms (Definition~\ref{def:jantzen-layers}, Lemma~\ref{lem:top-coefficient})\\
 \(n_0,n_1\), \(\ell^\pm_k\), \(j_N(\lambda)\) & momenta, layer levels and Jantzen depth at an interior weight (Section~\ref{sec:smith})\\
-\(w^\pm_k\), \(\tau^\pm_k\), \(\gamma^\pm_k\) & layer singular vectors, their torus norms and Jantzen norms (Theorems~\ref{thm:jantzen-smith}, \ref{thm:top-layer})\\
+\(w^\pm_k\), \(\mathcal N^\pm_k\), \(\gamma^\pm_k\) & layer singular vectors, their torus norms and Jantzen norms (Theorems~\ref{thm:jantzen-smith}, \ref{thm:top-layer})\\
 \(\mathcal O_{p,p'}(r,s)\), \(\mu^\pm_k\) & braided orbit of \(\lambda\) and its weights (Section~\ref{sec:setup})\\
 \(P_{R,S}(b;\Delta_1,\Delta_2)\) & fusion polynomial (Proposition~\ref{prop:fusion-poly})\\
 \(\mathcal F_{p,p'}(r,s)\), \(\mathcal F^\pm_{p,p'}(r,s)\) & fusion set and reflected set (Theorem~\ref{thm:descent-regularity})\\
 \(c_{R,S}\), \(\Omega_{u,v}\) & first-layer vertex ratio and its path products (Theorem~\ref{thm:first-layer-ratio}, Proposition~\ref{prop:bgg-cocycle})\\
 \(T^{\mathrm{irr}}_N\) & coefficients of the irreducible trace \eqref{eq:irr-trace-def}\\
-\(t\), \(\tau\) & \(t=b-b_\star\) in Section~\ref{sec:all-order}; \(t=b^2\) in Proposition~\ref{prop:h13-nonvanishing}, Appendix~\ref{app:h13} and Part~II; \(\tau\) is the charge deformation \(b^2=b_\star^2+\tau\) in Section~\ref{sec:telescoping}\\
+\(t\), \(\delta\) & \(t=b-b_\star\) in Section~\ref{sec:all-order}; \(t=b^2\) in Proposition~\ref{prop:h13-nonvanishing}, Appendix~\ref{app:h13} and Part~II; \(\delta\) is the charge deformation \(b^2=b_\star^2+\delta\) in Section~\ref{sec:telescoping}\\
+\(\tau\) & modular parameter of the torus, \(q=e^{2\pi i\tau}\) (Sections~\ref{sec:blocks} and~\ref{sec:examples})\\
 \hline
 \end{tabular}
 \caption{Main notation.}\label{tab:notation}
@@ -908,14 +916,14 @@ this order, and so does \(H_N=\sum_j\eta_jF_{N-j}\) since \(j_{N-j}\leq j_N\).
 In the setting of Theorem~\ref{thm:jantzen-smith}, put
 \(\mu^\pm_k=\lambda+\ell^\pm_k\),
 \(\gamma^\pm_k=B^k(w^\pm_k,w^\pm_k)\), and
-\(\tau^\pm_k(d)=\langle w^\pm_k|V_d(1)|w^\pm_k\rangle\).
+\(\mathcal N^\pm_k(d)=\langle w^\pm_k|V_d(1)|w^\pm_k\rangle\).
 Let \(k\geq1\) and \(\ell_k\leq N<\ell_{k+1}\).  Then \(j_N(\lambda)=k\);
 for each sign with \(\ell^\pm_k\leq N\), one has \(\gamma^\pm_k\neq0\),
 \(\det G_M(c_\star,\mu^\pm_k)\neq0\) for \(M\leq N-\ell^\pm_k\),
-\(\deg_d\tau^\pm_k=2\ell^\pm_k\), and
+\(\deg_d\mathcal N^\pm_k=2\ell^\pm_k\), and
 \begin{equation}\label{eq:top-layer}
  \lim_{\Delta\to\lambda}(\Delta-\lambda)^kH_N(c_\star,\Delta,d)
- =\sum_{\pm:\ \ell^\pm_k\leq N}\frac{\tau^\pm_k(d)}{\gamma^\pm_k}\,
+ =\sum_{\pm:\ \ell^\pm_k\leq N}\frac{\mathcal N^\pm_k(d)}{\gamma^\pm_k}\,
  H_{N-\ell^\pm_k}(c_\star,\mu^\pm_k,d).
 \end{equation}
 \end{theorem}
@@ -970,7 +978,7 @@ above and Lemma~\ref{lem:singular-factorization} give
  &=\sum_{\pm}\frac1{\gamma^\pm_k}\sum_{Z,Z'}
  \bigl(G_{N'-\ell^\pm_k}(c_\star,\mu^\pm_k)^{-1}\bigr)_{Z,Z'}
  \langle w^\pm_k|L_ZV_d(1)L_{-Z'}|w^\pm_k\rangle\\
- &=\sum_{\pm}\frac{\tau^\pm_k(d)}{\gamma^\pm_k}\,
+ &=\sum_{\pm}\frac{\mathcal N^\pm_k(d)}{\gamma^\pm_k}\,
  F_{N'-\ell^\pm_k}(c_\star,\mu^\pm_k,d),
  \end{aligned}
 \]
@@ -978,7 +986,7 @@ where the sums run over signs with \(\ell^\pm_k\leq N'\).  For
 \(N'<\ell_k\), \(F_{N'}\) has a pole of order at most
 \(j_{N'}(\lambda)<k\) at \(\lambda\).  Multiplying by the Euler
 coefficients and summing as in Definition~\ref{def:eta-reduced} gives
-\eqref{eq:top-layer}.  The degree of \(\tau^\pm_k\) is
+\eqref{eq:top-layer}.  The degree of \(\mathcal N^\pm_k\) is
 Lemma~\ref{lem:singular-degree}.
 \end{proof}
 
@@ -1189,17 +1197,17 @@ In the setting of Theorem~\ref{thm:top-layer}, let \(m^\pm_k\) be the
 Coulomb momentum of \(\lambda+\ell^\pm_k\) (proof of
 Theorem~\ref{thm:jantzen-smith}), \(\varrho=-n_0/(2(p'-p))\), and
 \(c_k=(-1)^{\lfloor k/2\rfloor}\binom{k-1}{\lfloor(k-1)/2\rfloor}\).  Then
-\(\tau^\pm_k/\gamma^\pm_k=c_k(\pm\varrho)^kd^k+O(d^{k+1})\); in particular
-\(\tau^\pm_k\) vanishes to order exactly \(k\) at \(d=0\).
+\(\mathcal N^\pm_k/\gamma^\pm_k=c_k(\pm\varrho)^kd^k+O(d^{k+1})\); in particular
+\(\mathcal N^\pm_k\) vanishes to order exactly \(k\) at \(d=0\).
 \end{proposition}
 
 \begin{proof}
-We read off \(\tau^\pm_k/\gamma^\pm_k\) from the generic recursion by letting
+We read off \(\mathcal N^\pm_k/\gamma^\pm_k\) from the generic recursion by letting
 \(b^2\), \(\Delta\) and \(d\) tend to \((b_\star^2,\lambda,0)\) at the same
 rate.  Along such a curve only the chains of labels whose poles collide at
 every step survive (Steps~1 and~2), and the limit is the lowest homogeneous
 part of \(H_N\), whose behaviour at large slope \(\omega\) gives
-\([d^k](\tau^\pm_k/\gamma^\pm_k)\) (Step~3).  Steps~4 and~5 list the colliding
+\([d^k](\mathcal N^\pm_k/\gamma^\pm_k)\) (Step~3).  Steps~4 and~5 list the colliding
 chains and evaluate the resulting moments.
 
 Put \(\nu=b^2\), \(\nu_\star=-p'/p\), \(N_0=2pp'\); dots denote \(d/d\nu\) at
@@ -1251,7 +1259,7 @@ regular at \((0,1,\cdot)\).  Hence \([y^k]T_N=O(\omega^{-k})\) as
 \(\varepsilon\to0\).  With Theorems~\ref{thm:jantzen-smith}
 and~\ref{thm:top-layer} and Lemma~\ref{lem:d-derivatives} this gives
 \[
- [d^k]\frac{\tau^\pm_k}{\gamma^\pm_k}
+ [d^k]\frac{\mathcal N^\pm_k}{\gamma^\pm_k}
  =\lim_{\omega\to\infty}\omega^k[y^k]T_{\ell^\pm_k}.
 \]
 
@@ -1405,18 +1413,18 @@ By \(b\mapsto b^{-1}\) (swapping \(p\leftrightarrow p'\),
 so that \(d_{x_0}=0\), \(d_{x_1}=d_1=h_{1,3}(b_\star)\) and
 \(d_{x_2}=d_2=h_{1,-3}(b_\star)\).  Normalize each \(w^\pm_k\) to
 \(L_{-1}^{\ell^\pm_k}\)-coefficient \(1\), and write
-\(\tau^\pm_k(d)=\prod_x(d-d_x)^{o^\pm_k(x)}\), so that
-\(o^\pm_k(x)=\ord_{d=d_x}\tau^\pm_k\).  By
+\(\mathcal N^\pm_k(d)=\prod_x(d-d_x)^{o^\pm_k(x)}\), so that
+\(o^\pm_k(x)=\ord_{d=d_x}\mathcal N^\pm_k\).  By
 Lemmas~\ref{lem:regular-everywhere} and~\ref{lem:singular-factorization} and
 \cite[Proposition~5.1]{IoharaKoga2011}, at \(b=b_\star\),
 \[
- \tau^+_{2j+1}={\mathcal P}_{r+jp,\,s+jp'},\qquad
- \tau^-_{2j+1}={\mathcal P}_{(j+1)p-r,\,(j+1)p'-s},
+ \mathcal N^+_{2j+1}={\mathcal P}_{r+jp,\,s+jp'},\qquad
+ \mathcal N^-_{2j+1}={\mathcal P}_{(j+1)p-r,\,(j+1)p'-s},
 \]
 and for \(k=2j\),
 \[
- \tau^+_{2j}={\mathcal P}_{r+(j-1)p,\,s+(j-1)p'}\,{\mathcal P}_{(2j-1)p+r,\,p'-s},\qquad
- \tau^-_{2j}={\mathcal P}_{r+(j-1)p,\,s+(j-1)p'}\,{\mathcal P}_{p-r,\,(2j-1)p'+s},
+ \mathcal N^+_{2j}={\mathcal P}_{r+(j-1)p,\,s+(j-1)p'}\,{\mathcal P}_{(2j-1)p+r,\,p'-s},\qquad
+ \mathcal N^-_{2j}={\mathcal P}_{r+(j-1)p,\,s+(j-1)p'}\,{\mathcal P}_{p-r,\,(2j-1)p'+s},
 \]
 where, by Definition~\ref{def:generic-residue},
 \[
@@ -1425,7 +1433,7 @@ where, by Definition~\ref{def:generic-residue},
 \]
 Moreover \(M^+-M^-=\ell^-_k-\ell^+_k\) equals \(k(pp'-n_1)>0\) for odd \(k\)
 and \(-kn_0\neq0\) for even \(k\).  Put \(e_\pm:=o^\pm_k(x_1)\), the
-multiplicity of \(d_1\) in \(\tau^\pm_k\).
+multiplicity of \(d_1\) in \(\mathcal N^\pm_k\).
 
 \emph{Case 1: \(s\in\{1,p'-1\}\).}  Solve \(|p'a'\pm pl|=|p'-3p|\) in odd
 positive integers \((a',l)\).  The plus sign gives \(p'(a'+1)=p(3-l)\), which
@@ -1437,7 +1445,7 @@ multiplicity of \(d_1\) in \({\mathcal P}_{R,S}\) is
 \[
  \#\{i\geq0:ip\leq R-1,\ ip'\leq S-2\}+\#\{i\geq1:ip\leq R,\ ip'\leq S+1\}.
 \]
-Evaluating on \(\tau^\pm_k\) gives
+Evaluating on \(\mathcal N^\pm_k\) gives
 \[
  \begin{array}{c|cc}
   & e_+ & e_-\\\hline
@@ -1453,10 +1461,10 @@ is nonzero by Proposition~\ref{prop:h13-nonvanishing}(iii).
 
 \emph{Case 2: \(2\leq s\leq p'-2\) and \(s\not\equiv\pm1\pmod\ell\).}  Now
 \(e_+=e_-=k\).  By Proposition~\ref{prop:layer-coefficients},
-\(\gamma^\pm_k=[d^k]\tau^\pm_k/(c_k(\pm\varrho)^k)\).  We have
+\(\gamma^\pm_k=[d^k]\mathcal N^\pm_k/(c_k(\pm\varrho)^k)\).  We have
 \begin{align*}
- [(d-d_1)^k]\tau^\pm_k&=(4pp')^{k-2\ell^\pm_k}\prod_{x\neq x_1}(x_1^2-x^2)^{o^\pm_k(x)},\\
- [d^k]\tau^\pm_k&=(4pp')^{k-2\ell^\pm_k}\prod_{x\neq x_0}(x_0^2-x^2)^{o^\pm_k(x)}.
+ [(d-d_1)^k]\mathcal N^\pm_k&=(4pp')^{k-2\ell^\pm_k}\prod_{x\neq x_1}(x_1^2-x^2)^{o^\pm_k(x)},\\
+ [d^k]\mathcal N^\pm_k&=(4pp')^{k-2\ell^\pm_k}\prod_{x\neq x_0}(x_0^2-x^2)^{o^\pm_k(x)}.
 \end{align*}
 Combined with~\eqref{eq:h13-valuation}, this shows that the two summands of
 \([(d-d_1)^k]P_N(d)\) have \(\ell\)-adic valuations differing by
@@ -1469,7 +1477,7 @@ Combined with~\eqref{eq:h13-valuation}, this shows that the two summands of
  \end{aligned}
 \]
 We show that the first two sums give the same total for both signs.  In
-every factor \({\mathcal P}_{R,S}\) of \(\tau^\pm_k\), one has
+every factor \({\mathcal P}_{R,S}\) of \(\mathcal N^\pm_k\), one has
 \(S\equiv\pm s\not\equiv\pm1\pmod\ell\).
 
 If \(\ell\geq5\), the odd indices \(1\leq l<2S\) with
@@ -1516,8 +1524,8 @@ so \([(d-d_1)^k]P_N(d)\neq0\).
 \emph{Case 3: \(2\leq s\leq p'-2\) and \(s\equiv\pm1\pmod\ell\).}  Solving
 \(|p'a'\pm pl|=p'+3p\) in odd positive \((a',l)\) yields \((1,3)\),
 \((1+2ip,2ip'-3)\) and \((2ip-1,2ip'+3)\) (\(i\geq1\)); counting on
-\(\tau^\pm_k\) as in Case~1 gives
-\(\ord_{d=d_2}\tau^+_k=\ord_{d=d_2}\tau^-_k=k\).  Put
+\(\mathcal N^\pm_k\) as in Case~1 gives
+\(\ord_{d=d_2}\mathcal N^+_k=\ord_{d=d_2}\mathcal N^-_k=k\).  Put
 \(x_1(\varepsilon)=p'-3p+\varepsilon\) and
 \(x_2(\varepsilon)=p'+3p-\varepsilon\).  As \(a'\) runs over odd
 \(1\leq a'<2R\), \(A\in\{1-a',1+a'\}\) runs once over
@@ -1531,7 +1539,7 @@ so \([(d-d_1)^k]P_N(d)\neq0\).
 \]
 Sending \(A\mapsto-A\) in the denominator cancels every
 \(A\in\{0,\pm2,\ldots,\pm2(R-1)\}\) (with \((-1)^{2S}=+1\)), leaving
-\(A=2R\).  For each factor \({\mathcal P}_{R,S}\) of \(\tau^\pm_k\) that is not
+\(A=2R\).  For each factor \({\mathcal P}_{R,S}\) of \(\mathcal N^\pm_k\) that is not
 common to both signs, \(p\nmid R\), so no factor \(2Rp'\pm2ip\) vanishes at
 \(\varepsilon=0\).  The values \(3\pm l\) form \(\{4-2S,6-2S,\dots,2S+2\}\);
 cancelling \(\{4-2S,\dots,2S-4\}\) with its negation leaves
@@ -1548,15 +1556,15 @@ Since
  d_{x_2(\varepsilon)}-d_2=-\tfrac{p'+3p}{2pp'}\varepsilon+O(\varepsilon^2)
 \]
 (with \(p'\neq3p\) as \(\gcd(p,p')=1\) and \(p\geq2\)), and
-\(\ord_{d_1}\tau^\pm_k=\ord_{d_2}\tau^\pm_k=k\), the prefactors
+\(\ord_{d_1}\mathcal N^\pm_k=\ord_{d_2}\mathcal N^\pm_k=k\), the prefactors
 \((-(p'-3p)/(p'+3p))^k\) cancel in the ratio of the two branches.  For both
 parities of \(k\), the factors \((R^\pm,S^\pm)\) not common to both signs
 satisfy \(R^+p'-S^+p=-(R^-p'-S^-p)\notin\{0,\pm p\}\) (since \(p\nmid r\),
 hence \(p\nmid(R^+p'-S^+p)\)) and \(R^\pm p'+S^\pm p=m^\pm_k\).  So the
 numerator triple has ratio \((-1)^3=-1\), and
 \[
- T_k:=\frac{[(d-d_1)^k]\tau^+_k\big/[(d-d_1)^k]\tau^-_k}
-          {[(d-d_2)^k]\tau^+_k\big/[(d-d_2)^k]\tau^-_k}
+ T_k:=\frac{[(d-d_1)^k]\mathcal N^+_k\big/[(d-d_1)^k]\mathcal N^-_k}
+          {[(d-d_2)^k]\mathcal N^+_k\big/[(d-d_2)^k]\mathcal N^-_k}
  =-\frac{m^-_k\bigl((m^-_k)^2-p^2\bigr)}{m^+_k\bigl((m^+_k)^2-p^2\bigr)}.
 \]
 Using \(m^+_k+m^-_k=2kpp'\) and factoring \((m^+_k)^3+(m^-_k)^3\) gives
@@ -1606,13 +1614,13 @@ Fix \(k=j_N(\lambda)\).  If \(k=0\), Theorem~\ref{thm:jantzen-smith} gives
 regularity.  Suppose \(k\geq1\), so \(\ell_k\leq N<\ell_{k+1}\).  On a single-vector level
 \(\ell_k\leq N<\max(\ell^+_k,\ell^-_k)\), only the sign with
 \(\ell^\pm_k=\ell_k\) contributes to \eqref{eq:top-layer}, giving
-\((\tau/\gamma)H_M(c_\star,\mu,d)\) with \(M=N-\ell_k\),
-\(\mu=\lambda+\ell_k\), and \(\tau\neq0\).  For \(M=0\) one has \(H_0=1\);
+\((\mathcal N/\gamma)H_M(c_\star,\mu,d)\) with \(M=N-\ell_k\),
+\(\mu=\lambda+\ell_k\), and \(\mathcal N\neq0\).  For \(M=0\) one has \(H_0=1\);
 for \(M\geq1\), Theorem~\ref{thm:top-layer} gives
 \(\det G_M(c_\star,\mu)\neq0\) and
 Proposition~\ref{prop:h13-nonvanishing} gives \(H_M(c_\star,\mu,d)\not\equiv0\).
 At \(N=\max(\ell^+_k,\ell^-_k)\), \eqref{eq:top-layer} reads
-\((\tau/\gamma)H_M(c_\star,\mu,d)+\tau'/\gamma'\) with \(M\geq1\); by
+\((\mathcal N/\gamma)H_M(c_\star,\mu,d)+\mathcal N'/\gamma'\) with \(M\geq1\); by
 Lemma~\ref{lem:d-derivatives}, \(H_M(c_\star,\mu,0)=0\), so by
 Proposition~\ref{prop:layer-coefficients} the first term vanishes at \(d=0\) to
 order at least \(k+1\) and the second to order exactly \(k\), whence the sum is
@@ -1836,11 +1844,11 @@ double pole of \(H_5\) at \(c=0\) comes from two simple poles in \(b\) that
 cancel in the first moment.  At \(d=0\) the coefficient vanishes, as it must by
 Lemma~\ref{lem:d-derivatives}.
 Theorem~\ref{thm:top-layer} gives the same coefficient as
-\(\tau^-_2/\gamma^-_2\): here \(\ell^-_2=5<\ell^+_2=7\), the proof of
+\(\mathcal N^-_2/\gamma^-_2\): here \(\ell^-_2=5<\ell^+_2=7\), the proof of
 Proposition~\ref{prop:two-term-criteria} with \(j=1\) gives
-\(\tau^-_2={\mathcal P}_{1,1}{\mathcal P}_{1,4}\), and
+\(\mathcal N^-_2={\mathcal P}_{1,1}{\mathcal P}_{1,4}\), and
 Proposition~\ref{prop:layer-coefficients}, with \(c_2=-1\) and
-\(\varrho=-\tfrac12\), gives \(\gamma^-_2=-[d^2]\tau^-_2/\varrho^2=-11200/3\).
+\(\varrho=-\tfrac12\), gives \(\gamma^-_2=-[d^2]\mathcal N^-_2/\varrho^2=-11200/3\).
 A script listed under Code availability checks each step in exact arithmetic.
 Ribault found the double pole of the sphere block at this level from the same
 two pairs of labels, \((1,1)\) with \((1,4)\) and \((1,2)\) with
@@ -1895,10 +1903,10 @@ For \(N<7\) every pole of \(H_N(\tfrac12,\Delta,d)\) in \(\Delta\) is
 simple.  Over \(\mathbb Q(d)\), the first double pole at each interior weight
 \(\lambda\) occurs at the level \(N\) shown in the table, and its leading
 Laurent coefficient is
-\(\lim_{\Delta\to\lambda}(\Delta-\lambda)^2H_N(\tfrac12,\Delta,d)=\tau(d)/\gamma\):
+\(\lim_{\Delta\to\lambda}(\Delta-\lambda)^2H_N(\tfrac12,\Delta,d)=\mathcal N(d)/\gamma\):
 \[
 \begin{array}{cclr}
-\lambda&N&\tau(d)&\gamma\\ \hline
+\lambda&N&\mathcal N(d)&\gamma\\ \hline
 1/2&7&{\mathcal P}_{2,1}{\mathcal P}_{1,5}&-700700\\
 1/16&10&{\mathcal P}_{1,2}{\mathcal P}_{4,2}&-1121229484375/192\\
 0&11&{\mathcal P}_{1,1}{\mathcal P}_{2,5}&-2477917160468750/6561
@@ -1906,7 +1914,7 @@ Laurent coefficient is
 \]
 Here \({\mathcal P}_{R,S}={\mathcal P}_{R,S}(b_\star,d)\) is the polynomial of
 Definition~\ref{def:generic-residue}, monic of degree \(2RS\) in \(d\), and
-\(\tau\) and \(\gamma\) are the torus and second Jantzen norms of the singular
+\(\mathcal N\) and \(\gamma\) are the torus and second Jantzen norms of the singular
 vector that starts the second Jantzen layer.
 \end{proposition}
 
@@ -1919,11 +1927,11 @@ puts \(p(N-\ell_a)\) independent vectors in the radical.  This number is the
 valuation of the Kac determinant, so all positive Smith exponents are \(1\)
 (Lemma~\ref{lem:smith}).  At the three interior weights,
 Theorem~\ref{thm:jantzen-smith} gives \(j_N(\lambda)\leq1\) below the
-second-layer levels \(7\), \(10\) and \(11\).  At those levels~\eqref{eq:top-layer} has the single term \(\tau/\gamma\),
-with \(M=0\). For the factors of \(\tau\), use the proof of
+second-layer levels \(7\), \(10\) and \(11\).  At those levels~\eqref{eq:top-layer} has the single term \(\mathcal N/\gamma\),
+with \(M=0\). For the factors of \(\mathcal N\), use the proof of
 Proposition~\ref{prop:two-term-criteria} with \(j=1\).
 Proposition~\ref{prop:layer-coefficients} with \(c_2=-1\) gives
-\(\gamma=-[d^2]\tau/\varrho^2\), where \(\varrho=-n_0/2\).
+\(\gamma=-[d^2]\mathcal N/\varrho^2\), where \(\varrho=-n_0/2\).
 \end{proof}
 
 The ancillary scripts compare the norms \(\gamma\) at \(N=7\) and \(N=10\)
@@ -1955,7 +1963,7 @@ the normalized singular vector and \(\mathcal{A}_{r,s}^{-1}\) its crossing scala
 Throughout Part~II, \(t=b^2\), and \(h_{R,S}(t)\) denotes the Kac weight in
 this coordinate; this differs from Section~\ref{sec:all-order}, where
 \(t=b-b_\star\).  The charge deformation in Section~\ref{sec:telescoping} is
-\(b^2=b_\star^2+\tau\).  For \(b\in\mathbb{C}^\times\) we set \(Q=b+b^{-1}\),
+\(b^2=b_\star^2+\delta\).  For \(b\in\mathbb{C}^\times\) we set \(Q=b+b^{-1}\),
 \(c(b)=1+6Q^2=13+6t+6t^{-1}\), and we extend
 Definition~\ref{def:fixed-specialization} to all \(r,s\in\mathbb{Z}\):
 \begin{equation}\label{eq:kac-weight}
@@ -2278,7 +2286,7 @@ charge (Section~\ref{sec:cocycle}).  Theorem~\ref{thm:gen-rocha-caridi}, the
 generalized Rocha--Caridi identity, is proved in
 Section~\ref{sec:telescoping}: each quotient
 \(M(c_\star,\mu)/M(c_\star,\nu_1)\) is deformed along
-\(b^2=b_\star^2+\tau\), which gives a two-term trace identity, and these
+\(b^2=b_\star^2+\delta\), which gives a two-term trace identity, and these
 identities telescope along the braided diagram.
 
 \begin{theorem}[Fusion descent and Verma regularity]\label{thm:descent-regularity}
@@ -2747,10 +2755,10 @@ Proposition~\ref{prop:jantzen-vertex}(ii) gives a second proof that uses only
 the specialized module,
 together with the Jantzen trace decomposition \eqref{eq:jantzen-trace-decomp}.
 
-\emph{Part~(ii), converse.}  Suppose \(d\notin\mathcal{F}^\pm_{p,p'}(r,s)\).  By
-Lemma~\ref{lem:fusion-injective}(iii), at least one of
-\(\tau^+_1(d)=\mathcal{P}_{r,s}(b_\star,d)\) and
-\(\tau^-_1(d)=\mathcal{P}_{p-r,p'-s}(b_\star,d)\) is nonzero.
+\emph{Part~(ii), converse.}  Suppose \(d\notin\mathcal{F}^\pm_{p,p'}(r,s)\).
+By Lemma~\ref{lem:fusion-injective}(iii), at least one of the torus norms
+\(\mathcal N^+_1(d)=\mathcal{P}_{r,s}(b_\star,d)\) and
+\(\mathcal N^-_1(d)=\mathcal{P}_{p-r,p'-s}(b_\star,d)\) is nonzero.
 Let \(\ell_{\min}:=\min(\ell^+_1,\ell^-_1)\) and
 \(\ell_{\max}:=\max(\ell^+_1,\ell^-_1)\), with corresponding branch labels
 \(\mathrm{small}\) and \(\mathrm{big}\).  By Lemma~\ref{lem:bgg-arrows}(iv),
@@ -2759,21 +2767,21 @@ the range of levels \(N\) with \(j_N(\lambda)=1\).  By Theorem~\ref{thm:top-laye
 \(\det G_M(c_\star,\mu^{\mathrm{small}}_1)\neq0\) for
 \(M<\min(\ell^+_2,\ell^-_2)-\ell_{\min}\), so
 \(F_{\ell_{\max}-\ell_{\min}}(c_\star,\mu^{\mathrm{small}}_1,d)\) is finite.
-If \(\tau^{\mathrm{small}}_1(d)\neq0\), the top-layer residue formula of
+If \(\mathcal N^{\mathrm{small}}_1(d)\neq0\), the top-layer residue formula of
 Theorem~\ref{thm:top-layer} gives
 \[
  \Res_{\Delta=\lambda}F_{\ell_{\min}}(c_\star,\Delta,d)
- =\tau^{\mathrm{small}}_1(d)/\gamma^{\mathrm{small}}_1\neq0.
+ =\mathcal N^{\mathrm{small}}_1(d)/\gamma^{\mathrm{small}}_1\neq0.
 \]
 If
-\(\tau^{\mathrm{small}}_1(d)=0\) and \(\tau^{\mathrm{big}}_1(d)\neq0\), it
+\(\mathcal N^{\mathrm{small}}_1(d)=0\) and \(\mathcal N^{\mathrm{big}}_1(d)\neq0\), it
 gives
 \[
  \Res_{\Delta=\lambda}F_{\ell_{\max}}(c_\star,\Delta,d)
- =\frac{\tau^{\mathrm{small}}_1(d)}{\gamma^{\mathrm{small}}_1}
+ =\frac{\mathcal N^{\mathrm{small}}_1(d)}{\gamma^{\mathrm{small}}_1}
   F_{\ell_{\max}-\ell_{\min}}(c_\star,\mu^{\mathrm{small}}_1,d)
- +\frac{\tau^{\mathrm{big}}_1(d)}{\gamma^{\mathrm{big}}_1}
- =\frac{\tau^{\mathrm{big}}_1(d)}{\gamma^{\mathrm{big}}_1}\neq0.
+ +\frac{\mathcal N^{\mathrm{big}}_1(d)}{\gamma^{\mathrm{big}}_1}
+ =\frac{\mathcal N^{\mathrm{big}}_1(d)}{\gamma^{\mathrm{big}}_1}\neq0.
 \]
 \end{proof}
 
@@ -3033,9 +3041,9 @@ This gives~\eqref{eq:diamond-cocycle}; the product lies in \(\mathbb Q^\times\)
 by~(i).
 \end{proof}
 
-\section{Two-layer \texorpdfstring{\(\tau\)}{tau}-Jantzen telescoping and the Rocha--Caridi identity}\label{sec:telescoping}
+\section{Two-layer \texorpdfstring{\(\delta\)}{delta}-Jantzen telescoping and the Rocha--Caridi identity}\label{sec:telescoping}
 
-\begin{lemma}[Two-layer \(\tau\)-Jantzen identity on the generic degenerate quotient]\label{lem:degenerate-quotient-t}
+\begin{lemma}[Two-layer \(\delta\)-Jantzen identity on the generic degenerate quotient]\label{lem:degenerate-quotient-t}
 Let \(b_\star^2=-p'/p\) (\(p,p'\geq2\) coprime), let
 \(\lambda=h_{r,s}(b_\star)\) be an interior Kac weight, and let
 \(d_\star=h_{u,v}(b_\star)\in\mathcal{F}_{p,p'}(r,s)\) with
@@ -3055,66 +3063,66 @@ BGG arrows \(\mu\to\nu_1\) (label \((R_1,S_1)\)) and \(\mu\to\nu_2\) (label
 \end{lemma}
 
 \begin{proof}
-We deform the charge, \(b^2=b_\star^2+\tau\), along the Kac curve of the label
-\((R_1,S_1)\).  For generic \(\tau\) the Verma module at the Kac weight
-\(\Delta_1(\tau)=h_{R_1,S_1}(b(\tau))\) has a unique proper nonzero submodule,
+We deform the charge, \(b^2=b_\star^2+\delta\), along the Kac curve of the label
+\((R_1,S_1)\).  For generic \(\delta\) the Verma module at the Kac weight
+\(\Delta_1(\delta)=h_{R_1,S_1}(b(\delta))\) has a unique proper nonzero submodule,
 generated by \(\chi_{R_1,S_1}\), and the Verma coefficient
-\(F_N(c(b(\tau)),\Delta_1(\tau),d(\tau))\) splits into the trace over the
+\(F_N(c(b(\delta)),\Delta_1(\delta),d(\delta))\) splits into the trace over the
 irreducible quotient and a multiple of a shifted Verma coefficient, which tends
-to the term at \(\nu_1\) (Step~1, \eqref{eq:generic-tau-split}).  As \(\tau\to0\) the quotients form a
-free \(\mathbb{C}[[\tau]]\)-lattice whose special fiber
+to the term at \(\nu_1\) (Step~1, \eqref{eq:generic-tau-split}).  As \(\delta\to0\) the quotients form a
+free \(\mathbb{C}[[\delta]]\)-lattice whose special fiber
 \(M(c_\star,\mu)/M(c_\star,\nu_1)\) has length two, with socle
-\(L(c_\star,\nu_2)\) (Step~2).  Its \(\tau\)-Jantzen filtration stops after one
+\(L(c_\star,\nu_2)\) (Step~2).  Its \(\delta\)-Jantzen filtration stops after one
 step (Step~3), so the trace over the quotient tends to the irreducible trace at
 \(\mu\) plus \(\Omega_{u,v}(\mu\to\nu_2)\) times the irreducible trace at
 \(\nu_2\) (Step~4).
 
-Set \(t_0:=b_\star^2=-p'/p\).  Let \(\tau\) be a formal deformation
-parameter, with \(t(\tau):=t_0+\tau\) and \(b(\tau):=\sqrt{t(\tau)}\) near
-\(b_\star\).  Put \(\Delta_1(\tau):=h_{R_1,S_1}(b(\tau))\),
-\(\Delta_2(\tau):=h_{R_2,S_2}(b(\tau))\), and
-\(d(\tau):=h_{2k+1,2m+1}(b(\tau))\).  By Lemma~\ref{lem:bgg-arrows}(iii),
+Set \(t_0:=b_\star^2=-p'/p\).  Let \(\delta\) be a formal deformation
+parameter, with \(t(\delta):=t_0+\delta\) and \(b(\delta):=\sqrt{t(\delta)}\) near
+\(b_\star\).  Put \(\Delta_1(\delta):=h_{R_1,S_1}(b(\delta))\),
+\(\Delta_2(\delta):=h_{R_2,S_2}(b(\delta))\), and
+\(d(\delta):=h_{2k+1,2m+1}(b(\delta))\).  By Lemma~\ref{lem:bgg-arrows}(iii),
 \(0\leq k<R_i\) and \(0\leq m<S_i\) for \(i=1,2\).
 
-\emph{Step 1: Generic-\(\tau\) splitting.}
-Fix generic \(\tau\neq0\) so that \(t(\tau)\) is irrational.  Then the module
-\(M\bigl(c(b(\tau)),\Delta_1(\tau)\bigr)\) has a unique proper nonzero
-submodule, generated by the singular vector \(\chi_{R_1,S_1}(b(\tau))\), which
-has weight \(h_{R_1,-S_1}(b(\tau))=\Delta_1(\tau)+R_1S_1\).  Denote its
+\emph{Step 1: Generic-\(\delta\) splitting.}
+Fix generic \(\delta\neq0\) so that \(t(\delta)\) is irrational.  Then the module
+\(M\bigl(c(b(\delta)),\Delta_1(\delta)\bigr)\) has a unique proper nonzero
+submodule, generated by the singular vector \(\chi_{R_1,S_1}(b(\delta))\), which
+has weight \(h_{R_1,-S_1}(b(\delta))=\Delta_1(\delta)+R_1S_1\).  Denote its
 irreducible quotient by
 \[
- V_{R_1,S_1}(b(\tau))
- :=M\bigl(c(b(\tau)),\Delta_1(\tau)\bigr)\big/
-   U(\Vir_-)\chi_{R_1,S_1}(b(\tau)).
+ V_{R_1,S_1}(b(\delta))
+ :=M\bigl(c(b(\delta)),\Delta_1(\delta)\bigr)\big/
+   U(\Vir_-)\chi_{R_1,S_1}(b(\delta)).
 \]
 Since \(0\leq k<R_1\) and \(0\leq m<S_1\), Proposition~\ref{prop:fusion-poly}(ii)
 and Lemma~\ref{lem:ward-induction} show that
-\(U(\Vir_-)\chi_{R_1,S_1}(b(\tau))\) lies in the radical of both
-\(B_{c(b(\tau)),\Delta_1(\tau)}\) and
-\(\rho_{c(b(\tau)),\Delta_1(\tau),d(\tau)}\).  So both forms descend to
-\(V_{R_1,S_1}(b(\tau))\), and \(\bar B_{V,\tau}\) is nondegenerate.  The
+\(U(\Vir_-)\chi_{R_1,S_1}(b(\delta))\) lies in the radical of both
+\(B_{c(b(\delta)),\Delta_1(\delta)}\) and
+\(\rho_{c(b(\delta)),\Delta_1(\delta),d(\delta)}\).  So both forms descend to
+\(V_{R_1,S_1}(b(\delta))\), and \(\bar B_{V,\delta}\) is nondegenerate.  The
 two-layer \(\Delta\)-Jantzen decomposition of the generic Verma module
-\(M(c(b(\tau)),\Delta_1(\tau))\), proved as in
+\(M(c(b(\delta)),\Delta_1(\delta))\), proved as in
 Proposition~\ref{prop:jantzen-vertex}(ii), and
 Theorem~\ref{thm:first-layer-ratio} give, at every level \(N\geq0\) and
-generic \(\tau\neq0\),
+generic \(\delta\neq0\),
 \begin{equation}\label{eq:generic-tau-split}
  \begin{aligned}
-  F_N\bigl(c(b(\tau)),\Delta_1(\tau),d(\tau)\bigr)
-  &=\Tr_{V_{R_1,S_1}(b(\tau))_N}\bigl(V_{d(\tau)}(1)\bigr)\\
-  &\quad+c_{R_1,S_1}(t(\tau);u,v)\,
-    F_{N-R_1S_1}\bigl(c(b(\tau)),h_{R_1,-S_1}(b(\tau)),d(\tau)\bigr).
+  F_N\bigl(c(b(\delta)),\Delta_1(\delta),d(\delta)\bigr)
+  &=\Tr_{V_{R_1,S_1}(b(\delta))_N}\bigl(V_{d(\delta)}(1)\bigr)\\
+  &\quad+c_{R_1,S_1}(t(\delta);u,v)\,
+    F_{N-R_1S_1}\bigl(c(b(\delta)),h_{R_1,-S_1}(b(\delta)),d(\delta)\bigr).
  \end{aligned}
 \end{equation}
 
-\emph{Step 2: Free \(\mathbb{C}[[\tau]]\)-lattice and length-two specialization.}
-By Proposition~\ref{prop:fusion-poly}(i), \(\chi_{R_1,S_1}(b(\tau))\) specializes
+\emph{Step 2: Free \(\mathbb{C}[[\delta]]\)-lattice and length-two specialization.}
+By Proposition~\ref{prop:fusion-poly}(i), \(\chi_{R_1,S_1}(b(\delta))\) specializes
 regularly to the nonzero singular vector \(\chi_{R_1,S_1}(b_\star)\), whose
 embedding is injective~\cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011}.
 Complete its specialized descendants at level \(N\) to a basis of
 \(M(c_\star,\mu)_N\) and lift the complement as constant PBW families.  The
-full matrix is invertible modulo \(\tau\), hence over \(\mathbb{C}[[\tau]]\).
-Thus \(\mathcal{V}_N:=V_{R_1,S_1}(b(\tau))_N\) is free over \(\mathbb{C}[[\tau]]\) of
+full matrix is invertible modulo \(\delta\), hence over \(\mathbb{C}[[\delta]]\).
+Thus \(\mathcal{V}_N:=V_{R_1,S_1}(b(\delta))_N\) is free over \(\mathbb{C}[[\delta]]\) of
 rank \(p(N)-p(N-R_1S_1)\), with special fiber the level-\(N\) part of
 \(V_0:=M(c_\star,\mu)/M(c_\star,\nu_1)\).
 
@@ -3136,18 +3144,18 @@ submodule therefore lies in the simple socle \(L(c_\star,\nu_2)\).  So \(V_0\)
 has length two, and its only submodules are \(V_0\), \(L(c_\star,\nu_2)\)
 and \(0\).
 
-\emph{Step 3: The \(\tau\)-Jantzen filtration on \(\mathcal{V}_N\) has depth one.}
-Define the \(\tau\)-Jantzen filtration
-\(V_0=J_\tau^0\supseteq J_\tau^1\supseteq J_\tau^2\supseteq\cdots\) via
-\(\mathcal{J}_\tau^{(i)}
-:=\{a(\tau)\in\mathcal{V}:\bar B_{V,\tau}(a(\tau),v)\in\tau^i\mathbb{C}[[\tau]]
+\emph{Step 3: The \(\delta\)-Jantzen filtration on \(\mathcal{V}_N\) has depth one.}
+Define the \(\delta\)-Jantzen filtration
+\(V_0=J_\delta^0\supseteq J_\delta^1\supseteq J_\delta^2\supseteq\cdots\) via
+\(\mathcal{J}_\delta^{(i)}
+:=\{a(\delta)\in\mathcal{V}:\bar B_{V,\delta}(a(\delta),v)\in\delta^i\mathbb{C}[[\delta]]
 \;\forall\,v\in\mathcal{V}\}\).
-Each \(J_\tau^i\) is a \(\Vir\)-submodule of \(V_0\), with
-\(J_\tau^1=\rad\bar B_{V,0}=L(c_\star,\nu_2)\).  Since \(L(c_\star,\nu_2)\) is
-irreducible, \(J_\tau^2\) is either \(L(c_\star,\nu_2)\) or \(0\).
-Let \(w_2(\tau)\in\mathcal{V}_{R_2S_2}\) be the image of
-\(\chi_{R_2,S_2}(b(\tau))\in M(c(b(\tau)),\Delta_1(\tau))_{R_2S_2}\)
-(written with PBW coefficients polynomial in \(t(\tau),t(\tau)^{-1}\)).
+Each \(J_\delta^i\) is a \(\Vir\)-submodule of \(V_0\), with
+\(J_\delta^1=\rad\bar B_{V,0}=L(c_\star,\nu_2)\).  Since \(L(c_\star,\nu_2)\) is
+irreducible, \(J_\delta^2\) is either \(L(c_\star,\nu_2)\) or \(0\).
+Let \(w_2(\delta)\in\mathcal{V}_{R_2S_2}\) be the image of
+\(\chi_{R_2,S_2}(b(\delta))\in M(c(b(\delta)),\Delta_1(\delta))_{R_2S_2}\)
+(written with PBW coefficients polynomial in \(t(\delta),t(\delta)^{-1}\)).
 Consider the two-variable regular functions
 \[
  \begin{aligned}
@@ -3164,54 +3172,54 @@ where \(b=\sqrt{t}\).  On \(\Delta=h_{R_2,S_2}(t)\), singularity of
 Lemma~\ref{lem:bgg-arrows}(iii),
 \(\tilde g_B(t_0,\mu)=\gamma_{R_2,S_2}(b_\star)\neq0\).  By
 \eqref{eq:transverse-slope},
-\(\Delta_1(\tau)-\Delta_2(\tau)=\alpha\tau+O(\tau^2)\) with
+\(\Delta_1(\delta)-\Delta_2(\delta)=\alpha\delta+O(\delta^2)\) with
 \(\alpha=(\kappa_2\theta_2-\kappa_1\theta_1)/(4p'^2)\neq0\), in the notation of
 Lemma~\ref{lem:bgg-arrows}.  Evaluating along
-\((t,\Delta)=(t_0+\tau,\Delta_1(\tau))\) gives
+\((t,\Delta)=(t_0+\delta,\Delta_1(\delta))\) gives
 \begin{equation}\label{eq:tau-deriv-chain}
  \begin{aligned}
-  \bar B_{V,\tau}(w_2(\tau),w_2(\tau))
-  &=g_B(t_0+\tau,\Delta_1(\tau))
-   =\alpha\,\gamma_{R_2,S_2}(b_\star)\,\tau+O(\tau^2),\\
-  \bar\rho_{V,\tau}(w_2(\tau),w_2(\tau))
-  &=g_\rho(t_0+\tau,\Delta_1(\tau))
-   =\alpha\,\tilde g_\rho(t_0,\mu)\,\tau+O(\tau^2).
+  \bar B_{V,\delta}(w_2(\delta),w_2(\delta))
+  &=g_B(t_0+\delta,\Delta_1(\delta))
+   =\alpha\,\gamma_{R_2,S_2}(b_\star)\,\delta+O(\delta^2),\\
+  \bar\rho_{V,\delta}(w_2(\delta),w_2(\delta))
+  &=g_\rho(t_0+\delta,\Delta_1(\delta))
+   =\alpha\,\tilde g_\rho(t_0,\mu)\,\delta+O(\delta^2).
  \end{aligned}
 \end{equation}
 Any other lift of \(w_2(0)\) to \(\mathcal{V}_{R_2S_2}\) has the form
-\(w_2(\tau)+\tau u(\tau)\).  Since \(w_2(0)\in J_\tau^1=\rad\bar B_{V,0}\), its
-norm has the same linear coefficient in \(\tau\).  That coefficient,
+\(w_2(\delta)+\delta u(\delta)\).  Since \(w_2(0)\in J_\delta^1=\rad\bar B_{V,0}\), its
+norm has the same linear coefficient in \(\delta\).  That coefficient,
 \(\alpha\,\gamma_{R_2,S_2}(b_\star)\), is nonzero, so \(w_2(0)\) admits no lift
-in \(\mathcal{J}_\tau^{(2)}\) and \(w_2(0)\notin J_\tau^2\).  Since the only
+in \(\mathcal{J}_\delta^{(2)}\) and \(w_2(0)\notin J_\delta^2\).  Since the only
 submodules of \(V_0\) are \(V_0\), \(L(c_\star,\nu_2)\) and \(0\), this forces
-\(J_\tau^2=0\).
+\(J_\delta^2=0\).
 
-\emph{Step 4: Taking \(\tau\to0\).}
-Diagonalize \(\bar B_{V,\tau}\) by congruence on \(\mathcal{V}_N\) over
-\(\mathbb{C}[[\tau]]\):
+\emph{Step 4: Taking \(\delta\to0\).}
+Diagonalize \(\bar B_{V,\delta}\) by congruence on \(\mathcal{V}_N\) over
+\(\mathbb{C}[[\delta]]\):
 \[
- U(\tau)^{\mathsf{T}}\bar B_{V,\tau}U(\tau)
- =\operatorname{diag}\bigl(\tau^{e_1}\upsilon_1(\tau),\ldots,\tau^{e_n}\upsilon_n(\tau)\bigr),
+ U(\delta)^{\mathsf{T}}\bar B_{V,\delta}U(\delta)
+ =\operatorname{diag}\bigl(\delta^{e_1}\upsilon_1(\delta),\ldots,\delta^{e_n}\upsilon_n(\delta)\bigr),
 \]
-where \(n\) is the rank of \(\mathcal V_N\) and each \(\upsilon_a\) is a unit.  Since \(J_\tau^2=0\), every exponent \(e_a\) lies in
+where \(n\) is the rank of \(\mathcal V_N\) and each \(\upsilon_a\) is a unit.  Since \(J_\delta^2=0\), every exponent \(e_a\) lies in
 \(\{0,1\}\).  The vectors \(\{v_a(0):e_a=0\}\) descend to a basis of
 \(L(c_\star,\mu)_N\), and \(\{v_a(0):e_a=1\}\) form a basis of
-\(L(c_\star,\nu_2)_{N-R_2S_2}\).  Let \(a(\tau),b(\tau)\in\mathcal{J}_\tau^{(1)}\)
+\(L(c_\star,\nu_2)_{N-R_2S_2}\).  Let \(a(\delta),b(\delta)\in\mathcal{J}_\delta^{(1)}\)
 be homogeneous of levels \(N_a,N_b\).  Since
-\(J_\tau^1=L(c_\star,\nu_2)\subset\rad\bar\rho_{V,0}\), we have
-\(\bar\rho_{V,\tau}(a(\tau),b(\tau))=O(\tau)\), and shifting either lift by
-\(\tau u(\tau)\) changes this value by \(O(\tau^2)\).  Hence
-\(\bar\rho^{(1)}_\tau(a(0),b(0)):=[\tau^1]\bar\rho_{V,\tau}(a(\tau),b(\tau))\)
+\(J_\delta^1=L(c_\star,\nu_2)\subset\rad\bar\rho_{V,0}\), we have
+\(\bar\rho_{V,\delta}(a(\delta),b(\delta))=O(\delta)\), and shifting either lift by
+\(\delta u(\delta)\) changes this value by \(O(\delta^2)\).  Hence
+\(\bar\rho^{(1)}_\delta(a(0),b(0)):=[\delta^1]\bar\rho_{V,\delta}(a(\delta),b(\delta))\)
 is well-defined on \(L(c_\star,\nu_2)\times L(c_\star,\nu_2)\).  Extract the
-coefficient of \(\tau\) in the Ward identity
-\(\bar\rho_{V,\tau}(L_{-n}a(\tau),b(\tau))-\bar\rho_{V,\tau}(a(\tau),L_nb(\tau))
-=(N_a-N_b+nd(\tau))\bar\rho_{V,\tau}(a(\tau),b(\tau))\).  The term
-\(nd'(0)\tau\) multiplies a pairing already of order \(\tau\), so
-\(\bar\rho^{(1)}_\tau\) satisfies the \(V_{d_\star}(1)\) Ward identity
+coefficient of \(\delta\) in the Ward identity
+\(\bar\rho_{V,\delta}(L_{-n}a(\delta),b(\delta))-\bar\rho_{V,\delta}(a(\delta),L_nb(\delta))
+=(N_a-N_b+nd(\delta))\bar\rho_{V,\delta}(a(\delta),b(\delta))\).  The term
+\(nd'(0)\delta\) multiplies a pairing already of order \(\delta\), so
+\(\bar\rho^{(1)}_\delta\) satisfies the \(V_{d_\star}(1)\) Ward identity
 on \(L(c_\star,\nu_2)\).  By uniqueness of the contravariant and primary forms
 on the irreducible quotient \(L(c_\star,\nu_2)\), we have
-\(\bar B^{(1)}_\tau=\alpha\,\gamma_{R_2,S_2}(b_\star)\,\bar B_{L(\nu_2)}\) and
-\(\bar\rho^{(1)}_\tau=\alpha\,\tilde g_\rho(t_0,\mu)\,\bar\rho_{L(\nu_2),d_\star}\).
+\(\bar B^{(1)}_\delta=\alpha\,\gamma_{R_2,S_2}(b_\star)\,\bar B_{L(\nu_2)}\) and
+\(\bar\rho^{(1)}_\delta=\alpha\,\tilde g_\rho(t_0,\mu)\,\bar\rho_{L(\nu_2),d_\star}\).
 Both \(\gamma_{R_2,S_2}(b_\star)\) and the reduced box denominator of
 Proposition~\ref{prop:bgg-cocycle}(i) are nonzero at \(t=t_0\), so the
 rational identity of Theorem~\ref{thm:first-layer-ratio} specializes there,
@@ -3222,19 +3230,19 @@ and the ratio of the two forms is
  =c_{R_2,S_2}(t_0;u,v)
  =\Omega_{u,v}(\mu\to\nu_2).
 \]
-Therefore the \(\tau^1\) factors cancel in the diagonalized trace on
+Therefore the \(\delta^1\) factors cancel in the diagonalized trace on
 \(\mathcal{V}_N\), giving
 \[
- \lim_{\tau\to0}\Tr_{V_{R_1,S_1}(b(\tau))_N}\bigl(V_{d(\tau)}(1)\bigr)
+ \lim_{\delta\to0}\Tr_{V_{R_1,S_1}(b(\delta))_N}\bigl(V_{d(\delta)}(1)\bigr)
  =T^{\mathrm{irr}}_N(c_\star,\mu,d_\star)
   +\Omega_{u,v}(\mu\to\nu_2)\,T^{\mathrm{irr}}_{N-R_2S_2}(c_\star,\nu_2,d_\star).
 \]
 By Lemma~\ref{lem:joint-holomorphicity} and
 Proposition~\ref{prop:bgg-cocycle}(i), the remaining terms in
-\eqref{eq:generic-tau-split} are regular at \(\tau=0\) and converge to
+\eqref{eq:generic-tau-split} are regular at \(\delta=0\) and converge to
 \(F_N(c_\star,\mu,d_\star)\) and
 \(\Omega_{u,v}(\mu\to\nu_1)F_{N-R_1S_1}(c_\star,\nu_1,d_\star)\).  Taking
-\(\tau\to0\) in \eqref{eq:generic-tau-split} yields \eqref{eq:two-term-id}.
+\(\delta\to0\) in \eqref{eq:generic-tau-split} yields \eqref{eq:two-term-id}.
 \end{proof}
 
 For comparison, Astashkevich~\cite[Theorem~C(e)]{Astashkevich1997} studies
@@ -3384,14 +3392,34 @@ By Corollary~\ref{cor:collision-free}, the truncated recursion for
 \(H_N(1/2,\mu,1/2)\) retains only labels \((R,1)\) (\(R\geq1\)) and is
 regular and collision-free at \(b=b_\star\).  Through level \(30\), the
 coefficients of the right side of~\eqref{eq:gen-rocha-caridi} agree with those
-of the Euler series \(\phi(q)\); in particular they are integers.
-Equivalently, through that order,
-\(q^{1/16-1/48}\,\mathcal{T}^{\mathrm{irr}}_{1/2,1/16,1/2}(q)\) agrees with the
-Dedekind function \(\eta(\tau_{\mathrm{mod}})=q^{1/24}\phi(q)\),
-\(q=e^{2\pi i\tau_{\mathrm{mod}}}\).  We have checked this only through
-level \(30\).
-For \(0\leq N\leq 8\) the coefficients also agree with direct quotient-Gram
-inversion.
+of the Euler series \(\phi(q)\).  For \(0\leq N\leq 8\) they also agree with
+direct quotient-Gram inversion.
+
+This trace has a known closed form: with \(q=e^{2\pi i\tau}\),
+\[
+ q^{1/16-1/48}\,\mathcal{T}^{\mathrm{irr}}_{1/2,1/16,1/2}(q)=\eta(\tau)
+ =q^{1/24}\phi(q),
+ \qquad\text{that is,}\qquad
+ \mathcal{T}^{\mathrm{irr}}_{1/2,1/16,1/2}(q)=\phi(q).
+\]
+The energy weight \(d=h_{1,3}(b_\star)=h_{2,1}(b_\star)\) has the singular
+vector \(L_{-2}\lvert\tfrac12\rangle-\tfrac34L_{-1}^2\lvert\tfrac12\rangle\) at
+level two.  In a torus
+one-point function, \(L_{-1}\) acting on the inserted field is a derivative in
+its position and gives zero, and \(L_{-2}\) acts as a first-order differential
+operator in \(\tau\); for a primary field of weight \(h\), the resulting
+equation says that the one-point function depends on \(\tau\) only through the
+factor \(\eta(\tau)^{2h}\) \cite[(4.52) and \S4.2.4]{BrehmRunkel2022}.  By
+Theorem~\ref{thm:descent-regularity}, \(\lambda=1/16\) is the only interior
+weight whose fusion set contains \(1/2\), so the full one-point function of the
+energy field is a multiple of
+\(\lvert q^{1/24}\mathcal{T}^{\mathrm{irr}}_{1/2,1/16,1/2}(q)\rvert^2\).  Brehm and Runkel compute it in this way
+\cite[\S4.2.4, (4.53)--(4.61)]{BrehmRunkel2022}, in agreement with Di
+Francesco, Saleur and Zuber~\cite[\S3.2, (3.13)--(3.14)]{DiFrancescoSaleurZuber1987},
+who obtain it in the free-fermion description, where it comes from the doubly
+periodic sector.  The
+identity~\eqref{eq:gen-rocha-caridi} writes \(\phi(q)\) as the alternating sum
+of Verma blocks weighted by the cocycle values in the table.
 
 \subsection{Lee--Yang model \texorpdfstring{\((2,5)\), \(\lambda=-1/5\), \(d=-1/5\)}{(2,5), lambda=-1/5, d=-1/5}}
 
@@ -3407,16 +3435,27 @@ level \(25\) (layers
  \end{array}.
 \]
 Exact quotient-Gram inversion agrees with~\eqref{eq:gen-rocha-caridi} through
-\(N=9\), the first level crossing Jantzen layer \(2\).  The primes other than
-\(5\) in the \(10\)-digit denominator of \(F_9\) cancel in the BGG sum:
-\(T^{\mathrm{irr}}_9=27946402/5^{10}\).  The collision-free computation
-(Corollary~\ref{cor:collision-free}) through \(N=25\) gives only powers of \(5\)
-in the denominators.  The first coefficients are
+\(N=9\), the first level crossing Jantzen layer \(2\).
+
+The inserted field again has a singular vector at level two, since
+\(d=-1/5=h_{1,2}(b_\star)\), and by Theorem~\ref{thm:descent-regularity}
+\(\lambda=-1/5\) is the only interior weight whose fusion set contains \(d\).
+The argument of the Ising case, with \(h=-1/5\) and
+\(\lambda-c_\star/24=-1/60\), gives
 \[
- 1,\;\frac{2}{5},\;\frac{17}{25},\;\frac{98}{125},\;\frac{714}{625},\;
- \frac{18768}{15625},\;\frac{140231}{78125},\;\frac{721786}{390625},\;
- \frac{4990044}{1953125},\;\ldots.
+ q^{-1/60}\,\mathcal{T}^{\mathrm{irr}}_{-22/5,-1/5,-1/5}(q)=\eta(\tau)^{-2/5},
 \]
+that is,
+\[
+ \mathcal{T}^{\mathrm{irr}}_{-22/5,-1/5,-1/5}(q)=\phi(q)^{-2/5}
+ =1+\frac{2}{5}q+\frac{17}{25}q^2+\frac{98}{125}q^3+\frac{714}{625}q^4
+ +\frac{18768}{15625}q^5+\cdots.
+\]
+The collision-free computation (Corollary~\ref{cor:collision-free}) agrees
+with the coefficients of \(\phi(q)^{-2/5}\) through \(N=25\).  This explains
+the powers of \(5\) in the denominators: the primes other than \(5\) in the
+\(10\)-digit denominator of \(F_9\) cancel in the BGG sum, and
+\(T^{\mathrm{irr}}_9=27946402/5^{10}\).
 The reflected weight
 \(d=h_{1,-3}(b_\star)=14/5\in\mathcal{F}^\pm_{2,5}(1,2)\setminus\mathcal{F}_{2,5}(1,2)\)
 shows that the inclusion in Theorem~\ref{thm:descent-regularity} is strict:
@@ -3738,6 +3777,15 @@ Commun.\ Math.\ Phys. \textbf{186} (1997) 531--562,
 {doi:\allowbreak 10.1007/s002200050119},
 \href{https://arxiv.org/abs/hep-th/9511032}{arXiv:hep-th/9511032}.
 
+\bibitem[BR22]{BrehmRunkel2022}
+E.~M.~Brehm and I.~Runkel,
+\emph{Lattice models from CFT on surfaces with holes I: Torus partition
+function via two lattice cells},
+J.\ Phys.\ A \textbf{55} (2022) 235001,
+\href{https://doi.org/10.1088/1751-8121/ac6a91}%
+{doi:\allowbreak 10.1088/1751-8121/ac6a91},
+\href{https://arxiv.org/abs/2112.01563v2}{arXiv:2112.01563v2}
+(section and equation numbers from v2).
 \bibitem[CCY19]{ChoCollierYin2017}
 M.~Cho, S.~Collier and X.~Yin,
 \emph{Recursive representations of arbitrary Virasoro conformal
@@ -3747,6 +3795,12 @@ JHEP \textbf{04} (2019) 018,
 {doi:\allowbreak 10.1007/JHEP04(2019)018},
 \href{https://arxiv.org/abs/1703.09805}{arXiv:1703.09805}.
 
+\bibitem[DSZ87]{DiFrancescoSaleurZuber1987}
+P.~Di~Francesco, H.~Saleur and J.-B.~Zuber,
+\emph{Critical Ising correlation functions in the plane and on the torus},
+Nucl.\ Phys.\ B \textbf{290} (1987) 527--581,
+\href{https://doi.org/10.1016/0550-3213(87)90202-1}%
+{doi:\allowbreak 10.1016/0550-3213(87)90202-1}.
 \bibitem[FF82]{FeiginFuchs1982}
 B.~L.~Feigin and D.~B.~Fuchs,
 \emph{Invariant skew-symmetric differential operators on the line and
