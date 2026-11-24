@@ -13,6 +13,7 @@
   headsep=21pt
 ]{geometry}
 \usepackage{xcolor}
+\usepackage{tikz}
 \usepackage[
   breaklinks=false,
   linktocpage=true
@@ -53,6 +54,8 @@
 \newtheorem{definition}[theorem]{Definition}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem*{example*}{Example}
 
 \renewcommand{\qedsymbol}{$\blacksquare$}
 
@@ -180,7 +183,7 @@ analytic in \(z\) for \(|z|<1\) and meromorphic in \(\Delta\), for
 large-\(\Delta\) limit.
 
 At rational \(b_\star^2\), Kac weights can coincide and the generic residues
-can have poles. Javerzat, Santachiara and Foda regularize minimal-model
+can have poles; every minimal-model charge is of this kind. Javerzat, Santachiara and Foda regularize minimal-model
 examples~\cite[\S\S3.4--3.6, (32)--(34)]{JaverzatSantachiaraFoda2018}.
 Ribault finds cancellations and double poles for generic external momenta
 and then treats degenerate representations~\cite[\S\S3.2--3.3]{Ribault2019}.
@@ -203,7 +206,15 @@ where \(\operatorname{Kac}_N(b_\star)\) is the set of Kac weights with
 \(rs\leq N\) and the coefficients \(\widetilde A^\star_{\lambda,k,N}\) are
 constant terms of finite Laurent expansions in \(b-b_\star\) of the generic
 residue data (Definition~\ref{def:confluence}); the same theorem gives
-\(\mathcal B_N\).  We know of no earlier finite all-order formula of this kind
+\(\mathcal B_N\).  The formula follows the generic recursion as
+\(b\to b_\star\).  Each Kac label \(a\) contributes a simple pole at
+\(h_a(b)\), and the poles of the labels in one collision class converge to the
+same weight \(\lambda\).  Expanding \(1/(\Delta-h_a(b))\) in powers of
+\(h_a(b)-\lambda\) turns their sum into a pole of higher order at \(\lambda\),
+whose coefficients are moments of the residues.  Individual residues can have
+poles in \(b-b_\star\).  These cancel in the moments because \(H_N\) is
+regular at \(b=b_\star\), and \(\widetilde A^\star_{\lambda,k,N}\) is the value
+of the \(k\)-th moment there.  We know of no earlier finite all-order formula of this kind
 for every fixed \(b_\star\neq0\) with indeterminate external weights.  At an
 interior minimal-model Kac weight \(\lambda\), Theorems~\ref{thm:jantzen-bound}
 and~\ref{thm:top-layer} bound the pole orders of \(H_N\) and \(\mathcal B_N\)
@@ -220,17 +231,27 @@ Laurent coefficient at positive
 depth~\cite[Theorems~5.8--5.9 and Corollary~6.10]{PolzerTorus2026}.  At
 \(d=0\) its \(H_N\) vanishes for \(N\geq1\)~\cite[Lemma~6.5]{PolzerTorus2026}.
 
-To prove the limit, Section~\ref{sec:asymp} starts at \(c=1+24\eta^2>1\),
-real external weights and \(\Delta=\omega^2+\eta^2\) with \(\omega>0\).  The
-Fock pairing expresses the block, and the scaled logarithm of the Ward
-solution expands in \(\omega^{-1}\) (Lemmas~\ref{lem:fock-verma}
-and~\ref{lem:lambda-expansion}).  Proposition~\ref{prop:gaussian-limit}
-reduces the limit to a Gaussian determinant and three universal series.
-After removing the saddle exponential (Lemma~\ref{lem:saddle}), the
-determinant and the weight and charge factors give the prefactor
-(Lemmas~\ref{lem:bergman-det}, \ref{lem:ext-exponents}
-and~\ref{lem:central-charge}).  Lemma~\ref{lem:fock-verma}(iii) extends the
-limit to complex parameters.
+The proof of the limit is a saddle-point computation.  Take
+\(c=1+24\eta^2>1\), real external weights and \(\Delta=\omega^2+\eta^2\) with
+\(\omega>0\).  The Feigin--Fuchs realization identifies the Verma module with a
+Fock space of oscillators \(u_m\), and the block pairs two solutions \(F\) of
+the Ward equations there (Lemma~\ref{lem:fock-verma}).  After the rescaling
+\(u_m=\omega\sigma_m\), \(F=\exp(\omega^2S)\) with \(S\) a series in
+\(\omega^{-1}\) (Lemma~\ref{lem:lambda-expansion}), so \(\omega^2\) plays the
+role of \(1/\hbar\) and the pairing localizes at a saddle point as
+\(\omega\to\infty\) (Proposition~\ref{prop:gaussian-limit}).  Each factor of
+Zamolodchikov's prefactor then has its own source, displayed at the start of
+Section~\ref{sec:asymp}: the value at the saddle point
+(Lemma~\ref{lem:saddle}), the Gaussian determinant
+(Lemma~\ref{lem:bergman-det}), and the first corrections, which are linear in
+the external weights (Lemma~\ref{lem:ext-exponents}) and in
+\(\eta^2=(c-1)/24\) (Lemma~\ref{lem:central-charge}).  The Gaussian
+calculation defines the last correction only through the Ward hierarchy.
+Lemma~\ref{lem:central-charge} evaluates it by a comparison at \(c=2\): the
+product of two Gaussian Ward solutions on two \(c=1\) Fock modules solves the
+\(c=2\) Ward equations exactly, and decomposing the tensor product into
+\(c=2\) Verma modules gives an identity that determines the exponent.
+Lemma~\ref{lem:fock-verma}(iii) extends the limit to complex parameters.
 
 For sharpness the torus proof uses an \(\ell\)-adic argument on the levels
 where both layer vectors
@@ -386,6 +407,24 @@ over the common denominator \(\det G_N(c,\Delta)\) with polynomial numerator
 \(\deg_\Delta P_N<\deg_\Delta\det G_N(c,\Delta)\) for every \(N\geq1\).
 \end{theorem}
 
+Since \(\mathcal B=\widetilde\Phi H\), the theorem says that
+\((16q/z)^{-\Delta}\mathcal B\) tends to \((16q/z)^{-\Delta}\widetilde\Phi\),
+which does not depend on \(\Delta\).  The proof obtains this limit as a product
+of four factors.  With \(z=z(q)\) and \(\theta_4^4=(1-z)\theta_3^4\),
+\[
+ \widetilde\Phi
+ =\Bigl(\frac{16q}{z}\Bigr)^{\Delta-\frac{c-1}{24}}
+  \cdot(1-z)^{-\frac18}\theta_3^{-1}
+  \cdot\theta_3^{-4(\Delta_1+\Delta_4-\frac18)}\theta_4^{-4(\Delta_2+\Delta_3-\frac18)}
+  \cdot\bigl((1-z)\theta_3^{12}\bigr)^{\frac{c-1}{24}}.
+\]
+In the order written, the factors are the value at the saddle point
+(Lemma~\ref{lem:saddle}), the Gaussian determinant
+(Lemma~\ref{lem:bergman-det}), the terms linear in the external weights
+(Lemma~\ref{lem:ext-exponents}) and the term linear in
+\(\eta^2=(c-1)/24\) (Lemma~\ref{lem:central-charge}).  The proof of the
+theorem at the end of the section multiplies them.
+
 \subsection{Fock--Verma equivalence and the \texorpdfstring{\(\omega^{-1}\)}{1/omega}-expansion}
 
 Parameterize \(c=1+24\eta^2\) and \(\Delta=\omega^2+\eta^2\) with
@@ -523,26 +562,6 @@ Here
 \end{equation}
 \end{lemma}
 
-\begin{proposition}[Gaussian form of the large-\(\omega\) limit]\label{prop:gaussian-limit}
-In the setting of Lemma~\ref{lem:lambda-expansion}, the function
-  \(-2\sum_m m z^{-m}\sigma_m\bar\sigma_m+S^{(0)}(\sigma)+\widetilde S^{(0)}(\bar\sigma)\),
-  with the tilde defined as for \(\widetilde F\) in Lemma~\ref{lem:fock-verma}(ii),
-  has a unique saddle point, with \(\sigma\)-component
-  \(\sigma_*(z)\in iz\mathbb Q[[z]]^{\mathbb N}\).  There exist universal series
-  \(\mathcal I_0,\Phi_c^{\mathrm{raw}},\Phi_1,\Phi_2\in z\mathbb Q[[z]]\),
-  with \(\Phi_j(z)=S^{(2)}_j(\sigma_*(z))\) (\(j=1,2\)), such that,
-  coefficient by coefficient in \(z\),
-  \begin{multline}\label{eq:universal-limit}
-   \lim_{\omega\to\infty}e^{-\omega^2\mathcal I_0(z)}
-   \mathcal B(1+24\eta^2,\omega^2+\eta^2,\Delta_i;z)\\
-   =\det\bigl(I-M(z)^2\bigr)^{-1/2}
-    \exp\Bigl(\eta^2\Phi_c^{\mathrm{raw}}(z)
-      +\bigl(\Delta_1+\Delta_4-\tfrac18\bigr)\Phi_1(z)\\
-      +\bigl(\Delta_2+\Delta_3-\tfrac18\bigr)\Phi_2(z)\Bigr),
-  \end{multline}
-  where \(M(z)_{m,n}=\frac{z^m}{m}B_{m,n}\) (\(m,n\geq1\)).
-\end{proposition}
-
 \begin{proof}
 (i) Substituting \(F(\omega\sigma)=\exp(\omega^2S(\sigma;\omega))\)
 into \(l_kF=(l_0+k\Delta_2-\Delta_1)F\) and dividing by \(\omega^2 F\)
@@ -608,10 +627,37 @@ whose source is affine-linear in
 \((\eta^2,\Delta_1-\tfrac1{16},\Delta_2-\tfrac1{16})\) and \(\iota\)-even;
 uniqueness gives the stated decomposition and \(\iota\)-evenness of
 \(S^{(2)}\).
-
 \end{proof}
 
+\begin{proposition}[Gaussian form of the large-\(\omega\) limit]\label{prop:gaussian-limit}
+In the setting of Lemma~\ref{lem:lambda-expansion}, the function
+  \(-2\sum_m m z^{-m}\sigma_m\bar\sigma_m+S^{(0)}(\sigma)+\widetilde S^{(0)}(\bar\sigma)\),
+  with the tilde defined as for \(\widetilde F\) in Lemma~\ref{lem:fock-verma}(ii),
+  has a unique saddle point, with \(\sigma\)-component
+  \(\sigma_*(z)\in iz\mathbb Q[[z]]^{\mathbb N}\).  There exist universal series
+  \(\mathcal I_0,\Phi_c^{\mathrm{raw}},\Phi_1,\Phi_2\in z\mathbb Q[[z]]\),
+  with \(\Phi_j(z)=S^{(2)}_j(\sigma_*(z))\) (\(j=1,2\)), such that,
+  coefficient by coefficient in \(z\),
+  \begin{multline}\label{eq:universal-limit}
+   \lim_{\omega\to\infty}e^{-\omega^2\mathcal I_0(z)}
+   \mathcal B(1+24\eta^2,\omega^2+\eta^2,\Delta_i;z)\\
+   =\det\bigl(I-M(z)^2\bigr)^{-1/2}
+    \exp\Bigl(\eta^2\Phi_c^{\mathrm{raw}}(z)
+      +\bigl(\Delta_1+\Delta_4-\tfrac18\bigr)\Phi_1(z)\\
+      +\bigl(\Delta_2+\Delta_3-\tfrac18\bigr)\Phi_2(z)\Bigr),
+  \end{multline}
+  where \(M(z)_{m,n}=\frac{z^m}{m}B_{m,n}\) (\(m,n\geq1\)).
+\end{proposition}
+
 \begin{proof}[Proof of Proposition~\ref{prop:gaussian-limit}]
+The pairing is a Gaussian expectation of
+\(\exp(\omega^2S+\omega^2\widetilde S)\).  We absorb the quadratic part of
+\(S^{(0)}+\widetilde S^{(0)}\) into the covariance, shift the variables to the
+saddle point, and collect the orders \(\omega^2\), \(\omega\) and \(1\); the
+first gives \(\mathcal I_0\), the second vanishes by the parity of
+\(S^{(1)}\), and the third gives the determinant and the three series.  All
+of this is algebraic modulo \(z^{N+1}\).
+
 Fix \(N\geq0\).  We work algebraically in the ring
 \(\mathbb C[[z]]/(z^{N+1})\).  Let \(D=\mathrm{diag}(1,\dots,N)\).  The
 unperturbed negative Hessian is
@@ -726,7 +772,36 @@ covariance.  After multiplication by \(Y(x_1)Y(x_2)\), where
 \(Y(x)^2=x(x-z)(x-1)\), this kernel becomes a rational function with a double
 pole on the diagonal, so \(W\) is a symmetric kernel on the elliptic curve
 \(Y^2=x(x-z)(x-1)\) of the type of the Bergman kernel.  The determinant is
-read off from its regularized diagonal.
+read off from its regularized diagonal.  Figure~\ref{fig:x-plane} shows the
+regions of the \(x\)-plane that the two lemmas use.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[scale=1.5,>=stealth,every node/.style={font=\small}]
+ \fill[gray!18] (0,0) circle (1.6);
+ \fill[white] (0,0) circle (0.45);
+ \draw[dashed] (0,0) circle (1.6);
+ \draw[dashed] (0,0) circle (0.45);
+ \draw[->] (1.05,0) arc (0:360:1.05);
+ \draw[dotted,thick] (0,0) circle (1.33);
+ \draw[line width=1.8pt] (0,0)--(0.45,0);
+ \draw[line width=1.8pt] (1.6,0)--(2.7,0);
+ \fill (0,0) circle (1.3pt) node[below=1pt] {\(0\)};
+ \fill (0.45,0) circle (1.3pt) node[below=1pt] {\(z\)};
+ \fill (1.6,0) circle (1.3pt) node[below right] {\(1\)};
+ \fill (60:1.33) circle (1.3pt) node[above right=1pt] {\(x_2\)};
+ \node[right] at (2.7,0) {\(\infty\)};
+\end{tikzpicture}
+\caption{The \(x\)-plane of Lemmas~\ref{lem:saddle} and~\ref{lem:bergman-det},
+drawn for real \(z\).  The curve \(Y^2=x(x-z)(x-1)\) is branched at \(0\),
+\(z\), \(1\) and \(\infty\); thick segments show the cuts.  The dashed circles
+are \(|x|=|z|\) and \(|x|=1\); the Laurent expansion of \(\Omega(x;z)\) in
+Lemma~\ref{lem:saddle}(iii) is taken on the shaded annulus between them.  For
+fixed \(x_2\), the dotted circle \(|x_1|=|x_2|\) separates the inner and outer
+patches of Step~2 of Lemma~\ref{lem:bergman-det}, and Step~3 sums the residues
+at \(x=0\) and \(x=z\) inside the oriented circle \(|x|=r\).}
+\label{fig:x-plane}
+\end{figure}
 
 \begin{lemma}[Diagonalization and the Wiener--Hopf saddle point]
 \label{lem:saddle}
@@ -853,6 +928,17 @@ As formal power series in \(z\),
 \end{lemma}
 
 \begin{proof}
+The proof assembles the Gaussian covariance into a kernel \(W(x_1,x_2)\).
+Steps~1 and~2 show that \(Y(x_1)W(x_1,x_2)\) continues to a meromorphic
+function of \(x_1\) on \(\mathbb P^1\) whose only pole is the double pole at
+\(x_1=x_2\); with the symmetry of \(W\), Liouville's theorem then determines
+\(W\) up to one series \(C(z)\).  Step~3 fixes \(C(z)\) by a zero-mode
+condition and obtains the logarithmic derivative of the determinant as a sum
+of residues of the regularized diagonal \(W_{\mathrm{no}}(x,x)\) at \(x=0\) and
+\(x=z\) (Figure~\ref{fig:x-plane}).  The first paragraph and the bounds in
+Steps~1 and~2 make every series converge coefficientwise in \(z\), so that
+these arguments apply.
+
 Set \(D=\mathrm{diag}(1,2,\dots)\), \(B^{(z)}_{m,n}=z^{m+n}B_{m,n}\),
 \(M_1=D^{-1}B^{(z)}\) and \(M_2=D^{-1}B\), and form the formal Neumann series
 \(K_{12}:=\sum_{r\geq0}(M_1M_2)^r\) and \(K_{21}:=\sum_{r\geq0}(M_2M_1)^r\) in
@@ -1055,6 +1141,19 @@ One has
 \end{lemma}
 
 \begin{proof}
+The series \(\Phi_c^{\mathrm{raw}}\) is defined through the solutions
+\(S^{(1)}_c\) and \(S^{(2)}_c\) of the Ward hierarchy, which are not known in
+closed form.  We obtain it by computing one quantity at \(c=2\) in two ways.
+Step~1 decomposes the tensor product of two \(c=1\) Fock modules into \(c=2\)
+Verma modules; the product of two Gaussian Ward solutions then becomes a sum of
+\(c=2\) blocks with coefficients \(c_n(\omega^2)\).  Steps~2 and~3 compute the
+limits of these coefficients as \(\omega\to\infty\).  Step~2 builds the
+large-\(\omega\) primaries from states of the neutral boson by an operator
+\(U(W)\), and in Step~3 the adjoint \(U(W)^\dagger\) acts on the boson current
+as a conformal map, which makes the limit explicit.  Step~4 applies
+Proposition~\ref{prop:gaussian-limit} at \(c=2\) to each block and solves for
+\(\Phi_c^{\mathrm{raw}}\).
+
 Consider the unitary tensor product
 \(\mathcal H_\omega:=\mathcal F_{0,\omega}^{(1)}\otimes\mathcal F_{0,0}^{(2)}\)
 of two \(c=1\) Fock modules.  The first has oscillators \(v_m\) and weight
@@ -1255,6 +1354,24 @@ Divide by the \(\Delta\)-independent last expression and use
 Lemma~\ref{lem:fock-verma}(iii) extends the limit to all
 \((c,\Delta_1,\dots,\Delta_4)\in\mathbb C^5\).
 \end{proof}
+
+\begin{remark*}[The semiclassical picture and the case \(c=1\)]
+Proposition~\ref{prop:gaussian-limit} is a semiclassical expansion with
+\(\omega^2\) in the role of \(1/\hbar\): \(\mathcal I_0\) is the value of the
+action at the saddle point, \(\det(I-M(z)^2)^{-1/2}\) is the one-loop factor,
+and \(\Phi_1\), \(\Phi_2\) and \(\Phi_c^{\mathrm{raw}}\) are the first
+corrections.  Be\c{s}ken, Datta and Kraus work in the same oscillator
+realization and obtain the leading factor
+\((16q)^\Delta\)~\cite[\S4.3]{BeskenDattaKraus2019}.  At \(c=1\) and
+\(\Delta_1=\dots=\Delta_4=\frac1{16}\), Step~1 of the proof of
+Lemma~\ref{lem:central-charge} shows that the Gaussian \(F_1\) solves the Ward
+equations exactly.  For every \(\Delta=\omega^2\) at which \(M(1,\Delta)\) is
+irreducible, the argument of Lemma~\ref{lem:fock-verma}(ii) identifies the
+pairing \(G_{\mathrm{charged}}\) with the cross-ratio series, so
+\(\mathcal B=\widetilde\Phi\) and \(H=1\) there.  This is Zamolodchikov's closed
+form of the Ashkin--Teller block~\cite[(2.28)]{Zamolodchikov1986}; see
+also~\cite[(2.13)]{IorgovLisovyyTykhyy2013}.
+\end{remark*}
 
 \section{Generic recursion and all-order algebraic confluence}\label{sec:confluence}
 
@@ -1550,6 +1667,29 @@ the two momenta, and use the same labels for the corresponding levels
 \(w^{\mathrm{small}}_k,w^{\mathrm{big}}_k\).  Since \(n_1<pp'\) and
 \(n_0\neq0\), \(m^{\mathrm{big}}_k\geq kpp'+1\).
 
+\begin{example*}[\((p,p')=(2,3)\), \(\lambda=0\)]
+Here \(c_\star=0\), \(r=s=1\), \(n_1=5\) and \(n_0=1\), so \(\ell^+_1=1\),
+\(\ell^-_1=2\), \(\ell^-_2=5\), \(\ell^+_2=7\) and \(\ell_3=12\).  Thus
+\(j_N(0)=1\) for \(1\leq N\leq4\) and \(j_N(0)=2\) for \(5\leq N\leq11\).  At
+level two, in the basis \(L_{-1}^2v_\Delta\), \(L_{-2}v_\Delta\),
+\[
+ G_2(0,\Delta)=\begin{pmatrix}4\Delta(2\Delta+1)&6\Delta\\6\Delta&4\Delta\end{pmatrix},
+ \qquad
+ \det G_2(0,\Delta)=4\Delta^2(8\Delta-5).
+\]
+The labels \((1,1)\) and \((1,2)\) both give the weight \(0\), and the
+determinant vanishes to order two there.  The inverse
+\[
+ G_2(0,\Delta)^{-1}
+ =\frac{1}{\Delta(8\Delta-5)}
+  \begin{pmatrix}1&-\tfrac32\\-\tfrac32&2\Delta+1\end{pmatrix}
+\]
+has only a simple pole at \(\Delta=0\): since \(G_2(0,0)=0\), both local Smith
+exponents equal \(1\)~\cite[Lemma~5.1]{PolzerTorus2026}, in agreement with
+\(j_2(0)=1\).  The first double pole at \(\Delta=0\) appears at level five
+(Proposition~\ref{prop:c0-example}).
+\end{example*}
+
 \begin{theorem}[Jantzen pole-order bound]\label{thm:jantzen-bound}
 For every coprime pair \(p,p'\geq2\), every interior Kac weight
 \(\lambda=h_{r,s}(b_\star)\), and every \(N\geq0\), both
@@ -1699,6 +1839,15 @@ viewed as a rational function of \(\Delta\) over
 \end{theorem}
 
 \begin{proof}
+By Theorem~\ref{thm:top-layer} the pole order is exactly \(k=j_N(\lambda)\)
+when the right side of~\eqref{eq:top-B}, a polynomial in the external
+weights, is not zero, and it suffices to find one point where it does not
+vanish.  We choose the external weights so that the term of
+\(w^{\mathrm{big}}_k\) vanishes, the three-point factors of
+\(w^{\mathrm{small}}_k\) do not, and the remaining coefficient
+\(\mathcal B_M\) is a Taylor coefficient of a solution of a BPZ equation, which
+can be evaluated.
+
 Fix \(k=j_N(\lambda)\).  For \(k=0\), Theorem~\ref{thm:jantzen-bound} gives
 regularity.  For \(k\geq1\), so that \(\ell_k\leq N<\ell_{k+1}\), set
 \(M:=N-\ell^{\mathrm{small}}_k\geq0\), \(\mu:=\mu^{\mathrm{small}}_k\) and
@@ -1793,6 +1942,14 @@ viewed as a rational function of \(\Delta\) over
 \end{theorem}
 
 \begin{proof}
+The plan is the one of Theorem~\ref{thm:sharp-B}, with a different
+specialization.  Setting \(\Delta_2=0\) inserts the identity, so that
+\(\mathcal B_m=\delta_{m,0}\) through the level needed and \(H_M\) comes from
+the prefactor \(\widetilde\Phi\) alone.  On a line in the momenta
+\((\Lambda_3,\Lambda_4)\), the top coefficient of \(H_M\) is then a value of a
+Hermite polynomial, and its nonvanishing is a question about the roots of
+Hermite polynomials.
+
 Use \(k\), \(M\) and \(\mu\) as in the proof of Theorem~\ref{thm:sharp-B}; the
 case \(k=0\) is the same.  For \(k\geq1\) specialize
 \((\Delta_1,\Delta_2):=(\mu,0)\); in the coordinates of
@@ -2065,6 +2222,12 @@ K.~Iohara and Y.~Koga,
 Springer Monographs in Mathematics, Springer (2011),
 \href{https://doi.org/10.1007/978-0-85729-160-8}{doi:\allowbreak 10.1007/978-0-85729-160-8}.
 
+\bibitem[ILT13]{IorgovLisovyyTykhyy2013}
+N.~Iorgov, O.~Lisovyy and Yu.~Tykhyy,
+\emph{Painlev\'e VI connection problem and monodromy of \(c=1\) conformal blocks},
+JHEP \textbf{12} (2013) 029,
+\href{https://doi.org/10.1007/JHEP12(2013)029}{doi:\allowbreak 10.1007/JHEP12(2013)029},
+\href{https://arxiv.org/abs/1308.4092}{arXiv:1308.4092}.
 \bibitem[JSF18]{JaverzatSantachiaraFoda2018}
 N.~Javerzat, R.~Santachiara and O.~Foda,
 \emph{Notes on the solutions of Zamolodchikov-type recursion relations in Virasoro minimal models},
@@ -2114,6 +2277,11 @@ Al.~B.~Zamolodchikov,
 Commun.\ Math.\ Phys. \textbf{96} (1984) 419--422,
 \href{https://doi.org/10.1007/BF01214585}{doi:\allowbreak 10.1007/BF01214585}.
 
+\bibitem[Zam86]{Zamolodchikov1986}
+Al.~B.~Zamolodchikov,
+\emph{Two-dimensional conformal symmetry and critical four-spin correlation
+functions in the Ashkin--Teller model},
+Zh.\ Eksp.\ Teor.\ Fiz. \textbf{90} (1986) 1808--1818.
 \bibitem[Zam87]{Zamolodchikov1987}
 Al.~B.~Zamolodchikov,
 \emph{Conformal symmetry in two-dimensional space: recursion representation of conformal block},

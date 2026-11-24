@@ -57,6 +57,7 @@
 \newtheorem{definition}[theorem]{Definition}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem*{example*}{Example}
 
 \renewcommand{\qedsymbol}{$\blacksquare$}
 
@@ -239,7 +240,15 @@ attaining \(\lambda\).  For \(a=(r,s)\), set \(t=b-b_\star\),
 \(h_a(t)=h_{r,s}(b_\star+t)\) and \(\ell_a=rs\).  \(R_a\) is the generic
 residue, \(S_{a,M}\) the shifted Laurent block
 (Definition~\ref{def:shifted-laurent}), \(\CT_t\) the constant term, and
-\(\widehat M^\star_{\lambda,N}\) an explicit bound on the pole order.  The
+\(\widehat M^\star_{\lambda,N}\) an explicit bound on the pole order.  In the
+generic recursion each label \(a\) contributes a simple pole at \(h_a(b)\), and
+as \(b\to b_\star\) the poles of the labels in \({\mathcal C}^\star_{\lambda,N}\)
+converge to \(\lambda\).  Expanding \(1/(\Delta-h_a(b))\) in powers of
+\(h_a(b)-\lambda\) turns their sum into a pole of higher order at \(\lambda\);
+the \(k\)-th coefficient is the moment in~\eqref{eq:intro-main}.  The residues
+\(R_a\) can have poles in \(t\).  These cancel in each moment because \(H_N\)
+is regular at \(b=b_\star\), and the constant term is the value of the moment
+at \(t=0\).  The
 formula uses finite jets of explicit rational functions of \(b\), and
 uniqueness of partial fractions identifies it with the coefficient defined
 through the inverse Shapovalov matrix.  It is obtained by expanding the generic
@@ -599,6 +608,31 @@ If \(v(x)\) is a family for \(v\), then \(L_nv(x)\) specializes to
 x^i\mathbb C[x]\). Thus the layers are submodules. At \(i=1\) the
 condition is \(G_N(c,h)v=0\).
 \end{proof}
+
+\begin{example*}[Level two at \(c=0\)]
+In the basis \(L_{-1}^2|\Delta\rangle\), \(L_{-2}|\Delta\rangle\),
+\[
+ G_2(0,\Delta)=\begin{pmatrix}4\Delta(2\Delta+1)&6\Delta\\6\Delta&4\Delta\end{pmatrix},
+ \qquad
+ \det G_2(0,\Delta)=4\Delta^2(8\Delta-5).
+\]
+At \(c=0\) the labels \((1,1)\) and \((1,2)\) both give the weight \(0\)
+(Proposition~\ref{prop:minimal-collisions} with \((p,p')=(2,3)\)), and the
+determinant vanishes to order two there.  Since \(G_2(0,0)=0\), the kernel is
+two-dimensional, so \(J^1_2(0,0)=M(0,0)_2\) and both local Smith exponents
+equal \(1\) by Lemma~\ref{lem:smith}; indeed
+\[
+ G_2(0,\Delta)^{-1}
+ =\frac{1}{\Delta(8\Delta-5)}
+  \begin{pmatrix}1&-\tfrac32\\-\tfrac32&2\Delta+1\end{pmatrix}
+\]
+has a simple pole at \(\Delta=0\).  The order of vanishing of the determinant
+is two, and the pole order is one; the Jantzen layers measure the second.  At
+\(\lambda=0\) the second Jantzen layer starts at level five
+(Theorem~\ref{thm:jantzen-smith}), and for indeterminate \(d\) the first
+double pole of \(H_N\) at \(\Delta=0\) occurs at \(N=5\)
+(Corollary~\ref{cor:top-layer-sharp}).
+\end{example*}
 
 
 \begin{lemma}[Jantzen forms and the top coefficient]
@@ -1111,6 +1145,14 @@ Theorem~\ref{thm:jantzen-smith}), \(\varrho=-n_0/(2(p'-p))\), and
 \end{proposition}
 
 \begin{proof}
+We read off \(\tau^\pm_k/\gamma^\pm_k\) from the generic recursion by letting
+\(b^2\), \(\Delta\) and \(d\) tend to \((b_\star^2,\lambda,0)\) at the same
+rate.  Along such a curve only the chains of labels whose poles collide at
+every step survive (Steps~1 and~2), and the limit is the lowest homogeneous
+part of \(H_N\), whose behaviour at large slope \(\omega\) gives
+\([d^k](\tau^\pm_k/\gamma^\pm_k)\) (Step~3).  Steps~4 and~5 list the colliding
+chains and evaluate the resulting moments.
+
 Put \(\nu=b^2\), \(\nu_\star=-p'/p\), \(N_0=2pp'\); dots denote \(d/d\nu\) at
 \(\nu_\star\).  As in the proof of Lemma~\ref{lem:d-derivatives}, write
 \(\varphi(x,y)=xb+yb^{-1}\), which vanishes at \(\nu_\star\) iff
@@ -1295,6 +1337,15 @@ right side of \eqref{eq:top-layer}.  Then \(P_N(d)\not\equiv0\) in
 \end{proposition}
 
 \begin{proof}
+Both terms of \(P_N(d)\) are present, and we show that they cannot cancel by
+looking at them near \(d_1=h_{1,3}(b_\star)\) and, if needed,
+\(d_2=h_{1,-3}(b_\star)\), where Proposition~\ref{prop:h13-nonvanishing}
+controls the shifted blocks.  In Case~1 the two terms vanish to different
+orders at \(d_1\).  In Case~2 they vanish to the same order, and their leading
+coefficients at \(d_1\) have different \(\ell\)-adic valuations.  In Case~3 the
+valuations can agree, and we show instead that the ratio of the two leading
+coefficients at \(d_1\) differs from the ratio at \(d_2\).
+
 By \(b\mapsto b^{-1}\) (swapping \(p\leftrightarrow p'\),
 \(r\leftrightarrow s\)), assume an odd prime \(\ell\mid p'\) with
 \(a=v_\ell(p')\geq1\).  Write \(M^\pm=N-\ell^\pm_k\geq1\) and
@@ -1866,8 +1917,8 @@ Fix integers \(R,S\geq1\).
    \begin{equation}\label{eq:P-RS-def}
     P_{R,S}(b;\Delta_1,\Delta_2)
     :=\prod_{j,l}
-      \tfrac14\bigl(\Lambda_1+\Lambda_2+p'b+q'b^{-1}\bigr)
-      \bigl(\Lambda_1-\Lambda_2+p'b+q'b^{-1}\bigr),
+      \tfrac14\bigl(\Lambda_1+\Lambda_2+jb+lb^{-1}\bigr)
+      \bigl(\Lambda_1-\Lambda_2+jb+lb^{-1}\bigr),
    \end{equation}
    with \(j\in\{1-R,3-R,\ldots,R-1\}\) and \(l\in\{1-S,3-S,\ldots,S-1\}\).
    In particular, at \(\Delta_1=h_{R,S}(b)\) (where \(\Lambda_1=Rb+Sb^{-1}\)),
@@ -1902,7 +1953,7 @@ Part~(ii) is Zamolodchikov's fusion polynomial
 fusion-polynomial display preceding (8) in
 \cite[\S3]{HadaszJaskolskiSuchanek2010}.  For the
 root list \eqref{eq:P-RS-roots}, set \(\Lambda_1=Rb+Sb^{-1}\).  Then
-\(\Lambda_2=\pm(\Lambda_1+p'b+q'b^{-1})\) ranges over \(\pm(ub+vb^{-1})\) with
+\(\Lambda_2=\pm(\Lambda_1+jb+lb^{-1})\) ranges over \(\pm(ub+vb^{-1})\) with
 \(u=R+j\in\{1,3,\ldots,2R-1\}\) and \(v=S+l\in\{1,3,\ldots,2S-1\}\).
 \end{proof}
 
@@ -2590,6 +2641,15 @@ products along the braided BGG diagram do not depend on the path
 (Proposition~\ref{prop:bgg-cocycle}).
 
 \begin{proof}[Proof of Theorem~\ref{thm:first-layer-ratio}]
+The numerator and the denominator of \(c_{R,S}\) are derivatives along the
+diagonal of the two-weight pairing \(f_d(x_1,x_2)\) of \(\chi_{R,S}\) with
+itself.  This pairing is symmetric, and when one weight sits at the Kac weight
+it factors through fusion polynomials.  So its diagonal derivative is a
+derivative of \(P_{R,S}\) times a value of \(P_{R,S}\), and dividing the cases
+\(d=h_{2k+1,2m+1}(b)\) and \(d=0\) gives~\eqref{eq:box-formula}.  The
+factorization through \(\Psi_{2k+1,2m+1}\) then follows from
+\(\Gamma(z+1)=z\Gamma(z)\).
+
 Fix generic \(b\in\mathbb{C}^\times\), \(t=b^2\), \(R,S\geq1\), and
 \(0\leq k\leq R-1\), \(0\leq m\leq S-1\).  Let \(\mathcal{X}_{R,S}\in U(\Vir_-)_{RS}\)
 be the constant-coefficient PBW operator such that
@@ -2851,6 +2911,18 @@ BGG arrows \(\mu\to\nu_1\) (label \((R_1,S_1)\)) and \(\mu\to\nu_2\) (label
 \end{lemma}
 
 \begin{proof}
+We deform the charge, \(b^2=b_\star^2+\tau\), along the Kac curve of the label
+\((R_1,S_1)\).  For generic \(\tau\) the submodule generated by
+\(\chi_{R_1,S_1}\) is the only proper submodule, and the Verma trace splits
+into the trace over the irreducible quotient and a shifted Verma trace, which
+tends to the term at \(\nu_1\) (Step~1).  As \(\tau\to0\) the quotients form a
+free \(\mathbb{C}[[\tau]]\)-lattice whose special fiber
+\(M(c_\star,\mu)/M(c_\star,\nu_1)\) has length two, with socle
+\(L(c_\star,\nu_2)\) (Step~2).  Its \(\tau\)-Jantzen filtration stops after one
+step (Step~3), so the trace over the quotient tends to the irreducible trace at
+\(\mu\) plus \(\Omega_{u,v}(\mu\to\nu_2)\) times the irreducible trace at
+\(\nu_2\) (Step~4).
+
 Set \(t_0:=b_\star^2=-p'/p\).  Let \(\tau\) be a formal deformation
 parameter, with \(t(\tau):=t_0+\tau\) and \(b(\tau):=\sqrt{t(\tau)}\) near
 \(b_\star\).  Put \(\Delta_1(\tau):=h_{R_1,S_1}(b(\tau))\),
@@ -3274,6 +3346,19 @@ denoted \(Z,Z'\), and \(\delta i\), \(\delta j\) denote increments of the
 exponents \(i\) and \(j\) in \([t^iY^j]\).
 
 \begin{proof}[Proof of Proposition~\ref{prop:h13-nonvanishing}(i)--(ii)]
+Both parts rest on a count of modes.  After the rescaling by
+\(t^{\ell(Z)+\ell(Z')}\) and \(\Delta=Y/t^2\), the Gram matrix at level \(M\)
+has entries in \(\mathbb Z[\tfrac12][t,Y]\) and is diagonal at \(t=0\), and,
+with \(d=-2/t+\zeta\), the torus matrix has entries in
+\(\mathbb Z[\tfrac12][t,Y,\zeta]\) and does not depend on \(\zeta\) at
+\(t=0\).  Part~(i) follows from this
+structure and the Kac determinant formula.  For part~(ii) we
+expand the inverse Gram matrix as a series in \(t\) around its diagonal part,
+write each partition of \(M\) as \(1^a\) together with a partition with parts
+at least \(2\), and show that only finitely many configurations contribute to
+a given coefficient \([t^iY^j]\), each by a polynomial in \(M\) of degree at
+most \(2i+2j\).
+
 (i) At \(d_1=h_{1,3}(b)\) and \(d_2=h_{1,-3}(b)\) one has
 \(\Lambda^2=(b\pm3b^{-1})^2\), so the factor \((k,l)=(1,3)\) in
 Definition~\ref{def:generic-residue} vanishes for every \(v\geq2\) and
