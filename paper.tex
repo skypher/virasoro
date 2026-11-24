@@ -242,7 +242,7 @@ through the inverse Shapovalov matrix.  It is obtained by expanding the generic
 recursion in \(b-b_\star\), so it uses generic-\(b\) jets and is not a
 recursion expressed solely in specialized data (Section~\ref{sec:scope}).  The
 example after Theorem~\ref{thm:general-confluence} works this out at \(c=0\)
-and level five: two residue terms each have a simple pole in \(t\), the poles
+and level five for indeterminate \(d\): two residue terms each have a simple pole in \(t\), the poles
 cancel in the first moment, and the second moment, which gives the double pole
 in \(\Delta\), is the coefficient of \(t^{-1}\) in one of them times the
 \(t\)-derivative of its Kac weight.
@@ -1614,13 +1614,17 @@ Lemma~\ref{lem:no-generic-shifted-pole} ensures each denominator is nonzero.
 
 The series \(S_{a,M}(t)\) is the coefficient \(H_M\) evaluated at the shifted
 weight \(z_a(t)\) and expanded in \(t\) (proof of
-Theorem~\ref{thm:general-confluence}).  It can have a pole at \(t=0\) when a
-shifted weight \(z_a(b_\star)\) is itself a Kac weight \(h_g(b_\star)\), or when a
-residue \(R_g\) has a pole there.  Lemmas~\ref{lem:shifted-valuation-bound},
-\ref{lem:precision-budget} and~\ref{lem:collision-pole-support} only bound how
-far each expansion has to be carried; the example after
-Theorem~\ref{thm:general-confluence} shows the mechanism in the smallest case
-where a pole in \(t\) occurs.
+Theorem~\ref{thm:general-confluence}).  A single summand of the recursion can
+have a pole at \(t=0\), from a pole of \(R_g\) or from a denominator
+\(z_a(t)-h_g(t)\) that vanishes at \(t=0\).  The full block \(S_{a,M}\) is
+regular at \(t=0\) when \(z_a(0)\) differs from every \(h_g(0)\) with
+\(\ell_g\leq M\), since then \(\det G_M(c_\star,z_a(0))\neq0\); when
+\(z_a(0)=h_g(0)\) for such a \(g\), it can have a pole, although cancellations
+may remove it.  Lemmas~\ref{lem:shifted-valuation-bound}
+and~\ref{lem:precision-budget} bound how far each expansion has to be carried,
+and Lemma~\ref{lem:collision-pole-support} gives the shape of the principal
+part.  The example after Theorem~\ref{thm:general-confluence} shows the
+mechanism in a low-level case.
 
 \begin{lemma}[A priori shifted valuation bound]
 \label{lem:shifted-valuation-bound}
@@ -1770,10 +1774,10 @@ and the sole moment is \(R_a(0)H_{N-\ell_a}(c_\star,z_a(b_\star),d)\).
 
 \begin{example*}[Two poles in \(b\) that make a double pole in \(\Delta\)]
 Let \(b_\star^2=-3/2\), so that \(c_\star=0\) and
-\(h_{r,s}(b_\star)=((3r-2s)^2-1)/24\), and take \(N=5\) and \(\lambda=0\).  The
-labels with \(rs\leq5\) and weight \(0\) are \((1,1)\) and \((1,2)\), and every
-\(R_g\) with \(\ell_g\leq5\) is regular at \(t=0\).  Since \(S_{a,M}\) is \(H_M\)
-at the shifted weight \(z_a\),
+\(h_{r,s}(b_\star)=((3r-2s)^2-1)/24\), take \(N=5\) and \(\lambda=0\), and keep
+\(d\) indeterminate.  The labels with \(rs\leq5\) and weight \(0\) are \((1,1)\)
+and \((1,2)\), and every \(R_g\) with \(\ell_g\leq5\) is regular at \(t=0\).
+Since \(S_{a,M}\) is \(H_M\) at the shifted weight \(z_a\),
 \[
  B_{(1,1),5}=R_{(1,1)}(t)\,H_4\bigl(c(b),1,d\bigr),\qquad
  B_{(1,2),5}=R_{(1,2)}(t)\,H_3\bigl(c(b),h_{1,2}(b)+2,d\bigr),
@@ -1809,8 +1813,10 @@ constant.  Since the pole of \(H_5\) at \(\Delta=0\) has order at most
  =-\frac{3}{11200}\,{\mathcal P}_{1,1}(b_\star,d)\,{\mathcal P}_{1,4}(b_\star,d),
 \]
 because \({\mathcal A}_{1,1}=\tfrac12\) and
-\({\mathcal A}_{1,4}(b_\star)=-\tfrac3{1120}\).  So the double pole of \(H_5\) at
-\(c=0\) comes from two simple poles in \(b\) that cancel in the first moment.
+\({\mathcal A}_{1,4}(b_\star)=-\tfrac3{1120}\).  So, for indeterminate \(d\), the
+double pole of \(H_5\) at \(c=0\) comes from two simple poles in \(b\) that
+cancel in the first moment.  At \(d=0\) the coefficient vanishes, as it must by
+Lemma~\ref{lem:d-derivatives}.
 Theorem~\ref{thm:top-layer} gives the same coefficient as
 \(\tau^-_2/\gamma^-_2\): here \(\ell^-_2=5<\ell^+_2=7\), the proof of
 Proposition~\ref{prop:two-term-criteria} with \(j=1\) gives
