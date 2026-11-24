@@ -183,7 +183,8 @@ analytic in \(z\) for \(|z|<1\) and meromorphic in \(\Delta\), for
 large-\(\Delta\) limit.
 
 At rational \(b_\star^2\), Kac weights can coincide and the generic residues
-can have poles; every minimal-model charge is of this kind. Javerzat, Santachiara and Foda regularize minimal-model
+can have poles; every minimal-model charge, \(b_\star^2=-p'/p\), is of this
+kind. Javerzat, Santachiara and Foda regularize minimal-model
 examples~\cite[\S\S3.4--3.6, (32)--(34)]{JaverzatSantachiaraFoda2018}.
 Ribault finds cancellations and double poles for generic external momenta
 and then treats degenerate representations~\cite[\S\S3.2--3.3]{Ribault2019}.
@@ -210,11 +211,14 @@ residue data (Definition~\ref{def:confluence}); the same theorem gives
 \(b\to b_\star\).  Each Kac label \(a\) contributes a simple pole at
 \(h_a(b)\), and the poles of the labels in one collision class converge to the
 same weight \(\lambda\).  Expanding \(1/(\Delta-h_a(b))\) in powers of
-\(h_a(b)-\lambda\) turns their sum into a pole of higher order at \(\lambda\),
-whose coefficients are moments of the residues.  Individual residues can have
-poles in \(b-b_\star\).  These cancel in the moments because \(H_N\) is
-regular at \(b=b_\star\), and \(\widetilde A^\star_{\lambda,k,N}\) is the value
-of the \(k\)-th moment there.  We know of no earlier finite all-order formula of this kind
+\(h_a(b)-\lambda\) shows that their sum can produce a pole of higher order at
+\(\lambda\); the coefficient of \((\Delta-\lambda)^{-k}\) is the moment of the
+residues weighted by \((h_a(b)-\lambda)^{k-1}\).  Individual residues can have
+poles in \(t=b-b_\star\).  Over the field of rational functions in \(\Delta\),
+\(H_N\) is regular in \(t\) at \(t=0\), so uniqueness of partial fractions in
+each negative power of \(t\) makes these poles cancel in every moment, and
+\(\widetilde A^\star_{\lambda,k,N}\) is the value of the \(k\)-th moment at
+\(t=0\).  We know of no earlier finite all-order formula of this kind
 for every fixed \(b_\star\neq0\) with indeterminate external weights.  At an
 interior minimal-model Kac weight \(\lambda\), Theorems~\ref{thm:jantzen-bound}
 and~\ref{thm:top-layer} bound the pole orders of \(H_N\) and \(\mathcal B_N\)
@@ -238,8 +242,9 @@ Fock space of oscillators \(u_m\), and the block pairs two solutions \(F\) of
 the Ward equations there (Lemma~\ref{lem:fock-verma}).  After the rescaling
 \(u_m=\omega\sigma_m\), \(F=\exp(\omega^2S)\) with \(S\) a series in
 \(\omega^{-1}\) (Lemma~\ref{lem:lambda-expansion}), so \(\omega^2\) plays the
-role of \(1/\hbar\) and the pairing localizes at a saddle point as
-\(\omega\to\infty\) (Proposition~\ref{prop:gaussian-limit}).  Each factor of
+role of \(1/\hbar\), and as \(\omega\to\infty\) the coefficientwise Gaussian
+calculation of the pairing is centered at a saddle point
+(Proposition~\ref{prop:gaussian-limit}).  Each factor of
 Zamolodchikov's prefactor then has its own source, displayed at the start of
 Section~\ref{sec:asymp}: the value at the saddle point
 (Lemma~\ref{lem:saddle}), the Gaussian determinant
@@ -253,9 +258,9 @@ product of two Gaussian Ward solutions on two \(c=1\) Fock modules solves the
 \(c=2\) Verma modules gives an identity that determines the exponent.
 Lemma~\ref{lem:fock-verma}(iii) extends the limit to complex parameters.
 
-For sharpness the torus proof uses an \(\ell\)-adic argument on the levels
-where both layer vectors
-contribute~\cite[Propositions~6.8--6.9]{PolzerTorus2026}.  The sphere proof
+For sharpness the torus proof uses an \(\ell\)-adic argument on the strict
+two-vector levels
+\(\max(\ell^+_k,\ell^-_k)<N<\ell_{k+1}\)~\cite[Propositions~6.8--6.9]{PolzerTorus2026}.  The sphere proof
 isolates one branch by specializing external weights.  The \((2,1)\) BPZ
 specialization makes the shifted cross-ratio series a nonintegral power of
 \(1-z\) through the required degree.  With an identity insertion, the
@@ -541,7 +546,7 @@ oscillator level \(m\).
     in~\cite[(4.20)--(4.21)]{BeskenDattaKraus2019}
     \begin{align}\label{eq:AB-gf}
      A(p)&:=\sum_{m\geq1}A_mp^m=-2i\bigl((1-p)^{-1/2}-1\bigr),\nonumber\\
-     B(p,q)&:=\sum_{m,n\geq1}B_{m,n}p^mq^n=-\frac{pq}{2\sqrt{1-p}\sqrt{1-q}\,(\sqrt{1-p}+\sqrt{1-q})^2};
+     B(p,y)&:=\sum_{m,n\geq1}B_{m,n}p^my^n=-\frac{py}{2\sqrt{1-p}\sqrt{1-y}\,(\sqrt{1-p}+\sqrt{1-y})^2};
     \end{align}
   \item \(S^{(1)}(\sigma)=\eta S^{(1)}_c(\sigma)\) is linear in \(\eta\),
     independent of \((\Delta_1,\Delta_2)\), and odd under the involution
@@ -793,13 +798,14 @@ regions of the \(x\)-plane that the two lemmas use.
  \node[right] at (2.7,0) {\(\infty\)};
 \end{tikzpicture}
 \caption{The \(x\)-plane of Lemmas~\ref{lem:saddle} and~\ref{lem:bergman-det},
-drawn for real \(z\).  The curve \(Y^2=x(x-z)(x-1)\) is branched at \(0\),
+drawn for \(0<z<1\).  The curve \(Y^2=x(x-z)(x-1)\) is branched at \(0\),
 \(z\), \(1\) and \(\infty\); thick segments show the cuts.  The dashed circles
 are \(|x|=|z|\) and \(|x|=1\); the Laurent expansion of \(\Omega(x;z)\) in
 Lemma~\ref{lem:saddle}(iii) is taken on the shaded annulus between them.  For
 fixed \(x_2\), the dotted circle \(|x_1|=|x_2|\) separates the inner and outer
 patches of Step~2 of Lemma~\ref{lem:bergman-det}, and Step~3 sums the residues
-at \(x=0\) and \(x=z\) inside the oriented circle \(|x|=r\).}
+of \(\frac x2W_{\mathrm{no}}(x,x)\) at \(x=0\) and \(x=z\) inside the oriented
+circle \(|x|=r\).}
 \label{fig:x-plane}
 \end{figure}
 
@@ -929,13 +935,15 @@ As formal power series in \(z\),
 
 \begin{proof}
 The proof assembles the Gaussian covariance into a kernel \(W(x_1,x_2)\).
-Steps~1 and~2 show that \(Y(x_1)W(x_1,x_2)\) continues to a meromorphic
-function of \(x_1\) on \(\mathbb P^1\) whose only pole is the double pole at
-\(x_1=x_2\); with the symmetry of \(W\), Liouville's theorem then determines
-\(W\) up to one series \(C(z)\).  Step~3 fixes \(C(z)\) by a zero-mode
-condition and obtains the logarithmic derivative of the determinant as a sum
-of residues of the regularized diagonal \(W_{\mathrm{no}}(x,x)\) at \(x=0\) and
-\(x=z\) (Figure~\ref{fig:x-plane}).  The first paragraph and the bounds in
+Steps~1 and~2 show that, coefficientwise in \(z\), \(Y(x_1)W(x_1,x_2)\)
+continues to a meromorphic function of \(x_1\) on \(\mathbb P^1\) whose only
+pole is at \(x_1=x_2\), with principal part
+\(Y(x_2)/(x_1-x_2)^2+Y'(x_2)/(x_1-x_2)\); with the symmetry of \(W\),
+Liouville's theorem then determines \(W\) up to one series \(C(z)\).  Step~3
+fixes \(C(z)\) by a zero-mode condition and obtains \(z\) times the
+logarithmic derivative of the determinant as the sum of the residues of
+\(\frac x2W_{\mathrm{no}}(x,x)\) at \(x=0\) and \(x=z\)
+(Figure~\ref{fig:x-plane}).  The first paragraph and the bounds in
 Steps~1 and~2 make every series converge coefficientwise in \(z\), so that
 these arguments apply.
 
@@ -947,7 +955,7 @@ Set \(D=\mathrm{diag}(1,2,\dots)\), \(B^{(z)}_{m,n}=z^{m+n}B_{m,n}\),
 supported on \(m+n\leq j\).  Hence for every \(j\geq1\), \([z^j]K_{12}\) has
 finite row support, and \([z^j]K_{21}\) has finite column support, each column
 being a finite linear combination of columns of \(M_2\).  The function
-\(B(p,q)\) is holomorphic on \(\{|p|<1,|q|<1\}\), where
+\(B(p,y)\) is holomorphic on \(\{|p|<1,|y|<1\}\), where
 \(\operatorname{Re}\sqrt{1-p}>0\), so Cauchy's inequality gives
 \(|B_{m,n}|\leq C_\rho\rho^{-m-n}\) for every \(0<\rho<1\).  The formal series
 \(\det(I-M(z)^2)^{-1/2}=\exp(\frac12\sum_{k\geq1}\frac1k\Tr(M(z)^{2k}))\) is
@@ -955,12 +963,20 @@ therefore well defined coefficientwise.  Let \(\widetilde M(z)_{m,n}=z^{(m+n)/2}
 symmetrized matrix.  For sufficiently small \(|z|\) the formal series equals
 \(\det_F(I-\widetilde M(z)^2)^{-1/2}\), with the branch equal to \(1\) at
 \(z=0\), where \(\det_F\) is the trace-class Fredholm determinant.  Indeed,
-\(M(z)^2=S\widetilde M(z)^2S^{-1}\) with \(S=\mathrm{diag}(z^{m/2}m^{-1/2})\),
-so \(\Tr M(z)^{2k}=\Tr\widetilde M(z)^{2k}\) for every \(k\).  For small
-\(|z|\) the entries of \(\widetilde M(z)\) are bounded by
-\(C_\rho(|z|^{1/2}/\rho)^{m+n}\), so \(\widetilde M(z)\) is trace class with
-trace norm less than \(1\), and
-\(\log\det_F(I-\widetilde M(z)^2)=-\sum_{k\geq1}\frac1k\Tr\widetilde M(z)^{2k}\).
+with \(s_m=z^{m/2}m^{-1/2}\) one has
+\(M(z)_{m,n}=s_m\widetilde M(z)_{m,n}s_n^{-1}\), so in every cyclic product
+\(M(z)_{m_1m_2}M(z)_{m_2m_3}\cdots M(z)_{m_{2k}m_1}\) the factors \(s_{m_i}\)
+cancel, and \(\Tr M(z)^{2k}=\Tr\widetilde M(z)^{2k}\) coefficientwise in
+\(z\); each coefficient involves only finitely many cycles, since a cycle
+has \(z\)-order \(m_1+\dots+m_{2k}\).  (The diagonal matrix
+\(\mathrm{diag}(s_m)^{-1}\) is unbounded on \(\ell^2\) for \(0<|z|<1\), so the
+similarity is used only in this termwise form.)  For small \(|z|\) the
+entries of \(\widetilde M(z)\) are bounded by \(C_\rho(|z|^{1/2}/\rho)^{m+n}\).
+Their absolute sum is then bounded by a geometric double series that tends to
+\(0\) with \(z\), so \(\widetilde M(z)\) is trace class with trace norm less
+than \(1\), and
+\(\log\det_F(I-\widetilde M(z)^2)=-\sum_{k\geq1}\frac1k\Tr\widetilde M(z)^{2k}\)
+is analytic in \(z\) and vanishes at \(z=0\).
 
 Fix \(x_2\) with \(0<|x_2|<1\), and define the formal power series in \(z\),
 \(W(x_1,x_2):=\frac{1}{(x_1-x_2)^2}+W_{\mathrm{no}}(x_1,x_2)\), where
@@ -1365,10 +1381,12 @@ realization and obtain the leading factor
 \((16q)^\Delta\)~\cite[\S4.3]{BeskenDattaKraus2019}.  At \(c=1\) and
 \(\Delta_1=\dots=\Delta_4=\frac1{16}\), Step~1 of the proof of
 Lemma~\ref{lem:central-charge} shows that the Gaussian \(F_1\) solves the Ward
-equations exactly.  For every \(\Delta=\omega^2\) at which \(M(1,\Delta)\) is
+equations exactly.  For real \(\Delta=\omega^2>0\) at which \(M(1,\Delta)\) is
 irreducible, the argument of Lemma~\ref{lem:fock-verma}(ii) identifies the
 pairing \(G_{\mathrm{charged}}\) with the cross-ratio series, so
-\(\mathcal B=\widetilde\Phi\) and \(H=1\) there.  This is Zamolodchikov's closed
+\(\mathcal B=\widetilde\Phi\).  Both sides are rational in \(\Delta\)
+coefficientwise in \(z\), so \(\mathcal B=\widetilde\Phi\) and \(H=1\) at every
+\(\Delta\) at which \(M(1,\Delta)\) is irreducible.  This is Zamolodchikov's closed
 form of the Ashkin--Teller block~\cite[(2.28)]{Zamolodchikov1986}; see
 also~\cite[(2.13)]{IorgovLisovyyTykhyy2013}.
 \end{remark*}
@@ -1684,10 +1702,11 @@ determinant vanishes to order two there.  The inverse
  =\frac{1}{\Delta(8\Delta-5)}
   \begin{pmatrix}1&-\tfrac32\\-\tfrac32&2\Delta+1\end{pmatrix}
 \]
-has only a simple pole at \(\Delta=0\): since \(G_2(0,0)=0\), both local Smith
+has only a simple pole at \(\Delta=0\): \(G_2(0,0)=0\) has a two-dimensional
+kernel and the determinant vanishes to order two, so both local Smith
 exponents equal \(1\)~\cite[Lemma~5.1]{PolzerTorus2026}, in agreement with
-\(j_2(0)=1\).  The first double pole at \(\Delta=0\) appears at level five
-(Proposition~\ref{prop:c0-example}).
+\(j_2(0)=1\).  For indeterminate external weights, the first double pole at
+\(\Delta=0\) appears at level five (Proposition~\ref{prop:c0-example}).
 \end{example*}
 
 \begin{theorem}[Jantzen pole-order bound]\label{thm:jantzen-bound}
@@ -1764,7 +1783,7 @@ factor \(P_{r,s}\) have magnitude at most \(n_1-p'-p\), and
 \(n_1-p'-p<pp'-p'-p<m^\pm_k-p'-p\).
 \end{proof}
 
-For even \(k\), the companion paper factors the torus norm of \(w^\pm_k\)
+For even \(k\), the companion paper factors the torus matrix element of \(w^\pm_k\)
 through the singular vector of layer \(2j-1\)
 \cite[proof of Proposition~6.9]{PolzerTorus2026}, whereas
 Lemma~\ref{lem:pi-factorization}(ii) factors \(w^\pm_k\) through
@@ -1839,11 +1858,12 @@ viewed as a rational function of \(\Delta\) over
 \end{theorem}
 
 \begin{proof}
-By Theorem~\ref{thm:top-layer} the pole order is exactly \(k=j_N(\lambda)\)
-when the right side of~\eqref{eq:top-B}, a polynomial in the external
-weights, is not zero, and it suffices to find one point where it does not
-vanish.  We choose the external weights so that the term of
-\(w^{\mathrm{big}}_k\) vanishes, the three-point factors of
+For \(k=j_N(\lambda)=0\) there is no pole.  For \(k\geq1\),
+Theorem~\ref{thm:top-layer} shows that the pole order is exactly \(k\) when
+the right side of~\eqref{eq:top-B}, a polynomial in the external weights, is
+not zero, and it suffices to find one point where it does not vanish.  We
+choose the external weights so that the term of \(w^{\mathrm{big}}_k\)
+vanishes when it is present, the three-point factors of
 \(w^{\mathrm{small}}_k\) do not, and the remaining coefficient
 \(\mathcal B_M\) is a Taylor coefficient of a solution of a BPZ equation, which
 can be evaluated.
@@ -1943,12 +1963,12 @@ viewed as a rational function of \(\Delta\) over
 
 \begin{proof}
 The plan is the one of Theorem~\ref{thm:sharp-B}, with a different
-specialization.  Setting \(\Delta_2=0\) inserts the identity, so that
-\(\mathcal B_m=\delta_{m,0}\) through the level needed and \(H_M\) comes from
-the prefactor \(\widetilde\Phi\) alone.  On a line in the momenta
-\((\Lambda_3,\Lambda_4)\), the top coefficient of \(H_M\) is then a value of a
-Hermite polynomial, and its nonvanishing is a question about the roots of
-Hermite polynomials.
+specialization.  Setting \((\Delta_1,\Delta_2)=(\mu,0)\) inserts the
+identity, so that \(\mathcal B_m=\delta_{m,0}\) through the level needed and
+\(H_M\) comes from the prefactor \(\widetilde\Phi\) alone.  On a line
+\(\Lambda_3+\Lambda_4=iv\) in the momenta, the top coefficient \([v^M]H_M\)
+is then a value of a Hermite polynomial, and its nonvanishing is a question
+about the roots of Hermite polynomials.
 
 Use \(k\), \(M\) and \(\mu\) as in the proof of Theorem~\ref{thm:sharp-B}; the
 case \(k=0\) is the same.  For \(k\geq1\) specialize
@@ -2109,7 +2129,7 @@ Theorem~\ref{thm:top-layer} has the single term \(M=0\), where
 \(\gamma=B^2(w^{\mathrm{small}}_2,w^{\mathrm{small}}_2)\).
 
 For \((p,p')=(2,3)\) and \(\lambda=0\), the norm \(\gamma^-_2\) is a property
-of the Verma module alone.  We compute it through the torus norm
+of the Verma module alone.  We compute it through the torus matrix element
 \(\tau^-_2(d)=\langle w^-_2|V_d(1)|w^-_2\rangle\) of the same singular vector,
 where \(V_d\) is a primary field of weight \(d\) as in the companion paper,
 because the companion gives the leading term of \(\tau^-_2/\gamma^-_2\) at
@@ -2281,7 +2301,8 @@ Commun.\ Math.\ Phys. \textbf{96} (1984) 419--422,
 Al.~B.~Zamolodchikov,
 \emph{Two-dimensional conformal symmetry and critical four-spin correlation
 functions in the Ashkin--Teller model},
-Zh.\ Eksp.\ Teor.\ Fiz. \textbf{90} (1986) 1808--1818.
+Zh.\ Eksp.\ Teor.\ Fiz. \textbf{90} (1986) 1808--1818; English translation
+in Sov.\ Phys.\ JETP \textbf{63} (1986) 1061.
 \bibitem[Zam87]{Zamolodchikov1987}
 Al.~B.~Zamolodchikov,
 \emph{Conformal symmetry in two-dimensional space: recursion representation of conformal block},
