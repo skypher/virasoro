@@ -1,5 +1,9 @@
 # Lean formalization status
 
+**Current state (2026-11-24):** the papers' current numbering and the Lean statement and labelled
+theorem of every numbered result are in `PAPER_MAP.md`; the mirror check of 2026-11-24 is the last
+entry of `REVIEW.md`.  The tables below are historical (paper at 9aa415f / 803f1aa).
+
 Paper: `paper.tex` at commit 9aa415f ("Exact algebraic confluence for torus one-point
 Virasoro-block recursions"). Toolchain `leanprover/lean4:v4.33.0`, Mathlib `v4.33.0`.
 Build: `cd lean && lake build` (log of the last full build: `logs/build59.log`).

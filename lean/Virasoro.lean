@@ -189,3 +189,5 @@ import Virasoro.Proofs.Sec8Ising11PP
 import Virasoro.Proofs.Sec8Ising11
 import Virasoro.Proofs.Sec8IsingTop
 import Virasoro.PartII
+import Virasoro.Proofs.Rev20261124
+import Virasoro.Sphere.Proofs.Rev20261124

@@ -1525,3 +1525,41 @@ State after this entry: the queued sphere §3 route repairs are done (RR6–RR9)
 differences are the ones classed as forced in the 2026-11-22T19:20Z entry (residue via Lemma 5.4
 over general fields; freeness over `U(Vir₋)`; `J^i/J^{i+1} ≅ L⊕L`; the DVR in Prop 6.8(i)) and
 the fill-ins recorded in the run entries.
+
+## 2026-11-24T03:52Z — main session: mirror check against the papers of 2026-11-24
+
+User request (tmp terminal, 2026-11-24 about 11:2x Taiwan), after the note that the presentation
+passes had repackaged results: "yes i want it" (have the Lean statements checked against the
+current papers).
+
+Compared: every theorem-type environment of paper.tex and sphere/paper.tex at c3035e0 against
+70bac53 (the freeze), by label, with word diffs of the statement texts (45 changed statements: 27
+torus, 18 sphere; new labels lem:ward-induction and prop:gaussian-limit; none removed).
+Findings, each against the frozen `Stmt_`:
+- Wording, notation and renumbering only (no Lean change): all changed statements except the four
+  below.  Prop 6.8 (`prop:h13-nonvanishing`) now numbers its last clause (iv) and spells out the
+  quantifiers of (iii); Thm 10.1 (`thm:descent-regularity`) numbers its extra conclusions (iii),
+  (iv): the frozen statements already contain these clauses as conjuncts.
+- Torus Lemma 11.2 (`lem:ward-induction`), new: `Stmt_lem_ward_induction` at the minimal-model
+  charge, proved as `lem_ward_induction` by `Verma.ward_induction` (the paper's two inductions,
+  already used for Prop 11.3); no cited input.
+- Torus Theorem 7.6 (`thm:general-confluence`), restated without the precision rule and the
+  power-series form: `Stmt_thm_general_confluence_paper`, proved from the 70bac53 form
+  (`thm_general_confluence_paper_of_cited`).
+- Sphere Lemma 3.3 / Proposition 3.4 (`lem:lambda-expansion`, `prop:gaussian-limit`): the old
+  part (iii) is now Prop 3.4.  `Stmt_lem_lambda_expansion_paper` (parts (i), (ii)) and
+  `Stmt_prop_gaussian_limit`, both proved by dropping conjuncts of the 70bac53 form.
+- Sphere Lemma 5.2(iii) (`lem:pi-factorization`) now says the zero locus is a union of lines,
+  adds the nonvanishing clause and the symmetry under `(x_a,x_b) ↦ (-x_a,-x_b)`.
+  `Stmt_lem_pi_factorization_paper` states all of it; the new part, that each zero lies on a whole
+  line of the zero locus, is proved from the linear factors of `P_{R,S}` (`fusP_zero_line`,
+  `line_of_factor`) with the paper's case split on the parity of `k` and the sign.
+New files: Statements/Rev20261124.lean, Proofs/Rev20261124.lean, Sphere/Statements/Rev20261124.lean,
+Sphere/Proofs/Rev20261124.lean, imported in Virasoro.lean.  Frozen statement files unchanged.
+Index of current paper numbers: PAPER_MAP.md (59 numbered theorems, lemmas, propositions and
+corollaries, all with a labelled theorem; 11 definitions).
+
+Checked by the main session: `lake build Virasoro` exit 0, 4157 jobs (../runs/lean2/rev-build3.log);
+the five new labelled theorems and all 63 theorems of PAPER_MAP.md depend only on
+[propext, Classical.choice, Quot.sound] (../runs/lean2/checkREV.log, checkMAP.log); no
+sorry/admit/axiom in the new files.  Author-side check, not a reviewer PASS.
