@@ -1775,16 +1775,18 @@ labels with \(rs\leq5\) and weight \(0\) are \((1,1)\) and \((1,2)\), and every
 \(R_g\) with \(\ell_g\leq5\) is regular at \(t=0\).  Since \(S_{a,M}\) is \(H_M\)
 at the shifted weight \(z_a\),
 \[
- B_{(1,1),5}=R_{(1,1)}\,H_4\bigl(c(b),1,d\bigr),\qquad
- B_{(1,2),5}=R_{(1,2)}\,H_3\bigl(c(b),h_{1,2}(b)+2,d\bigr).
+ B_{(1,1),5}=R_{(1,1)}(t)\,H_4\bigl(c(b),1,d\bigr),\qquad
+ B_{(1,2),5}=R_{(1,2)}(t)\,H_3\bigl(c(b),h_{1,2}(b)+2,d\bigr),
 \]
-The coefficient \(H_4\) has a simple pole at \(\Delta=h_{1,4}(b)\) with residue
-\(R_{(1,4)}\), and \(h_{1,4}(b_\star)=1\).  The coefficient \(H_3\) has a simple
-pole at \(\Delta=h_{3,1}(b)\) with residue \(R_{(3,1)}\), and
+with \(b=b_\star+t\).  The coefficient \(H_4\) has a simple pole at
+\(\Delta=h_{1,4}(b)\) with residue \(R_{(1,4)}(t)\)
+(Proposition~\ref{prop:generic-recursion}), and \(h_{1,4}(b_\star)=1\).  The
+coefficient \(H_3\) has a simple pole at \(\Delta=h_{3,1}(b)\) with residue
+\(R_{(3,1)}(t)\), and
 \(h_{3,1}(b_\star)=2=h_{1,2}(b_\star)+2\).  No other shifted denominator in the
 two recursions vanishes at \(t=0\).  Write \(h'_{r,s}\) for the derivative of
 \(h_{r,s}(b_\star+t)\) at \(t=0\) and \({\mathcal R}_{r,s}\) for
-\({\mathcal R}_{r,s}(b_\star,d)\).  Then \(h'_{1,4}=5h'_{1,2}\) and
+\(R_{(r,s)}(0)={\mathcal R}_{r,s}(b_\star,d)\).  Then \(h'_{1,4}=5h'_{1,2}\) and
 \(h'_{3,1}=-6h'_{1,2}\), so
 \[
  B_{(1,1),5}(t)=-\frac{{\mathcal R}_{1,1}{\mathcal R}_{1,4}}{5h'_{1,2}\,t}+O(1),\qquad

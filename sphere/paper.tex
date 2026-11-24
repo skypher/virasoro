@@ -167,19 +167,19 @@ inversion~\cite[\S4.3]{Ribault2026}.  He gave a central-charge recursion at
 fixed internal weight~\cite[(8)]{Zamolodchikov1984} and a recursion in the
 internal weight, which is the one studied here~\cite{Zamolodchikov1987}.  For
 generic \(c=c(b)=1+6(b+b^{-1})^2\) he wrote \(\mathcal F=\Phi H\) in the nome
-\(q(z)\), where \(\Phi\) is an explicit elliptic prefactor
-(Definition~\ref{def:H-series}).  Each coefficient \(H_N\) of
+\(q(z)\)~\cite[(5)--(6)]{Zamolodchikov1987}, where \(\Phi\) is an explicit
+elliptic prefactor (Definition~\ref{def:H-series}).  Each coefficient \(H_N\) of
 \(H=\sum_{N\geq0}H_N(c,\Delta,\Delta_i)(16q)^N\) is a rational function of
 \(\Delta\) with at most simple poles, at the Kac weights \(h_{r,s}(b)\) with
-\(rs\leq N\) (Section~\ref{sec:confluence})~\cite[(5)--(6) and
-\S3]{Zamolodchikov1987}.  Its residue at \(h_{r,s}(b)\) is an explicit factor
-times \(H_{N-rs}\) at the shifted weight \(h_{r,s}(b)+rs\)
-(Proposition~\ref{prop:generic-recursion}).  A rational function is the sum of
+\(rs\leq N\) (Section~\ref{sec:confluence})~\cite[\S3, (16)--(17)]{Zamolodchikov1987}.
+Its residue at \(h_{r,s}(b)\) is an explicit factor times \(H_{N-rs}\) at the
+shifted weight \(h_{r,s}(b)+rs\) (Proposition~\ref{prop:generic-recursion};
+\cite[\S3, the recursion following (17)]{Zamolodchikov1987}).  A rational function is the sum of
 its principal parts and a polynomial, so the lower coefficients determine
 \(H_N\) once its polynomial part is known.  Zamolodchikov fixed the polynomial
 part by the large-weight limit \(H_N\to\delta_{N,0}\) as \(\Delta\to\infty\).
 Numerical bootstrap computations truncate the resulting
-recursion~\cite[\S4.4.2]{Ribault2026}.
+series~\cite[\S4.4.2]{Ribault2026}.
 
 Ribault calls the large-weight limit the most important piece of the
 derivation of the recursion and notes that a complete derivation appears to be missing~\cite[\S4.3.4]{Ribault2026}; Zamolodchikov's
@@ -259,8 +259,8 @@ the poles cancel in the first moment, and the second moment, which gives the
 double pole in \(\Delta\), is the coefficient of \(t^{-1}\) in one of them
 times the \(t\)-derivative of its Kac weight.
 
-At minimal-model weights the pole orders come from the Jantzen filtration of
-the Verma module, as in the torus companion~\cite{PolzerTorus2026}.
+At interior minimal-model weights the pole orders come from the Jantzen
+filtration of the Verma module, as in the torus companion~\cite{PolzerTorus2026}.
 That paper proves the corresponding results for the torus one-point block: the
 sharp pole-order bound over \(\mathbb Q(d)\), where \(d\) is the torus
 external weight, and the top Laurent coefficient at positive
@@ -718,8 +718,9 @@ with \(B^{(z)}_{m,n}=z^{m+n}B_{m,n}=O(z^{m+n})\).  Write
 \(Q_0^{-1}(Q(z)-Q_0)=\bigl(\begin{smallmatrix}0&-M_2\\-M_1&0\end{smallmatrix}\bigr)\),
 so the Gaussian determinant is
 \(\det(Q_0^{-1}Q(z))^{-1/2}=\det(I-M_2M_1)^{-1/2}=\det(I-M(z)^2)^{-1/2}\);
-the last step conjugates \(M_2M_1\) by \(Z=\mathrm{diag}(z,\dots,z^N)\), which
-gives \(ZM_2M_1Z^{-1}=M(z)^2\).  This determinant stabilizes coefficientwise in
+for the last step put \(Z=\mathrm{diag}(z,\dots,z^N)\) and
+\(C:=D^{-1}BZD^{-1}B\), so that \(M_2M_1=CZ\) and \(M(z)^2=ZC\), and use
+\(\det(I-CZ)=\det(I-ZC)\).  This determinant stabilizes coefficientwise in
 \(z\) as \(N\to\infty\).  The determinant and the covariance \(Q(z)^{-1}\) are finite
 sums modulo \(z^{N+1}\) (Appendix~\ref{app:gaussian}).
 
@@ -734,8 +735,9 @@ shifts the variables by the saddle point,
 \[
  z^m u_m=\omega\sigma_{*,m}+U_m,\qquad \bar u_m=\omega\bar\sigma_{*,m}+V_m,
 \]
-with \(U_m:=z^m\xi_m\) and \(V_m:=\bar\xi_m\).  The variables \((U,V)\) are
-centered Gaussian with covariance \(Q(z)^{-1}\).  Modulo \(z^{N+1}\) only
+with \(U_m:=z^m\xi_m\) and \(V_m:=\bar\xi_m\).  The centered variables
+\((\xi,\bar\xi)\) have covariance \(Q(z)^{-1}\); Appendix~\ref{app:gaussian}
+gives the corresponding covariance orders for \((U,V)\).  Modulo \(z^{N+1}\) only
 finitely many modes and Wick monomials contribute (Appendix~\ref{app:gaussian}),
 so the shift and the expansion in \(\omega^{-1}\) can be carried out term by
 term in \(\mathbb C[[z]]/(z^{N+1})\).
@@ -1663,16 +1665,17 @@ labels with \(rs\leq5\) and weight \(0\) are \((1,1)\) and \((1,2)\), and every
 \(\mathcal A_{r,s}\) with \(rs\leq5\) is regular at \(b_\star\).  By the proof of
 Theorem~\ref{thm:confluence},
 \[
- B_{(1,1),5}=R_{(1,1)}\,H_4\bigl(c(b),1,\Delta_i\bigr),\qquad
- B_{(1,2),5}=R_{(1,2)}\,H_3\bigl(c(b),h_{1,2}(b)+2,\Delta_i\bigr).
+ B_{(1,1),5}=R_{(1,1)}(t)\,H_4\bigl(c(b),1,\Delta_i\bigr),\qquad
+ B_{(1,2),5}=R_{(1,2)}(t)\,H_3\bigl(c(b),h_{1,2}(b)+2,\Delta_i\bigr),
 \]
-By Proposition~\ref{prop:generic-recursion}, \(H_4\) has a simple pole at
-\(h_{1,4}(b)\), which tends to \(1\), with residue \(R_{(1,4)}\), and \(H_3\) has
-one at \(h_{3,1}(b)\), which tends to \(2=h_{1,2}(b_\star)+2\), with residue
-\(R_{(3,1)}\).  No other shifted denominator in the two recursions vanishes at
+with \(b=b_\star+t\) and \(R_a(t)\) as defined before
+Definition~\ref{def:confluence}.  By Proposition~\ref{prop:generic-recursion},
+\(H_4\) has a simple pole at \(h_{1,4}(b)\), which tends to \(1\), with residue
+\(R_{(1,4)}(t)\), and \(H_3\) has one at \(h_{3,1}(b)\), which tends to
+\(2=h_{1,2}(b_\star)+2\), with residue \(R_{(3,1)}(t)\).  No other shifted denominator in the two recursions vanishes at
 \(t=0\).  Write \(h'_{r,s}\) for the derivative of \(h_{r,s}(b_\star+t)\) at
 \(t=0\) and \(\mathcal R_{r,s}\) for
-\(\mathcal R^{\mathrm{sph}}_{r,s}(b_\star,\Delta_i)\).  Then
+\(R_{(r,s)}(0)=\mathcal R^{\mathrm{sph}}_{r,s}(b_\star,\Delta_i)\).  Then
 \(h'_{1,4}=5h'_{1,2}\) and \(h'_{3,1}=-6h'_{1,2}\), so the two terms have the
 poles \(-\mathcal R_{1,1}\mathcal R_{1,4}/(5h'_{1,2}t)\) and
 \(\mathcal R_{1,2}\mathcal R_{3,1}/(7h'_{1,2}t)\) in \(t\); neither has a value at
@@ -1764,7 +1767,8 @@ alone and do not involve external weights.
   If \(k\geq1\) and \(\ell_k\leq N<\ell_{k+1}\), then \(k\) is the largest
   local Smith exponent, \(B^k\) is nondegenerate on \(J^k_N(c_\star,\lambda)\),
   and \([x^{-k}]\,G_N(c_\star,\lambda+x)^{-1}=\iota(B^k)^{-1}\iota^*\), where
-  \(\iota\) is the inclusion of \(J^k_N(c_\star,\lambda)\).  The layer
+  \(\iota\) is the inclusion of \(J^k_N(c_\star,\lambda)\) and \(\iota^*\) the
+  dual restriction.  The layer
   \(J^k_N(c_\star,\lambda)\) is the \(B^k\)-orthogonal direct sum of the
   \((W^\pm_k)_N\) with \(\ell^\pm_k\leq N\), and
   \(B^k(L_{-Z}w^\pm_k,L_{-Z'}w^\pm_k)=\gamma^\pm_k\,G_{N-\ell^\pm_k}(c_\star,\mu^\pm_k)_{Z,Z'}\)
