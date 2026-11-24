@@ -187,37 +187,21 @@ weights \(h_{r,s}(b)\) with \(rs\leq N\), and the residues satisfy
 Poghossian's recursion~\cite[\S5, (5.3)--(5.7)]{Poghossian2009}, derived
 in~\cite[\S3, (7)--(9)]{HadaszJaskolskiSuchanek2010}; see
 \cite[\S2.2]{PoghosyanPoghosyan2026} for the light limit \(b\to0\) at fixed
-weights.  At rational \(b^2\), which includes every minimal-model charge, two
-things go wrong in this recursion: different Kac labels give the same weight,
-and individual residues have poles in \(b\).  The coefficients \(H_N\) are
-still well defined there.  By \emph{confluence} we mean passing to the limit
-\(b\to b_\star\) in the generic recursion after grouping the terms whose poles
-collide.
+weights.  The recursion computes \(H_N\) from lower coefficients without
+inverting the Shapovalov matrix, whose size at level \(N\) is the number of
+partitions of \(N\).
 
-Zamolodchikov introduced residue recursions for sphere four-point
-blocks~\cite{Zamolodchikov1984,Zamolodchikov1987}. Cho, Collier and Yin give
-central-charge recursions in the plumbing frame at arbitrary genus and
-internal-weight recursions in the sphere linear and torus necklace
-channels~\cite{ChoCollierYin2017}.  At rational \(b^2\), Javerzat,
-Santachiara and Foda analyze the cancellation of the colliding poles in
-examples and for the identity
-insertion~\cite[\S\S4--6; the resonant-term limits are (60)--(61)]{JaverzatSantachiaraFoda2018}.
-For \(d=0\) they also obtain the minimal-model characters by a
-three-parameter limit of the generic torus recursion, and check the
-coefficient identity following their (83) numerically up to
-\(N\approx300\)~\cite[\S5]{JaverzatSantachiaraFoda2018}.
-Stocco gives central-charge-pole-free expressions through fourth order,
-conjectures their all-order form and proposes a way to compute
-them~\cite[\S\S II.B--II.C and Appendix~A]{Stocco2022}.  In our comparison
-(see the code availability section) his expressions reproduce \(H_2\) and
-\(H_3\) identically and \(H_4\) at sample values of \(b\).  Ribault analyzes
-higher-order poles and rational limits of sphere
-blocks~\cite[\S3]{Ribault2019}, and calls a recursion at rational \(b^2\) an
-open problem whose simplest case is the torus one-point
-block~\cite[\S4.3.3]{Ribault2026}.  For irreducible minimal-model modules,
-Coulomb-gas screening integrals in Felder's Fock-space BRST
-complex~\cite{Felder1989,FelderSilvotti1989} give integral representations
-of torus traces with a primary insertion.
+The recursion breaks down at rational \(b^2\).  There two things go wrong:
+different Kac labels give the same weight, and individual residues have poles
+in \(b\).  Every minimal-model charge, \(b_\star^2=-p'/p\), is of this kind.
+The coefficients \(H_N\) are still well defined there.
+Ribault calls a recursion at rational \(b^2\) an open problem whose simplest
+case is the torus one-point block~\cite[\S4.3.3]{Ribault2026}.  By
+\emph{confluence} we mean passing to the limit \(b\to b_\star\) in the generic
+recursion after grouping the terms whose poles collide.  The torus one-point
+blocks of a minimal model are traces over its irreducible modules
+\(L(c_\star,\lambda)\), and Part~II computes them for the primary fields that
+descend to these modules.
 
 At every fixed \(b_\star\neq0\), Theorem~\ref{thm:general-confluence} gives the
 coefficients of the Verma block at internal weight \(\Delta\), for \(N\geq1\):
@@ -256,9 +240,12 @@ formula uses finite jets of explicit rational functions of \(b\), and
 uniqueness of partial fractions identifies it with the coefficient defined
 through the inverse Shapovalov matrix.  It is obtained by expanding the generic
 recursion in \(b-b_\star\), so it uses generic-\(b\) jets and is not a
-recursion expressed solely in specialized data.  Ribault asks for a recursion
-at rational \(b^2\) and names the torus one-point block as its simplest
-case~\cite[\S4.3.3]{Ribault2026} (Section~\ref{sec:scope}).
+recursion expressed solely in specialized data (Section~\ref{sec:scope}).  The
+example after Theorem~\ref{thm:general-confluence} works this out at \(c=0\)
+and level five: two residue terms each have a simple pole in \(t\), the poles
+cancel in the first moment, and the second moment, which gives the double pole
+in \(\Delta\), is the coefficient of \(t^{-1}\) in one of them times the
+\(t\)-derivative of its Kac weight.
 
 At a minimal-model charge and an interior Kac weight \(\lambda\), the
 Feigin--Fuchs embedding diagram describes the Jantzen filtration
@@ -302,6 +289,30 @@ Theorem~\ref{thm:gen-rocha-caridi} gives the irreducible trace as a weighted
 alternating sum over the braided diagram; Theorem~\ref{thm:first-layer-ratio}
 gives the generic vertex ratio, and Proposition~\ref{prop:bgg-cocycle} its
 finite nonzero specialization and path-independent products.
+
+Zamolodchikov introduced residue
+recursions for sphere four-point
+blocks~\cite{Zamolodchikov1984,Zamolodchikov1987}. Cho, Collier and Yin give
+central-charge recursions in the plumbing frame at arbitrary genus and
+internal-weight recursions in the sphere linear and torus necklace
+channels~\cite{ChoCollierYin2017}.  At rational \(b^2\), Javerzat,
+Santachiara and Foda analyze the cancellation of the colliding poles in
+examples and for the identity
+insertion~\cite[\S\S4--6; the resonant-term limits are (60)--(61)]{JaverzatSantachiaraFoda2018}.
+For \(d=0\) they also obtain the minimal-model characters by a
+three-parameter limit of the generic torus recursion, and check the
+coefficient identity following their (83) numerically up to
+\(N\approx300\)~\cite[\S5]{JaverzatSantachiaraFoda2018}.
+Stocco gives central-charge-pole-free expressions through fourth order,
+conjectures their all-order form and proposes a way to compute
+them~\cite[\S\S II.B--II.C and Appendix~A]{Stocco2022}.  In our comparison
+(see the code availability section) his expressions reproduce \(H_2\) and
+\(H_3\) identically and \(H_4\) at sample values of \(b\).  Ribault analyzes
+higher-order poles and rational limits of sphere
+blocks~\cite[\S3]{Ribault2019}.  For irreducible minimal-model modules,
+Coulomb-gas screening integrals in Felder's Fock-space BRST
+complex~\cite{Felder1989,FelderSilvotti1989} give integral representations
+of torus traces with a primary insertion.
 
 Part~I (Sections~\ref{sec:blocks}--\ref{sec:ising}) concerns Verma blocks.
 Section~\ref{sec:blocks} fixes notation; Table~\ref{tab:notation} lists the
@@ -454,6 +465,9 @@ put \(c_\star=c(b_\star)\) and
  =\{(r,s)\in\mathbb Z_{>0}^2:
       rs\leq N,\ h_{r,s}(b_\star)=\lambda\}.
 \]
+As \(b\to b_\star\), the poles \(h_{r,s}(b)\) of the generic recursion at the
+labels in \({\mathcal C}^\star_{\lambda,N}\) converge to \(\lambda\); these are
+the poles that collide.
 \end{definition}
 
 \begin{proposition}[Minimal-model collision classes]
@@ -1598,6 +1612,16 @@ Define the shifted Laurent blocks recursively by \(S_{a,0}(t)=1\) and, for
 Lemma~\ref{lem:no-generic-shifted-pole} ensures each denominator is nonzero.
 \end{definition}
 
+The series \(S_{a,M}(t)\) is the coefficient \(H_M\) evaluated at the shifted
+weight \(z_a(t)\) and expanded in \(t\) (proof of
+Theorem~\ref{thm:general-confluence}).  It can have a pole at \(t=0\) when a
+shifted weight \(z_a(b_\star)\) is itself a Kac weight \(h_g(b_\star)\), or when a
+residue \(R_g\) has a pole there.  Lemmas~\ref{lem:shifted-valuation-bound},
+\ref{lem:precision-budget} and~\ref{lem:collision-pole-support} only bound how
+far each expansion has to be carried; the example after
+Theorem~\ref{thm:general-confluence} shows the mechanism in the smallest case
+where a pole in \(t\) occurs.
+
 \begin{lemma}[A priori shifted valuation bound]
 \label{lem:shifted-valuation-bound}
 For positive labels \(a,g\), set \(\pi_g=\max\{0,-\ord_tR_g(t)\}\) and
@@ -1635,6 +1659,11 @@ where \(\CT_t\) extracts the coefficient of \(t^0\).  For
 since \((k-1)\varepsilon_a>\widehat v_{a,N}\), so
 \(\widetilde A^{\star}_{\lambda,k,N}=0\).
 \end{definition}
+
+The \(k\)-th collision moment collects what the labels whose poles converge
+to \(\lambda\) contribute to the coefficient of \((\Delta-\lambda)^{-k}\): the
+expansion \(1/(\Delta-\lambda-\delta_a)=\sum_{j\geq0}\delta_a^j(\Delta-\lambda)^{-j-1}\)
+puts \(B_{a,N}\delta_a^{k-1}\) at that order.
 
 \begin{lemma}[Laurent precision for the recursion]
 \label{lem:precision-budget}
@@ -1738,6 +1767,56 @@ no shifted denominator vanishes there; hence \(W_{a,M}=0\),
 \(\widehat M^\star_{\lambda,N}=1\), \(S_{a,M}(0)=H_M(c_\star,z_a(b_\star),d)\),
 and the sole moment is \(R_a(0)H_{N-\ell_a}(c_\star,z_a(b_\star),d)\).
 \end{proof}
+
+\begin{example*}[Two poles in \(b\) that make a double pole in \(\Delta\)]
+Let \(b_\star^2=-3/2\), so that \(c_\star=0\) and
+\(h_{r,s}(b_\star)=((3r-2s)^2-1)/24\), and take \(N=5\) and \(\lambda=0\).  The
+labels with \(rs\leq5\) and weight \(0\) are \((1,1)\) and \((1,2)\), and every
+\(R_g\) with \(\ell_g\leq5\) is regular at \(t=0\).  Since \(S_{a,M}\) is \(H_M\)
+at the shifted weight \(z_a\),
+\[
+ B_{(1,1),5}=R_{(1,1)}\,H_4\bigl(c(b),1,d\bigr),\qquad
+ B_{(1,2),5}=R_{(1,2)}\,H_3\bigl(c(b),h_{1,2}(b)+2,d\bigr).
+\]
+The coefficient \(H_4\) has a simple pole at \(\Delta=h_{1,4}(b)\) with residue
+\(R_{(1,4)}\), and \(h_{1,4}(b_\star)=1\).  The coefficient \(H_3\) has a simple
+pole at \(\Delta=h_{3,1}(b)\) with residue \(R_{(3,1)}\), and
+\(h_{3,1}(b_\star)=2=h_{1,2}(b_\star)+2\).  No other shifted denominator in the
+two recursions vanishes at \(t=0\).  Write \(h'_{r,s}\) for the derivative of
+\(h_{r,s}(b_\star+t)\) at \(t=0\) and \({\mathcal R}_{r,s}\) for
+\({\mathcal R}_{r,s}(b_\star,d)\).  Then \(h'_{1,4}=5h'_{1,2}\) and
+\(h'_{3,1}=-6h'_{1,2}\), so
+\[
+ B_{(1,1),5}(t)=-\frac{{\mathcal R}_{1,1}{\mathcal R}_{1,4}}{5h'_{1,2}\,t}+O(1),\qquad
+ B_{(1,2),5}(t)=\frac{{\mathcal R}_{1,2}{\mathcal R}_{3,1}}{7h'_{1,2}\,t}+O(1).
+\]
+Neither term has a value at \(b_\star\).  The first moment
+\(B_{(1,1),5}+B_{(1,2),5}\) is regular at \(t=0\) (proof of
+Theorem~\ref{thm:general-confluence}), so the two poles cancel and
+\({\mathcal R}_{1,1}{\mathcal R}_{1,4}/5={\mathcal R}_{1,2}{\mathcal R}_{3,1}/7\), an
+identity between polynomials of degree ten in \(d\).  In the second moment the
+label \((1,1)\) drops out, since \(h_{1,1}\equiv0\), and
+\(\delta_{(1,2)}(t)=h'_{1,2}t+O(t^2)\) turns the pole of \(B_{(1,2),5}\) into a
+constant.  Since the pole of \(H_5\) at \(\Delta=0\) has order at most
+\(j_5(0)=2\) (Theorem~\ref{thm:jantzen-smith}),
+\[
+ \lim_{\Delta\to0}\Delta^2H_5(0,\Delta,d)
+ =\widetilde A^\star_{0,2,5}(d)
+ =\frac{{\mathcal R}_{1,2}{\mathcal R}_{3,1}}{7}
+ =\frac{{\mathcal R}_{1,1}{\mathcal R}_{1,4}}{5}
+ =-\frac{3}{11200}\,{\mathcal P}_{1,1}(b_\star,d)\,{\mathcal P}_{1,4}(b_\star,d),
+\]
+because \({\mathcal A}_{1,1}=\tfrac12\) and
+\({\mathcal A}_{1,4}(b_\star)=-\tfrac3{1120}\).  So the double pole of \(H_5\) at
+\(c=0\) comes from two simple poles in \(b\) that cancel in the first moment.
+Theorem~\ref{thm:top-layer} gives the same coefficient as
+\(\tau^-_2/\gamma^-_2\): here \(\ell^-_2=5<\ell^+_2=7\), the proof of
+Proposition~\ref{prop:two-term-criteria} with \(j=1\) gives
+\(\tau^-_2={\mathcal P}_{1,1}{\mathcal P}_{1,4}\), and
+Proposition~\ref{prop:layer-coefficients}, with \(c_2=-1\) and
+\(\varrho=-\tfrac12\), gives \(\gamma^-_2=-[d^2]\tau^-_2/\varrho^2=-11200/3\).
+A script listed under Code availability checks each step in exact arithmetic.
+\end{example*}
 
 \section{The Ising model}\label{sec:ising}
 
@@ -1986,7 +2065,10 @@ where \(\ell^\pm_k\) are the layer levels of Section~\ref{sec:smith}.  Put
 \(\mu_0:=\lambda\) and \(\mathcal{O}_{p,p'}(r,s):=\{\mu_0\}\cup
 \{\mu^\pm_k:k\geq1\}\), the \emph{braided orbit} of \(\lambda\); these are the
 nodes of Figure~\ref{fig:braided}, and we call that figure the braided BGG
-diagram.
+diagram.  The orbit consists of the highest weights of the Verma submodules of
+\(M(c_\star,\lambda)\) (Lemma~\ref{lem:bgg-arrows}(i)), and
+Theorem~\ref{thm:gen-rocha-caridi} writes the irreducible trace as an
+alternating sum of Verma blocks at these weights.
 
 \begin{lemma}[Structure and arithmetic of primitive BGG arrows]\label{lem:bgg-arrows}
 Let \(\mu\in\mathcal{O}_{p,p'}(r,s)\) lie at layer \(k\geq0\).  Thus
@@ -2134,7 +2216,7 @@ Their first-order terms give the ratio \(\sigma^\pm_1/\gamma^\pm_1\)
 decomposition~\eqref{eq:jantzen-trace-decomp}, which accounts for the
 difference.
 
-The results are as follows.  Theorem~\ref{thm:descent-regularity} decides when
+Theorem~\ref{thm:descent-regularity} decides when
 the torus form descends to the irreducible module and when the Verma
 coefficients are regular; it is proved in Section~\ref{sec:descent}.
 Theorem~\ref{thm:first-layer-ratio} computes the first-layer ratio at generic
@@ -2231,7 +2313,9 @@ ratios~\eqref{eq:box-formula} specialize at \(b_\star\) to nonzero rationals,
 and their product along a BGG path from \(\lambda\) to \(\mu^\pm_j\) does not
 depend on the path.  We denote this product by
 \(\Omega_{2k+1,2m+1}(\lambda\to\mu^\pm_j)\in\mathbb{Q}^\times\) and call it the
-\emph{cocycle value}.
+\emph{cocycle value}.  Up to the sign \((-1)^j\) and the power
+\(q^{\ell^\pm_j}\), it is the weight with which the Verma block at \(\mu^\pm_j\)
+enters the irreducible trace in Theorem~\ref{thm:gen-rocha-caridi}.
 
 \begin{theorem}[Generalized Rocha--Caridi identity and confluence for traces]\label{thm:gen-rocha-caridi}
 Let \(b_\star^2=-p'/p\) (\(p,p'\geq2\) coprime), let
@@ -2272,7 +2356,9 @@ Consequently:
 \end{theorem}
 
 We call a fusion weight \(d=h_{2k+1,2m+1}(b_\star)\) \emph{single-index} if
-\(k=0\) or \(m=0\), and \emph{two-index} otherwise.  The single-index weights
+\(k=0\) or \(m=0\), and \emph{two-index} otherwise.  For single-index weights,
+Corollary~\ref{cor:collision-free} below evaluates the Verma blocks in the trace
+without any expansion in \(b-b_\star\).  The single-index weights
 include every fusion weight when \(p\leq3\) (Lee--Yang, Ising, \((2,7)\),
 \((3,5)\)) and \(d=3/5,3/2\) in Tricritical Ising.  For
 \(d(b)=h_{1,2m+1}(b)\), the multiplier \(\mathcal{R}_{R,S}(b,d(b))\) vanishes
@@ -3578,7 +3664,11 @@ comparison with Stocco's expressions in the introduction is
 Proposition~\ref{prop:ising-double-poles} at \(N=7\) and \(N=10\) are compared
 with direct PBW evaluations; the double-pole coefficient is reconstructed by
 Shapovalov inversion at \(N=7\), and at \(N=10\) in the deep suite
-(\texttt{make audit-deep}), but not at \(N=11\).
+(\texttt{make audit-deep}), but not at \(N=11\).  The repository script
+\path{tools/check_c0_level5_example.py}, which is not part of the archive,
+checks the example after Theorem~\ref{thm:general-confluence} and, with
+\texttt{--torus-direct}, compares both collision moments with Shapovalov
+inversion at \(N=5\).
 
 {\small
 \begin{thebibliography}{CCY19}
