@@ -1192,8 +1192,11 @@ By Theorem~\ref{thm:top-layer}, the pole order of \(H_N\) at an interior
 weight equals \(j_N(\lambda)\) as soon as the right side
 of~\eqref{eq:top-layer} is a nonzero polynomial in \(d\).  On a level where
 only one layer vector contributes, this follows from the nonvanishing of the
-shifted block (Proposition~\ref{prop:h13-nonvanishing}).  Where both
-contribute, the right side is the sum of the two products
+shifted block (Proposition~\ref{prop:h13-nonvanishing}), and at
+\(N=\max(\ell^+_k,\ell^-_k)\) from the orders of vanishing at \(d=0\) (proof
+of Corollary~\ref{cor:top-layer-sharp}).  On a strict two-vector level,
+\(\max(\ell^+_k,\ell^-_k)<N<\ell_{k+1}\), the right side is the sum of the two
+products
 \(\mathcal N^\pm_kH_{M^\pm}(c_\star,\mu^\pm_k,d)/\gamma^\pm_k\) with
 \(M^\pm=N-\ell^\pm_k\geq1\), and Theorem~\ref{thm:top-layer} does not exclude
 that they cancel.
@@ -1208,7 +1211,7 @@ is \(f(M^+,m^+_k)+(-1)^kf(M^-,m^-_k)\), where
 \(m^\pm_k\) is the Coulomb momentum of \(\mu^\pm_k\), so that
 \(\mu^\pm_k=((m^\pm_k)^2-(p'-p)^2)/(4pp')\).  The two sums take both
 signs, and we do not have a proof that they never cancel.  They do not cancel
-on any two-vector level with \(p,p'\leq13\) and \(k\leq3\) (see the code
+on any strict two-vector level with \(p,p'\leq13\) and \(k\leq3\) (see the code
 availability section).
 
 The proof below uses the external weights \(d_1=h_{1,3}(b_\star)\) and
@@ -1241,8 +1244,9 @@ compares the ratio of the two products at \(d_1\) with the ratio at \(d_2\),
 using Proposition~\ref{prop:h13-nonvanishing}(iv) to control how the ratio of
 shifted blocks changes with the level.
 
-The smallest two-vector level shows Case~2 in numbers.  Take the Lee--Yang
-model, \((p,p')=(2,5)\), and \(\lambda=h_{1,2}(b_\star)=-\frac15\).  The first
+In the Lee--Yang model, \((p,p')=(2,5)\), at
+\(\lambda=h_{1,2}(b_\star)=-\frac15\), the smallest strict two-vector level
+falls under Case~2 and shows it in numbers.  The first
 layer has singular vectors at levels \(2\) and \(3\), so
 \(\mu^+_1=\frac95\) and \(\mu^-_1=\frac{14}5\), and the second layer starts at
 level \(9\).  At \(N=4\) one has \(M^+=2\), \(M^-=1\), \(\varpi=5\) and
@@ -3878,7 +3882,7 @@ inversion at \(N=5\).  The repository script
 \path{tools/check_leeyang_level4_example.py} recomputes the Lee--Yang example in
 Section~\ref{sec:sharpness} by Shapovalov inversion up to level four, and the
 C++ program \path{tools/check_d0_coefficient.cpp} evaluates the coefficient of
-\(d^{k+1}\) at \(d=0\) described there on all two-vector levels with
+\(d^{k+1}\) at \(d=0\) described there on all strict two-vector levels with
 \(p,p'\leq13\) and \(k\leq3\) and finds no zero.  Neither is part of the
 archive.
 
