@@ -263,9 +263,9 @@ determine the multiplicities of the local Smith exponents \(e_j\) of the
 Shapovalov matrix: \(\dim J^i_N=\#\{j:e_j\geq i\}\)
 (Lemma~\ref{lem:jantzen-smith}).  Thus the pole order of \(H_N\) at
 \(\lambda\) is at most the Jantzen depth \(j_N(\lambda)\), the number of
-layers that have reached level \(N\).  The pole order is the number of
-Laurent coefficients that a recursion in \(\Delta\) at fixed \(c_\star\) has
-to carry at \(\lambda\); at generic \(b\) it is one.  Let \(w^\pm_k\) be the \(k\)-th
+layers that have reached level \(N\).  A pole of order \(m\) at \(\lambda\)
+allows principal-part terms from \((\Delta-\lambda)^{-1}\) through
+\((\Delta-\lambda)^{-m}\); at generic \(b\) all poles are simple.  Let \(w^\pm_k\) be the \(k\)-th
 layer's singular vectors, at levels \(\ell^\pm_k\), and put
 \(\ell_k=\min(\ell^+_k,\ell^-_k)\).  For \(k\geq1\) and
 \(\ell_k\leq N<\ell_{k+1}\), Theorem~\ref{thm:top-layer} gives
@@ -291,8 +291,8 @@ At specialized \(d\) the pole can disappear: for \(d=0\), \(H_N=0\) for
 \(N\geq1\) (Lemma~\ref{lem:d-derivatives}).
 Proposition~\ref{prop:ising-double-poles} gives the first Ising double poles,
 at levels \(7\), \(10\) and \(11\) for the energy, spin and identity weights.
-From that level on, a recursion at \(c=\tfrac12\) has to carry at least two
-coefficients at the weight, for indeterminate \(d\).
+From that level on, \(H_N(\tfrac12,\Delta,d)\) has a pole of order at least
+two at that weight, for indeterminate \(d\).
 
 The Verma coefficients at \(\Delta=\lambda\) do not give the irreducible
 traces of Part~II, even where they are finite: in the Ising model at \(\lambda=\tfrac1{16}\) and \(d=\tfrac12\), the
