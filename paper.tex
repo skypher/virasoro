@@ -321,10 +321,11 @@ nonzero at \(b_\star\) and that the product does not depend on the path.  At
 In the Ising model at \(\lambda=\tfrac1{16}\), \(d=\tfrac12\) and in the
 Lee--Yang model at \(\lambda=d=-\tfrac15\), the inserted field has a singular
 vector at level two, and \(q^{\lambda-c_\star/24}\) times the trace is the
-power \(\eta(\tau)^{2d}\) of the Dedekind function: \(\eta(\tau)\) for the
-Ising energy field~\cite[\S3.2]{DiFrancescoSaleurZuber1987},
-\cite[\S4.2.4]{BrehmRunkel2022}, and \(\eta(\tau)^{-2/5}\) by the same
-argument.  Section~\ref{sec:examples} compares both with the alternating sum.
+power \(\eta(\tau)^{2d}\) of the Dedekind function, \(\eta(\tau)\) and
+\(\eta(\tau)^{-2/5}\)~\cite[\S3.1]{GaberdielLang2009}; for the Ising energy
+field see also~\cite[\S3.2]{DiFrancescoSaleurZuber1987}
+and~\cite[\S4.2.4]{BrehmRunkel2022}.  Section~\ref{sec:examples} compares
+both with the alternating sum.
 
 Zamolodchikov introduced residue
 recursions for sphere four-point
@@ -3402,24 +3403,27 @@ This trace has a known closed form: with \(q=e^{2\pi i\tau}\),
  \qquad\text{that is,}\qquad
  \mathcal{T}^{\mathrm{irr}}_{1/2,1/16,1/2}(q)=\phi(q).
 \]
-The energy weight \(d=h_{1,3}(b_\star)=h_{2,1}(b_\star)\) has the singular
-vector \(L_{-2}\lvert\tfrac12\rangle-\tfrac34L_{-1}^2\lvert\tfrac12\rangle\) at
-level two.  In a torus
-one-point function, \(L_{-1}\) acting on the inserted field is a derivative in
-its position and gives zero, and \(L_{-2}\) acts as a first-order differential
-operator in \(\tau\) \cite[(4.52)]{BrehmRunkel2022}.  For a primary field
-of weight \(h\), the resulting equation and the formula for
-\(\eta'(\tau)/\eta(\tau)\) in~\cite[(4.55)]{BrehmRunkel2022} say that the
-one-point function depends on \(\tau\) only through the factor
-\(\eta(\tau)^{2h}\).  By
-Theorem~\ref{thm:descent-regularity}, \(\lambda=1/16\) is the only interior
-weight whose fusion set contains \(1/2\), so the full one-point function of the
-energy field is a multiple of
-\(\lvert q^{1/24}\mathcal{T}^{\mathrm{irr}}_{1/2,1/16,1/2}(q)\rvert^2\).  Brehm and Runkel compute it in this way
-\cite[\S4.2.4, (4.53)--(4.61)]{BrehmRunkel2022}, in agreement with Di
-Francesco, Saleur and Zuber~\cite[\S3.2, (3.13)--(3.14)]{DiFrancescoSaleurZuber1987},
-who obtain it in the free-fermion description, where it comes from the doubly
-periodic sector.  The
+The energy weight \(d=h_{1,3}(b_\star)=h_{2,1}(b_\star)\) has a singular
+vector at level two.  Gaberdiel and Lang write it in the square-bracket modes
+used for torus traces as
+\((L_{[-2]}-\tfrac34L_{[-1]}^2)\lvert\tfrac12\rangle\).  Since
+\(L_{[-1]}\)-descendants do not contribute to such a trace, it gives the
+modular differential equation
+\[
+ \Bigl(q\frac{d}{dq}-\frac{1}{24}E_2(q)\Bigr)\chi=0,
+ \qquad E_2(q)=1-24\sum_{n\geq1}\sigma_1(n)q^n,
+\]
+for \(\chi=q^{\lambda-c_\star/24}\,\mathcal{T}^{\mathrm{irr}}_{c_\star,\lambda,1/2}(q)\)
+in every module \(L(c_\star,\lambda)\) on which the trace is defined
+\cite[\S2 and \S3.1.2, (3.11)--(3.15)]{GaberdielLang2009}.  Its solutions are
+the multiples of \(\eta(\tau)\), whose leading exponent
+\(1/24=1/16-1/48\) forces \(\lambda=1/16\), in agreement with
+Theorem~\ref{thm:descent-regularity}: \(1/16\) is the only interior weight
+whose fusion set contains \(1/2\).  The normalization
+\(T^{\mathrm{irr}}_0=1\) fixes the multiple.  For the full one-point function
+of the energy field see also~\cite[\S4.2.4, (4.53)--(4.61)]{BrehmRunkel2022}
+and~\cite[\S3.2, (3.13)--(3.14)]{DiFrancescoSaleurZuber1987}, where it comes
+from the doubly periodic sector of the free fermion.  The
 identity~\eqref{eq:gen-rocha-caridi} writes \(\phi(q)\) as the alternating sum
 of Verma blocks weighted by the cocycle values in the table.
 
@@ -3440,10 +3444,14 @@ Exact quotient-Gram inversion agrees with~\eqref{eq:gen-rocha-caridi} through
 \(N=9\), the first level crossing Jantzen layer \(2\).
 
 The inserted field again has a singular vector at level two, since
-\(d=-1/5=h_{1,2}(b_\star)\), and by Theorem~\ref{thm:descent-regularity}
-\(\lambda=-1/5\) is the only interior weight whose fusion set contains \(d\).
-The argument of the Ising case, with \(h=-1/5\) and
-\(\lambda-c_\star/24=-1/60\), gives
+\(d=-1/5=h_{1,2}(b_\star)\).  In square-bracket modes it is
+\((L_{[-2]}-\tfrac52L_{[-1]}^2)\lvert-\tfrac15\rangle\), and the argument of the
+Ising case gives \((q\frac{d}{dq}+\frac1{60}E_2(q))\chi=0\), whose solutions
+are the multiples of \(\eta(\tau)^{-2/5}\)
+\cite[\S3.1.1, (3.3)--(3.9)]{GaberdielLang2009}.  The leading exponent
+\(-1/60=\lambda-c_\star/24\) holds for \(\lambda=-1/5\), the only interior
+weight whose fusion set contains \(d\) (Theorem~\ref{thm:descent-regularity}).
+Hence
 \[
  q^{-1/60}\,\mathcal{T}^{\mathrm{irr}}_{-22/5,-1/5,-1/5}(q)=\eta(\tau)^{-2/5},
 \]
@@ -3824,6 +3832,13 @@ G.~Felder and R.~Silvotti,
 Phys.\ Lett.\ B \textbf{231} (1989) 411--416,
 \href{https://doi.org/10.1016/0370-2693(89)90685-0}{doi:\allowbreak 10.1016/0370-2693(89)90685-0}.
 
+\bibitem[GL09]{GaberdielLang2009}
+M.~R.~Gaberdiel and S.~Lang,
+\emph{Modular differential equations for torus one-point functions},
+J.\ Phys.\ A \textbf{42} (2009) 045405,
+\href{https://doi.org/10.1088/1751-8113/42/4/045405}%
+{doi:\allowbreak 10.1088/1751-8113/42/4/045405},
+\href{https://arxiv.org/abs/0810.0106v2}{arXiv:0810.0106v2}.
 \bibitem[HJS10]{HadaszJaskolskiSuchanek2010}
 L.~Hadasz, Z.~Jask\'olski and P.~Suchanek,
 \emph{Recursive representation of the torus 1-point conformal block},
