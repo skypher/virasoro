@@ -500,11 +500,13 @@ def audit_theorem3_direct():
         ("Tricritical Ising (4,5) (2,2) d=h_{3,1}=3/2", 4, 5, 2, 2, 3, 1, 7),
         ("Tricritical Ising (4,5) (2,2) d=h_{3,3}=1/10 [two-index]", 4, 5, 2, 2, 3, 3, 7),
     ]
+    traces = {}
     for label, p, pp, r, s, u, v, maxN in tests:
         c_val = Fraction(1) - Fraction(6 * (pp - p) ** 2, p * pp)
         lam = Fraction((pp * r - p * s) ** 2 - (pp - p) ** 2, 4 * p * pp)
         d_val = Fraction((pp * u - p * v) ** 2 - (pp - p) ** 2, 4 * p * pp)
         irr = direct_quotient_trace(c_val, lam, d_val, maxN)
+        traces[(p, pp, d_val)] = [irr[N][3] for N in range(maxN + 1)]
         terms = bgg_terms(p, pp, r, s, u, v, maxN)
         set_cd(c_val, d_val)
         G_cache = {N: dr.gram_matrix(N) for N in range(maxN + 1)}
@@ -521,6 +523,58 @@ def audit_theorem3_direct():
             pred = sum(a * F_vals[lv][N - lv] for _, lv, _, a in terms if lv <= N)
             assert pred == irr[N][3], f"Mismatch at {label} N={N}: {pred} vs {irr[N][3]}"
         print(f"  PASS: {label}, N=0..{maxN} exact match ({len(terms)} BGG terms)", flush=True)
+
+    # Tricritical Ising, lambda = 3/80: closed forms of Gaberdiel-Lang (arXiv:0810.0106v2, section 3.4).
+    n7 = 7
+
+    def series_mul(a, b):
+        return [sum(a[i] * b[n - i] for i in range(n + 1)) for n in range(n7 + 1)]
+
+    def phi_power(a):
+        # prod_{n>=1} (1 - q^n)^a via f_n = (1/n) sum_k k g_k f_{n-k}, g_k = -a sigma_1(k)/k
+        g = [Fraction(0)] + [-a * Fraction(sum(e for e in range(1, k + 1) if k % e == 0), k)
+                             for k in range(1, n7 + 1)]
+        f = [Fraction(1)]
+        for n in range(1, n7 + 1):
+            f.append(sum(k * g[k] * f[n - k] for k in range(1, n + 1)) / n)
+        return f
+
+    inv_phi_q2 = [Fraction(0)] * (n7 + 1)  # 1/phi(q^2) = sum_n p(n) q^{2n}
+    parts = [1] + [0] * n7
+    for k in range(1, n7 + 1):
+        for n in range(k, n7 + 1):
+            parts[n] += parts[n - k]
+    for n in range(0, n7 // 2 + 1):
+        inv_phi_q2[2 * n] = Fraction(parts[n])
+
+    # d = 3/2: series solution of (D_{7/2} D_{3/2} - (119/3600) E_4) chi = 0, (3.40), with exponent 1/120,
+    # D_k = q d/dq - (k/12) E_2, E_2 = 1 - 24 sum sigma_1(n) q^n, E_4 = 1 + 240 sum sigma_3(n) q^n.
+    def sig(k, n):
+        return sum(e ** k for e in range(1, n + 1) if n % e == 0)
+
+    e2 = [Fraction(1)] + [Fraction(-24 * sig(1, n)) for n in range(1, n7 + 1)]
+    e4 = [Fraction(1)] + [Fraction(240 * sig(3, n)) for n in range(1, n7 + 1)]
+    e2sq = series_mul(e2, e2)
+    s0 = Fraction(1, 120)
+    ode = [Fraction(1)]
+    for N in range(1, n7 + 1):
+        x = s0 + N
+        rest = sum((-Fraction(1, 8) * k * e2[k] - Fraction(5, 12) * e2[k] * (x - k)
+                    + Fraction(7, 192) * e2sq[k] - Fraction(119, 3600) * e4[k]) * ode[N - k]
+                   for k in range(1, N + 1))
+        ode.append(-rest / (x * x - Fraction(5, 12) * x + Fraction(7, 192) - Fraction(119, 3600)))
+
+    closed = {
+        Fraction(1, 10): ("phi(q)^(1/5)", phi_power(Fraction(1, 5))),
+        Fraction(3, 5): ("phi(q)^(11/5)/phi(q^2)", series_mul(phi_power(Fraction(11, 5)), inv_phi_q2)),
+        Fraction(3, 2): ("series solution of Gaberdiel-Lang (3.40)", ode),
+    }
+    for d_val, (name, ser) in closed.items():
+        assert traces[(4, 5, d_val)] == ser, f"Tricritical closed-form mismatch at d={d_val}"
+        print(f"  PASS: Tricritical Ising (4,5) lambda=3/80 d={d_val} trace equals {name} for N=0..{n7}", flush=True)
+    g_vac = series_mul(ode, phi_power(Fraction(-3)))
+    assert g_vac[:6] == [1, 14, 42, 140, 350, 840], "d=3/2 trace / phi^3 differs from Gaberdiel-Lang's printed series"
+    print(f"  PASS: d=3/2 trace / phi(q)^3 = {[int(x) for x in g_vac]} (Gaberdiel-Lang print 1, 14, 42, 140, 350, 840)", flush=True)
 
 
 # ---------------------------------------------------------------- CHECK 4: Corollary 1 (collision-free)

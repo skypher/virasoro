@@ -320,7 +320,8 @@ nonzero at \(b_\star\) and that the product does not depend on the path.  At
 \(d=0\) every weight is \(1\), and the formula is the Rocha--Caridi formula.
 In the Ising model at \(\lambda=\tfrac1{16}\), \(d=\tfrac12\) and in the
 Lee--Yang model at \(\lambda=d=-\tfrac15\), the inserted field has a singular
-vector at level two, and \(q^{\lambda-c_\star/24}\) times the trace is the
+vector at level two, and \(q^{\lambda-c_\star/24}\) times the normalized
+irreducible trace is the
 power \(\eta(\tau)^{2d}\) of the Dedekind function, \(\eta(\tau)\) and
 \(\eta(\tau)^{-2/5}\)~\cite[\S3.1]{GaberdielLang2009}; for the Ising energy
 field see also~\cite[\S3.2]{DiFrancescoSaleurZuber1987}
@@ -351,7 +352,17 @@ charge that is manifestly finite and exhibits the higher-order
 poles~\cite[end of \S3.2]{Ribault2019}.  For irreducible minimal-model modules,
 Coulomb-gas screening integrals in Felder's Fock-space BRST
 complex~\cite{Felder1989,FelderSilvotti1989} give integral representations
-of torus traces with a primary insertion.
+of torus traces with a primary insertion.  Gaberdiel and Lang show that in a
+rational conformal field theory every such trace satisfies a modular
+differential equation that comes from the singular vectors of the inserted
+field, and they solve these equations in closed form for all torus one-point
+functions of the Lee--Yang, Ising and tricritical Ising models; in general the
+solutions do not seem to be expressible through standard
+functions~\cite[\S\S2--4]{GaberdielLang2009}.
+Theorem~\ref{thm:gen-rocha-caridi} gives every coefficient of the trace at
+every minimal-model charge and fusion weight by a finite algebraic
+calculation, and Section~\ref{sec:examples} compares it with their closed
+forms.
 
 Part~I (Sections~\ref{sec:blocks}--\ref{sec:ising}) concerns Verma blocks.
 Section~\ref{sec:blocks} fixes notation; Table~\ref{tab:notation} lists the
@@ -3420,10 +3431,11 @@ the multiples of \(\eta(\tau)\), whose leading exponent
 \(1/24=1/16-1/48\) forces \(\lambda=1/16\), in agreement with
 Theorem~\ref{thm:descent-regularity}: \(1/16\) is the only interior weight
 whose fusion set contains \(1/2\).  The normalization
-\(T^{\mathrm{irr}}_0=1\) fixes the multiple.  For the full one-point function
-of the energy field see also~\cite[\S4.2.4, (4.53)--(4.61)]{BrehmRunkel2022}
-and~\cite[\S3.2, (3.13)--(3.14)]{DiFrancescoSaleurZuber1987}, where it comes
-from the doubly periodic sector of the free fermion.  The
+\(T^{\mathrm{irr}}_0=1\) fixes the multiple.  For the full torus one-point
+amplitude of the energy field, before division by the partition function, see
+also~\cite[\S4.2.4, (4.53)--(4.61)]{BrehmRunkel2022}
+and~\cite[\S3.2, (3.13)]{DiFrancescoSaleurZuber1987}, where it comes from the
+doubly periodic sector of the free fermion.  The
 identity~\eqref{eq:gen-rocha-caridi} writes \(\phi(q)\) as the alternating sum
 of Verma blocks weighted by the cocycle values in the table.
 
@@ -3464,7 +3476,7 @@ that is,
 The collision-free computation (Corollary~\ref{cor:collision-free}) agrees
 with the coefficients of \(\phi(q)^{-2/5}\) through \(N=25\).  This explains
 the powers of \(5\) in the denominators: the primes other than \(5\) in the
-\(10\)-digit denominator of \(F_9\) cancel in the BGG sum, and
+\(14\)-digit denominator of \(F_9\) cancel in the BGG sum, and
 \(T^{\mathrm{irr}}_9=27946402/5^{10}\).
 The reflected weight
 \(d=h_{1,-3}(b_\star)=14/5\in\mathcal{F}^\pm_{2,5}(1,2)\setminus\mathcal{F}_{2,5}(1,2)\)
@@ -3496,10 +3508,35 @@ For all three insertions, the traces
 computed from \eqref{eq:gen-rocha-caridi} match direct quotient-Gram inversion
 in \(\mathbb{Q}\) for \(0\leq N\leq 7\).
 
+Gaberdiel and Lang solve the modular differential equations of these three
+insertions in this module~\cite[\S3.4, (3.38)--(3.48)]{GaberdielLang2009}.
+Here \(\lambda-c_\star/24=1/120\), and with \(T^{\mathrm{irr}}_0=1\) their
+solutions (3.39), (3.41) and (3.46) give
+\[
+ \begin{aligned}
+ \mathcal{T}^{\mathrm{irr}}_{7/10,3/80,1/10}(q)&=\phi(q)^{1/5},\\
+ \mathcal{T}^{\mathrm{irr}}_{7/10,3/80,3/5}(q)&=\phi(q)^{11/5}/\phi(q^2),\\
+ \mathcal{T}^{\mathrm{irr}}_{7/10,3/80,3/2}(q)&=\phi(q)^3\,
+  \bigl(1+14q+42q^2+140q^3+350q^4+840q^5+\cdots\bigr).
+ \end{aligned}
+\]
+The first is \(q^{-1/120}\eta(\tau)^{2d}\), as for Ising and Lee--Yang, since
+\(d=1/10=h_{1,2}(b_\star)\) has a singular vector at level two.  In the
+second, \(q^{1/120}\phi(q)^{11/5}/\phi(q^2)=\eta(\tau)^{6/5}\eta(\tau)/\eta(2\tau)\).
+In the third, the series in parentheses is \(q^{-1/120}\phi(q)^{-3}\) times
+the solution of their second-order equation (3.40) with leading exponent
+\(1/120\); Gaberdiel and Lang identify \(q^{-7/60}\) times it with the
+vacuum character of the level-one \(G_2\) WZW model.  The trace itself is
+\(1+11q+19q^3+29q^7+O(q^8)\).  The traces computed
+from~\eqref{eq:gen-rocha-caridi} agree with all three closed forms for
+\(0\leq N\leq 7\).
+
 \subsection{Computer checks}
 
 The script \texttt{irreducible/tools/audit\_irreducible\_torus.py} reproduces
-these examples in exact arithmetic and tests the following two results.
+these examples in exact arithmetic, including the comparisons with the closed
+forms (Ising through \(N=30\), Lee--Yang through \(N=25\), tricritical Ising
+through \(N=7\)), and tests the following two results.
 \begin{enumerate}
  \item Theorem~\ref{thm:descent-regularity} at allowed and forbidden weights,
    and at weights where exactly one of \(P_{r,s}(b_\star;\lambda,d)\) and

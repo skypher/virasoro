@@ -27,7 +27,9 @@ the archive).  It checks Theorem `thm:descent-regularity` on allowed,
 forbidden and half-fusion weights, Theorem `thm:first-layer-ratio` from the
 two-weight Ward identity, Theorem `thm:gen-rocha-caridi` against exact
 quotient-Gram traces (Lee--Yang N <= 9, Ising N <= 8, tricritical Ising
-N <= 7), and Corollary `cor:collision-free` (Ising traces against Euler's
+N <= 7) and the tricritical Ising traces against the closed forms of
+Gaberdiel--Lang (phi(q)^(1/5), phi(q)^(11/5)/phi(q^2), and the series solution
+of their equation (3.40), N <= 7), and Corollary `cor:collision-free` (Ising traces against Euler's
 coefficients for N <= 30; Lee--Yang traces against the coefficients of
 phi(q)^(-2/5), with denominators powers of 5, for N <= 25, and against the
 quotient-Gram traces for N <= 9).
@@ -151,5 +153,5 @@ f979190e290b2e57649d01dc6ba0fcaf225ff21fb085e92431c370a2b4f0aeb8  tools/audit_st
 1151440942f319d548965bc51a2cd0baa84b940a661735981a8b2b3afe887a98  tools/audit_top_layer.py
 34c9a27ab97bb28b78f1c2e559c8dabf4bc5a2903d362ad43222f103c7910390  tools/direct_reconstruction.py
 3f69e0f5a782cf9e23037907dbf38467fa7c5550750c5faf587cbddffc75b519  tools/exact_shapovalov.py
-0150474d5eed2493fe23c8e3241a253766777d93e2f5ce056b1fe252300ecd57  irreducible/tools/audit_irreducible_torus.py
+678ca0d3ab7450850b56cf3bbac583e22ae6395a3cea8d6e31d4e937d62448c3  irreducible/tools/audit_irreducible_torus.py
 ```
