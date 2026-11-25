@@ -1717,3 +1717,13 @@ Statements unchanged.  Checked by the main session: `lake build Virasoro` exit 0
 `prop_h13_nonvanishing_of_cited`, `lem_mode_count`, `AppA2.lem_odd_primes_of_cited` depend only
 on [propext, Classical.choice, Quot.sound] (logs/prop92_ax6.log); no sorry/admit/axiom.  This is
 the change Jander's packet-38 ITEM 2 named; author-side check, confirmation requested in packet 39.
+
+Verdict on packet 39 (Jander, relayed by yang2 2026-11-25T13:44:17Z), static review at 61b187b
+against paper.tex l.3010–3016 at 086b33a: ITEM 1 PASS.  `AppABridge.lean` takes the frozen A.1
+statement and identifies the constant Gram matrix through the rational-function bridge;
+`AppALevelPoly.lean` passes `GsM_ev0_of_modeCount lem_mode_count` to the determinant-unit step
+and through `Em_dvd_of`/`pow_Em_dvd_of`/`neumann_of`/`cf_Rfam_eq_of`; the bridge declarations
+moved unchanged and the Proposition 9.2 label theorem is unchanged; "the previous citation-edge
+departure is closed".  With packet 38 ITEM 1 (Proposition 9.2) and ITEM 2 (routes of A.1, A.2),
+the Lean proofs of Lemmas A.1–A.3 and of Proposition 9.2 through them have reviewer PASS on
+route fidelity (Jander); the kernel side (build, axioms) is the main session's check.
