@@ -197,15 +197,18 @@ weights \(h_{2k+1,-(2m+1)}(b_\star)\) (Theorem~\ref{thm:descent-regularity}).
 For the fusion weights, Theorem~\ref{thm:gen-rocha-caridi} writes the trace
 as an alternating sum of Verma blocks over the weights of the embedding
 diagram, as in the Rocha--Caridi character formula, with a nonzero rational
-weight in front of each block.  This weight is a product, along a path in
-the diagram, of ratios of the \(\Delta\)-derivatives of the torus form and of
-the Shapovalov form on a singular vector, taken at fixed \(c\) and \(d\) with
-the PBW coefficients of the singular vector held fixed.
-Theorem~\ref{thm:first-layer-ratio} gives each ratio at generic charge as a
-quotient of two products of linear forms in \(b^2\), and
-Proposition~\ref{prop:bgg-cocycle} shows that the ratios are finite and
-nonzero at \(b_\star\) and that the product does not depend on the path.  At
-\(d=0\) every weight is \(1\), and the formula is the Rocha--Caridi formula.
+weight in front of each block.  The block at the weight \(\mu\) of the
+diagram is weighted by \(\Psi^\star(\mu)/\Psi^\star(\lambda)\), where
+\(\Psi^\star\) is an explicit product of Gamma values at the Coulomb-gas
+momentum of the weight~\eqref{eq:psi-star}.  Across one arrow of the diagram
+this quotient is the ratio of the \(\Delta\)-derivatives of the torus form
+and of the Shapovalov form on the singular vector of that arrow, taken at
+fixed \(c\) and \(d\) with the PBW coefficients of the singular vector held
+fixed.  Theorem~\ref{thm:first-layer-ratio} gives this ratio at generic
+charge as a quotient of two products of linear forms in \(b^2\), and
+Proposition~\ref{prop:bgg-cocycle} identifies it at \(b_\star\) with the
+quotient of the two Gamma products, a nonzero rational number.  At \(d=0\)
+every weight is \(1\), and the formula is the Rocha--Caridi formula.
 With the confluence formula for the Verma blocks, the identity computes
 every coefficient of the trace by a finite algebraic calculation.
 
@@ -946,14 +949,36 @@ where
 
 Let \(\{\mu^\pm_j\}_{j\geq1}\) be the BGG orbit weights of
 \(\lambda=h_{r,s}(b_\star)\) at levels \(\ell^\pm_j=\mu^\pm_j-\lambda\)
-(Section~\ref{sec:setup}).  By Proposition~\ref{prop:bgg-cocycle}, the
-ratios~\eqref{eq:box-formula} specialize at \(b_\star\) to nonzero rationals,
-and their product along a BGG path from \(\lambda\) to \(\mu^\pm_j\) does not
-depend on the path.  We denote this product by
-\(\Omega_{2k+1,2m+1}(\lambda\to\mu^\pm_j)\in\mathbb{Q}^\times\) and call it the
-\emph{cocycle value}.  Up to the sign \((-1)^j\) and the power
-\(q^{\ell^\pm_j}\), it is the weight with which the Verma block at \(\mu^\pm_j\)
-enters the irreducible trace in Theorem~\ref{thm:gen-rocha-caridi}.
+(Section~\ref{sec:setup}), and give each \(\mu\in\mathcal O_{p,p'}(r,s)\) its
+momentum \(n_\mu\) from~\eqref{eq:bgg-momenta}: \(n_\lambda=n_0\) and
+\(n_{\mu^\pm_l}=n^\pm_l\) (\(l\geq1\)).  For
+\(d=h_{2k+1,2m+1}(b_\star)\) put
+\begin{equation}\label{eq:psi-star}
+ \begin{aligned}
+ \Psi^\star_{2k+1,2m+1}(\mu)
+ :=\prod_{j=1}^m&\frac{1}{\Gamma\bigl(1+\frac{n_\mu-jp}{p'}\bigr)
+                         \Gamma\bigl(1-\frac{n_\mu+jp}{p'}\bigr)}\\
+ \times\prod_{i=1}^k&\frac{1}{\Gamma\bigl(1+m+\frac{n_\mu-ip'}{p}\bigr)
+                         \Gamma\bigl(1+m-\frac{n_\mu+ip'}{p}\bigr)},
+ \end{aligned}
+\end{equation}
+the value of~\eqref{eq:gamma-potential} at \(b=b_\star\) and
+\(2\varpi/b_\star=n_\mu/p'\).  No Gamma argument in~\eqref{eq:psi-star} is a
+nonpositive integer, so \(\Psi^\star_{2k+1,2m+1}(\mu)\) is finite and nonzero
+(proof of Proposition~\ref{prop:bgg-cocycle}).  For
+\(\mu,\xi\in\mathcal O_{p,p'}(r,s)\) define the \emph{BGG weight}
+\[
+ \Omega_{2k+1,2m+1}(\mu\to\xi)
+ :=\frac{\Psi^\star_{2k+1,2m+1}(\xi)}{\Psi^\star_{2k+1,2m+1}(\mu)}.
+\]
+By Proposition~\ref{prop:bgg-cocycle}, the ratio~\eqref{eq:box-formula} of a
+primitive arrow \(\alpha\to\beta\), specialized at \(b_\star\), is
+\(\Omega_{2k+1,2m+1}(\alpha\to\beta)\), so \(\Omega_{2k+1,2m+1}(\mu\to\xi)\) is
+the product of these ratios along any directed path from \(\mu\) to \(\xi\),
+and every BGG weight is a nonzero rational number.  Up to the sign \((-1)^j\)
+and the power \(q^{\ell^\pm_j}\), \(\Omega_{2k+1,2m+1}(\lambda\to\mu^\pm_j)\) is
+the coefficient of the Verma block at \(\mu^\pm_j\) in the irreducible trace
+(Theorem~\ref{thm:gen-rocha-caridi}).
 
 \begin{theorem}[Generalized Rocha--Caridi identity and confluence for traces]\label{thm:gen-rocha-caridi}
 Let \(b_\star^2=-p'/p\) (\(p,p'\geq2\) coprime), let
@@ -1361,12 +1386,12 @@ gives
 \]
 \end{proof}
 
-\section{First-layer vertex ratio and the BGG cocycle}\label{sec:cocycle}
+\section{First-layer vertex ratio and the BGG weights}\label{sec:cocycle}
 
 This section proves Theorem~\ref{thm:first-layer-ratio}, and then shows that
-the first-layer ratios specialize at \(b_\star\) to nonzero rationals whose
-products along the braided BGG diagram do not depend on the path
-(Proposition~\ref{prop:bgg-cocycle}).
+the first-layer ratios specialize at \(b_\star\) to nonzero rationals, each
+the quotient of the Gamma products~\eqref{eq:psi-star} at the two ends of
+its arrow (Proposition~\ref{prop:bgg-cocycle}).
 
 \begin{proof}[Proof of Theorem~\ref{thm:first-layer-ratio}]
 The numerator and the denominator of \(c_{R,S}\) are derivatives along the
@@ -1523,7 +1548,7 @@ Multiplying over \(j=1,\ldots,m\) and \(i=1,\ldots,k\) gives
 \]
 \end{proof}
 
-\begin{proposition}[Finiteness, nonvanishing, and path-independence of the BGG cocycle]\label{prop:bgg-cocycle}
+\begin{proposition}[Finiteness, nonvanishing, and Gamma form of the BGG weights]\label{prop:bgg-cocycle}
 Let \(b_\star^2=-p'/p\) (\(p,p'\geq2\) coprime), \(\lambda=h_{r,s}(b_\star)\)
 interior, and \(d=h_{2k+1,2m+1}(b_\star)\in\mathcal{F}_{p,p'}(r,s)\).
 \begin{enumerate}
@@ -1539,18 +1564,19 @@ interior, and \(d=h_{2k+1,2m+1}(b_\star)\in\mathcal{F}_{p,p'}(r,s)\).
     \;\in\;\mathbb{Q}^\times
    \end{equation}
    is finite and nonzero.
- \item[(ii)] For every diamond
-   \(\mu\to\nu_1\to\xi\), \(\mu\to\nu_2\to\xi\) in the braided BGG diagram of
-   \(\mathcal{O}_{p,p'}(r,s)\),
+ \item[(ii)] For every \(\mu\in\mathcal{O}_{p,p'}(r,s)\),
+   \(\Psi^\star_{2k+1,2m+1}(\mu)\) is finite and nonzero, and for every
+   primitive BGG arrow \(\alpha\to\beta\) in \(\mathcal{O}_{p,p'}(r,s)\) with
+   Kac label \((R,S)\),
    \begin{equation}\label{eq:diamond-cocycle}
-    c(\mu\to\nu_1)\,c(\nu_1\to\xi)
-    =c(\mu\to\nu_2)\,c(\nu_2\to\xi),
+    c_{R,S}\Bigl(-\frac{p'}{p};2k+1,2m+1\Bigr)
+    =\frac{\Psi^\star_{2k+1,2m+1}(\beta)}{\Psi^\star_{2k+1,2m+1}(\alpha)}
+    =\Omega_{2k+1,2m+1}(\alpha\to\beta).
    \end{equation}
-   where \(c(\alpha\to\beta):=c_{R,S}(-p'/p;2k+1,2m+1)\) for the primitive
-   arrow \(\alpha\to\beta\) of label \((R,S)\).  Hence the product of
-   \(c(\alpha\to\beta)\) along any directed BGG path from \(\mu\) to \(\xi\)
-   depends only on \((\mu,\xi)\), defining a canonical rational cocycle
-   \(\Omega_{2k+1,2m+1}(\mu\to\xi)\in\mathbb{Q}^\times\).
+   Hence the product of these ratios along any directed BGG path from \(\mu\)
+   to \(\xi\) is \(\Omega_{2k+1,2m+1}(\mu\to\xi)\), and
+   \(\Omega_{2k+1,2m+1}(\mu\to\xi)\in\mathbb{Q}^\times\) for all
+   \(\mu,\xi\in\mathcal{O}_{p,p'}(r,s)\).
 \end{enumerate}
 \end{proposition}
 
@@ -1596,7 +1622,7 @@ zeros and has poles only at \(\mathbb{Z}_{\leq0}\), every factor in
 \(\Psi_{2k+1,2m+1}(\varpi_\mu;b_\star)\) is finite and nonzero, so
 \(\Psi_{2k+1,2m+1}(\varpi_\mu;b_\star)\in\mathbb{C}^\times\).  Since
 \eqref{eq:gamma-potential} is even in \(\varpi\), this value depends only on
-\(\mu\).
+\(\mu\); it is \(\Psi^\star_{2k+1,2m+1}(\mu)\) of~\eqref{eq:psi-star}.
 
 For any primitive BGG arrow \(\alpha\to\beta\) of label \((R,S)\) with
 \(p'R-pS=\sigma n_\alpha\) (\(\sigma\in\{+1,-1\}\)) and \(p'R+pS=n_\beta\),
@@ -1607,14 +1633,18 @@ telescoping in the proof of Theorem~\ref{thm:first-layer-ratio} holds pointwise
 at \(t=t_\star=-p'/p\), giving
 \begin{equation}\label{eq:arrow-is-psi-ratio}
  c_{R,S}\Bigl(-\frac{p'}{p};2k+1,2m+1\Bigr)
- =\frac{\Psi_{2k+1,2m+1}(\varpi_\beta;b_\star)}{\Psi_{2k+1,2m+1}(\varpi_\alpha;b_\star)}.
+ =\frac{\Psi_{2k+1,2m+1}(\varpi_\beta;b_\star)}{\Psi_{2k+1,2m+1}(\varpi_\alpha;b_\star)}
+ =\frac{\Psi^\star_{2k+1,2m+1}(\beta)}{\Psi^\star_{2k+1,2m+1}(\alpha)},
 \end{equation}
-On either path around a BGG diamond, these factors telescope to
-\[
- \Psi_{2k+1,2m+1}(\varpi_\xi;b_\star)/\Psi_{2k+1,2m+1}(\varpi_\mu;b_\star).
-\]
-This gives~\eqref{eq:diamond-cocycle}; the product lies in \(\mathbb Q^\times\)
-by~(i).
+which is~\eqref{eq:diamond-cocycle}.  Along a directed path from \(\mu\) to
+\(\xi\) these quotients telescope to
+\(\Psi^\star_{2k+1,2m+1}(\xi)/\Psi^\star_{2k+1,2m+1}(\mu)\).  Every weight of
+\(\mathcal{O}_{p,p'}(r,s)\) is reached from \(\lambda\) by a directed path,
+since each node has arrows to both nodes of the next layer
+(Lemma~\ref{lem:bgg-arrows}(ii)); so by~(i) every
+\(\Omega_{2k+1,2m+1}(\lambda\to\mu)\) is a product of nonzero rationals, and
+\(\Omega_{2k+1,2m+1}(\mu\to\xi)
+=\Omega_{2k+1,2m+1}(\lambda\to\xi)/\Omega_{2k+1,2m+1}(\lambda\to\mu)\in\mathbb Q^\times\).
 \end{proof}
 
 \section{Two-layer \texorpdfstring{\(\delta\)}{delta}-Jantzen telescoping and the Rocha--Caridi identity}\label{sec:telescoping}
@@ -1804,8 +1834,9 @@ and the ratio of the two forms is
  \frac{\alpha\,\tilde g_\rho(t_0,\mu)}{\alpha\,\gamma_{R_2,S_2}(b_\star)}
  =\frac{\tilde g_\rho(t_0,\mu)}{\gamma_{R_2,S_2}(b_\star)}
  =c_{R_2,S_2}(t_0;u,v)
- =\Omega_{u,v}(\mu\to\nu_2).
+ =\Omega_{u,v}(\mu\to\nu_2),
 \]
+the last equality by Proposition~\ref{prop:bgg-cocycle}(ii).
 Therefore the \(\delta^1\) factors cancel in the diagonalized trace on
 \(\mathcal{V}_N\), giving
 \[
@@ -1814,7 +1845,7 @@ Therefore the \(\delta^1\) factors cancel in the diagonalized trace on
   +\Omega_{u,v}(\mu\to\nu_2)\,T^{\mathrm{irr}}_{N-R_2S_2}(c_\star,\nu_2,d_\star).
 \]
 By Lemma~\ref{lem:joint-holomorphicity} and
-Proposition~\ref{prop:bgg-cocycle}(i), the remaining terms in
+Proposition~\ref{prop:bgg-cocycle}, the remaining terms in
 \eqref{eq:generic-tau-split} are regular at \(\delta=0\) and converge to
 \(F_N(c_\star,\mu,d_\star)\) and
 \(\Omega_{u,v}(\mu\to\nu_1)F_{N-R_1S_1}(c_\star,\nu_1,d_\star)\).  Taking
@@ -1839,9 +1870,9 @@ series
  :=\Omega_{u,v}(\lambda\to\mu)\,q^{\mu-\lambda}\,
    \mathcal{F}^{\mathrm{Verma}}_{c_\star,\mu,d}(q),
 \]
-with \(\Omega_{u,v}(\lambda\to\lambda):=1\).  By the cocycle property
+so that \(\Omega_{u,v}(\lambda\to\lambda)=1\).  Since
 \(\Omega_{u,v}(\lambda\to\mu)\Omega_{u,v}(\mu\to\nu)=\Omega_{u,v}(\lambda\to\nu)\)
-(Proposition~\ref{prop:bgg-cocycle}(ii)), multiplying \eqref{eq:two-term-id}
+by the definition of the BGG weights, multiplying \eqref{eq:two-term-id}
 by \(\Omega_{u,v}(\lambda\to\mu)q^{\mu-\lambda}\) yields
 \begin{equation}\label{eq:scaled-two-term}
  \widetilde{\mathcal{T}}(\mu)+\widetilde{\mathcal{T}}(\nu_2)
@@ -1955,7 +1986,7 @@ truncated recursion for \(H_N(c_\star,\mu,d_\star)\) is nonzero at
 
 Here \(c_\star=1/2\), \(t_\star=-4/3\), \((r,s)=(1,2)\), and
 \(\mathcal{F}_{3,4}(1,2)=\{h_{1,1},h_{1,3}\}=\{0,1/2\}\).  At \(d=h_{1,3}=1/2\)
-(\(k=0,m=1\)), the levels \(\ell\) and signed cocycle values
+(\(k=0,m=1\)), the levels \(\ell\) and signed BGG weights
 \((-1)^j\Omega_{1,3}(\lambda\to\mu^\pm_j)\) through level \(30\) (Jantzen
 layers \(0\) to \(3\)) are
 \[
@@ -2001,13 +2032,13 @@ also~\cite[\S4.2.4, (4.53)--(4.61)]{BrehmRunkel2022}
 and~\cite[\S3.2, (3.13)]{DiFrancescoSaleurZuber1987}, where it comes from the
 doubly periodic sector of the free fermion.  The
 identity~\eqref{eq:gen-rocha-caridi} writes \(\phi(q)\) as the alternating sum
-of Verma blocks weighted by the cocycle values in the table.
+of Verma blocks weighted by the BGG weights in the table.
 
 \subsection{Lee--Yang model \texorpdfstring{\((2,5)\), \(\lambda=-1/5\), \(d=-1/5\)}{(2,5), lambda=-1/5, d=-1/5}}
 
 Here \(c_\star=-22/5\), \(t_\star=-5/2\), \((r,s)=(1,2)\), and
 \(\mathcal{F}_{2,5}(1,2)=\{0,-1/5\}\) with \(d=-1/5=h_{1,3}(b_\star)\)
-(\(k=0,m=1\)).  The level shifts and signed cocycle values through
+(\(k=0,m=1\)).  The level shifts and signed BGG weights through
 level \(25\) (layers
 \(0,1,2,3\)) are
 \[
@@ -2058,7 +2089,7 @@ Let \((p,p')=(4,5)\), so that \(c_\star=7/10\) and \(t_\star=-5/4\), and take
 For \(d=h_{3,3}=1/10\) (\(k=m=1\)), the active labels \((1,4)\) and \((3,1)\)
 collide at \(b=b_\star\), at the weight \(3/2\), which is not in the orbit
 \(\mathcal{O}_{4,5}(2,2)\); this is a two-index case of
-Theorem~\ref{thm:gen-rocha-caridi}.  The first-layer cocycle values
+Theorem~\ref{thm:gen-rocha-caridi}.  The first-layer BGG weights
 \(-\Omega_{u,v}(\lambda\to\mu^\pm_1)\) at levels \(4\) and \(6\) are
 \[
  \begin{array}{c|rr}
