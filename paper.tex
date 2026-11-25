@@ -2939,7 +2939,9 @@ opposite-mode contractions only, hence \(Z=Z'\).  This gives the form of
 In \(\rho_{M,Z,Z'}\), each \(d\) consumes at least one mode and each
 \(\Delta\) or \(c\) at least two, so
 \(d_d+2d_\Delta+d_c\leq\ell(Z)+\ell(Z')\), giving the form of
-\(\widetilde\rho\).
+\(\widetilde\rho\).  Each occurrence of \(\zeta\) in place of \(-2/t\) in
+\(d=-2/t+\zeta\) carries an extra factor \(t\), so \(\widetilde\rho(0,Y;\zeta)\)
+does not depend on \(\zeta\).
 \end{proof}
 
 \begin{lemma}[No odd primes in the inverse Gram matrices]\label{lem:odd-primes}
@@ -3147,10 +3149,14 @@ degree at most \(2a-2b\) for all \(M\geq0\) (since \(\sum_{u=1}^M(u-1)\) and
 \(\sum_{u=1}^M(u^2-1)\) have degrees \(2\) and \(3\leq4\) and vanish at
 \(M=0\)).  With \(R_M\) as in Lemma~\ref{lem:level-poly},
 \((M!/2^M)Y^MH_M=\sum_{s\geq0}\eta_s\,M(M-1)\cdots(M-s+1)(Y/2)^sR_{M-s}\),
-where \(M(M-1)\cdots(M-s+1)\) has degree \(s\leq2s\) and vanishes for
-\(0\leq M<s\).  By Lemma~\ref{lem:level-poly}, each \([t^iY^j]\) of
-\((M!/2^M)Y^MH_M\) is therefore a polynomial in \(M\) of degree at most
-\(2i+2j\) for all \(M\geq0\).  Since \(P_M^{(\nu)}/4^M\) is the product of the
+where \(M(M-1)\cdots(M-s+1)\) has degree \(s\) and vanishes for
+\(0\leq M<s\).  By Lemma~\ref{lem:level-poly},
+\([t^iY^j]\bigl((Y/2)^sR_{M-s}\bigr)=2^{-s}[t^iY^{j-s}]R_{M-s}\) is a
+polynomial in \(M\) of degree at most \(2i+2j-2s\), and it vanishes unless
+\(s\leq i+j\).  So only finitely many \(s\) contribute, each with degree at
+most \(s+2i+2j-2s\leq2i+2j\), and each \([t^iY^j]\) of
+\((M!/2^M)Y^MH_M\) is a polynomial in \(M\) of degree at most \(2i+2j\) for
+all \(M\geq0\).  Since \(P_M^{(\nu)}/4^M\) is the product of the
 normalized product above and \((M!/2^M)Y^MH_M\), part~(ii) follows.
 \end{proof}
 

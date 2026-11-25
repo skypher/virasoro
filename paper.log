@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.1)  25 NOV 2026 12:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.1)  25 NOV 2026 13:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1022,12 +1022,12 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [36{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}] [37]
 LaTeX Font Info:    Trying to load font information for U+euf on input line 294
-7.
+9.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [38] [39]
-Underfull \hbox (badness 1681) in paragraph at lines 3077--3092
+Underfull \hbox (badness 1681) in paragraph at lines 3079--3094
 []\T1/lmr/m/n/10 On the re-main-ing base ex-po-nents, for each $\OT1/lmr/m/n/10
  0 \OMS/lmsy/m/n/10 ^^T \OML/lmm/m/it/10 m < r$ \T1/lmr/m/n/10 one has $\OML/lm
 m/m/it/10 ^^Ni[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 ^^Nj[] \OMS/lmsy/m/n/10 ^^U
@@ -1035,7 +1035,7 @@ m/m/it/10 ^^Ni[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 ^^Nj[] \OMS/lmsy/m/n/10 ^^U
  []
 
 
-Underfull \hbox (badness 5175) in paragraph at lines 3077--3092
+Underfull \hbox (badness 5175) in paragraph at lines 3079--3094
 \T1/lmr/m/n/10 and $\OT1/lmr/m/n/10 2\OML/lmm/m/it/10 ^^Ni[] \OT1/lmr/m/n/10 + 
 2\OML/lmm/m/it/10 ^^Nj[] \OMS/lmsy/m/n/10 ^^@ \OT1/lmr/m/n/10 (\OML/lmm/m/it/10
  w[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 p[] \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 
@@ -1048,22 +1048,18 @@ q[] \OT1/lmr/m/n/10 + 2\OML/lmm/m/it/10 k[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^
  []
 
 [40] [41]
-Underfull \hbox (badness 3492) in paragraph at lines 3288--3292
+Underfull \hbox (badness 3492) in paragraph at lines 3294--3298
 []\T1/lmr/m/n/9 L. P. Polzer, \T1/lmr/m/it/9 A gen-er-al-ized Rocha--Caridi for
 -mula for torus one-point traces
  []
 
 
-Underfull \hbox (badness 1776) in paragraph at lines 3288--3292
+Underfull \hbox (badness 1776) in paragraph at lines 3294--3298
 \T1/lmr/m/it/9 in min-i-mal mod-els\T1/lmr/m/n/9 , com-pan-ion manuscript, ver-
 sion of Novem-ber 25, 2026, in
  []
 
-
-Underfull \vbox (badness 1448) has occurred while \output is active []
-
- [42]
-[43] (./paper.aux)
+[42] [43] (./paper.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1102,7 +1098,7 @@ t9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.p
 fb>
-Output written on paper.pdf (43 pages, 813550 bytes).
+Output written on paper.pdf (43 pages, 813970 bytes).
 PDF statistics:
  1031 PDF objects out of 1200 (max. 8388607)
  904 compressed objects within 10 object streams
