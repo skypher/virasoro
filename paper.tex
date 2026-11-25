@@ -1093,8 +1093,15 @@ By Cramer's rule the denominator of each \(F_m\), \(m\leq N\), divides
 \(\det G_N\) is a common denominator for the left side of
 \eqref{eq:generic-grouped}. It is nonzero in \(K_\star(\Delta)\) at
 \(t=0\), so the left side is regular there with constant term
-\(H_N(c_\star,\Delta,d)\). On the right, by Lemma~\ref{lem:collision-pole-support} and
-Definition~\ref{def:collision-moments}, each group has constant term
+\(H_N(c_\star,\Delta,d)\).  On the right, by Lemma~\ref{lem:collision-pole-support},
+the coefficient of each power \(t^m\) in the group \({\mathcal G}^\star_{\lambda,N}\)
+is the finite principal part
+\(\sum_{k\geq1}[t^m]C_{\lambda,k}\,(\Delta-\lambda)^{-k}\) at \(\lambda\), where
+\(C_{\lambda,k}(t)=\sum_{a\in{\mathcal C}^\star_{\lambda,N}}B_{a,N}(t)\delta_a(t)^{k-1}\)
+is the full \(k\)-th moment.  For \(m<0\) these principal parts at the distinct
+\(\lambda\) sum to zero, so by uniqueness of partial fractions every
+\([t^m]C_{\lambda,k}\) vanishes: each full moment is regular at \(t=0\).  By
+Definition~\ref{def:collision-moments}, each group then has constant term
 \(\sum_{k\geq1}\widetilde A^\star_{\lambda,k,N}(d)(\Delta-\lambda)^{-k}\),
 a finite sum.  By uniqueness in Theorem~\ref{thm:general-partial-fractions}
 these are its principal parts.  This gives \(\widetilde A^\star_{\lambda,k,N}
@@ -1104,9 +1111,9 @@ If \(b_\star^2\notin\mathbb Q\), Lemma~\ref{lem:no-generic-shifted-pole}
 shows that every class is a singleton, every \(R_g\) is regular at \(t=0\), and
 no shifted denominator vanishes there.  By induction on \(M\), every
 \(S_{a,M}\) is then regular at \(t=0\), with
-\(S_{a,M}(0)=H_M(c_\star,z_a(b_\star),d)\).  So \(B_{a,N}\) is regular, the
+\(S_{a,M}(0)=H_M(c_\star,z_a(0),d)\).  So \(B_{a,N}\) is regular, the
 moments with \(k\geq2\) vanish because \(\delta_a\in tK_\star[[t]]\), and the
-sole moment is \(R_a(0)H_{N-\ell_a}(c_\star,z_a(b_\star),d)\).
+sole moment is \(R_a(0)H_{N-\ell_a}(c_\star,z_a(0),d)\).
 \end{proof}
 
 \begin{example*}[Two poles in \(b\) that make a double pole in \(\Delta\)]
@@ -1202,7 +1209,8 @@ By Lemma~\ref{lem:shifted-valuation-bound},
 \(\ord_tB_{a,N}\geq-\widehat v_{a,N}\).  For
 \(k>\widehat M^{\star}_{\lambda,N}\) one has
 \((k-1)\varepsilon_a>\widehat v_{a,N}\), so every summand
-of~\eqref{eq:collision-moments} has positive valuation and
+of~\eqref{eq:collision-moments} has positive valuation (a summand with
+\(\delta_a\equiv0\) vanishes, since \(k\geq2\)) and
 \(\widetilde A^{\star}_{\lambda,k,N}=0\).  Theorem~\ref{thm:general-confluence}
 gives \(m^{\star}_{\lambda,N}\leq\widehat M^{\star}_{\lambda,N}\).
 \end{proof}
