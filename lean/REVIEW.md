@@ -1593,3 +1593,24 @@ Checked by the main session: `lake build Virasoro` exit 0 (../runs/split3/lean-b
 theorems of PAPER_MAP.md depend only on [propext, Classical.choice, Quot.sound]
 (../runs/lean2/checkMAP.log, 2026-11-25T02:48Z); no sorry/admit/axiom in the new files.
 Author-side check, not a reviewer PASS.
+
+## 2026-11-25: statements of Appendix A, Lemmas A.1-A.3 (main session)
+
+On the user's request (tmp terminal, 2026-11-25 ~14:1x Taiwan, "do the lean statements for
+A.1-A.3"), after the pass e50db7c/086b33a split the proof of Proposition 9.2(i)-(ii) into
+Lemmas A.1 (`lem:mode-count`), A.2 (`lem:odd-primes`) and A.3 (`lem:level-poly`):
+`Virasoro/Statements/AppA20261125.lean` freezes `Stmt_lem_mode_count`, `Stmt_lem_odd_primes`,
+`Stmt_lem_level_poly`, with demand sheets and the reading conventions in the module docstring
+(ℤ[1/2] coefficients; identities in ℚ(t,Y,ζ); algebraic independence over 𝔽_ϖ in the residue
+field read through lifts f ∈ ℤ[X₀,X₁] with a coefficient prime to ϖ; "contains ℤ_(ϖ)[b,b⁻¹]";
+inverse only with the determinant stated nonzero; R_M as the t-expansion `IsTExpansion` in
+ℚ[Y,Y⁻¹][[t]]).  The file compiles (logs/appA_stmt1.log, logs/appA_build1.log); PAPER_MAP.md
+lists the three statements with no labelled theorem yet.
+
+Where the existing proof of Proposition 9.2 stands relative to the lemmas: A.3's degree claim is
+`degFam_R_of_chain` for `Rfam`, which still has to be tied to `IsTExpansion`; A.1 exists only over
+ℚ and for ζ ∈ {−1, 2} (`GsM`, `RsM`, `GsM_ev0`), so the ℤ[1/2] coefficients and ζ indeterminate
+are new; A.2 is proved in the Lean by a different local device (ℤ[1/2][s,s⁻¹,α] with reduction
+modulo ℓ, Sec6H13Local), so the discrete valuation ring of the paper has to be constructed.
+Statement check by an independent reviewer requested before proving (lean.md, "Freeze the
+statement first").

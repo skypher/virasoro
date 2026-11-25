@@ -139,6 +139,7 @@ import Virasoro.Statements.Sec9b
 import Virasoro.Statements.Sec10
 import Virasoro.Statements.Sec11b
 import Virasoro.Statements.Sec12
+import Virasoro.Statements.AppA20261125
 import Virasoro.Cited2
 import Virasoro.Sphere
 import Virasoro.Proofs.Sec5SmithV2
