@@ -1658,3 +1658,36 @@ Appendix A theorems depend only on [propext, Classical.choice, Quot.sound] (logs
 no sorry/admit/axiom in the three files.  PAPER_MAP.md lists a theorem for Lemmas A.1, A.2, A.3.
 Author-side check, not a reviewer PASS.  The Lean proof of Proposition 9.2 still goes through
 its own route (Sec6H13Local/Integral, Sec6H13DegRed) and does not consume the three lemmas.
+
+## 2026-11-25: Proposition 9.2 through Lemmas A.1–A.3 (main session)
+
+User request "fix" (21:0x Taiwan), after the report that the Lean proof of Proposition 9.2 did not
+consume the three Appendix A lemmas the way the paper's proof (paper.tex l.3104–3161) does.
+- New module Virasoro/Proofs/Prop92AppA.lean: `prop_h13_nonvanishing_of_appA (hK) (hH)
+  (hA1 : Stmt_lem_mode_count) (hA2 : Stmt_lem_odd_primes) (hA3 : Stmt_lem_level_poly) :
+  Stmt_prop_h13_nonvanishing`.  `prop_h13_nonvanishing_of_cited` (Sec6H13Label.lean, paper label
+  `prop:h13-nonvanishing`) is now this theorem applied to `lem_mode_count`,
+  `AppA2.lem_odd_primes_of_cited hK` and `lem_level_poly`.  Frozen statement and hypotheses
+  (hK, hH) unchanged; the old route `prop_h13_nonvanishing_of_chain` stays, no declaration dropped.
+- (i), polynomiality: regular at t = 0 because G̃(0,Y) = D₀(Y) from A.1 (`GsM_ev0_of_modeCount`),
+  a Laurent polynomial in t from the Kac determinant (`laurent_clearedH`) (l.3113–3118, 3125–3129).
+- (i), values: P^(2)(0,Y) = P^(1)(0,Y) from A.1's ζ-independence (`RsM_ev0_of_modeCount`); the
+  formula for P(0,Y) from G̃(0) = D₀; ρ̃(0,0)_{(1^M),(1^M)} = 4^M computed directly
+  (`eval_rr0_ones`), where the paper cites the proof of Lemma 5.7 (l.3113–3123).
+  A.1's matrices are tied to `GsM`/`RsM` by the injectivity of ℚ[t,Y,ζ] → ℚ(t,Y,ζ)
+  (`evtYz_Gt2`, `evtYz_rhot3`).
+- (i), integrality from A.2: in A.2's field at t₀ = b², Δ = α(α − 2q₀)/2, `specK` gives
+  P(t₀,Y) = ∏_u t₀²(2Δ − 2h_{u,1}) ∑_s η_s Tr(M! G_{M−s}⁻¹ ρ_{M−s}) with every factor in 𝒮_𝔭
+  (`coeff_local_of_dvr`); A.2's residue-field clause gives 𝒮_𝔭 ∩ ℚ[t,Y] = ℤ_(ϖ)[t,Y]
+  (`coeff_local_of_mem`) (l.3129–3142).
+- (ii) from A.3: the t-expansion is unique (`IsTExpansion.unique`), so A.3's R_M is `Rfam`; then
+  the sum over s and the normalized prefactor (`DegFam.S`, `N_mul`) (l.3144–3160).
+- (iii), (iv) unchanged (`sub_h13_valuation`, `sub_h13_lipschitz`).
+Checked by the main session: `lake build Virasoro` exit 0 (logs/prop92_build1.log);
+`prop_h13_nonvanishing_of_cited` and `prop_h13_nonvanishing_of_appA` depend only on
+[propext, Classical.choice, Quot.sound] (logs/prop92_ax5.log), and the printed body of
+`prop_h13_nonvanishing_of_cited` is the application to the three lemmas; no sorry/admit/axiom in
+the new file; PAPER_MAP.md unchanged (66 theorems).  Author-side check, not a reviewer PASS;
+route review requested from Jander in packet 38.  Remaining departure from the paper: the Lean
+proof of Lemma A.3 takes G̃ = D₀ + tG₁ from internal lemmas (`cc_GL`, `Em_dvd`), not from
+`lem_mode_count`.
