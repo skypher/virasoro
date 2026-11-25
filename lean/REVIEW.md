@@ -1636,3 +1636,25 @@ On the user's request (tmp terminal, 2026-11-25, "do those." after the proof out
 Checked by the main session: `lake build Virasoro` exit 0 (logs/appA_root_build1.log); both
 theorems depend only on [propext, Classical.choice, Quot.sound] (logs/appA_ax2.log); no
 sorry/admit/axiom in the two files.  Author-side check, not a reviewer PASS.
+
+## 2026-11-25: proof of Lemma A.2 (main session)
+
+- `AppA2.lem_odd_primes_of_cited (hK : Cited_KacDeterminant) : Stmt_lem_odd_primes`
+  (Virasoro/Proofs/AppAOddPrimes.lean, paper label `lem:odd-primes`).  The Kac determinant
+  formula is the only hypothesis, as in the paper's proof and in `prop_h13_nonvanishing_of_cited`.
+- Construction (the paper's, with the base ring ℤ[√−2] adjoined first): A = ℤ[√−2][b][α]
+  (`Zsqrtd (-2)`), reduction A → k[b][α] with k an algebraic closure of 𝔽_ϖ and √−2 ↦ r̄, r̄² = −2;
+  𝔓 its kernel, 𝒮_𝔭 = A_𝔓 ⊂ Frac(A) (`Localization.subalgebra`).  Maximal ideal = (ϖ) by the norm
+  argument on ℤ[√−2] (`kerRho0_mem`: c̄ a unit gives c = N(c)/c̄ with ϖ ∣ N(c); c̄ ∈ 𝔓 gives ϖ ∣ 2 Re c
+  and ϖ ∣ 2√−2 Im c), so `IsDiscreteValuationRing.TFAE` gives a DVR with uniformizer ϖ.
+  q₀ = −√−2 (b + b⁻¹)/2, c(b) = 1 − 12q₀² (`cT_eq`).  Algebraic independence through the residue
+  map 𝒮_𝔭 → Frac(k[b][α]) and the injectivity of k[t,Y] → k[b][α], t ↦ b², Y ↦ Ȳ (`evb_injective`,
+  the argument of `evbar_injective`).  Integrality: G = B(q₀,2q₀−α) D Bᵀ(q₀,α) (`TFock.gram_factor`),
+  det B det B' = ±2^{Σℓ} ∏(Δ − h_{u,v})^{p(n−uv)} with each factor a unit (8b²(Δ − h_{u,v}) ∈ A has
+  α²-coefficient 4b² mod 𝔓, `isSU_factor`), and n!D⁻¹ integral (`sub_h13_lagrange`), so
+  M!G_{M−s}⁻¹ = (M!/n!) δ⁻¹ adj(Bᵀ) diag(n!/D_Z) adj(B') (`entry_mem_aux`).
+Checked by the main session: `lake build Virasoro` exit 0 (logs/appA_root_build2.log); all three
+Appendix A theorems depend only on [propext, Classical.choice, Quot.sound] (logs/appA_ax4.log);
+no sorry/admit/axiom in the three files.  PAPER_MAP.md lists a theorem for Lemmas A.1, A.2, A.3.
+Author-side check, not a reviewer PASS.  The Lean proof of Proposition 9.2 still goes through
+its own route (Sec6H13Local/Integral, Sec6H13DegRed) and does not consume the three lemmas.

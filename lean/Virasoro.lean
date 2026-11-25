@@ -196,3 +196,4 @@ import Virasoro.Proofs.Rev20261125
 import Virasoro.Sphere.Proofs.Rev20261125
 import Virasoro.Proofs.AppALevelPoly
 import Virasoro.Proofs.AppAModeCount
+import Virasoro.Proofs.AppAOddPrimes
