@@ -465,7 +465,7 @@ and \(\Lambda^2=(b+b^{-1})^2-4d\), define
 \]
 and \({\mathcal R}_{r,s}(b,d)={\mathcal A}_{r,s}(b){\mathcal N}_{r,s}(b,d)\),
 where
-\({\mathcal A}_{r,s}(b)=\frac12\prod_{(a,b')\in[1-r,r]\times[1-s,s]\setminus\{(0,0),(r,s)\}}(ab+b'b^{-1})^{-1}\).
+\({\mathcal A}_{r,s}(b)=\frac12\prod_{(a,e)\in[1-r,r]\times[1-s,s]\setminus\{(0,0),(r,s)\}}(ab+eb^{-1})^{-1}\).
 \end{definition}
 
 \begin{proposition}[Crossing scalar and torus norm of singular vectors~{\cite[Proposition~6.2]{PolzerColliding2026}}]
@@ -787,10 +787,10 @@ for \(k=2j+1\) odd, the four differences are likewise
 proving \eqref{eq:RS-small}.  For the normalized singular vector, Proposition~\ref{prop:imported-normalizations}
 gives
 \(\gamma_{R,S}(b)^{-1}=\mathcal{A}_{R,S}(b)
-=\frac{1}{2}\prod_{(a,b')\in[1-R,R]\times[1-S,S]\setminus\{(0,0),(R,S)\}}(ab+b'b^{-1})^{-1}\),
+=\frac{1}{2}\prod_{(a,e)\in[1-R,R]\times[1-S,S]\setminus\{(0,0),(R,S)\}}(ab+eb^{-1})^{-1}\),
 and Lemma~\ref{lem:regular-everywhere} gives its specialization at
 \(b_\star\).  By \eqref{eq:RS-small}, no factor has
-\((a,b')=(qp,qp')\) with \(q\neq0\).  Hence every factor is nonzero at
+\((a,e)=(qp,qp')\) with \(q\neq0\).  Hence every factor is nonzero at
 \(b_\star\), and \(\gamma_{R,S}(b_\star)\neq0\).
 
 For part~(iv), \(R_1S_1=R_2S_2\) would mean \(n^+_{k+1}=n^-_{k+1}\), which
@@ -915,7 +915,7 @@ the nonzero singular vector.  In~\eqref{eq:box-formula} below, the
 held fixed, so that \(\chi_{R,S}(b)\) is regarded as a vector of
 \(M(c(b),\Delta)\) for \(\Delta\) near \(h_{R,S}(b)\), as in
 Lemma~\ref{lem:singular-crossing}.  Let
-\(\mathrm{Rect}_{R,S}=\{(a,b')\in\mathbb Z^2:1-R\leq a\leq R,\ 1-S\leq b'\leq S\}\).
+\(\mathrm{Rect}_{R,S}=\{(a,e)\in\mathbb Z^2:1-R\leq a\leq R,\ 1-S\leq e\leq S\}\).
 Then
 \begin{equation}\label{eq:box-formula}
  \begin{aligned}
@@ -924,10 +924,10 @@ Then
          \rho_{\Delta,d}(\chi_{R,S},\chi_{R,S})}
         {\left.\partial_\Delta\right|_{\Delta=h_{R,S}(b)}
          B_\Delta(\chi_{R,S},\chi_{R,S})}\\
- &=\frac{\displaystyle\prod_{(a,b')\in\mathrm{Rect}_{R,S}\setminus\{(-k,-m)\}}
-        \bigl((a+k)t+(b'+m)\bigr)}
-       {\displaystyle\prod_{(a,b')\in\mathrm{Rect}_{R,S}\setminus\{(0,0)\}}
-        (at+b')}.
+ &=\frac{\displaystyle\prod_{(a,e)\in\mathrm{Rect}_{R,S}\setminus\{(-k,-m)\}}
+        \bigl((a+k)t+(e+m)\bigr)}
+       {\displaystyle\prod_{(a,e)\in\mathrm{Rect}_{R,S}\setminus\{(0,0)\}}
+        (at+e)}.
  \end{aligned}
 \end{equation}
 Moreover, setting \(\varpi_{R,S}=(Rb+Sb^{-1})/2\) and
@@ -1465,38 +1465,38 @@ quadrants indexed by
 \((j,l)\in\{1-R,3-R,\ldots,R-1\}\times\{1-S,3-S,\ldots,S-1\}\):
 \begin{align*}
  \tfrac{1}{2}(L_{\mathrm{in}}+L_d+p't+l)
- &=(a+k)t+(b'+m),
- \quad (a,b')\in[1,R]\times[1,S],\\
+ &=(a+k)t+(e+m),
+ \quad (a,e)\in[1,R]\times[1,S],\\
  -\tfrac{1}{2}(L_{\mathrm{in}}-L_d+p't+l)
- &=(a+k)t+(b'+m),
- \quad (a,b')\in[1-R,0]\times[1-S,0],\\
+ &=(a+k)t+(e+m),
+ \quad (a,e)\in[1-R,0]\times[1-S,0],\\
  \tfrac{1}{2}(L_{\mathrm{out}}+L_d+p't+l)
- &=(a+k)t+(b'+m),
- \quad (a,b')\in[1,R]\times[1-S,0],\\
+ &=(a+k)t+(e+m),
+ \quad (a,e)\in[1,R]\times[1-S,0],\\
  -\tfrac{1}{2}(L_{\mathrm{out}}-L_d+p't+l)
- &=(a+k)t+(b'+m),
- \quad (a,b')\in[1-R,0]\times[1,S],
+ &=(a+k)t+(e+m),
+ \quad (a,e)\in[1-R,0]\times[1,S],
 \end{align*}
 where the four bijections are, respectively,
 \begin{gather*}
- (a,b')=\Bigl(\tfrac{R+1+j}{2},\tfrac{S+1+l}{2}\Bigr),\qquad
+ (a,e)=\Bigl(\tfrac{R+1+j}{2},\tfrac{S+1+l}{2}\Bigr),\qquad
  \Bigl(-\tfrac{R-1+j}{2},-\tfrac{S-1+l}{2}\Bigr),\\
  \Bigl(\tfrac{R+1+j}{2},\tfrac{-S+1+l}{2}\Bigr),\qquad
  \Bigl(-\tfrac{R-1+j}{2},\tfrac{S+1-l}{2}\Bigr),
 \end{gather*}
-with the unique omitted factor at \((a,b')=(-k,-m)\) in the second line.  The
+with the unique omitted factor at \((a,e)=(-k,-m)\) in the second line.  The
 four quadrants partition \([1-R,R]\times[1-S,S]\setminus\{(-k,-m)\}\), and the
 total sign \((-1)^{2RS-1}\) and power of \(2b\) are independent of \((k,m)\).
 Dividing by the case \(k=m=0\) gives \eqref{eq:box-formula}.
 
 For the Gamma factorization \eqref{eq:gamma-potential}, cancel the common
 intersection between the two boxes in \eqref{eq:box-formula} in two steps:
-first shift \(b'\) by \(m\) at fixed \(a\in[1-R,R]\), then shift \(a\) by \(k\)
-at fixed \(b'\in[1-S+m,S+m]\).  This writes \eqref{eq:box-formula} as
+first shift \(e\) by \(m\) at fixed \(a\in[1-R,R]\), then shift \(a\) by \(k\)
+at fixed \(e\in[1-S+m,S+m]\).  This writes \eqref{eq:box-formula} as
 \begin{equation}\label{eq:two-step-box}
  c_{R,S}(t;2k+1,2m+1)
  =\left(\prod_{j=1}^m\prod_{a=1-R}^R\frac{at+S+j}{at-S+j}\right)
-  \left(\prod_{i=1}^k\prod_{b'=1-S+m}^{S+m}\frac{(R+i)t+b'}{(-R+i)t+b'}\right).
+  \left(\prod_{i=1}^k\prod_{e=1-S+m}^{S+m}\frac{(R+i)t+e}{(-R+i)t+e}\right).
 \end{equation}
 Set \(x_{\mathrm{in}}:=2\varpi_{R,S}/b=R+S/t\), \(x_{\mathrm{out}}:=2\varpi_{R,-S}/b=R-S/t\),
 \(y_{\mathrm{in}}:=2\varpi_{R,S}b=Rt+S\), and \(y_{\mathrm{out}}:=2\varpi_{R,-S}b=Rt-S\).
@@ -1512,7 +1512,7 @@ Iterating \(\Gamma(z+1)=z\Gamma(z)\) therefore gives
  \prod_{a=1-R}^R\frac{a+(S+j)/t}{a+(-S+j)/t}
  &=\frac{\Gamma(1+x_{\mathrm{in}}+j/t)}{\Gamma(1-x_{\mathrm{out}}+j/t)}
    \frac{\Gamma(1-x_{\mathrm{in}}+j/t)}{\Gamma(1+x_{\mathrm{out}}+j/t)},\\
- \prod_{b'=1-S+m}^{S+m}\frac{(R+i)t+b'}{(-R+i)t+b'}
+ \prod_{e=1-S+m}^{S+m}\frac{(R+i)t+e}{(-R+i)t+e}
  &=\frac{\Gamma(1+y_{\mathrm{in}}+it+m)}{\Gamma(1+y_{\mathrm{out}}+it+m)}
    \frac{\Gamma(1-y_{\mathrm{in}}+it+m)}{\Gamma(1-y_{\mathrm{out}}+it+m)}.
 \end{align*}
@@ -1530,12 +1530,12 @@ interior, and \(d=h_{2k+1,2m+1}(b_\star)\in\mathcal{F}_{p,p'}(r,s)\).
  \item[(i)] For every primitive BGG arrow \(\mu\to\nu\) in
    \(\mathcal{O}_{p,p'}(r,s)\) with Kac label \((R,S)\), setting
    \(B_0:=[1-R,R]\times[1-S,S]\) and \(B_1:=[1-R+k,R+k]\times[1-S+m,S+m]\),
-   every factor \(pb'-p'a\) with \((a,b')\in(B_1\setminus B_0)\cup(B_0\setminus B_1)\)
+   every factor \(pe-p'a\) with \((a,e)\in(B_1\setminus B_0)\cup(B_0\setminus B_1)\)
    is nonzero.  Consequently,
    \begin{equation}\label{eq:reduced-box-mm}
     c_{R,S}\Bigl(-\frac{p'}{p};2k+1,2m+1\Bigr)
-    =\frac{\prod_{(a,b')\in B_1\setminus B_0}(pb'-p'a)}
-          {\prod_{(a,b')\in B_0\setminus B_1}(pb'-p'a)}
+    =\frac{\prod_{(a,e)\in B_1\setminus B_0}(pe-p'a)}
+          {\prod_{(a,e)\in B_0\setminus B_1}(pe-p'a)}
     \;\in\;\mathbb{Q}^\times
    \end{equation}
    is finite and nonzero.
@@ -1555,20 +1555,20 @@ interior, and \(d=h_{2k+1,2m+1}(b_\star)\in\mathcal{F}_{p,p'}(r,s)\).
 \end{proposition}
 
 \begin{proof}
-For~(i), since \(\gcd(p,p')=1\), \(pb'-p'a=0\) requires \(p\mid a\) and
-\(p'\mid b'\).  If \((a,b')\in B_1\setminus B_0\), then either
-\(a=R+i\) with \(1\leq i\leq k\) or \(b'=S+j\) with \(1\leq j\leq m\).
+For~(i), since \(\gcd(p,p')=1\), \(pe-p'a=0\) requires \(p\mid a\) and
+\(p'\mid e\).  If \((a,e)\in B_1\setminus B_0\), then either
+\(a=R+i\) with \(1\leq i\leq k\) or \(e=S+j\) with \(1\leq j\leq m\).
 By \eqref{eq:RS-mod} and \(k<\min(r,p-r)\), if \(a=R+i\) (\(1\leq i\leq k\))
 then \(a\equiv r+i\in\{r+1,\ldots,p-1\}\) (when \(R\equiv r\pmod p\)) or
 \(a\equiv p-r+i\in\{p-r+1,\ldots,p-1\}\) (when \(R\equiv p-r\pmod p\)), so
-\(p\nmid a\).  By the same check on \(b'=S+j\) (\(1\leq j\leq m\)) using
-\(m<\min(s,p'-s)\), we have \(p'\nmid b'\).  If
-\((a,b')\in B_0\setminus B_1\), then either \(a=i-R\) (\(1\leq i\leq k\)) or
-\(b'=j-S\) (\(1\leq j\leq m\)), and the same congruences give
+\(p\nmid a\).  By the same check on \(e=S+j\) (\(1\leq j\leq m\)) using
+\(m<\min(s,p'-s)\), we have \(p'\nmid e\).  If
+\((a,e)\in B_0\setminus B_1\), then either \(a=i-R\) (\(1\leq i\leq k\)) or
+\(e=j-S\) (\(1\leq j\leq m\)), and the same congruences give
 \(a\equiv i-r\) or \(i-(p-r)\in\{1-p,\ldots,-1\}\) (so \(p\nmid a\)) or
-\(p'\nmid b'\).  Thus \(pb'-p'a\neq0\) throughout both set differences.  Since
+\(p'\nmid e\).  Thus \(pe-p'a\neq0\) throughout both set differences.  Since
 \(|B_1\setminus B_0|=|B_0\setminus B_1|\), the common powers of \(p^{-1}\) in
-\(a(-p'/p)+b'=(pb'-p'a)/p\) cancel between numerator and denominator, giving
+\(a(-p'/p)+e=(pe-p'a)/p\) cancel between numerator and denominator, giving
 \eqref{eq:reduced-box-mm}.
 
 For~(ii), set \(z_\mu:=n_\mu/p'\) for each \(\mu\in\mathcal{O}_{p,p'}(r,s)\)
@@ -1924,10 +1924,10 @@ and \(2m\leq2\min(s,p'-s)-2\leq p'-2\).  We check
 the three obstructions for the active labels \((R,S)\) with \(1\leq S\leq m\):
 \begin{enumerate}
  \item \emph{No \(b\)-poles in \(\mathcal{R}_{R,S}(b,d(b))\) at \(b=b_\star\):}
-   the denominator factors of \(\mathcal{A}_{R,S}(b)\) are \(ab+b'b^{-1}=(at+b')/b\) with
-   \(1-S\leq b'\leq S\) and \((a,b')\neq(0,0)\).  At \(t_\star=-p'/p\),
-   \(pb'-p'a=0\) requires \(p'\mid b'\).  Since \(|b'|\leq S\leq m<p'/2\), this
-   forces \(b'=0\) and hence \(a=0\), which is excluded.
+   the denominator factors of \(\mathcal{A}_{R,S}(b)\) are \(ab+eb^{-1}=(at+e)/b\) with
+   \(1-S\leq e\leq S\) and \((a,e)\neq(0,0)\).  At \(t_\star=-p'/p\),
+   \(pe-p'a=0\) requires \(p'\mid e\).  Since \(|e|\leq S\leq m<p'/2\), this
+   forces \(e=0\) and hence \(a=0\), which is excluded.
  \item \emph{No primary collisions:}
    if \(h_{R_1,S_1}(b_\star)=h_{R_2,S_2}(b_\star)\) with
    \(1\leq S_1,S_2\leq m\), then \(p'R_1-pS_1=\pm(p'R_2-pS_2)\) implies

@@ -165,6 +165,22 @@ minimal models; Jantzen filtration; Ising model.
 
 \section{Introduction}
 
+Recursions in the internal weight \(\Delta\) compute Virasoro conformal
+blocks level by level without inverting the Shapovalov matrix, whose size at
+level \(N\) is the number of partitions of \(N\): Zamolodchikov's recursion
+for the sphere four-point block~\cite{Zamolodchikov1987} and Poghossian's
+recursion for the torus one-point block~\cite[\S5]{Poghossian2009}.  Write
+\(c=1+6(b+b^{-1})^2\).  At rational \(b^2\), and so at every minimal-model
+charge \(b_\star^2=-p'/p\), both recursions break down: different Kac labels
+give the same weight, and individual residues have poles in \(b\).  The block
+coefficients are still well defined there.  Ribault calls a recursion at
+rational \(b^2\) an open problem whose simplest case is the torus one-point
+block~\cite[\S4.3.3]{Ribault2026}.  For both blocks and every fixed
+\(b_\star\neq0\), this paper computes the principal parts of the block
+coefficients by a finite calculation in the generic residue data.  At
+minimal-model charges it bounds their pole orders at the interior Kac weights
+and shows that the bound is attained for indeterminate external weights.
+
 The one-point function of a primary field on a torus with modular parameter
 \(\tau\) must transform covariantly under \(\tau\mapsto-1/\tau\).  Together
 with crossing symmetry of the sphere four-point function, this is one of the
@@ -179,16 +195,14 @@ external weight \(d\) is a power series in \(q\).  Its coefficient \(F_N\)
 pairs the level-\(N\) subspace of the Verma module \(M(c,\Delta)\) with itself
 through the inverse Shapovalov matrix and the matrix elements of a primary
 field of weight \(d\).  Multiplying the series by
-\(\prod_{m\geq1}(1-q^m)\) gives the eta-reduced coefficients \(H_N\).  Write
-\(c=1+6(b+b^{-1})^2\).  For generic \(b\), each \(H_N\) has only simple poles
+\(\prod_{m\geq1}(1-q^m)\) gives the eta-reduced coefficients \(H_N\).  For
+generic \(b\), each \(H_N\) has only simple poles
 in \(\Delta\), at the Kac weights \(h_{r,s}(b)\) with \(rs\leq N\), and the
 residues satisfy Poghossian's recursion~\cite[\S5]{Poghossian2009}, derived
 in~\cite[\S3]{HadaszJaskolskiSuchanek2010};\footnote{The recursion is (5.3)--(5.7) of~\cite{Poghossian2009} and (7)--(9) of~\cite{HadaszJaskolskiSuchanek2010}.} see
 \cite[\S2.2]{PoghosyanPoghosyan2026} for the light limit \(b\to0\) at fixed
-weights.  The recursion computes \(H_N\) from lower coefficients without
-inverting the Shapovalov matrix, whose size at level \(N\) is the number of
-partitions of \(N\).  Zamolodchikov's recursion does the same for the sphere
-four-point block~\cite{Zamolodchikov1987}: the block is an explicit elliptic
+weights.  Zamolodchikov's recursion for the sphere four-point block works the
+same way~\cite{Zamolodchikov1987}: the block is an explicit elliptic
 prefactor times a series \(\sum_NH_N(16q)^N\) in the nome, each \(H_N\) has
 simple poles at the Kac weights with residues given by lower coefficients,
 and the large-weight limit \(H_N\to\delta_{N,0}\) fixes the remaining
@@ -196,16 +210,9 @@ polynomial part~\cite[Theorem~3.1]{PolzerLargeWeight2026}.  Numerical
 bootstrap computations use Zamolodchikov's recursions to compute sphere
 blocks to high order~\cite[\S4.3]{Ribault2026}.
 
-The recursions break down at rational \(b^2\).  There two things go wrong:
-different Kac labels give the same weight, and individual residues have poles
-in \(b\).  Every minimal-model charge, \(b_\star^2=-p'/p\), is of this kind.
-The block coefficients are still well defined there.  Ribault calls a
-recursion at rational \(b^2\) an open problem whose simplest case is the
-torus one-point block~\cite[\S4.3.3]{Ribault2026}.  By \emph{confluence} we
-mean passing to the limit \(b\to b_\star\) in the generic recursion after
-grouping the terms whose poles collide.
-
-At every fixed \(b_\star\neq0\), Theorem~\ref{thm:general-confluence} gives the
+By \emph{confluence} we mean passing to the limit \(b\to b_\star\) in the
+generic recursion after grouping the terms whose poles collide.  At every
+fixed \(b_\star\neq0\), Theorem~\ref{thm:general-confluence} gives the
 coefficients of the torus block at internal weight \(\Delta\), for \(N\geq1\):
 \begin{equation}\label{eq:intro-main}
  \begin{aligned}
@@ -799,7 +806,7 @@ and \(\Lambda^2=(b+b^{-1})^2-4d\), define
 \]
 and \({\mathcal R}_{r,s}(b,d)={\mathcal A}_{r,s}(b){\mathcal N}_{r,s}(b,d)\),
 where
-\({\mathcal A}_{r,s}(b)=\frac12\prod_{(a,b')\in[1-r,r]\times[1-s,s]\setminus\{(0,0),(r,s)\}}(ab+b'b^{-1})^{-1}\).
+\({\mathcal A}_{r,s}(b)=\frac12\prod_{(a,e)\in[1-r,r]\times[1-s,s]\setminus\{(0,0),(r,s)\}}(ab+eb^{-1})^{-1}\).
 \end{definition}
 
 \begin{proposition}[Crossing scalar and torus norm of singular vectors]
@@ -858,9 +865,9 @@ here \(r\mp u\neq0\), because \(r=u\) would force \(s+v=0\) and
 \(r+u>0\).  Similarly
 \(h_{r,s}=h_{u,v}\) means \((r\mp u)b^2=\pm v-s\); as an identity this
 forces \((r,s)=(u,v)\), and at a point with \((r,s)\neq(u,v)\) it forces
-\(b^2\in\mathbb Q\).  Each factor \(ab+b'b^{-1}\) of
+\(b^2\in\mathbb Q\).  Each factor \(ab+eb^{-1}\) of
 \({\mathcal A}_{r,s}\) is finite at \(b_\star\neq0\), and it vanishes only
-if \(a\neq0\) and \(b_\star^2=-b'/a\).
+if \(a\neq0\) and \(b_\star^2=-e/a\).
 \end{proof}
 
 \begin{proposition}[Generic eta-reduced recursion]
@@ -928,8 +935,8 @@ Write \(\varphi(x,y)=xb+yb^{-1}\) and \(B=[1-r,r]\times[1-s,s]\).  Since
 \({\mathcal N}_{r,s}\) in Definition~\ref{def:generic-residue} are
 \(\frac14(\varphi(1,1)^2-\varphi(k,\pm l)^2)
 =\frac14\varphi(1-k,1\mp l)\varphi(1+k,1\pm l)\), and over the odd \(k,l\) and
-both signs these products run once over \(\varphi(2a,2b')\),
-\((a,b')\in B\).  The factor with \((k,\pm l)=(1,1)\) equals \(-d\).  Hence
+both signs these products run once over \(\varphi(2a,2e)\),
+\((a,e)\in B\).  The factor with \((k,\pm l)=(1,1)\) equals \(-d\).  Hence
 every \({\mathcal R}_{r,s}\) vanishes at \(d=0\), and comparison with
 \({\mathcal A}_{r,s}\), whose product runs over
 \(B\setminus\{(0,0),(r,s)\}\), gives
@@ -2882,66 +2889,71 @@ treated in~\cite{PolzerTraces2026}.
 
 We keep the notation of Proposition~\ref{prop:h13-nonvanishing}; in
 particular \(t=b^2\), \(\Delta=Y/t^2\), and \(\nu\in\{1,2\}\) indexes the two
-external weights \(d_1=h_{1,3}(b)\) and \(d_2=h_{1,-3}(b)\).  Partitions are
-denoted \(Z,Z'\), and \(\delta i\), \(\delta j\) denote increments of the
-exponents \(i\) and \(j\) in \([t^iY^j]\).
+external weights \(d_1=h_{1,3}(b)\) and \(d_2=h_{1,-3}(b)\).  Write
+\(c(b)=6/t+13+6t\) and \(d=-2/t+\zeta\), so that \(d_1\) and \(d_2\) are the
+values \(\zeta=-1\) and \(\zeta=2\).  Partitions are denoted \(Z,Z'\); for
+\(Z=(1^{m_1}2^{m_2}\cdots)\) put \(K_Z=\prod_{n\geq1}m_n!(2n)^{m_n}\), and put
+\(K_M=\prod_{Z\vdash M}K_Z\).  In the proof of Lemma~\ref{lem:level-poly},
+\(\delta i\) and \(\delta j\) denote increments of the exponents \(i\) and
+\(j\) in \([t^iY^j]\).
 
-\begin{proof}[Proof of Proposition~\ref{prop:h13-nonvanishing}(i)--(ii)]
-Both parts rest on a count of modes.  After the rescaling by
-\(t^{\ell(Z)+\ell(Z')}\) and \(\Delta=Y/t^2\), the Gram matrix at level \(M\)
-has entries in \(\mathbb Z[\tfrac12][t,Y]\) and is diagonal at \(t=0\), and,
-with \(d=-2/t+\zeta\), the torus matrix has entries in
-\(\mathbb Z[\tfrac12][t,Y,\zeta]\) and does not depend on \(\zeta\) at
-\(t=0\).  Part~(i) follows from this
-structure and the Kac determinant formula.  For part~(ii) we
-expand the inverse Gram matrix as a series in \(t\) around its diagonal part,
-write each partition of \(M\) as \(1^a\) together with a partition with parts
-at least \(2\), and show that only finitely many configurations contribute to
-a given coefficient \([t^iY^j]\), each by a polynomial in \(M\) of degree at
-most \(2i+2j\).
+Both parts rest on a count of modes (Lemma~\ref{lem:mode-count}): after a
+rescaling by powers of \(t\), the Gram matrix at level \(M\) has entries in
+\(\mathbb Z[\tfrac12][t,Y]\) and is diagonal at \(t=0\), and the torus matrix
+does not depend on \(\zeta\) at \(t=0\).  Part~(i) follows from this, the Kac
+determinant formula, and a Fock-space factorization of the Gram matrix that
+keeps odd primes out of the denominators (Lemma~\ref{lem:odd-primes}).  For
+part~(ii) we expand the inverse Gram matrix as a series in \(t\) around its
+diagonal part, write each partition of \(M\) as \(1^a\) together with a
+partition with parts at least \(2\), and show that only finitely many
+configurations contribute to a given coefficient \([t^iY^j]\), each by a
+polynomial in \(M\) of degree at most \(2i+2j\) (Lemma~\ref{lem:level-poly}).
 
-(i) At \(d_1=h_{1,3}(b)\) and \(d_2=h_{1,-3}(b)\) one has
-\(\Lambda^2=(b\pm3b^{-1})^2\), so the factor \((k,l)=(1,3)\) in
-Definition~\ref{def:generic-residue} vanishes for every \(v\geq2\) and
-\({\mathcal R}_{u,v}(b,d_\nu)=0\) (\(v\geq2\)).  By
-Proposition~\ref{prop:generic-recursion} and induction on \(M\),
-\(H_M(c(b),\Delta,d_\nu)\) has at most simple poles in \(\Delta\), all at
-\(h_{u,1}(b)\) (\(1\leq u\leq M\)), so \(P_M^{(\nu)}(t,Y)\in\mathbb Q(t)[Y]\)
-has \(Y\)-degree at most \(M-1\).
-Write \(c(b)=6/t+13+6t\), \(\Delta=Y/t^2\), and \(d=-2/t+\zeta\).  Since
-\(6\mid(m^3-m)\) and \(c(b)/2\in\mathbb Z[\tfrac12][t,t^{-1}]\), the entries of
+\begin{lemma}[Mode count]\label{lem:mode-count}
+For \(Z,Z'\vdash M\) put
+\(\widetilde G_{Z,Z'}=t^{\ell(Z)+\ell(Z')}G_{M}(c(b),Y/t^2)_{Z,Z'}\) and
+\(\widetilde\rho_{Z,Z'}=t^{\ell(Z)+\ell(Z')}\rho_{M}(c(b),Y/t^2,-2/t+\zeta)_{Z,Z'}\).
+Then
+\[
+ \widetilde G(t,Y)=D_0(Y)+tG_1(t,Y),\qquad
+ D_0(Y)=\operatorname{diag}\bigl(K_ZY^{\ell(Z)}\bigr)_{Z\vdash M},
+\]
+with \(G_1\in\operatorname{Mat}_{p(M)}(\mathbb Z[\tfrac12][t,Y])\), and
+\(\widetilde\rho\in\operatorname{Mat}_{p(M)}(\mathbb Z[\tfrac12][t,Y,\zeta])\) with
+\(\widetilde\rho(0,Y;\zeta)\) independent of \(\zeta\).
+\end{lemma}
+
+\begin{proof}
+Since \(6\mid(m^3-m)\) and \(c(b)/2\in\mathbb Z[\tfrac12][t,t^{-1}]\), the entries of
 \(G_M\) and \(\rho_M\) lie in \(\mathbb Z[\tfrac12][t,t^{-1},\Delta]\) and
-\(\mathbb Z[\tfrac12][t,t^{-1},\Delta,\zeta]\).  For \(Z,Z'\vdash M\),
-put \(\widetilde G_{Z,Z'}=t^{\ell(Z)+\ell(Z')}G_{M,Z,Z'}\)
-and \(\widetilde\rho_{Z,Z'}=t^{\ell(Z)+\ell(Z')}\rho_{M,Z,Z'}\).
+\(\mathbb Z[\tfrac12][t,t^{-1},\Delta,\zeta]\).
 In \(G_{M,Z,Z'}\), every \(\Delta\) or \(c\) consumes at least two
 modes, so \(2(d_\Delta+d_c)\leq\ell(Z)+\ell(Z')\); since
 \(\Delta=Y/t^2\) and \(c=O(t^{-1})\), a \(t^0\)-term requires
 \(2d_\Delta+d_c=\ell(Z)+\ell(Z')\), forcing \(d_c=0\) and direct
-opposite-mode contractions only, hence \(Z=Z'\).  Thus
-\(\widetilde G(t,Y)=D_0(Y)+tG_1(t,Y)\in\operatorname{Mat}_{p(M)}(\mathbb Z[\tfrac12][t,Y])\)
-with \(D_0(Y)=\operatorname{diag}(K_Z Y^{\ell(Z)})\),
-\(K_Z=\prod_{n\geq1}m_n!(2n)^{m_n}\) for \(Z=(1^{m_1}2^{m_2}\cdots)\).
+opposite-mode contractions only, hence \(Z=Z'\).  This gives the form of
+\(\widetilde G\).
 In \(\rho_{M,Z,Z'}\), each \(d\) consumes at least one mode and each
 \(\Delta\) or \(c\) at least two, so
-\(d_d+2d_\Delta+d_c\leq\ell(Z)+\ell(Z')\), giving
-\(\widetilde\rho\in\operatorname{Mat}_{p(M)}(\mathbb Z[\tfrac12][t,Y,\zeta])\)
-with \(\widetilde\rho(0,Y;\zeta)\) independent of \(\zeta\).  Thus
-\(F_M=\Tr(\widetilde G^{-1}\widetilde\rho)\) and
-\(H_M=\sum_s\eta_sF_{M-s}\) lie in \(\mathbb Q(Y)[[t]]\) with \(t=0\) value
-independent of \(\zeta\).  Since
-\(t^{2M}\prod_{u=1}^M(2\Delta-2h_{u,1})=\prod_{u=1}^M(2Y+(u-1)t^2+\tfrac{u^2-1}{2}t^3)\),
-\(P_M^{(\nu)}\) is regular at \(t=0\), \(P_M^{(2)}(0,Y)=P_M^{(1)}(0,Y)\), and
-\(P_M^{(\nu)}(0,Y)=M!(2Y)^M\sum_{s=0}^M\eta_s\sum_{Z\vdash M-s}
-(K_Z Y^{\ell(Z)})^{-1}\widetilde\rho^{(M-s)}(0,Y)_{Z,Z}\).
-Only \((s,Z)=(0,(1^M))\) has \(M-\ell(Z)=0\), where
-\(M!2^M/K_{(1^M)}=1\) and \(\widetilde\rho^{(M)}(0,0)_{(1^M),(1^M)}=(-2)^{2M}=4^M\)
-(proof of Lemma~\ref{lem:singular-degree}), so \(P_M^{(\nu)}(0,0)=4^M\).
-Also, \(\det G_M=K_M\prod_{uv\leq M}(\Delta-h_{u,v})^{p(M-uv)}\)
-(\(K_M=\prod_{Z\vdash M}K_Z\)); Cramer's rule and monic division
-by \(\Delta-h_{u,v}\in\mathbb Z[\tfrac12][t,t^{-1}][\Delta]\) give
-\(K_MP_M^{(\nu)}\in\mathbb Z[\tfrac12][t,t^{-1},Y]\), hence
-\(P_M^{(\nu)}\in\mathbb Q[t,Y]\).  To clear odd primes, adjoin \(q_0\) with
+\(d_d+2d_\Delta+d_c\leq\ell(Z)+\ell(Z')\), giving the form of
+\(\widetilde\rho\).
+\end{proof}
+
+\begin{lemma}[No odd primes in the inverse Gram matrices]\label{lem:odd-primes}
+Let \(\varpi\) be an odd prime.  There are a discrete valuation ring
+\({\mathcal S}_{\mathfrak p}\) with uniformizer \(\varpi\) that contains
+\(\mathbb Z_{(\varpi)}[b,b^{-1}]\), and elements \(q_0,\alpha\in{\mathcal S}_{\mathfrak p}\) with
+\(c(b)=1-12q_0^2\) and \(\Delta=\frac12\alpha(\alpha-2q_0)\), such that
+\(t=b^2\) and \(Y=\frac12b^4\alpha(\alpha-2q_0)\) are algebraically independent
+over \(\mathbb F_\varpi\) in the residue field and, for every \(M\geq0\),
+\[
+ M!\,G_{M-s}\bigl(c(b),\Delta\bigr)^{-1}\in\operatorname{Mat}_{p(M-s)}({\mathcal S}_{\mathfrak p})
+ \qquad(0\leq s\leq M).
+\]
+\end{lemma}
+
+\begin{proof}
+Adjoin \(q_0\) with
 \(q_0^2=-(b+b^{-1})^2/2\) (\(c(b)=1-12q_0^2\)) and \(\alpha\) with
 \(\Delta=\frac12\alpha(\alpha-2q_0)\).  On the Fock module
 \({\mathcal H}(\alpha)\) (\([a_m,a_n]=m\delta_{m+n,0}\),
@@ -2953,50 +2965,45 @@ charge \(c(b)\) and weight \(\Delta\).  Under the contravariant pairing between
 \(L_n^\dagger=L_{-n}\) and
 \(\langle2q_0-\alpha|(a_{-Z})^\dagger a_{-Z'}|\alpha\rangle
 =\delta_{Z,Z'}(-1)^{\ell(Z)}\prod_n m_n!n^{m_n}\).  Hence
-\(G_M=B_M(q_0,2q_0-\alpha)^TD_MB_M(q_0,\alpha)\), where
+\[
+ G_M=B_M(q_0,2q_0-\alpha)^TD_MB_M(q_0,\alpha),\qquad
+ D_M=\operatorname{diag}\Bigl((-1)^{\ell(Z)}\prod_n m_n!n^{m_n}\Bigr),
+\]
+where
 \(B_M(q_0,\alpha)\in\operatorname{Mat}_{p(M)}(\mathbb Z[\tfrac12][q_0,\alpha])\)
-expresses \(L_{-Z}|\alpha\rangle\) in \(a_{-Z'}|\alpha\rangle\) and
-\(D_M=\operatorname{diag}((-1)^{\ell(Z)}\prod_n m_n!n^{m_n})\).  Since
-\(|\det D_M|=2^{-\sum_Z\ell(Z)}K_M\), taking determinants gives
+expresses \(L_{-Z}|\alpha\rangle\) in \(a_{-Z'}|\alpha\rangle\).  Since
+\(|\det D_M|=2^{-\sum_Z\ell(Z)}K_M\) and
+\(\det G_M=K_M\prod_{uv\leq M}(\Delta-h_{u,v})^{p(M-uv)}\), taking determinants gives
 \(\det B_M(q_0,2q_0-\alpha)\det B_M(q_0,\alpha)
 =\pm2^{\sum\ell(Z)}\prod_{uv\leq M}(\Delta-h_{u,v})^{p(M-uv)}\), whose
-leading \(\alpha\)-coefficient is a power of \(2\).  Fix an odd prime \(\varpi\),
-put \(R=\mathbb Z_{(\varpi)}[b,b^{-1},\alpha]_{(\varpi)}\) (a DVR where
+leading \(\alpha\)-coefficient is a power of \(2\).  Put
+\(R=\mathbb Z_{(\varpi)}[b,b^{-1},\alpha]_{(\varpi)}\) (a DVR where
 \(b+b^{-1}\) is a unit), and let \(\mathfrak p\) be a prime above \((\varpi)\) in
 \({\mathcal S}=R[q_0]\) (finite \'etale over \(R\) as \(u=q_0/(b+b^{-1})\)
 satisfies \(u^2=-\tfrac12\)).  Then \({\mathcal S}_{\mathfrak p}\) is a DVR
 with uniformizer \(\varpi\) in which \(\det B_M(q_0,\alpha)\) and
-\(\det B_M(q_0,2q_0-\alpha)\) are units.  By Lagrange's theorem for the
+\(\det B_M(q_0,2q_0-\alpha)\) are units, and \(t=b^2\) and
+\(Y=\frac12b^4\alpha(\alpha-2q_0)\) are algebraically independent over
+\(\mathbb F_\varpi\) in \({\mathcal S}_{\mathfrak p}/\mathfrak p{\mathcal S}_{\mathfrak p}\).
+By Lagrange's theorem for the
 centralizer of cycle type \(Z\) in \(S_M\),
 \(\prod_n m_n!n^{m_n}\mid M!\), so
-\(M!D_M^{-1}\in\operatorname{Mat}_{p(M)}(\mathbb Z)\) and
+\(M!D_M^{-1}\in\operatorname{Mat}_{p(M)}(\mathbb Z)\), and
 \(M!G_{M-s}^{-1}\in\operatorname{Mat}_{p(M-s)}({\mathcal S}_{\mathfrak p})\)
-for all \(0\leq s\leq M\) (as \((M-s)!\mid M!\)).  Hence
-\(P_M^{(\nu)}(t,Y)\in{\mathcal S}_{\mathfrak p}\cap\mathbb Q[t,Y]
-=\mathbb Z_{(\varpi)}[t,Y]\) (since \(t=b^2\) and
-\(Y=\frac12b^4\alpha(\alpha-2q_0)\) are algebraically independent over
-\(\mathbb F_\varpi\) in \({\mathcal S}_{\mathfrak p}/\mathfrak p{\mathcal S}_{\mathfrak p}\));
-as \(\varpi\) was arbitrary, \(P_M^{(\nu)}(t,Y)\in\mathbb Z[\tfrac12][t,Y]\).
+for all \(0\leq s\leq M\) because \((M-s)!\mid M!\).
+\end{proof}
 
-(ii) Factor
-\(\prod_{u=1}^M(2Y+(u-1)t^2+\tfrac{u^2-1}{2}t^3)
-=(2Y)^M\prod_{u=1}^M(1+\tfrac{u-1}{2}\tfrac{t^2}{Y}+\tfrac{u^2-1}{4}\tfrac{t^3}{Y})\).
-Each \([t^aY^{-b}]\) of the normalized product is a polynomial in \(M\) of
-degree at most \(2a-2b\) for all \(M\geq0\) (since \(\sum_{u=1}^M(u-1)\) and
-\(\sum_{u=1}^M(u^2-1)\) have degrees \(2\) and \(3\leq4\) and vanish at
-\(M=0\)).
-
-Put
+\begin{lemma}[Level polynomiality]\label{lem:level-poly}
+For \(\zeta\in\{-1,2\}\) put
 \[
- R_M(t,Y):=(M!/2^M)Y^MF_M(c(b),Y/t^2,-2/t+\zeta)\qquad(\zeta\in\{-1,2\}).
+ R_M(t,Y):=(M!/2^M)Y^MF_M(c(b),Y/t^2,-2/t+\zeta).
 \]
-Then
-\((M!/2^M)Y^MH_M=\sum_{s\geq0}\eta_s\,M(M-1)\cdots(M-s+1)(Y/2)^sR_{M-s}\),
-where \(M(M-1)\cdots(M-s+1)\) has degree \(s\leq2s\) and vanishes for
-\(0\leq M<s\), so it suffices to show that each \([t^iY^j]R_M\) (\(i\geq0\),
-\(j\in\mathbb Z\)) is a polynomial in \(M\) of degree at most \(2i+2j\) for all
-\(M\geq0\).
+For every \(i\geq0\) and \(j\in\mathbb Z\), the coefficient \([t^iY^j]R_M\) is a
+polynomial in \(M\) of degree at most \(2i+2j\), valid for all \(M\geq0\).
+\end{lemma}
 
+\begin{proof}
+In the notation of Lemma~\ref{lem:mode-count}, \(F_M=\Tr(\widetilde G^{-1}\widetilde\rho)\).
 Expand
 \[
  R_M=(M!/2^M)Y^M\sum_{r\geq0}(-t)^r\Tr\bigl(D_0^{-1}(G_1D_0^{-1})^r\widetilde\rho\bigr);
@@ -3011,8 +3018,8 @@ and \(a_m=M-w_m\), so
 (\(0\leq m<r\)), the subtracted diagonal (\(Z_m=Z_{m+1}\),
 \(p_m=q_m=0\)) has degree \(0\); for the \(\widetilde G\)-term, applying
 \(L_1^{a_m}X=\sum_{p_m}\binom{a_m}{p_m}(\operatorname{ad}(L_1)^{p_m}X)L_1^{a_m-p_m}\)
-and \(L_1^kL_{-1}^b|\Delta\rangle=(b!/q!)(\prod_{s=q}^{b-1}(2\Delta+s))L_{-1}^q|\Delta\rangle\)
-(\(k=a_m-p_m\), \(q=b-k\)) yields a sum over \(p_m,q_m\geq0\) with
+and \(L_1^kL_{-1}^n|\Delta\rangle=(n!/q!)(\prod_{s=q}^{n-1}(2\Delta+s))L_{-1}^q|\Delta\rangle\)
+(\(k=a_m-p_m\), \(q=n-k\)) yields a sum over \(p_m,q_m\geq0\) with
 \(p_m-q_m=w_{m+1}-w_m\) of
 \begin{multline*}
  \frac{\binom{a_m}{p_m}}{q_m!\,2^{q_m}K_{\bar Z_{m+1}}}
@@ -3031,14 +3038,14 @@ monomial in the bracket satisfies
 \(L_{\bar Z_r}\) (\(p_1\) times) and \(L_{-1}^{a_0}\) past \(L_{-\bar Z_0}\)
 (\(q_1\) times), and apply the \(\mathfrak{sl}_2\) identities below, which
 are proved by induction on the exponent; the contravariant adjoint of the
-first one moves \(L_{-1}^{b'-k_r}\) past \(V_d(1)\):
+first one moves \(L_{-1}^{n-k_r}\) past \(V_d(1)\):
 \begin{align*}
  \langle v|L_1^{a'}V_d(1)|W\rangle
  &=\sum_{m_L=0}^{a'}\tbinom{a'}{m_L}\!\Bigl(\prod_{u=0}^{m_L-1}(d+h_v-h_W+a'-1-u)\Bigr)
    \langle v|V_d(1)L_1^{a'-m_L}|W\rangle,\\
- L_1^{\tilde r}L_{-1}^{b'}
- &=\sum_{k_r=0}^{\min(\tilde r,b')}\!\tbinom{\tilde r}{k_r}\tfrac{b'!}{(b'-k_r)!}\,
-   L_{-1}^{b'-k_r}\!\Bigl(\prod_{u=0}^{k_r-1}(2L_0+b'+\tilde r-k_r-1-u)\Bigr)L_1^{\tilde r-k_r}.
+ L_1^{\tilde r}L_{-1}^{n}
+ &=\sum_{k_r=0}^{\min(\tilde r,n)}\!\tbinom{\tilde r}{k_r}\tfrac{n!}{(n-k_r)!}\,
+   L_{-1}^{n-k_r}\!\Bigl(\prod_{u=0}^{k_r-1}(2L_0+n+\tilde r-k_r-1-u)\Bigr)L_1^{\tilde r-k_r}.
 \end{align*}
 This yields a sum over \(p_1,q_1,p_2,q_2,k_r\geq0\).  Put
 \(p_r^*=p_1+p_2\), \(q_r^*=q_1+q_2\), \(s_L=a_r-k_r-p_r^*\) and
@@ -3087,6 +3094,61 @@ union contains every level
 \(0\leq M<\max(w_m+p_m,w_r+p_r^*+k_r,w_0+q_r^*+k_r)\) at which the tuple is
 absent.  So the finite sum is a single polynomial in \(M\) for all
 \(M\geq0\).
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{prop:h13-nonvanishing}(i)--(ii)]
+(i) At \(d_1=h_{1,3}(b)\) and \(d_2=h_{1,-3}(b)\) one has
+\(\Lambda^2=(b\pm3b^{-1})^2\), so the factor \((k,l)=(1,3)\) in
+Definition~\ref{def:generic-residue} vanishes for every \(v\geq2\) and
+\({\mathcal R}_{u,v}(b,d_\nu)=0\) (\(v\geq2\)).  By
+Proposition~\ref{prop:generic-recursion} and induction on \(M\),
+\(H_M(c(b),\Delta,d_\nu)\) has at most simple poles in \(\Delta\), all at
+\(h_{u,1}(b)\) (\(1\leq u\leq M\)), so \(P_M^{(\nu)}(t,Y)\in\mathbb Q(t)[Y]\)
+has \(Y\)-degree at most \(M-1\).
+By Lemma~\ref{lem:mode-count},
+\(F_M=\Tr(\widetilde G^{-1}\widetilde\rho)\) and
+\(H_M=\sum_s\eta_sF_{M-s}\) lie in \(\mathbb Q(Y)[[t]]\) with \(t=0\) value
+independent of \(\zeta\).  Since
+\(t^{2M}\prod_{u=1}^M(2\Delta-2h_{u,1})=\prod_{u=1}^M(2Y+(u-1)t^2+\tfrac{u^2-1}{2}t^3)\),
+\(P_M^{(\nu)}\) is regular at \(t=0\), \(P_M^{(2)}(0,Y)=P_M^{(1)}(0,Y)\), and
+\(P_M^{(\nu)}(0,Y)=M!(2Y)^M\sum_{s=0}^M\eta_s\sum_{Z\vdash M-s}
+(K_Z Y^{\ell(Z)})^{-1}\widetilde\rho^{(M-s)}(0,Y)_{Z,Z}\).
+Only \((s,Z)=(0,(1^M))\) has \(M-\ell(Z)=0\), where
+\(M!2^M/K_{(1^M)}=1\) and \(\widetilde\rho^{(M)}(0,0)_{(1^M),(1^M)}=(-2)^{2M}=4^M\)
+(proof of Lemma~\ref{lem:singular-degree}), so \(P_M^{(\nu)}(0,0)=4^M\).
+
+By the Kac determinant formula,
+\(\det G_M=K_M\prod_{uv\leq M}(\Delta-h_{u,v})^{p(M-uv)}\); Cramer's rule and
+monic division by \(\Delta-h_{u,v}\in\mathbb Z[\tfrac12][t,t^{-1}][\Delta]\) give
+\(K_MP_M^{(\nu)}\in\mathbb Z[\tfrac12][t,t^{-1},Y]\), hence
+\(P_M^{(\nu)}\in\mathbb Q[t,Y]\).  Let \(\varpi\) be an odd prime and
+\({\mathcal S}_{\mathfrak p}\) as in Lemma~\ref{lem:odd-primes}.  In
+\[
+ P_M^{(\nu)}=t^{2M}\prod_{u=1}^M\bigl(2\Delta-2h_{u,1}(b)\bigr)
+ \sum_{s=0}^M\eta_s\Tr\bigl(M!\,G_{M-s}^{-1}\rho_{M-s}\bigr),
+\]
+the entries of \(\rho_{M-s}\) lie in
+\(\mathbb Z[\tfrac12][t,t^{-1},\Delta,\zeta]\subset{\mathcal S}_{\mathfrak p}\)
+(\(\zeta\in\{-1,2\}\)), and so does the prefactor.  Lemma~\ref{lem:odd-primes}
+then gives
+\(P_M^{(\nu)}(t,Y)\in{\mathcal S}_{\mathfrak p}\cap\mathbb Q[t,Y]
+=\mathbb Z_{(\varpi)}[t,Y]\), the equality because \(t\) and \(Y\) are
+algebraically independent over \(\mathbb F_\varpi\) in the residue field.  As
+\(\varpi\) was arbitrary, \(P_M^{(\nu)}(t,Y)\in\mathbb Z[\tfrac12][t,Y]\).
+
+(ii) Factor
+\(\prod_{u=1}^M(2Y+(u-1)t^2+\tfrac{u^2-1}{2}t^3)
+=(2Y)^M\prod_{u=1}^M(1+\tfrac{u-1}{2}\tfrac{t^2}{Y}+\tfrac{u^2-1}{4}\tfrac{t^3}{Y})\).
+Each \([t^aY^{-b}]\) of the normalized product is a polynomial in \(M\) of
+degree at most \(2a-2b\) for all \(M\geq0\) (since \(\sum_{u=1}^M(u-1)\) and
+\(\sum_{u=1}^M(u^2-1)\) have degrees \(2\) and \(3\leq4\) and vanish at
+\(M=0\)).  With \(R_M\) as in Lemma~\ref{lem:level-poly},
+\((M!/2^M)Y^MH_M=\sum_{s\geq0}\eta_s\,M(M-1)\cdots(M-s+1)(Y/2)^sR_{M-s}\),
+where \(M(M-1)\cdots(M-s+1)\) has degree \(s\leq2s\) and vanishes for
+\(0\leq M<s\).  By Lemma~\ref{lem:level-poly}, each \([t^iY^j]\) of
+\((M!/2^M)Y^MH_M\) is therefore a polynomial in \(M\) of degree at most
+\(2i+2j\) for all \(M\geq0\).  Since \(P_M^{(\nu)}/4^M\) is the product of the
+normalized product above and \((M!/2^M)Y^MH_M\), part~(ii) follows.
 \end{proof}
 
 \section*{AI-use disclosure}

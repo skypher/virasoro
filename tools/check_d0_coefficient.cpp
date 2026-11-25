@@ -1,7 +1,7 @@
-// paper.tex Section 6.2.  Search for two-vector levels where the d^{k+1} coefficient at d = 0 of the
-// top-layer polynomial P_N(d) (torus paper eq. (5.1)) vanishes.
+// paper.tex (colliding poles) Section 9.  Search for two-vector levels where the d^{k+1} coefficient at d = 0 of the
+// top-layer polynomial P_N(d) (eq. (8.1)) vanishes.
 //
-// By Prop 6.7, N^pm_k/gamma^pm_k = c_k (pm rho)^k d^k + O(d^{k+1}); by Lemma 6.5,
+// By Prop 9.1, N^pm_k/gamma^pm_k = c_k (pm rho)^k d^k + O(d^{k+1}); by Lemma 6.5,
 // H_M(c_star, mu, d) = d * dH_M + O(d^2) with
 //   dH_M = (2pp'/(p-p')) * f(M, m),  f(M, m) = sum_{r's'=M} x/(m^2-x^2),  x = p'r'-ps',
 // where mu = (m^2-(p'-p)^2)/(4pp').  Hence
@@ -10,7 +10,7 @@
 // G := f(M+, m+) + (-1)^k f(M-, m-) is zero, and a heartbeat per (p,p').
 //
 // Build: clang++ -O3 -march=native -o check_d0_coefficient tools/check_d0_coefficient.cpp -lgmpxx -lgmp
-// Usage: ./check_d0_coefficient 13 3   (paper, Section 6.2: 528180 levels, 0 zeros, about 5 s)
+// Usage: ./check_d0_coefficient 13 3   (paper, Section 9: 528180 levels, 0 zeros, about 5 s)
 #include <gmpxx.h>
 #include <cstdio>
 #include <cstdlib>

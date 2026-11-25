@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""Exact check of the Lee--Yang level-four example in Section 6.2 of paper.tex.
+"""Exact check of the Lee--Yang level-four example in Section 9 of paper.tex (colliding poles).
 
 Lee--Yang charge (p,p') = (2,5), c = -22/5, interior weight lambda = h_{1,2} = -1/5.
 The first Jantzen layer has singular vectors at levels 2 and 3, the second layer
 starts at level 9, so N = 4 is the lowest level on which both first-layer vectors
-contribute to the top coefficient (Theorem 5.9, eq. (5.1)).
+contribute to the top coefficient (Theorem 8.2, eq. (8.1)).
 
 The script computes H_N(c, Delta, d) for N <= 4 by inverting the Shapovalov
 matrix (tools/exact_shapovalov.py), reads off the Jantzen norms from levels 2
 and 3, checks the top-layer formula at level 4, compares the Jantzen norms with
-Proposition 6.7, and prints the two summands of the top coefficient at
+Proposition 9.1, and prints the two summands of the top coefficient at
 d_1 = h_{1,3}(b_star) = -1/5 with their 5-adic valuations (Case 2 of the proof of
-Proposition 6.9).  Every check prints PASS or FAIL; the exit code is the number
+Proposition 9.3).  Every check prints PASS or FAIL; the exit code is the number
 of failures.
 
 Usage: python3 -u tools/check_leeyang_level4_example.py
@@ -104,12 +104,12 @@ def main():
     lin_p = sp.Poly(sp.expand(Np / gamma_p), d).coeff_monomial(d)
     lin_m = sp.Poly(sp.expand(Nm / gamma_m), d).coeff_monomial(d)
     log(f"[d](N^+/gamma^+) = {lin_p}, [d](N^-/gamma^-) = {lin_m}")
-    check("Prop 6.7: [d](N^pm/gamma^pm) = pm rho with |rho| = n_0/(2(p'-p)) = 1/6 (k = 1, c_1 = 1)",
+    check("Prop 9.1: [d](N^pm/gamma^pm) = pm rho with |rho| = n_0/(2(p'-p)) = 1/6 (k = 1, c_1 = 1)",
           abs(lin_p) == sp.Rational(1, 6) and lin_m == -lin_p)
 
     term_p = sp.expand(Np / gamma_p * H2_mup)
     term_m = sp.expand(Nm / gamma_m * H1_mum)
-    check("Theorem 5.9 at N=4: top_4 = (N^+/gamma^+) H_2(9/5,d) + (N^-/gamma^-) H_1(14/5,d)",
+    check("Theorem 8.2 at N=4: top_4 = (N^+/gamma^+) H_2(9/5,d) + (N^-/gamma^-) H_1(14/5,d)",
           sp.cancel(top[4] - term_p - term_m) == 0)
     log(f"H_1(c, 14/5, d) = {sp.factor(H1_mum)}")
     log(f"H_2(c, 9/5, d) = {sp.factor(H2_mup)}")
