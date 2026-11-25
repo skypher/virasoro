@@ -1691,3 +1691,29 @@ the new file; PAPER_MAP.md unchanged (66 theorems).  Author-side check, not a re
 route review requested from Jander in packet 38.  Remaining departure from the paper: the Lean
 proof of Lemma A.3 takes G̃ = D₀ + tG₁ from internal lemmas (`cc_GL`, `Em_dvd`), not from
 `lem_mode_count`.
+
+Verdict on packet 38 (Jander, 2026-11-25T13:24:44Z, relayed by yang2 13:25:24Z), static review at
+5ec3882 against paper.tex at 086b33a: ITEM 1 (Proposition 9.2 through Lemmas A.1–A.3) PASS;
+order changes (monic division before P, degree function early, integrality before values)
+"preserve the paper's dependencies"; the 4^M entry uses the computation from the proof of
+Lemma 5.7.  ITEM 2 (proofs of A.1, A.2, A.3) PASS for the mathematical route, with one
+citation-edge departure: in A.3, `isUnit_det_GL` and `Em_dvd` reach the diagonal through
+`cc_GL`/`GsM_ev0`, not through `lem_mode_count` ("expose the t=0 bridge below the A.3 module and
+thread its A.1 projection to these two helpers").  No Lean execution, build or axiom audit on
+the reviewer's side.
+
+## 2026-11-25: Lemma A.3 through Lemma A.1 (main session)
+
+Follow-up to the previous entry, removing the departure it listed.  The paper's proof of Lemma A.3
+(l.3010–3016) works in the notation of Lemma A.1 (G̃ = D₀ + tG₁) for the expansion
+R_M = (M!/2^M)Y^M ∑_r (−t)^r Tr(D₀⁻¹(G₁D₀⁻¹)^r ρ̃).  `lem_level_poly` (AppALevelPoly.lean) now
+takes G̃(0,Y) = D₀(Y) from `lem_mode_count` (`GsM_ev0_of_modeCount`) for the two places it is
+used: det G̃ a unit of ℚ[Y,Y⁻¹][[t]] (`isUnit_det_GL_of`, in `isTExpansion_Rfam`) and t ∣ tG₁D₀⁻¹
+for the expansion (`Em_dvd_of`, `pow_Em_dvd_of`, `neumann_of`, `cf_Rfam_eq_of`), in place of
+`cc_GL`/`Em_dvd`/`cf_Rfam_eq` (which stay in Sec6H13DegRed.lean).  The A.1 bridge lemmas moved
+verbatim from Prop92AppA.lean to the new module AppABridge.lean, imported by AppALevelPoly.lean.
+Statements unchanged.  Checked by the main session: `lake build Virasoro` exit 0
+(logs/prop92_build2.log, no warnings in the three files); `lem_level_poly`,
+`prop_h13_nonvanishing_of_cited`, `lem_mode_count`, `AppA2.lem_odd_primes_of_cited` depend only
+on [propext, Classical.choice, Quot.sound] (logs/prop92_ax6.log); no sorry/admit/axiom.  This is
+the change Jander's packet-38 ITEM 2 named; author-side check, confirmation requested in packet 39.
