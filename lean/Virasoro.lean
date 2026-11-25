@@ -194,3 +194,5 @@ import Virasoro.Proofs.Rev20261124
 import Virasoro.Sphere.Proofs.Rev20261124
 import Virasoro.Proofs.Rev20261125
 import Virasoro.Sphere.Proofs.Rev20261125
+import Virasoro.Proofs.AppALevelPoly
+import Virasoro.Proofs.AppAModeCount

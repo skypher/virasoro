@@ -1619,3 +1619,20 @@ Statement check: Jander PASS on all three statements at 1f1c71b against paper.te
 2026-11-25T07:04:52Z): A.1 and A.2 and A.3 match the paper knob by knob; the determinant conjunct
 guards the inverse in A.2; the coefficient-vanishing encoding forces f = 0 for a negative bound
 in A.3; IsTExpansion admits no totalized division.  No labelled theorems yet.
+
+## 2026-11-25: proofs of Lemmas A.1 and A.3 (main session)
+
+On the user's request (tmp terminal, 2026-11-25, "do those." after the proof outlook for A.1-A.3):
+- `lem_level_poly : Stmt_lem_level_poly` (Virasoro/Proofs/AppALevelPoly.lean, paper label
+  `lem:level-poly`).  R_M is `Rfam`; `IsTExpansion` holds with p = (M!/2^M) Y^M numS and
+  q = det G̃_M (`Frat_psi`, `iM_numS`, `isUnit_det_GL`); the degree bound is
+  `degFam_R_of_chain sub_h13_degree_chain`, the paper's expansion argument.  No cited hypothesis.
+- `lem_mode_count : Stmt_lem_mode_count` (Virasoro/Proofs/AppAModeCount.lean, paper label
+  `lem:mode-count`).  G̃ and ρ̃ are the rescaled procedure `gramT`/`torusWordT` over ℚ[t,Y] and
+  ℚ[t,Y,ζ] with c̃ = 6+13t+6t², d̃ = −2+tζ; ℤ[1/2] coefficients by induction over the procedure
+  (`dAct_mem`, coefficients 1, Y, integers, (k³−k)/12 ∈ ½ℤ); G̃(0,Y) = diag(K_Z Y^ℓ(Z)) by
+  `gramT_zero` and `topNat_word_eq_appKZ`, so t ∣ G̃ − D₀ (`X0_dvd_sub_aeval`); ρ̃(0,Y;ζ) is
+  ρ̃ with d̃ = −2.  No cited hypothesis.
+Checked by the main session: `lake build Virasoro` exit 0 (logs/appA_root_build1.log); both
+theorems depend only on [propext, Classical.choice, Quot.sound] (logs/appA_ax2.log); no
+sorry/admit/axiom in the two files.  Author-side check, not a reviewer PASS.

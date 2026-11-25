@@ -84,9 +84,9 @@ papers.
 | Theorem 13.5 | `thm:sharp-H` | `Stmt_thm_sharp_H` | `Virasoro.Sphere.thm_sharp_H_of_cited` (Virasoro/Sphere/Proofs/Sec5SharpH.lean) |
 | Proposition 14.1 | `prop:c0-example` | `Stmt_prop_c0_example` | `Virasoro.Sphere.prop_c0_example_of_cited` (Virasoro/Sphere/Proofs/Sec6ExLabel.lean) |
 | Proposition 14.2 | `prop:ising-example` | `Stmt_prop_ising_example` | `Virasoro.Sphere.prop_ising_example_of_cited` (Virasoro/Sphere/Proofs/Sec6ExLabel.lean) |
-| Lemma A.1 | `lem:mode-count` | `Stmt_lem_mode_count` |  |
+| Lemma A.1 | `lem:mode-count` | `Stmt_lem_mode_count` | `Virasoro.lem_mode_count` (Virasoro/Proofs/AppAModeCount.lean) |
 | Lemma A.2 | `lem:odd-primes` | `Stmt_lem_odd_primes` |  |
-| Lemma A.3 | `lem:level-poly` | `Stmt_lem_level_poly` |  |
+| Lemma A.3 | `lem:level-poly` | `Stmt_lem_level_poly` | `Virasoro.lem_level_poly` (Virasoro/Proofs/AppALevelPoly.lean) |
 
 ## irreducible/paper.tex (irreducible traces)
 
