@@ -1,9 +1,11 @@
 # Exact-arithmetic ancillary replays
 
-This directory accompanies *Exact algebraic confluence for torus one-point
-Virasoro blocks and irreducible minimal-model traces*. It contains thirteen
-audit scripts and two shared libraries for Sections 2-8 (Verma blocks), and
-one audit script for Sections 9-14 (irreducible traces). All reported
+This directory accompanies *Colliding poles of Virasoro conformal blocks at
+rational central charge* and its companion *A generalized Rocha--Caridi
+formula for torus one-point traces in minimal models*. It contains thirteen
+audit scripts and two shared libraries for Part I of the first paper (torus
+Verma blocks), and one audit script for the second paper (irreducible
+traces). All reported
 calculations use exact arithmetic.
 
 From this directory, install the pinned dependency and run the standard suite:
@@ -19,7 +21,7 @@ The deeper direct level-ten reconstruction is:
 make audit-deep
 ```
 
-The examples of Sections 9-14 are replayed by:
+The examples of the traces paper are replayed by:
 
 ```sh
 make audit-irreducible

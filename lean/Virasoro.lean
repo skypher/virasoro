@@ -191,3 +191,5 @@ import Virasoro.Proofs.Sec8IsingTop
 import Virasoro.PartII
 import Virasoro.Proofs.Rev20261124
 import Virasoro.Sphere.Proofs.Rev20261124
+import Virasoro.Proofs.Rev20261125
+import Virasoro.Sphere.Proofs.Rev20261125

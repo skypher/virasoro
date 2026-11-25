@@ -1,3 +1,24 @@
+# Current state (2026-11-25, tmp session): three papers
+
+On the user's decision of 2026-11-25 ("three papers. fix gaps,commit,push.") the two manuscripts
+became three:
+
+- `sphere/paper.tex`: *Zamolodchikov's large-weight limit for sphere four-point Virasoro blocks*
+  (old sphere Sections 1-3 and Appendix A; numbers unchanged; 19 pp).
+- `paper.tex`: *Colliding poles of Virasoro conformal blocks at rational central charge*.  Part I is
+  the torus Verma material (old Sections 2-8, reordered so that confluence precedes the
+  minimal-model sections); Part II is the old sphere Sections 4-6.  42 pp.
+- `irreducible/paper.tex`: *A generalized Rocha--Caridi formula for torus one-point traces in
+  minimal models* (old torus Sections 9-14; Section 2 quotes the needed statements of
+  `paper.tex`).  28 pp.
+
+The assembly is reproducible: `runs/split3/build.py --stage1`, compile `paper.tex`, then
+`--stage2` (fills the companion numbers in the other two from `paper.aux`).  The build script reads
+the da2889e sources saved in `runs/split3/`; later edits go into the three `.tex` files directly.
+Review state and the packet log: `receipt.md`.  Lean: `lean/REVIEW.md` (entry 2026-11-25) and
+`lean/PAPER_MAP.md`.  Before outside distribution the companion citations still point to the
+private repository.
+
 # Current state (2026-11-20, tmp session)
 
 PAUSED 2026-11-20 16:5x Taiwan by the user: "no. need to do lean first (Ill tell u when) and then edit the papers so tehy dont sound like written by a robot. pause for now." Next, when the user says so: Lean; then a prose edit of both papers; then distribution.

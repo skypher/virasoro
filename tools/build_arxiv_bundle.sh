@@ -41,7 +41,7 @@ for source in \
 do
     install -m 0644 "$repo_root/tools/$source" "$stage/anc/tools/$source"
 done
-# Sections 9-14: same relative layout as the repository, so its imports of tools/ resolve
+# traces paper (irreducible/paper.tex): same relative layout as the repository, so its imports of tools/ resolve
 install -m 0644 "$repo_root/irreducible/tools/audit_irreducible_torus.py" \
     "$stage/anc/irreducible/tools/audit_irreducible_torus.py"
 

@@ -20,13 +20,15 @@ audit-deep: audit
 	$(PYTHON) tools/audit_layer_coefficients.py
 	$(PYTHON) tools/audit_kl_certificate.py
 
-# Sections 9-14 (irreducible traces); imports tools/direct_reconstruction.py and tools/exact_shapovalov.py
+# irreducible/paper.tex (irreducible traces); imports tools/direct_reconstruction.py and tools/exact_shapovalov.py
 audit-irreducible:
 	$(PYTHON) irreducible/tools/audit_irreducible_torus.py
 
 pdf:
 	pdflatex -interaction=nonstopmode -halt-on-error paper.tex
 	pdflatex -interaction=nonstopmode -halt-on-error paper.tex
+	$(MAKE) -C sphere pdf
+	$(MAKE) -C irreducible pdf
 
 arxiv-bundle:
 	bash tools/build_arxiv_bundle.sh

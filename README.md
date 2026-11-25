@@ -1,68 +1,55 @@
-# Exact algebraic confluence for torus one-point Virasoro blocks and irreducible minimal-model traces
+# Virasoro conformal blocks: large-weight limit, colliding poles, irreducible traces
 
-This repository contains two manuscripts by Leslie P. Polzer and their
+This repository contains three manuscripts by Leslie P. Polzer and their
 exact-arithmetic audit code:
 
-- *Exact algebraic confluence for torus one-point Virasoro blocks and
-  irreducible minimal-model traces* — [`paper.tex`](paper.tex),
-  **[PDF](paper.pdf)**;
-- *Exact algebraic confluence and Jantzen pole orders for sphere four-point
-  Virasoro blocks* — [`sphere/paper.tex`](sphere/paper.tex),
-  **[PDF](sphere/paper.pdf)**.
+- *Zamolodchikov's large-weight limit for sphere four-point Virasoro blocks*
+  — [`sphere/paper.tex`](sphere/paper.tex), **[PDF](sphere/paper.pdf)**;
+- *Colliding poles of Virasoro conformal blocks at rational central charge*
+  — [`paper.tex`](paper.tex), **[PDF](paper.pdf)**;
+- *A generalized Rocha--Caridi formula for torus one-point traces in minimal
+  models* — [`irreducible/paper.tex`](irreducible/paper.tex),
+  **[PDF](irreducible/paper.pdf)**.
 
-## Torus paper
+## Large-weight limit
 
-Sections 2-8 treat the meromorphic Verma-module torus one-point block. At
-every fixed nonzero Coulomb-gas parameter `b_star`, the paper gives a finite
-coefficientwise construction of the eta-reduced block at the corresponding
-central charge. Generic Kac-recursion terms with a common limiting internal
-weight are combined along the exact formal germ `b = b_star + t`; their
-fixed-central-charge partial-fraction coefficients are collision moments,
-constant terms of finite sums of Laurent germs. Collisions occur only when
-`b_star^2` is rational.
+The paper proves Zamolodchikov's limit `H_N(c, Delta, Delta_i) -> delta_{N,0}`
+as `Delta -> infinity` for the elliptic coefficients of the sphere four-point
+block, for every central charge and all external weights.  The proof is a
+saddle-point computation in a Feigin-Fuchs oscillator realization.
 
-At minimal-model charges the dimensions of the Jantzen filtration, read off
-from the Feigin-Fuchs embedding diagram, determine the multiplicities of the
-local Smith exponents of the Shapovalov matrix. The deepest nonzero layer
-bounds every pole order by the Jantzen depth `j_N(lambda)`, and the top
-Jantzen layer gives the leading Laurent coefficient. For an indeterminate external weight `d` (pole
-orders over the field of rational functions in `d`) the bound is attained at
-every minimal-model charge, interior Kac weight and level `N >= 1`; the proof
-specializes to `d = h_{1,3}(b)` and `d = h_{1,-3}(b)` and uses a Feigin-Fuchs
-Fock factorization with `ell`-adic valuation and ratio separation. At the
-Ising charge the first double poles occur at levels seven, ten and eleven.
+## Colliding poles
 
-Sections 9-14 treat the traces over the irreducible quotient
-`L(c_star, lambda)`. The normalized primary pairing descends to the irreducible
-module exactly when `d` lies in the minimal-model fusion set, while the Verma
-coefficients are regular at `lambda` for all levels on a larger reflected set.
-For fusion insertions the irreducible trace is an alternating sum of Verma
-blocks over the braided embedding diagram (a generalized Rocha-Caridi
-identity) with explicit nonzero rational weights, so every coefficient of the
-irreducible trace is computed exactly.
+At rational `b^2` the poles of the residue recursions collide.  For the torus
+one-point block (Part I) and the sphere four-point block (Part II), and every
+fixed nonzero `b_star`, the principal part of each coefficient at each Kac
+weight is a sum of constant terms of finite Laurent expansions in
+`b - b_star` of the generic residue data.  At interior minimal-model weights
+the pole order is bounded by the Jantzen depth, the coefficient at that order
+is given by the top Jantzen layer, and the bound is attained for
+indeterminate external weights.
 
-## Sphere paper
+## Irreducible traces
 
-The sphere paper proves the large-internal-weight limit
-`H_N(c, Delta, Delta_i) -> delta_{N,0}` of Zamolodchikov's elliptic
-H-function for every central charge and external weights, the generic
-Zamolodchikov recursion and fixed-`b_star` confluence for the sphere
-four-point block, and the Jantzen pole-order bound, top-layer formula and
-sharpness (for generic external weights) at minimal-model charges.
+For a primary insertion at an interior weight of a minimal model, the torus
+pairing descends to the irreducible module exactly when the insertion weight
+is in the fusion set.  For those weights a generalized Rocha-Caridi identity
+writes the irreducible trace as an alternating sum of Verma blocks over the
+braided embedding diagram, with explicit rational weights.
 
 ## Repository contents
 
-- [`paper.tex`](paper.tex), [`paper.pdf`](paper.pdf) — torus paper.
-- [`sphere/`](sphere) — sphere paper, notes, and its audit scripts
-  (`sphere/tools/`).
+- [`sphere/`](sphere) — large-weight paper, notes, and the sphere audit
+  scripts (`sphere/tools/`; `audit_large_delta.py` for the large-weight paper,
+  the others for Part II of the colliding-poles paper).
+- [`paper.tex`](paper.tex), [`paper.pdf`](paper.pdf) — colliding-poles paper.
 - [`tools/`](tools) — thirteen audit scripts and two shared exact-arithmetic
-  libraries for Sections 2-8 of the torus paper.
-- [`irreducible/tools/`](irreducible/tools) — audit script for Sections 9-14 of
-  the torus paper; `irreducible/paper.tex` is the separate draft those
-  sections were merged from.
-- [`lean/`](lean) — Lean 4 formalization of both papers: all 44 labelled
-  results are proved from the cited inputs (`Cited_*`); status in
-  `lean/STATUS.md`, review log in `lean/REVIEW.md`.
+  libraries for Part I of the colliding-poles paper.
+- [`irreducible/`](irreducible) — traces paper and its audit script
+  (`irreducible/tools/`).
+- [`lean/`](lean) — Lean 4 formalization of the three papers: every numbered
+  result is proved from the cited inputs (`Cited_*`); index of current paper
+  numbers in `lean/PAPER_MAP.md`, review log in `lean/REVIEW.md`.
 - [`AUDIT_MANIFEST.md`](AUDIT_MANIFEST.md) — audit scope, commands, success
   conditions, and source hashes.
 - [`ARXIV_ANCILLARY_README.md`](ARXIV_ANCILLARY_README.md) — instructions
@@ -79,7 +66,7 @@ dependency with:
 python3 -u -m pip install -r requirements-audit.txt
 ```
 
-Torus paper, Sections 2-8 (standard suite, then the direct level-ten
+Colliding-poles paper, Part I (standard suite, then the direct level-ten
 inverse-Shapovalov reconstruction):
 
 ```sh
@@ -87,13 +74,13 @@ make audit
 make audit-deep
 ```
 
-Torus paper, Sections 9-14:
+Traces paper:
 
 ```sh
 make audit-irreducible
 ```
 
-Sphere paper:
+Large-weight paper and Part II of the colliding-poles paper:
 
 ```sh
 make -C sphere audit
@@ -103,7 +90,7 @@ Set `VIRASORO_AUDIT_JOBS` to control the worker count used by the direct
 level-ten reconstruction. Every successful identity is reported with a
 `PASS` marker; a failed identity exits nonzero. See
 [`AUDIT_MANIFEST.md`](AUDIT_MANIFEST.md) for the responsibility and
-independence of each check of the torus paper. All of these are finite
+independence of each check. All of these are finite
 checks; the proofs do not use them.
 
 ## Build the manuscripts
@@ -113,9 +100,11 @@ A PDFLaTeX installation with the standard packages is required.
 ```sh
 make pdf
 make -C sphere pdf
+make -C irreducible pdf
 ```
 
-To generate the clean source archive of the torus paper prepared for arXiv:
+To generate the clean source archive of the colliding-poles paper prepared for
+arXiv (it also carries the traces audit):
 
 ```sh
 make arxiv-bundle

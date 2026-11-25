@@ -1,6 +1,7 @@
 # Exact-arithmetic audit manifest
 
-This manifest describes the ancillary checks for `paper.tex`.  The ordinary
+This manifest describes the ancillary checks for `paper.tex` (Part I) and
+`irreducible/paper.tex`.  The ordinary
 suite is run with
 
 ```sh
@@ -14,7 +15,7 @@ The direct level-ten reconstruction is added with
 make audit-deep
 ```
 
-The examples of Sections 9-14 (irreducible traces) are replayed with
+The examples of `irreducible/paper.tex` (irreducible traces) are replayed with
 
 ```sh
 make audit-irreducible
@@ -42,8 +43,9 @@ make arxiv-bundle
 
 creates `dist/virasoro-arxiv-v1.tar.gz`. The archive contains only
 `paper.tex` at its root and the audit README, manifest, dependency pin,
-Makefile, thirteen scripts and two shared libraries for Sections 2-8, and
-`irreducible/tools/audit_irreducible_torus.py` for Sections 9-14, under
+Makefile, thirteen scripts and two shared libraries for Part I of
+`paper.tex`, and `irreducible/tools/audit_irreducible_torus.py` for
+`irreducible/paper.tex`, under
 `anc/`. It excludes
 the generated PDF and TeX auxiliary files, repository metadata, and project
 planning files.

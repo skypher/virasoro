@@ -1563,3 +1563,33 @@ Checked by the main session: `lake build Virasoro` exit 0, 4157 jobs (../runs/le
 the five new labelled theorems and all 63 theorems of PAPER_MAP.md depend only on
 [propext, Classical.choice, Quot.sound] (../runs/lean2/checkREV.log, checkMAP.log); no
 sorry/admit/axiom in the new files.  Author-side check, not a reviewer PASS.
+
+## 2026-11-25: three-paper split (main session)
+
+The manuscripts were split into three on the user's decision (tmp terminal, 2026-11-25, time not
+recorded, "three papers. fix gaps,commit,push."): `sphere/paper.tex` keeps the large-weight
+limit (old sphere Sections 2-3, Appendix A; numbers unchanged), `paper.tex` holds the torus Verma
+results (Part I, old Sections 2-8 reordered) and the old sphere Sections 4-6 (Part II, clashing
+labels with suffix `-sph`), and `irreducible/paper.tex` holds the old torus Sections 9-14, whose
+Section 2 quotes statements of `paper.tex` verbatim.  Statement bodies were compared by label
+with the sources at da2889e (runs/split3/stmtdiff.py).  Restated:
+- Torus Theorem 7.3 (`thm:general-confluence`) without the a priori bound `M̂⋆`: `A⋆ = Ã⋆` for all
+  `k ≥ 1`, finitely many nonzero moments, `∑_{k ≥ 1}`, and for `b⋆² ∉ ℚ` singleton classes and
+  vanishing moments for `k ≥ 2`.  `Stmt_thm_general_confluence_rev25`, proved from the form of
+  2026-11-24 and `Atilde_eq_zero` (`thm_general_confluence_rev25_of_cited`).
+- Torus Corollary 7.6 (`cor:pole-bound`), new: `Ã⋆ = 0` for `k > M̂⋆` and `m⋆ ≤ M̂⋆`.
+  `Stmt_cor_pole_bound`, proved the same way (`cor_pole_bound_of_cited`).
+- Sphere confluence theorem (`thm:confluence`, now Theorem 12.6 of `paper.tex`) without `M̂⋆`:
+  part (i) for every `k ≥ 1` with finitely many nonzero moments, part (ii) with `∑_{k ≥ 1}`.
+  `Stmt_thm_confluence_rev25`, proved from the 70bac53 form and `Atildeg_eq_zero`.
+- Sphere Lemma 4.6 (`lem:precision-budget`) is no longer a numbered statement of any paper; Remark
+  12.7 says the torus Lemmas 7.5, 7.7 and Corollary 7.6 hold for the sphere recursion.  Its Lean
+  theorem stays.
+New files: Statements/Rev20261125.lean, Proofs/Rev20261125.lean, Sphere/Statements/Rev20261125.lean,
+Sphere/Proofs/Rev20261125.lean, imported in Virasoro.lean.  Frozen statement files unchanged.
+PAPER_MAP.md regenerated for the three papers (scripts/papermap.py).
+
+Checked by the main session: `lake build Virasoro` exit 0 (../runs/split3/lean-build.log); all 63
+theorems of PAPER_MAP.md depend only on [propext, Classical.choice, Quot.sound]
+(../runs/lean2/checkMAP.log, 2026-11-25T02:48Z); no sorry/admit/axiom in the new files.
+Author-side check, not a reviewer PASS.
