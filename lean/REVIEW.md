@@ -1614,3 +1614,8 @@ are new; A.2 is proved in the Lean by a different local device (ℤ[1/2][s,s⁻�
 modulo ℓ, Sec6H13Local), so the discrete valuation ring of the paper has to be constructed.
 Statement check by an independent reviewer requested before proving (lean.md, "Freeze the
 statement first").
+Statement check: Jander PASS on all three statements at 1f1c71b against paper.tex at 086b33a
+(packet 37, verdict relayed by yang2, yang2-20261125T070452Z-virasoro-appa-statement-forward-result,
+2026-11-25T07:04:52Z): A.1 and A.2 and A.3 match the paper knob by knob; the determinant conjunct
+guards the inverse in A.2; the coefficient-vanishing encoding forces f = 0 for a negative bound
+in A.3; IsTExpansion admits no totalized division.  No labelled theorems yet.
