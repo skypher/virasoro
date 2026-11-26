@@ -8,6 +8,7 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \newcommand{\Kac}{\operatorname{Kac}}
+\newcommand{\PP}{\operatorname{PP}}
 
 \title{Subleading coefficients of the fixed-charge recursion}
 \author{Notes for the colliding-poles paper (\texttt{paper.tex}, Section 7.2); draft, 2026-11-26}
@@ -15,6 +16,16 @@
 
 \begin{document}
 \maketitle
+
+\noindent
+\emph{Contents.}  Section 1: the second Jantzen layer.  Section 2: every
+coefficient $c^{(k)}_{a\to\mu,j}(b_\star)$ with $k+j$ equal to the layer distance
+$D$ is the top coefficient times $(S_\mu/S_a)^j$ times a universal rational
+number $f_j(L_a,D)/j!$ (Theorem~\ref{thm:kjD}).  Section 3: the same at the
+boundary weights, together with the top coefficient and the pole order there
+(Theorem~\ref{thm:boundary}).  Section 4: the coefficients with $k+j<D$ are
+determined by the Shapovalov and torus forms at $c_\star$
+(Proposition~\ref{prop:lower}).
 
 \noindent
 Notation of \texttt{paper.tex}: chains and chain functions
@@ -31,6 +42,8 @@ so that $h_g(b_\star)=d_{x_g}$ and $z_g(b_\star)=h_{u,-v}(b_\star)=d_{y_g}$:
 $|x_g|$ is the momentum of the weight of $g$ and $|y_g|$ the momentum of the
 weight it leads to.  The second-layer end points are
 $\mu^\pm_2=\lambda+\ell^\pm_2$, with momenta $m^\pm_2=2pp'\pm n_0$.
+
+\section{The second Jantzen layer}
 
 \begin{lemma}[Derivatives of the Kac weights]\label{lem:hprime}
 For every positive label $g$,
@@ -665,5 +678,72 @@ Author check: (i) (with the pole order of $R_g$) and (ii) for $a=\lambda,\mu_1$
 against the engine at all boundary weights of $(2,3)$, $(2,5)$, $(3,4)$ up to
 level $30$, 79 of 79 (\texttt{probes/check\_boundary.py}).
 \end{remark}
+
+\section{The lower coefficients as data at $c_\star$}
+
+The coefficients with $k+j<D$ are values at $b_\star$ of chain sums whose terms
+have poles; they depend on the Taylor coefficients of the residues $R_g$ and
+the weights $h_g$ beyond the leading ones, that is, on the deformation in $b$.
+The following proposition removes the deformation: it expresses them through
+the functions $H_m(c_\star,\Delta,d)$ alone.  By Definitions 2.2 and 2.3 of
+\texttt{paper.tex}, $H_m(c_\star,\Delta,d)=\sum_{i\le m}\eta_iF_{m-i}$ with
+$F_m=\sum(G_m(c_\star,\Delta)^{-1})_{Y,Y'}\rho_m(c_\star,\Delta,d)_{Y,Y'}$, so these
+functions are built from the Shapovalov and torus forms of the Verma modules
+$M(c_\star,\Delta)$ and nothing else.
+
+\begin{proposition}[Lower coefficients from data at $c_\star$]\label{prop:lower}
+Let $a,\mu$ be nodes (of the diagram of an interior weight, or of a boundary
+weight), $D=D(a,\mu)\ge1$ and $M=\mu-a$.  For $1\le k\le D$,
+\begin{equation}\label{eq:inversion}
+ c^{(k)}_{a\to\mu,0}(b_\star)=A^\star_{a,k,M}
+ -\sum_{\nu}\sum_{j\ge0}c^{(k)}_{a\to\nu,j}(b_\star)\,
+ \partial_\Delta^j\Bigl[H_{\mu-\nu}(c_\star,\Delta,d)
+ -\PP_{\Delta=\nu}H_{\mu-\nu}(c_\star,\Delta,d)\Bigr]_{\Delta=\nu},
+\end{equation}
+where $A^\star_{a,k,M}$ is the coefficient of $(\Delta-a)^{-k}$ in
+$H_M(c_\star,\Delta,d)$ and $\nu$ runs over the nodes with $0<\nu-a<M$; and for
+$j\ge1$
+\begin{equation}\label{eq:cutstar}
+ j\,c^{(k)}_{a\to\nu,j}(b_\star)=c^{(k+1)}_{a\to\nu,j-1}(b_\star)
+ -\sum_{\nu'}c^{(k)}_{a\to\nu',0}(b_\star)\,c^{(1)}_{\nu'\to\nu,j-1}(b_\star).
+\end{equation}
+Consequently every $c^{(k)}_{a\to\mu,j}(b_\star)$ is a polynomial with rational
+coefficients in the Laurent coefficients, at the nodes $\nu$ with
+$a\le\nu<\mu$, of the functions $H_m(c_\star,\Delta,d)$, $m\le M$.
+\end{proposition}
+
+\begin{proof}
+The weight $a$ lies in $\operatorname{Kac}_M(b_\star)$: it is the weight of a
+label to a node at odd distance of level at most $M$
+(Lemmas~\ref{lem:labels},~\ref{lem:blabels}).  So Theorem 7.14 applies at $a$
+and level $M$; in~(7.8) the first term is $c^{(k)}_{a\to\mu,0}(b_\star)$, the
+chain functions to weights that are not nodes vanish, and
+$\varphi_{\nu,j}(b_\star)$ is the bracket in~\eqref{eq:inversion} by~(7.6).
+The sum over $j$ is finite, as $c^{(k)}_{a\to\nu,j}(b_\star)=0$ for
+$k+j>D(a,\nu)$ (Lemma~\ref{lem:leading}).  Solving for the first term
+gives~\eqref{eq:inversion}.  \eqref{eq:cutstar} is Lemma 7.10 at $b_\star$:
+every chain function is regular there (Lemma 7.13), so the value of a product
+is the product of the values.  Induction on $(\nu-a,j)$, lexicographically,
+gives the last assertion: the right sides involve only pairs of smaller level,
+or of the same level and smaller $j$.
+\end{proof}
+
+So $c^{(k)}_{a\to\mu,0}(b_\star)$ is the part of the $(\Delta-a)^{-k}$
+coefficient of $H_{\mu-a}(c_\star,\cdot)$ that is not produced by the nodes
+strictly between $a$ and $\mu$: the contribution that first appears at the
+level of the singular vector of $\mu$, read off from the inverse Shapovalov
+form of $M(c_\star,a+x)$ and the torus form.  For $k=D$ it is $\mathcal
+N/\gamma$ (Theorem 8.2, Corollary~\ref{cor:kjL}); Theorems~\ref{thm:kjD}
+and~\ref{thm:boundary} give the closed forms for $k+j=D$.  The coefficients with
+$k+j<D$ are polynomials in $d$ (the residues are polynomials in $d$ and the
+$\delta_g$ do not depend on $d$) but not multiples of the top coefficient: at
+$c=0$, $\lambda=0$, $\mu=\mu^-_2=5$,
+$c^{(1)}_{0\to5,0}(b_\star)/c^{(2)}_{0\to5,0}(b_\star)$ equals
+$\frac{83478061}{11476080}$ at $d=\frac37$ and $\frac{11152201}{1263780}$ at
+$d=\frac15$.  Author check of~\eqref{eq:inversion} with the Laurent coefficients
+computed by direct inversion of the Shapovalov matrix at $c_\star$
+(\texttt{gram\_laurent} in \texttt{layer2\_recursion.py}): $(2,3)$, $\lambda=0$,
+all nodes of level at most $7$, every $k\le D$, $d=\frac37,\frac15$: 12 of 12;
+$(2,5)$, $\lambda=h_{1,1}$, the same range: 8 of 8 (\texttt{probes/check\_lower.py}).
 
 \end{document}
