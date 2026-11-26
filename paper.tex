@@ -150,10 +150,10 @@ Verma module that have reached level \(N\).  When this number is positive,
 the coefficient at that order is a sum of blocks at shifted weights,
 weighted by matrix elements of singular vectors divided by their Jantzen
 norms.  For indeterminate external weights the bound is attained at every
-interior weight and every \(N\geq1\).  Below the top order, the coefficients
-on the diagonal of the recursion are the top coefficients times powers of
-momentum ratios and universal rational numbers, and at the boundary weights
-the top coefficient and the pole order are explicit.  In the Ising model the first double
+interior weight and every \(N\geq1\).  For the torus block we give the
+coefficients on the diagonal of the recursion at interior weights in closed
+form, and an explicit pole order and top coefficient at the boundary weights of
+Class \(R^+\).  In the Ising model the first double
 poles at the energy, spin and identity weights occur at levels 7, 10 and 11.
 
 \vskip5pt
@@ -309,16 +309,18 @@ and~\ref{thm:top-layer-sph} give the same bound and the same formula, with
 the torus matrix element of \(w^\pm_k\) replaced by the product of its two
 three-point factors.
 
-Below the top pole, the values \(c^{(k)}_{\lambda\to\mu,j}(b_\star)\) with
-\(k+j\) equal to the layer distance of \(\mu\) are the top coefficient of
-\(\mu\) times the \(j\)-th power of the ratio of the signed Coulomb momenta of
-\(\mu\) and \(\lambda\) times a universal rational number, a coefficient of a
-terminating hypergeometric polynomial (Theorem~\ref{thm:diagonal},
-Corollary~\ref{cor:diagonal-lambda}).  At the boundary weights of the Kac
-table, where the embedding diagram is a single chain, the top coefficient is
-the leading coefficient of one residue times explicit factors, and the pole
-order is the number of submodules that have reached level \(N\)
-(Theorem~\ref{thm:boundary}).  All values \(c^{(k)}_{\lambda\to\mu,j}(b_\star)\)
+For the torus block, below the top pole, the values
+\(c^{(k)}_{\lambda\to\mu,j}(b_\star)\) with \(k+j\) equal to the layer distance of
+\(\mu\) are the top coefficient of \(\mu\) times the \(j\)-th power of the ratio of
+the signed Coulomb momenta of \(\mu\) and \(\lambda\) times a universal rational
+number, a coefficient of a terminating hypergeometric polynomial
+(Theorem~\ref{thm:diagonal}, Corollary~\ref{cor:diagonal-lambda}).  At the
+boundary weights of Class \(R^+\) (momentum divisible by exactly one of
+\(p,p'\)), where the embedding diagram is a single chain, the pole order over
+the rational functions of \(d\) is the number of submodules that have reached
+level \(N\), and the top coefficient is explicit: at the first level of the last
+such submodule it is the leading coefficient of one residue times explicit
+factors (Theorem~\ref{thm:boundary}).  All values \(c^{(k)}_{\lambda\to\mu,j}(b_\star)\)
 are determined by the Shapovalov and torus forms at \(c_\star\)
 (Corollary~\ref{cor:chain-values}).
 
@@ -1616,8 +1618,9 @@ forms at $c_\star$ (Definitions~\ref{def:matrices} and~\ref{def:eta-reduced}),
 after the contributions of the weights strictly between $a$ and $\mu$ are
 subtracted; no deformation of the charge enters.  It does not identify these
 values with matrix elements of, or pairings on, a single singular vector.  At an
-interior minimal-model weight, the value with $k$ equal to the layer distance
-is $\mathcal N/\gamma$ (Theorem~\ref{thm:top-layer}), and
+interior minimal-model weight $\lambda$, the value
+$c^{(L)}_{\lambda\to\mu,0}(b_\star)$ from $\lambda$ itself to a node $\mu$ of layer
+$L$ is $\mathcal N/\gamma$ (Theorem~\ref{thm:top-layer}), and
 Section~\ref{sec:diagonal} gives in closed form all values with $k+j$ equal to
 the layer distance.  The other values need not be polynomial multiples of the
 top coefficient.  In the example after Definition~\ref{def:chains}
@@ -1923,7 +1926,7 @@ from $x_i$ to $x_{i+1}$, put $\varsigma=b_\star/(2p'^2)$, $K=p'^2-p^2$ and
  h_i=h'_{g_i}(b_\star)=\varsigma(K-S_{x_i}S_{x_{i+1}}),\qquad
  w_\gamma=\frac{\prod_{i=0}^n\rho_{g_i}}{\prod_{i=1}^n(h_{i-1}-h_i)},
 \]
-where $h_{i-1}-h_i=\varsigmaS_{x_i}(S_{x_{i+1}}-S_{x_{i-1}})\neq0$, since
+where $h_{i-1}-h_i=\varsigma S_{x_i}(S_{x_{i+1}}-S_{x_{i-1}})\neq0$, since
 $x_{i-1},x_{i+1}$ are of the same class and of different layers.  Put
 $\operatorname{Top}(a\to\mu)=c^{(D)}_{a\to\mu,0}(b_\star)$ with $D=D(a,\mu)$,
 and let $\mathrm{FS}(a\to\mu)$ be the set of nodes $\theta$ with $L_\theta-L_a$
@@ -1984,7 +1987,7 @@ the nodes.
 A chain with $x_1=\theta\neq\mu$ is the label from $a$ to $\theta$ followed by
 a chain $\gamma'$ from $\theta$ to $\mu$, and
 $w_\gamma=\rho_{a\theta}w_{\gamma'}/(h_{a\theta}-h_{\theta x_2})$, where
-$h_{a\theta}-h_{\theta\theta'}=\varsigmaS_\theta(S_{\theta'}-S_a)\neq0$.  Grouping
+$h_{a\theta}-h_{\theta\theta'}=\varsigma S_\theta(S_{\theta'}-S_a)\neq0$.  Grouping
 by $x_2$, Lemma~\ref{lem:node-leading}(ii) from the base $\theta$ and partial
 fractions give
 \[
@@ -2000,7 +2003,7 @@ over $\tilde\theta\in\mathrm{FS}(a\to\theta)\setminus\{\theta\}$; so
 $\operatorname{Top}(x\to y)\neq0$ when $D(x,y)$ is odd.  Comparing with
 Lemma~\ref{lem:node-leading}(ii) for the end $\mu$, and using
 $\mathrm{FS}(a\to\theta)\subset\mathrm{FS}(a\to\mu)$,
-$h_{a\theta}-h_{a\tilde\theta}=\varsigmaS_a(S_{\tilde\theta}-S_\theta)$ and
+$h_{a\theta}-h_{a\tilde\theta}=\varsigma S_a(S_{\tilde\theta}-S_\theta)$ and
 $|\mathrm{FS}(\theta\to\mu)|=|\mathrm{FS}(a\to\mu)\setminus\mathrm{FS}(a\to\theta)|=D(\theta,\mu)$,
 gives the identity; the differences are of momenta of the same class, so the
 factors $N_0$ cancel.  For $D(x,y)$ even take $\theta$ of layer $L_x+1$: then
@@ -2032,7 +2035,7 @@ $c^{(k)}_{a\to\nu,0}$ is $O(t^{k-D(a,\nu)})$ and $c^{(1)}_{\nu\to\mu,j-1}$ is
 $O(t^{j-D(\nu,\mu)})$; if $L_\nu<L_a+k$ the first vanishes at $b_\star$, and if
 $L_\nu>L_a+k$ the second does.  (ii) For $\gamma=(x_0,\dots,x_{n+1})$ put
 $\Delta_i=D(x_i,x_{i+1})$.  By the proof of Proposition~\ref{prop:top-ratios},
-$\rho_{g_i}=\operatorname{Top}(x_i\to x_{i+1})/\prod_{\tilde\theta}\varsigmaS_{x_i}(S_{\tilde\theta}-S_{x_{i+1}})$
+$\rho_{g_i}=\operatorname{Top}(x_i\to x_{i+1})/\prod_{\tilde\theta}\varsigma S_{x_i}(S_{\tilde\theta}-S_{x_{i+1}})$
 over $\tilde\theta\in\mathrm{FS}(x_i\to x_{i+1})\setminus\{x_{i+1}\}$, and by
 Proposition~\ref{prop:top-ratios}, inductively from the end,
 $\prod_{i=0}^n\operatorname{Top}(x_i\to x_{i+1})=\operatorname{Top}(a\to\mu)
@@ -2042,7 +2045,7 @@ $\Delta_n-(\Delta_n-1)-1=0$ for $x_n$, which has no outgoing $\kappa$; $S_a$ has
 the power $-D(x_1,\mu)-(\Delta_0-1)=1-D$, also for a one-label chain.  The
 remaining factors are differences of momenta of the same class,
 $\sum_i(\Delta_i-1)+n=D-1$ of them in the denominator, and the ratios
-$\hat\kappa$.  So $w_\gamma=\operatorname{Top}(a\to\mu)(\varsigmaN_0S_a)^{1-D}\ell(\gamma)$
+$\hat\kappa$.  So $w_\gamma=\operatorname{Top}(a\to\mu)(\varsigma N_0S_a)^{1-D}\ell(\gamma)$
 with a rational number $\ell(\gamma)$ determined by the positions of the nodes
 of $\gamma$.  Write $S_{x_1}=N_0(c_1+\pi_{x_1})$ and $S_{x_n}=N_0(c_2+\pi_{x_n})$
 with $c_1,c_2\in\{\alpha,\beta\}$ fixed by the classes of $a$ and $\mu$.  By
@@ -2257,7 +2260,7 @@ Let $a=\mu_i$, $\mu=\mu_k$, $D=k-i\geq1$, and let $g$ be the label from $\mu_i$
 to $\mu_k$.
 \begin{enumerate}
 \item[(i)] $\operatorname{Top}(a\to\mu)=\rho_g\prod_{i<m<k}(h_{a\mu}-h_{a\mu_m})
-=\rho_g(\epsilon\varsigmaN_0T_i)^{D-1}\prod_{i<m<k}(\pi_k-\pi_m)$, which is
+=\rho_g(\epsilon\varsigma N_0T_i)^{D-1}\prod_{i<m<k}(\pi_k-\pi_m)$, which is
 nonzero in $K_\star$.
 \item[(ii)] For $0\leq j\leq D-1$,
 \[
@@ -2276,7 +2279,7 @@ $\operatorname{Top}(\mu_i\to\mu_{i+D})\,H_{N-\Delta_D}(c_\star,\mu_{i+D},d)\neq0
 
 \begin{proof}
 (i) is Lemma~\ref{lem:node-leading}(ii) for the one-label chain, with
-$h_{a\mu}-h_{a\mu_m}=\epsilon\varsigmaT_i(T_k-T_m)$.  (ii) The analogue
+$h_{a\mu}-h_{a\mu_m}=\epsilon\varsigma T_i(T_k-T_m)$.  (ii) The analogue
 of~\eqref{eq:diagonal-rec} has one node $\nu=\mu_{k-j}$ in the layer $L_a+D-j$:
 $f_j(a,\mu)T_k=f_{j-1}(a,\mu)T_i-\hat\kappa(a,\nu,\mu)f_{j-1}(\nu,\mu)T_{k-j}$.
 With $T_m=N_0(\tau_0+\pi_m)$, $\tau_0=x_0/N_0$, and the two boundary weights
@@ -2307,9 +2310,11 @@ at these weights is the classical one-chain filtration,\footnote{See
 $G_N(c_\star,\cdot)^{-1}$ at $\mu_i$ for $\Delta_D\leq N<\Delta_{D+1}$ follows from
 it; contracting with the torus form can only lower this order.
 Theorem~\ref{thm:boundary} shows that the block keeps the order $D$ over $K_\star$,
-and gives its top coefficient: the leading coefficient
+and gives its top coefficient: at the level $N=\Delta_D$ it is
+$\operatorname{Top}(\mu_i\to\mu_{i+D})$, the leading coefficient
 $\rho_g=\operatorname{lead}({\mathcal A}_g){\mathcal N}_g(b_\star,d)$ of the single
-residue from $\mu_i$ to $\mu_{i+D}$ times a product of slope differences.  For
+residue from $\mu_i$ to $\mu_{i+D}$ times a product of slope differences, and at
+larger $N$ it is this times $H_{N-\Delta_D}(c_\star,\mu_{i+D},d)$.  For
 example at $c=0$ the weight $\lambda=d_2=\frac18$ has nodes at the levels
 $4,8,20,28,\dots$, and
 $c^{(1)}_{\lambda\to\mu_2,1}(b_\star)=\frac{14}2\cdot\frac{2+10}{14+10}
@@ -4198,9 +4203,10 @@ ancillary files of the arXiv version; the others are in the repository only.
   against the recursion of Lemma~\ref{lem:diagonal-values}(i) for bases of
   layer at most \(7\) and \(D\leq9\); Theorem~\ref{thm:diagonal} and
   Theorem~\ref{thm:boundary}(i),(ii) against the chain functions of the script
-  above in six and three minimal models; Theorem~\ref{thm:boundary}(iii) and
-  Corollary~\ref{cor:chain-values} against Shapovalov inversion at \(c=0\)
-  and at \((p,p')=(2,5)\).
+  above in six and three minimal models; Theorem~\ref{thm:boundary}(iii)
+  against Shapovalov inversion at \(c=0\) (two boundary weights, through levels
+  \(8\) and \(9\)); and Corollary~\ref{cor:chain-values} against Shapovalov
+  inversion at \(c=0\) and at \((p,p')=(2,5)\).
 \item The sphere confluence of Part~II (\texttt{sphere/tools/}), through level
   seven for \((p,p')=(2,3),(2,5),(3,4)\) and through level three at
   \(b_\star^2=\sqrt2\), including the \(c=0\) level-five
