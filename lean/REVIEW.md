@@ -1727,3 +1727,20 @@ moved unchanged and the Proposition 9.2 label theorem is unchanged; "the previou
 departure is closed".  With packet 38 ITEM 1 (Proposition 9.2) and ITEM 2 (routes of A.1, A.2),
 the Lean proofs of Lemmas A.1–A.3 and of Proposition 9.2 through them have reviewer PASS on
 route fidelity (Jander); the kernel side (build, axioms) is the main session's check.
+
+## 2026-11-26: traces paper, BGG weight as a Gamma quotient (main session)
+
+Readability pass 6 of `irreducible/paper.tex` (a13dc17, 4c60a91; reviewer PASS at 98f1430)
+defines `Ψ⋆_{2k+1,2m+1}(μ)` (display `eq:psi-star`) and the BGG weight
+`Ω(μ → ξ) = Ψ⋆(ξ)/Ψ⋆(μ)`, and restates Proposition 6.1(ii) as the arrow identity with
+`Ω ∈ ℚ^×` for all orbit pairs.  New `Statements/Rev20261126.lean`: `psiStar`, `OmegaPsi`,
+`Stmt_prop_bgg_cocycle_rev26` (part (i) copied from `Stmt_prop_bgg_cocycle`),
+`Stmt_thm_gen_rocha_caridi_rev26` and `Stmt_lem_degenerate_quotient_t_rev26` (the earlier
+statements with `Omega` from λ and `cArrow` replaced by `OmegaPsi`).  New
+`Proofs/Rev20261126.lean`: from `cArrow_psi`, `pathProd_psi`, `psiNode_ne_zero` (the existing
+route of the paper's proof of 6.1(ii)) and from the earlier forms of Theorem 4.3 and Lemma 7.1.
+`scripts/papermap.py` prefers `_rev26`; PAPER_MAP regenerated (66 theorems).  Checked by the main
+session: `lake build Virasoro` exit 0 (runs/prose6/lean_root.log; no warnings in the two new
+files), the three label theorems depend only on [propext, Classical.choice, Quot.sound]
+(runs/prose6/lean_rev26_axioms.log), no sorry/admit/axiom.  Author-side check; statement and
+route review requested from Jander (packet 42).
