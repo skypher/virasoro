@@ -389,8 +389,7 @@ theorem moment_expansion (hbs : bs ≠ 0) {N : ℕ} (_hN : 1 ≤ N) (lam : K) (k
 
 end General
 
-/-- Lemma 7.12 from the generic recursion (the recursion is only used through Lemma 7.11; the
-expansion itself is an identity of germs).
+/-- Lemma 7.12.  The expansion is an identity of germs; it uses no cited input.
 
 Paper label: lem:chain-expansion -/
 theorem lem_chain_expansion : Stmt_lem_chain_expansion := by

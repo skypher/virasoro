@@ -198,3 +198,12 @@ import Virasoro.Sphere.Proofs.Rev20261125
 import Virasoro.Proofs.AppALevelPoly
 import Virasoro.Proofs.AppAModeCount
 import Virasoro.Proofs.AppAOddPrimes
+import Virasoro.FixedCharge
+import Virasoro.Statements.Sec7FixedCharge
+import Virasoro.Proofs.Sec7Cut
+import Virasoro.Proofs.Sec7Moments
+import Virasoro.Proofs.Sec7Binom
+import Virasoro.Proofs.Sec7Remainder
+import Virasoro.Proofs.Sec7Expansion
+import Virasoro.Proofs.Sec7FixedCharge
+import Virasoro.Proofs.Sec7Generic
