@@ -719,7 +719,9 @@ What Theorem~\ref{thm:boundary} adds, for the question left open in Section 15
 of \texttt{paper.tex} at the boundary weights of Class $R^+$, is that the
 contracted (Verma) block $H_N(c_\star,\cdot,d)$ keeps the order $D$ over
 $\mathbb C(d)$, and the top coefficient; momenta divisible by both $p$ and $p'$,
-and $c_\star=1,25$, are not covered.  The top coefficient is the leading coefficient $\rho_g=\operatorname{lead}(\mathcal
+and $c_\star=1,25$, are not covered.  $\operatorname{Top}(\mu_i\to\mu_{i+D})$ (the
+coefficient at the birth grade $N=\Delta_D$; at larger $N$ the top coefficient
+of $H_N$ also contains the factor $H_{N-\Delta_D}(c_\star,\mu_{i+D},d)$) is the leading coefficient $\rho_g=\operatorname{lead}(\mathcal
 A_g)\,\mathcal N_g(b_\star,d)$ of the single residue from $\mu_i$ to
 $\mu_{i+D}$ times a product of slope differences; here
 $\operatorname{lead}(\mathcal A_g)=\frac12\prod(ab_\star+eb_\star^{-1})^{-1}
@@ -786,19 +788,26 @@ gives the last assertion: the right sides involve only pairs of smaller level,
 or of the same level and smaller $j$.
 \end{proof}
 
-So $c^{(k)}_{a\to\mu,0}(b_\star)$ is the part of the $(\Delta-a)^{-k}$
-coefficient of $H_{\mu-a}(c_\star,\cdot)$ that is not produced by the nodes
-strictly between $a$ and $\mu$: the contribution that first appears at the
-level of the singular vector of $\mu$, read off from the inverse Shapovalov
-form of $M(c_\star,a+x)$ and the torus form.  For $k=D$ it is $\mathcal
-N/\gamma$ (Theorem 8.2, Corollary~\ref{cor:kjL}); Theorems~\ref{thm:kjD}
+So $c^{(k)}_{a\to\mu,0}(b_\star)$ is the endpoint coefficient in the fixed-charge
+recursion at grade $\mu-a$: it is determined, degree by degree, by the inverse
+Shapovalov form and the torus form at $c_\star$, after the contributions of the
+earlier nodes are subtracted.  The proposition does not identify it with a
+matrix element or a pairing on a single singular vector.  For $a=\lambda$ and
+$k=D$ it is $\mathcal N/\gamma$ (Theorem 8.2, Corollary~\ref{cor:kjL}); for
+other bases $\operatorname{Top}(a\to\mu)$ is tied to the top coefficients from
+$\lambda$ by Proposition~\ref{prop:kappa}, and at boundary weights it is given by
+Theorem~\ref{thm:boundary}(i); Theorems~\ref{thm:kjD}
 and~\ref{thm:boundary} give the closed forms for $k+j=D$.  The coefficients with
 $k+j<D$ are polynomials in $d$ (the residues are polynomials in $d$ and the
-$\delta_g$ do not depend on $d$), and they need not be constant multiples of the
-top coefficient: at $c=0$, $\lambda=0$, $\mu=\mu^-_2=5$,
-$c^{(1)}_{0\to5,0}(b_\star)/c^{(2)}_{0\to5,0}(b_\star)$ equals
-$\frac{83478061}{11476080}$ at $d=\frac37$ and $\frac{11152201}{1263780}$ at
-$d=\frac15$.  Author check of~\eqref{eq:inversion} with the Laurent coefficients
+$\delta_g$ do not depend on $d$), and they need not be polynomial multiples of
+the top coefficient.  Example: at $c=0$, $\lambda=0$, $\mu=\mu^-_2=5$, the two
+chains are $((1,1),(1,4))$ and $((1,2),(3,1))$; every two-label term has
+$d$-degree at most $10$, and the top coefficient
+$c^{(2)}_{0\to5,0}(b_\star)=\mathcal R_{1,2}\mathcal R_{3,1}(b_\star)/7$ has degree
+exactly $10$ (each $\mathcal N_{u,v}$ has $2uv$ factors linear in $d$), so a
+polynomial quotient $c^{(1)}_{0\to5,0}(b_\star)/c^{(2)}_{0\to5,0}(b_\star)$
+would be a constant; but it equals $\frac{83478061}{11476080}$ at $d=\frac37$ and
+$\frac{11152201}{1263780}$ at $d=\frac15$.  Author check of~\eqref{eq:inversion} with the Laurent coefficients
 computed by direct inversion of the Shapovalov matrix at $c_\star$
 (\texttt{gram\_laurent} in \texttt{layer2\_recursion.py}): $(2,3)$, $\lambda=0$,
 all nodes of level at most $7$, every $k\le D$, $d=\frac37,\frac15$: 12 of 12;
