@@ -119,6 +119,22 @@ class ChainFunctions:
         """dict (k, mu, j) -> value at b*, for chains from lam of total level <= nmax."""
         if lam in self.cache:
             return self.cache[lam]
+        out = {}
+        for (k, mu, j), s in self.series(lam).items():
+            if s.c and s.v < 0:
+                raise ArithmeticError(f"chain function c^({k})_({lam}->{mu},{j}) has a pole of order {-s.v}")
+            if s.p < 0:
+                raise ArithmeticError("precision exhausted; raise --prec")
+            out[(k, mu, j)] = s.coef(0)
+        self.cache[lam] = out
+        return out
+
+    def series(self, lam):
+        """dict (k, mu, j) -> chain function c^{(k)}_{lam->mu,j} as a Laurent series in u."""
+        if not hasattr(self, "_series"):
+            self._series = {}
+        if lam in self._series:
+            return self._series[lam]
         m = self.m
         out = {}
         for k in range(1, self.kmax + 1):
@@ -153,14 +169,37 @@ class ChainFunctions:
                     key = (mu, j)
                     sums[key] = term if key not in sums else ser_add(sums[key], term)
                     xp = ser_mul(xp, self.x[g])
-            for (mu, j), s in sums.items():
-                if s.c and s.v < 0:
-                    raise ArithmeticError(f"chain function c^({k})_({lam}->{mu},{j}) has a pole of order {-s.v}")
-                if s.p < 0:
-                    raise ArithmeticError("precision exhausted; raise --prec")
-                out[(k, mu, j)] = s.coef(0)
-        self.cache[lam] = out
+            for (mu, j), ser in sums.items():
+                out[(k, mu, j)] = ser
+        self._series[lam] = out
         return out
+
+    def check_cut(self, lam):
+        """Check Lemma 5 exactly as series: j c^(k)_j = c^(k+1)_{j-1} - sum_nu c^(k)_{lam->nu,0} c^(1)_{nu->mu,j-1}."""
+        S = self.series(lam)
+        weights = sorted(set(self.weight.values()))
+        checked = 0
+        for (k, mu, j), lhs in S.items():
+            if j == 0 or k + 1 > self.kmax:
+                continue
+            rhs = S.get((k + 1, mu, j - 1))
+            if rhs is None:
+                continue
+            for nu in weights:
+                if not (lam < nu < mu) or (nu - lam).denominator != 1:
+                    continue
+                a = S.get((k, nu, 0))
+                if a is None or not (nu in self.weight.values()):
+                    continue
+                bser = self.series(nu).get((1, mu, j - 1))
+                if bser is None:
+                    continue
+                rhs = ser_sub(rhs, ser_mul(a, bser))
+            diff = ser_sub(Ser(lhs.v, [c * j for c in lhs.c], lhs.p), rhs)
+            if diff.c:
+                raise ArithmeticError(f"cutting identity fails at lam={lam}, mu={mu}, k={k}, j={j}")
+            checked += 1
+        return checked
 
 
 def jet(H, M, mu, j):
@@ -192,6 +231,8 @@ def main():
     ap.add_argument("--jmax", type=int, default=8)
     ap.add_argument("--prec", type=int, default=30)
     ap.add_argument("--gram-max", type=int, default=0)
+    ap.add_argument("--check-cut", action="store_true",
+                    help="also verify the cutting identity (Lemma 5) exactly as series at every weight")
     ap.add_argument("--no-truth", action="store_true",
                     help="run the recursion only (no confluence comparison)")
     args = ap.parse_args()
@@ -244,6 +285,11 @@ def main():
                 if not ok:
                     log(f"GRAM MISMATCH at lambda={lam}, N={N}")
             log(f"Shapovalov inversion agrees at lambda={lam} for N <= {args.gram_max}")
+    if args.check_cut:
+        n = 0
+        for lam in sorted({model.hstar(*g) for g in model.labels(args.nmax)}):
+            n += chains.check_cut(lam)
+        log(f"cutting identity (Lemma 5) verified exactly in {n} instances")
     log("ALL OK" if ok_all else "MISMATCH")
     return 0 if ok_all else 1
 

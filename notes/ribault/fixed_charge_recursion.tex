@@ -48,7 +48,10 @@ verbatim for the sphere block (Remark~\ref{rem:sphere}).
 
 For a positive label $g=(r,s)$ write $\ell_g=rs$, $h_g(b)=h_{r,s}(b)$,
 $z_g=h_g+\ell_g$ and $R_g(b)=\mathcal R_{r,s}(b,d)$ \cite[Definition~6.1]{CP},
-with $d$ indeterminate.  Put $K=\mathbb Q(d)$, so that $R_g\in K(b)$.  The
+with $d$ indeterminate.  Put $K=\mathbb Q(d)$, so that $R_g\in K(b)$, and
+$K_\star=K(b_\star)$.  The generic blocks $H_M(c(b),\Delta)$ and the residues
+$R_g$ lie over $K$; every quantity below that subtracts a weight $h_g(b_\star)$
+lies over $K_\star$.  The
 coefficients $H_N(c(b),\Delta,d)$ satisfy, for generic $b$ and $N\ge1$,
 \begin{equation}\label{eq:generic}
  H_N(c(b),\Delta)=\sum_{\ell_g\le N}\frac{R_g(b)}{\Delta-h_g(b)}\,
@@ -59,7 +62,7 @@ as rational functions of $(b,\Delta)$ \cite[Proposition~6.4]{CP}.
 \begin{definition}[Weights, local coordinates, classes]
 For a label $g$ put $w_g:=h_g(b_\star)$ (its \emph{weight}) and
 \[
- x_g(b):=h_g(b)-w_g\in K(b),\qquad x_g(b_\star)=0 .
+ x_g(b):=h_g(b)-w_g\in K_\star(b),\qquad x_g(b_\star)=0 .
 \]
 Then $z_g(b)=w_g+\ell_g+x_g(b)$.  For $\nu\in\mathbb C$ and $M\ge1$ let
 $C_{\nu,M}=\{g:\ w_g=\nu,\ \ell_g\le M\}$ (the collision class of
@@ -75,7 +78,7 @@ and this rational function is not identically zero \cite[Lemma~6.3]{CP}.
 For $N\ge1$, $\lambda\in\Kac_N(b_\star)$ and $k\ge1$ put
 \[
  C_{\lambda,k,N}(b):=\sum_{a\in C_{\lambda,N}}R_a(b)\,x_a(b)^{k-1}\,
- H_{N-\ell_a}\bigl(c(b),z_a(b)\bigr)\in K(b).
+ H_{N-\ell_a}\bigl(c(b),z_a(b)\bigr)\in K_\star(b).
 \]
 \end{definition}
 
@@ -95,7 +98,7 @@ finite sum.
 \begin{proof}
 Group \eqref{eq:generic} by weights and expand
 $1/(\Delta-h_a)=\sum_{k\ge1}x_a^{k-1}(\Delta-w_a)^{-k}$ coefficientwise in
-$K_\star(\Delta)((t))$, $K_\star=K(b_\star)$ \cite[Lemma~7.4]{CP}: the coefficient of $t^m$ of the right
+$K_\star(\Delta)((t))$ \cite[Lemma~7.4]{CP}: the coefficient of $t^m$ of the right
 side is $\sum_\lambda\sum_k[t^m]C_{\lambda,k,N}\,(\Delta-\lambda)^{-k}$, a finite
 sum.  The left side lies in $K_\star(\Delta)[[t]]$ because $\det G_N(c(b),\Delta)$ is
 a common denominator that does not vanish at $t=0$.  For $m<0$, uniqueness of
@@ -117,13 +120,13 @@ Its level is $\mu-\lambda=\sum_i\ell_{g_i}\in\mathbb Z_{\ge1}$; there are finite
 many chains of a given level.  For $k\ge1$ put
 \[
  P^{(k)}_\gamma=R_{g_0}\,x_{g_0}^{k-1}\prod_{i=1}^{L}
- \frac{R_{g_i}}{x_{g_{i-1}}-x_{g_i}}\in K(b),
+ \frac{R_{g_i}}{x_{g_{i-1}}-x_{g_i}}\in K_\star(b),
 \]
 which is well defined by \eqref{eq:link}, and for $j\ge0$ define the
 \emph{chain function}
 \[
  c^{(k)}_{\lambda\to\mu,j}:=\sum_{\gamma:\lambda\to\mu}P^{(k)}_\gamma\,
- \frac{x_{g_L}^{\,j}}{j!}\in K(b)
+ \frac{x_{g_L}^{\,j}}{j!}\in K_\star(b)
 \]
 (zero if there is no chain).  It depends on $b_\star$, $\lambda$, $\mu$, $k$,
 $j$ and $d$, and not on any level $N$.
@@ -171,8 +174,7 @@ not vanish at $(b_\star,\mu)$, it has no pole along $b=b_\star$, and
  \mathrm{Reg}^{(M)}_\mu(b_\star,\Delta)
  =H_M(c_\star,\Delta)-\PP_\mu H_M(c_\star,\cdot),
 \end{equation}
-where $\PP_\mu$ is the principal part at $\Delta=\mu$ and
-$K_\star=K(b_\star)$.
+where $\PP_\mu$ is the principal part at $\Delta=\mu$.
 \end{lemma}
 
 \begin{proof}
@@ -234,7 +236,7 @@ $\Delta=z_g(b)$ and using \eqref{eq:link},
  S_{g,M}=\mathrm{Reg}^{(M)}_{\mu_g}\bigl(b,\mu_g+x_g\bigr)
  +\sum_{g'\in C_{\mu_g,M}}\frac{R_{g'}}{x_g-x_{g'}}\,S_{g',M-\ell_{g'}}
 \]
-in $K(b)$.  Since $\mathrm{Reg}^{(M)}_{\mu_g}\in\mathcal O_{(b_\star,\mu_g)}
+in $K_\star(b)$.  Since $\mathrm{Reg}^{(M)}_{\mu_g}\in\mathcal O_{(b_\star,\mu_g)}
 \subset K_\star[[t,\Delta-\mu_g]]$ and $x_g\in tK_\star[[t]]$, substituting
 $\Delta-\mu_g=x_g$ gives, in $K_\star[[t]]$,
 \[
@@ -340,11 +342,13 @@ coefficient of $\partial_\Delta H_{M'}(c_\star,\nu)$.
 
 \begin{remark}[Sphere block]\label{rem:sphere}
 Replace $R_g$ by $\mathcal R^{\mathrm{sph}}_g$ \cite[Definition~12.1]{CP}, $K$ by
-$\mathbb Q(\Delta_1,\dots,\Delta_4)$, \eqref{eq:generic} by
+$\mathbb Q(\Delta_1,\dots,\Delta_4)$ and $K_\star$ by $K(b_\star)$, \eqref{eq:generic} by
 \cite[Proposition~12.4]{CP} for Zamolodchikov's elliptic coefficients $H_N$,
 and Lemma~\ref{lem:conf} by \cite[Theorem~12.6]{CP}, whose proof is the same.
 Lemmas~\ref{lem:cut}--\ref{lem:regular} and Theorem~\ref{thm:main} then hold
-with the same proofs; $\mathcal B_N(c_\star,\cdot)$ follows by
+with the same proofs.  The principal-part recursion is for the elliptic
+coefficients $H_N$; the cross-ratio coefficients $\mathcal B_N(c_\star,\cdot)$,
+which have a polynomial part in $\Delta$, follow from them by
 \cite[(11.5)]{CP}.
 \end{remark}
 
