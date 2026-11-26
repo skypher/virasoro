@@ -140,7 +140,10 @@ conformal blocks collide, and individual residues have poles in \(b\).  For
 the torus one-point block and the sphere four-point block, and for every
 fixed \(b_\star\ne0\), we give the principal part of each block coefficient
 at each Kac weight as a sum of constant terms of finite Laurent expansions in
-\(b-b_\star\) of the generic residue data.  At an interior Kac weight
+\(b-b_\star\) of the generic residue data.  Grouping the iterated recursion
+along chains of colliding labels turns this into a recursion at the fixed
+central charge, with finite coefficients that do not depend on the level.
+At an interior Kac weight
 \(\lambda\) of a minimal model, the pole order of the level-\(N\)
 coefficient at \(\lambda\) is at most the number of Jantzen layers of the
 Verma module that have reached level \(N\).  When this number is positive,
@@ -179,8 +182,10 @@ rational \(b^2\) an open problem whose simplest case is the torus one-point
 block~\cite[\S4.3.3]{Ribault2026}.  For both blocks and every fixed
 \(b_\star\neq0\), this paper computes the principal parts of the block
 coefficients by a finite calculation in the Laurent expansions of the
-generic residue data at \(b_\star\).  A recursion that uses only data at
-\(c=c_\star\) is not given here (Section~\ref{sec:scope}).  At minimal-model
+generic residue data at \(b_\star\), and then turns this calculation into
+such a recursion: the principal parts at level \(N\) are finite combinations
+of the coefficients of lower level at \(c=c_\star\), with coefficients that
+are finite at \(b_\star\) and do not depend on \(N\).  At minimal-model
 charges the paper bounds the pole orders at the interior Kac weights and
 shows that the bound is attained for indeterminate external weights.
 
@@ -257,6 +262,23 @@ the first moment, and the second moment, which gives the double pole in
 \(\Delta\), is the coefficient of \(t^{-1}\) in one of them times the
 \(t\)-derivative of its Kac weight.
 
+Theorem~\ref{thm:general-confluence} still uses the coefficients of lower
+level at the moving charge \(c(b_\star+t)\), expanded in \(t\).  To remove
+them we iterate the generic recursion along chains of labels whose poles
+collide at every step, and sum over the chains with the same end point.  A
+single chain can have a pole in \(t\), but each such sum is a rational
+function of \(b\) that is regular at \(b_\star\)
+(Lemma~\ref{lem:chain-regular}).  The proof is an induction on the level of
+the chains, in which an identity that cuts a chain at one link
+(Lemma~\ref{lem:cutting}) reduces everything to the moments of
+Theorem~\ref{thm:general-confluence}.  Theorem~\ref{thm:fixed-charge} is the
+resulting recursion: the principal parts of \(H_N(c_\star,\cdot)\) are finite
+combinations of the values and \(\Delta\)-derivatives, at shifted weights, of
+the coefficients \(H_M(c_\star,\cdot)\) with \(M<N\), each with its principal
+part at that weight removed.  For \(b_\star^2\notin\mathbb Q\) it is
+Poghossian's recursion at \(b=b_\star\)
+(Corollary~\ref{cor:fixed-charge-generic}).
+
 At a minimal-model charge and an interior Kac weight \(\lambda\), the
 Feigin--Fuchs embedding diagram describes the Jantzen filtration
 \(J^\bullet\) of the specialized Verma module
@@ -317,9 +339,10 @@ and then treats degenerate representations~\cite[\S\S3.2--3.3]{Ribault2019}.
 He asks for a recursion at rational central charge that is manifestly finite
 and exhibits the higher-order poles~\cite[end of \S3.2]{Ribault2019}.  The
 confluence theorems compute the principal parts at each level by a finite
-calculation in the generic residue data, higher-order poles included, and
-the Jantzen theorems give their exact orders and top coefficients at
-interior minimal-model weights.  The
+calculation in the generic residue data, higher-order poles included;
+Theorem~\ref{thm:fixed-charge} and Remark~\ref{rem:fixed-charge-sph} give such
+a recursion at every fixed charge, and the Jantzen theorems give the exact
+pole orders and top coefficients at interior minimal-model weights.  The
 irreducible minimal-model traces with a primary insertion are treated in a
 separate paper~\cite{PolzerTraces2026}.
 
@@ -333,7 +356,8 @@ expansion.  Section~\ref{sec:smith} relates the local Smith exponents of the
 Shapovalov matrix to Jantzen layers and singular vectors,
 Section~\ref{sec:generic-recursion} collects the generic residue data and the
 generic recursion, and Section~\ref{sec:all-order} proves the confluence
-formula.  Section~\ref{sec:mm-layers} gives the pole-order bound and its top
+formula and derives from it the recursion at the fixed charge.
+Section~\ref{sec:mm-layers} gives the pole-order bound and its top
 coefficient at interior minimal-model weights, Section~\ref{sec:sharpness}
 proves that the bound is attained, and Section~\ref{sec:ising} treats the
 Ising model.  Part~II follows the same order for the sphere block and uses
@@ -441,6 +465,7 @@ Symbol & Meaning (where defined)\\
 \(A^\star_{\lambda,k,N}\), \(m^\star_{\lambda,N}\) & partial-fraction coefficients and pole order at \(\lambda\) (Theorem~\ref{thm:general-partial-fractions})\\
 \({\mathcal A}_{r,s}\), \({\mathcal N}_{r,s}\), \({\mathcal R}_{r,s}\) & inverse norm factor, torus norm and residue multiplier of the generic recursion (Definition~\ref{def:generic-residue})\\
 \(S_{a,M}\), \(\widetilde A^\star_{\lambda,k,N}\) & shifted Laurent blocks and collision moments (Definitions~\ref{def:shifted-laurent}, \ref{def:collision-moments})\\
+\(w_g\), \(\delta_g\), \(c^{(k)}_{\lambda\to\mu,j}\) & weight and local coordinate of a label, chain functions (Section~\ref{sec:fixed-charge}, Definition~\ref{def:chains})\\
 \(J^i\), \(B^i\) & Jantzen filtration and Jantzen forms (Definition~\ref{def:jantzen-layers}, Lemma~\ref{lem:top-coefficient})\\
 \(n_0,n_1\), \(\ell^\pm_k\), \(j_N(\lambda)\) & momenta, layer levels and Jantzen depth at an interior weight (Section~\ref{sec:mm-layers})\\
 \(w^\pm_k\), \(\mathcal N^\pm_k\), \(\gamma^\pm_k\) & layer singular vectors, their torus norms and Jantzen norms (Theorems~\ref{thm:jantzen-smith}, \ref{thm:top-layer})\\
@@ -987,10 +1012,11 @@ shifted coefficients that enter the recursion as Laurent series in \(t\).
 Definition~\ref{def:collision-moments} defines the moments.  The proof of
 the theorem uses uniqueness of partial fractions and
 Lemma~\ref{lem:collision-pole-support}.  The example after the proof works out
-the case \(c=0\), \(N=5\).  Section~\ref{sec:truncation} at the end of the
-section bounds the poles in \(t\), gives an a priori bound on the pole order
-in \(\Delta\), and gives the order in \(t\) to which each Laurent series has
-to be expanded.
+the case \(c=0\), \(N=5\).  Section~\ref{sec:truncation} bounds the poles
+in \(t\), gives an a priori bound on the pole order in \(\Delta\), and gives
+the order in \(t\) to which each Laurent series has to be expanded.
+Section~\ref{sec:fixed-charge} at the end of the section turns the theorem
+into a recursion at the fixed charge.
 
 \begin{definition}[Shifted Laurent recursion]\label{def:shifted-laurent}
 Fix \(b_\star\in\mathbb C^\times\), put \(c_\star=c(b_\star)\) and
@@ -1251,6 +1277,271 @@ through \(t^{U+\alpha}\).  With \(\alpha=\pi_g+\sigma_{a,g}\) and
 \(\beta=W_{a,N-\ell_a}\), it gives the stated bounds.  Since
 \(\ord_tB_{a,N}\geq-\widehat v_{a,N}\), only terms of \(\delta_a^{k-1}\) through
 \(t^{\widehat v_{a,N}}\) can contribute to the constant term.
+\end{proof}
+
+\subsection{A recursion at the fixed charge}\label{sec:fixed-charge}
+
+Theorem~\ref{thm:general-confluence} still uses the coefficients of lower
+level at the moving charge $c(b_\star+t)$, through the Laurent series
+$S_{a,M}(t)$.  This subsection removes them.  We iterate the generic
+recursion along chains of labels whose poles collide at every step and sum
+over the chains with the same end point.  A single chain can have a pole in
+$t$, but each of these sums is a rational function of $b$ that is regular at
+$b_\star$ (Lemma~\ref{lem:chain-regular}).  The principal parts of
+$H_N(c_\star,\cdot)$ are then finite combinations of the coefficients
+$H_M(c_\star,\cdot)$ with $M<N$, at the same central charge
+(Theorem~\ref{thm:fixed-charge}).
+
+Keep the notation of Definition~\ref{def:shifted-laurent}, with
+$K_\star=\mathbb Q(b_\star,d)$ and $t=b-b_\star$.  We regard $R_g$, $h_g$ and
+$z_g$ also as rational functions of $b$; $R_g$, the $h_g$ and the coefficients
+$H_M(c(b),\Delta,d)$ have coefficients in $\mathbb Q(d)$.  For every positive
+label $g$ put
+\[
+ w_g=h_g(0),\qquad \delta_g(t)=h_g(t)-w_g\in tK_\star[[t]],
+\]
+which extends $\delta_a$ of Definition~\ref{def:collision-moments}.  If
+$w_{g'}=w_g+\ell_g$, then
+\begin{equation}\label{eq:link}
+ z_g(t)-h_{g'}(t)=\delta_g(t)-\delta_{g'}(t),
+\end{equation}
+and this is not the zero series by Lemma~\ref{lem:no-generic-shifted-pole}.
+For $M\geq1$ and $\mu\in\mathbb C$ we write ${\mathcal C}^\star_{\mu,M}$ for
+the set of labels $g$ with $\ell_g\leq M$ and $w_g=\mu$; it is the collision
+class of Definition~\ref{def:fixed-specialization} when
+$\mu\in\operatorname{Kac}_M(b_\star)$ and empty otherwise.
+
+\begin{lemma}[Full moments]\label{lem:full-moments}
+Let $N\geq1$, $\lambda\in\operatorname{Kac}_N(b_\star)$ and $k\geq1$.  Then
+$S_{a,M}(t)$ is the expansion of the rational function
+$H_M(c(b),z_a(b),d)$ of $b$, and the full moment
+\[
+ C_{\lambda,k,N}(t)=\sum_{a\in{\mathcal C}^\star_{\lambda,N}}B_{a,N}(t)\,\delta_a(t)^{k-1}
+\]
+lies in $K_\star[[t]]$, with $C_{\lambda,k,N}(0)=A^\star_{\lambda,k,N}$.
+\end{lemma}
+
+\begin{proof}
+The first assertion follows from
+Proposition~\ref{prop:generic-recursion} by induction on \(M\), since
+Definition~\ref{def:shifted-laurent} is that recursion at the weight
+\(z_a(t)\).  In $K_\star(\Delta)((t))$ the
+coefficient of $t^m$ in~\eqref{eq:generic-grouped} is
+$\sum_\lambda\sum_k[t^m]C_{\lambda,k,N}\,(\Delta-\lambda)^{-k}$, a finite sum
+by Lemma~\ref{lem:collision-pole-support}, and the left side lies in
+$K_\star(\Delta)[[t]]$.  For $m<0$ uniqueness of partial fractions gives
+$[t^m]C_{\lambda,k,N}=0$, and at $m=0$ it gives
+$C_{\lambda,k,N}(0)=A^\star_{\lambda,k,N}$ by
+Theorem~\ref{thm:general-partial-fractions}.
+\end{proof}
+
+\begin{definition}[Chains and chain functions]\label{def:chains}
+A \emph{chain} from $\lambda$ to $\mu$ is a sequence $\gamma=(g_0,\dots,g_L)$,
+$L\geq0$, of positive labels with
+\[
+ w_{g_0}=\lambda,\qquad w_{g_i}=w_{g_{i-1}}+\ell_{g_{i-1}}\ (1\leq i\leq L),
+ \qquad w_{g_L}+\ell_{g_L}=\mu .
+\]
+Its level $\mu-\lambda=\sum_i\ell_{g_i}$ is a positive integer, and there are
+finitely many chains of a given level.  For $k\geq1$ put
+\[
+ P^{(k)}_\gamma=R_{g_0}\,\delta_{g_0}^{k-1}\prod_{i=1}^{L}
+ \frac{R_{g_i}}{\delta_{g_{i-1}}-\delta_{g_i}},
+\]
+a rational function of $b$ with coefficients in $K_\star$, well defined
+by~\eqref{eq:link}.  For $j\geq0$ the \emph{chain function} is
+\[
+ c^{(k)}_{\lambda\to\mu,j}=\sum_{\gamma}P^{(k)}_\gamma\,
+ \frac{\delta_{g_L}^{\,j}}{j!},
+\]
+the sum over the chains from $\lambda$ to $\mu$ (zero if there is none).  It
+depends on $b_\star$, $\lambda$, $\mu$, $k$, $j$ and $d$, and not on a level
+$N$.
+\end{definition}
+
+In the example after Theorem~\ref{thm:general-confluence}, the chains from
+$0$ to $5$ are $((1,1),(1,4))$ and $((1,2),(3,1))$.  The first has
+$\delta_{(1,1)}\equiv0$, and the second gives
+$c^{(2)}_{0\to5,0}(b_\star)={\mathcal R}_{1,2}{\mathcal R}_{3,1}/7$, the
+double-pole coefficient found there.
+
+\begin{lemma}[Cutting a chain]\label{lem:cutting}
+For $j\geq1$,
+\[
+ j\,c^{(k)}_{\lambda\to\mu,j}
+ =c^{(k+1)}_{\lambda\to\mu,j-1}
+ -\sum_{\nu}c^{(k)}_{\lambda\to\nu,0}\;c^{(1)}_{\nu\to\mu,j-1},
+\]
+where $\nu$ runs over $\lambda+1,\lambda+2,\dots,\mu-1$.
+\end{lemma}
+
+\begin{proof}
+For a chain $\gamma=(g_0,\dots,g_L)$ write $\delta_i=\delta_{g_i}$.  Since
+$\delta_L=\delta_0-\sum_{m=1}^{L}(\delta_{m-1}-\delta_m)$,
+\[
+ \delta_L\,P^{(k)}_\gamma=\delta_0\,P^{(k)}_\gamma
+ -\sum_{m=1}^{L}(\delta_{m-1}-\delta_m)\,P^{(k)}_\gamma ,
+\]
+and $\delta_0P^{(k)}_\gamma=P^{(k+1)}_\gamma$.  The factor
+$\delta_{m-1}-\delta_m$ cancels the link between $g_{m-1}$ and $g_m$:
+$(\delta_{m-1}-\delta_m)P^{(k)}_\gamma=P^{(k)}_{\gamma'}P^{(1)}_{\gamma''}$
+with $\gamma'=(g_0,\dots,g_{m-1})$, a chain from $\lambda$ to $\nu=w_{g_m}$,
+and $\gamma''=(g_m,\dots,g_L)$, a chain from $\nu$ to $\mu$.  The map
+$(\gamma,m)\mapsto(\gamma',\gamma'')$ is a bijection onto the pairs of chains
+from $\lambda$ to $\nu$ and from $\nu$ to $\mu$, over all $\nu$ with
+$\nu-\lambda$ and $\mu-\nu$ positive integers, since the conditions of
+Definition~\ref{def:chains} on $\gamma'$ and $\gamma''$ are those on $\gamma$.
+Multiply by $\delta_L^{j-1}/j!$ and sum over the chains.
+\end{proof}
+
+For $M\geq1$ and $\mu\in\mathbb C$ split the coefficient $H_M$ at $\mu$ into
+its colliding group and the rest:
+\begin{gather*}
+ G^{(M)}_\mu(b,\Delta)=\sum_{g\in{\mathcal C}^\star_{\mu,M}}
+ \frac{R_g(b)}{\Delta-h_g(b)}\,H_{M-\ell_g}\bigl(c(b),z_g(b),d\bigr),\\
+ \mathrm{Reg}^{(M)}_\mu=H_M\bigl(c(b),\Delta,d\bigr)-G^{(M)}_\mu .
+\end{gather*}
+
+\begin{lemma}[The remainder is regular]\label{lem:regular-remainder}
+The rational function $\mathrm{Reg}^{(M)}_\mu$ of $(b,\Delta)$ has no pole on
+the line $b=b_\star$ near $\Delta=\mu$, and
+\begin{equation}\label{eq:regvalue}
+ \mathrm{Reg}^{(M)}_\mu(b_\star,\Delta)
+ =H_M(c_\star,\Delta,d)-\PP_{\Delta=\mu}H_M(c_\star,\Delta,d).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+By Proposition~\ref{prop:generic-recursion}, an identity of rational
+functions of $(b,\Delta)$, $\mathrm{Reg}^{(M)}_\mu$ is the sum of the groups
+$G^{(M)}_{\lambda'}$ over $\lambda'\in\operatorname{Kac}_M(b_\star)$,
+$\lambda'\neq\mu$.  Fix such a $\lambda'$ and write
+$G=G^{(M)}_{\lambda'}=\sum_gE_g(b)/(\Delta-h_g(b))$ with
+$E_g=R_gH_{M-\ell_g}(c(b),z_g(b),d)$.  Choose a polynomial $E$ in $b$ with
+$EE_g$ polynomial for all $g$, and write $E=t^eE_1$ with $E_1(b_\star)\neq0$.
+Then $G=N_0/(E\prod_gb^2(\Delta-h_g))$ with $N_0$ a polynomial in
+$(b,\Delta)$, since $b^2h_g$ is a polynomial in $b$.  In
+$K_\star(\Delta)((t))$ the coefficient of $t^m$ in $G$ is
+$\sum_k[t^m]C_{\lambda',k,M}\,(\Delta-\lambda')^{-k}$
+(Lemma~\ref{lem:collision-pole-support}), which vanishes for $m<0$ by
+Lemma~\ref{lem:full-moments}, and its constant term is
+$\sum_kA^\star_{\lambda',k,M}(\Delta-\lambda')^{-k}
+=\PP_{\Delta=\lambda'}H_M(c_\star,\Delta,d)$.  So $N_0$ has $t$-adic valuation
+at least $e$, hence is divisible by $t^e$ as a polynomial, and $G$ has the
+denominator $E_1\prod_gb^2(\Delta-h_g)$, which at $b=b_\star$ is a nonzero
+constant times a power of $\Delta-\lambda'$.  Summing over $\lambda'\neq\mu$
+and using Theorem~\ref{thm:general-partial-fractions} for $H_M(c_\star,\cdot)$
+gives~\eqref{eq:regvalue}.
+\end{proof}
+
+\begin{lemma}[Chain expansion of the moments]\label{lem:chain-expansion}
+Let $N\geq1$, $\lambda\in\operatorname{Kac}_N(b_\star)$, $k\geq1$, and for
+$0<\mu-\lambda<N$ and $j\geq0$ put
+$\varphi_{\mu,j}(b)=\partial_\Delta^j\mathrm{Reg}^{(N-(\mu-\lambda))}_\mu(b,\mu)$,
+regular at $b_\star$ by Lemma~\ref{lem:regular-remainder}.  Then in
+$K_\star((t))$
+\begin{equation}\label{eq:chain-expansion}
+ C_{\lambda,k,N}=c^{(k)}_{\lambda\to\lambda+N,0}
+ +\sum_{0<\mu-\lambda<N}\ \sum_{j\geq0}c^{(k)}_{\lambda\to\mu,j}\,\varphi_{\mu,j},
+\end{equation}
+where for each $\mu$ the series over $j$ converges $t$-adically.
+\end{lemma}
+
+\begin{proof}
+Let $\mu_g=w_g+\ell_g$, so that $z_g(t)-\mu_g=\delta_g(t)$.  We have
+$S_{g,0}=1$, and for $M\geq1$, evaluating $H_M=G^{(M)}_{\mu_g}+
+\mathrm{Reg}^{(M)}_{\mu_g}$ at $\Delta=z_g$ and using~\eqref{eq:link} and
+Lemma~\ref{lem:full-moments},
+\[
+ S_{g,M}=\mathrm{Reg}^{(M)}_{\mu_g}\bigl(b,\mu_g+\delta_g\bigr)
+ +\sum_{g'\in{\mathcal C}^\star_{\mu_g,M}}\frac{R_{g'}}{\delta_g-\delta_{g'}}\,
+ S_{g',M-\ell_{g'}} .
+\]
+Since $\mathrm{Reg}^{(M)}_{\mu_g}$ is regular at $(b_\star,\mu_g)$ and
+$\delta_g\in tK_\star[[t]]$, its Taylor expansion in the second variable gives
+$\mathrm{Reg}^{(M)}_{\mu_g}(b,\mu_g+\delta_g)
+=\sum_j\partial_\Delta^j\mathrm{Reg}^{(M)}_{\mu_g}(b,\mu_g)\,\delta_g^j/j!$ in
+$K_\star[[t]]$.  Substitute these expressions into
+$C_{\lambda,k,N}=\sum_aR_a\delta_a^{k-1}S_{a,N-\ell_a}$ and repeat; the level
+drops at each step.  Every term belongs to a chain from $\lambda$ to some
+$\mu$ and carries $P^{(k)}_\gamma$.  It is $P^{(k)}_\gamma$ if
+$\mu-\lambda=N$, where the chain ends with $S_{g_L,0}=1$, and
+$P^{(k)}_\gamma\sum_j\varphi_{\mu,j}\delta_{g_L}^j/j!$ if $\mu-\lambda<N$.
+Each chain of level at most $N$ occurs exactly once, because the condition
+$\ell_{g'}\leq M$ in ${\mathcal C}^\star_{\mu_g,M}$ says that the chain fits
+into level $N$.  Collecting by $(\mu,j)$ gives~\eqref{eq:chain-expansion}.
+The valuation of $c^{(k)}_{\lambda\to\mu,j}$ is at least
+$j+\min_\gamma\operatorname{ord}_tP^{(k)}_\gamma$, so the series over $j$
+converges.
+\end{proof}
+
+\begin{lemma}[Regular chain functions]\label{lem:chain-regular}
+Every chain function $c^{(k)}_{\lambda\to\mu,j}$ is regular at $b=b_\star$.
+\end{lemma}
+
+\begin{proof}
+Induction on the level $D=\mu-\lambda$.  Assume that all chain functions of
+level less than $D$ are regular, for all start weights, all $k$ and all $j$.
+
+For $j=0$: if no chain of level $D$ starts at $\lambda$, the chain function is
+zero.  Otherwise its first label has level at most $D$, so
+$\lambda\in\operatorname{Kac}_D(b_\star)$, and we apply
+Lemma~\ref{lem:chain-expansion} with $N=D$.  The left side
+of~\eqref{eq:chain-expansion} is regular by Lemma~\ref{lem:full-moments}.  On
+the right, every $c^{(k)}_{\lambda\to\mu,j}$ with $\mu-\lambda<D$ is regular by
+the induction hypothesis and every $\varphi_{\mu,j}$ is regular, so the double
+sum is regular.  Hence $c^{(k)}_{\lambda\to\lambda+D,0}$ is regular, for every
+$k$.
+
+For $j\geq1$ we use induction on $j$.  In Lemma~\ref{lem:cutting},
+$c^{(k+1)}_{\lambda\to\mu,j-1}$ is regular by the case $j-1$, which holds for
+all $k$, and $c^{(k)}_{\lambda\to\nu,0}$ and $c^{(1)}_{\nu\to\mu,j-1}$ have
+levels less than $D$.
+\end{proof}
+
+\begin{theorem}[Recursion at the fixed charge]\label{thm:fixed-charge}
+Let $b_\star\in\mathbb C^\times$, $N\geq1$,
+$\lambda\in\operatorname{Kac}_N(b_\star)$ and $k\geq1$.  Then
+\begin{multline}\label{eq:fixed-charge}
+ A^\star_{\lambda,k,N}=c^{(k)}_{\lambda\to\lambda+N,0}(b_\star)\\
+ +\sum_{0<\mu-\lambda<N}\ \sum_{j\geq0}c^{(k)}_{\lambda\to\mu,j}(b_\star)\,
+ \partial_\Delta^{\,j}\Bigl(H_{N-(\mu-\lambda)}(c_\star,\Delta,d)
+ -\PP_{\Delta=\mu}H_{N-(\mu-\lambda)}(c_\star,\Delta,d)\Bigr)\Big|_{\Delta=\mu},
+\end{multline}
+with finitely many nonzero terms, and $H_N(c_\star,\Delta,d)$ is the sum of
+the principal parts $\sum_kA^\star_{\lambda,k,N}(\Delta-\lambda)^{-k}$ over
+$\lambda\in\operatorname{Kac}_N(b_\star)$.  The numbers
+$c^{(k)}_{\lambda\to\mu,j}(b_\star)$ are values of rational functions of $b$
+built from the closed forms of ${\mathcal R}_{r,s}$ and $h_{r,s}$, and do not
+depend on $N$.  So~\eqref{eq:fixed-charge} computes $H_N(c_\star,\cdot)$ from
+$H_0,\dots,H_{N-1}$ at the same central charge, and none of its terms has a
+pole at $b=b_\star$.
+\end{theorem}
+
+\begin{proof}
+Evaluate~\eqref{eq:chain-expansion} at $t=0$.  The left side is
+$A^\star_{\lambda,k,N}$ by Lemma~\ref{lem:full-moments}, every chain function
+is regular by Lemma~\ref{lem:chain-regular}, and $\varphi_{\mu,j}(b_\star)$ is
+the bracket in~\eqref{eq:fixed-charge} by~\eqref{eq:regvalue}.  The value
+$c^{(k)}_{\lambda\to\mu,j}(b_\star)$ vanishes once
+$j>-\min_\gamma\operatorname{ord}_tP^{(k)}_\gamma$, and only finitely many
+$\lambda$ and $k$ occur by Theorem~\ref{thm:general-partial-fractions}.  The
+levels $N-(\mu-\lambda)$ that occur are less than $N$.
+\end{proof}
+
+\begin{corollary}[Generic charge]\label{cor:fixed-charge-generic}
+If $b_\star^2\notin\mathbb Q$, then~\eqref{eq:fixed-charge} is
+Proposition~\ref{prop:generic-recursion} at $b=b_\star$.
+\end{corollary}
+
+\begin{proof}
+By Lemma~\ref{lem:no-generic-shifted-pole} the collision classes are
+singletons, the ${\mathcal R}_{r,s}$ are regular at $b_\star$, and no
+$h_{g'}(b_\star)$ equals $h_g(b_\star)+\ell_g$.  So every chain has a single
+label $a$, with $\mu=z_a(0)\notin\operatorname{Kac}_{N-\ell_a}(b_\star)$, and
+$c^{(k)}_{\lambda\to\mu,j}=R_a\delta_a^{k-1+j}/j!$ vanishes at $b_\star$ unless
+$k=1$ and $j=0$.  Then~\eqref{eq:fixed-charge} reads
+$A^\star_{h_a(0),1,N}=R_a(0)\,H_{N-\ell_a}(c_\star,z_a(0),d)$.
 \end{proof}
 
 \section{Jantzen layers at minimal-model charges and the top pole}\label{sec:mm-layers}
@@ -2462,6 +2753,22 @@ moments with a direct Gram-matrix computation of \(H_5\) at sample external
 weights.
 \end{example*}
 
+\begin{remark}[Recursion at the fixed charge for the sphere block]
+\label{rem:fixed-charge-sph}
+Section~\ref{sec:fixed-charge} holds for the elliptic coefficients \(H_N\) of
+the sphere block, with the same proofs: replace \(R_g\) by
+\(\mathcal R^{\mathrm{sph}}_g\), \(K_\star\) by
+\(\mathbb Q(b_\star,\Delta_1,\dots,\Delta_4)\),
+Proposition~\ref{prop:generic-recursion} by
+Proposition~\ref{prop:generic-recursion-sph} and
+Theorem~\ref{thm:general-confluence} by Theorem~\ref{thm:confluence}, whose
+proof gives Lemma~\ref{lem:full-moments}.  Theorem~\ref{thm:fixed-charge}
+then computes the principal parts of \(H_N(c_\star,\Delta,\Delta_i)\) from
+\(H_0,\dots,H_{N-1}\) at \(c_\star\); the cross-ratio coefficients
+\(\mathcal B_N\), which have a polynomial part in \(\Delta\), follow
+by~\eqref{eq:B-from-H}.
+\end{remark}
+
 \section{Minimal-model pole orders for the sphere block}\label{sec:jantzen}
 
 Let \(p,p'\geq2\) be coprime integers.  Exchanging \(p\) with \(p'\) and \(r\)
@@ -2951,14 +3258,11 @@ by~\cite[Theorem~6.3(ii)--(iv) and (6.4)]{IoharaKoga2011}, and at the charges
 \(c_\star=1,25\), the confluence formulas still give every coefficient, but
 the pole order and the top coefficient are not determined here.  The
 coefficients below the top one, \(A^\star_{\lambda,k,N}\) with
-\(k<m^\star_{\lambda,N}\), are computed here only as collision moments; a
-formula for them in terms of the specialized module, like
-Theorems~\ref{thm:top-layer} and~\ref{thm:top-layer-sph} for the top one, is
-not known.  The confluence formulas expand the generic recursion in
-\(b-b_\star\) and use generic-\(b\) jets.  Ribault asks for a recursion at
-rational \(b^2\), with the torus one-point block as the simplest
-case~\cite[\S4.3.3]{Ribault2026}; a recursion of that kind in data at
-\(c=c_\star\) alone is not given here.  Irreducible minimal-model sphere
+\(k<m^\star_{\lambda,N}\), are given by Theorem~\ref{thm:fixed-charge} with
+coefficients \(c^{(k)}_{\lambda\to\mu,j}(b_\star)\) computed from the closed
+forms of the generic residues; a description of these coefficients in terms
+of the specialized module, like Theorems~\ref{thm:top-layer}
+and~\ref{thm:top-layer-sph} for the top one, is not known.  Irreducible minimal-model sphere
 blocks are not treated here; for the torus, the irreducible traces are
 treated in~\cite{PolzerTraces2026}.
 
@@ -3268,7 +3572,13 @@ Section~\ref{sec:sharpness} by Shapovalov inversion up to level four, and the
 C++ program \path{tools/check_d0_coefficient.cpp} evaluates the coefficient of
 \(d^{k+1}\) at \(d=0\) described there on all strict two-vector levels with
 \(p,p'\leq13\) and \(k\leq3\) and finds no zero.  Neither is part of the
-archive.
+archive.  The repository script \path{notes/ribault/fixed_charge_recursion.py},
+also not part of the archive, runs the recursion of
+Theorem~\ref{thm:fixed-charge} from \(H_0=1\), using only the values
+\(c^{(k)}_{\lambda\to\mu,j}(b_\star)\) and the fixed-charge coefficients it has
+already computed, and compares every principal part at every Kac weight with
+Theorem~\ref{thm:general-confluence} (torus) or Theorem~\ref{thm:confluence}
+(sphere); it also checks the identity of Lemma~\ref{lem:cutting} exactly.
 
 The scripts in \texttt{sphere/tools/} check the sphere confluence of Part~II
 in exact rational and symbolic arithmetic, through level seven for
