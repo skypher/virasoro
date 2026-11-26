@@ -9,7 +9,7 @@
 \newtheorem{remark}[theorem]{Remark}
 \newcommand{\Kac}{\operatorname{Kac}}
 
-\title{Subleading coefficients of the fixed-charge recursion\\ at the second Jantzen layer}
+\title{Subleading coefficients of the fixed-charge recursion}
 \author{Notes for the colliding-poles paper (\texttt{paper.tex}, Section 7.2); draft, 2026-11-26}
 \date{}
 
@@ -201,6 +201,469 @@ example after Definition 7.9 of \texttt{paper.tex}.  The coefficients with
 $k+j=2$ are the leading ones at the second layer; the remaining coefficient
 $c^{(1)}_{\lambda\to\mu^\pm_2,0}(b_\star)$ depends on the first-order
 expansions of $R_g$ and $\delta_g$ and is not a function of the momenta.
+\end{remark}
+
+\section{All coefficients with $k+j$ equal to the layer distance}
+
+\subsection*{Signed momenta and positions}
+Put $N_0=2pp'$.  The nodes of the diagram of $\lambda$ are $\lambda$ (layer
+$0$) and $\mu^\pm_k=\lambda+\ell^\pm_k$ (layer $k\ge1$); write $L_\nu$ for the
+layer of a node $\nu$.  Give the nodes the \emph{signed momenta}
+\[
+ S_\lambda=n_0,\quad S(\mu^\pm_{2j})=n_0\pm jN_0,\quad
+ S(\mu^+_{2j+1})=n_1+jN_0,\quad S(\mu^-_{2j+1})=n_1-(j+1)N_0,
+\]
+so that $|S(\mu^\pm_k)|=m^\pm_k$ and $\nu=d_{S_\nu}$, and the
+\emph{positions} $\pi_\lambda=0$, $\pi(\mu^\pm_k)=\pm k/2$.  Then
+\[
+ S_\nu=N_0(\alpha+\pi_\nu)\ (L_\nu\text{ even}),\qquad
+ S_\nu=N_0(\beta+\pi_\nu)\ (L_\nu\text{ odd}),\qquad
+ \alpha=\frac{n_0}{N_0},\ \beta=\frac{n_1-pp'}{N_0}.
+\]
+Two nodes are of the same \emph{class} if their layers have the same parity;
+for nodes $x,y$ of the same class, $S_x-S_y=N_0(\pi_x-\pi_y)$.  Since
+$|n_0|<n_1<pp'$, one has $|\alpha|,|\beta|<\frac12$, so
+$|S_\nu|=N_0|\pi_\nu|+\operatorname{sgn}(\pi_\nu)S_\nu'$ for $\nu\ne\lambda$,
+where $S'_\nu=n_0$ or $n_1-pp'$ according to the class.  For nodes $a,\mu$
+with $L_a<L_\mu$ write $D(a,\mu)=L_\mu-L_a$.  Chain functions from a node $a$
+are those of Definition 7.9 with $a$ in place of $\lambda$.
+
+\begin{lemma}[Labels between nodes]\label{lem:labels}
+Let $\nu,\nu'$ be nodes with $\Delta=L_{\nu'}-L_\nu$ odd and positive.  There
+is exactly one positive label of weight $\nu$ leading to $\nu'$, namely
+$g=\bigl(\epsilon(S_{\nu'}+S_\nu)/(2p'),\ \epsilon(S_{\nu'}-S_\nu)/(2p)\bigr)$
+with $\epsilon=\operatorname{sgn}S_{\nu'}$, and $x_gy_g=S_\nu S_{\nu'}$.  Every
+positive label whose weight is a node leads to a node of larger layer and of
+the other class.  Consequently the chains from a node $a$ to a node $\mu$ are
+the sequences of nodes $a=x_0,x_1,\dots,x_{n+1}=\mu$ in which every step
+$L_{x_{i+1}}-L_{x_i}$ is odd and positive.
+\end{lemma}
+
+\begin{proof}
+$S_{\nu'}\pm S_\nu$ is $\equiv n_1\pm n_0$ or $\pm(n_1\pm n_0)\pmod{N_0}$, and
+$n_0+n_1=2p'r$, $n_1-n_0=2ps$; so $S_{\nu'}+S_\nu\equiv0\pmod{2p'}$ and
+$S_{\nu'}-S_\nu\equiv0\pmod{2p}$, and both entries of $g$ are positive
+integers because $|S_{\nu'}|>|S_\nu|$.  Then $x_g=\epsilon S_\nu$ and
+$y_g=|S_{\nu'}|$, so $g$ has weight $d_{S_\nu}=\nu$ and leads to $\nu'$.  A
+label of weight $\nu$ leading to $\nu'$ has $y_g=|S_{\nu'}|$ and
+$x_g=\pm S_\nu$; the sign $x_g=-\epsilon S_\nu$ would need
+$S_{\nu'}-S_\nu\equiv0\pmod{2p'}$, that is $p'\mid s$.  The last assertions
+follow from the congruences $y_g\equiv x_g\pmod{2p}$,
+$y_g\equiv-x_g\pmod{2p'}$ and $y_g>|x_g|$, as in the proof of
+Lemma~\ref{lem:chains2}: every integer $\equiv\pm n_0$ or $\pm n_1\pmod{N_0}$
+is $\pm S_\nu$ for a node $\nu$, and $|S_\nu|$ increases with $L_\nu$ (by
+$\max(\ell^+_k,\ell^-_k)<\ell_{k+1}$, Section 8, since $d_x$ increases with $|x|$).
+\end{proof}
+
+\begin{lemma}[Pole orders]\label{lem:poles}
+For the label $g$ of Lemma~\ref{lem:labels},
+$R_g=\rho_g\,t^{1-\Delta}+O(t^{2-\Delta})$ with $\rho_g\neq0$ in
+$K_\star=\mathbb C(d)$.
+\end{lemma}
+
+\begin{proof}
+The factor $ab+eb^{-1}$ of $\mathcal A_{u,v}$ vanishes at $b_\star$ exactly
+for $(a,e)=i(p,p')$, $i\ne0$, and then simply (its $b$-derivative is $2ip$
+there).  With $(u,v)=g$, $ip\le u$ and $ip'\le v$ mean
+$iN_0\le|S_{\nu'}|\pm\epsilon S_\nu$, that is $iN_0\le|S_{\nu'}|-|S_\nu|$, and for
+$-i(p,p')$ the conditions are $iN_0<|S_{\nu'}|-|S_\nu|$.  Now
+$|S_{\nu'}|-|S_\nu|=\frac\Delta2N_0+e$, where $e$ is one of
+$\pm(n_1-pp')\pm n_0$ or, for $\nu=\lambda$, $\pm(n_1-pp')-|n_0|$; from
+$n_1+n_0-pp'=2p'r-pp'$, $n_1-n_0-pp'=2ps-pp'$ and $|n_0|<n_1<pp'$ one gets
+$|e|<pp'=N_0/2$.  So both counts equal $(\Delta-1)/2$, and $\mathcal A_g$ has
+a pole of order exactly $\Delta-1$.  The factors of $\mathcal N_g(b_\star,d)$
+are linear in $d$ with coefficient $-1$, so $\mathcal N_g(b_\star,d)\ne0$.
+\end{proof}
+
+For a chain $\gamma=(x_0,\dots,x_{n+1})$ from $a$ to $\mu$, with labels
+$g_i$ from $x_i$ to $x_{i+1}$, put $c=b_\star/(2p'^2)$, $K=p'^2-p^2$,
+\[
+ h_i=h'_{g_i}(b_\star)=c\,(K-S_{x_i}S_{x_{i+1}}),\qquad
+ w_\gamma=\frac{\prod_{i=0}^n\rho_{g_i}}{\prod_{i=1}^n(h_{i-1}-h_i)},\qquad
+ h_{i-1}-h_i=c\,S_{x_i}(S_{x_{i+1}}-S_{x_{i-1}})
+\]
+(Lemma~\ref{lem:hprime}); $h_{i-1}\ne h_i$, since $x_{i-1},x_{i+1}$ are of the
+same class and of different layers.  Put
+$\operatorname{Top}(a\to\mu)=c^{(D)}_{a\to\mu,0}(b_\star)$, $D=D(a,\mu)$.
+
+\begin{lemma}[Leading terms]\label{lem:leading}
+\[
+ P^{(k)}_\gamma\,\delta_{g_n}^j/j!=w_\gamma h_0^{k-1}h_n^j\,t^{k+j-D}/j!+O(t^{k+j-D+1}).
+\]
+Hence $\sum_\gamma w_\gamma h_0^{k-1}h_n^j=0$ for $k\ge1$, $j\ge0$, $k+j<D$,
+and $c^{(k)}_{a\to\mu,j}(b_\star)=\frac1{j!}\sum_\gamma w_\gamma h_0^{k-1}h_n^j$
+for $k+j=D$, the sums over the chains from $a$ to $\mu$.
+\end{lemma}
+
+\begin{proof}
+$\delta_g=h'_g(b_\star)t+O(t^2)$, and by Lemma~\ref{lem:poles} the residues give
+$t^{-\sum_i(\Delta_i-1)}=t^{n+1-D}$, the links $t^{-n}$.  The vanishing is
+Lemma 7.13 (regularity of $c^{(k)}_{a\to\mu,j}$).
+\end{proof}
+
+\begin{lemma}[First steps]\label{lem:firststeps}
+Let $\mathrm{FS}(a\to\mu)$ be the set of nodes $\theta$ with $L_\theta-L_a$ odd
+and either $L_\theta<L_\mu$ or $\theta=\mu$.  It has $D$ elements, the numbers
+$h_{a\theta}=c(K-S_aS_\theta)$ are distinct, and
+\[
+ F(\theta):=\sum_{\gamma:\ x_1=\theta}w_\gamma
+ =\frac{\operatorname{Top}(a\to\mu)}{\prod_{\theta'\in\mathrm{FS}(a\to\mu)\setminus\{\theta\}}
+ (h_{a\theta}-h_{a\theta'})}.
+\]
+\end{lemma}
+
+\begin{proof}
+The odd layers between give $2\lfloor D/2\rfloor$ nodes, and $\mu$ is added when
+$D$ is odd.  The $S_\theta$ are distinct and $S_a\ne0$.  By
+Lemma~\ref{lem:labels} every chain has $x_1\in\mathrm{FS}(a\to\mu)$, and
+$h_0=h_{a\theta}$ depends on $x_1=\theta$ only.  Lemma~\ref{lem:leading} with
+$(k,j)=(m+1,0)$ gives $\sum_\theta F(\theta)h_{a\theta}^m=0$ for $m\le D-2$ and
+$=\operatorname{Top}(a\to\mu)$ for $m=D-1$.  This Vandermonde system has the
+stated solution, by Lagrange interpolation.
+\end{proof}
+
+\begin{proposition}[Ratios of top coefficients]\label{prop:kappa}
+For $\theta\in\mathrm{FS}(a\to\mu)$, $\theta\ne\mu$,
+\[
+ \operatorname{Top}(a\to\theta)\operatorname{Top}(\theta\to\mu)
+ =\kappa(a,\theta,\mu)\operatorname{Top}(a\to\mu),\qquad
+ \kappa(a,\theta,\mu)=\Bigl(\frac{S_\theta}{S_a}\Bigr)^{D(\theta,\mu)}
+ \hat\kappa(a,\theta,\mu),
+\]
+\[
+ \hat\kappa(a,\theta,\mu)=
+ \frac{\prod_{x\in\mathrm{FS}(\theta\to\mu)}(\pi_x-\pi_a)}
+      {\prod_{x\in\mathrm{FS}(a\to\mu)\setminus\mathrm{FS}(a\to\theta)}(\pi_x-\pi_\theta)} .
+\]
+Every $\operatorname{Top}(x\to y)$ is nonzero.  For a node $\nu$ with
+$L_\nu-L_a$ even and $L_a<L_\nu<L_\mu$, the ratio
+$\kappa(a,\nu,\mu)=\operatorname{Top}(a\to\nu)\operatorname{Top}(\nu\to\mu)/\operatorname{Top}(a\to\mu)$
+equals $(S_\nu/S_a)^{D(\nu,\mu)}\hat\kappa(a,\nu,\mu)$ with a rational number
+$\hat\kappa(a,\nu,\mu)$ that depends only on positions.
+\end{proposition}
+
+\begin{proof}
+A chain with $x_1=\theta\ne\mu$ is the label from $a$ to $\theta$ followed by a
+chain $\gamma'$ from $\theta$ to $\mu$, and $w_\gamma=\rho_{a\theta}w_{\gamma'}/
+(h_{a\theta}-h_{\theta x_2})$.  Grouping by $x_2$ and using
+Lemma~\ref{lem:firststeps} from the base $\theta$,
+\[
+ F(\theta)=\rho_{a\theta}\sum_{\theta'\in\mathrm{FS}(\theta\to\mu)}
+ \frac{\operatorname{Top}(\theta\to\mu)}{(h_{a\theta}-h_{\theta\theta'})
+ \prod_{\theta''\ne\theta'}(h_{\theta\theta'}-h_{\theta\theta''})}
+ =\frac{\rho_{a\theta}\operatorname{Top}(\theta\to\mu)}
+ {\prod_{\theta'\in\mathrm{FS}(\theta\to\mu)}(h_{a\theta}-h_{\theta\theta'})}
+\]
+by partial fractions; here $h_{a\theta}-h_{\theta\theta'}=cS_\theta(S_{\theta'}-S_a)\ne0$.
+Lemma~\ref{lem:firststeps} for the end $\theta$ and the one-label chain gives
+$\rho_{a\theta}=\operatorname{Top}(a\to\theta)/\prod_{\tilde\theta\in\mathrm{FS}(a\to\theta)\setminus\{\theta\}}
+(h_{a\theta}-h_{a\tilde\theta})$; in particular
+$\operatorname{Top}(a\to\theta)\ne0$.  Comparing with
+Lemma~\ref{lem:firststeps} for the end $\mu$, and using
+$\mathrm{FS}(a\to\theta)\subset\mathrm{FS}(a\to\mu)$,
+$h_{a\theta}-h_{a\tilde\theta}=cS_a(S_{\tilde\theta}-S_\theta)$, and
+$|\mathrm{FS}(\theta\to\mu)|=|\mathrm{FS}(a\to\mu)\setminus\mathrm{FS}(a\to\theta)|=D(\theta,\mu)$,
+gives the formula; the differences are of same-class momenta, so the factors
+$N_0$ cancel.  For $\nu$ at even distance take $\theta$ of layer $L_a+1$; then
+$\nu\in\mathrm{FS}(\theta\to\mu)$, $\theta\in\mathrm{FS}(a\to\nu)$, the three
+odd ratios give $\operatorname{Top}(a\to\nu)\ne0$ and
+$\kappa(a,\nu,\mu)=\kappa(a,\theta,\mu)\kappa(\theta,\nu,\mu)/\kappa(a,\theta,\nu)$,
+and the powers of $S$ combine to $(S_\nu/S_a)^{D(\nu,\mu)}$.
+\end{proof}
+
+\begin{lemma}[Cutting at leading order]\label{lem:cut0}
+For $k+j=D$ and $j\ge1$,
+\[
+ j\,c^{(k)}_{a\to\mu,j}(b_\star)=c^{(k+1)}_{a\to\mu,j-1}(b_\star)
+ -\sum_{L_\nu=L_a+k}\operatorname{Top}(a\to\nu)\,c^{(1)}_{\nu\to\mu,j-1}(b_\star).
+\]
+\end{lemma}
+
+\begin{proof}
+Evaluate Lemma 7.10 at $b_\star$ (all terms are regular by Lemma 7.13).  The
+chain function $c^{(k)}_{a\to\nu,0}$ is $O(t^{k-D(a,\nu)})$ and
+$c^{(1)}_{\nu\to\mu,j-1}$ is $O(t^{j-D(\nu,\mu)})$ (Lemma~\ref{lem:leading});
+if $L_\nu<L_a+k$ the first vanishes at $b_\star$, if $L_\nu>L_a+k$ the second
+does.
+\end{proof}
+
+\begin{lemma}[Only positions enter]\label{lem:positions}
+For $0\le j\le D-1$ put
+\[
+ f_j(a,\mu)=j!\,(S_a/S_\mu)^j\,c^{(D-j)}_{a\to\mu,j}(b_\star)/\operatorname{Top}(a\to\mu).
+\]
+Then $f_0=1$, and $f_j(a,\mu)$ is a rational number that depends only on
+$\pi_a$ and $\pi_\mu$: it is the same in every minimal model, at every
+interior weight, and for every $d$.
+\end{lemma}
+
+\begin{proof}
+For $\gamma=(x_0,\dots,x_{n+1})$ write $\Delta_i=D(x_i,x_{i+1})$.  By the proof
+of Proposition~\ref{prop:kappa},
+$\rho_{g_i}=\operatorname{Top}(x_i\to x_{i+1})/\prod_{\tilde\theta}cS_{x_i}(S_{\tilde\theta}-S_{x_{i+1}})$
+over $\tilde\theta\in\mathrm{FS}(x_i\to x_{i+1})\setminus\{x_{i+1}\}$, and by
+Proposition~\ref{prop:kappa}, inductively from the end,
+$\prod_{i=0}^n\operatorname{Top}(x_i\to x_{i+1})=\operatorname{Top}(a\to\mu)
+\prod_{i=0}^{n-1}\kappa(x_i,x_{i+1},\mu)$.  Insert this into $w_\gamma$.  For
+$1\le i\le n$ the power of $S_{x_i}$ is
+$D(x_i,\mu)-D(x_{i+1},\mu)-(\Delta_i-1)-1=0$, and $S_a$ has the power
+$-D(x_1,\mu)-(\Delta_0-1)=1-D$.  All remaining factors are differences of
+same-class momenta, $\sum_i(\Delta_i-1)+n=D-1$ of them in the denominator
+besides the degree-$0$ ratios $\hat\kappa$.  So
+$w_\gamma=\operatorname{Top}(a\to\mu)\,(cN_0S_a)^{1-D}\,\ell(\gamma)$ with
+$\ell(\gamma)\in\mathbb Q$ determined by the positions of the nodes of
+$\gamma$.  Write $S_{x_1}=N_0(c_1+\pi_{x_1})$ and $S_{x_n}=N_0(c_2+\pi_{x_n})$,
+where $c_1,c_2\in\{\alpha,\beta\}$ are fixed by the classes of $a$ and $\mu$.
+Lemma~\ref{lem:leading} gives
+$\sum_\gamma\ell(\gamma)(K-S_aS_{x_1})^{k-1}(K-S_{x_n}S_\mu)^j=0$ for
+$k+j<D$, and by induction on the degree
+$\sum_\gamma\ell(\gamma)\pi_{x_1}^{e}\pi_{x_n}^{e'}=0$ for $e+e'\le D-2$.  For
+$k+j=D$ only the terms of top degree survive, and
+\[
+ f_j(a,\mu)=(-1)^{D-1}\sum_\gamma\ell(\gamma)\,\pi_{x_1}^{D-1-j}\pi_{x_n}^{j}.
+\]
+The set of chains is described by positions (Lemma~\ref{lem:labels}).
+\end{proof}
+
+\begin{theorem}[Coefficients with $k+j=D$]\label{thm:kjD}
+For nodes $a,\mu$ with $D=D(a,\mu)\ge1$ and $0\le j\le D-1$,
+\[
+ c^{(D-j)}_{a\to\mu,j}(b_\star)=\frac{f_j(L_a,D)}{j!}
+ \Bigl(\frac{S_\mu}{S_a}\Bigr)^{j}\operatorname{Top}(a\to\mu),
+\]
+where, with $n=\lfloor(D-1)/2\rfloor$,
+\[
+ f_{2i}(l,D)=(-1)^i\,\frac{\binom ni\binom{l+n}i}{\binom{l+D-1}i},\qquad
+ f_{2i+1}(l,D)=\begin{cases}f_{2i}(l,D)&D\text{ even},\\0&D\text{ odd}.\end{cases}
+\]
+Equivalently $\sum_if_{2i}(l,D)x^i={}_2F_1(-n,-n-l;1-D-l;x)$.
+\end{theorem}
+
+\begin{proof}
+Divide Lemma~\ref{lem:cut0} by $\operatorname{Top}(a\to\mu)$ and use
+Proposition~\ref{prop:kappa} and Lemma~\ref{lem:positions}: with $k=D-j$ and $\nu$
+running over the two nodes of layer $L_a+k$,
+\begin{equation}\label{eq:R}
+ f_j(a,\mu)S_\mu=f_{j-1}(a,\mu)S_a
+ -\sum_\nu\hat\kappa(a,\nu,\mu)f_{j-1}(\nu,\mu)S_\nu .
+\end{equation}
+The rational numbers $f$ and $\hat\kappa$ are the same in every minimal model,
+and the class centres $(\alpha,\beta)$ of the models $(p,p';r,s)=(2,3;1,1)$,
+$(2,5;1,1)$, $(3,4;1,1)$ are $(\frac1{12},-\frac1{12})$,
+$(\frac3{20},-\frac3{20})$, $(\frac1{24},-\frac5{24})$, which are affinely
+independent.  So~\eqref{eq:R}, divided by $N_0$, is an identity of affine
+functions of $(\alpha,\beta)$, and we may compare the coefficients of the class
+centres $c_A$ of $a$, $c_B$ of the other class, and the constant terms.  We
+argue by induction on $D$ (all bases at once); $D=1$ is $f_0=1$.  Write
+$l=L_a$.
+
+\emph{$D$ odd, $j$ odd.}  Then $\mu$ is of class $B$ and the nodes $\nu$ (layer
+$l+k$, $k$ even) of class $A$; the $c_B$-coefficient of~\eqref{eq:R} is
+$f_j(a,\mu)=0$.
+
+\emph{$D$ even, $j$ odd.}  Now $\mu$ is of class $A$ and $\nu$ of class $B$;
+the $c_A$-coefficient gives $f_j(a,\mu)=f_{j-1}(a,\mu)$, and then the constant
+term gives
+$f_j(a,\mu)(\pi_\mu-\pi_a)=-f_{j-1}(l+k,j)\sum_\theta\hat\kappa(a,\theta,\mu)\pi_\theta$,
+where $f_{j-1}(\theta,\mu)=f_{j-1}(l+k,j)$ by induction ($D(\theta,\mu)=j<D$).
+
+\emph{$D$ odd, $j$ even, $j\ge2$.}  The $c_B$-coefficient gives
+$f_j(a,\mu)=-f_{j-1}(l+k,j)\sum_\theta\hat\kappa(a,\theta,\mu)$.
+
+These determine every $f_j(a,\mu)$ from $f_0=1$ and the values at smaller $D$
+(for $D$ even and $j$ even, $f_j=f_{j+1}$).  It remains to evaluate the two
+sums.  Let $\theta_\pm$ be the nodes of layer $l+k$ ($k$ odd), at positions
+$\pm w$, $w=\frac{l+k}2$, and $|\pi_a|=\frac l2$.  The nodes of
+$\mathrm{FS}(\theta\to\mu)$ of class $A$ other than $\mu$ come in pairs $\pm\frac
+m2$ over the layers $m=l+k+1+2\varrho$, each pair contributing
+$\pi_a^2-\frac{m^2}4=-(\frac{k+1}2+\varrho)(l+\frac{k+1}2+\varrho)$; the set
+$\mathrm{FS}(a\to\mu)\setminus\mathrm{FS}(a\to\theta_\epsilon)$ consists of
+$\theta_{-\epsilon}$, the pairs over the layers $m'=l+k+2\varrho'$ of class $B$,
+contributing $-(\frac{m'^2}4-w^2)=-\varrho'(l+k+\varrho')$, and $\mu$ if $D$ is
+odd.  Put
+$G=\binom ni\frac{(l+n)!\,(l+2n-2i+1)!}{(l+n-i)!\,(l+2n-i+1)!}$.
+
+For $D=2n+1$, $j=2i$ ($k=2n-2i+1$, $\frac{k+1}2=n-i+1$), there are $i$
+class-$A$ pairs and $i-1$ class-$B$ pairs, and
+\[
+ \hat\kappa(a,\theta_\epsilon,\mu)=
+ \frac{(-1)^i\frac{n!}{(n-i)!}\frac{(l+n)!}{(l+n-i)!}}
+ {(-2\epsilon w)\,(-1)^{i-1}(i-1)!\,(l+k+1)_{i-1}\,(\pi_\mu-\epsilon w)} .
+\]
+Since $\sum_\epsilon\frac1{-2\epsilon w(\pi_\mu-\epsilon w)}=-\frac1{\pi_\mu^2-w^2}$
+and $\pi_\mu^2-w^2=i(l+k+i)$, $\sum_\theta\hat\kappa=G$.  With
+$f_{2i-1}(l+k,2i)=(-1)^{i-1}\binom{l+k+i-1}{i-1}/\binom{l+k+2i-1}{i-1}$ (induction)
+this gives
+$f_{2i}(l,2n+1)=(-1)^iG\frac{(l+2n-i)!\,(l+2n-i+1)!}{(l+2n-2i+1)!\,(l+2n)!}
+=(-1)^i\binom ni\binom{l+n}i/\binom{l+2n}i$.
+
+For $D=2n+2$, $j=2i+1$ ($k=2n-2i+1$), there are $i$ class-$A$ pairs, the node
+$\mu$ in $\mathrm{FS}(\theta\to\mu)$, and $i$ class-$B$ pairs:
+\[
+ \hat\kappa(a,\theta_\epsilon,\mu)=
+ \frac{(-1)^i\frac{n!}{(n-i)!}\frac{(l+n)!}{(l+n-i)!}\,(\pi_\mu-\pi_a)}
+ {(-2\epsilon w)\,(-1)^i\,i!\,(l+k+1)_i},
+\]
+so $\sum_\theta\hat\kappa\,\pi_\theta=-G(\pi_\mu-\pi_a)$, and with
+$f_{2i}(l+k,2i+1)=(-1)^i\binom{l+k+i}i/\binom{l+k+2i}i$ (induction),
+$f_{2i+1}(l,2n+2)=f_{2i}(l+k,2i+1)\,G=(-1)^i\binom ni\binom{l+n}i/\binom{l+2n+1}i$.
+Here $(l+k+1)_i=(l+2n-i+1)!/(l+2n-2i+1)!$.  This is the stated formula in all
+cases.
+\end{proof}
+
+\begin{corollary}[At $\lambda$]\label{cor:kjL}
+For $L\ge1$, $0\le j\le L-1$ and each sign,
+\[
+ c^{(L-j)}_{\lambda\to\mu^\pm_L,j}(b_\star)
+ =\frac{f_j(0,L)}{j!}\Bigl(\pm\frac{m^\pm_L}{n_0}\Bigr)^{j}\,
+ \frac{\mathcal N^\pm_L}{\gamma^\pm_L},\qquad
+ f_{2i}(0,L)=(-1)^i\frac{\binom ni^2}{\binom{L-1}i},\ n=\Bigl\lfloor\frac{L-1}2\Bigr\rfloor .
+\]
+So in Theorem 7.14 every term of $A^\star_{\lambda,k,N}$ that belongs to a node
+$\mu$ of layer $L\ge k$ with $j=L-k$ is the top coefficient of $\mu$ times
+$f_{L-k}(0,L)/(L-k)!$ times the $(L-k)$-th power of the signed momentum
+ratio; for odd $L$ these terms vanish when $L-k$ is odd.
+\end{corollary}
+
+\begin{proof}
+$S(\mu^\pm_L)=\pm m^\pm_L$.  For
+$\operatorname{Top}(\lambda\to\mu^\pm_L)=\mathcal N^\pm_L/\gamma^\pm_L$ argue as in
+the proof of Proposition~\ref{prop:second-layer}: for
+$\ell^\pm_L\le N<\ell_{L+1}$ the chain functions $c^{(L)}_{\lambda\to\mu,j}$
+with $L_\mu<L$, or $L_\mu=L$ and $j\ge1$, vanish at $b_\star$
+(Lemma~\ref{lem:leading}), no node of layer $>L$ fits, and
+$H_{N-\ell^\pm_L}(c_\star,\cdot)$ is regular at $\mu^\pm_L$ because
+$N-\ell^\pm_L<\ell_{L+1}-\ell^\pm_L$; compare~(7.8) at $k=L$ with~(8.1) at
+$N=\min(\ell^+_L,\ell^-_L)$ and $N=\max(\ell^+_L,\ell^-_L)$.
+\end{proof}
+
+\begin{remark}
+For $L=2$ the corollary is Proposition~\ref{prop:second-layer}.  For $L=3,4,5$
+the factors $f_j(0,L)/j!$ are $(1,0,-\frac14)$, $(1,1,-\frac16,-\frac1{18})$,
+$(1,0,-\frac12,0,\frac1{144})$.  Author checks: the formula for $f_j(l,D)$
+against the cutting recursion in exact rationals, 1350 cases with $l\le7$,
+$D\le9$ (\texttt{probes/fbase\_check.py}); against the chain functions of the
+engine of \texttt{fixed\_charge\_recursion.py}, all 189 coefficients with bases
+of layer $\le1$, end layers $\le4$ and levels $\le40$ at the interior weights of
+the six models with $pp'\le20$ (\texttt{probes/check\_kjL.py}, $d=\frac37$;
+for $(2,7)$, $d=\frac15$, since at $d=\frac37$ a factor of $\mathcal N_g$ with
+$(k,l)=(1,7)$ vanishes and both sides are $0$).
+\end{remark}
+
+\section{Boundary weights}
+
+Let $\lambda=d_{x_0}$, where $x_0$ is a positive multiple of exactly one of
+$p,p'$ and $x_0<pp'$.  Every weight $d_x$ with exactly one of $p\mid x$,
+$p'\mid x$ is of this form (take the element of $\pm x+N_0\mathbb Z$ of smallest
+absolute value; it is not $pp'$, which both divide); these are the boundary
+weights of Class $R^+$ of Section 15 of \texttt{paper.tex}.  Put $\epsilon=1$
+if $p\mid x_0$ and $\epsilon=-1$ if $p'\mid x_0$, and for $k\ge0$
+\[
+ \pi_k=(-1)^k\lceil k/2\rceil,\qquad T_k=x_0+\pi_kN_0,\qquad M_k=|T_k|,\qquad
+ \mu_k=d_{M_k},\qquad \ell_k=\mu_k-\lambda ,
+\]
+so $M_0=x_0$, $M_1=N_0-x_0$, $M_2=N_0+x_0,\dots$ increase with $k$, and the
+$M_k$ are the positive elements of $\pm x_0+N_0\mathbb Z$.  The $\mu_k$ are the
+\emph{nodes}, $\mu_k$ of layer $k$.
+
+\begin{lemma}[Labels at a boundary weight]\label{lem:blabels}
+For $0\le i<k$ there is exactly one positive label $g$ of weight $\mu_i$
+leading to $\mu_k$; it has $y_g=M_k$, $x_g=-\epsilon\operatorname{sgn}(T_k)T_i$
+and $x_gy_g=-\epsilon T_iT_k$.  Every positive label whose weight is a node
+$\mu_i$ leads to a node $\mu_k$ with $k>i$.
+\end{lemma}
+
+\begin{proof}
+From $y_g\pm x_g\in2p'\mathbb Z,2p\mathbb Z$: if $p\mid x_g$ then
+$y_g\equiv x_g\equiv-x_g\pmod{2p}$ and $y_g\equiv-x_g\pmod{2p'}$, so
+$y_g\equiv-x_g\pmod{N_0}$; if $p'\mid x_g$ then $y_g\equiv x_g\pmod{N_0}$.  A
+label of weight $\mu_i$ has $x_g=\pm T_i$, so $y_g\equiv-\epsilon x_g$, and
+$y_g>|x_g|$ makes $y_g=M_k$ with $k>i$.  For given $k$, $x_g\equiv
+-\epsilon\operatorname{sgn}(T_k)x_0$ fixes the sign, since $2x_0\not\equiv0\pmod{N_0}$.
+Conversely $y\pm x$ for these values are
+$\operatorname{sgn}(T_k)(T_k\mp\epsilon T_i)$, which are $\equiv0\pmod{N_0}$ or
+$\equiv2\operatorname{sgn}(T_k)x_0$, and $2x_0$ is divisible by $2p$
+($\epsilon=1$) or $2p'$ ($\epsilon=-1$); so $u,v$ are positive integers.
+\end{proof}
+
+\begin{lemma}[Pole orders]\label{lem:bpoles}
+For that label, $R_g=\rho_g\,t^{1-(k-i)}+O(t^{2-(k-i)})$ with $\rho_g\neq0$.
+\end{lemma}
+
+\begin{proof}
+As for Lemma~\ref{lem:poles}, the pole order of $\mathcal A_g$ is
+$\#\{i'\ge1:i'N_0\le M_k-M_i\}+\#\{i'\ge1:i'N_0<M_k-M_i\}$.  For $\Delta=k-i$
+even, $M_k-M_i=\frac\Delta2N_0$; for $\Delta$ odd,
+$M_k-M_i=\frac{\Delta-1}2N_0+(M_{i+1}-M_i)$ with $M_{i+1}-M_i\in\{2x_0,N_0-2x_0\}$.
+Both give $\Delta-1$.
+\end{proof}
+
+With these two lemmas in place of Lemmas~\ref{lem:labels} and~\ref{lem:poles},
+Lemmas~\ref{lem:leading}--\ref{lem:positions}, Proposition~\ref{prop:kappa} and
+Lemma~\ref{lem:cut0} hold with $T$ in place of $S$ and $h_{a\theta}=c(K+\epsilon
+T_aT_\theta)$, where now every node strictly between $a$ and $\mu$, and $\mu$,
+is a first step ($\mathrm{FS}(a\to\mu)$ has $D(a,\mu)$ elements, one per
+layer), and $f_j(a,\mu)$ depends only on positions: the sign $\epsilon$
+contributes $\epsilon^{1-D}$ to $w_\gamma/\operatorname{Top}$ and $\epsilon^{D-1}$
+to the top-degree part of $h_0^{k-1}h_n^j$.
+
+\begin{theorem}[Boundary weights]\label{thm:boundary}
+Let $a=\mu_i$, $\mu=\mu_k$, $D=k-i\ge1$, and let $g$ be the label from
+$\mu_i$ to $\mu_k$.
+
+\noindent(i) $\operatorname{Top}(a\to\mu)=\rho_g\prod_{i<m<k}(h_{a\mu}-h_{a\mu_m})
+ =\rho_g\,(\epsilon cN_0T_i)^{D-1}\prod_{i<m<k}(\pi_k-\pi_m)$, which is nonzero.
+
+\noindent(ii) For $0\le j\le D-1$,
+\[
+ c^{(D-j)}_{a\to\mu,j}(b_\star)=\frac1{j!}\Bigl(\frac{T_k}{T_i}\Bigr)^{j}
+ \prod_{m=1}^{j}\frac{\pi_i-\pi_{k-m}}{\pi_k-\pi_{k-m}}\ \operatorname{Top}(a\to\mu).
+\]
+
+\noindent(iii) Let $\ell_D\le N<\ell_{D+1}$.  Then $A^\star_{\lambda,k,N}=0$ for
+$k>D$,
+and $A^\star_{\lambda,D,N}$ is $\operatorname{Top}(\lambda\to\mu_D)$ times
+$H_{N-\ell_D}(c_\star,\mu_D,d)$.  So $H_N(c_\star,\Delta,d)$ has a pole of
+order at most $D$ at $\Delta=\lambda$, of order exactly $D$ when
+$H_{N-\ell_D}(c_\star,\mu_D,d)\neq0$, in particular at $N=\ell_D$.
+\end{theorem}
+
+\begin{proof}
+(i) is Lemma~\ref{lem:firststeps} for the one-label chain, with
+$h_{a\mu}-h_{a\mu_m}=\epsilon cT_i(T_k-T_m)$.  (ii) The analogue of~\eqref{eq:R}
+has one node $\nu=\mu_{k-j}$ in the layer $L_a+D-j$:
+$f_j(a,\mu)T_k=f_{j-1}(a,\mu)T_i-\hat\kappa(a,\nu,\mu)f_{j-1}(\nu,\mu)T_{k-j}$.
+With $T_m=N_0(\tau_0+\pi_m)$, $\tau_0=x_0/N_0$, and the two boundary weights
+$x_0=2,4$ of $(p,p')=(2,3)$ ($\tau_0=\frac16,\frac13$), this is an identity of
+affine functions of $\tau_0$: $f_j=f_{j-1}-\hat\kappa f_{j-1}(\nu,\mu)$ and
+$f_j\pi_k=f_{j-1}\pi_i-\hat\kappa f_{j-1}(\nu,\mu)\pi_{k-j}$.  Eliminating the
+last term, $f_j(a,\mu)(\pi_k-\pi_{k-j})=f_{j-1}(a,\mu)(\pi_i-\pi_{k-j})$, and
+induction from $f_0=1$ gives (ii).  (iii) In~(7.8),
+$c^{(k)}_{\lambda\to\mu_m,j}(b_\star)=0$ when $k+j>m$ (Lemma~\ref{lem:leading}),
+and only $m\le D$ occurs; for $k=D$ only $\mu_D$ with $j=0$ remains.  The zeros
+of the Kac determinant at level $M=N-\ell_D$ and weight $\mu_D$ are labels from
+$\mu_D$, of level at least $\ell_{D+1}-\ell_D>M$ (Lemma~\ref{lem:blabels}), so
+$H_M(c_\star,\cdot)$ is regular at $\mu_D$ and~(7.6) gives
+$\varphi_{\mu_D,0}(b_\star)=H_M(c_\star,\mu_D,d)$.
+\end{proof}
+
+\begin{remark}
+Theorem~\ref{thm:boundary} answers the question left open in Section 15 of
+\texttt{paper.tex} for the boundary weights of Class $R^+$: the pole order of
+$H_N(c_\star,\cdot,d)$ at $\lambda$ is the number $D$ of nodes of level at most
+$N$ (unless $H_{N-\ell_D}(c_\star,\mu_D,d)=0$), and the top coefficient is the
+leading coefficient $\rho_g=\operatorname{lead}(\mathcal A_g)\,\mathcal
+N_g(b_\star,d)$ of the single residue from $\lambda$ to $\mu_D$ times a product
+of slope differences; here
+$\operatorname{lead}(\mathcal A_g)=\frac12\prod(ab_\star+eb_\star^{-1})^{-1}
+\prod(2i'p)^{-1}$, the first product over the box points off $\mathbb Z(p,p')$,
+the second over the $D-1$ points $i'(p,p')$ in the box.  For example at $c=0$,
+$\lambda=d_2=\frac18$ has nodes at the levels $4,8,20,28,\dots$, and
+$c^{(1)}_{\lambda\to\mu_2,1}(b_\star)=\frac{14}2\cdot\frac{2+10}{14+10}
+\operatorname{Top}(\lambda\to\mu_2)=\frac72\operatorname{Top}(\lambda\to\mu_2)$.
+Author check: (i) (with the pole order of $R_g$) and (ii) for $a=\lambda,\mu_1$
+against the engine at all boundary weights of $(2,3)$, $(2,5)$, $(3,4)$ up to
+level $30$, 79 of 79 (\texttt{probes/check\_boundary.py}).
 \end{remark}
 
 \end{document}
