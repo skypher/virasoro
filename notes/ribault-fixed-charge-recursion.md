@@ -119,7 +119,9 @@ survives, as the derivation predicts.
 
 ## What is open
 
-- **Chain-sum regularity in general** (the hard step): for every chain end μ,
+- (Supplied by Lemmas 5 and 8 of notes/ribault/fixed_charge_recursion.tex,
+  awaiting review; kept here as the record of the first attempt.)
+  **Chain-sum regularity in general** (the hard step): for every chain end μ,
   every k and j, c^{(k)}_{μ,j}(u) is regular at u = 0. For j = 0 it follows by
   induction on μ from moment regularity at the level N = μ − λ, provided the
   chain sums of all lower nodes are regular for all j. For j ≥ 1 there is no
