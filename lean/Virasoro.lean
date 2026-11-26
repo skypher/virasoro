@@ -210,3 +210,4 @@ import Virasoro.Proofs.Sec7FixedCharge
 import Virasoro.Proofs.Sec7Generic
 import Virasoro.Statements.Sec7ChainValues
 import Virasoro.Proofs.Sec7ChainValues
+import Virasoro.Statements.Sec8Diagonal
