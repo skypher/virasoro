@@ -132,6 +132,15 @@ realization, evaluates the leading Gaussian term at an explicit saddle point,
 computes its determinant from a symmetric kernel on the elliptic curve
 \(y^2=x(x-1)(x-z)\), and obtains the central-charge exponent from the
 diagonal Virasoro action on two \(c=1\) Fock modules.
+
+\vskip5pt
+\noindent\textbf{Keywords.}\enspace Virasoro algebra; conformal blocks;
+sphere four-point block; Zamolodchikov recursion; large-weight limit;
+Feigin--Fuchs realization; saddle point.
+
+\vskip5pt
+\noindent\textbf{MSC2020 Classification.}\enspace
+17B68; 81T40; 41A60.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -946,8 +955,10 @@ Fix \(0<|x_2|<1\) and use \(D+BK_{12}M_1=DK_{21}\) and \(BK_{12}=DK_{21}M_2\):
 \item \emph{Inner patch (\(|x_1|<|x_2|\)):} expanding
   \((x_1-x_2)^{-2}=\sum_{m\geq1}mx_1^{m-1}x_2^{-m-1}\) and setting
   \(v(x_2):=K_{21}(x_2^{-\bullet-1}-M_2x_2^{\bullet-1})\) gives
-  \(W(x_1,x_2)=-\sum_{n\geq1}v_n(x_2)z^{n-1}f_n(x_1/z)\), so
-  \(\sqrt{x_1(x_1-z)}\,W(x_1,x_2)=-\sum_{n\geq1}v_n(x_2)z^nP_n(x_1/z)\).
+  \begin{align*}
+   W(x_1,x_2)&=-\sum_{n\geq1}v_n(x_2)z^{n-1}f_n(x_1/z),\\
+   \sqrt{x_1(x_1-z)}\,W(x_1,x_2)&=-\sum_{n\geq1}v_n(x_2)z^nP_n(x_1/z).
+  \end{align*}
   For each \(j\geq0\), \([z^j]v_n(x_2)\) is a finite linear combination of
   columns of \(M_2\), plus, for \(j=0\), the source
   \(x_2^{-n-1}-(M_2x_2^{\bullet-1})_n\).  A Cauchy radius
@@ -977,9 +988,10 @@ Multiply the inner patch by \(\sqrt{x_1-1}\), which is holomorphic on
 \([z^j](Y(x_1)W(x_1,x_2))\) extends to a single-valued meromorphic function on
 \(\mathbb P^1\), holomorphic at \(\infty\).  Its only singularity is the pole at
 \(x_1=x_2\), with the principal part of \([z^j](Y(x_1)/(x_1-x_2)^2)\).  The
-symmetric
-polynomial
-\(S(x_1,x_2):=\frac12[x_1x_2(x_1+x_2)-2(1+z)x_1x_2+z(x_1+x_2)]\)
+symmetric polynomial
+\[
+ S(x_1,x_2):=\tfrac12\bigl[x_1x_2(x_1+x_2)-2(1+z)x_1x_2+z(x_1+x_2)\bigr]
+\]
 satisfies \(S(x,x)=Y(x)^2\), \(\partial_{x_1}S(x,x)=Y(x)Y'(x)\) and
 \(\deg_{x_1}S=2\).  The symmetry \(W(x_1,x_2)=W(x_2,x_1)\) and Liouville's
 theorem on \(\mathbb P^1\), applied coefficientwise in \(z\), force
@@ -1417,7 +1429,7 @@ JHEP \textbf{12} (2013) 029,
 \href{https://doi.org/10.1007/JHEP12(2013)029}{doi:\allowbreak 10.1007/JHEP12(2013)029},
 \href{https://arxiv.org/abs/1308.4092}{arXiv:1308.4092}.
 
-\bibitem[Pol26b]{PolzerColliding2026}
+\bibitem[Pol26]{PolzerColliding2026}
 L.~P.~Polzer,
 \emph{Colliding poles of Virasoro conformal blocks at rational central
 charge},

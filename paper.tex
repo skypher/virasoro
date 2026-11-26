@@ -1204,9 +1204,9 @@ double pole of \(H_5\) at \(c=0\) comes from two simple poles in \(b\) that
 cancel in the first moment.  At \(d=0\) the coefficient vanishes, as it must by
 Lemma~\ref{lem:d-derivatives}.
 Theorem~\ref{thm:top-layer} gives the same coefficient as
-\(\mathcal N^-_2/\gamma^-_2\): here \(\ell^-_2=5<\ell^+_2=7\), the proof of
-Proposition~\ref{prop:two-term-criteria} with \(j=1\) gives
-\(\mathcal N^-_2={\mathcal N}_{1,1}{\mathcal N}_{1,4}\), and
+\(\mathcal N^-_2/\gamma^-_2\): here \(\ell^-_2=5<\ell^+_2=7\), the
+factorization of the layer norms after Theorem~\ref{thm:top-layer} with
+\(j=1\) gives \(\mathcal N^-_2={\mathcal N}_{1,1}{\mathcal N}_{1,4}\), and
 Proposition~\ref{prop:layer-coefficients}, with \(c_2=-1\) and
 \(\varrho=-\tfrac12\), gives \(\gamma^-_2=-[d^2]\mathcal N^-_2/\varrho^2=-11200/3\).
 A script listed under Code availability checks each step in exact arithmetic.
@@ -1568,8 +1568,33 @@ same weight (Proposition~\ref{prop:minimal-collisions}); we choose the one with
 put \(\ell_k:=\min(\ell^+_k,\ell^-_k)\), and define the \emph{Jantzen depth}
 at level \(N\) as
 \(j_N(\lambda):=\max(\{0\}\cup\{k\geq1:\ell_k\leq N\})\), the number of layers
-that have reached level \(N\).  Figure~\ref{fig:braided} shows the embedding
+that have reached level \(N\).  Put \(\ell^\pm_0=0\).  For \(j\geq0\),
+expanding the layer levels gives
+\[
+ \begin{array}{lll}
+  & \text{upper sign} & \text{lower sign}\\[2pt]
+  \ell^+_{2j+1}-\ell^\pm_{2j} & s(r+2jp) & r(s+2jp')\\
+  \ell^-_{2j+1}-\ell^\pm_{2j} & (p-r)((2j+1)p'-s) & (p'-s)((2j+1)p-r)\\
+  \ell^\pm_{2j+2}-\ell^+_{2j+1} & (p'-s)((2j+1)p+r) & (p-r)((2j+1)p'+s)\\
+  \ell^\pm_{2j+2}-\ell^-_{2j+1} & r(2(j+1)p'-s) & s(2(j+1)p-r)
+ \end{array}
+\]
+and all these differences are positive, so \(\max(\ell^+_k,\ell^-_k)<\ell_{k+1}\)
+for every \(k\geq0\).  Moreover \(\ell^+_{2j}-\ell^-_{2j}=2jn_0\neq0\) for
+\(j\geq1\) (since \(p\nmid r\)), and
+\(\ell^+_{2j+1}-\ell^-_{2j+1}=(2j+1)(n_1-pp')\neq0\) for \(j\geq0\), so
+\(\ell^+_k\neq\ell^-_k\) for \(k\geq1\).  Figure~\ref{fig:braided} shows the embedding
 diagram that these levels describe.
+
+For an integer \(x\) put \(d_x=(x^2-(p'-p)^2)/(4pp')\), so that
+\(h_{u,v}(b_\star)=d_{p'u-pv}\); we call \(|x|\) the \emph{Coulomb momentum} of
+the weight \(d_x\).  The weight \(\lambda\) has momentum \(|n_0|\), and
+\(\lambda+\ell^\pm_k=d_{m^\pm_k}\) with the positive integers
+\[
+ m^+_{2j+1}=2jpp'+n_1,\quad m^-_{2j+1}=2(j+1)pp'-n_1\quad(j\geq0),\qquad
+ m^\pm_{2j}=2jpp'\pm n_0\quad(j\geq1),
+\]
+which satisfy \(m^+_k+m^-_k=2kpp'\).
 
 \begin{figure}[ht]
 \centering
@@ -1599,7 +1624,7 @@ interior weight \(\lambda\).  A node \(\mu\) stands for the Verma submodule
 \(M(c_\star,\nu)\subset M(c_\star,\mu)\).  Each node of layer \(k\) has arrows to
 both nodes of layer \(k+1\).  The two submodules of layer \(i\) span the
 Jantzen layer \(J^i(c_\star,\lambda)\) (Theorem~\ref{thm:jantzen-smith}), and
-\(\max(\ell^+_k,\ell^-_k)<\ell_{k+1}\) (proof of Theorem~\ref{thm:top-layer}).}
+\(\max(\ell^+_k,\ell^-_k)<\ell_{k+1}\).}
 \label{fig:braided}
 \end{figure}
 
@@ -1627,9 +1652,8 @@ the braided diagram of~\cite[Proposition~5.4 and Figure~5.4]{IoharaKoga2011}.
 By \cite[(5.4) and (5.22)]{IoharaKoga2011}, \(\xi_0=\lambda\)
 and, for \(k\geq1\), the weights \(\xi_{\pm k}\) have squared Coulomb-gas
 momenta \((2jpp'\mp n_0)^2\) when \(k=2j\), and \((2(j+1)pp'-n_1)^2\) and
-\((2jpp'+n_1)^2\) when \(k=2j+1\).  Since
-\(h_{u,v}(b_\star)=((p'u-pv)^2-(p'-p)^2)/(4pp')\), their levels above
-\(\lambda\) are \(\ell^\mp_k\); note that the sign of \(\xi_{\pm k}\) is
+\((2jpp'+n_1)^2\) when \(k=2j+1\), that is, \((m^\mp_k)^2\).  So
+\(\xi_{\pm k}=\lambda+\ell^\mp_k\); note that the sign of \(\xi_{\pm k}\) is
 opposite to that of the level.
 
 The same layers follow from \cite[Theorem~B(e), case \(\mathrm{III}_-\)]{Astashkevich1997},
@@ -1660,20 +1684,9 @@ for each sign with \(\ell^\pm_k\leq N\), one has \(\gamma^\pm_k\neq0\),
 \end{theorem}
 
 \begin{proof}
-Put \(\ell^\pm_0=0\).  For \(j\geq0\), expanding the layer levels gives
-\[
- \begin{array}{lll}
-  & \text{upper sign} & \text{lower sign}\\[2pt]
-  \ell^+_{2j+1}-\ell^\pm_{2j} & s(r+2jp) & r(s+2jp')\\
-  \ell^-_{2j+1}-\ell^\pm_{2j} & (p-r)((2j+1)p'-s) & (p'-s)((2j+1)p-r)\\
-  \ell^\pm_{2j+2}-\ell^+_{2j+1} & (p'-s)((2j+1)p+r) & (p-r)((2j+1)p'+s)\\
-  \ell^\pm_{2j+2}-\ell^-_{2j+1} & r(2(j+1)p'-s) & s(2(j+1)p-r)
- \end{array}
-\]
-and all these differences are positive.  Hence \(\max(\ell^+_k,\ell^-_k)<\ell_{k+1}\), so
-\(j_N(\lambda)=k\) and \(J^{k+1}_N(c_\star,\lambda)=0\).  Moreover,
-for \(j\geq1\), \(\ell^+_{2j}-\ell^-_{2j}=2jn_0\neq0\) (since \(p\nmid r\)), and
-for \(j\geq0\), \(\ell^+_{2j+1}-\ell^-_{2j+1}=(2j+1)(n_1-pp')\neq0\).
+Since \(\max(\ell^+_k,\ell^-_k)<\ell_{k+1}\) (see the table before
+Figure~\ref{fig:braided}), \(j_N(\lambda)=k\) and
+\(J^{k+1}_N(c_\star,\lambda)=0\); and \(\ell^+_k\neq\ell^-_k\).
 
 Fix \(N'\) with \(\ell_k\leq N'\leq N\).  By
 Theorem~\ref{thm:jantzen-smith}, \(k\) is the largest local Smith exponent
@@ -1721,6 +1734,26 @@ coefficients and summing as in Definition~\ref{def:eta-reduced} gives
 Lemma~\ref{lem:singular-degree}.
 \end{proof}
 
+The torus norms \(\mathcal N^\pm_k\) factor into the generic norms of
+Definition~\ref{def:generic-residue}.  Normalize each \(w^\pm_k\) to
+\(L_{-1}^{\ell^\pm_k}\)-coefficient \(1\).  By
+Lemmas~\ref{lem:regular-everywhere} and~\ref{lem:singular-factorization} and
+\cite[Proposition~5.1]{IoharaKoga2011}, at \(b=b_\star\),
+\[
+ \mathcal N^+_{2j+1}={\mathcal N}_{r+jp,\,s+jp'},\qquad
+ \mathcal N^-_{2j+1}={\mathcal N}_{(j+1)p-r,\,(j+1)p'-s},
+\]
+and for \(k=2j\),
+\begin{gather*}
+ \mathcal N^+_{2j}={\mathcal N}_{r+(j-1)p,\,s+(j-1)p'}\,{\mathcal N}_{(2j-1)p+r,\,p'-s},\\
+ \mathcal N^-_{2j}={\mathcal N}_{r+(j-1)p,\,s+(j-1)p'}\,{\mathcal N}_{p-r,\,(2j-1)p'+s},
+\end{gather*}
+where, by Definition~\ref{def:generic-residue},
+\[
+ {\mathcal N}_{R,S}(b_\star,d)=\prod_{a',l}(d-d_{p'a'-pl})(d-d_{p'a'+pl})
+ \qquad(\text{odd }1\leq a'<2R,\ \text{odd }1\leq l<2S).
+\]
+
 \section{Sharpness of the Jantzen bound}\label{sec:sharpness}
 
 By Theorem~\ref{thm:top-layer}, the pole order of \(H_N\) at an interior
@@ -1737,17 +1770,10 @@ products
 that they cancel.
 
 To show that they do not, it suffices to find one value of \(d\) and one
-Taylor coefficient there at which the sum is nonzero.  The first candidate is
-\(d=0\).  Both products vanish there to order at least \(k+1\), and
-Proposition~\ref{prop:layer-coefficients} with Lemma~\ref{lem:d-derivatives}
-gives the coefficient of \(d^{k+1}\) in closed form: up to a nonzero factor it
-is \(f(M^+,m^+_k)+(-1)^kf(M^-,m^-_k)\), where
-\(f(M,m)=\sum_{uv=M}x_{u,v}/(m^2-x_{u,v}^2)\), \(x_{u,v}=p'u-pv\), and
-\(m^\pm_k\) is the Coulomb momentum of \(\mu^\pm_k\), so that
-\(\mu^\pm_k=((m^\pm_k)^2-(p'-p)^2)/(4pp')\).  The two sums take both
-signs, and we do not have a proof that they never cancel.  They do not cancel
-on any strict two-vector level with \(p,p'\leq13\) and \(k\leq3\) (see the code
-availability section).
+Taylor coefficient there at which the sum is nonzero.  At \(d=0\) both
+products vanish to order at least \(k+1\), and the coefficient of \(d^{k+1}\)
+is a difference of two sums of either sign, which we cannot show to be
+nonzero; so we work at other values of \(d\).
 
 Part~II proves the same sharpness for the sphere block by a shorter route
 (Theorems~\ref{thm:sharp-B} and~\ref{thm:sharp-H}).  There the four external
@@ -1771,9 +1797,7 @@ term drops out, and the two terms have to be compared.
 
 The proof below uses the external weights \(d_1=h_{1,3}(b_\star)\) and
 \(d_2=h_{1,-3}(b_\star)\) instead, where the size of each shifted block at an
-odd prime \(\varpi\) dividing \(p'\) is known (after \(b\mapsto b^{-1}\), which
-exchanges \(p\) and \(p'\), if \(p'\) has no odd prime factor).  At these
-weights the generic
+odd prime \(\varpi\) dividing \(p'\) is known.  At these weights the generic
 recursion keeps only the labels \((u,1)\).  After its denominators are
 cleared, \(H_M\) becomes a polynomial in \(t=b^2\) and \(Y=\Delta t^2\) with
 coefficients in \(\mathbb Z[\frac12]\) and constant term \(4^M\)
@@ -1826,8 +1850,8 @@ as~\eqref{eq:h13-valuation} gives with \(a=1\), so the sum
 \begin{proposition}[Layer coefficients at \(d=0\)]
 \label{prop:layer-coefficients}
 In the setting of Theorem~\ref{thm:top-layer}, let \(m^\pm_k\) be the
-Coulomb momentum of \(\lambda+\ell^\pm_k\) (proof of
-Theorem~\ref{thm:jantzen-smith}), \(\varrho=-n_0/(2(p'-p))\), and
+Coulomb momentum of \(\lambda+\ell^\pm_k\) (Section~\ref{sec:mm-layers}),
+\(\varrho=-n_0/(2(p'-p))\), and
 \(c_k=(-1)^{\lfloor k/2\rfloor}\binom{k-1}{\lfloor(k-1)/2\rfloor}\).  Then
 \(\mathcal N^\pm_k/\gamma^\pm_k=c_k(\pm\varrho)^kd^k+O(d^{k+1})\); in particular
 \(\mathcal N^\pm_k\) vanishes to order exactly \(k\) at \(d=0\).
@@ -2089,33 +2113,18 @@ coefficients at \(d_1\) differs from the ratio at \(d_2\).
 
 By \(b\mapsto b^{-1}\) (swapping \(p\leftrightarrow p'\),
 \(r\leftrightarrow s\)), assume an odd prime \(\varpi\mid p'\) with
-\(a=v_\varpi(p')\geq1\).  Write \(M^\pm=N-\ell^\pm_k\geq1\) and
+\(a=v_\varpi(p')\geq1\).  Write \(M^\pm=N-\ell^\pm_k\geq1\) and, with
+\(d_x\) as in Section~\ref{sec:mm-layers},
 \[
- d_x=\frac{x^2-(p'-p)^2}{4pp'},\qquad x_0=|p'-p|,\quad x_1=|p'-3p|,\quad
- x_2=p'+3p,
+ x_0=|p'-p|,\qquad x_1=|p'-3p|,\qquad x_2=p'+3p,
 \]
 so that \(d_{x_0}=0\), \(d_{x_1}=d_1=h_{1,3}(b_\star)\) and
-\(d_{x_2}=d_2=h_{1,-3}(b_\star)\).  Normalize each \(w^\pm_k\) to
-\(L_{-1}^{\ell^\pm_k}\)-coefficient \(1\), and write
+\(d_{x_2}=d_2=h_{1,-3}(b_\star)\).  With \(w^\pm_k\) normalized as after
+Theorem~\ref{thm:top-layer}, write
 \(\mathcal N^\pm_k(d)=\prod_x(d-d_x)^{o^\pm_k(x)}\), so that
-\(o^\pm_k(x)=\ord_{d=d_x}\mathcal N^\pm_k\).  By
-Lemmas~\ref{lem:regular-everywhere} and~\ref{lem:singular-factorization} and
-\cite[Proposition~5.1]{IoharaKoga2011}, at \(b=b_\star\),
-\[
- \mathcal N^+_{2j+1}={\mathcal N}_{r+jp,\,s+jp'},\qquad
- \mathcal N^-_{2j+1}={\mathcal N}_{(j+1)p-r,\,(j+1)p'-s},
-\]
-and for \(k=2j\),
-\begin{gather*}
- \mathcal N^+_{2j}={\mathcal N}_{r+(j-1)p,\,s+(j-1)p'}\,{\mathcal N}_{(2j-1)p+r,\,p'-s},\\
- \mathcal N^-_{2j}={\mathcal N}_{r+(j-1)p,\,s+(j-1)p'}\,{\mathcal N}_{p-r,\,(2j-1)p'+s},
-\end{gather*}
-where, by Definition~\ref{def:generic-residue},
-\[
- {\mathcal N}_{R,S}(b_\star,d)=\prod_{a',l}(d-d_{p'a'-pl})(d-d_{p'a'+pl})
- \qquad(\text{odd }1\leq a'<2R,\ \text{odd }1\leq l<2S).
-\]
-Moreover \(M^+-M^-=\ell^-_k-\ell^+_k\) equals \(k(pp'-n_1)>0\) for odd \(k\)
+\(o^\pm_k(x)=\ord_{d=d_x}\mathcal N^\pm_k\); the factorization of
+\(\mathcal N^\pm_k\) into the generic norms \({\mathcal N}_{R,S}\) is the one
+displayed there.  Moreover \(M^+-M^-=\ell^-_k-\ell^+_k\) equals \(k(pp'-n_1)>0\) for odd \(k\)
 and \(-kn_0\neq0\) for even \(k\).  Put \(e_\pm:=o^\pm_k(x_1)\), the
 multiplicity of \(d_1\) in \(\mathcal N^\pm_k\).
 
@@ -2246,8 +2255,16 @@ Since
 \((-(p'-3p)/(p'+3p))^k\) cancel in the ratio of the two branches.  For both
 parities of \(k\), the factors \((R^\pm,S^\pm)\) not common to both signs
 satisfy \(R^+p'-S^+p=-(R^-p'-S^-p)\notin\{0,\pm p\}\) (since \(p\nmid r\),
-hence \(p\nmid(R^+p'-S^+p)\)) and \(R^\pm p'+S^\pm p=m^\pm_k\).  So the
-numerator triple has ratio \((-1)^3=-1\), and
+hence \(p\nmid(R^+p'-S^+p)\)) and \(R^\pm p'+S^\pm p=m^\pm_k\).  With
+\(y=R^+p'-S^+p\), the limits above for these factors have the numerators and
+denominators
+\[
+ \prod_{\epsilon\in\{-1,0,1\}}(R^-p'-S^-p-\epsilon p)
+ =\prod_{\epsilon}(-y-\epsilon p)=-\prod_{\epsilon}(y-\epsilon p),\qquad
+ \prod_{\epsilon\in\{-1,0,1\}}(R^\pm p'+S^\pm p+\epsilon p)
+ =m^\pm_k\bigl((m^\pm_k)^2-p^2\bigr),
+\]
+so the numerators of the two signs have ratio \(-1\), and
 \[
  T_k:=\frac{[(d-d_1)^k]\mathcal N^+_k\big/[(d-d_1)^k]\mathcal N^-_k}
           {[(d-d_2)^k]\mathcal N^+_k\big/[(d-d_2)^k]\mathcal N^-_k}
@@ -2370,8 +2387,8 @@ valuation of the Kac determinant, so all positive Smith exponents are \(1\)
 (Lemma~\ref{lem:smith}).  At the three interior weights,
 Theorem~\ref{thm:jantzen-smith} gives \(j_N(\lambda)\leq1\) below the
 second-layer levels \(7\), \(10\) and \(11\).  At those levels~\eqref{eq:top-layer} has the single term \(\mathcal N/\gamma\),
-with \(M=0\). For the factors of \(\mathcal N\), use the proof of
-Proposition~\ref{prop:two-term-criteria} with \(j=1\).
+with \(M=0\). The factors of \(\mathcal N\) are given by the factorization
+after Theorem~\ref{thm:top-layer} with \(j=1\).
 Proposition~\ref{prop:layer-coefficients} with \(c_2=-1\) gives
 \(\gamma=-[d^2]\mathcal N/\varrho^2\), where \(\varrho=-n_0/2\).
 \end{proof}
@@ -2722,32 +2739,18 @@ If \(b_\star^2\in\mathbb Q\), computing in \(u\) takes place over
 \end{remark}
 
 \begin{example*}[Two poles in \(b\) that make a double pole in \(\Delta\)]
-Let \(b_\star^2=-3/2\), so that \(c_\star=0\) and
-\(h_{r,s}(b_\star)=((3r-2s)^2-1)/24\), take \(N=5\) and \(\lambda=0\), and keep
-the external weights indeterminate.  The
-labels with \(rs\leq5\) and weight \(0\) are \((1,1)\) and \((1,2)\), and every
-\(\mathcal A_{r,s}\) with \(rs\leq5\) is regular at \(b_\star\).  By the proof of
-Theorem~\ref{thm:confluence},
-\[
- B_{(1,1),5}=R_{(1,1)}(t)\,H_4\bigl(c(b),1,\Delta_i\bigr),\qquad
- B_{(1,2),5}=R_{(1,2)}(t)\,H_3\bigl(c(b),h_{1,2}(b)+2,\Delta_i\bigr),
-\]
-with \(b=b_\star+t\) and \(R_a(t)\) as defined before
-Definition~\ref{def:confluence}.  By Proposition~\ref{prop:generic-recursion-sph},
-\(H_4\) has a simple pole at \(h_{1,4}(b)\), which tends to \(1\), with residue
-\(R_{(1,4)}(t)\), and \(H_3\) has one at \(h_{3,1}(b)\), which tends to
-\(2=h_{1,2}(b_\star)+2\), with residue \(R_{(3,1)}(t)\).  No other shifted denominator in the two recursions vanishes at
-\(t=0\).  Write \(h'_{r,s}\) for the derivative of \(h_{r,s}(b_\star+t)\) at
-\(t=0\) and \(\mathcal R_{r,s}\) for
-\(R_{(r,s)}(0)=\mathcal R^{\mathrm{sph}}_{r,s}(b_\star,\Delta_i)\).  Then
-\(h'_{1,4}=5h'_{1,2}\) and \(h'_{3,1}=-6h'_{1,2}\), so the two terms have the
-poles \(-\mathcal R_{1,1}\mathcal R_{1,4}/(5h'_{1,2}t)\) and
-\(\mathcal R_{1,2}\mathcal R_{3,1}/(7h'_{1,2}t)\) in \(t\); neither has a value at
-\(b_\star\), and the poles cancel in the first moment.  In the second moment the
-label \((1,1)\) drops out, since \(h_{1,1}\equiv0\), and
-\(\delta_{(1,2)}(t)=h'_{1,2}t+O(t^2)\) turns the pole of \(B_{(1,2),5}\) into a
-constant.  The pole of \(H_5\) at \(\Delta=0\) has order at most \(j_5(0)=2\)
-(Theorem~\ref{thm:jantzen-bound}), so
+The example after Theorem~\ref{thm:general-confluence} carries over to the
+sphere block with the same labels and derivatives.  At \(b_\star^2=-3/2\)
+(\(c_\star=0\)), \(N=5\) and \(\lambda=0\), with indeterminate external
+weights, the labels \((1,1)\) and \((1,2)\) collide, every \(\mathcal A_{r,s}\)
+with \(rs\leq5\) is regular at \(b_\star\), and the shifted coefficients \(H_4\)
+and \(H_3\) have the colliding simple poles at \(h_{1,4}(b)\) and \(h_{3,1}(b)\)
+(Proposition~\ref{prop:generic-recursion-sph}); the residues \(R_a(t)\) are
+those defined before Definition~\ref{def:confluence}.  With
+\(\mathcal R_{r,s}=\mathcal R^{\mathrm{sph}}_{r,s}(b_\star,\Delta_i)\), the two
+poles in \(t\) cancel in the first moment as in the torus case, and since the
+pole of \(H_5\) at \(\Delta=0\) has order at most \(j_5(0)=2\)
+(Theorem~\ref{thm:jantzen-bound}),
 \[
  \lim_{\Delta\to0}\Delta^2H_5(0,\Delta,\Delta_i)
  =\frac{\mathcal R_{1,2}\mathcal R_{3,1}}{7}
@@ -3400,7 +3403,13 @@ polynomial in \(M\) of degree at most \(2i+2j\), valid for all \(M\geq0\).
 
 \begin{proof}
 In the notation of Lemma~\ref{lem:mode-count}, \(F_M=\Tr(\widetilde G^{-1}\widetilde\rho)\).
-Expand
+We expand \(R_M\) into a finite sum of products of factors (Step~1), bound
+the degree in \(M\) that the correction factors produce (Step~2) and the
+exponents of \(t\) and \(Y\) that the remaining factors carry (Step~3), and
+show that the finitely many contributions to a fixed \((i,j)\) add up to one
+polynomial in \(M\) (Step~4).
+
+\emph{Step 1: Expansion.}  Expand
 \[
  R_M=(M!/2^M)Y^M\sum_{r\geq0}(-t)^r\Tr\bigl(D_0^{-1}(G_1D_0^{-1})^r\widetilde\rho\bigr);
 \]
@@ -3443,7 +3452,11 @@ first one moves \(L_{-1}^{n-k_r}\) past \(V_d(1)\):
  &=\sum_{k_r=0}^{\min(\tilde r,n)}\!\tbinom{\tilde r}{k_r}\tfrac{n!}{(n-k_r)!}\,
    L_{-1}^{n-k_r}\!\Bigl(\prod_{u=0}^{k_r-1}(2L_0+n+\tilde r-k_r-1-u)\Bigr)L_1^{\tilde r-k_r}.
 \end{align*}
-This yields a sum over \(p_1,q_1,p_2,q_2,k_r\geq0\).  Put
+This yields a sum over \(p_1,q_1,p_2,q_2,k_r\geq0\).  For a monomial of
+the bracket in the \(m\)-th factor write \(d_\Delta^{(m)}\) and \(d_c^{(m)}\)
+for its degrees in \(\Delta\) and \(c\), and for a monomial of the local
+bracket of \(\widetilde\rho\) below write \(d_d^{(r)}\), \(d_\Delta^{(r)}\),
+\(d_c^{(r)}\) for its degrees in \(d\), \(\Delta\) and \(c\).  Put
 \(p_r^*=p_1+p_2\), \(q_r^*=q_1+q_2\), \(s_L=a_r-k_r-p_r^*\) and
 \(s_R=a_0-k_r-q_r^*\).  Each summand is the product of
 \[
@@ -3461,13 +3474,19 @@ The coefficients \(c'_u,c''_u\) are affine-linear in \(M\) and \(u\), and
 \((-1)^{s_L+s_R}\) and \(2^{s_L+s_R}/(2^M2^{a_0})\) are independent of \(M\).
 The bracket has \(\ell(\bar Z_r)+\ell(\bar Z_0)\) modes and hence satisfies
 \(d_d^{(r)}+d_\Delta^{(r)}+d_c^{(r)}\leq\ell(\bar Z_r)+\ell(\bar Z_0)\).
-Expanding \(k\) correction factors, each a factor \(t^2/Y\), a factor \(t\)
+
+\emph{Step 2: Correction factors.}  Expanding \(k\) correction factors, each a factor \(t^2/Y\), a factor \(t\)
 from the \(s_L\) or \(s_R\) product, or a factor \((M+c_u)t^2\) from the
 \(k_r\) product, increases \(i+j\) by \(k\) and \(2i+2j\) by \(2k\).  The
 result is an elementary symmetric polynomial in \(M\), of degree at most
 \(2k\) by Faulhaber's formula and Newton's identities.
 
-On the remaining base exponents, for each \(0\leq m<r\) one has
+\emph{Step 3: Base exponents.}  After the substitution \(\Delta=Y/t^2\),
+\(c=13+6t+6t^{-1}\), \(d=-2/t+\zeta\), write \(\delta i_m\) and \(\delta j_m\)
+for the exponents of \(t\) and \(Y\) that the \(m\)-th factor contributes
+before its correction factors are expanded (\(m=r\) for the
+\(\widetilde\rho\) factor); each degree in \(\Delta\), \(c\) or \(d\) lowers
+\(\delta i_m+\delta j_m\) by at most one.  For each \(0\leq m<r\) one has
 \(\delta i_m+\delta j_m\geq p_m+\ell(\bar Z_m)-(d_\Delta^{(m)}+d_c^{(m)})\geq p_m/2\),
 whence \(2\delta i_m+2\delta j_m-p_m\geq0\); on the \(\widetilde\rho\) factor,
 \(w_0\geq2\ell(\bar Z_0)\) and
@@ -3477,7 +3496,10 @@ whence \(2\delta i_m+2\delta j_m-p_m\geq0\); on the \(\widetilde\rho\) factor,
 \geq w_0+2\ell(\bar Z_r)+p_r^*+q_r^*-2(d_d^{(r)}+d_\Delta^{(r)}+d_c^{(r)})\geq0\).
 Summing yields
 \(i+j\geq w_0/2+k_r+p_r^*+q_r^*+\frac12\sum_{m=0}^{r-1}p_m\) and
-\(\deg_M\leq2i+2j\).  Since \(0\leq r\leq i\) and \(w_{m+1}-w_m=p_m-q_m\),
+\(\deg_M\leq2i+2j\).
+
+\emph{Step 4: One polynomial for all \(M\).}  Since \(0\leq r\leq i\) and
+\(w_{m+1}-w_m=p_m-q_m\),
 \(w_0\leq2(i+j)\), \(w_m\leq4(i+j)\), \(p_m\leq2(i+j)\),
 \(q_m\leq6(i+j)\) and \(k_r,p_r^*,q_r^*\leq i+j\).  Hence only finitely many
 tuples contribute to \((i,j)\).  Each such tuple yields a polynomial in \(M\)
@@ -3560,51 +3582,43 @@ for all mathematical claims, citations, computations and wording.
 
 \section*{Code availability}
 
-The repository \href{https://github.com/skypher/virasoro}%
-{github.com/skypher/virasoro} contains the source and audit scripts.  The
-proofs use no computer calculation.  The ancillary scripts for Part~I
-(thirteen audit scripts and two shared libraries) reproduce finite
-computations from the paper in exact rational arithmetic;
-\path{AUDIT_MANIFEST.md} lists commands, dependencies and hashes.  The
-comparison with Stocco's expressions in the introduction is
-\path{tools/audit_stocco_comparison.py}.  The Ising norms \(\gamma\) of
-Proposition~\ref{prop:ising-double-poles} at \(N=7\) and \(N=10\) are compared
-with direct PBW evaluations; the double-pole coefficient is reconstructed by
-Shapovalov inversion at \(N=7\), and at \(N=10\) in the deep suite
-(\texttt{make audit-deep}), but not at \(N=11\).  The repository script
-\path{tools/check_c0_level5_example.py}, which is not part of the archive,
-checks the examples after Theorems~\ref{thm:general-confluence}
-and~\ref{thm:confluence}: the two poles in \(t\), their cancellation and both
-collision moments.  With \texttt{--torus-direct} it compares both torus
-moments with Shapovalov inversion at \(N=5\), and it compares both sphere
-moments with \texttt{exact\_\allowbreak sphere\_\allowbreak block.py} at
-three choices of rational external weights.  The repository script
-\path{tools/check_leeyang_level4_example.py} recomputes the Lee--Yang example in
-Section~\ref{sec:sharpness} by Shapovalov inversion up to level four, and the
-C++ program \path{tools/check_d0_coefficient.cpp} evaluates the coefficient of
-\(d^{k+1}\) at \(d=0\) described there on all strict two-vector levels with
-\(p,p'\leq13\) and \(k\leq3\) and finds no zero.  Neither is part of the
-archive.  The repository script \path{notes/ribault/fixed_charge_recursion.py},
-also not part of the archive, runs the recursion of
-Theorem~\ref{thm:fixed-charge} from \(H_0=1\), using only the values
-\(c^{(k)}_{\lambda\to\mu,j}(b_\star)\) and the fixed-charge coefficients it has
-already computed, and, for the tested charges and levels, compares every
-principal part at every Kac weight with Theorem~\ref{thm:general-confluence}
-(torus) or Theorem~\ref{thm:confluence} (sphere); with the option
-\texttt{-{}-check-cut} it also checks the identity of Lemma~\ref{lem:cutting}
-exactly.
-
-The scripts in \texttt{sphere/tools/} check the sphere confluence of Part~II
-in exact rational and symbolic arithmetic, through level seven for
-\((2,3),(2,5),(3,4)\) and level three at \(b_\star^2=\sqrt2\).
-\texttt{exact\_\allowbreak sphere\_\allowbreak block.py} reconstructs selected
-sphere blocks through level seven and checks the \(c=0\) level-five
-coefficient~\cite[(3.24)]{Ribault2019} and the Ising coefficient with
-\(\gamma=-700700\).
-\texttt{audit\_\allowbreak sphere\_\allowbreak top\_\allowbreak layer.py}
-extracts that norm and checks selected sharpness witnesses through shifted
-degree four.  The torus audit checks the Ising norms at levels ten and eleven
-from the layer formula.
+The proofs use no computer calculation.  The repository
+\href{https://github.com/skypher/virasoro}{github.com/skypher/virasoro}
+contains scripts that recompute, in exact arithmetic, the following examples
+and coefficients of the paper.  The Part~I scripts listed in
+\path{AUDIT_MANIFEST.md} (commands, dependencies and hashes) also form the
+ancillary files of the arXiv version; the others are in the repository only.
+\begin{itemize}\setlength{\itemsep}{1pt}
+\item The comparison with Stocco's expressions in the introduction
+  (\path{tools/audit_stocco_comparison.py}).
+\item The Ising norms \(\gamma\) of Proposition~\ref{prop:ising-double-poles} at
+  \(N=7\) and \(N=10\), against direct PBW evaluations; the double-pole
+  coefficient by Shapovalov inversion at \(N=7\) and \(N=10\), not at \(N=11\);
+  and the Ising norms at levels ten and eleven from the layer formula.
+\item The examples after Theorems~\ref{thm:general-confluence}
+  and~\ref{thm:confluence} (\path{tools/check_c0_level5_example.py}): the two
+  poles in \(t\), their cancellation and both collision moments, compared with
+  Shapovalov inversion at \(N=5\) for the torus and with exact sphere blocks at
+  three choices of rational external weights.
+\item The Lee--Yang example in Section~\ref{sec:sharpness}, by Shapovalov
+  inversion up to level four (\path{tools/check_leeyang_level4_example.py}).
+\item The coefficient of \(d^{k+1}\) at \(d=0\) mentioned in
+  Section~\ref{sec:sharpness} (\path{tools/check_d0_coefficient.cpp}): it is
+  nonzero on every strict two-vector level with \(p,p'\leq13\) and \(k\leq3\).
+\item The recursion of Theorem~\ref{thm:fixed-charge}
+  (\path{notes/ribault/fixed_charge_recursion.py}), run from \(H_0=1\) with
+  only the values \(c^{(k)}_{\lambda\to\mu,j}(b_\star)\) and the fixed-charge
+  coefficients already computed; for the tested charges and levels it compares
+  every principal part at every Kac weight with
+  Theorem~\ref{thm:general-confluence} (torus) or Theorem~\ref{thm:confluence}
+  (sphere), and with the option \texttt{-{}-check-cut} it checks the identity
+  of Lemma~\ref{lem:cutting} exactly.
+\item The sphere confluence of Part~II (\texttt{sphere/tools/}), through level
+  seven for \((p,p')=(2,3),(2,5),(3,4)\) and through level three at
+  \(b_\star^2=\sqrt2\), including the \(c=0\) level-five
+  coefficient~\cite[(3.24)]{Ribault2019}, the Ising norm \(\gamma=-700700\),
+  and selected sharpness witnesses through shifted degree four.
+\end{itemize}
 
 {\small
 \begin{thebibliography}{GRSS22}
@@ -3689,7 +3703,7 @@ L.~P.~Polzer,
 blocks},
 companion manuscript, version of November 25, 2026, in \href{https://github.com/skypher/virasoro}{github.com/skypher/virasoro}.
 
-\bibitem[Pol26c]{PolzerTraces2026}
+\bibitem[Pol26b]{PolzerTraces2026}
 L.~P.~Polzer,
 \emph{A generalized Rocha--Caridi formula for torus one-point traces in
 minimal models},

@@ -32,8 +32,11 @@ of colliding Kac labels and prove that each regrouped coefficient is a rational
 function of $b$ that is regular at $b_\star$.  The result is a recursion that
 computes every principal part of the level-$N$ coefficient at $c_\star=c(b_\star)$
 from the coefficients of lower level at the same central charge, with finite
-coefficients that do not depend on $N$.  For $b_\star^2\notin\mathbb Q$ it is
-Zamolodchikov's recursion.  This answers the problem stated by Ribault
+coefficients that do not depend on $N$.  The blocks are the meromorphic
+Verma-module blocks in the internal weight, the sphere block in
+Zamolodchikov's elliptic normalization; quotients at degenerate internal
+weights are not considered.  For $b_\star^2\notin\mathbb Q$ the recursion is
+Zamolodchikov's.  This answers the problem stated by Ribault
 \cite[\S4.3.3]{Rib}: ``Finding a recursion for $\beta^2\in\mathbb Q$ is an open
 problem, whose simplest incarnation is in the case of 1-point Virasoro blocks on
 the torus.''
@@ -176,6 +179,12 @@ not vanish at $(b_\star,\mu)$, it has no pole along $b=b_\star$, and
 \end{equation}
 where $\PP_\mu$ is the principal part at $\Delta=\mu$.
 \end{lemma}
+
+If $\mu\notin K_\star$, the condition means that the reduced denominator, a
+polynomial over $K_\star$, does not vanish at $(b_\star,\mu)$; equivalently,
+extend the scalars to $K_\star(\mu)$.  Every $\mu$ at which the lemma is used
+below is a Kac weight $h_{r,s}(b_\star)$ plus an integer, and lies in
+$K_\star$.
 
 \begin{proof}
 By \eqref{eq:generic}, $H_M(c(b),\Delta)=\sum_{\lambda'}G^{(M)}_{\lambda'}$

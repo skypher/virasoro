@@ -419,7 +419,7 @@ interior weight \(\lambda\).  A node \(\mu\) stands for the Verma submodule
 \(M(c_\star,\nu)\subset M(c_\star,\mu)\).  Each node of layer \(k\) has arrows to
 both nodes of layer \(k+1\).  The two submodules of layer \(i\) span the
 Jantzen layer \(J^i(c_\star,\lambda)\) (Theorem~\ref{thm:jantzen-smith}), and
-\(\max(\ell^+_k,\ell^-_k)<\ell_{k+1}\) (\cite[proof of Theorem~8.2]{PolzerColliding2026}).}
+\(\max(\ell^+_k,\ell^-_k)<\ell_{k+1}\) (\cite[Section~8]{PolzerColliding2026}).}
 \label{fig:braided}
 \end{figure}
 
@@ -1025,7 +1025,9 @@ without any expansion in \(b-b_\star\).  The single-index weights
 include every fusion weight when \(p\leq3\) (Lee--Yang, Ising, \((2,7)\),
 \((3,5)\)) and \(d=3/5,3/2\) in Tricritical Ising.  For
 \(d(b)=h_{1,2m+1}(b)\), the multiplier \(\mathcal{R}_{R,S}(b,d(b))\) vanishes
-identically when \(S>m\) (proof of Lemma~\ref{lem:joint-holomorphicity}), so
+identically when \(S>m\): the product in Definition~\ref{def:generic-residue}
+then has the factor with indices \(1\) and \(2m+1\), which vanishes at
+\(d=h_{1,2m+1}(b)\).  So
 the generic recursion of Proposition~\ref{prop:generic-recursion} for
 \(H_N(c(b),\Delta,d(b))\) keeps only the labels with \(S\leq m\); we call it
 the \emph{truncated recursion}, and similarly with \(R\leq k\) for
@@ -1554,13 +1556,13 @@ interior, and \(d=h_{2k+1,2m+1}(b_\star)\in\mathcal{F}_{p,p'}(r,s)\).
 \begin{enumerate}
  \item[(i)] For every primitive BGG arrow \(\mu\to\nu\) in
    \(\mathcal{O}_{p,p'}(r,s)\) with Kac label \((R,S)\), setting
-   \(B_0:=[1-R,R]\times[1-S,S]\) and \(B_1:=[1-R+k,R+k]\times[1-S+m,S+m]\),
-   every factor \(pe-p'a\) with \((a,e)\in(B_1\setminus B_0)\cup(B_0\setminus B_1)\)
+   \(Q_0:=[1-R,R]\times[1-S,S]\) and \(Q_1:=[1-R+k,R+k]\times[1-S+m,S+m]\),
+   every factor \(pe-p'a\) with \((a,e)\in(Q_1\setminus Q_0)\cup(Q_0\setminus Q_1)\)
    is nonzero.  Consequently,
    \begin{equation}\label{eq:reduced-box-mm}
     c_{R,S}\Bigl(-\frac{p'}{p};2k+1,2m+1\Bigr)
-    =\frac{\prod_{(a,e)\in B_1\setminus B_0}(pe-p'a)}
-          {\prod_{(a,e)\in B_0\setminus B_1}(pe-p'a)}
+    =\frac{\prod_{(a,e)\in Q_1\setminus Q_0}(pe-p'a)}
+          {\prod_{(a,e)\in Q_0\setminus Q_1}(pe-p'a)}
     \;\in\;\mathbb{Q}^\times
    \end{equation}
    is finite and nonzero.
@@ -1582,18 +1584,18 @@ interior, and \(d=h_{2k+1,2m+1}(b_\star)\in\mathcal{F}_{p,p'}(r,s)\).
 
 \begin{proof}
 For~(i), since \(\gcd(p,p')=1\), \(pe-p'a=0\) requires \(p\mid a\) and
-\(p'\mid e\).  If \((a,e)\in B_1\setminus B_0\), then either
+\(p'\mid e\).  If \((a,e)\in Q_1\setminus Q_0\), then either
 \(a=R+i\) with \(1\leq i\leq k\) or \(e=S+j\) with \(1\leq j\leq m\).
 By \eqref{eq:RS-mod} and \(k<\min(r,p-r)\), if \(a=R+i\) (\(1\leq i\leq k\))
 then \(a\equiv r+i\in\{r+1,\ldots,p-1\}\) (when \(R\equiv r\pmod p\)) or
 \(a\equiv p-r+i\in\{p-r+1,\ldots,p-1\}\) (when \(R\equiv p-r\pmod p\)), so
 \(p\nmid a\).  By the same check on \(e=S+j\) (\(1\leq j\leq m\)) using
 \(m<\min(s,p'-s)\), we have \(p'\nmid e\).  If
-\((a,e)\in B_0\setminus B_1\), then either \(a=i-R\) (\(1\leq i\leq k\)) or
+\((a,e)\in Q_0\setminus Q_1\), then either \(a=i-R\) (\(1\leq i\leq k\)) or
 \(e=j-S\) (\(1\leq j\leq m\)), and the same congruences give
 \(a\equiv i-r\) or \(i-(p-r)\in\{1-p,\ldots,-1\}\) (so \(p\nmid a\)) or
 \(p'\nmid e\).  Thus \(pe-p'a\neq0\) throughout both set differences.  Since
-\(|B_1\setminus B_0|=|B_0\setminus B_1|\), the common powers of \(p^{-1}\) in
+\(|Q_1\setminus Q_0|=|Q_0\setminus Q_1|\), the common powers of \(p^{-1}\) in
 \(a(-p'/p)+e=(pe-p'a)/p\) cancel between numerator and denominator, giving
 \eqref{eq:reduced-box-mm}.
 
@@ -1752,11 +1754,14 @@ and \(0\).
 
 \emph{Step 3: The \(\delta\)-Jantzen filtration on \(\mathcal{V}_N\) has depth one.}
 Define the \(\delta\)-Jantzen filtration
-\(V_0=J_\delta^0\supseteq J_\delta^1\supseteq J_\delta^2\supseteq\cdots\) via
-\(\mathcal{J}_\delta^{(i)}
-:=\{a(\delta)\in\mathcal{V}:\bar B_{V,\delta}(a(\delta),v)\in\delta^i\mathbb{C}[[\delta]]
-\;\forall\,v\in\mathcal{V}\}\).
-Each \(J_\delta^i\) is a \(\Vir\)-submodule of \(V_0\), with
+\(V_0=J_\delta^0\supseteq J_\delta^1\supseteq J_\delta^2\supseteq\cdots\) by
+\[
+ \mathcal{J}_\delta^{(i)}
+ :=\bigl\{a(\delta)\in\mathcal{V}:\bar B_{V,\delta}(a(\delta),v)\in\delta^i\mathbb{C}[[\delta]]
+ \text{ for all }v\in\mathcal{V}\bigr\},
+\]
+and let \(J_\delta^i\subseteq V_0\) be the set of values at \(\delta=0\) of the
+elements of \(\mathcal{J}_\delta^{(i)}\).  Each \(J_\delta^i\) is a \(\Vir\)-submodule of \(V_0\), with
 \(J_\delta^1=\rad\bar B_{V,0}=L(c_\star,\nu_2)\).  Since \(L(c_\star,\nu_2)\) is
 irreducible, \(J_\delta^2\) is either \(L(c_\star,\nu_2)\) or \(0\).
 Let \(w_2(\delta)\in\mathcal{V}_{R_2S_2}\) be the image of
@@ -1818,8 +1823,11 @@ be homogeneous of levels \(N_a,N_b\).  Since
 \(\bar\rho^{(1)}_\delta(a(0),b(0)):=[\delta^1]\bar\rho_{V,\delta}(a(\delta),b(\delta))\)
 is well-defined on \(L(c_\star,\nu_2)\times L(c_\star,\nu_2)\).  Extract the
 coefficient of \(\delta\) in the Ward identity
-\(\bar\rho_{V,\delta}(L_{-n}a(\delta),b(\delta))-\bar\rho_{V,\delta}(a(\delta),L_nb(\delta))
-=(N_a-N_b+nd(\delta))\bar\rho_{V,\delta}(a(\delta),b(\delta))\).  The term
+\[
+ \bar\rho_{V,\delta}(L_{-n}a(\delta),b(\delta))-\bar\rho_{V,\delta}(a(\delta),L_nb(\delta))
+ =(N_a-N_b+nd(\delta))\,\bar\rho_{V,\delta}(a(\delta),b(\delta)).
+\]
+The term
 \(nd'(0)\delta\) multiplies a pairing already of order \(\delta\), so
 \(\bar\rho^{(1)}_\delta\) satisfies the \(V_{d_\star}(1)\) Ward identity
 on \(L(c_\star,\nu_2)\).  By uniqueness of the contravariant and primary forms
@@ -1950,7 +1958,9 @@ for that \(j\).
 \begin{proof}[Proof of Corollary~\ref{cor:collision-free}]
 By duality take \(d(b)=h_{1,2m+1}(b)\) with \(0\leq m<\min(s,p'-s)\).  The
 residue multiplier \(\mathcal{R}_{R,S}(b,h_{1,2m+1}(b))\) vanishes identically
-unless \(S\leq m\) (proof of Lemma~\ref{lem:joint-holomorphicity}, with \(k=0\)),
+unless \(S\leq m\) (for \(S>m\) the product in
+Definition~\ref{def:generic-residue} has the factor with indices \(1\) and
+\(2m+1\), which vanishes at \(d=h_{1,2m+1}(b)\)),
 and \(2m\leq2\min(s,p'-s)-2\leq p'-2\).  We check
 the three obstructions for the active labels \((R,S)\) with \(1\leq S\leq m\):
 \begin{enumerate}
@@ -2127,25 +2137,6 @@ vacuum character of the level-one \(G_2\) WZW model.  The trace itself is
 from~\eqref{eq:gen-rocha-caridi} agree with all three closed forms for
 \(0\leq N\leq 7\).
 
-\subsection{Computer checks}
-
-The script \texttt{irreducible/tools/audit\_irreducible\_torus.py} reproduces
-these examples in exact arithmetic, including the comparisons with the closed
-forms (Ising through \(N=30\), Lee--Yang through \(N=25\), tricritical Ising
-through \(N=7\)), and tests the following two results.
-\begin{enumerate}
- \item Theorem~\ref{thm:descent-regularity} at allowed and forbidden weights,
-   and at weights where exactly one of \(P_{r,s}(b_\star;\lambda,d)\) and
-   \(P_{p-r,p'-s}(b_\star;\lambda,d)\) vanishes (both cases); for instance, at \((p,p')=(3,5)\),
-   \((r,s)=(1,3)\), \(d=h_{1,5}=8/5\), \(P_{1,3}(d)=0\) gives \(\ord_xF_3=0\)
-   and \(P_{2,2}(d)\neq0\) gives \(\ord_xF_4=-1\).
- \item Theorem~\ref{thm:first-layer-ratio} at four choices of
-   \((R,S;k,m)\), computed from the two-weight Ward identity at \(t=3/5\),
-   and its Gamma-potential form at five choices, as identities in
-   \(\mathbb{Q}(t)\).
-\end{enumerate}
-
-
 \section{Scope and outlook}\label{sec:scope}
 
 The results concern the interior Kac weights of minimal models and the
@@ -2167,12 +2158,25 @@ for all mathematical claims, citations, computations and wording.
 
 \section*{Code availability}
 
-The repository \href{https://github.com/skypher/virasoro}{github.com/skypher/virasoro}
-contains the script \path{irreducible/tools/audit_irreducible_torus.py}, which
-reproduces the finite computations of
-Sections~\ref{sec:setup}--\ref{sec:examples} in exact rational arithmetic
-(Section~\ref{sec:examples}); \path{AUDIT_MANIFEST.md} lists commands,
-dependencies and hashes.  The proofs use no computer calculation.
+The proofs use no computer calculation.  The repository
+\href{https://github.com/skypher/virasoro}{github.com/skypher/virasoro}
+contains the script \path{irreducible/tools/audit_irreducible_torus.py}
+(\path{AUDIT_MANIFEST.md} lists commands, dependencies and hashes).  It
+reproduces the examples of Section~\ref{sec:examples} in exact arithmetic,
+including the comparisons with the closed forms (Ising through \(N=30\),
+Lee--Yang through \(N=25\), tricritical Ising through \(N=7\)), and tests the
+following two results.
+\begin{enumerate}
+ \item Theorem~\ref{thm:descent-regularity} at allowed and forbidden weights,
+   and at weights where exactly one of \(P_{r,s}(b_\star;\lambda,d)\) and
+   \(P_{p-r,p'-s}(b_\star;\lambda,d)\) vanishes (both cases); for instance, at \((p,p')=(3,5)\),
+   \((r,s)=(1,3)\), \(d=h_{1,5}=8/5\), \(P_{1,3}(d)=0\) gives \(\ord_xF_3=0\)
+   and \(P_{2,2}(d)\neq0\) gives \(\ord_xF_4=-1\).
+ \item Theorem~\ref{thm:first-layer-ratio} at four choices of
+   \((R,S;k,m)\), computed from the two-weight Ward identity at \(t=3/5\),
+   and its Gamma-potential form at five choices, as identities in
+   \(\mathbb{Q}(t)\).
+\end{enumerate}
 
 {\small
 \begin{thebibliography}{GRSS22}
@@ -2259,7 +2263,7 @@ JHEP \textbf{12} (2009) 038,
 {doi:\allowbreak 10.1088/1126-6708/2009/12/038},
 \href{https://arxiv.org/abs/0909.3412}{arXiv:0909.3412}.
 
-\bibitem[Pol26b]{PolzerColliding2026}
+\bibitem[Pol26]{PolzerColliding2026}
 L.~P.~Polzer,
 \emph{Colliding poles of Virasoro conformal blocks at rational central
 charge},
