@@ -1315,9 +1315,10 @@ class of Definition~\ref{def:fixed-specialization} when
 $\mu\in\operatorname{Kac}_M(b_\star)$ and empty otherwise.
 
 \begin{lemma}[Full moments]\label{lem:full-moments}
-Let $N\geq1$, $\lambda\in\operatorname{Kac}_N(b_\star)$ and $k\geq1$.  Then
-$S_{a,M}(t)$ is the expansion of the rational function
-$H_M(c(b),z_a(b),d)$ of $b$, and the full moment
+For every positive label $a$ and every $M\geq0$, $S_{a,M}(t)$ is the
+expansion of the rational function $H_M(c(b),z_a(b),d)$ of $b$.  Let
+$N\geq1$, $\lambda\in\operatorname{Kac}_N(b_\star)$ and $k\geq1$.  Then the
+full moment
 \[
  C_{\lambda,k,N}(t)=\sum_{a\in{\mathcal C}^\star_{\lambda,N}}B_{a,N}(t)\,\delta_a(t)^{k-1}
 \]
@@ -1364,9 +1365,14 @@ $N$.
 
 In the example after Theorem~\ref{thm:general-confluence}, the chains from
 $0$ to $5$ are $((1,1),(1,4))$ and $((1,2),(3,1))$.  The first has
-$\delta_{(1,1)}\equiv0$, and the second gives
-$c^{(2)}_{0\to5,0}(b_\star)={\mathcal R}_{1,2}{\mathcal R}_{3,1}/7$, the
-double-pole coefficient found there.
+$\delta_{(1,1)}\equiv0$.  The second gives
+$c^{(2)}_{0\to5,0}(b_\star)={\mathcal R}_{1,2}{\mathcal R}_{3,1}\,
+h'_{1,2}/(h'_{1,2}-h'_{3,1})={\mathcal R}_{1,2}{\mathcal R}_{3,1}/7$, since
+$h'_{3,1}=-6h'_{1,2}$.  The shorter chains from $0$ are the single labels
+$(1,1)$ and $(1,2)$, whose terms with $k=2$ contain the factor
+$\delta_g(0)=0$ and a residue regular at $b_\star$.  So
+$c^{(2)}_{0\to5,0}(b_\star)$ is the whole double-pole coefficient found
+there.
 
 \begin{lemma}[Cutting a chain]\label{lem:cutting}
 For $j\geq1$,
@@ -2763,9 +2769,12 @@ the sphere block, with the same proofs: replace \(R_g\) by
 \(\mathcal R^{\mathrm{sph}}_g\), \(K_\star\) by
 \(\mathbb Q(b_\star,\Delta_1,\dots,\Delta_4)\),
 Proposition~\ref{prop:generic-recursion} by
-Proposition~\ref{prop:generic-recursion-sph} and
-Theorem~\ref{thm:general-confluence} by Theorem~\ref{thm:confluence}, whose
-proof gives Lemma~\ref{lem:full-moments}.  Theorem~\ref{thm:fixed-charge}
+Proposition~\ref{prop:generic-recursion-sph}, and
+Theorems~\ref{thm:general-partial-fractions} and~\ref{thm:general-confluence}
+by Theorem~\ref{thm:confluence}: its proof gives
+Lemma~\ref{lem:full-moments}, and its part~(ii) gives the finite expansion of
+\(H_N(c_\star,\cdot)\) into principal parts that the proofs of
+Lemma~\ref{lem:regular-remainder} and Theorem~\ref{thm:fixed-charge} use.  Theorem~\ref{thm:fixed-charge}
 then computes the principal parts of \(H_N(c_\star,\Delta,\Delta_i)\) from
 \(H_0,\dots,H_{N-1}\) at \(c_\star\); the cross-ratio coefficients
 \(\mathcal B_N\), which have a polynomial part in \(\Delta\), follow
@@ -3579,9 +3588,11 @@ archive.  The repository script \path{notes/ribault/fixed_charge_recursion.py},
 also not part of the archive, runs the recursion of
 Theorem~\ref{thm:fixed-charge} from \(H_0=1\), using only the values
 \(c^{(k)}_{\lambda\to\mu,j}(b_\star)\) and the fixed-charge coefficients it has
-already computed, and compares every principal part at every Kac weight with
-Theorem~\ref{thm:general-confluence} (torus) or Theorem~\ref{thm:confluence}
-(sphere); it also checks the identity of Lemma~\ref{lem:cutting} exactly.
+already computed, and, for the tested charges and levels, compares every
+principal part at every Kac weight with Theorem~\ref{thm:general-confluence}
+(torus) or Theorem~\ref{thm:confluence} (sphere); with the option
+\texttt{-{}-check-cut} it also checks the identity of Lemma~\ref{lem:cutting}
+exactly.
 
 The scripts in \texttt{sphere/tools/} check the sphere confluence of Part~II
 in exact rational and symbolic arithmetic, through level seven for
