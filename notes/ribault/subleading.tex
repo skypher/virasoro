@@ -636,7 +636,8 @@ $\equiv2\operatorname{sgn}(T_k)x_0$, and $2x_0$ is divisible by $2p$
 \end{proof}
 
 \begin{lemma}[Pole orders]\label{lem:bpoles}
-For that label, $R_g=\rho_g\,t^{1-(k-i)}+O(t^{2-(k-i)})$ with $\rho_g\neq0$.
+For that label, $R_g=\rho_g\,t^{1-(k-i)}+O(t^{2-(k-i)})$ with $\rho_g\neq0$ in
+$K_\star=\mathbb C(d)$ (at a specialized $d$, $\rho_g$ can vanish).
 \end{lemma}
 
 \begin{proof}
@@ -661,7 +662,8 @@ Let $a=\mu_i$, $\mu=\mu_k$, $D=k-i\ge1$, and let $g$ be the label from
 $\mu_i$ to $\mu_k$.
 
 \noindent(i) $\operatorname{Top}(a\to\mu)=\rho_g\prod_{i<m<k}(h_{a\mu}-h_{a\mu_m})
- =\rho_g\,(\epsilon cN_0T_i)^{D-1}\prod_{i<m<k}(\pi_k-\pi_m)$, which is nonzero.
+ =\rho_g\,(\epsilon cN_0T_i)^{D-1}\prod_{i<m<k}(\pi_k-\pi_m)$, which is nonzero in
+$\mathbb C(d)$.
 
 \noindent(ii) For $0\le j\le D-1$,
 \[
@@ -672,9 +674,11 @@ $\mu_i$ to $\mu_k$.
 \noindent(iii) Let $\Delta_m=\mu_{i+m}-\mu_i$ and $\Delta_D\le N<\Delta_{D+1}$.
 Then $A^\star_{\mu_i,k,N}=0$ for $k>D$, and $A^\star_{\mu_i,D,N}$ is
 $\operatorname{Top}(\mu_i\to\mu_{i+D})$ times
-$H_{N-\Delta_D}(c_\star,\mu_{i+D},d)$.  So $H_N(c_\star,\Delta,d)$ has a pole of
-order at most $D$ at $\Delta=\mu_i$, of order exactly $D$ when
-$H_{N-\Delta_D}(c_\star,\mu_{i+D},d)\neq0$, in particular at $N=\Delta_D$.
+$H_{N-\Delta_D}(c_\star,\mu_{i+D},d)$.  Over $\mathbb C(d)$ this is nonzero, so
+$H_N(c_\star,\Delta,d)$ has a pole of order exactly $D$ at $\Delta=\mu_i$ for
+every $N$ in this interval.  At a specialized $d$ the order is at most $D$, and
+exactly $D$ if and only if $\operatorname{Top}(\mu_i\to\mu_{i+D})\,
+H_{N-\Delta_D}(c_\star,\mu_{i+D},d)\ne0$ there.
 \end{theorem}
 
 \begin{proof}
@@ -696,16 +700,26 @@ $N=\Delta_D$ this is the separate first term of~(7.8), and $H_0=1$.  Otherwise
 the zeros of the Kac determinant at level $M=N-\Delta_D$ and weight $\mu_{i+D}$
 are labels from $\mu_{i+D}$, of level at least $\Delta_{D+1}-\Delta_D>M$
 (Lemma~\ref{lem:blabels}), so $H_M(c_\star,\cdot)$ is regular at $\mu_{i+D}$
-and~(7.6) gives $\varphi_{\mu_{i+D},0}(b_\star)=H_M(c_\star,\mu_{i+D},d)$.
+and~(7.6) gives $\varphi_{\mu_{i+D},0}(b_\star)=H_M(c_\star,\mu_{i+D},d)$.  As
+$\det G_M(c_\star,\mu_{i+D})\ne0$ and $\mu_{i+D}=d_{M_{i+D}}$ has integer
+momentum, Proposition 9.2(iii) of \texttt{paper.tex} gives
+$H_M(c_\star,\mu_{i+D},d)\not\equiv0$ in $\mathbb Q[d]$; with
+$\operatorname{Top}\ne0$ in $\mathbb C(d)$ from (i) this is the exactness over
+$\mathbb C(d)$.  At $N=\Delta_D$ the top coefficient is $\operatorname{Top}$ itself,
+which vanishes at some $d$: the factors of $\mathcal N_g$ with $(k,l)=(1,1)$ are
+$-d$ and $1-d$.
 \end{proof}
 
 \begin{remark}
-Theorem~\ref{thm:boundary} answers the question left open in Section 15 of
-\texttt{paper.tex} for the boundary weights of Class $R^+$, within the scope
-proved here: at a boundary weight $\mu_i$ the pole order of
-$H_N(c_\star,\cdot,d)$ is the number $D$ of nodes $\mu_{i+m}$, $m\ge1$, of level
-at most $N$ above $\mu_i$ (unless $H_{N-\Delta_D}(c_\star,\mu_{i+D},d)=0$), and
-the top coefficient is the leading coefficient $\rho_g=\operatorname{lead}(\mathcal
+The Jantzen filtration at these weights is the classical one-chain filtration
+(Iohara--Koga, Theorem 6.3(ii)--(iv); Astashkevich, Theorem B), and the pole
+order $D$ of $G_N(c_\star,\cdot)^{-1}$ at $\mu_i$ for $\Delta_D\le N<\Delta_{D+1}$
+follows from it; contracting with the torus form can only lower this order.
+What Theorem~\ref{thm:boundary} adds, for the question left open in Section 15
+of \texttt{paper.tex} at the boundary weights of Class $R^+$, is that the
+contracted (Verma) block $H_N(c_\star,\cdot,d)$ keeps the order $D$ over
+$\mathbb C(d)$, and the top coefficient; momenta divisible by both $p$ and $p'$,
+and $c_\star=1,25$, are not covered.  The top coefficient is the leading coefficient $\rho_g=\operatorname{lead}(\mathcal
 A_g)\,\mathcal N_g(b_\star,d)$ of the single residue from $\mu_i$ to
 $\mu_{i+D}$ times a product of slope differences; here
 $\operatorname{lead}(\mathcal A_g)=\frac12\prod(ab_\star+eb_\star^{-1})^{-1}
