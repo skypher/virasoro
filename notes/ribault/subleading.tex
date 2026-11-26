@@ -70,8 +70,10 @@ and the chains from $\lambda$ to $\mu^-_2$ are exactly
  \gamma_1'=\bigl((r,s),(p-r,p'+s)\bigr),\qquad
  \gamma_2'=\bigl((p-r,p'-s),(2p-r,s)\bigr).
 \]
-The residues $R_g$ of all six labels are regular at $b=b_\star$, and the two
-links of each chain satisfy $h'_{g_0}(b_\star)\neq h'_{g_1}(b_\star)$.
+The residues $R_g$ of all six labels are regular at $b=b_\star$, and in each
+chain the two labels have $h'_{g_0}(b_\star)\neq h'_{g_1}(b_\star)$.  The
+nonempty chains from $\lambda$ of level below $\ell_3$ end at $\mu^\pm_1$ (one
+label) or at $\mu^\pm_2$ (these four chains).
 \end{lemma}
 
 \begin{proof}
@@ -112,7 +114,11 @@ $(a,e)\in\mathbb Z(p,p')\setminus\{0\}$, which requires $u\ge p$ and $v\ge p'$
 $\mathcal N_{u,v}(b,d)$ is a polynomial, so each $R_g$ is regular at
 $b_\star$.  By Lemma~\ref{lem:hprime}, $h'_{g_0}-h'_{g_1}$ is a nonzero multiple
 of $x_{g_1}y_{g_1}-x_{g_0}y_{g_0}$; the values are computed in the next proof
-and are nonzero.
+and are nonzero.  For the last assertion: by Lemma~\ref{lem:labels} below (whose
+proof does not use this lemma) every label from a node leads to a node of
+larger layer, with odd layer difference; the nodes of level below $\ell_3$ are
+$\lambda,\mu^\pm_1,\mu^\pm_2$, so such a chain is one label to $\mu^\pm_1$ or
+two labels to $\mu^\pm_2$.
 \end{proof}
 
 \begin{proposition}[Second layer]\label{prop:second-layer}
@@ -131,8 +137,9 @@ $A^\star_{\lambda,1,N}$ of Theorem 7.14 contains the term
  \pm\frac{m^\pm_2}{n_0}\,\frac{\mathcal N^\pm_2(d)}{\gamma^\pm_2}\,
  \partial_\Delta H_{N-\ell^\pm_2}(c_\star,\Delta,d)\big|_{\Delta=\mu^\pm_2},
 \]
-the top coefficient times the ratio of the momenta of $\mu^\pm_2$ and
-$\lambda$.
+the top coefficient times the signed momentum ratio of $\mu^\pm_2$ and
+$\lambda$ ($n_0$ can be negative); for $N=\ell^\pm_2$ this term is $0$, as
+$H_0=1$.
 \end{proposition}
 
 \begin{proof}
@@ -179,17 +186,23 @@ $c^{(2)}_{\lambda\to\mu^-_2,0}(b_\star)=(n_0/n_1)\rho_{\gamma'_1}$ and
 $c^{(1)}_{\lambda\to\mu^-_2,1}(b_\star)=-(m/n_1)\rho_{\gamma'_1}$.
 
 For the identification with Theorem 8.2 take $N$ with
-$\ell^\pm_2\le N<\ell_3$ in~(7.8) at $k=2$.  The chain functions
-$c^{(2)}_{\lambda\to\mu,j}$ with $\mu-\lambda<\ell_2$ end at $\mu^\pm_1$ and are
-$R_g\delta_g^{1+j}/j!$, which vanish at $b_\star$; those ending at $\mu^\pm_2$
-vanish at $b_\star$ for $j\ge1$ by the expansion above.  Since
-$H_{N-\ell^\pm_2}(c_\star,\cdot)$ is regular at $\mu^\pm_2$
-(Theorem 8.2), (7.8) reads
-$A^\star_{\lambda,2,N}=\sum_\pm c^{(2)}_{\lambda\to\mu^\pm_2,0}(b_\star)
-H_{N-\ell^\pm_2}(c_\star,\mu^\pm_2,d)$.  Comparing with~(8.1) at
-$N=\min(\ell^+_2,\ell^-_2)$ (where $H_0=1$) and then at
-$N=\max(\ell^+_2,\ell^-_2)$ gives $c^{(2)}_{\lambda\to\mu^\pm_2,0}(b_\star)
-=\mathcal N^\pm_2/\gamma^\pm_2$.  The last assertion is~(7.8) at $k=1$.
+$\min(\ell^+_2,\ell^-_2)\le N<\ell_3$ in~(7.8) at $k=2$.  By the last assertion
+of Lemma~\ref{lem:chains2} the chain functions that occur end at $\mu^\pm_1$ or
+$\mu^\pm_2$.  Those ending at $\mu^\pm_1$ are $R_g\delta_g^{1+j}/j!$, which vanish
+at $b_\star$; those ending at $\mu^\pm_2$ vanish at $b_\star$ for $j\ge1$ by the
+expansion above.  Since $H_{N-\ell^\pm_2}(c_\star,\cdot)$ is regular at
+$\mu^\pm_2$ (Theorem 8.2), the principal-part subtraction in~(7.8) vanishes
+there, and
+\[
+ A^\star_{\lambda,2,N}=\sum_{\pm:\ \ell^\pm_2\le N}c^{(2)}_{\lambda\to\mu^\pm_2,0}(b_\star)
+ \,H_{N-\ell^\pm_2}(c_\star,\mu^\pm_2,d),
+\]
+the sum over the signs with $\ell^\pm_2\le N$, as in~(8.1).  At
+$N=\min(\ell^+_2,\ell^-_2)$ only one sign occurs and $H_0=1$, which identifies
+that coefficient with $\mathcal N^\pm_2/\gamma^\pm_2$; at
+$N=\max(\ell^+_2,\ell^-_2)$ subtract the identified term and use $H_0=1$ for the
+other sign.  The last assertion is~(7.8) at $k=1$, where the derivative term is
+one summand.
 \end{proof}
 
 \begin{corollary}[Second-layer Jantzen norms]\label{cor:gamma2}
@@ -203,17 +216,24 @@ With $w^\pm_2$ normalized to $L_{-1}^{\ell^\pm_2}$-coefficient $1$,
 \begin{proof}
 $R_g=\mathcal A_g\mathcal N_g$, and $\mathcal N^\pm_2=\mathcal N_{r,s}\mathcal
 N_{p\pm r,p'\mp s}$ at $b_\star$ by the factorization after Theorem 8.2
-(case $k=2j$, $j=1$).
+(case $k=2j$, $j=1$).  Cancel these norm polynomials as nonzero elements of
+$\mathbb C[d]$ before specializing $d$.
 \end{proof}
 
 \begin{remark}
 At $c=0$, $\lambda=0$ ($(p,p')=(2,3)$, $r=s=1$, $n_0=1$, $n_1=5$) the
 corollary gives $\gamma^-_2=5/(\mathcal A_{1,1}\mathcal A_{1,4}(b_\star))
-=5/(\frac12\cdot(-\frac3{1120}))=-\frac{11200}3$, the value found in the
-example after Definition 7.9 of \texttt{paper.tex}.  The coefficients with
-$k+j=2$ are the leading ones at the second layer; the remaining coefficient
-$c^{(1)}_{\lambda\to\mu^\pm_2,0}(b_\star)$ depends on the first-order
-expansions of $R_g$ and $\delta_g$ and is not a function of the momenta.
+=5/(\frac12\cdot(-\frac3{1120}))=-\frac{11200}3$, the Jantzen value of the
+example after Theorem 7.3 of \texttt{paper.tex} (the example after
+Definition 7.9 cites it).  The coefficients with $k+j=2$ are the leading ones
+at the second layer.  For the remaining coefficient
+$c^{(1)}_{\lambda\to\mu^\pm_2,0}(b_\star)$, write a chain's residue product as
+$\rho_0+\rho_1t+\dots$ and its link denominator as $\alpha t+\beta t^2+\dots$;
+the chain contributes $\rho_1/\alpha-\rho_0\beta/\alpha^2$, so the residues enter
+through first order and the link differences through second order, and the
+cancellation of the $t^{-1}$ terms removes neither $\beta$-term.  The
+leading-order calculation gives no simple multiplier for it: at $c=0$ its ratio
+to the top coefficient changes with $d$ (Section 4).
 \end{remark}
 
 \section{All coefficients with $k+j$ equal to the layer distance}
