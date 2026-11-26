@@ -4,8 +4,10 @@ Started 2026-11-26 (user, tmp terminal, about 16:0x Taiwan: "try it", after the
 question whether Ribault's rational-b² recursion is hard; then /goal "finish
 ribault question proof.").
 
-**Update 2026-11-26 (about 17:00 Taiwan): general proof written, awaiting
-review.** notes/ribault/fixed_charge_recursion.tex (PDF next to it) proves the
+**Update 2026-11-26 (about 17:00 Taiwan): general proof written and
+reviewed: yang2 PASS (full proof check and replay, 08:47:54Z) and Jander PASS
+(static checks, 08:45:23Z) at 3182f40, after one FIX on the coefficient
+field.** notes/ribault/fixed_charge_recursion.tex (PDF next to it) proves the
 chain-function regularity for all layers, all Kac weights and every
 b⋆ ∈ ℂ^× (torus and sphere blocks), and the resulting fixed-charge recursion
 (Theorem 9 there; definitions and lemmas share one counter). The missing step listed below under "What is open" is
@@ -120,7 +122,7 @@ survives, as the derivation predicts.
 ## What is open
 
 - (Supplied by Lemmas 5 and 8 of notes/ribault/fixed_charge_recursion.tex,
-  awaiting review; kept here as the record of the first attempt.)
+  reviewer PASS at 3182f40; kept here as the record of the first attempt.)
   **Chain-sum regularity in general** (the hard step): for every chain end μ,
   every k and j, c^{(k)}_{μ,j}(u) is regular at u = 0. For j = 0 it follows by
   induction on μ from moment regularity at the level N = μ − λ, provided the
