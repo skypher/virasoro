@@ -21,9 +21,11 @@ Reading conventions.
   part has no nonnegative powers.
 * `H_M(c(b), Δ, d)` with `b = b⋆ + t` is `Hrat (kacC (bGerm bs)) (C d) M`, a rational function of
   `Δ` over the field of germs; its colliding group at `μ` and the remainder `Reg^{(M)}_μ` are
-  rational functions of `Δ` over the same field, and `Reg` "has no pole on `b = b⋆` near
-  `Δ = μ`" is read through its Taylor coefficients at `Δ = μ`: the derivatives
-  `φ^{(M)}_{μ,j} = ∂_Δ^j Reg(b⋆ + t, μ)` (`phiRemC`) are regular at `t = 0`.
+  rational functions of `Δ` over the same field.  `Reg` "has no pole on `b = b⋆` near `Δ = μ`"
+  means that `Reg = P/E` with `P, E` polynomials in `Δ` whose coefficients are power series in
+  `t` and `E(0, μ) ≠ 0`; its restriction to `b = b⋆` is `P(0,·)/E(0,·)`, which (7.6) identifies.
+  The derivatives `φ^{(M)}_{μ,j} = ∂_Δ^j Reg(b⋆ + t, μ) = j! [(Δ-μ)^j] Reg` (`phiRemC`) are
+  then regular at `t = 0`.
 * A series over `j` that converges `t`-adically is stated through valuations: for every `m`,
   every finite tail `∑_{J₁ ≤ j < J₂}` with `J₁` large has `t`-order at least `m`; an identity
   with such a series means that the difference with the partial sums over `j < J` has `t`-order
