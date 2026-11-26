@@ -1,0 +1,215 @@
+[    0.0s] torus block, b*^2 = -3/2, c* = 0, d = -5/11
+[    2.3s] N= 1: recursion done (1 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    3.4s] N= 2: recursion done (2 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    6.7s] N= 3: recursion done (4 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[   10.7s] N= 4: recursion done (7 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[   12.1s] N= 5: recursion done (8 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   14.6s] N= 6: recursion done (11 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   17.9s] N= 7: recursion done (13 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   22.1s] N= 8: recursion done (15 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   27.0s] N= 9: recursion done (17 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   33.4s] N=10: recursion done (19 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   39.7s] N=11: recursion done (20 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   50.3s] N=12: recursion done (24 weights, max pole order 3); equals the confluence formula at every Kac weight: True
+[   60.5s] N=13: recursion done (26 weights, max pole order 3); equals the confluence formula at every Kac weight: True
+[   73.4s] N=14: recursion done (27 weights, max pole order 3); equals the confluence formula at every Kac weight: True
+[   73.4s] ALL OK
+[    0.0s] torus block, b*^2 = -4/3, c* = 1/2, d = 2/9
+[    1.0s] N= 1: recursion done (1 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    3.8s] N= 2: recursion done (3 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    4.7s] N= 3: recursion done (4 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    6.9s] N= 4: recursion done (6 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    9.1s] N= 5: recursion done (8 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[   12.5s] N= 6: recursion done (11 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[   15.0s] N= 7: recursion done (12 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   21.2s] N= 8: recursion done (16 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   26.2s] N= 9: recursion done (19 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   32.6s] N=10: recursion done (22 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   39.1s] N=11: recursion done (23 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   39.1s]   gram: F_1 Laurent at 0 done
+[   39.1s]   gram: F_2 Laurent at 0 done
+[   39.1s]   gram: F_3 Laurent at 0 done
+[   39.1s]   gram: F_4 Laurent at 0 done
+[   39.3s]   gram: F_5 Laurent at 0 done
+[   39.3s] Shapovalov inversion agrees at lambda=0 for N <= 5
+[   39.3s]   gram: F_1 Laurent at 1/16 done
+[   39.3s]   gram: F_2 Laurent at 1/16 done
+[   39.3s]   gram: F_3 Laurent at 1/16 done
+[   39.3s]   gram: F_4 Laurent at 1/16 done
+[   39.5s]   gram: F_5 Laurent at 1/16 done
+[   39.5s] Shapovalov inversion agrees at lambda=1/16 for N <= 5
+[   39.5s]   gram: F_1 Laurent at 1/2 done
+[   39.5s]   gram: F_2 Laurent at 1/2 done
+[   39.5s]   gram: F_3 Laurent at 1/2 done
+[   39.5s]   gram: F_4 Laurent at 1/2 done
+[   39.7s]   gram: F_5 Laurent at 1/2 done
+[   39.7s] Shapovalov inversion agrees at lambda=1/2 for N <= 5
+[   39.7s]   gram: F_1 Laurent at 21/16 done
+[   39.7s]   gram: F_2 Laurent at 21/16 done
+[   39.7s]   gram: F_3 Laurent at 21/16 done
+[   39.7s]   gram: F_4 Laurent at 21/16 done
+[   39.9s]   gram: F_5 Laurent at 21/16 done
+[   39.9s] Shapovalov inversion agrees at lambda=21/16 for N <= 5
+[   39.9s]   gram: F_1 Laurent at 5/3 done
+[   39.9s]   gram: F_2 Laurent at 5/3 done
+[   39.9s]   gram: F_3 Laurent at 5/3 done
+[   39.9s]   gram: F_4 Laurent at 5/3 done
+[   40.1s]   gram: F_5 Laurent at 5/3 done
+[   40.1s] Shapovalov inversion agrees at lambda=5/3 for N <= 5
+[   40.1s]   gram: F_1 Laurent at 5/2 done
+[   40.1s]   gram: F_2 Laurent at 5/2 done
+[   40.1s]   gram: F_3 Laurent at 5/2 done
+[   40.2s]   gram: F_4 Laurent at 5/2 done
+[   40.3s]   gram: F_5 Laurent at 5/2 done
+[   40.3s] Shapovalov inversion agrees at lambda=5/2 for N <= 5
+[   40.3s]   gram: F_1 Laurent at 7/2 done
+[   40.3s]   gram: F_2 Laurent at 7/2 done
+[   40.3s]   gram: F_3 Laurent at 7/2 done
+[   40.4s]   gram: F_4 Laurent at 7/2 done
+[   40.5s]   gram: F_5 Laurent at 7/2 done
+[   40.5s] Shapovalov inversion agrees at lambda=7/2 for N <= 5
+[   40.5s]   gram: F_1 Laurent at 6 done
+[   40.6s]   gram: F_2 Laurent at 6 done
+[   40.6s]   gram: F_3 Laurent at 6 done
+[   40.6s]   gram: F_4 Laurent at 6 done
+[   40.8s]   gram: F_5 Laurent at 6 done
+[   40.8s] Shapovalov inversion agrees at lambda=6 for N <= 5
+[   40.8s] ALL OK
+[    0.0s] torus block, b*^2 = -5/2, c* = -22/5, d = -4/13
+[    0.8s] N= 1: recursion done (1 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    3.4s] N= 2: recursion done (3 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    4.3s] N= 3: recursion done (4 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    5.7s] N= 4: recursion done (6 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    7.2s] N= 5: recursion done (8 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[   10.7s] N= 6: recursion done (12 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[   14.0s] N= 7: recursion done (14 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   18.4s] N= 8: recursion done (17 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   22.5s] N= 9: recursion done (18 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   29.6s] N=10: recursion done (22 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   37.9s] N=11: recursion done (24 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   37.9s] ALL OK
+[    0.0s] torus block, b*^2 = -1, c* = 1, d = 3/7
+[    2.0s] N= 1: recursion done (1 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    3.7s] N= 2: recursion done (2 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[    5.8s] N= 3: recursion done (3 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[    8.3s] N= 4: recursion done (4 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[    9.6s] N= 5: recursion done (5 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   11.6s] N= 6: recursion done (6 weights, max pole order 4); equals the confluence formula at every Kac weight: True
+[   13.9s] N= 7: recursion done (7 weights, max pole order 4); equals the confluence formula at every Kac weight: True
+[   16.9s] N= 8: recursion done (8 weights, max pole order 4); equals the confluence formula at every Kac weight: True
+[   20.5s] N= 9: recursion done (9 weights, max pole order 4); equals the confluence formula at every Kac weight: True
+[   24.6s] N=10: recursion done (10 weights, max pole order 4); equals the confluence formula at every Kac weight: True
+[   24.6s]   gram: F_1 Laurent at 0 done
+[   24.6s]   gram: F_2 Laurent at 0 done
+[   24.6s]   gram: F_3 Laurent at 0 done
+[   24.7s]   gram: F_4 Laurent at 0 done
+[   24.8s]   gram: F_5 Laurent at 0 done
+[   24.8s] Shapovalov inversion agrees at lambda=0 for N <= 5
+[   24.8s]   gram: F_1 Laurent at 1/4 done
+[   24.8s]   gram: F_2 Laurent at 1/4 done
+[   24.8s]   gram: F_3 Laurent at 1/4 done
+[   24.9s]   gram: F_4 Laurent at 1/4 done
+[   25.0s]   gram: F_5 Laurent at 1/4 done
+[   25.0s] Shapovalov inversion agrees at lambda=1/4 for N <= 5
+[   25.0s]   gram: F_1 Laurent at 1 done
+[   25.0s]   gram: F_2 Laurent at 1 done
+[   25.0s]   gram: F_3 Laurent at 1 done
+[   25.1s]   gram: F_4 Laurent at 1 done
+[   25.2s]   gram: F_5 Laurent at 1 done
+[   25.2s] Shapovalov inversion agrees at lambda=1 for N <= 5
+[   25.2s]   gram: F_1 Laurent at 9/4 done
+[   25.2s]   gram: F_2 Laurent at 9/4 done
+[   25.2s]   gram: F_3 Laurent at 9/4 done
+[   25.2s]   gram: F_4 Laurent at 9/4 done
+[   25.4s]   gram: F_5 Laurent at 9/4 done
+[   25.4s] Shapovalov inversion agrees at lambda=9/4 for N <= 5
+[   25.4s]   gram: F_1 Laurent at 4 done
+[   25.4s]   gram: F_2 Laurent at 4 done
+[   25.4s]   gram: F_3 Laurent at 4 done
+[   25.4s]   gram: F_4 Laurent at 4 done
+[   25.5s]   gram: F_5 Laurent at 4 done
+[   25.5s] Shapovalov inversion agrees at lambda=4 for N <= 5
+[   25.5s] ALL OK
+[    0.0s] torus block, b*^2 = 1, c* = 25, d = 3/7
+[    0.1s] N= 1: recursion done (1 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    0.6s] N= 2: recursion done (2 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[    1.6s] N= 3: recursion done (3 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[    4.0s] N= 4: recursion done (4 weights, max pole order 3); equals the confluence formula at every Kac weight: True
+[    8.1s] N= 5: recursion done (5 weights, max pole order 3); equals the confluence formula at every Kac weight: True
+[   11.3s] N= 6: recursion done (6 weights, max pole order 4); equals the confluence formula at every Kac weight: True
+[   13.7s] N= 7: recursion done (7 weights, max pole order 4); equals the confluence formula at every Kac weight: True
+[   16.8s] N= 8: recursion done (8 weights, max pole order 4); equals the confluence formula at every Kac weight: True
+[   20.3s] N= 9: recursion done (9 weights, max pole order 5); equals the confluence formula at every Kac weight: True
+[   25.0s] N=10: recursion done (10 weights, max pole order 5); equals the confluence formula at every Kac weight: True
+[   25.1s]   gram: F_1 Laurent at -8 done
+[   25.1s]   gram: F_2 Laurent at -8 done
+[   25.1s]   gram: F_3 Laurent at -8 done
+[   25.1s]   gram: F_4 Laurent at -8 done
+[   25.3s]   gram: F_5 Laurent at -8 done
+[   25.3s] Shapovalov inversion agrees at lambda=-8 for N <= 5
+[   25.3s]   gram: F_1 Laurent at -21/4 done
+[   25.3s]   gram: F_2 Laurent at -21/4 done
+[   25.3s]   gram: F_3 Laurent at -21/4 done
+[   25.3s]   gram: F_4 Laurent at -21/4 done
+[   25.5s]   gram: F_5 Laurent at -21/4 done
+[   25.5s] Shapovalov inversion agrees at lambda=-21/4 for N <= 5
+[   25.5s]   gram: F_1 Laurent at -3 done
+[   25.5s]   gram: F_2 Laurent at -3 done
+[   25.5s]   gram: F_3 Laurent at -3 done
+[   25.6s]   gram: F_4 Laurent at -3 done
+[   25.7s]   gram: F_5 Laurent at -3 done
+[   25.7s] Shapovalov inversion agrees at lambda=-3 for N <= 5
+[   25.7s]   gram: F_1 Laurent at -5/4 done
+[   25.7s]   gram: F_2 Laurent at -5/4 done
+[   25.7s]   gram: F_3 Laurent at -5/4 done
+[   25.8s]   gram: F_4 Laurent at -5/4 done
+[   26.0s]   gram: F_5 Laurent at -5/4 done
+[   26.0s] Shapovalov inversion agrees at lambda=-5/4 for N <= 5
+[   26.0s]   gram: F_1 Laurent at 0 done
+[   26.0s]   gram: F_2 Laurent at 0 done
+[   26.0s]   gram: F_3 Laurent at 0 done
+[   26.0s]   gram: F_4 Laurent at 0 done
+[   26.2s]   gram: F_5 Laurent at 0 done
+[   26.2s] Shapovalov inversion agrees at lambda=0 for N <= 5
+[   26.2s] ALL OK
+[    0.0s] torus block, b*^2 = 3/2, c* = 26, d = 5/3
+[    0.1s] N= 1: recursion done (1 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    0.9s] N= 2: recursion done (3 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    2.4s] N= 3: recursion done (5 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    4.3s] N= 4: recursion done (7 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    7.9s] N= 5: recursion done (9 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   11.8s] N= 6: recursion done (12 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   14.4s] N= 7: recursion done (13 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   19.6s] N= 8: recursion done (16 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   23.9s] N= 9: recursion done (18 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   29.1s] N=10: recursion done (19 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   29.1s] ALL OK
+[    0.0s] sphere block, b*^2 = -3/2, c* = 0, external weights 1/3,2/7,-1/5,3/11
+[    1.5s] N= 1: recursion done (1 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    1.8s] N= 2: recursion done (2 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    3.0s] N= 3: recursion done (4 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    6.0s] N= 4: recursion done (7 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    7.9s] N= 5: recursion done (8 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   11.3s] N= 6: recursion done (11 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   13.8s] N= 7: recursion done (13 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   17.7s] N= 8: recursion done (15 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   17.7s] ALL OK
+[    0.0s] sphere block, b*^2 = -4/3, c* = 1/2, external weights 2/5,-1/7,3/4,1/9
+[    0.5s] N= 1: recursion done (1 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    3.1s] N= 2: recursion done (3 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    3.7s] N= 3: recursion done (4 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    5.1s] N= 4: recursion done (6 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    7.3s] N= 5: recursion done (8 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[   10.7s] N= 6: recursion done (11 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[   13.4s] N= 7: recursion done (12 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   19.0s] N= 8: recursion done (16 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   19.0s] ALL OK
+[    0.0s] sphere block, b*^2 = -1, c* = 1, external weights 1/3,2/7,-1/5,3/11
+[    0.7s] N= 1: recursion done (1 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    3.1s] N= 2: recursion done (2 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[    3.8s] N= 3: recursion done (3 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[    4.9s] N= 4: recursion done (4 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[    7.0s] N= 5: recursion done (5 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[    9.4s] N= 6: recursion done (6 weights, max pole order 4); equals the confluence formula at every Kac weight: True
+[   11.8s] N= 7: recursion done (7 weights, max pole order 4); equals the confluence formula at every Kac weight: True
+[   11.8s] ALL OK

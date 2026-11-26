@@ -1,0 +1,379 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amsthm,amssymb,mathtools}
+\usepackage[margin=1.1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\CT}{\operatorname{CT}}
+\newcommand{\PP}{\operatorname{PP}}
+\newcommand{\Kac}{\operatorname{Kac}}
+
+\title{A recursion for Virasoro blocks at fixed rational central charge}
+\author{working note, \texttt{virasoro} repository, 2026-11-26\\ status: proof written, awaiting independent review}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+At a fixed $b_\star\in\mathbb C^\times$ the terms of Zamolodchikov's recursion
+for the torus one-point and the sphere four-point block can have poles in $b$
+when $b_\star^2\in\mathbb Q$.  We regroup the iterated recursion along chains
+of colliding Kac labels and prove that each regrouped coefficient is a rational
+function of $b$ that is regular at $b_\star$.  The result is a recursion that
+computes every principal part of the level-$N$ coefficient at $c_\star=c(b_\star)$
+from the coefficients of lower level at the same central charge, with finite
+coefficients that do not depend on $N$.  For $b_\star^2\notin\mathbb Q$ it is
+Zamolodchikov's recursion.  This answers the problem stated by Ribault
+\cite[\S4.3.3]{Rib}: ``Finding a recursion for $\beta^2\in\mathbb Q$ is an open
+problem, whose simplest incarnation is in the case of 1-point Virasoro blocks on
+the torus.''
+\end{abstract}
+
+\section{Setting}
+
+We use the notation of the colliding-poles paper \cite{CP} (\texttt{paper.tex}).
+Fix $b_\star\in\mathbb C^\times$ and write $c_\star=c(b_\star)$ and
+$t=b-b_\star$.  We treat the torus block; every statement and proof holds
+verbatim for the sphere block (Remark~\ref{rem:sphere}).
+
+For a positive label $g=(r,s)$ write $\ell_g=rs$, $h_g(b)=h_{r,s}(b)$,
+$z_g=h_g+\ell_g$ and $R_g(b)=\mathcal R_{r,s}(b,d)$ \cite[Definition~6.1]{CP},
+with $d$ indeterminate.  Put $K=\mathbb Q(d)$, so that $R_g\in K(b)$.  The
+coefficients $H_N(c(b),\Delta,d)$ satisfy, for generic $b$ and $N\ge1$,
+\begin{equation}\label{eq:generic}
+ H_N(c(b),\Delta)=\sum_{\ell_g\le N}\frac{R_g(b)}{\Delta-h_g(b)}\,
+ H_{N-\ell_g}\bigl(c(b),z_g(b)\bigr),\qquad H_0=1,
+\end{equation}
+as rational functions of $(b,\Delta)$ \cite[Proposition~6.4]{CP}.
+
+\begin{definition}[Weights, local coordinates, classes]
+For a label $g$ put $w_g:=h_g(b_\star)$ (its \emph{weight}) and
+\[
+ x_g(b):=h_g(b)-w_g\in K(b),\qquad x_g(b_\star)=0 .
+\]
+Then $z_g(b)=w_g+\ell_g+x_g(b)$.  For $\nu\in\mathbb C$ and $M\ge1$ let
+$C_{\nu,M}=\{g:\ w_g=\nu,\ \ell_g\le M\}$ (the collision class of
+\cite[Definition~3.1]{CP}); $\Kac_M(b_\star)$ is the set of $\nu$ with
+$C_{\nu,M}\ne\emptyset$.  For labels $g,g'$ with $w_{g'}=w_g+\ell_g$,
+\begin{equation}\label{eq:link}
+ z_g(b)-h_{g'}(b)=x_g(b)-x_{g'}(b),
+\end{equation}
+and this rational function is not identically zero \cite[Lemma~6.3]{CP}.
+\end{definition}
+
+\begin{definition}[Moments]
+For $N\ge1$, $\lambda\in\Kac_N(b_\star)$ and $k\ge1$ put
+\[
+ C_{\lambda,k,N}(b):=\sum_{a\in C_{\lambda,N}}R_a(b)\,x_a(b)^{k-1}\,
+ H_{N-\ell_a}\bigl(c(b),z_a(b)\bigr)\in K(b).
+\]
+\end{definition}
+
+These are the full collision moments of \cite[Definition~7.2 and proof of
+Theorem~7.3]{CP}: there $S_{a,N-\ell_a}(t)=H_{N-\ell_a}(c(b),z_a(t))$ and
+$\delta_a=x_a$.  We use the following form of the confluence theorem.
+
+\begin{lemma}[Confluence {\cite[Theorem~7.3]{CP}}]\label{lem:conf}
+For $N\ge1$, $\lambda\in\Kac_N(b_\star)$ and $k\ge1$, the rational function
+$C_{\lambda,k,N}$ is regular at $b_\star$, and $C_{\lambda,k,N}(b_\star)$ is the
+coefficient $A^\star_{\lambda,k,N}$ of $(\Delta-\lambda)^{-k}$ in
+$H_N(c_\star,\Delta)$.  Moreover
+$H_N(c_\star,\Delta)=\sum_{\lambda,k}A^\star_{\lambda,k,N}(\Delta-\lambda)^{-k}$, a
+finite sum.
+\end{lemma}
+
+\begin{proof}
+Group \eqref{eq:generic} by weights and expand
+$1/(\Delta-h_a)=\sum_{k\ge1}x_a^{k-1}(\Delta-w_a)^{-k}$ coefficientwise in
+$K_\star(\Delta)((t))$, $K_\star=K(b_\star)$ \cite[Lemma~7.4]{CP}: the coefficient of $t^m$ of the right
+side is $\sum_\lambda\sum_k[t^m]C_{\lambda,k,N}\,(\Delta-\lambda)^{-k}$, a finite
+sum.  The left side lies in $K_\star(\Delta)[[t]]$ because $\det G_N(c(b),\Delta)$ is
+a common denominator that does not vanish at $t=0$.  For $m<0$, uniqueness of
+partial fractions gives $[t^m]C_{\lambda,k,N}=0$; for $m=0$ it gives the
+expansion of $H_N(c_\star,\Delta)$, which has no polynomial part by
+\cite[Theorem~4.2]{CP}.  This is the proof of \cite[Theorem~7.3]{CP}.
+\end{proof}
+
+\section{Chains}
+
+\begin{definition}[Chains and chain functions]\label{def:chain}
+A \emph{chain} from $\lambda$ to $\mu$ is a sequence $\gamma=(g_0,\dots,g_L)$,
+$L\ge0$, of positive labels with
+\[
+ w_{g_0}=\lambda,\qquad w_{g_i}=w_{g_{i-1}}+\ell_{g_{i-1}}\ (1\le i\le L),\qquad
+ w_{g_L}+\ell_{g_L}=\mu .
+\]
+Its level is $\mu-\lambda=\sum_i\ell_{g_i}\in\mathbb Z_{\ge1}$; there are finitely
+many chains of a given level.  For $k\ge1$ put
+\[
+ P^{(k)}_\gamma=R_{g_0}\,x_{g_0}^{k-1}\prod_{i=1}^{L}
+ \frac{R_{g_i}}{x_{g_{i-1}}-x_{g_i}}\in K(b),
+\]
+which is well defined by \eqref{eq:link}, and for $j\ge0$ define the
+\emph{chain function}
+\[
+ c^{(k)}_{\lambda\to\mu,j}:=\sum_{\gamma:\lambda\to\mu}P^{(k)}_\gamma\,
+ \frac{x_{g_L}^{\,j}}{j!}\in K(b)
+\]
+(zero if there is no chain).  It depends on $b_\star$, $\lambda$, $\mu$, $k$,
+$j$ and $d$, and not on any level $N$.
+\end{definition}
+
+\begin{lemma}[Cutting identity]\label{lem:cut}
+For $j\ge1$,
+\[
+ j\,c^{(k)}_{\lambda\to\mu,j}
+ =c^{(k+1)}_{\lambda\to\mu,j-1}
+ -\sum_{\lambda<\nu<\mu}c^{(k)}_{\lambda\to\nu,0}\;c^{(1)}_{\nu\to\mu,j-1},
+\]
+where $\nu$ runs over $\lambda+1,\lambda+2,\dots,\mu-1$ (the level
+$\mu-\lambda$ is an integer); chain functions with no chain are zero.
+\end{lemma}
+
+\begin{proof}
+For a chain $\gamma=(g_0,\dots,g_L)$ write $x_i=x_{g_i}$.  Since
+$x_L=x_0-\sum_{m=1}^{L}(x_{m-1}-x_m)$,
+\[
+ x_L\,P^{(k)}_\gamma=x_0\,P^{(k)}_\gamma-\sum_{m=1}^{L}(x_{m-1}-x_m)\,P^{(k)}_\gamma ,
+\]
+and $(x_{m-1}-x_m)P^{(k)}_\gamma=P^{(k)}_{\gamma'}\,P^{(1)}_{\gamma''}$ with
+$\gamma'=(g_0,\dots,g_{m-1})$, a chain from $\lambda$ to $\nu=w_{g_m}$, and
+$\gamma''=(g_m,\dots,g_L)$, a chain from $\nu$ to $\mu$.  The map
+$(\gamma,m)\mapsto(\gamma',\gamma'')$ is a bijection onto the pairs of a chain
+from $\lambda$ to $\nu$ and a chain from $\nu$ to $\mu$, over all $\nu$ strictly
+between $\lambda$ and $\mu$: the conditions in Definition~\ref{def:chain} on
+$\gamma'$ and $\gamma''$ are those on $\gamma$.  Multiply by
+$x_L^{j-1}/j!$ and sum over $\gamma$; $x_0P^{(k)}_\gamma=P^{(k+1)}_\gamma$.
+\end{proof}
+
+\begin{lemma}[Regular remainders]\label{lem:reg}
+Let $M\ge1$ and $\mu\in\mathbb C$.  Put
+\[
+ G^{(M)}_\mu(b,\Delta)=\sum_{g\in C_{\mu,M}}\frac{R_g(b)}{\Delta-h_g(b)}\,
+ H_{M-\ell_g}\bigl(c(b),z_g(b)\bigr),\qquad
+ \mathrm{Reg}^{(M)}_\mu=H_M\bigl(c(b),\Delta\bigr)-G^{(M)}_\mu
+\]
+($G^{(M)}_\mu=0$ if $\mu\notin\Kac_M(b_\star)$).  Then
+$\mathrm{Reg}^{(M)}_\mu\in K_\star(b,\Delta)$ lies in the local ring
+$\mathcal O_{(b_\star,\mu)}$ of rational functions whose reduced denominator does
+not vanish at $(b_\star,\mu)$, it has no pole along $b=b_\star$, and
+\begin{equation}\label{eq:regvalue}
+ \mathrm{Reg}^{(M)}_\mu(b_\star,\Delta)
+ =H_M(c_\star,\Delta)-\PP_\mu H_M(c_\star,\cdot),
+\end{equation}
+where $\PP_\mu$ is the principal part at $\Delta=\mu$ and
+$K_\star=K(b_\star)$.
+\end{lemma}
+
+\begin{proof}
+By \eqref{eq:generic}, $H_M(c(b),\Delta)=\sum_{\lambda'}G^{(M)}_{\lambda'}$
+over $\lambda'\in\Kac_M(b_\star)$, so
+$\mathrm{Reg}^{(M)}_\mu=\sum_{\lambda'\ne\mu}G^{(M)}_{\lambda'}$.  Fix
+$\lambda'\in\Kac_M(b_\star)$ and write
+\[
+ G=G^{(M)}_{\lambda'}=\sum_g\frac{B_g(b)}{\Delta-h_g(b)},\qquad
+ B_g=R_g\,H_{M-\ell_g}\bigl(c(b),z_g(b)\bigr)\in K(b),\quad h_g(b_\star)=\lambda',
+\]
+a finite sum.  Let $E\in K_\star[b]$ with $EB_g\in K_\star[b]$ for all $g$, and
+write $E=t^eE_1$ with $E_1(b_\star)\ne0$; the polynomials
+$b^2(\Delta-h_g)\in K_\star[b,\Delta]$ do not vanish identically on $b=b_\star$.
+Then $G=N_0/\bigl(E\prod_gb^2(\Delta-h_g)\bigr)$ with
+$N_0\in K_\star[b,\Delta]$.
+
+In $K_\star(\Delta)((t))$, expanding $1/(\Delta-h_g)=\sum_{k\ge1}x_g^{k-1}
+(\Delta-\lambda')^{-k}$ coefficientwise \cite[Lemma~7.4]{CP}, the coefficient
+of $t^m$ in $G$ is the finite sum $\sum_k[t^m]C_{\lambda',k,M}\,
+(\Delta-\lambda')^{-k}$.  By Lemma~\ref{lem:conf} it vanishes for $m<0$, so
+$G\in K_\star(\Delta)[[t]]$, and $[t^0]G=\sum_kC_{\lambda',k,M}(b_\star)
+(\Delta-\lambda')^{-k}=\PP_{\lambda'}H_M(c_\star,\cdot)$.  Hence
+$N_0=t^eE_1\prod_gb^2(\Delta-h_g)\cdot G$ has $t$-adic valuation at least $e$,
+so the polynomial $N_0$ is divisible by $t^e$ in $K_\star[b,\Delta]$, and
+$G=N_1/\bigl(E_1\prod_gb^2(\Delta-h_g)\bigr)$ with $N_1=N_0/t^e$.  At
+$b=b_\star$ this denominator is $E_1(b_\star)b_\star^{2n}(\Delta-\lambda')^n$,
+$n$ the number of labels, which vanishes only at $\Delta=\lambda'$.
+
+For $\lambda'\ne\mu$ the denominator does not vanish at $(b_\star,\mu)$, so
+$\mathrm{Reg}^{(M)}_\mu\in\mathcal O_{(b_\star,\mu)}$ with no pole along
+$b=b_\star$, and restricting to $b=b_\star$,
+\[
+ \mathrm{Reg}^{(M)}_\mu(b_\star,\Delta)=\sum_{\lambda'\ne\mu}\PP_{\lambda'}
+ H_M(c_\star,\cdot)=H_M(c_\star,\Delta)-\PP_\mu H_M(c_\star,\cdot),
+\]
+the last equality because $H_M(c_\star,\cdot)$ is the sum of its principal
+parts (Lemma~\ref{lem:conf}).
+\end{proof}
+
+\begin{lemma}[Chain expansion of the moments]\label{lem:expand}
+Let $N\ge1$, $\lambda\in\Kac_N(b_\star)$, $k\ge1$.  For $0<\mu-\lambda<N$ and
+$j\ge0$ put $\varphi_{\mu,j}(b)=\partial_\Delta^j\mathrm{Reg}^{(N-(\mu-\lambda))}_\mu(b,\mu)$,
+an element of $K_\star(b)$ regular at $b_\star$ by Lemma~\ref{lem:reg}.  Then,
+in $K_\star((t))$,
+\begin{equation}\label{eq:expand}
+ C_{\lambda,k,N}=c^{(k)}_{\lambda\to\lambda+N,0}
+ +\sum_{0<\mu-\lambda<N}\ \sum_{j\ge0}c^{(k)}_{\lambda\to\mu,j}\,\varphi_{\mu,j},
+\end{equation}
+where for each $\mu$ the series over $j$ converges $t$-adically.
+\end{lemma}
+
+\begin{proof}
+For a label $g$ and $M\ge0$ put $S_{g,M}(b)=H_M(c(b),z_g(b))$, and let
+$\mu_g=w_g+\ell_g$, so that $z_g-\mu_g=x_g$.  For $M=0$, $S_{g,0}=1$.  For
+$M\ge1$, evaluating the decomposition of Lemma~\ref{lem:reg} at
+$\Delta=z_g(b)$ and using \eqref{eq:link},
+\[
+ S_{g,M}=\mathrm{Reg}^{(M)}_{\mu_g}\bigl(b,\mu_g+x_g\bigr)
+ +\sum_{g'\in C_{\mu_g,M}}\frac{R_{g'}}{x_g-x_{g'}}\,S_{g',M-\ell_{g'}}
+\]
+in $K(b)$.  Since $\mathrm{Reg}^{(M)}_{\mu_g}\in\mathcal O_{(b_\star,\mu_g)}
+\subset K_\star[[t,\Delta-\mu_g]]$ and $x_g\in tK_\star[[t]]$, substituting
+$\Delta-\mu_g=x_g$ gives, in $K_\star[[t]]$,
+\[
+ \mathrm{Reg}^{(M)}_{\mu_g}(b,\mu_g+x_g)=\sum_{j\ge0}\varphi^{(M)}_{\mu_g,j}\,
+ \frac{x_g^j}{j!},\qquad
+ \varphi^{(M)}_{\mu,j}(b)=\partial_\Delta^j\mathrm{Reg}^{(M)}_\mu(b,\mu).
+\]  Substitute this into
+$C_{\lambda,k,N}=\sum_{a\in C_{\lambda,N}}R_ax_a^{k-1}S_{a,N-\ell_a}$ and iterate;
+the level decreases at each step.  Each term of the result belongs to a chain
+$\gamma=(g_0=a,g_1,\dots,g_L)$ from $\lambda$ to some $\mu$ and carries
+$P^{(k)}_\gamma$; it is $P^{(k)}_\gamma\cdot1$ if $\mu-\lambda=N$, and
+$P^{(k)}_\gamma\sum_j\varphi_{\mu,j}x_{g_L}^j/j!$ if $\mu-\lambda<N$.  Conversely,
+every chain of level at most $N$ occurs once, since $\ell_{g'}\le M$ in
+$C_{\mu_g,M}$ is the condition that the chain fits into level $N$.  Collecting by
+$(\mu,j)$ gives \eqref{eq:expand}.  For fixed $\mu$ the $t$-adic valuation of
+$c^{(k)}_{\lambda\to\mu,j}$ is at least $\min_\gamma\operatorname{val}P^{(k)}_\gamma+j$,
+so the series over $j$ converges.
+\end{proof}
+
+\begin{lemma}[Regularity of chain functions]\label{lem:regular}
+For all weights $\lambda,\mu$, $k\ge1$ and $j\ge0$, the chain function
+$c^{(k)}_{\lambda\to\mu,j}$ is regular at $b_\star$.
+\end{lemma}
+
+\begin{proof}
+Induction on $D=\mu-\lambda\in\mathbb Z_{\ge1}$.  Assume the claim for all
+chain functions of level less than $D$, for all start weights, all $k$ and all
+$j$.
+
+\emph{Case $j=0$.}  If there is no chain of level $D$ from $\lambda$, then
+$c^{(k)}_{\lambda\to\lambda+D,0}=0$.  Otherwise the first label of such a chain
+has level at most $D$, so $\lambda\in\Kac_D(b_\star)$.  Apply
+Lemma~\ref{lem:expand} with $N=D$.  In \eqref{eq:expand} the left side is
+regular (Lemma~\ref{lem:conf}); every $c^{(k)}_{\lambda\to\mu,j}$ with
+$\mu-\lambda<D$ is regular by the induction hypothesis and every
+$\varphi_{\mu,j}$ is regular at $b_\star$, so the double sum is regular (its valuation in
+$j$ grows as in the proof of Lemma~\ref{lem:expand}).  Hence
+$c^{(k)}_{\lambda\to\lambda+D,0}$ is regular, for every $k$.
+
+\emph{Case $j\ge1$,} by induction on $j$.  In Lemma~\ref{lem:cut} the term
+$c^{(k+1)}_{\lambda\to\mu,j-1}$ is regular by the case $j-1$ (which holds for
+all $k$), and $c^{(k)}_{\lambda\to\nu,0}$ and $c^{(1)}_{\nu\to\mu,j-1}$ have
+levels $\nu-\lambda<D$ and $\mu-\nu<D$, so they are regular by the induction
+hypothesis on $D$.
+\end{proof}
+
+\section{The recursion}
+
+\begin{theorem}[Fixed-charge recursion]\label{thm:main}
+Let $b_\star\in\mathbb C^\times$, $N\ge1$, $\lambda\in\Kac_N(b_\star)$ and $k\ge1$.
+Then
+\begin{multline}\label{eq:main}
+ A^\star_{\lambda,k,N}
+ =c^{(k)}_{\lambda\to\lambda+N,0}(b_\star)\\
+ +\sum_{0<\mu-\lambda<N}\ \sum_{j\ge0}c^{(k)}_{\lambda\to\mu,j}(b_\star)\;
+ \partial_\Delta^{\,j}\Bigl(H_{N-(\mu-\lambda)}(c_\star,\Delta)
+ -\PP_\mu H_{N-(\mu-\lambda)}(c_\star,\cdot)\Bigr)\Big|_{\Delta=\mu},
+\end{multline}
+and $H_N(c_\star,\Delta)=\sum_{\lambda\in\Kac_N(b_\star)}\sum_{k\ge1}
+A^\star_{\lambda,k,N}(\Delta-\lambda)^{-k}$.  All sums are finite.  The numbers
+$c^{(k)}_{\lambda\to\mu,j}(b_\star)$ are values at $b_\star$ of rational
+functions of $b$ built from the closed forms of $R_g$ and $h_g$, regular at
+$b_\star$ by Lemma~\ref{lem:regular}; they do not depend on $N$.  Hence
+\eqref{eq:main} computes $H_N(c_\star,\cdot)$ from $H_0,\dots,H_{N-1}$ at the
+same central charge, and no term of it has a pole at $b=b_\star$.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:conf}, $A^\star_{\lambda,k,N}=C_{\lambda,k,N}(b_\star)$.
+Evaluate \eqref{eq:expand} at $b_\star$: every chain function is regular
+(Lemma~\ref{lem:regular}), and
+$\varphi_{\mu,j}(b_\star)$ is the bracket in \eqref{eq:main} by
+\eqref{eq:regvalue}.  The sum over $j$ is finite because
+$c^{(k)}_{\lambda\to\mu,j}(b_\star)=0$ as soon as
+$j>-\min_\gamma\operatorname{val}P^{(k)}_\gamma$, and the sums over $k$ and
+$\lambda$ are finite by Lemma~\ref{lem:conf}.  The levels
+$N-(\mu-\lambda)$ that occur are less than $N$.
+\end{proof}
+
+\begin{corollary}[Generic charge]\label{cor:generic}
+If $b_\star^2\notin\mathbb Q$, \eqref{eq:main} is \eqref{eq:generic} at
+$b=b_\star$.
+\end{corollary}
+
+\begin{proof}
+By \cite[Lemma~6.3]{CP} no $h_{g'}(b_\star)$ equals $h_g(b_\star)+\ell_g$ and
+the classes are singletons, so all chains have $L=0$, $\lambda=w_a$ and
+$\mu=z_a(b_\star)$, which is not in $\Kac_{N-\ell_a}(b_\star)$.  Then
+$c^{(k)}_{\lambda\to\mu,j}=R_ax_a^{k-1+j}/j!$ vanishes at $b_\star$ unless
+$k=1$, $j=0$, and \eqref{eq:main} reads
+$A^\star_{w_a,1,N}=R_a(b_\star)H_{N-\ell_a}(c_\star,z_a(b_\star))$.
+\end{proof}
+
+\begin{remark}[Second Jantzen layer]
+For an interior weight $\lambda$ of a minimal model and
+$\ell_2\le N<\ell_3$, the chains have $L\le1$, and \eqref{eq:main} with $k=1$
+gives the formula of Result~1 of the companion note
+\texttt{notes/ribault-fixed-charge-recursion.md}: for $L=1$, the value at
+$b_\star$ of $R_aR_{g}/(x_a-x_g)$ summed over the chains to $\nu$ is
+$\sum(P_1/\sigma-P_0\tau/\sigma^2)$, and the $j=1$ chain function gives the
+coefficient of $\partial_\Delta H_{M'}(c_\star,\nu)$.
+\end{remark}
+
+\begin{remark}[Sphere block]\label{rem:sphere}
+Replace $R_g$ by $\mathcal R^{\mathrm{sph}}_g$ \cite[Definition~12.1]{CP}, $K$ by
+$\mathbb Q(\Delta_1,\dots,\Delta_4)$, \eqref{eq:generic} by
+\cite[Proposition~12.4]{CP} for Zamolodchikov's elliptic coefficients $H_N$,
+and Lemma~\ref{lem:conf} by \cite[Theorem~12.6]{CP}, whose proof is the same.
+Lemmas~\ref{lem:cut}--\ref{lem:regular} and Theorem~\ref{thm:main} then hold
+with the same proofs; $\mathcal B_N(c_\star,\cdot)$ follows by
+\cite[(11.5)]{CP}.
+\end{remark}
+
+\begin{remark}[What is not claimed]
+The coefficients $c^{(k)}_{\lambda\to\mu,j}(b_\star)$ are given here as values of
+explicit rational functions of $b$.  Only the top coefficient at an interior
+minimal-model weight has been identified with data of the module
+$M(c_\star,\lambda)$ (the ratio $\mathcal N/\gamma$ of
+\cite[Theorem~8.2]{CP}).
+\end{remark}
+
+\section{Computer checks}
+
+The script \texttt{notes/ribault/fixed\_charge\_recursion.py} runs
+\eqref{eq:main} as an algorithm: starting from $H_0=1$ it uses only the values
+$c^{(k)}_{\lambda\to\mu,j}(b_\star)$ (checking that each chain function is
+regular) and the fixed-charge coefficients already computed, and compares every
+principal part at every Kac weight with the confluence formula
+\cite[Theorems~7.3 and~12.6]{CP}, and for the torus block at small levels with
+direct inversion of the Shapovalov matrix.  The cases and logs are listed in
+\texttt{notes/ribault-fixed-charge-recursion.md}.  The proofs above use no
+computer calculation.
+
+\begin{thebibliography}{CP}
+\bibitem[CP]{CP} L.~P.~Polzer, \emph{Colliding poles of Virasoro conformal blocks
+at rational central charge}, manuscript (\texttt{paper.tex}), version of
+November~25, 2026.
+\bibitem[Rib]{Rib} S.~Ribault, \emph{Exactly solvable conformal field
+theories}, SciPost Phys.\ Lect.\ Notes \textbf{130} (2026), arXiv:2411.17262v4.
+\end{thebibliography}
+
+\end{document}

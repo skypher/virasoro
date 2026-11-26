@@ -1,9 +1,22 @@
 # A fixed-charge recursion at rational b² (Ribault's question): first attempt
 
 Started 2026-11-26 (user, tmp terminal, about 16:0x Taiwan: "try it", after the
-question whether Ribault's rational-b² recursion is hard). Status: layer 2 has
-a short derivation (candidate, not reviewed); deeper layers are exact computer
-checks at one rational external weight per run. Nothing here is in a paper.
+question whether Ribault's rational-b² recursion is hard; then /goal "finish
+ribault question proof.").
+
+**Update 2026-11-26 (about 17:00 Taiwan): general proof written, awaiting
+review.** notes/ribault/fixed_charge_recursion.tex (PDF next to it) proves the
+chain-function regularity for all layers, all Kac weights and every
+b⋆ ∈ ℂ^× (torus and sphere blocks), and the resulting fixed-charge recursion
+(Theorem 6 there). The missing step listed below under "What is open" is
+supplied by a cutting identity (Lemma 2 there):
+j·c^(k)_{λ→μ,j} = c^(k+1)_{λ→μ,j−1} − Σ_ν c^(k)_{λ→ν,0}·c^(1)_{ν→μ,j−1},
+which reduces j ≥ 1 to chain functions of smaller level, and an induction on
+the level μ − λ (Lemma 5). End-to-end checks of the recursion as an algorithm
+(fixed_charge_recursion.py, logs fcr_c0.log, fcr_sweep.log): 99 levels, every
+Kac weight, torus at c = 0, 1/2, −22/5, 1, 25, 26 and sphere at c = 0, 1/2, 1,
+pole orders up to 5; Shapovalov inversion agrees where run. The sections below
+are the record of the first attempt.
 
 ## The question
 

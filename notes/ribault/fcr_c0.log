@@ -1,0 +1,89 @@
+[    0.0s] torus block, b*^2 = -3/2, c* = 0, d = 3/7
+[    1.3s] N= 1: recursion done (1 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    2.4s] N= 2: recursion done (2 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    5.1s] N= 3: recursion done (4 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    7.9s] N= 4: recursion done (7 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    9.5s] N= 5: recursion done (8 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   12.0s] N= 6: recursion done (11 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   14.7s] N= 7: recursion done (13 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   17.9s] N= 8: recursion done (15 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   22.1s] N= 9: recursion done (17 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   27.0s] N=10: recursion done (19 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   27.0s]   gram: F_1 Laurent at -1/24 done
+[   27.0s]   gram: F_2 Laurent at -1/24 done
+[   27.0s]   gram: F_3 Laurent at -1/24 done
+[   27.1s]   gram: F_4 Laurent at -1/24 done
+[   27.2s]   gram: F_5 Laurent at -1/24 done
+[   27.9s]   gram: F_6 Laurent at -1/24 done
+[   27.9s] Shapovalov inversion agrees at lambda=-1/24 for N <= 6
+[   27.9s]   gram: F_1 Laurent at 0 done
+[   27.9s]   gram: F_2 Laurent at 0 done
+[   27.9s]   gram: F_3 Laurent at 0 done
+[   27.9s]   gram: F_4 Laurent at 0 done
+[   28.0s]   gram: F_5 Laurent at 0 done
+[   28.8s]   gram: F_6 Laurent at 0 done
+[   28.8s] Shapovalov inversion agrees at lambda=0 for N <= 6
+[   28.8s]   gram: F_1 Laurent at 1/8 done
+[   28.8s]   gram: F_2 Laurent at 1/8 done
+[   28.8s]   gram: F_3 Laurent at 1/8 done
+[   28.9s]   gram: F_4 Laurent at 1/8 done
+[   29.0s]   gram: F_5 Laurent at 1/8 done
+[   29.7s]   gram: F_6 Laurent at 1/8 done
+[   29.7s] Shapovalov inversion agrees at lambda=1/8 for N <= 6
+[   29.7s]   gram: F_1 Laurent at 1/3 done
+[   29.7s]   gram: F_2 Laurent at 1/3 done
+[   29.7s]   gram: F_3 Laurent at 1/3 done
+[   29.8s]   gram: F_4 Laurent at 1/3 done
+[   29.9s]   gram: F_5 Laurent at 1/3 done
+[   30.6s]   gram: F_6 Laurent at 1/3 done
+[   30.6s] Shapovalov inversion agrees at lambda=1/3 for N <= 6
+[   30.6s]   gram: F_1 Laurent at 5/8 done
+[   30.6s]   gram: F_2 Laurent at 5/8 done
+[   30.6s]   gram: F_3 Laurent at 5/8 done
+[   30.6s]   gram: F_4 Laurent at 5/8 done
+[   30.7s]   gram: F_5 Laurent at 5/8 done
+[   31.5s]   gram: F_6 Laurent at 5/8 done
+[   31.5s] Shapovalov inversion agrees at lambda=5/8 for N <= 6
+[   31.5s]   gram: F_1 Laurent at 1 done
+[   31.5s]   gram: F_2 Laurent at 1 done
+[   31.5s]   gram: F_3 Laurent at 1 done
+[   31.6s]   gram: F_4 Laurent at 1 done
+[   31.7s]   gram: F_5 Laurent at 1 done
+[   32.4s]   gram: F_6 Laurent at 1 done
+[   32.4s] Shapovalov inversion agrees at lambda=1 for N <= 6
+[   32.4s]   gram: F_1 Laurent at 2 done
+[   32.4s]   gram: F_2 Laurent at 2 done
+[   32.4s]   gram: F_3 Laurent at 2 done
+[   32.5s]   gram: F_4 Laurent at 2 done
+[   32.6s]   gram: F_5 Laurent at 2 done
+[   33.4s]   gram: F_6 Laurent at 2 done
+[   33.4s] Shapovalov inversion agrees at lambda=2 for N <= 6
+[   33.4s]   gram: F_1 Laurent at 10/3 done
+[   33.4s]   gram: F_2 Laurent at 10/3 done
+[   33.4s]   gram: F_3 Laurent at 10/3 done
+[   33.5s]   gram: F_4 Laurent at 10/3 done
+[   33.6s]   gram: F_5 Laurent at 10/3 done
+[   34.4s]   gram: F_6 Laurent at 10/3 done
+[   34.4s] Shapovalov inversion agrees at lambda=10/3 for N <= 6
+[   34.4s]   gram: F_1 Laurent at 33/8 done
+[   34.4s]   gram: F_2 Laurent at 33/8 done
+[   34.4s]   gram: F_3 Laurent at 33/8 done
+[   34.5s]   gram: F_4 Laurent at 33/8 done
+[   34.6s]   gram: F_5 Laurent at 33/8 done
+[   35.4s]   gram: F_6 Laurent at 33/8 done
+[   35.4s] Shapovalov inversion agrees at lambda=33/8 for N <= 6
+[   35.4s]   gram: F_1 Laurent at 7 done
+[   35.4s]   gram: F_2 Laurent at 7 done
+[   35.4s]   gram: F_3 Laurent at 7 done
+[   35.5s]   gram: F_4 Laurent at 7 done
+[   35.6s]   gram: F_5 Laurent at 7 done
+[   36.3s]   gram: F_6 Laurent at 7 done
+[   36.3s] Shapovalov inversion agrees at lambda=7 for N <= 6
+[   36.3s]   gram: F_1 Laurent at 85/8 done
+[   36.3s]   gram: F_2 Laurent at 85/8 done
+[   36.3s]   gram: F_3 Laurent at 85/8 done
+[   36.4s]   gram: F_4 Laurent at 85/8 done
+[   36.5s]   gram: F_5 Laurent at 85/8 done
+[   37.2s]   gram: F_6 Laurent at 85/8 done
+[   37.2s] Shapovalov inversion agrees at lambda=85/8 for N <= 6
+[   37.2s] ALL OK
