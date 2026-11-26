@@ -1591,8 +1591,10 @@ For an integer \(x\) put \(d_x=(x^2-(p'-p)^2)/(4pp')\), so that
 the weight \(d_x\).  The weight \(\lambda\) has momentum \(|n_0|\), and
 \(\lambda+\ell^\pm_k=d_{m^\pm_k}\) with the positive integers
 \[
- m^+_{2j+1}=2jpp'+n_1,\quad m^-_{2j+1}=2(j+1)pp'-n_1\quad(j\geq0),\qquad
- m^\pm_{2j}=2jpp'\pm n_0\quad(j\geq1),
+ \begin{aligned}
+  m^+_{2j+1}&=2jpp'+n_1,& m^-_{2j+1}&=2(j+1)pp'-n_1&&(j\geq0),\\
+  m^+_{2j}&=2jpp'+n_0,& m^-_{2j}&=2jpp'-n_0&&(j\geq1),
+ \end{aligned}
 \]
 which satisfy \(m^+_k+m^-_k=2kpp'\).
 
@@ -1771,9 +1773,10 @@ that they cancel.
 
 To show that they do not, it suffices to find one value of \(d\) and one
 Taylor coefficient there at which the sum is nonzero.  At \(d=0\) both
-products vanish to order at least \(k+1\), and the coefficient of \(d^{k+1}\)
-is a difference of two sums of either sign, which we cannot show to be
-nonzero; so we work at other values of \(d\).
+products vanish to order at least \(k+1\), and up to a nonzero factor the
+coefficient of \(d^{k+1}\) is a sum or difference of two sums, each of either
+sign, which we cannot show to be nonzero; so we work at other values of
+\(d\).
 
 Part~II proves the same sharpness for the sphere block by a shorter route
 (Theorems~\ref{thm:sharp-B} and~\ref{thm:sharp-H}).  There the four external
@@ -2206,7 +2209,7 @@ matching zero, whose partner \(\pm2(p'-p)\) is a \(3\)-adic unit, and keeps
 \(-e_\pm v_3(p'-3p)=-kv_3(p'-3p)\), independent of the sign.
 
 In both cases these sums cancel in \(V_\varpi^+(N)-V_\varpi^-(N)\).  Since
-\(m^\pm_k\equiv\pm ps\pmod{p'}\) gives
+\(m^+_k\equiv(-1)^{k+1}ps\) and \(m^-_k\equiv-(-1)^{k+1}ps\pmod{p'}\) give
 \((m^\pm_k)^2-(p'u-p)^2\equiv p^2(s^2-1)\not\equiv0\pmod\varpi\), the last sum
 also vanishes, leaving
 \[
@@ -2259,10 +2262,12 @@ hence \(p\nmid(R^+p'-S^+p)\)) and \(R^\pm p'+S^\pm p=m^\pm_k\).  With
 \(y=R^+p'-S^+p\), the limits above for these factors have the numerators and
 denominators
 \[
- \prod_{\epsilon\in\{-1,0,1\}}(R^-p'-S^-p-\epsilon p)
- =\prod_{\epsilon}(-y-\epsilon p)=-\prod_{\epsilon}(y-\epsilon p),\qquad
- \prod_{\epsilon\in\{-1,0,1\}}(R^\pm p'+S^\pm p+\epsilon p)
- =m^\pm_k\bigl((m^\pm_k)^2-p^2\bigr),
+ \begin{aligned}
+  \prod_{\epsilon\in\{-1,0,1\}}(R^-p'-S^-p-\epsilon p)
+  &=\prod_{\epsilon}(-y-\epsilon p)=-\prod_{\epsilon}(y-\epsilon p),\\
+  \prod_{\epsilon\in\{-1,0,1\}}(R^\pm p'+S^\pm p+\epsilon p)
+  &=m^\pm_k\bigl((m^\pm_k)^2-p^2\bigr),
+ \end{aligned}
 \]
 so the numerators of the two signs have ratio \(-1\), and
 \[
@@ -3403,7 +3408,9 @@ polynomial in \(M\) of degree at most \(2i+2j\), valid for all \(M\geq0\).
 
 \begin{proof}
 In the notation of Lemma~\ref{lem:mode-count}, \(F_M=\Tr(\widetilde G^{-1}\widetilde\rho)\).
-We expand \(R_M\) into a finite sum of products of factors (Step~1), bound
+We expand \(R_M\) as a formal series and, for each coefficient
+\([t^iY^j]\), isolate the finitely many products of factors that contribute
+(Step~1), bound
 the degree in \(M\) that the correction factors produce (Step~2) and the
 exponents of \(t\) and \(Y\) that the remaining factors carry (Step~3), and
 show that the finitely many contributions to a fixed \((i,j)\) add up to one
@@ -3476,17 +3483,26 @@ The bracket has \(\ell(\bar Z_r)+\ell(\bar Z_0)\) modes and hence satisfies
 \(d_d^{(r)}+d_\Delta^{(r)}+d_c^{(r)}\leq\ell(\bar Z_r)+\ell(\bar Z_0)\).
 
 \emph{Step 2: Correction factors.}  Expanding \(k\) correction factors, each a factor \(t^2/Y\), a factor \(t\)
-from the \(s_L\) or \(s_R\) product, or a factor \((M+c_u)t^2\) from the
-\(k_r\) product, increases \(i+j\) by \(k\) and \(2i+2j\) by \(2k\).  The
+from the \(s_L\) or \(s_R\) product, or a factor \((M+c_u)t^2/(2Y)\) from the
+\(k_r\) product once its factor \((2Y)^{k_r}\) is taken out, increases \(i+j\) by \(k\) and \(2i+2j\) by \(2k\).  The
 result is an elementary symmetric polynomial in \(M\), of degree at most
 \(2k\) by Faulhaber's formula and Newton's identities.
 
 \emph{Step 3: Base exponents.}  After the substitution \(\Delta=Y/t^2\),
 \(c=13+6t+6t^{-1}\), \(d=-2/t+\zeta\), write \(\delta i_m\) and \(\delta j_m\)
-for the exponents of \(t\) and \(Y\) that the \(m\)-th factor contributes
-before its correction factors are expanded (\(m=r\) for the
-\(\widetilde\rho\) factor); each degree in \(\Delta\), \(c\) or \(d\) lowers
-\(\delta i_m+\delta j_m\) by at most one.  For each \(0\leq m<r\) one has
+for the exponents of \(t\) and \(Y\) that the \(m\)-th factor contributes to a
+monomial of the expansion, with its normalized correction products (the
+products of factors \(1+\cdots\) above) set to \(1\); here \(m=r\) stands for
+the \(\widetilde\rho\) factor.  For \(m<r\) the explicit power of \(t\) and
+\(Y\) in the displayed term has exponent sum \(p_m+\ell(\bar Z_m)\).  For
+\(m=r\), after taking out \((2Y)^{k_r}\) and collecting the global \(Y^M\) and
+\(D_0(Z_0)^{-1}\), the factor carries
+\[
+ t^{\ell(\bar Z_r)+\ell(\bar Z_0)+p_r^*+q_r^*}\,Y^{w_0-\ell(\bar Z_0)+k_r},
+\]
+with exponent sum \(w_0+\ell(\bar Z_r)+p_r^*+q_r^*+k_r\).  Each degree in
+\(\Delta\), \(c\) or \(d\) of the bracket lowers \(\delta i_m+\delta j_m\) by at
+most one.  For each \(0\leq m<r\) one has
 \(\delta i_m+\delta j_m\geq p_m+\ell(\bar Z_m)-(d_\Delta^{(m)}+d_c^{(m)})\geq p_m/2\),
 whence \(2\delta i_m+2\delta j_m-p_m\geq0\); on the \(\widetilde\rho\) factor,
 \(w_0\geq2\ell(\bar Z_0)\) and
@@ -3593,13 +3609,15 @@ ancillary files of the arXiv version; the others are in the repository only.
   (\path{tools/audit_stocco_comparison.py}).
 \item The Ising norms \(\gamma\) of Proposition~\ref{prop:ising-double-poles} at
   \(N=7\) and \(N=10\), against direct PBW evaluations; the double-pole
-  coefficient by Shapovalov inversion at \(N=7\) and \(N=10\), not at \(N=11\);
+  coefficient by Shapovalov inversion at \(N=7\), and at \(N=10\) with
+  \texttt{make audit-deep}, not at \(N=11\);
   and the Ising norms at levels ten and eleven from the layer formula.
 \item The examples after Theorems~\ref{thm:general-confluence}
   and~\ref{thm:confluence} (\path{tools/check_c0_level5_example.py}): the two
-  poles in \(t\), their cancellation and both collision moments, compared with
-  Shapovalov inversion at \(N=5\) for the torus and with exact sphere blocks at
-  three choices of rational external weights.
+  poles in \(t\), their cancellation and both collision moments; with the
+  option \texttt{-{}-torus-direct} it compares both torus moments with
+  Shapovalov inversion at \(N=5\), and it compares both sphere moments with
+  exact sphere blocks at three choices of rational external weights.
 \item The Lee--Yang example in Section~\ref{sec:sharpness}, by Shapovalov
   inversion up to level four (\path{tools/check_leeyang_level4_example.py}).
 \item The coefficient of \(d^{k+1}\) at \(d=0\) mentioned in
