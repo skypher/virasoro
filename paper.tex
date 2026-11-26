@@ -1583,10 +1583,10 @@ and for all $a,\nu\in\mathbb C$ and $k,j\geq1$
  -\sum_{\nu'}c^{(k)}_{a\to\nu',0}(b_\star)\,c^{(1)}_{\nu'\to\nu,j-1}(b_\star),
 \end{equation}
 where $\nu'$ runs over $a+1,a+2,\dots,\nu-1$.  Consequently every value
-$c^{(k)}_{a\to\mu,j}(b_\star)$ is a polynomial with rational coefficients in
-the coefficients of the Laurent expansions at the weights
-$\nu\in\operatorname{Kac}(b_\star)$ with $a\leq\nu<\mu$ of the functions
-$H_m(c_\star,\Delta,d)$, $m\leq\mu-a$.
+$c^{(k)}_{a\to\mu,j}(b_\star)$ with $\mu-a$ a positive integer is a polynomial
+with rational coefficients in the coefficients of the Laurent expansions at the
+points $a+n$, $0\leq n<\mu-a$, of the functions $H_m(c_\star,\Delta,d)$,
+$1\leq m\leq\mu-a$.
 \end{corollary}
 
 \begin{proof}
@@ -1601,7 +1601,8 @@ level at most $\mu-a$, and the value is $0$.  Otherwise, for $j=0$, the right
 side of~\eqref{eq:chain-values} involves a Laurent coefficient of
 $H_M(c_\star,\cdot)$ at $a$, values of smaller level $\nu-a$, and
 $j!$ times the coefficient of $(\Delta-\nu)^j$ in the Laurent expansion of
-$H_{\mu-\nu}(c_\star,\cdot)$ at $\nu$; for $j\geq1$ the right side
+$H_{\mu-\nu}(c_\star,\cdot)$ at $\nu=a+n$ (a weight that need not lie in
+$\operatorname{Kac}(b_\star)$); for $j\geq1$ the right side
 of~\eqref{eq:cut-value} involves values of the same level with $j-1$ and
 products of values of smaller levels.  The sums are finite:
 $c^{(k)}_{a\to\nu,j}(b_\star)=0$ for large $j$ (proof of
