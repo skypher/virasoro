@@ -1,0 +1,37 @@
+(2,3) (r,s)=(1,1) n0=1 momenta 00:1, 1+:5, 1-:7, 2+:13, 2-:11, 3+:17, 3-:19, 4+:25, 4-:23 [39.8s]
+  kappa(lambda, 1+ [m=5], 2+ [m=13]) = -5
+  kappa(lambda, 1- [m=7], 2+ [m=13]) = -7
+  cutting at leading order, mu=(2, '+'), k=1, j=1: OK
+  kappa(lambda, 1+ [m=5], 2- [m=11]) = 5
+  kappa(lambda, 1- [m=7], 2- [m=11]) = 7
+  cutting at leading order, mu=(2, '-'), k=1, j=1: OK
+  kappa(lambda, 1+ [m=5], 3+ [m=17]) = 25
+  kappa(lambda, 1- [m=7], 3+ [m=17]) = -49/2
+  kappa(lambda, 2+ [m=13], 3+ [m=17]) = 13/2
+  kappa(lambda, 2- [m=11], 3+ [m=17]) = -11/2
+  cutting at leading order, mu=(3, '+'), k=1, j=2: OK
+  cutting at leading order, mu=(3, '+'), k=2, j=1: OK
+  kappa(lambda, 1+ [m=5], 3- [m=19]) = -25/2
+  kappa(lambda, 1- [m=7], 3- [m=19]) = 49
+  kappa(lambda, 2+ [m=13], 3- [m=19]) = 13/2
+  kappa(lambda, 2- [m=11], 3- [m=19]) = -11/2
+  cutting at leading order, mu=(3, '-'), k=1, j=2: OK
+  cutting at leading order, mu=(3, '-'), k=2, j=1: OK
+  kappa(lambda, 1+ [m=5], 4+ [m=25]) = -125
+  kappa(lambda, 1- [m=7], 4+ [m=25]) = -343
+  kappa(lambda, 2+ [m=13], 4+ [m=25]) = 169
+  kappa(lambda, 2- [m=11], 4+ [m=25]) = 121/3
+  kappa(lambda, 3+ [m=17], 4+ [m=25]) = -34/3
+  kappa(lambda, 3- [m=19], 4+ [m=25]) = -38/3
+  cutting at leading order, mu=(4, '+'), k=1, j=3: OK
+  cutting at leading order, mu=(4, '+'), k=2, j=2: OK
+  cutting at leading order, mu=(4, '+'), k=3, j=1: OK
+  kappa(lambda, 1+ [m=5], 4- [m=23]) = 125
+  kappa(lambda, 1- [m=7], 4- [m=23]) = 343
+  kappa(lambda, 2+ [m=13], 4- [m=23]) = 169/3
+  kappa(lambda, 2- [m=11], 4- [m=23]) = 121
+  kappa(lambda, 3+ [m=17], 4- [m=23]) = 34/3
+  kappa(lambda, 3- [m=19], 4- [m=23]) = 38/3
+  cutting at leading order, mu=(4, '-'), k=1, j=3: OK
+  cutting at leading order, mu=(4, '-'), k=2, j=2: OK
+  cutting at leading order, mu=(4, '-'), k=3, j=1: OK

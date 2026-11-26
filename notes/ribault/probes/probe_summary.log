@@ -1,0 +1,76 @@
+(2,3) d= 3/7 (r,s)=(1,1) lam=     0 - l=  5 m= 11 ratio=     -11 = -m 0.5s
+(2,3) d= 3/7 (r,s)=(1,1) lam=     0 + l=  7 m= 13 ratio=      13 = +m 0.5s
+(2,3) d= 1/5 (r,s)=(1,1) lam=     0 - l=  5 m= 11 ratio=     -11 = -m 0.5s
+(2,3) d= 1/5 (r,s)=(1,1) lam=     0 + l=  7 m= 13 ratio=      13 = +m 0.5s
+(2,5) d= 3/7 (r,s)=(1,1) lam=     0 - l=  7 m= 17 ratio=   -17/3 OTHER 0.8s
+(2,5) d= 3/7 (r,s)=(1,1) lam=     0 + l= 13 m= 23 ratio=    23/3 OTHER 0.8s
+(2,5) d= 3/7 (r,s)=(1,2) lam=  -1/5 - l=  9 m= 19 ratio=     -19 = -m 0.9s
+(2,5) d= 3/7 (r,s)=(1,2) lam=  -1/5 + l= 11 m= 21 ratio=      21 = +m 0.9s
+(2,5) d= 1/5 (r,s)=(1,1) lam=     0 - l=  7 m= 17 ratio=   -17/3 OTHER 0.7s
+(2,5) d= 1/5 (r,s)=(1,1) lam=     0 + l= 13 m= 23 ratio=    23/3 OTHER 0.7s
+(2,5) d= 1/5 (r,s)=(1,2) lam=  -1/5 - l=  9 m= 19 ratio=     -19 = -m 0.9s
+(2,5) d= 1/5 (r,s)=(1,2) lam=  -1/5 + l= 11 m= 21 ratio=      21 = +m 0.9s
+(3,4) d= 3/7 (r,s)=(1,1) lam=     0 - l= 11 m= 23 ratio=     -23 = -m 0.8s
+(3,4) d= 3/7 (r,s)=(1,1) lam=     0 + l= 13 m= 25 ratio=      25 = +m 0.8s
+(3,4) d= 3/7 (r,s)=(1,2) lam=  1/16 + l= 10 m= 22 ratio=     -11 OTHER 1.2s
+(3,4) d= 3/7 (r,s)=(1,2) lam=  1/16 - l= 14 m= 26 ratio=      13 OTHER 1.2s
+(3,4) d= 3/7 (r,s)=(2,1) lam=   1/2 - l=  7 m= 19 ratio=   -19/5 OTHER 0.9s
+(3,4) d= 3/7 (r,s)=(2,1) lam=   1/2 + l= 17 m= 29 ratio=    29/5 OTHER 0.9s
+(3,4) d= 1/5 (r,s)=(1,1) lam=     0 - l= 11 m= 23 ratio=     -23 = -m 0.8s
+(3,4) d= 1/5 (r,s)=(1,1) lam=     0 + l= 13 m= 25 ratio=      25 = +m 0.8s
+(3,4) d= 1/5 (r,s)=(1,2) lam=  1/16 + l= 10 m= 22 ratio=     -11 OTHER 1.4s
+(3,4) d= 1/5 (r,s)=(1,2) lam=  1/16 - l= 14 m= 26 ratio=      13 OTHER 1.4s
+(3,4) d= 1/5 (r,s)=(2,1) lam=   1/2 - l=  7 m= 19 ratio=   -19/5 OTHER 1.3s
+(3,4) d= 1/5 (r,s)=(2,1) lam=   1/2 + l= 17 m= 29 ratio=    29/5 OTHER 1.3s
+(2,7) d= 3/7 (r,s)=(1,1) lam=     0 - l=  9 m= 23 ratio=    None top=0 0.8s
+(2,7) d= 3/7 (r,s)=(1,1) lam=     0 + l= 19 m= 33 ratio=    None top=0 0.8s
+(2,7) d= 3/7 (r,s)=(1,2) lam=  -2/7 - l= 11 m= 25 ratio=    None top=0 1.0s
+(2,7) d= 3/7 (r,s)=(1,2) lam=  -2/7 + l= 17 m= 31 ratio=    None top=0 1.0s
+(2,7) d= 3/7 (r,s)=(1,3) lam=  -3/7 - l= 13 m= 27 ratio=    None top=0 1.0s
+(2,7) d= 3/7 (r,s)=(1,3) lam=  -3/7 + l= 15 m= 29 ratio=    None top=0 1.0s
+(2,7) d= 1/5 (r,s)=(1,1) lam=     0 - l=  9 m= 23 ratio=   -23/5 OTHER 0.9s
+(2,7) d= 1/5 (r,s)=(1,1) lam=     0 + l= 19 m= 33 ratio=    33/5 OTHER 0.9s
+(2,7) d= 1/5 (r,s)=(1,2) lam=  -2/7 - l= 11 m= 25 ratio=   -25/3 OTHER 1.3s
+(2,7) d= 1/5 (r,s)=(1,2) lam=  -2/7 + l= 17 m= 31 ratio=    31/3 OTHER 1.3s
+(2,7) d= 1/5 (r,s)=(1,3) lam=  -3/7 - l= 13 m= 27 ratio=     -27 = -m 1.2s
+(2,7) d= 1/5 (r,s)=(1,3) lam=  -3/7 + l= 15 m= 29 ratio=      29 = +m 1.2s
+(3,5) d= 3/7 (r,s)=(1,1) lam=     0 - l= 13 m= 28 ratio=     -14 OTHER 0.9s
+(3,5) d= 3/7 (r,s)=(1,1) lam=     0 + l= 17 m= 32 ratio=      16 OTHER 0.9s
+(3,5) d= 3/7 (r,s)=(1,2) lam= -1/20 + l= 14 m= 29 ratio=     -29 = -m 1.2s
+(3,5) d= 3/7 (r,s)=(1,2) lam= -1/20 - l= 16 m= 31 ratio=      31 = +m 1.2s
+(3,5) d= 3/7 (r,s)=(1,3) lam=   1/5 + l= 11 m= 26 ratio=   -13/2 OTHER 1.2s
+(3,5) d= 3/7 (r,s)=(1,3) lam=   1/5 - l= 19 m= 34 ratio=    17/2 OTHER 1.2s
+(3,5) d= 3/7 (r,s)=(2,1) lam=   3/4 - l=  8 m= 23 ratio=   -23/7 OTHER 1.1s
+(3,5) d= 3/7 (r,s)=(2,1) lam=   3/4 + l= 22 m= 37 ratio=    37/7 OTHER 1.1s
+(3,5) d= 1/5 (r,s)=(1,1) lam=     0 - l= 13 m= 28 ratio=    None top=0 0.9s
+(3,5) d= 1/5 (r,s)=(1,1) lam=     0 + l= 17 m= 32 ratio=    None top=0 0.9s
+(3,5) d= 1/5 (r,s)=(1,2) lam= -1/20 + l= 14 m= 29 ratio=    None top=0 1.2s
+(3,5) d= 1/5 (r,s)=(1,2) lam= -1/20 - l= 16 m= 31 ratio=    None top=0 1.2s
+(3,5) d= 1/5 (r,s)=(1,3) lam=   1/5 + l= 11 m= 26 ratio=    None top=0 1.4s
+(3,5) d= 1/5 (r,s)=(1,3) lam=   1/5 - l= 19 m= 34 ratio=    None top=0 1.4s
+(3,5) d= 1/5 (r,s)=(2,1) lam=   3/4 - l=  8 m= 23 ratio=    None top=0 1.2s
+(3,5) d= 1/5 (r,s)=(2,1) lam=   3/4 + l= 22 m= 37 ratio=    None top=0 1.2s
+(4,5) d= 3/7 (r,s)=(1,1) lam=     0 - l= 19 m= 39 ratio=     -39 = -m 1.1s
+(4,5) d= 3/7 (r,s)=(1,1) lam=     0 + l= 21 m= 41 ratio=      41 = +m 1.1s
+(4,5) d= 3/7 (r,s)=(1,2) lam=  1/10 + l= 17 m= 37 ratio=   -37/3 OTHER 1.3s
+(4,5) d= 3/7 (r,s)=(1,2) lam=  1/10 - l= 23 m= 43 ratio=    43/3 OTHER 1.3s
+(4,5) d= 3/7 (r,s)=(1,3) lam=   3/5 + l= 13 m= 33 ratio=   -33/7 OTHER 1.4s
+(4,5) d= 3/7 (r,s)=(1,3) lam=   3/5 - l= 27 m= 47 ratio=    47/7 OTHER 1.4s
+(4,5) d= 3/7 (r,s)=(2,1) lam=  7/16 - l= 14 m= 34 ratio=   -17/3 OTHER 1.1s
+(4,5) d= 3/7 (r,s)=(2,1) lam=  7/16 + l= 26 m= 46 ratio=    23/3 OTHER 1.1s
+(4,5) d= 3/7 (r,s)=(2,2) lam=  3/80 - l= 18 m= 38 ratio=     -19 OTHER 1.2s
+(4,5) d= 3/7 (r,s)=(2,2) lam=  3/80 + l= 22 m= 42 ratio=      21 OTHER 1.2s
+(4,5) d= 3/7 (r,s)=(3,1) lam=   3/2 - l=  9 m= 29 ratio=  -29/11 OTHER 1.2s
+(4,5) d= 3/7 (r,s)=(3,1) lam=   3/2 + l= 31 m= 51 ratio=   51/11 OTHER 1.2s
+(4,5) d= 1/5 (r,s)=(1,1) lam=     0 - l= 19 m= 39 ratio=     -39 = -m 0.9s
+(4,5) d= 1/5 (r,s)=(1,1) lam=     0 + l= 21 m= 41 ratio=      41 = +m 0.9s
+(4,5) d= 1/5 (r,s)=(1,2) lam=  1/10 + l= 17 m= 37 ratio=   -37/3 OTHER 1.2s
+(4,5) d= 1/5 (r,s)=(1,2) lam=  1/10 - l= 23 m= 43 ratio=    43/3 OTHER 1.2s
+(4,5) d= 1/5 (r,s)=(1,3) lam=   3/5 + l= 13 m= 33 ratio=   -33/7 OTHER 1.3s
+(4,5) d= 1/5 (r,s)=(1,3) lam=   3/5 - l= 27 m= 47 ratio=    47/7 OTHER 1.3s
+(4,5) d= 1/5 (r,s)=(2,1) lam=  7/16 - l= 14 m= 34 ratio=   -17/3 OTHER 1.2s
+(4,5) d= 1/5 (r,s)=(2,1) lam=  7/16 + l= 26 m= 46 ratio=    23/3 OTHER 1.2s
+(4,5) d= 1/5 (r,s)=(2,2) lam=  3/80 - l= 18 m= 38 ratio=     -19 OTHER 1.4s
+(4,5) d= 1/5 (r,s)=(2,2) lam=  3/80 + l= 22 m= 42 ratio=      21 OTHER 1.4s
+(4,5) d= 1/5 (r,s)=(3,1) lam=   3/2 - l=  9 m= 29 ratio=  -29/11 OTHER 1.4s
+(4,5) d= 1/5 (r,s)=(3,1) lam=   3/2 + l= 31 m= 51 ratio=   51/11 OTHER 1.4s

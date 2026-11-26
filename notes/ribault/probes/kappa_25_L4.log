@@ -1,0 +1,47 @@
+(2,5) (r,s)=(1,1) n0=3 momenta 00:3, 1+:7, 1-:13, 2+:23, 2-:17, 3+:27, 3-:33, 4-:37 [35.3s]
+  kappa(lambda, 1+ [m=7], 2+ [m=23]) = -7/3
+  kappa(lambda, 1- [m=13], 2+ [m=23]) = -13/3
+  cutting at leading order, mu=(2, '+'), k=1, j=1: OK
+  kappa(lambda, 1+ [m=7], 2- [m=17]) = 7/3
+  kappa(lambda, 1- [m=13], 2- [m=17]) = 13/3
+  cutting at leading order, mu=(2, '-'), k=1, j=1: OK
+  kappa(lambda, 1+ [m=7], 3+ [m=27]) = 49/9
+  kappa(lambda, 1- [m=13], 3+ [m=27]) = -169/18
+  kappa(lambda, 2+ [m=23], 3+ [m=27]) = 23/6
+  kappa(lambda, 2- [m=17], 3+ [m=27]) = -17/6
+  cutting at leading order, mu=(3, '+'), k=1, j=2: OK
+  cutting at leading order, mu=(3, '+'), k=2, j=1: OK
+  kappa(lambda, 1+ [m=7], 3- [m=33]) = -49/18
+  kappa(lambda, 1- [m=13], 3- [m=33]) = 169/9
+  kappa(lambda, 2+ [m=23], 3- [m=33]) = 23/6
+  kappa(lambda, 2- [m=17], 3- [m=33]) = -17/6
+  cutting at leading order, mu=(3, '-'), k=1, j=2: OK
+  cutting at leading order, mu=(3, '-'), k=2, j=1: OK
+  kappa(lambda, 1+ [m=7], 4- [m=37]) = 343/27
+  kappa(lambda, 1- [m=13], 4- [m=37]) = 2197/27
+  kappa(lambda, 2+ [m=23], 4- [m=37]) = 529/27
+  kappa(lambda, 2- [m=17], 4- [m=37]) = 289/9
+  kappa(lambda, 3+ [m=27], 4- [m=37]) = 6
+  kappa(lambda, 3- [m=33], 4- [m=37]) = 22/3
+  cutting at leading order, mu=(4, '-'), k=1, j=3: OK
+  cutting at leading order, mu=(4, '-'), k=2, j=2: OK
+  cutting at leading order, mu=(4, '-'), k=3, j=1: OK
+(2,5) (r,s)=(1,2) n0=1 momenta 00:1, 1+:9, 1-:11, 2+:21, 2-:19, 3+:29, 3-:31 [23.8s]
+  kappa(lambda, 1+ [m=9], 2+ [m=21]) = -9
+  kappa(lambda, 1- [m=11], 2+ [m=21]) = -11
+  cutting at leading order, mu=(2, '+'), k=1, j=1: OK
+  kappa(lambda, 1+ [m=9], 2- [m=19]) = 9
+  kappa(lambda, 1- [m=11], 2- [m=19]) = 11
+  cutting at leading order, mu=(2, '-'), k=1, j=1: OK
+  kappa(lambda, 1+ [m=9], 3+ [m=29]) = 81
+  kappa(lambda, 1- [m=11], 3+ [m=29]) = -121/2
+  kappa(lambda, 2+ [m=21], 3+ [m=29]) = 21/2
+  kappa(lambda, 2- [m=19], 3+ [m=29]) = -19/2
+  cutting at leading order, mu=(3, '+'), k=1, j=2: OK
+  cutting at leading order, mu=(3, '+'), k=2, j=1: OK
+  kappa(lambda, 1+ [m=9], 3- [m=31]) = -81/2
+  kappa(lambda, 1- [m=11], 3- [m=31]) = 121
+  kappa(lambda, 2+ [m=21], 3- [m=31]) = 21/2
+  kappa(lambda, 2- [m=19], 3- [m=31]) = -19/2
+  cutting at leading order, mu=(3, '-'), k=1, j=2: OK
+  cutting at leading order, mu=(3, '-'), k=2, j=1: OK

@@ -1,0 +1,206 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Kac}{\operatorname{Kac}}
+
+\title{Subleading coefficients of the fixed-charge recursion\\ at the second Jantzen layer}
+\author{Notes for the colliding-poles paper (\texttt{paper.tex}, Section 7.2); draft, 2026-11-26}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+Notation of \texttt{paper.tex}: chains and chain functions
+$c^{(k)}_{\lambda\to\mu,j}$ (Definition 7.9), the recursion at the fixed charge
+(Theorem 7.14), the layer levels $\ell^\pm_k$, the Coulomb momenta $m^\pm_k$
+and $d_x=(x^2-(p'-p)^2)/(4pp')$ (Section 8), and the top Jantzen layer
+(Theorem 8.2).  Throughout, $b_\star^2=-p'/p$ with $p,p'\ge2$ coprime,
+$\lambda=h_{r,s}(b_\star)$ is an interior weight with $n_1=p'r+ps<pp'$, and
+$n_0=p'r-ps$.  For a positive label $g=(u,v)$ put
+\[
+ x_g=p'u-pv,\qquad y_g=p'u+pv,
+\]
+so that $h_g(b_\star)=d_{x_g}$ and $z_g(b_\star)=h_{u,-v}(b_\star)=d_{y_g}$:
+$|x_g|$ is the momentum of the weight of $g$ and $|y_g|$ the momentum of the
+weight it leads to.  The second-layer end points are
+$\mu^\pm_2=\lambda+\ell^\pm_2$, with momenta $m^\pm_2=2pp'\pm n_0$.
+
+\begin{lemma}[Derivatives of the Kac weights]\label{lem:hprime}
+For every positive label $g$,
+$h_g'(b_\star)=\frac{b_\star}{2p'^2}\bigl(p'^2-p^2-x_gy_g\bigr)$, where $'$ is
+$d/db$.
+\end{lemma}
+
+\begin{proof}
+From $h_{u,v}(b)=\frac14\bigl((b+b^{-1})^2-(ub+vb^{-1})^2\bigr)$,
+$h'_{u,v}(b)=\frac12\bigl((1-u^2)b-(1-v^2)b^{-3}\bigr)$.  At $b_\star$,
+$b_\star^{-3}=b_\star\,b_\star^{-4}=b_\star p^2/p'^2$, so
+$h'_{u,v}(b_\star)=\frac{b_\star}{2p'^2}\bigl(p'^2(1-u^2)-p^2(1-v^2)\bigr)$, and
+$p'^2u^2-p^2v^2=x_gy_g$.
+\end{proof}
+
+\begin{lemma}[Chains to the second layer]\label{lem:chains2}
+The chains from $\lambda$ to $\mu^+_2$ are exactly
+\[
+ \gamma_1=\bigl((r,s),(p+r,p'-s)\bigr),\qquad
+ \gamma_2=\bigl((p-r,p'-s),(r,2p'-s)\bigr),
+\]
+and the chains from $\lambda$ to $\mu^-_2$ are exactly
+\[
+ \gamma_1'=\bigl((r,s),(p-r,p'+s)\bigr),\qquad
+ \gamma_2'=\bigl((p-r,p'-s),(2p-r,s)\bigr).
+\]
+The residues $R_g$ of all six labels are regular at $b=b_\star$, and the two
+links of each chain satisfy $h'_{g_0}(b_\star)\neq h'_{g_1}(b_\star)$.
+\end{lemma}
+
+\begin{proof}
+A label $g$ has weight $\nu$ exactly when $x_g=\pm x$ for the momentum $x$ of
+$\nu$, and then it leads to the weight of momentum $|y_g|$, with level
+$(y_g^2-x_g^2)/(4pp')$.  For $x=n_0$: since $\gcd(p,p')=1$, the solutions of
+$p'u-pv=n_0$ in positive integers are $(r+ip,s+ip')$, $i\ge0$, and those of
+$p'u-pv=-n_0$ are $((i+1)p-r,(i+1)p'-s)$, $i\ge0$; their levels are
+$\ell^+_{2i+1}$ and $\ell^-_{2i+1}$.  By the table in Section 8, all of these
+except $\ell^\pm_1$ exceed $\ell^\pm_2$, and $\ell^\pm_1<\ell^\pm_2$.  So a chain
+to $\mu^\pm_2$ starts with $(r,s)$ (leading to $\mu^+_1$, momentum $n_1$) or
+with $(p-r,p'-s)$ (leading to $\mu^-_1$, momentum $2pp'-n_1$); it is not a
+single label, since $\ell^\pm_1\neq\ell^\pm_2$.
+
+The labels of weight $\mu^+_1$ solve $p'u-pv=\pm n_1$: $(r+ip,ip'-s)$ and
+$(ip-r,ip'+s)$ with $i\ge1$.  At $i=1$ they are $(p+r,p'-s)$, of level
+$\ell^+_2-rs$, leading to momentum $2pp'+n_0$, and $(p-r,p'+s)$, of level
+$\ell^-_2-rs$, leading to $2pp'-n_0$; for $i\ge2$ the level exceeds
+$\ell^\pm_2-rs$.  Likewise the labels of weight $\mu^-_1$ solve
+$p'u-pv=\pm(2pp'-n_1)$; the two of smallest level are $(r,2p'-s)$, of level
+$\ell^+_2-(p-r)(p'-s)$, leading to $\mu^+_2$, and $(2p-r,s)$, of level
+$\ell^-_2-(p-r)(p'-s)$, leading to $\mu^-_2$, and the others exceed both.  A
+chain to $\mu^\sigma_2$ whose second label leads to $\mu^{-\sigma}_2$ would need
+a third label of weight $\mu^{-\sigma}_2$ and level
+$|\ell^+_2-\ell^-_2|=2|n_0|$.  Since $y_g-x_g=2pv$ and $y_g+x_g=2p'u$, one
+has $y_g\equiv x_g\pmod{2p}$ and $y_g\equiv-x_g\pmod{2p'}$; as
+$n_1\equiv n_0\pmod{2p}$ and $n_1\equiv-n_0\pmod{2p'}$, a label whose weight has
+momentum $\equiv\pm n_0\pmod{2pp'}$ leads to a momentum $\equiv\pm
+n_1\pmod{2pp'}$, and $|y_g|>|x_g|$.  For a label of weight $\mu^{-\sigma}_2$
+(momentum $2pp'\pm n_0>n_1,2pp'-n_1$) this momentum is at least $2pp'+n_1$, so
+the label leads to a weight of layer at least three and its level is at least
+$\ell_3-\ell^{-\sigma}_2>\ell^\sigma_2-\ell^{-\sigma}_2=2|n_0|$.  This proves the
+list.
+
+A factor $ab+eb^{-1}$ of $\mathcal A_{u,v}$ vanishes at $b_\star$ exactly when
+$(a,e)\in\mathbb Z(p,p')\setminus\{0\}$, which requires $u\ge p$ and $v\ge p'$
+($a\in[1-u,u]$, $e\in[1-v,v]$).  None of the six labels has both, and
+$\mathcal N_{u,v}(b,d)$ is a polynomial, so each $R_g$ is regular at
+$b_\star$.  By Lemma~\ref{lem:hprime}, $h'_{g_0}-h'_{g_1}$ is a nonzero multiple
+of $x_{g_1}y_{g_1}-x_{g_0}y_{g_0}$; the values are computed in the next proof
+and are nonzero.
+\end{proof}
+
+\begin{proposition}[Second layer]\label{prop:second-layer}
+For each sign,
+\[
+ c^{(1)}_{\lambda\to\mu^\pm_2,1}(b_\star)
+ =\pm\frac{m^\pm_2}{n_0}\,c^{(2)}_{\lambda\to\mu^\pm_2,0}(b_\star),
+ \qquad
+ c^{(2)}_{\lambda\to\mu^\pm_2,0}(b_\star)
+ =\mp\frac{n_0}{n_1}\,R_{r,s}(b_\star)\,R_{p\pm r,\,p'\mp s}(b_\star),
+\]
+and $c^{(2)}_{\lambda\to\mu^\pm_2,0}(b_\star)=\mathcal N^\pm_2/\gamma^\pm_2$.
+Consequently, for $\ell^\pm_2\le N<\ell_3$ the simple-pole coefficient
+$A^\star_{\lambda,1,N}$ of Theorem 7.14 contains the term
+\[
+ \pm\frac{m^\pm_2}{n_0}\,\frac{\mathcal N^\pm_2(d)}{\gamma^\pm_2}\,
+ \partial_\Delta H_{N-\ell^\pm_2}(c_\star,\Delta,d)\big|_{\Delta=\mu^\pm_2},
+\]
+the top coefficient times the ratio of the momenta of $\mu^\pm_2$ and
+$\lambda$.
+\end{proposition}
+
+\begin{proof}
+Write $\delta_g(t)=h'_gt+O(t^2)$ with $h'_g=h'_g(b_\star)$ and put
+$\rho_\gamma=R_{g_0}(b_\star)R_{g_1}(b_\star)$ for a chain
+$\gamma=(g_0,g_1)$.  By Lemma~\ref{lem:chains2},
+\[
+ P^{(k)}_\gamma\frac{\delta_{g_1}^j}{j!}
+ =\frac{\rho_\gamma\,h'^{\,k-1}_{g_0}h'^{\,j}_{g_1}}{j!\,(h'_{g_0}-h'_{g_1})}\,
+  t^{k+j-2}+O(t^{k+j-1}).
+\]
+For $(k,j)=(1,0)$ the sum over the two chains is $c^{(1)}_{\lambda\to\mu,0}$,
+which is regular at $t=0$ (Lemma 7.13); so
+$\sum_\gamma\rho_\gamma/(h'_{g_0}-h'_{g_1})=0$.  For $k+j=2$ the value at $t=0$
+is
+$c^{(k)}_{\lambda\to\mu,j}(b_\star)
+=\sum_\gamma\rho_\gamma h'^{\,k-1}_{g_0}h'^{\,j}_{g_1}/(j!\,(h'_{g_0}-h'_{g_1}))$.
+By Lemma~\ref{lem:hprime}, with $K=p'^2-p^2$, $h'_g/(h'_{g_0}-h'_{g_1})
+=(K-x_gy_g)/(x_{g_1}y_{g_1}-x_{g_0}y_{g_0})$.
+
+\emph{Sign $+$, $m=m^+_2=2pp'+n_0$.}  The momenta are
+$(x,y)=(n_0,n_1),(n_1,m)$ along $\gamma_1$ and
+$(-n_0,2pp'-n_1),(n_1-2pp',m)$ along $\gamma_2$, so
+$x_{g_1}y_{g_1}-x_{g_0}y_{g_0}$ equals $n_1(m-n_0)=2pp'n_1$ on $\gamma_1$ and
+$(n_1-2pp')(m-n_0)=-2pp'(2pp'-n_1)$ on $\gamma_2$, both nonzero.  Regularity
+gives $\rho_{\gamma_2}=\rho_{\gamma_1}(2pp'-n_1)/n_1$.  Then
+\[
+ c^{(2)}_{\lambda\to\mu^+_2,0}(b_\star)
+ =\frac{\rho_{\gamma_1}}{2pp'n_1}\bigl[(K-n_0n_1)-(K+n_0(2pp'-n_1))\bigr]
+ =-\frac{n_0}{n_1}\rho_{\gamma_1},
+\]
+\[
+ c^{(1)}_{\lambda\to\mu^+_2,1}(b_\star)
+ =\frac{\rho_{\gamma_1}}{2pp'n_1}\bigl[(K-n_1m)-(K-(n_1-2pp')m)\bigr]
+ =-\frac{m}{n_1}\rho_{\gamma_1}.
+\]
+
+\emph{Sign $-$, $m=m^-_2=2pp'-n_0$.}  Along $\gamma'_1$ the momenta are
+$(n_0,n_1),(-n_1,m)$, along $\gamma'_2$ they are
+$(-n_0,2pp'-n_1),(2pp'-n_1,m)$; the differences are $-n_1(m+n_0)=-2pp'n_1$ and
+$(2pp'-n_1)(m+n_0)=2pp'(2pp'-n_1)$.  Regularity gives
+$\rho_{\gamma'_2}=\rho_{\gamma'_1}(2pp'-n_1)/n_1$, and the same computation gives
+$c^{(2)}_{\lambda\to\mu^-_2,0}(b_\star)=(n_0/n_1)\rho_{\gamma'_1}$ and
+$c^{(1)}_{\lambda\to\mu^-_2,1}(b_\star)=-(m/n_1)\rho_{\gamma'_1}$.
+
+For the identification with Theorem 8.2 take $N$ with
+$\ell^\pm_2\le N<\ell_3$ in~(7.8) at $k=2$.  The chain functions
+$c^{(2)}_{\lambda\to\mu,j}$ with $\mu-\lambda<\ell_2$ end at $\mu^\pm_1$ and are
+$R_g\delta_g^{1+j}/j!$, which vanish at $b_\star$; those ending at $\mu^\pm_2$
+vanish at $b_\star$ for $j\ge1$ by the expansion above.  Since
+$H_{N-\ell^\pm_2}(c_\star,\cdot)$ is regular at $\mu^\pm_2$
+(Theorem 8.2), (7.8) reads
+$A^\star_{\lambda,2,N}=\sum_\pm c^{(2)}_{\lambda\to\mu^\pm_2,0}(b_\star)
+H_{N-\ell^\pm_2}(c_\star,\mu^\pm_2,d)$.  Comparing with~(8.1) at
+$N=\min(\ell^+_2,\ell^-_2)$ (where $H_0=1$) and then at
+$N=\max(\ell^+_2,\ell^-_2)$ gives $c^{(2)}_{\lambda\to\mu^\pm_2,0}(b_\star)
+=\mathcal N^\pm_2/\gamma^\pm_2$.  The last assertion is~(7.8) at $k=1$.
+\end{proof}
+
+\begin{corollary}[Second-layer Jantzen norms]\label{cor:gamma2}
+With $w^\pm_2$ normalized to $L_{-1}^{\ell^\pm_2}$-coefficient $1$,
+\[
+ \gamma^\pm_2=\mp\frac{n_1}{n_0}\,
+ \frac{1}{\mathcal A_{r,s}(b_\star)\,\mathcal A_{p\pm r,\,p'\mp s}(b_\star)}.
+\]
+\end{corollary}
+
+\begin{proof}
+$R_g=\mathcal A_g\mathcal N_g$, and $\mathcal N^\pm_2=\mathcal N_{r,s}\mathcal
+N_{p\pm r,p'\mp s}$ at $b_\star$ by the factorization after Theorem 8.2
+(case $k=2j$, $j=1$).
+\end{proof}
+
+\begin{remark}
+At $c=0$, $\lambda=0$ ($(p,p')=(2,3)$, $r=s=1$, $n_0=1$, $n_1=5$) the
+corollary gives $\gamma^-_2=5/(\mathcal A_{1,1}\mathcal A_{1,4}(b_\star))
+=5/(\frac12\cdot(-\frac3{1120}))=-\frac{11200}3$, the value found in the
+example after Definition 7.9 of \texttt{paper.tex}.  The coefficients with
+$k+j=2$ are the leading ones at the second layer; the remaining coefficient
+$c^{(1)}_{\lambda\to\mu^\pm_2,0}(b_\star)$ depends on the first-order
+expansions of $R_g$ and $\delta_g$ and is not a function of the momenta.
+\end{remark}
+
+\end{document}
