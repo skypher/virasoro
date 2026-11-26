@@ -1752,3 +1752,29 @@ occurrences and Lemma 7.1 only the two `cArrow` occurrences), ITEM 2 PASS (proof
 of the old identities by the nonzero source value, witnesses through the `+` nodes, quotient of
 two λ-path weights for arbitrary pairs; the `_of_cited` exports keep the eight cited inputs as
 hypotheses).  Build and axioms are the main session's check.
+
+## 2026-11-26: colliding-poles paper Section 7.2, recursion at the fixed charge (main session)
+
+New `FixedCharge.lean` (chains and chain functions, Definition 7.9, by recursion on the level;
+full moments; `phiRem`), `Statements/Sec7FixedCharge.lean` (`Stmt_lem_full_moments`,
+`Stmt_lem_cutting`, `Stmt_lem_regular_remainder`, `Stmt_lem_chain_expansion`,
+`Stmt_lem_chain_regular`, `Stmt_thm_fixed_charge`, `Stmt_cor_fixed_charge_generic`) and proofs
+`Proofs/Sec7{Cut,Moments,Binom,Remainder,RemainderReg2,Expansion,FixedCharge,Generic}.lean`.
+Lemma 7.10 takes no cited input; the other six take `Cited_KacDeterminant` and
+`Cited_HJSNormalizations` (through Proposition 6.4 and Theorem 4.2).  Checked by the main
+session: `lake build Virasoro` 4180 jobs, no errors; axiom audit of the 73 mapped theorems
+(runs/lean2/checkMAP.log) all [propext, Classical.choice, Quot.sound]; no sorry/admit/axiom.
+
+Packet 46 (at 6186ddf): yang2 Item 1 FIX on three statements (Lemma 7.11 must state the
+two-variable regularity at `(b⋆, μ)` literally with the restriction (7.6); Lemma 7.12 must state
+`t`-adic convergence per end point; Theorem 7.14 must state eventual vanishing of
+`c^{(k)}_{λ→μ,j}(b⋆)` per end point); definitions and Lemmas 7.8, 7.10, 7.13, Corollary 7.15 PASS.
+Jander Item 2 PASS (source audit of the seven labelled proofs).  Fixed at a6f7403: Lemma 7.11 as
+`Reg = P/E` over `K[[t]]` with `E(0, μ) ≠ 0` (paper's common denominator, `reg_two`); Lemma 7.12
+with per-end-point tail valuations (finite-chain estimate `chainFn_ord`); Theorem 7.14 with the
+per-end-point vanishing clause.
+
+Packet 47 (at a6f7403): yang2 Item 1 PASS (statement re-check of 7.11, 7.12, 7.14,
+2026-11-26T11:55:24Z; prose note on the reading conventions applied at 0e37fcc); Jander Item 2
+PASS (source audit of the three changed proofs, 2026-11-26T12:03:58Z).  Build and axioms are the
+main session's check.

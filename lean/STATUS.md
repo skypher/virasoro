@@ -9,9 +9,9 @@ charge) was added: definitions in `FixedCharge.lean`, statements in
 RemainderReg2,Expansion,FixedCharge,Generic}.lean`.  After yang2's packet 46 review, Lemma 7.11
 states the two-variable regularity of `Reg` at `(b⋆, μ)` literally (`Reg = P/E` over `K[[t]]`,
 `E(0, μ) ≠ 0`, restriction (7.6)), Lemma 7.12 states `t`-adic convergence per end point, and
-Theorem 7.14 the eventual vanishing of `c^{(k)}_{λ→μ,j}(b⋆)` per end point.  No `sorry`; the axiom audit of the 73 mapped theorems
-(`../runs/lean2/checkMAP.log`) shows only [propext, Classical.choice, Quot.sound].  The new
-statements and labelled theorems await the independent statement and fidelity check.
+Theorem 7.14 the eventual vanishing of `c^{(k)}_{λ→μ,j}(b⋆)` per end point.  Statements and labelled
+theorems PASS (yang2 and Jander, packets 46-47; `REVIEW.md`, last entry).  No `sorry`; the axiom audit of the 73 mapped theorems
+(`../runs/lean2/checkMAP.log`) shows only [propext, Classical.choice, Quot.sound].
 
 Paper: `paper.tex` at commit 9aa415f ("Exact algebraic confluence for torus one-point
 Virasoro-block recursions"). Toolchain `leanprover/lean4:v4.33.0`, Mathlib `v4.33.0`.
