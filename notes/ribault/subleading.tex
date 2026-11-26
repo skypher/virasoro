@@ -397,11 +397,17 @@ $\mathrm{FS}(a\to\theta)\subset\mathrm{FS}(a\to\mu)$,
 $h_{a\theta}-h_{a\tilde\theta}=cS_a(S_{\tilde\theta}-S_\theta)$, and
 $|\mathrm{FS}(\theta\to\mu)|=|\mathrm{FS}(a\to\mu)\setminus\mathrm{FS}(a\to\theta)|=D(\theta,\mu)$,
 gives the formula; the differences are of same-class momenta, so the factors
-$N_0$ cancel.  For $\nu$ at even distance take $\theta$ of layer $L_a+1$; then
-$\nu\in\mathrm{FS}(\theta\to\mu)$, $\theta\in\mathrm{FS}(a\to\nu)$, the three
-odd ratios give $\operatorname{Top}(a\to\nu)\ne0$ and
+$N_0$ cancel.  Nonvanishing: for $D(x,y)$ odd, $\operatorname{Top}(x\to y)\ne0$ by
+the one-label chain; for $D(x,y)$ even, take $\theta$ of layer $L_x+1$, so that
+$D(x,\theta)$ and $D(\theta,y)$ are odd, and the identity
+$\operatorname{Top}(x\to\theta)\operatorname{Top}(\theta\to y)
+=\kappa(x,\theta,y)\operatorname{Top}(x\to y)$, whose left side is nonzero, gives
+$\operatorname{Top}(x\to y)\ne0$.  For $\nu$ at even distance from $a$ take
+$\theta$ of layer $L_a+1$; then $\nu\in\mathrm{FS}(\theta\to\mu)$ and
+$\theta\in\mathrm{FS}(a\to\nu)$, the three odd identities give
 $\kappa(a,\nu,\mu)=\kappa(a,\theta,\mu)\kappa(\theta,\nu,\mu)/\kappa(a,\theta,\nu)$,
-and the powers of $S$ combine to $(S_\nu/S_a)^{D(\nu,\mu)}$.
+and $D(\theta,\mu)-D(\theta,\nu)=D(\nu,\mu)$ makes the powers of $S$ combine to
+$(S_\nu/S_a)^{D(\nu,\mu)}$.
 \end{proof}
 
 \begin{lemma}[Cutting at leading order]\label{lem:cut0}
@@ -438,9 +444,12 @@ over $\tilde\theta\in\mathrm{FS}(x_i\to x_{i+1})\setminus\{x_{i+1}\}$, and by
 Proposition~\ref{prop:kappa}, inductively from the end,
 $\prod_{i=0}^n\operatorname{Top}(x_i\to x_{i+1})=\operatorname{Top}(a\to\mu)
 \prod_{i=0}^{n-1}\kappa(x_i,x_{i+1},\mu)$.  Insert this into $w_\gamma$.  For
-$1\le i\le n$ the power of $S_{x_i}$ is
-$D(x_i,\mu)-D(x_{i+1},\mu)-(\Delta_i-1)-1=0$, and $S_a$ has the power
-$-D(x_1,\mu)-(\Delta_0-1)=1-D$.  All remaining factors are differences of
+$1\le i\le n-1$ the power of $S_{x_i}$ is
+$D(x_i,\mu)-D(x_{i+1},\mu)-(\Delta_i-1)-1=0$; for the last base $x_n$ there is
+no outgoing $\kappa$ and $D(x_n,\mu)=\Delta_n$, so its power is
+$\Delta_n-(\Delta_n-1)-1=0$; and $S_a$ has the power
+$-D(x_1,\mu)-(\Delta_0-1)=1-D$ (for a one-label chain directly
+$-(\Delta_0-1)=1-D$).  All remaining factors are differences of
 same-class momenta, $\sum_i(\Delta_i-1)+n=D-1$ of them in the denominator
 besides the degree-$0$ ratios $\hat\kappa$.  So
 $w_\gamma=\operatorname{Top}(a\to\mu)\,(cN_0S_a)^{1-D}\,\ell(\gamma)$ with
@@ -449,9 +458,13 @@ $\gamma$.  Write $S_{x_1}=N_0(c_1+\pi_{x_1})$ and $S_{x_n}=N_0(c_2+\pi_{x_n})$,
 where $c_1,c_2\in\{\alpha,\beta\}$ are fixed by the classes of $a$ and $\mu$.
 Lemma~\ref{lem:leading} gives
 $\sum_\gamma\ell(\gamma)(K-S_aS_{x_1})^{k-1}(K-S_{x_n}S_\mu)^j=0$ for
-$k+j<D$, and by induction on the degree
-$\sum_\gamma\ell(\gamma)\pi_{x_1}^{e}\pi_{x_n}^{e'}=0$ for $e+e'\le D-2$.  For
-$k+j=D$ only the terms of top degree survive, and
+$k+j<D$.  By induction on the degree,
+$\sum_\gamma\ell(\gamma)\pi_{x_1}^{e}\pi_{x_n}^{e'}=0$ for $e+e'\le D-2$: take
+$(k,j)=(e+1,e')$; the factors $K-S_aS_{x_1}$ and $K-S_{x_n}S_\mu$ are affine in
+$\pi_{x_1}$, $\pi_{x_n}$ with nonzero linear coefficients $-N_0S_a$, $-N_0S_\mu$,
+so once the lower degrees vanish the equation is a nonzero multiple of the
+moment of $\pi_{x_1}^e\pi_{x_n}^{e'}$.  For $k+j=D$ the same argument leaves
+only the terms of top degree, and
 \[
  f_j(a,\mu)=(-1)^{D-1}\sum_\gamma\ell(\gamma)\,\pi_{x_1}^{D-1-j}\pi_{x_n}^{j}.
 \]
@@ -587,9 +600,12 @@ $(k,l)=(1,7)$ vanishes and both sides are $0$).
 
 Let $\lambda=d_{x_0}$, where $x_0$ is a positive multiple of exactly one of
 $p,p'$ and $x_0<pp'$.  Every weight $d_x$ with exactly one of $p\mid x$,
-$p'\mid x$ is of this form (take the element of $\pm x+N_0\mathbb Z$ of smallest
-absolute value; it is not $pp'$, which both divide); these are the boundary
-weights of Class $R^+$ of Section 15 of \texttt{paper.tex}.  Put $\epsilon=1$
+$p'\mid x$ is one of the nodes $\mu_i$ below for exactly one such $x_0$ (the
+element of $\pm x+N_0\mathbb Z$ of smallest absolute value; it is not $pp'$, which
+both divide); for instance $d_{10}=\frac{33}8$ at $(p,p')=(2,3)$ is $\mu_1$ of
+$x_0=2$.  These weights are the boundary weights of Class $R^+$ of Section 15 of
+\texttt{paper.tex}; Theorem~\ref{thm:boundary} is stated from every base
+$\mu_i$.  Put $\epsilon=1$
 if $p\mid x_0$ and $\epsilon=-1$ if $p'\mid x_0$, and for $k\ge0$
 \[
  \pi_k=(-1)^k\lceil k/2\rceil,\qquad T_k=x_0+\pi_kN_0,\qquad M_k=|T_k|,\qquad
@@ -653,12 +669,12 @@ $\mu_i$ to $\mu_k$.
  \prod_{m=1}^{j}\frac{\pi_i-\pi_{k-m}}{\pi_k-\pi_{k-m}}\ \operatorname{Top}(a\to\mu).
 \]
 
-\noindent(iii) Let $\ell_D\le N<\ell_{D+1}$.  Then $A^\star_{\lambda,k,N}=0$ for
-$k>D$,
-and $A^\star_{\lambda,D,N}$ is $\operatorname{Top}(\lambda\to\mu_D)$ times
-$H_{N-\ell_D}(c_\star,\mu_D,d)$.  So $H_N(c_\star,\Delta,d)$ has a pole of
-order at most $D$ at $\Delta=\lambda$, of order exactly $D$ when
-$H_{N-\ell_D}(c_\star,\mu_D,d)\neq0$, in particular at $N=\ell_D$.
+\noindent(iii) Let $\Delta_m=\mu_{i+m}-\mu_i$ and $\Delta_D\le N<\Delta_{D+1}$.
+Then $A^\star_{\mu_i,k,N}=0$ for $k>D$, and $A^\star_{\mu_i,D,N}$ is
+$\operatorname{Top}(\mu_i\to\mu_{i+D})$ times
+$H_{N-\Delta_D}(c_\star,\mu_{i+D},d)$.  So $H_N(c_\star,\Delta,d)$ has a pole of
+order at most $D$ at $\Delta=\mu_i$, of order exactly $D$ when
+$H_{N-\Delta_D}(c_\star,\mu_{i+D},d)\neq0$, in particular at $N=\Delta_D$.
 \end{theorem}
 
 \begin{proof}
@@ -671,23 +687,27 @@ $x_0=2,4$ of $(p,p')=(2,3)$ ($\tau_0=\frac16,\frac13$), this is an identity of
 affine functions of $\tau_0$: $f_j=f_{j-1}-\hat\kappa f_{j-1}(\nu,\mu)$ and
 $f_j\pi_k=f_{j-1}\pi_i-\hat\kappa f_{j-1}(\nu,\mu)\pi_{k-j}$.  Eliminating the
 last term, $f_j(a,\mu)(\pi_k-\pi_{k-j})=f_{j-1}(a,\mu)(\pi_i-\pi_{k-j})$, and
-induction from $f_0=1$ gives (ii).  (iii) In~(7.8),
-$c^{(k)}_{\lambda\to\mu_m,j}(b_\star)=0$ when $k+j>m$ (Lemma~\ref{lem:leading}),
-and only $m\le D$ occurs; for $k=D$ only $\mu_D$ with $j=0$ remains.  The zeros
-of the Kac determinant at level $M=N-\ell_D$ and weight $\mu_D$ are labels from
-$\mu_D$, of level at least $\ell_{D+1}-\ell_D>M$ (Lemma~\ref{lem:blabels}), so
-$H_M(c_\star,\cdot)$ is regular at $\mu_D$ and~(7.6) gives
-$\varphi_{\mu_D,0}(b_\star)=H_M(c_\star,\mu_D,d)$.
+induction from $f_0=1$ gives (ii).  (iii) Apply~(7.8) at the base $\mu_i$, which
+lies in $\operatorname{Kac}_N(b_\star)$ as the weight of the label to $\mu_{i+1}$.
+By Lemma~\ref{lem:blabels} the chains from $\mu_i$ end at nodes $\mu_{i+m}$, and
+$c^{(k)}_{\mu_i\to\mu_{i+m},j}(b_\star)=0$ when $k+j>m$ (Lemma~\ref{lem:leading});
+only $m\le D$ occurs, and for $k=D$ only $\mu_{i+D}$ with $j=0$ remains.  If
+$N=\Delta_D$ this is the separate first term of~(7.8), and $H_0=1$.  Otherwise
+the zeros of the Kac determinant at level $M=N-\Delta_D$ and weight $\mu_{i+D}$
+are labels from $\mu_{i+D}$, of level at least $\Delta_{D+1}-\Delta_D>M$
+(Lemma~\ref{lem:blabels}), so $H_M(c_\star,\cdot)$ is regular at $\mu_{i+D}$
+and~(7.6) gives $\varphi_{\mu_{i+D},0}(b_\star)=H_M(c_\star,\mu_{i+D},d)$.
 \end{proof}
 
 \begin{remark}
 Theorem~\ref{thm:boundary} answers the question left open in Section 15 of
-\texttt{paper.tex} for the boundary weights of Class $R^+$: the pole order of
-$H_N(c_\star,\cdot,d)$ at $\lambda$ is the number $D$ of nodes of level at most
-$N$ (unless $H_{N-\ell_D}(c_\star,\mu_D,d)=0$), and the top coefficient is the
-leading coefficient $\rho_g=\operatorname{lead}(\mathcal A_g)\,\mathcal
-N_g(b_\star,d)$ of the single residue from $\lambda$ to $\mu_D$ times a product
-of slope differences; here
+\texttt{paper.tex} for the boundary weights of Class $R^+$, within the scope
+proved here: at a boundary weight $\mu_i$ the pole order of
+$H_N(c_\star,\cdot,d)$ is the number $D$ of nodes $\mu_{i+m}$, $m\ge1$, of level
+at most $N$ above $\mu_i$ (unless $H_{N-\Delta_D}(c_\star,\mu_{i+D},d)=0$), and
+the top coefficient is the leading coefficient $\rho_g=\operatorname{lead}(\mathcal
+A_g)\,\mathcal N_g(b_\star,d)$ of the single residue from $\mu_i$ to
+$\mu_{i+D}$ times a product of slope differences; here
 $\operatorname{lead}(\mathcal A_g)=\frac12\prod(ab_\star+eb_\star^{-1})^{-1}
 \prod(2i'p)^{-1}$, the first product over the box points off $\mathbb Z(p,p')$,
 the second over the $D-1$ points $i'(p,p')$ in the box.  For example at $c=0$,
