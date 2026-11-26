@@ -158,6 +158,11 @@ class ChainFunctions:
                         acc = term if acc is None else ser_add(acc, term)
                 if acc is not None:
                     Q[g] = acc
+            # j-cap check (Theorem 9 valuation bound): val c_j >= min_g val Q[g] + j, so the
+            # values at b* vanish for every j > jmax once min_g val Q[g] + jmax + 1 > 0.
+            minval = min((q.v for q in Q.values() if q.c), default=1)
+            if minval + self.jmax + 1 <= 0:
+                raise ArithmeticError(f"--jmax {self.jmax} too small for chains from {lam} (k={k}, valuation {minval})")
             # chain functions: c_{lam->mu,j} = sum_{g: weight+level = mu} Q[g] x_g^j / j!
             sums = {}
             for g, q in Q.items():

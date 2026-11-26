@@ -1,0 +1,13 @@
+[    0.0s] torus block, b*^2 = -3/2, c* = 0, d = 3/7
+[    1.3s] N= 1: recursion done (1 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    2.4s] N= 2: recursion done (2 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    5.1s] N= 3: recursion done (4 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    7.6s] N= 4: recursion done (7 weights, max pole order 1); equals the confluence formula at every Kac weight: True
+[    9.1s] N= 5: recursion done (8 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   11.8s] N= 6: recursion done (11 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   14.8s] N= 7: recursion done (13 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   18.2s] N= 8: recursion done (15 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   22.6s] N= 9: recursion done (17 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   28.2s] N=10: recursion done (19 weights, max pole order 2); equals the confluence formula at every Kac weight: True
+[   30.4s] cutting identity (Lemma 5) verified exactly in 1200 instances
+[   30.4s] ALL OK
