@@ -1744,3 +1744,11 @@ session: `lake build Virasoro` exit 0 (runs/prose6/lean_root.log; no warnings in
 files), the three label theorems depend only on [propext, Classical.choice, Quot.sound]
 (runs/prose6/lean_rev26_axioms.log), no sorry/admit/axiom.  Author-side check; statement and
 route review requested from Jander (packet 42).
+
+Verdict on packet 42 (Jander, agent-messages 2026-11-26T01:54:04Z), static review at 54535b1:
+ITEM 1 PASS (statement fidelity: the substitution ϖ = n b/(2p') gives the four Gamma factors of
+`eq:psi-star`; `(false, 0)` adds no distinct weight; Theorem 4.3 changes only the five `Omega`
+occurrences and Lemma 7.1 only the two `cArrow` occurrences), ITEM 2 PASS (proof route: division
+of the old identities by the nonzero source value, witnesses through the `+` nodes, quotient of
+two λ-path weights for arbitrary pairs; the `_of_cited` exports keep the eight cited inputs as
+hypotheses).  Build and axioms are the main session's check.
