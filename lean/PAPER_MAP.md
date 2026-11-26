@@ -71,8 +71,18 @@ papers.
 | Lemma 7.13 | `lem:chain-regular` | `Stmt_lem_chain_regular` | `Virasoro.lem_chain_regular_of_cited` (Virasoro/Proofs/Sec7FixedCharge.lean) |
 | Theorem 7.14 | `thm:fixed-charge` | `Stmt_thm_fixed_charge` | `Virasoro.thm_fixed_charge_of_cited` (Virasoro/Proofs/Sec7FixedCharge.lean) |
 | Corollary 7.15 | `cor:fixed-charge-generic` | `Stmt_cor_fixed_charge_generic` | `Virasoro.cor_fixed_charge_generic_of_cited` (Virasoro/Proofs/Sec7Generic.lean) |
+| Corollary 7.16 | `cor:chain-values` | `Stmt_cor_chain_values` | `Virasoro.cor_chain_values_of_cited` (Virasoro/Proofs/Sec7ChainValues.lean) |
 | Theorem 8.1 | `thm:jantzen-smith` | `Stmt_thm_jantzen_smith` | `Virasoro.thm_jantzen_smith` (Virasoro/Proofs/Sec5Jantzen.lean) |
 | Theorem 8.2 | `thm:top-layer` | `Stmt_thm_top_layer` | `Virasoro.thm_top_layer_of_cited` (Virasoro/Proofs/Sec5TopLayerFinal.lean) |
+| Lemma 8.3 | `lem:node-labels` | `—` |  |
+| Lemma 8.4 | `lem:node-poles` | `—` |  |
+| Lemma 8.5 | `lem:node-leading` | `—` |  |
+| Proposition 8.6 | `prop:top-ratios` | `—` |  |
+| Lemma 8.7 | `lem:diagonal-values` | `—` |  |
+| Theorem 8.8 | `thm:diagonal` | `—` |  |
+| Corollary 8.9 | `cor:diagonal-lambda` | `—` |  |
+| Lemma 8.10 | `lem:boundary-labels` | `—` |  |
+| Theorem 8.11 | `thm:boundary` | `—` |  |
 | Proposition 9.1 | `prop:layer-coefficients` | `Stmt_prop_layer_coefficients` | `Virasoro.prop_layer_coefficients_of_cited` (Virasoro/Proofs/Sec6LayerFinal.lean) |
 | Proposition 9.2 | `prop:h13-nonvanishing` | `Stmt_prop_h13_nonvanishing` | `Virasoro.prop_h13_nonvanishing_of_cited` (Virasoro/Proofs/Sec6H13Label.lean) |
 | Proposition 9.3 | `prop:two-term-criteria` | `Stmt_prop_two_term_criteria` | `Virasoro.prop_two_term_criteria_of_cited` (Virasoro/Proofs/Sec6TTLabel.lean) |

@@ -12,6 +12,11 @@ states the two-variable regularity of `Reg` at `(b⋆, μ)` literally (`Reg = P/
 Theorem 7.14 the eventual vanishing of `c^{(k)}_{λ→μ,j}(b⋆)` per end point.  Statements and labelled
 theorems PASS (yang2 and Jander, packets 46-47; `REVIEW.md`, last entry).  No `sorry`; the axiom audit of the 73 mapped theorems
 (`../runs/lean2/checkMAP.log`) shows only [propext, Classical.choice, Quot.sound].
+On 2026-11-27 `paper.tex` gained Corollary 7.16 (chain values from data at the fixed charge) and
+Sections 8.1-8.2 (diagonal coefficients, boundary weights; Lemma 8.3 to Theorem 8.11).
+Corollary 7.16: statement `Statements/Sec7ChainValues.lean`, proof `Proofs/Sec7ChainValues.lean`
+(`cor_chain_values_of_cited`, from Theorem 7.14 and Lemma 7.10; axioms [propext,
+Classical.choice, Quot.sound]); awaiting review.  Sections 8.1-8.2: not yet formalized.
 
 Paper: `paper.tex` at commit 9aa415f ("Exact algebraic confluence for torus one-point
 Virasoro-block recursions"). Toolchain `leanprover/lean4:v4.33.0`, Mathlib `v4.33.0`.
