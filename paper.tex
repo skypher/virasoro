@@ -150,7 +150,10 @@ Verma module that have reached level \(N\).  When this number is positive,
 the coefficient at that order is a sum of blocks at shifted weights,
 weighted by matrix elements of singular vectors divided by their Jantzen
 norms.  For indeterminate external weights the bound is attained at every
-interior weight and every \(N\geq1\).  In the Ising model the first double
+interior weight and every \(N\geq1\).  Below the top order, the coefficients
+on the diagonal of the recursion are the top coefficients times powers of
+momentum ratios and universal rational numbers, and at the boundary weights
+the top coefficient and the pole order are explicit.  In the Ising model the first double
 poles at the energy, spin and identity weights occur at levels 7, 10 and 11.
 
 \vskip5pt
@@ -305,6 +308,19 @@ For the sphere block, Theorems~\ref{thm:jantzen-bound}
 and~\ref{thm:top-layer-sph} give the same bound and the same formula, with
 the torus matrix element of \(w^\pm_k\) replaced by the product of its two
 three-point factors.
+
+Below the top pole, the values \(c^{(k)}_{\lambda\to\mu,j}(b_\star)\) with
+\(k+j\) equal to the layer distance of \(\mu\) are the top coefficient of
+\(\mu\) times the \(j\)-th power of the ratio of the signed Coulomb momenta of
+\(\mu\) and \(\lambda\) times a universal rational number, a coefficient of a
+terminating hypergeometric polynomial (Theorem~\ref{thm:diagonal},
+Corollary~\ref{cor:diagonal-lambda}).  At the boundary weights of the Kac
+table, where the embedding diagram is a single chain, the top coefficient is
+the leading coefficient of one residue times explicit factors, and the pole
+order is the number of submodules that have reached level \(N\)
+(Theorem~\ref{thm:boundary}).  All values \(c^{(k)}_{\lambda\to\mu,j}(b_\star)\)
+are determined by the Shapovalov and torus forms at \(c_\star\)
+(Corollary~\ref{cor:chain-values}).
 
 For indeterminate external weights the bound \(j_N(\lambda)\) is attained at
 every interior weight and every \(N\geq1\): Corollary~\ref{cor:top-layer-sharp}
@@ -1553,6 +1569,64 @@ $k=1$ and $j=0$.  Then~\eqref{eq:fixed-charge} reads
 $A^\star_{h_a(0),1,N}=R_a(0)\,H_{N-\ell_a}(c_\star,z_a(0),d)$.
 \end{proof}
 
+\begin{corollary}[Chain values from data at the fixed charge]\label{cor:chain-values}
+Let $M\geq1$, $a\in\operatorname{Kac}_M(b_\star)$, $\mu=a+M$ and $k\geq1$.  Then
+\begin{multline}\label{eq:chain-values}
+ c^{(k)}_{a\to\mu,0}(b_\star)=A^\star_{a,k,M}\\
+ -\sum_{0<\nu-a<M}\ \sum_{j\geq0}c^{(k)}_{a\to\nu,j}(b_\star)\,
+ \partial_\Delta^{\,j}\Bigl(H_{\mu-\nu}(c_\star,\Delta,d)
+ -\PP_{\Delta=\nu}H_{\mu-\nu}(c_\star,\Delta,d)\Bigr)\Big|_{\Delta=\nu},
+\end{multline}
+and for all $a,\nu\in\mathbb C$ and $k,j\geq1$
+\begin{equation}\label{eq:cut-value}
+ j\,c^{(k)}_{a\to\nu,j}(b_\star)=c^{(k+1)}_{a\to\nu,j-1}(b_\star)
+ -\sum_{\nu'}c^{(k)}_{a\to\nu',0}(b_\star)\,c^{(1)}_{\nu'\to\nu,j-1}(b_\star),
+\end{equation}
+where $\nu'$ runs over $a+1,a+2,\dots,\nu-1$.  Consequently every value
+$c^{(k)}_{a\to\mu,j}(b_\star)$ is a polynomial with rational coefficients in
+the coefficients of the Laurent expansions at the weights
+$\nu\in\operatorname{Kac}(b_\star)$ with $a\leq\nu<\mu$ of the functions
+$H_m(c_\star,\Delta,d)$, $m\leq\mu-a$.
+\end{corollary}
+
+\begin{proof}
+\eqref{eq:chain-values} is~\eqref{eq:fixed-charge} at the weight $a$ and the
+level $M$, solved for its first term.  \eqref{eq:cut-value} is
+Lemma~\ref{lem:cutting} at $b=b_\star$: every chain function is regular there
+(Lemma~\ref{lem:chain-regular}), so the value of a product is the product of
+the values.  For the last assertion argue by induction on $(\mu-a,j)$,
+lexicographically.  If $a\notin\operatorname{Kac}_{\mu-a}(b_\star)$ there is no
+chain from $a$ to $\mu$, since the first label of a chain has weight $a$ and
+level at most $\mu-a$, and the value is $0$.  Otherwise, for $j=0$, the right
+side of~\eqref{eq:chain-values} involves a Laurent coefficient of
+$H_M(c_\star,\cdot)$ at $a$, values of smaller level $\nu-a$, and
+$j!$ times the coefficient of $(\Delta-\nu)^j$ in the Laurent expansion of
+$H_{\mu-\nu}(c_\star,\cdot)$ at $\nu$; for $j\geq1$ the right side
+of~\eqref{eq:cut-value} involves values of the same level with $j-1$ and
+products of values of smaller levels.  The sums are finite:
+$c^{(k)}_{a\to\nu,j}(b_\star)=0$ for large $j$ (proof of
+Theorem~\ref{thm:fixed-charge}).
+\end{proof}
+
+So $c^{(k)}_{a\to\mu,0}(b_\star)$ is the endpoint coefficient in the
+recursion~\eqref{eq:fixed-charge} at the level $\mu-a$.  Corollary~\ref{cor:chain-values}
+determines it, level by level, from the inverse Shapovalov forms and the torus
+forms at $c_\star$ (Definitions~\ref{def:matrices} and~\ref{def:eta-reduced}),
+after the contributions of the weights strictly between $a$ and $\mu$ are
+subtracted; no deformation of the charge enters.  It does not identify these
+values with matrix elements of, or pairings on, a single singular vector.  At an
+interior minimal-model weight, the value with $k$ equal to the layer distance
+is $\mathcal N/\gamma$ (Theorem~\ref{thm:top-layer}), and
+Section~\ref{sec:diagonal} gives in closed form all values with $k+j$ equal to
+the layer distance.  The other values need not be polynomial multiples of the
+top coefficient.  In the example after Definition~\ref{def:chains}
+($c=0$, $\lambda=0$, $\mu=5$) both chain products have degree at most $10$ in
+$d$, and $c^{(2)}_{0\to5,0}(b_\star)={\mathcal R}_{1,2}{\mathcal R}_{3,1}/7$ has
+degree exactly $10$, since each $\mathcal N_{u,v}$ has $2uv$ factors linear in
+$d$; so a polynomial quotient $c^{(1)}_{0\to5,0}(b_\star)/c^{(2)}_{0\to5,0}(b_\star)$
+would be constant, but it equals $\frac{83478061}{11476080}$ at $d=\frac37$ and
+$\frac{11152201}{1263780}$ at $d=\frac15$.
+
 \section{Jantzen layers at minimal-model charges and the top pole}\label{sec:mm-layers}
 
 Let \(p,p'\geq2\) be
@@ -1755,6 +1829,490 @@ where, by Definition~\ref{def:generic-residue},
  {\mathcal N}_{R,S}(b_\star,d)=\prod_{a',l}(d-d_{p'a'-pl})(d-d_{p'a'+pl})
  \qquad(\text{odd }1\leq a'<2R,\ \text{odd }1\leq l<2S).
 \]
+
+\subsection{Coefficients on the diagonal}\label{sec:diagonal}
+
+Theorem~\ref{thm:top-layer} identifies the values
+$c^{(L)}_{\lambda\to\mu,0}(b_\star)$ for the nodes $\mu$ of layer $L$.  This
+subsection computes, for any two nodes $a,\mu$ of the diagram, all values
+$c^{(k)}_{a\to\mu,j}(b_\star)$ with $k+j$ equal to the layer distance
+(Theorem~\ref{thm:diagonal}); at $a=\lambda$ they are the top coefficient times
+a power of a momentum ratio times a universal rational number
+(Corollary~\ref{cor:diagonal-lambda}).  In~\eqref{eq:fixed-charge} they are the
+terms with $j=L_\mu-k$.
+
+Keep the setting of this section and put $N_0=2pp'$.  The \emph{nodes} are
+$\lambda$, of layer $0$, and $\mu^\pm_k=\lambda+\ell^\pm_k$, of layer $k\geq1$;
+write $L_\nu$ for the layer of a node $\nu$, and $D(a,\mu)=L_\mu-L_a$ when
+$L_a<L_\mu$.  Give the nodes the \emph{signed momenta}
+\[
+ S_\lambda=n_0,\quad S(\mu^\pm_{2j})=n_0\pm jN_0,\quad
+ S(\mu^+_{2j+1})=n_1+jN_0,\quad S(\mu^-_{2j+1})=n_1-(j+1)N_0,
+\]
+so that $|S(\mu^\pm_k)|=m^\pm_k$ and $\nu=d_{S_\nu}$, and the \emph{positions}
+$\pi_\lambda=0$, $\pi(\mu^\pm_k)=\pm k/2$.  Then $S_\nu=N_0(\alpha+\pi_\nu)$ for
+$L_\nu$ even and $S_\nu=N_0(\beta+\pi_\nu)$ for $L_\nu$ odd, with
+$\alpha=n_0/N_0$ and $\beta=(n_1-pp')/N_0$.  Two nodes are of the same
+\emph{class} if their layers have the same parity; for nodes $x,y$ of the same
+class, $S_x-S_y=N_0(\pi_x-\pi_y)$.  Since $|n_0|<n_1<pp'$, we have
+$|\alpha|,|\beta|<\frac12$, so $|S_\nu|=N_0|\pi_\nu|+\operatorname{sgn}(\pi_\nu)S'_\nu$
+for $\nu\neq\lambda$, with $S'_\nu=n_0$ or $n_1-pp'$ according to the class.
+Chain functions from a node $a$ are those of Definition~\ref{def:chains} with
+$a$ in place of $\lambda$.  For a positive label $g=(u,v)$ put $x_g=p'u-pv$ and
+$y_g=p'u+pv$, so that $h_g(b_\star)=d_{x_g}$ and $g$ leads to $d_{y_g}$.
+
+\begin{lemma}[Labels between nodes]\label{lem:node-labels}
+\begin{enumerate}
+\item[(i)] For every positive label $g$,
+$h'_g(b_\star)=\frac{b_\star}{2p'^2}(p'^2-p^2-x_gy_g)$, where $'$ is $d/db$.
+\item[(ii)] Let $\nu,\nu'$ be nodes with $\Delta=L_{\nu'}-L_\nu$ odd and
+positive.  There is exactly one positive label of weight $\nu$ leading to
+$\nu'$, namely
+$g=\bigl(\epsilon(S_{\nu'}+S_\nu)/(2p'),\ \epsilon(S_{\nu'}-S_\nu)/(2p)\bigr)$
+with $\epsilon=\operatorname{sgn}S_{\nu'}$, and $x_gy_g=S_\nu S_{\nu'}$.
+\item[(iii)] Every positive label whose weight is a node leads to a node of
+larger layer and of the other class.  So the chains from a node $a$ to a node
+$\mu$ are the sequences of nodes $a=x_0,x_1,\dots,x_{n+1}=\mu$ in which every
+step $L_{x_{i+1}}-L_{x_i}$ is odd and positive.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) From $h_{u,v}(b)=\frac14((b+b^{-1})^2-(ub+vb^{-1})^2)$,
+$h'_{u,v}(b)=\frac12((1-u^2)b-(1-v^2)b^{-3})$, and
+$b_\star^{-3}=b_\star p^2/p'^2$; also $p'^2u^2-p^2v^2=x_gy_g$.
+(ii) $S_{\nu'}\pm S_\nu$ is congruent modulo $N_0$ to $\pm(n_1\pm n_0)$, and
+$n_0+n_1=2p'r$, $n_1-n_0=2ps$; so $S_{\nu'}+S_\nu\equiv0\pmod{2p'}$ and
+$S_{\nu'}-S_\nu\equiv0\pmod{2p}$, and both entries of $g$ are positive integers
+because $|S_{\nu'}|>|S_\nu|$.  Then $x_g=\epsilon S_\nu$ and $y_g=|S_{\nu'}|$,
+so $g$ has weight $\nu$ and leads to $\nu'$.  A label of weight $\nu$ leading
+to $\nu'$ has $y_g=|S_{\nu'}|$ and $x_g=\pm S_\nu$, and $x_g=-\epsilon S_\nu$
+would need $S_{\nu'}-S_\nu\equiv0\pmod{2p'}$, that is $p'\mid s$.
+(iii) Since $y_g-x_g=2pv$ and $y_g+x_g=2p'u$, $y_g\equiv x_g\pmod{2p}$ and
+$y_g\equiv-x_g\pmod{2p'}$; with $n_1\equiv n_0\pmod{2p}$ and
+$n_1\equiv-n_0\pmod{2p'}$, a weight of momentum $\equiv\pm n_0$ leads to a
+momentum $\equiv\pm n_1\pmod{N_0}$, and conversely.  Every integer
+$\equiv\pm n_0$ or $\pm n_1\pmod{N_0}$ is $\pm S_\nu$ for a node $\nu$, and
+$|S_\nu|$ increases with $L_\nu$ by $\max(\ell^+_k,\ell^-_k)<\ell_{k+1}$, since
+$d_x$ increases with $|x|$; and $y_g>|x_g|$.
+\end{proof}
+
+\begin{lemma}[Pole orders]\label{lem:node-poles}
+For the label $g$ of Lemma~\ref{lem:node-labels}(ii),
+$R_g=\rho_g\,t^{1-\Delta}+O(t^{2-\Delta})$ with $\rho_g\neq0$ in $K_\star$.
+\end{lemma}
+
+\begin{proof}
+The factor $ab+eb^{-1}$ of ${\mathcal A}_{u,v}$ vanishes at $b_\star$ exactly
+for $(a,e)=i(p,p')$, $i\neq0$, and then simply, its $b$-derivative being $2ip$.
+With $(u,v)=g$, the conditions $ip\leq u$, $ip'\leq v$ for $i\geq1$ mean
+$iN_0\leq|S_{\nu'}|-|S_\nu|$, and the conditions $-ip\geq1-u$, $-ip'\geq1-v$
+mean $iN_0<|S_{\nu'}|-|S_\nu|$.  Now $|S_{\nu'}|-|S_\nu|=\frac\Delta2N_0+e$,
+where $e$ is one of $\pm(n_1-pp')\pm n_0$ or, for $\nu=\lambda$,
+$\pm(n_1-pp')-|n_0|$; from $n_1+n_0-pp'=2p'r-pp'$, $n_1-n_0-pp'=2ps-pp'$ and
+$|n_0|<n_1<pp'$ one gets $|e|<pp'=N_0/2$.  So both counts equal $(\Delta-1)/2$,
+and ${\mathcal A}_g$ has a pole of order exactly $\Delta-1$.  The factors of
+${\mathcal N}_g(b_\star,d)$ are linear in $d$ with coefficient $-1$
+(Definition~\ref{def:generic-residue}), so ${\mathcal N}_g(b_\star,d)\neq0$.
+\end{proof}
+
+For a chain $\gamma=(x_0,\dots,x_{n+1})$ from $a$ to $\mu$, with $g_i$ the label
+from $x_i$ to $x_{i+1}$, put $\varsigma=b_\star/(2p'^2)$, $K=p'^2-p^2$ and
+\[
+ h_i=h'_{g_i}(b_\star)=\varsigma(K-S_{x_i}S_{x_{i+1}}),\qquad
+ w_\gamma=\frac{\prod_{i=0}^n\rho_{g_i}}{\prod_{i=1}^n(h_{i-1}-h_i)},
+\]
+where $h_{i-1}-h_i=\varsigmaS_{x_i}(S_{x_{i+1}}-S_{x_{i-1}})\neq0$, since
+$x_{i-1},x_{i+1}$ are of the same class and of different layers.  Put
+$\operatorname{Top}(a\to\mu)=c^{(D)}_{a\to\mu,0}(b_\star)$ with $D=D(a,\mu)$,
+and let $\mathrm{FS}(a\to\mu)$ be the set of nodes $\theta$ with $L_\theta-L_a$
+odd and either $L_\theta<L_\mu$ or $\theta=\mu$, the possible first steps.
+
+\begin{lemma}[Leading terms and first steps]\label{lem:node-leading}
+\begin{enumerate}
+\item[(i)]
+$P^{(k)}_\gamma\delta_{g_n}^j/j!=w_\gamma h_0^{k-1}h_n^j\,t^{k+j-D}/j!
++O(t^{k+j-D+1})$.  Hence $\sum_\gamma w_\gamma h_0^{k-1}h_n^j=0$ for
+$k\geq1$, $j\geq0$, $k+j<D$, and
+$c^{(k)}_{a\to\mu,j}(b_\star)=\frac1{j!}\sum_\gamma w_\gamma h_0^{k-1}h_n^j$ for
+$k+j=D$, the sums over the chains from $a$ to $\mu$.
+\item[(ii)] $\mathrm{FS}(a\to\mu)$ has $D$ elements, the numbers
+$h_{a\theta}=\varsigma(K-S_aS_\theta)$ ($\theta\in\mathrm{FS}(a\to\mu)$) are distinct,
+and
+\[
+ F(\theta):=\sum_{\gamma:\,x_1=\theta}w_\gamma
+ =\frac{\operatorname{Top}(a\to\mu)}
+ {\prod_{\theta'\in\mathrm{FS}(a\to\mu)\setminus\{\theta\}}(h_{a\theta}-h_{a\theta'})}.
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) $\delta_g=h'_g(b_\star)t+O(t^2)$; by Lemma~\ref{lem:node-poles} the residues
+give $t^{-\sum_i(\Delta_i-1)}=t^{n+1-D}$ with $\Delta_i=D(x_i,x_{i+1})$, and
+the links give $t^{-n}$.  The vanishing is the regularity of
+$c^{(k)}_{a\to\mu,j}$ (Lemma~\ref{lem:chain-regular}).  (ii) The odd layers
+between $a$ and $\mu$ give $2\lfloor D/2\rfloor$ nodes, and $\mu$ is added when
+$D$ is odd; the $S_\theta$ are distinct and $S_a\neq0$.  By
+Lemma~\ref{lem:node-labels}(iii) every chain has $x_1\in\mathrm{FS}(a\to\mu)$,
+and $h_0=h_{ax_1}$.  Part (i) with $(k,j)=(m+1,0)$ gives
+$\sum_\theta F(\theta)h_{a\theta}^m=0$ for $m\leq D-2$ and
+$=\operatorname{Top}(a\to\mu)$ for $m=D-1$; this Vandermonde system has the
+stated solution, by Lagrange interpolation.
+\end{proof}
+
+\begin{proposition}[Ratios of top coefficients]\label{prop:top-ratios}
+Every $\operatorname{Top}(x\to y)$ is nonzero in $K_\star$.  For
+$\theta\in\mathrm{FS}(a\to\mu)$, $\theta\neq\mu$,
+\[
+ \operatorname{Top}(a\to\theta)\operatorname{Top}(\theta\to\mu)
+ =\kappa(a,\theta,\mu)\operatorname{Top}(a\to\mu),\qquad
+ \kappa(a,\theta,\mu)=\Bigl(\frac{S_\theta}{S_a}\Bigr)^{D(\theta,\mu)}
+ \hat\kappa(a,\theta,\mu),
+\]
+with
+$\hat\kappa(a,\theta,\mu)=\prod_{x\in\mathrm{FS}(\theta\to\mu)}(\pi_x-\pi_a)\big/
+\prod_{x\in\mathrm{FS}(a\to\mu)\setminus\mathrm{FS}(a\to\theta)}(\pi_x-\pi_\theta)$.
+For a node $\nu$ with $L_\nu-L_a$ even and $L_a<L_\nu<L_\mu$, the same identity
+holds with $\kappa(a,\nu,\mu)=(S_\nu/S_a)^{D(\nu,\mu)}\hat\kappa(a,\nu,\mu)$ and
+a rational number $\hat\kappa(a,\nu,\mu)$ that depends only on the positions of
+the nodes.
+\end{proposition}
+
+\begin{proof}
+A chain with $x_1=\theta\neq\mu$ is the label from $a$ to $\theta$ followed by
+a chain $\gamma'$ from $\theta$ to $\mu$, and
+$w_\gamma=\rho_{a\theta}w_{\gamma'}/(h_{a\theta}-h_{\theta x_2})$, where
+$h_{a\theta}-h_{\theta\theta'}=\varsigmaS_\theta(S_{\theta'}-S_a)\neq0$.  Grouping
+by $x_2$, Lemma~\ref{lem:node-leading}(ii) from the base $\theta$ and partial
+fractions give
+\[
+ F(\theta)=\rho_{a\theta}\sum_{\theta'\in\mathrm{FS}(\theta\to\mu)}
+ \frac{\operatorname{Top}(\theta\to\mu)}{(h_{a\theta}-h_{\theta\theta'})
+ \prod_{\theta''\neq\theta'}(h_{\theta\theta'}-h_{\theta\theta''})}
+ =\frac{\rho_{a\theta}\operatorname{Top}(\theta\to\mu)}
+ {\prod_{\theta'\in\mathrm{FS}(\theta\to\mu)}(h_{a\theta}-h_{\theta\theta'})}.
+\]
+Lemma~\ref{lem:node-leading}(ii) for the end $\theta$ and the one-label chain gives
+$\rho_{a\theta}=\operatorname{Top}(a\to\theta)/\prod_{\tilde\theta}(h_{a\theta}-h_{a\tilde\theta})$
+over $\tilde\theta\in\mathrm{FS}(a\to\theta)\setminus\{\theta\}$; so
+$\operatorname{Top}(x\to y)\neq0$ when $D(x,y)$ is odd.  Comparing with
+Lemma~\ref{lem:node-leading}(ii) for the end $\mu$, and using
+$\mathrm{FS}(a\to\theta)\subset\mathrm{FS}(a\to\mu)$,
+$h_{a\theta}-h_{a\tilde\theta}=\varsigmaS_a(S_{\tilde\theta}-S_\theta)$ and
+$|\mathrm{FS}(\theta\to\mu)|=|\mathrm{FS}(a\to\mu)\setminus\mathrm{FS}(a\to\theta)|=D(\theta,\mu)$,
+gives the identity; the differences are of momenta of the same class, so the
+factors $N_0$ cancel.  For $D(x,y)$ even take $\theta$ of layer $L_x+1$: then
+$D(x,\theta)$ and $D(\theta,y)$ are odd, and the identity, whose left side is
+nonzero, gives $\operatorname{Top}(x\to y)\neq0$.  For $\nu$ at even distance
+from $a$ take $\theta$ of layer $L_a+1$; then $\nu\in\mathrm{FS}(\theta\to\mu)$,
+$\theta\in\mathrm{FS}(a\to\nu)$, the three odd identities give
+$\kappa(a,\nu,\mu)=\kappa(a,\theta,\mu)\kappa(\theta,\nu,\mu)/\kappa(a,\theta,\nu)$,
+and $D(\theta,\mu)-D(\theta,\nu)=D(\nu,\mu)$ makes the powers of $S$ combine to
+$(S_\nu/S_a)^{D(\nu,\mu)}$.
+\end{proof}
+
+\begin{lemma}[Diagonal values]\label{lem:diagonal-values}
+Let $D=D(a,\mu)$.
+\begin{enumerate}
+\item[(i)] For $k+j=D$ and $j\geq1$,
+$j\,c^{(k)}_{a\to\mu,j}(b_\star)=c^{(k+1)}_{a\to\mu,j-1}(b_\star)
+-\sum_{L_\nu=L_a+k}\operatorname{Top}(a\to\nu)\,c^{(1)}_{\nu\to\mu,j-1}(b_\star)$.
+\item[(ii)] For $0\leq j\leq D-1$ the number
+$f_j(a,\mu)=j!\,(S_a/S_\mu)^j\,c^{(D-j)}_{a\to\mu,j}(b_\star)/\operatorname{Top}(a\to\mu)$
+is rational, depends only on $\pi_a$ and $\pi_\mu$ (not on $p,p',r,s$ or $d$),
+and $f_0=1$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) is~\eqref{eq:cut-value}.  By Lemma~\ref{lem:node-leading}(i),
+$c^{(k)}_{a\to\nu,0}$ is $O(t^{k-D(a,\nu)})$ and $c^{(1)}_{\nu\to\mu,j-1}$ is
+$O(t^{j-D(\nu,\mu)})$; if $L_\nu<L_a+k$ the first vanishes at $b_\star$, and if
+$L_\nu>L_a+k$ the second does.  (ii) For $\gamma=(x_0,\dots,x_{n+1})$ put
+$\Delta_i=D(x_i,x_{i+1})$.  By the proof of Proposition~\ref{prop:top-ratios},
+$\rho_{g_i}=\operatorname{Top}(x_i\to x_{i+1})/\prod_{\tilde\theta}\varsigmaS_{x_i}(S_{\tilde\theta}-S_{x_{i+1}})$
+over $\tilde\theta\in\mathrm{FS}(x_i\to x_{i+1})\setminus\{x_{i+1}\}$, and by
+Proposition~\ref{prop:top-ratios}, inductively from the end,
+$\prod_{i=0}^n\operatorname{Top}(x_i\to x_{i+1})=\operatorname{Top}(a\to\mu)
+\prod_{i=0}^{n-1}\kappa(x_i,x_{i+1},\mu)$.  In $w_\gamma$ the power of $S_{x_i}$
+is $D(x_i,\mu)-D(x_{i+1},\mu)-(\Delta_i-1)-1=0$ for $1\leq i\leq n-1$, and
+$\Delta_n-(\Delta_n-1)-1=0$ for $x_n$, which has no outgoing $\kappa$; $S_a$ has
+the power $-D(x_1,\mu)-(\Delta_0-1)=1-D$, also for a one-label chain.  The
+remaining factors are differences of momenta of the same class,
+$\sum_i(\Delta_i-1)+n=D-1$ of them in the denominator, and the ratios
+$\hat\kappa$.  So $w_\gamma=\operatorname{Top}(a\to\mu)(\varsigmaN_0S_a)^{1-D}\ell(\gamma)$
+with a rational number $\ell(\gamma)$ determined by the positions of the nodes
+of $\gamma$.  Write $S_{x_1}=N_0(c_1+\pi_{x_1})$ and $S_{x_n}=N_0(c_2+\pi_{x_n})$
+with $c_1,c_2\in\{\alpha,\beta\}$ fixed by the classes of $a$ and $\mu$.  By
+Lemma~\ref{lem:node-leading}(i),
+$\sum_\gamma\ell(\gamma)(K-S_aS_{x_1})^{k-1}(K-S_{x_n}S_\mu)^j=0$ for $k+j<D$.
+Taking $(k,j)=(e+1,e')$ for $e+e'=0,1,\dots,D-2$ in turn, and using that these
+factors are affine in $\pi_{x_1},\pi_{x_n}$ with nonzero linear coefficients
+$-N_0S_a$, $-N_0S_\mu$, we get $\sum_\gamma\ell(\gamma)\pi_{x_1}^e\pi_{x_n}^{e'}=0$
+for $e+e'\leq D-2$.  For $k+j=D$ the same argument leaves only the terms of top
+degree, and
+$f_j(a,\mu)=(-1)^{D-1}\sum_\gamma\ell(\gamma)\pi_{x_1}^{D-1-j}\pi_{x_n}^j$; the
+chains are described by positions (Lemma~\ref{lem:node-labels}(iii)).
+\end{proof}
+
+\begin{theorem}[Coefficients on the diagonal]\label{thm:diagonal}
+For nodes $a,\mu$ with $D=D(a,\mu)\geq1$ and $0\leq j\leq D-1$,
+\[
+ c^{(D-j)}_{a\to\mu,j}(b_\star)=\frac{f_j(L_a,D)}{j!}
+ \Bigl(\frac{S_\mu}{S_a}\Bigr)^{j}\operatorname{Top}(a\to\mu),
+\]
+where, with $n=\lfloor(D-1)/2\rfloor$,
+\[
+ f_{2i}(l,D)=(-1)^i\,\frac{\binom ni\binom{l+n}i}{\binom{l+D-1}i},\qquad
+ f_{2i+1}(l,D)=\begin{cases}f_{2i}(l,D)&D\text{ even},\\0&D\text{ odd},\end{cases}
+\]
+that is, $\sum_if_{2i}(l,D)x^i={}_2F_1(-n,-n-l;1-D-l;x)$.
+\end{theorem}
+
+\begin{proof}
+Divide Lemma~\ref{lem:diagonal-values}(i) by $\operatorname{Top}(a\to\mu)$ and
+use Proposition~\ref{prop:top-ratios}: with $k=D-j$ and $\nu$ running over the
+two nodes of layer $L_a+k$,
+\begin{equation}\label{eq:diagonal-rec}
+ f_j(a,\mu)S_\mu=f_{j-1}(a,\mu)S_a
+ -\sum_\nu\hat\kappa(a,\nu,\mu)f_{j-1}(\nu,\mu)S_\nu .
+\end{equation}
+The rational numbers $f$ and $\hat\kappa$ are the same in every minimal model
+(Lemma~\ref{lem:diagonal-values}(ii), Proposition~\ref{prop:top-ratios}).  The
+class centres $(\alpha,\beta)$ of the interior weights $h_{1,1}$ of the models
+$(p,p')=(2,3),(2,5),(3,4)$ are $(\frac1{12},-\frac1{12})$,
+$(\frac3{20},-\frac3{20})$, $(\frac1{24},-\frac5{24})$, which are affinely
+independent.  So~\eqref{eq:diagonal-rec}, divided by $N_0$, is an identity of
+affine functions of $(\alpha,\beta)$, and we may compare the coefficients of
+the class centre $c_A$ of the class of $a$, of the centre $c_B$ of the other
+class, and the constant terms.  We argue by induction on $D$, for all bases at
+once; $D=1$ is $f_0=1$.  Write $l=L_a$.
+
+\emph{$D$ odd, $j$ odd.}  Then $\mu$ is of class $B$ and the nodes $\nu$ ($k$
+even) of class $A$; the $c_B$-coefficient of~\eqref{eq:diagonal-rec} is
+$f_j(a,\mu)=0$.
+
+\emph{$D$ even, $j$ odd.}  Now $\mu$ is of class $A$ and $\nu$ of class $B$;
+the $c_A$-coefficient gives $f_j(a,\mu)=f_{j-1}(a,\mu)$, and then the constant
+term gives
+$f_j(a,\mu)(\pi_\mu-\pi_a)=-f_{j-1}(l+k,j)\sum_\theta\hat\kappa(a,\theta,\mu)\pi_\theta$,
+where $f_{j-1}(\theta,\mu)=f_{j-1}(l+k,j)$ by induction, as $D(\theta,\mu)=j<D$.
+
+\emph{$D$ odd, $j$ even, $j\geq2$.}  The $c_B$-coefficient gives
+$f_j(a,\mu)=-f_{j-1}(l+k,j)\sum_\theta\hat\kappa(a,\theta,\mu)$.
+
+These determine every $f_j(a,\mu)$ from $f_0=1$ and the values at smaller $D$
+(for $D$ even and $j$ even, $f_j=f_{j+1}$).  It remains to evaluate the two
+sums.  Let $\theta_\pm$ be the nodes of layer $l+k$ ($k$ odd), at positions
+$\pm w$ with $w=\frac{l+k}2$, and note $|\pi_a|=\frac l2$.  The nodes of
+$\mathrm{FS}(\theta\to\mu)$ of class $A$ other than $\mu$ come in pairs
+$\pm\frac m2$ over the layers $m=l+k+1+2\varrho$ ($\varrho\geq0$), each pair
+contributing
+$\pi_a^2-\frac{m^2}4=-(\frac{k+1}2+\varrho)(l+\frac{k+1}2+\varrho)$; the set
+$\mathrm{FS}(a\to\mu)\setminus\mathrm{FS}(a\to\theta_\epsilon)$ consists of
+$\theta_{-\epsilon}$, the pairs over the layers $m'=l+k+2\varrho'$ ($\varrho'\geq1$) of
+class $B$, contributing $-(\frac{m'^2}4-w^2)=-\varrho'(l+k+\varrho')$, and $\mu$
+if $D$ is odd.  Put
+\[
+ G=\binom ni\frac{(l+n)!\,(l+2n-2i+1)!}{(l+n-i)!\,(l+2n-i+1)!}.
+\]
+
+For $D=2n+1$ and $j=2i$ ($k=2n-2i+1$, $\frac{k+1}2=n-i+1$) there are $i$ pairs
+of class $A$ and $i-1$ of class $B$, and
+\[
+ \hat\kappa(a,\theta_\epsilon,\mu)=
+ \frac{(-1)^i\frac{n!}{(n-i)!}\frac{(l+n)!}{(l+n-i)!}}
+ {(-2\epsilon w)\,(-1)^{i-1}(i-1)!\,(l+k+1)_{i-1}\,(\pi_\mu-\epsilon w)} .
+\]
+Since $\sum_\epsilon\frac1{-2\epsilon w(\pi_\mu-\epsilon w)}=-\frac1{\pi_\mu^2-w^2}$
+and $\pi_\mu^2-w^2=i(l+k+i)$, $\sum_\theta\hat\kappa=G$.  With
+$f_{2i-1}(l+k,2i)=(-1)^{i-1}\binom{l+k+i-1}{i-1}/\binom{l+k+2i-1}{i-1}$
+(induction) this gives
+\[
+ f_{2i}(l,2n+1)=(-1)^iG\,\frac{(l+2n-i)!\,(l+2n-i+1)!}{(l+2n-2i+1)!\,(l+2n)!}
+ =(-1)^i\binom ni\binom{l+n}i\Big/\binom{l+2n}i .
+\]
+
+For $D=2n+2$ and $j=2i+1$ ($k=2n-2i+1$) there are $i$ pairs of class $A$, the
+node $\mu$ in $\mathrm{FS}(\theta\to\mu)$, and $i$ pairs of class $B$:
+\[
+ \hat\kappa(a,\theta_\epsilon,\mu)=
+ \frac{(-1)^i\frac{n!}{(n-i)!}\frac{(l+n)!}{(l+n-i)!}\,(\pi_\mu-\pi_a)}
+ {(-2\epsilon w)\,(-1)^i\,i!\,(l+k+1)_i},
+\]
+so $\sum_\theta\hat\kappa\,\pi_\theta=-G(\pi_\mu-\pi_a)$, and with
+$f_{2i}(l+k,2i+1)=(-1)^i\binom{l+k+i}i/\binom{l+k+2i}i$ (induction),
+$f_{2i+1}(l,2n+2)=f_{2i}(l+k,2i+1)\,G=(-1)^i\binom ni\binom{l+n}i/\binom{l+2n+1}i$.
+Here $(l+k+1)_i=(l+2n-i+1)!/(l+2n-2i+1)!$.
+\end{proof}
+
+\begin{corollary}[Diagonal coefficients at $\lambda$]\label{cor:diagonal-lambda}
+For $L\geq1$, $0\leq j\leq L-1$ and each sign,
+\[
+ c^{(L-j)}_{\lambda\to\mu^\pm_L,j}(b_\star)
+ =\frac{f_j(0,L)}{j!}\Bigl(\pm\frac{m^\pm_L}{n_0}\Bigr)^{j}
+ \frac{\mathcal N^\pm_L}{\gamma^\pm_L},\qquad
+ f_{2i}(0,L)=(-1)^i\frac{\binom ni^2}{\binom{L-1}i},\quad
+ n=\Bigl\lfloor\frac{L-1}2\Bigr\rfloor .
+\]
+In particular $c^{(1)}_{\lambda\to\mu^\pm_2,1}(b_\star)
+=\pm(m^\pm_2/n_0)\,\mathcal N^\pm_2/\gamma^\pm_2$, and with $w^\pm_2$
+normalized to $L_{-1}^{\ell^\pm_2}$-coefficient $1$,
+\[
+ \gamma^\pm_2=\mp\frac{n_1}{n_0}\,
+ \frac1{{\mathcal A}_{r,s}(b_\star)\,{\mathcal A}_{p\pm r,\,p'\mp s}(b_\star)} .
+\]
+\end{corollary}
+
+\begin{proof}
+$S(\mu^\pm_L)=\pm m^\pm_L$ and $S_\lambda=n_0$.  To identify
+$\operatorname{Top}(\lambda\to\mu^\pm_L)$, take $\ell^\pm_L\leq N<\ell_{L+1}$
+in~\eqref{eq:fixed-charge} with $k=L$.  The chain functions
+$c^{(L)}_{\lambda\to\mu,j}$ with $L_\mu<L$, or with $L_\mu=L$ and $j\geq1$,
+vanish at $b_\star$ (Lemma~\ref{lem:node-leading}(i)); no node of layer larger
+than $L$ has level at most $N$; and $H_{N-\ell^\pm_L}(c_\star,\cdot)$ is regular
+at $\mu^\pm_L$ because $N-\ell^\pm_L<\ell_{L+1}-\ell^\pm_L$.  So
+$A^\star_{\lambda,L,N}=\sum c^{(L)}_{\lambda\to\mu^\pm_L,0}(b_\star)
+H_{N-\ell^\pm_L}(c_\star,\mu^\pm_L,d)$ over the signs with $\ell^\pm_L\leq N$.
+Compare with~\eqref{eq:top-layer} at $N=\min(\ell^+_L,\ell^-_L)$, where one sign
+occurs and $H_0=1$, and then at $N=\max(\ell^+_L,\ell^-_L)$ after subtracting
+the identified term: $\operatorname{Top}(\lambda\to\mu^\pm_L)=\mathcal
+N^\pm_L/\gamma^\pm_L$.  For $L=2$, Lemma~\ref{lem:node-labels}(ii) gives the
+labels $(r,s)$ from $\lambda$ to $\mu^+_1$ and $(p\pm r,p'\mp s)$ from $\mu^+_1$
+to $\mu^\pm_2$, both with regular residues, and
+Proposition~\ref{prop:top-ratios} with $\theta=\mu^+_1$
+($\hat\kappa=\mp1$, $\kappa=\mp n_1/n_0$) gives
+$\operatorname{Top}(\lambda\to\mu^\pm_2)=\mp\frac{n_0}{n_1}R_{r,s}(b_\star)
+R_{p\pm r,p'\mp s}(b_\star)$.  Since $R_g={\mathcal A}_g{\mathcal N}_g$ and
+$\mathcal N^\pm_2={\mathcal N}_{r,s}{\mathcal N}_{p\pm r,p'\mp s}$ at $b_\star$
+(the factorization after Theorem~\ref{thm:top-layer}), cancelling these nonzero
+polynomials in $d$ gives $\gamma^\pm_2$.
+\end{proof}
+
+For $L=3,4,5$ the factors $f_j(0,L)/j!$ are $(1,0,-\frac14)$,
+$(1,1,-\frac16,-\frac1{18})$ and $(1,0,-\frac12,0,\frac1{144})$.  At $c=0$,
+$\lambda=0$ ($n_0=1$, $n_1=5$) the corollary gives
+$\gamma^-_2=5/({\mathcal A}_{1,1}{\mathcal A}_{1,4}(b_\star))
+=5/(\frac12\cdot(-\frac3{1120}))=-\frac{11200}3$, the value in the example
+after Theorem~\ref{thm:general-confluence}.
+
+\subsection{Boundary weights}\label{sec:boundary}
+
+Let $\lambda=d_{x_0}$, where $x_0$ is a positive multiple of exactly one of
+$p,p'$ and $x_0<pp'$.  Put $\epsilon=1$ if $p\mid x_0$ and $\epsilon=-1$ if
+$p'\mid x_0$, and for $k\geq0$
+\[
+ \pi_k=(-1)^k\lceil k/2\rceil,\qquad T_k=x_0+\pi_kN_0,\qquad M_k=|T_k|,\qquad
+ \mu_k=d_{M_k},
+\]
+so $M_0=x_0$, $M_1=N_0-x_0$, $M_2=N_0+x_0,\dots$ increase with $k$ and are the
+positive elements of $\pm x_0+N_0\mathbb Z$.  The $\mu_k$ are the nodes, $\mu_k$ of
+layer $k$, and $\mu_0=\lambda$.  Every weight $d_x$ with exactly one of
+$p\mid x$, $p'\mid x$ is a node $\mu_i$ for exactly one such $x_0$, the element
+of $\pm x+N_0\mathbb Z$ of smallest absolute value (it is not $pp'$, which both
+divide); for instance $d_{10}=\frac{33}8$ at $(p,p')=(2,3)$ is $\mu_1$ for
+$x_0=2$.  These are the boundary weights of Class $R^+$ of
+Section~\ref{sec:scope}.  For nodes $\mu_i,\mu_k$ with $i<k$ put
+$D(\mu_i,\mu_k)=k-i$ and $\operatorname{Top}(\mu_i\to\mu_k)=
+c^{(k-i)}_{\mu_i\to\mu_k,0}(b_\star)$.
+
+\begin{lemma}[Labels at a boundary weight]\label{lem:boundary-labels}
+For $0\leq i<k$ there is exactly one positive label $g$ of weight $\mu_i$
+leading to $\mu_k$; it has $y_g=M_k$, $x_g=-\epsilon\operatorname{sgn}(T_k)T_i$ and
+$x_gy_g=-\epsilon T_iT_k$, and $R_g=\rho_g\,t^{1-(k-i)}+O(t^{2-(k-i)})$ with
+$\rho_g\neq0$ in $K_\star$.  Every positive label whose weight is a node $\mu_i$
+leads to a node $\mu_k$ with $k>i$.
+\end{lemma}
+
+\begin{proof}
+If $p\mid x_g$ then $y_g\equiv x_g\equiv-x_g\pmod{2p}$ and
+$y_g\equiv-x_g\pmod{2p'}$, so $y_g\equiv-x_g\pmod{N_0}$; if $p'\mid x_g$ then
+$y_g\equiv x_g\pmod{N_0}$.  A label of weight $\mu_i$ has $x_g=\pm T_i$, so
+$y_g\equiv-\epsilon x_g$, and $y_g>|x_g|$ makes $y_g=M_k$ with $k>i$.  For given
+$k$, $x_g\equiv-\epsilon\operatorname{sgn}(T_k)x_0\pmod{N_0}$ fixes the sign,
+since $2x_0\not\equiv0\pmod{N_0}$.  Conversely, for these values
+$y_g\pm x_g=\operatorname{sgn}(T_k)(T_k\mp\epsilon T_i)$, which is $\equiv0$ or
+$\equiv2\operatorname{sgn}(T_k)x_0\pmod{N_0}$, and $2x_0$ is divisible by $2p$
+if $\epsilon=1$ and by $2p'$ if $\epsilon=-1$; so $u,v$ are positive integers.
+As in Lemma~\ref{lem:node-poles}, the pole order of ${\mathcal A}_g$ is
+$\#\{i'\geq1:i'N_0\leq M_k-M_i\}+\#\{i'\geq1:i'N_0<M_k-M_i\}$.  For
+$\Delta=k-i$ even, $M_k-M_i=\frac\Delta2N_0$; for $\Delta$ odd,
+$M_k-M_i=\frac{\Delta-1}2N_0+(M_{i+1}-M_i)$ with
+$M_{i+1}-M_i\in\{2x_0,N_0-2x_0\}$.  Both give $\Delta-1$, and
+${\mathcal N}_g(b_\star,d)\neq0$ as before.
+\end{proof}
+
+With this lemma in place of Lemmas~\ref{lem:node-labels}(ii),(iii)
+and~\ref{lem:node-poles}, the proofs of Lemma~\ref{lem:node-leading},
+Proposition~\ref{prop:top-ratios} and Lemma~\ref{lem:diagonal-values} apply
+with $T$ in place of $S$ and $h_{a\theta}=\varsigma(K+\epsilon T_aT_\theta)$; now
+every node strictly between $a$ and $\mu$, and $\mu$ itself, is a first step,
+one per layer, and the signs $\epsilon$ cancel in $f_j(a,\mu)$, which depends
+only on the positions $\pi$ of the nodes.
+
+\begin{theorem}[Boundary weights]\label{thm:boundary}
+Let $a=\mu_i$, $\mu=\mu_k$, $D=k-i\geq1$, and let $g$ be the label from $\mu_i$
+to $\mu_k$.
+\begin{enumerate}
+\item[(i)] $\operatorname{Top}(a\to\mu)=\rho_g\prod_{i<m<k}(h_{a\mu}-h_{a\mu_m})
+=\rho_g(\epsilon\varsigmaN_0T_i)^{D-1}\prod_{i<m<k}(\pi_k-\pi_m)$, which is
+nonzero in $K_\star$.
+\item[(ii)] For $0\leq j\leq D-1$,
+\[
+ c^{(D-j)}_{a\to\mu,j}(b_\star)=\frac1{j!}\Bigl(\frac{T_k}{T_i}\Bigr)^{j}
+ \prod_{m=1}^j\frac{\pi_i-\pi_{k-m}}{\pi_k-\pi_{k-m}}\,\operatorname{Top}(a\to\mu).
+\]
+\item[(iii)] Put $\Delta_m=\mu_{i+m}-\mu_i$ and let $\Delta_D\leq N<\Delta_{D+1}$.
+Then $A^\star_{\mu_i,k',N}=0$ for $k'>D$, and $A^\star_{\mu_i,D,N}$ is
+$\operatorname{Top}(\mu_i\to\mu_{i+D})$ times
+$H_{N-\Delta_D}(c_\star,\mu_{i+D},d)$.  This is nonzero in $K_\star$, so
+$H_N(c_\star,\Delta,d)$ has a pole of order exactly $D$ at $\Delta=\mu_i$.  At a
+specialized $d$ the order is at most $D$, and exactly $D$ if and only if
+$\operatorname{Top}(\mu_i\to\mu_{i+D})\,H_{N-\Delta_D}(c_\star,\mu_{i+D},d)\neq0$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) is Lemma~\ref{lem:node-leading}(ii) for the one-label chain, with
+$h_{a\mu}-h_{a\mu_m}=\epsilon\varsigmaT_i(T_k-T_m)$.  (ii) The analogue
+of~\eqref{eq:diagonal-rec} has one node $\nu=\mu_{k-j}$ in the layer $L_a+D-j$:
+$f_j(a,\mu)T_k=f_{j-1}(a,\mu)T_i-\hat\kappa(a,\nu,\mu)f_{j-1}(\nu,\mu)T_{k-j}$.
+With $T_m=N_0(\tau_0+\pi_m)$, $\tau_0=x_0/N_0$, and the two boundary weights
+$x_0=2,4$ of $(p,p')=(2,3)$ ($\tau_0=\frac16,\frac13$), this is an identity of
+affine functions of $\tau_0$: $f_j=f_{j-1}-\hat\kappa f_{j-1}(\nu,\mu)$ and
+$f_j\pi_k=f_{j-1}\pi_i-\hat\kappa f_{j-1}(\nu,\mu)\pi_{k-j}$.  Eliminating the
+last term, $f_j(a,\mu)(\pi_k-\pi_{k-j})=f_{j-1}(a,\mu)(\pi_i-\pi_{k-j})$, and
+induction from $f_0=1$ gives (ii).  (iii) Apply~\eqref{eq:fixed-charge} at the
+weight $\mu_i$, which lies in $\operatorname{Kac}_N(b_\star)$ as the weight of the
+label to $\mu_{i+1}$.  By Lemma~\ref{lem:boundary-labels} the chains from
+$\mu_i$ end at nodes $\mu_{i+m}$, and
+$c^{(k')}_{\mu_i\to\mu_{i+m},j}(b_\star)=0$ when $k'+j>m$; only $m\leq D$ occurs,
+and for $k'=D$ only $\mu_{i+D}$ with $j=0$ remains.  If $N=\Delta_D$ this is the
+first term of~\eqref{eq:fixed-charge}, and $H_0=1$.  Otherwise the zeros of the
+Kac determinant at the level $M=N-\Delta_D$ and the weight $\mu_{i+D}$ are labels
+from $\mu_{i+D}$, of level at least $\Delta_{D+1}-\Delta_D>M$, so
+$H_M(c_\star,\cdot)$ is regular at $\mu_{i+D}$ and~\eqref{eq:regvalue} gives the
+value $H_M(c_\star,\mu_{i+D},d)$; as $\det G_M(c_\star,\mu_{i+D})\neq0$ and
+$\mu_{i+D}$ has integer momentum, it is a nonzero polynomial in $d$ by
+Proposition~\ref{prop:h13-nonvanishing}(iii).
+\end{proof}
+
+At a specialized $d$ the top coefficient can vanish: the factors of
+${\mathcal N}_g$ with $(k,l)=(1,1)$ are $-d$ and $1-d$.  The Jantzen filtration
+at these weights is the classical one-chain filtration,\footnote{See
+\cite[Theorem~6.3(ii)--(iv) and (6.4)]{IoharaKoga2011} and
+\cite[Theorem~B]{Astashkevich1997}.} and the pole order $D$ of
+$G_N(c_\star,\cdot)^{-1}$ at $\mu_i$ for $\Delta_D\leq N<\Delta_{D+1}$ follows from
+it; contracting with the torus form can only lower this order.
+Theorem~\ref{thm:boundary} shows that the block keeps the order $D$ over $K_\star$,
+and gives its top coefficient: the leading coefficient
+$\rho_g=\operatorname{lead}({\mathcal A}_g){\mathcal N}_g(b_\star,d)$ of the single
+residue from $\mu_i$ to $\mu_{i+D}$ times a product of slope differences.  For
+example at $c=0$ the weight $\lambda=d_2=\frac18$ has nodes at the levels
+$4,8,20,28,\dots$, and
+$c^{(1)}_{\lambda\to\mu_2,1}(b_\star)=\frac{14}2\cdot\frac{2+10}{14+10}
+\operatorname{Top}(\lambda\to\mu_2)=\frac72\operatorname{Top}(\lambda\to\mu_2)$.
 
 \section{Sharpness of the Jantzen bound}\label{sec:sharpness}
 
@@ -3267,21 +3825,24 @@ The confluence theorems (Theorems~\ref{thm:general-confluence}
 and~\ref{thm:confluence}) hold at every \(b_\star\neq0\).  The pole-order
 bounds, the top coefficients and their sharpness
 (Sections~\ref{sec:mm-layers}--\ref{sec:sharpness} and~\ref{sec:jantzen})
-concern interior minimal-model weights.  The top coefficients are nonzero
+concern interior minimal-model weights, except Section~\ref{sec:boundary},
+which treats the boundary weights of Class \(R^+\) for the torus block.  The top coefficients are nonzero
 over the rational function field of the external weights and can vanish at a
 specialization (Lemma~\ref{lem:d-derivatives},
 Lemma~\ref{lem:pi-factorization}(iii)).
 
-Several questions remain open.  At the boundary weights of Class \(R^+\),
-whose Jantzen filtrations are given
-by~\cite[Theorem~6.3(ii)--(iv) and (6.4)]{IoharaKoga2011}, and at the charges
-\(c_\star=1,25\), the confluence formulas still give every coefficient, but
-the pole order and the top coefficient are not determined here.  The
-coefficients below the top one, \(A^\star_{\lambda,k,N}\) with
-\(k<m^\star_{\lambda,N}\), are given by Theorem~\ref{thm:fixed-charge} with
-coefficients \(c^{(k)}_{\lambda\to\mu,j}(b_\star)\) computed from the closed
-forms of the generic residues; a description of these coefficients in terms
-of the specialized module, like Theorems~\ref{thm:top-layer}
+Several questions remain open.  At the charges \(c_\star=1,25\), at weights
+whose momentum is divisible by \(pp'\), and for the sphere block at the
+boundary weights of Class \(R^+\), the confluence formulas still give every
+coefficient, but the pole order and the top coefficient are not determined
+here; Sections~\ref{sec:diagonal} and~\ref{sec:boundary} are written for the
+torus block.  The coefficients below the top one, \(A^\star_{\lambda,k,N}\)
+with \(k<m^\star_{\lambda,N}\), are given by Theorem~\ref{thm:fixed-charge}.  The
+values \(c^{(k)}_{\lambda\to\mu,j}(b_\star)\) with \(k+j\) equal to the layer
+distance have the closed form of Theorem~\ref{thm:diagonal}, and all values are
+determined by the Shapovalov and torus forms at \(c_\star\)
+(Corollary~\ref{cor:chain-values}); an identification of the other values with
+pairings in the specialized module, like Theorems~\ref{thm:top-layer}
 and~\ref{thm:top-layer-sph} for the top one, is not known.  Irreducible minimal-model sphere
 blocks are not treated here; for the torus, the irreducible traces are
 treated in~\cite{PolzerTraces2026}.
@@ -3631,6 +4192,14 @@ ancillary files of the arXiv version; the others are in the repository only.
   Theorem~\ref{thm:general-confluence} (torus) or Theorem~\ref{thm:confluence}
   (sphere), and with the option \texttt{-{}-check-cut} it checks the identity
   of Lemma~\ref{lem:cutting} exactly.
+\item Sections~\ref{sec:diagonal} and~\ref{sec:boundary}
+  (\path{notes/ribault/probes/}): the formula of Theorem~\ref{thm:diagonal}
+  against the recursion of Lemma~\ref{lem:diagonal-values}(i) for bases of
+  layer at most \(7\) and \(D\leq9\); Theorem~\ref{thm:diagonal} and
+  Theorem~\ref{thm:boundary}(i),(ii) against the chain functions of the script
+  above in six and three minimal models; Theorem~\ref{thm:boundary}(iii) and
+  Corollary~\ref{cor:chain-values} against Shapovalov inversion at \(c=0\)
+  and at \((p,p')=(2,5)\).
 \item The sphere confluence of Part~II (\texttt{sphere/tools/}), through level
   seven for \((p,p')=(2,3),(2,5),(3,4)\) and through level three at
   \(b_\star^2=\sqrt2\), including the \(c=0\) level-five
