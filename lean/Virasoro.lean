@@ -215,3 +215,5 @@ import Virasoro.Proofs.Sec8DiagJets
 import Virasoro.Proofs.Sec8DiagNodes
 import Virasoro.Proofs.Sec8DiagLabels
 import Virasoro.Proofs.Sec8DiagLabels3
+import Virasoro.Proofs.Sec8DiagBridgeAux
+import Virasoro.Proofs.Sec8DiagBridge
