@@ -213,3 +213,4 @@ import Virasoro.Proofs.Sec7ChainValues
 import Virasoro.Statements.Sec8Diagonal
 import Virasoro.Proofs.Sec8DiagJets
 import Virasoro.Proofs.Sec8DiagNodes
+import Virasoro.Proofs.Sec8DiagLabels
