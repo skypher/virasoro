@@ -1,0 +1,28 @@
+[    0.0s] model (2,3) c*=0 lambda=h_(1,1)=0 d=3/7
+[    0.0s]   gram: F_1 Laurent at 0 done
+[    0.0s]   gram: F_2 Laurent at 0 done
+[    0.0s]   gram: F_3 Laurent at 0 done
+[    0.1s]   gram: F_4 Laurent at 0 done
+[    0.2s]   gram: F_5 Laurent at 0 done
+[    0.8s]   gram: F_6 Laurent at 0 done
+[    3.8s]   gram: F_7 Laurent at 0 done
+[    4.9s] N= 5: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []; gram agrees
+[    6.0s] N= 6: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []; gram agrees
+[    7.2s] N= 7: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []; gram agrees
+[    9.2s] N= 8: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []
+[   11.5s] N= 9: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []
+[   13.9s] N=10: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []
+[   17.0s] N=11: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []
+Traceback (most recent call last):
+  File "/home/yang/virasoro/runs/ribault/layer2_recursion.py", line 436, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/yang/virasoro/runs/ribault/layer2_recursion.py", line 411, in main
+    first, Kp, Mp, top, cancel, flags = candidate(m, lam, N, args.report_pairs)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yang/virasoro/runs/ribault/layer2_recursion.py", line 340, in candidate
+    Hv = model.H_value(Mp, nu_w)
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yang/virasoro/runs/ribault/layer2_recursion.py", line 284, in H_value
+    raise ArithmeticError(f"H_{M} has a pole at {x}")
+ArithmeticError: H_7 has a pole at 5

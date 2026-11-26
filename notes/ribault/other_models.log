@@ -1,0 +1,20 @@
+[    0.0s] model (3,4) c*=1/2 lambda=h_(2,1)=1/2 d=2/9
+[    0.0s]   gram: F_1 Laurent at 1/2 done
+[    0.0s]   gram: F_2 Laurent at 1/2 done
+[    0.0s]   gram: F_3 Laurent at 1/2 done
+[    0.1s]   gram: F_4 Laurent at 1/2 done
+[    0.2s]   gram: F_5 Laurent at 1/2 done
+[    1.0s]   gram: F_6 Laurent at 1/2 done
+[    3.7s]   gram: F_7 Laurent at 1/2 done
+[    5.4s] N= 6: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []; gram agrees
+[    7.0s] N= 7: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []; gram agrees
+[    8.6s] N= 8: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []
+[   11.0s] N= 9: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []
+[   13.9s] N=10: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []
+[   13.9s] ALL OK
+[    0.0s] model (2,5) c*=-22/5 lambda=h_(1,2)=-1/5 d=-4/13
+[    3.7s] N= 8: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []
+[    7.2s] N= 9: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []
+[   10.2s] N=10: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []
+[   13.9s] N=11: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []
+[   13.9s] ALL OK

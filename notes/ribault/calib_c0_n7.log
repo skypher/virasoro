@@ -1,0 +1,23 @@
+[    0.0s] model (2,3) c*=0 lambda=h_(1,1)=0 d=3/7
+[    0.0s]   gram: F_1 Laurent at 0 done
+[    0.0s]   gram: F_2 Laurent at 0 done
+[    0.0s]   gram: F_3 Laurent at 0 done
+[    0.1s]   gram: F_4 Laurent at 0 done
+[    0.2s]   gram: F_5 Laurent at 0 done
+[    1.0s]   gram: F_6 Laurent at 0 done
+[    1.0s] N= 1: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []; gram agrees
+[    1.1s] N= 2: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []; gram agrees
+[    1.2s] N= 3: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []; gram agrees
+[    1.5s] N= 4: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []; gram agrees
+[    2.0s]     pair a=(1, 1) g=(1, 4): nu=5, M'=0, sigma=-5/3, P0/sigma*H=-360021024/49433168575, M_ag/(P0 h_a'/sigma)=h_a const
+[    2.0s]     pair a=(1, 2) g=(3, 1): nu=5, M'=0, sigma=7/3, P0/sigma*H=360021024/49433168575, M_ag/(P0 h_a'/sigma)=-6
+[    2.0s] N= 5: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []; gram agrees
+[    2.7s]     pair a=(1, 1) g=(1, 4): nu=5, M'=1, sigma=-5/3, P0/sigma*H=2160126144/12111126300875, M_ag/(P0 h_a'/sigma)=h_a const
+[    2.7s]     pair a=(1, 2) g=(3, 1): nu=5, M'=1, sigma=7/3, P0/sigma*H=-2160126144/12111126300875, M_ag/(P0 h_a'/sigma)=-6
+[    2.7s] N= 6: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []; gram agrees
+[    3.6s]     pair a=(1, 1) g=(1, 4): nu=5, M'=2, sigma=-5/3, P0/sigma*H=12634577816256/20770581606000625, M_ag/(P0 h_a'/sigma)=h_a const
+[    3.6s]     pair a=(1, 1) g=(3, 2): nu=7, M'=0, sigma=5/3, P0/sigma*H=35094129377472/20770581606000625, M_ag/(P0 h_a'/sigma)=h_a const
+[    3.6s]     pair a=(1, 2) g=(1, 5): nu=7, M'=0, sigma=-7/3, P0/sigma*H=-35094129377472/20770581606000625, M_ag/(P0 h_a'/sigma)=8
+[    3.6s]     pair a=(1, 2) g=(3, 1): nu=5, M'=2, sigma=7/3, P0/sigma*H=-12634577816256/20770581606000625, M_ag/(P0 h_a'/sigma)=-6
+[    3.6s] N= 7: A2 = pairs-top; A1 = candidate; d_b-cancellation ok; higher poles []; flags []
+[    3.6s] ALL OK

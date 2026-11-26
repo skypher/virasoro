@@ -1,0 +1,14 @@
+[    0.0s] model (2,3) lambda=0 d=3/7 jmax=6 prec=26
+[   14.7s] N=11 k=1: surviving b-jets: none  (max Delta-order used 1)  fixed-charge part = A
+[   14.9s] N=11 k=2: surviving b-jets: none  (max Delta-order used 0)  fixed-charge part = A
+[   15.1s] N=11 k=3: surviving b-jets: none  (max Delta-order used -1)  fixed-charge part = A
+[   23.5s] N=12 k=1: surviving b-jets: none  (max Delta-order used 1)  fixed-charge part = A
+[   23.7s] N=12 k=2: surviving b-jets: none  (max Delta-order used 0)  fixed-charge part = A
+[   23.9s] N=12 k=3: surviving b-jets: none  (max Delta-order used -1)  fixed-charge part = A
+[   34.2s] N=13 k=1: surviving b-jets: none  (max Delta-order used 2)  fixed-charge part = A
+[   34.6s] N=13 k=2: surviving b-jets: none  (max Delta-order used 0)  fixed-charge part = A
+[   35.0s] N=13 k=3: surviving b-jets: none  (max Delta-order used 0)  fixed-charge part = A
+[   46.2s] N=14 k=1: surviving b-jets: none  (max Delta-order used 2)  fixed-charge part = A
+[   46.7s] N=14 k=2: surviving b-jets: none  (max Delta-order used 0)  fixed-charge part = A
+[   47.0s] N=14 k=3: surviving b-jets: none  (max Delta-order used 0)  fixed-charge part = A
+[   47.0s] DONE

@@ -1,0 +1,36 @@
+[    0.0s] model (3,4) lambda=1/2 d=2/9 jmax=5 prec=24
+[    0.8s] N=24 k=1: surviving b-jets: none  (nonzero terms 6, max Delta-order used 1); chain sums c_(mu,j) regular
+[    1.2s] N=24 k=2: surviving b-jets: none  (nonzero terms 2, max Delta-order used 0); chain sums c_(mu,j) regular
+[    1.5s] N=24 k=3: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular
+[    1.8s] N=24 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular
+[    2.7s] N=25 k=1: surviving b-jets: none  (nonzero terms 7, max Delta-order used 1); chain sums c_(mu,j) regular
+[    3.0s] N=25 k=2: surviving b-jets: none  (nonzero terms 3, max Delta-order used 0); chain sums c_(mu,j) regular
+[    3.4s] N=25 k=3: surviving b-jets: none  (nonzero terms 1, max Delta-order used -1); chain sums c_(mu,j) regular
+[    3.7s] N=25 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular
+[    5.5s] N=26 k=1: surviving b-jets: none  (nonzero terms 9, max Delta-order used 2); chain sums c_(mu,j) regular
+[    6.2s] N=26 k=2: surviving b-jets: none  (nonzero terms 3, max Delta-order used 0); chain sums c_(mu,j) regular
+[    6.7s] N=26 k=3: surviving b-jets: none  (nonzero terms 1, max Delta-order used 0); chain sums c_(mu,j) regular
+[    7.3s] N=26 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular
+[    9.3s] N=27 k=1: surviving b-jets: none  (nonzero terms 9, max Delta-order used 2); chain sums c_(mu,j) regular
+[    9.9s] N=27 k=2: surviving b-jets: none  (nonzero terms 3, max Delta-order used 0); chain sums c_(mu,j) regular
+[   10.5s] N=27 k=3: surviving b-jets: none  (nonzero terms 1, max Delta-order used 0); chain sums c_(mu,j) regular
+[   11.2s] N=27 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular
+[   11.2s] DONE
+[    0.0s] model (2,5) lambda=-1/5 d=-4/13 jmax=5 prec=24
+[    0.9s] N=20 k=1: surviving b-jets: none  (nonzero terms 6, max Delta-order used 1); chain sums c_(mu,j) regular
+[    1.2s] N=20 k=2: surviving b-jets: none  (nonzero terms 2, max Delta-order used 0); chain sums c_(mu,j) regular
+[    1.5s] N=20 k=3: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular
+[    1.8s] N=20 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular
+[    2.8s] N=21 k=1: surviving b-jets: none  (nonzero terms 7, max Delta-order used 1); chain sums c_(mu,j) regular
+[    3.1s] N=21 k=2: surviving b-jets: none  (nonzero terms 3, max Delta-order used 0); chain sums c_(mu,j) regular
+[    3.4s] N=21 k=3: surviving b-jets: none  (nonzero terms 1, max Delta-order used -1); chain sums c_(mu,j) regular
+[    3.8s] N=21 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular
+[    5.8s] N=22 k=1: surviving b-jets: none  (nonzero terms 9, max Delta-order used 2); chain sums c_(mu,j) regular
+[    6.4s] N=22 k=2: surviving b-jets: none  (nonzero terms 3, max Delta-order used 0); chain sums c_(mu,j) regular
+[    7.0s] N=22 k=3: surviving b-jets: none  (nonzero terms 1, max Delta-order used 0); chain sums c_(mu,j) regular
+[    7.8s] N=22 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular
+[    9.7s] N=23 k=1: surviving b-jets: none  (nonzero terms 9, max Delta-order used 2); chain sums c_(mu,j) regular
+[   10.4s] N=23 k=2: surviving b-jets: none  (nonzero terms 3, max Delta-order used 0); chain sums c_(mu,j) regular
+[   11.0s] N=23 k=3: surviving b-jets: none  (nonzero terms 1, max Delta-order used 0); chain sums c_(mu,j) regular
+[   11.7s] N=23 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular
+[   11.7s] DONE

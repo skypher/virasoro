@@ -1,0 +1,54 @@
+[    0.0s] model (1,1) lambda=0 d=3/7 jmax=5 prec=26
+[    3.6s] N= 8 k=1: surviving b-jets: none  (nonzero terms 4, max Delta-order used 2); chain sums c_(mu,j) regular  fixed-charge part = A
+[    3.7s] N= 8 k=2: surviving b-jets: none  (nonzero terms 1, max Delta-order used 0); chain sums c_(mu,j) regular  fixed-charge part = A
+[    3.7s] N= 8 k=3: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[    3.8s] N= 8 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[    6.9s] N= 9 k=1: surviving b-jets: none  (nonzero terms 5, max Delta-order used 2); chain sums c_(mu,j) regular  fixed-charge part = A
+[    6.9s] N= 9 k=2: surviving b-jets: none  (nonzero terms 2, max Delta-order used 0); chain sums c_(mu,j) regular  fixed-charge part = A
+[    7.0s] N= 9 k=3: surviving b-jets: none  (nonzero terms 1, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[    7.0s] N= 9 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[   11.7s] N=10 k=1: surviving b-jets: none  (nonzero terms 9, max Delta-order used 4); chain sums c_(mu,j) regular  WARNING: raise --jmax  fixed-charge part = A
+[   11.9s] N=10 k=2: surviving b-jets: none  (nonzero terms 4, max Delta-order used 2); chain sums c_(mu,j) regular  fixed-charge part = A
+[   12.0s] N=10 k=3: surviving b-jets: none  (nonzero terms 1, max Delta-order used 0); chain sums c_(mu,j) regular  fixed-charge part = A
+[   12.1s] N=10 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[   17.1s] N=11 k=1: surviving b-jets: none  (nonzero terms 9, max Delta-order used 4); chain sums c_(mu,j) regular  WARNING: raise --jmax  fixed-charge part = A
+[   17.3s] N=11 k=2: surviving b-jets: none  (nonzero terms 4, max Delta-order used 2); chain sums c_(mu,j) regular  fixed-charge part = A
+[   17.4s] N=11 k=3: surviving b-jets: none  (nonzero terms 1, max Delta-order used 0); chain sums c_(mu,j) regular  fixed-charge part = A
+[   17.6s] N=11 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[   17.6s] DONE
+[    0.0s] model (2,-3) lambda=-4 d=5/3 jmax=5 prec=26
+[    1.0s] N= 5 k=1: surviving b-jets: none  (nonzero terms 3, max Delta-order used 0); chain sums c_(mu,j) regular  fixed-charge part = A
+[    1.1s] N= 5 k=2: surviving b-jets: none  (nonzero terms 1, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[    1.2s] N= 5 k=3: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[    1.3s] N= 5 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[    2.9s] N= 6 k=1: surviving b-jets: none  (nonzero terms 4, max Delta-order used 1); chain sums c_(mu,j) regular  fixed-charge part = A
+[    3.0s] N= 6 k=2: surviving b-jets: none  (nonzero terms 1, max Delta-order used 0); chain sums c_(mu,j) regular  fixed-charge part = A
+[    3.2s] N= 6 k=3: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[    3.3s] N= 6 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[    5.5s] N= 7 k=1: surviving b-jets: none  (nonzero terms 4, max Delta-order used 1); chain sums c_(mu,j) regular  fixed-charge part = A
+[    5.6s] N= 7 k=2: surviving b-jets: none  (nonzero terms 1, max Delta-order used 0); chain sums c_(mu,j) regular  fixed-charge part = A
+[    5.8s] N= 7 k=3: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[    5.9s] N= 7 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[    8.5s] N= 8 k=1: surviving b-jets: none  (nonzero terms 4, max Delta-order used 1); chain sums c_(mu,j) regular  fixed-charge part = A
+[    8.6s] N= 8 k=2: surviving b-jets: none  (nonzero terms 1, max Delta-order used 0); chain sums c_(mu,j) regular  fixed-charge part = A
+[    8.7s] N= 8 k=3: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[    8.9s] N= 8 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[   11.9s] N= 9 k=1: surviving b-jets: none  (nonzero terms 4, max Delta-order used 1); chain sums c_(mu,j) regular  fixed-charge part = A
+[   12.1s] N= 9 k=2: surviving b-jets: none  (nonzero terms 1, max Delta-order used 0); chain sums c_(mu,j) regular  fixed-charge part = A
+[   12.2s] N= 9 k=3: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[   12.4s] N= 9 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[   16.2s] N=10 k=1: surviving b-jets: none  (nonzero terms 4, max Delta-order used 1); chain sums c_(mu,j) regular  fixed-charge part = A
+[   16.4s] N=10 k=2: surviving b-jets: none  (nonzero terms 1, max Delta-order used 0); chain sums c_(mu,j) regular  fixed-charge part = A
+[   16.5s] N=10 k=3: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[   16.7s] N=10 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[   16.7s] DONE
+[    0.0s] model (2,3) lambda=1/3 d=3/7 jmax=5 prec=26
+[   68.1s] N=18 k=1: surviving b-jets: none  (nonzero terms 4, max Delta-order used 1); chain sums c_(mu,j) regular  fixed-charge part = A
+[   68.3s] N=18 k=2: surviving b-jets: none  (nonzero terms 2, max Delta-order used 0); chain sums c_(mu,j) regular  fixed-charge part = A
+[   68.8s] N=18 k=3: surviving b-jets: none  (nonzero terms 1, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[   69.1s] N=18 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[   96.6s] N=19 k=1: surviving b-jets: none  (nonzero terms 6, max Delta-order used 2); chain sums c_(mu,j) regular  fixed-charge part = A
+[   97.1s] N=19 k=2: surviving b-jets: none  (nonzero terms 3, max Delta-order used 1); chain sums c_(mu,j) regular  fixed-charge part = A
+[   97.6s] N=19 k=3: surviving b-jets: none  (nonzero terms 1, max Delta-order used 0); chain sums c_(mu,j) regular  fixed-charge part = A
+[   98.1s] N=19 k=4: surviving b-jets: none  (nonzero terms 0, max Delta-order used -1); chain sums c_(mu,j) regular  fixed-charge part = A
+[   98.1s] DONE
