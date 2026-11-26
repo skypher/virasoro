@@ -5,8 +5,11 @@ theorem of every numbered result are in `PAPER_MAP.md`; the mirror check of 2026
 entry of `REVIEW.md`.  The tables below are historical (paper at 9aa415f / 803f1aa).
 On 2026-11-26 Section 7.2 of `paper.tex` (Lemma 7.8 to Corollary 7.15, the recursion at the fixed
 charge) was added: definitions in `FixedCharge.lean`, statements in
-`Statements/Sec7FixedCharge.lean`, proofs in `Proofs/Sec7{Cut,Moments,Binom,Remainder,Expansion,
-FixedCharge,Generic}.lean`.  No `sorry`; the axiom audit of the 73 mapped theorems
+`Statements/Sec7FixedCharge.lean`, proofs in `Proofs/Sec7{Cut,Moments,Binom,Remainder,
+RemainderReg2,Expansion,FixedCharge,Generic}.lean`.  After yang2's packet 46 review, Lemma 7.11
+states the two-variable regularity of `Reg` at `(b⋆, μ)` literally (`Reg = P/E` over `K[[t]]`,
+`E(0, μ) ≠ 0`, restriction (7.6)), Lemma 7.12 states `t`-adic convergence per end point, and
+Theorem 7.14 the eventual vanishing of `c^{(k)}_{λ→μ,j}(b⋆)` per end point.  No `sorry`; the axiom audit of the 73 mapped theorems
 (`../runs/lean2/checkMAP.log`) shows only [propext, Classical.choice, Quot.sound].  The new
 statements and labelled theorems await the independent statement and fidelity check.
 

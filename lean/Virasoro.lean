@@ -204,6 +204,7 @@ import Virasoro.Proofs.Sec7Cut
 import Virasoro.Proofs.Sec7Moments
 import Virasoro.Proofs.Sec7Binom
 import Virasoro.Proofs.Sec7Remainder
+import Virasoro.Proofs.Sec7RemainderReg2
 import Virasoro.Proofs.Sec7Expansion
 import Virasoro.Proofs.Sec7FixedCharge
 import Virasoro.Proofs.Sec7Generic

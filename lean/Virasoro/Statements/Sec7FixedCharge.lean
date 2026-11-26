@@ -24,8 +24,10 @@ Reading conventions.
   rational functions of `Δ` over the same field, and `Reg` "has no pole on `b = b⋆` near
   `Δ = μ`" is read through its Taylor coefficients at `Δ = μ`: the derivatives
   `φ^{(M)}_{μ,j} = ∂_Δ^j Reg(b⋆ + t, μ)` (`phiRemC`) are regular at `t = 0`.
-* A series over `j` that converges `t`-adically is stated coefficientwise: for every `m` the
-  coefficient of `t^m` of the partial sums over `j < J'` is constant for `J'` large.
+* A series over `j` that converges `t`-adically is stated through valuations: for every `m`,
+  every finite tail `∑_{J₁ ≤ j < J₂}` with `J₁` large has `t`-order at least `m`; an identity
+  with such a series means that the difference with the partial sums over `j < J` has `t`-order
+  at least `m` for `J` large.
 -/
 
 namespace Virasoro
@@ -90,46 +92,65 @@ def Stmt_lem_cutting : Prop :=
         ∑ n ∈ Finset.Ioo 0 D, chainFnC b lam n k 0 * chainFnC b (lam + n) (D - n) 1 (j - 1)
 
 open Classical in
-/-- Lemma 7.11 (`lem:regular-remainder`).  For `b⋆ ≠ 0`, `M ≥ 1` and `μ ∈ ℂ`, the remainder
-`Reg^{(M)}_μ` is the sum of the other collision groups (proof of the lemma); its Taylor
-coefficients `∂_Δ^j Reg^{(M)}_μ(b, μ) = j! [(Δ-μ)^j] Reg^{(M)}_μ` are the germs `φ^{(M)}_{μ,j}`
-(`phiRemC`), regular at `b⋆`, and their values are those of `H_M(c⋆,·) - PP_{Δ=μ} H_M(c⋆,·)`
-(equation (7.6)).  The Taylor coefficient is the Laurent coefficient (`lcoeff`) at the point
-`μ` of the `Δ`-line over the field of germs. -/
+/-- Lemma 7.11 (`lem:regular-remainder`).  For `b⋆ ≠ 0`, `M ≥ 1` and `μ ∈ ℂ`: the remainder
+`Reg^{(M)}_μ` is the sum of the other collision groups (proof of the lemma); it has no pole on the
+line `b = b⋆` near `Δ = μ` and satisfies (7.6): as a rational function of `Δ` over the germs it is
+a quotient `P/E` of polynomials in `Δ` whose coefficients are power series in `t`, with
+`E(0, μ) ≠ 0`, and its restriction `P(0,·)/E(0,·)` to `t = 0` is
+`H_M(c⋆,·) - PP_{Δ=μ} H_M(c⋆,·)`.  Consequently its Taylor coefficients
+`∂_Δ^j Reg^{(M)}_μ(b, μ) = j! [(Δ-μ)^j] Reg^{(M)}_μ` are the germs `φ^{(M)}_{μ,j}` (`phiRemC`),
+regular at `b⋆` with the values of `H_M(c⋆,·) - PP_{Δ=μ} H_M(c⋆,·)`.  Here `d` is indeterminate
+and "near `Δ = μ`" refers to the variable `Δ`. -/
 def Stmt_lem_regular_remainder : Prop :=
   ∀ b : ℂ, b ≠ 0 → ∀ M : ℕ, 1 ≤ M → ∀ mu : ℂ,
     regC b M mu =
       (∑ g ∈ (labels M).filter (fun g => kacHL g b ≠ mu),
         RatFunc.C (BG (bsC b) dvar M g) / (RatFunc.X - RatFunc.C (hG (bsC b) g))) ∧
+    (∃ P E : Polynomial (PowerSeries Kd),
+      (E.map (PowerSeries.constantCoeff : PowerSeries Kd →+* Kd)).eval (pt mu) ≠ 0 ∧
+      regC b M mu =
+        algebraMap (Polynomial Kd⸨X⸩) (RatFunc Kd⸨X⸩) (P.map (HahnSeries.ofPowerSeries ℤ Kd)) /
+          algebraMap (Polynomial Kd⸨X⸩) (RatFunc Kd⸨X⸩) (E.map (HahnSeries.ofPowerSeries ℤ Kd)) ∧
+      HN (kacC b) M - PP (HN (kacC b) M) (pt mu) =
+        algebraMap (Polynomial Kd) (RatFunc Kd)
+            (P.map (PowerSeries.constantCoeff : PowerSeries Kd →+* Kd)) /
+          algebraMap (Polynomial Kd) (RatFunc Kd)
+            (E.map (PowerSeries.constantCoeff : PowerSeries Kd →+* Kd))) ∧
     ∀ j : ℕ,
       phiRemC b M mu j = (j.factorial : Kd⸨X⸩) * lcoeff (regC b M mu) (HahnSeries.C (pt mu)) j ∧
       (0 : WithTop ℤ) ≤ (phiRemC b M mu j).orderTop ∧
       (phiRemC b M mu j).coeff 0 = (j.factorial : Kd) * lcoeff (HN (kacC b) M) (pt mu) j
 
-/-- Lemma 7.12 (`lem:chain-expansion`).  Equation (7.7), with the series over `j` converging
-`t`-adically: `C_{λ,k,N} = c^{(k)}_{λ→λ+N,0} + ∑_{0<n<N} ∑_j c^{(k)}_{λ→λ+n,j} φ^{(N-n)}_{λ+n,j}`. -/
+/-- Lemma 7.12 (`lem:chain-expansion`).  Equation (7.7): for each end point `μ = λ + n`,
+`0 < n < N`, the series `∑_j c^{(k)}_{λ→μ,j} φ^{(N-n)}_{μ,j}` converges `t`-adically, and
+`C_{λ,k,N} = c^{(k)}_{λ→λ+N,0} + ∑_{0<n<N} ∑_j c^{(k)}_{λ→λ+n,j} φ^{(N-n)}_{λ+n,j}`. -/
 def Stmt_lem_chain_expansion : Prop :=
   ∀ b : ℂ, b ≠ 0 → ∀ N : ℕ, 1 ≤ N → ∀ lam ∈ Lam N b, ∀ k : ℕ, 1 ≤ k →
-    ∀ m : ℤ, ∃ J : ℕ, ∀ J' : ℕ, J ≤ J' →
-      (fullMomentC b N lam k).coeff m =
+    (∀ n ∈ Finset.Ioo 0 N, ∀ m : ℤ, ∃ J₀ : ℕ, ∀ J₁ J₂ : ℕ, J₀ ≤ J₁ →
+      (m : WithTop ℤ) ≤ (∑ j ∈ Finset.Ico J₁ J₂,
+        chainFnC b lam n k j * phiRemC b (N - n) (lam + n) j).orderTop) ∧
+    (∀ m : ℤ, ∃ J₀ : ℕ, ∀ J : ℕ, J₀ ≤ J →
+      (m : WithTop ℤ) ≤ (fullMomentC b N lam k -
         (chainFnC b lam N k 0 +
-          ∑ n ∈ Finset.Ioo 0 N, ∑ j ∈ Finset.range J',
-            chainFnC b lam n k j * phiRemC b (N - n) (lam + n) j).coeff m
+          ∑ n ∈ Finset.Ioo 0 N, ∑ j ∈ Finset.range J,
+            chainFnC b lam n k j * phiRemC b (N - n) (lam + n) j)).orderTop)
 
 /-- Lemma 7.13 (`lem:chain-regular`).  Every chain function is regular at `b = b⋆`. -/
 def Stmt_lem_chain_regular : Prop :=
   ∀ b : ℂ, b ≠ 0 → ∀ (lam : ℂ) (D k j : ℕ), 1 ≤ D → 1 ≤ k → (0 : WithTop ℤ) ≤ (chainFnC b lam D k j).orderTop
 
-/-- Theorem 7.14 (`thm:fixed-charge`).  For `b⋆ ≠ 0` and `N ≥ 1`: equation (7.8) holds at every
-`λ ∈ Kac_N(b⋆)` and `k ≥ 1`, with finitely many nonzero terms (the cut at `J` is exact for `J`
-large); `H_N(c⋆,·)` is the sum of its principal parts over `Kac_N(b⋆)`; and the chain functions
-are regular at `b⋆`, so no term of (7.8) has a pole there.  The coefficients do not depend on
-`N` (`chainFnC` has no level argument besides the level of the chains), and (7.8) uses `H_M` at
-the levels `M = N - n < N` only. -/
+/-- Theorem 7.14 (`thm:fixed-charge`).  For `b⋆ ≠ 0` and `N ≥ 1`: at every `λ ∈ Kac_N(b⋆)` and
+`k ≥ 1`, (7.8) has finitely many nonzero terms (for each end point `λ + n`, `0 < n < N`, the values
+`c^{(k)}_{λ→λ+n,j}(b⋆)` vanish for `j` large) and holds (the cut at `J` is exact for `J` large);
+`H_N(c⋆,·)` is the sum of its principal parts over `Kac_N(b⋆)`; and the chain functions are
+regular at `b⋆`, so no term of (7.8) has a pole there.  The coefficients do not depend on `N`
+(`chainFnC` has no level argument besides the level of the chains), and (7.8) uses `H_M` at the
+levels `M = N - n < N` only. -/
 def Stmt_thm_fixed_charge : Prop :=
   ∀ b : ℂ, b ≠ 0 → ∀ N : ℕ, 1 ≤ N →
-    (∀ lam ∈ Lam N b, ∀ k : ℕ, 1 ≤ k → ∃ J₀ : ℕ, ∀ J : ℕ, J₀ ≤ J →
-      Astar b N lam k = fixedChargeRHS b N lam k J) ∧
+    (∀ lam ∈ Lam N b, ∀ k : ℕ, 1 ≤ k →
+      (∀ n ∈ Finset.Ioo 0 N, ∃ J₀ : ℕ, ∀ j : ℕ, J₀ ≤ j → (chainFnC b lam n k j).coeff 0 = 0) ∧
+      ∃ J₀ : ℕ, ∀ J : ℕ, J₀ ≤ J → Astar b N lam k = fixedChargeRHS b N lam k J) ∧
     HN (kacC b) N = ∑ lam ∈ Lam N b, PP (HN (kacC b) N) (pt lam) ∧
     (∀ (lam : ℂ) (D k j : ℕ), 1 ≤ D → 1 ≤ k → (0 : WithTop ℤ) ≤ (chainFnC b lam D k j).orderTop)
 

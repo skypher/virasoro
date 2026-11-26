@@ -294,26 +294,4 @@ theorem phiRemC_eq_lcoeff (hrec : GenericRecursionUniform) {b : ℂ} (hb : b ≠
   simp only [Nat.sub_self, zero_add, Nat.choose_zero_right, Nat.cast_one, mul_one, add_zero]
   ring
 
-/-- Lemma 7.11 from the generic recursion in its uniform form. -/
-theorem lem_regular_remainder_of (hrec : GenericRecursionUniform) :
-    Stmt_lem_regular_remainder := by
-  intro b hb M hM mu
-  have hbs : bsC b ≠ 0 := by simpa [bsC] using hb
-  refine ⟨regC_eq hrec hb hM mu, fun j => ⟨phiRemC_eq_lcoeff hrec hb hM mu j, ?_⟩⟩
-  have h := phiRem_regular hbs dvar hM (fun M' h1 _ => germ_recursion hrec (bsC b) dvar M' h1)
-    (pt mu) j
-  have hHN : HN (kacC b) M = Hrat (kacC (bsC b)) dvar M := by
-    rw [HN, bsC, kacC_ratC]
-  have h1 : OrdGE (phiRemC b M mu j) 0 := h.1
-  refine ⟨by simpa [OrdGE] using h1, ?_⟩
-  rw [hHN]
-  exact h.2
-
-/-- Lemma 7.11, from the two cited results (through Proposition 6.4).
-
-Paper label: lem:regular-remainder -/
-theorem lem_regular_remainder_of_cited (hK : Cited_KacDeterminant)
-    (hH : Cited_HJSNormalizations) : Stmt_lem_regular_remainder :=
-  lem_regular_remainder_of (genericRecursionUniform hK hH)
-
 end Virasoro

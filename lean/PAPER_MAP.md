@@ -66,8 +66,8 @@ papers.
 | Lemma 7.8 | `lem:full-moments` | `Stmt_lem_full_moments` | `Virasoro.lem_full_moments_of_cited` (Virasoro/Proofs/Sec7Moments.lean) |
 | Definition 7.9 | `def:chains` | definitions: `chainFn`, `chainTail`, `delG`, `labelsAt` (FixedCharge.lean) | — |
 | Lemma 7.10 | `lem:cutting` | `Stmt_lem_cutting` | `Virasoro.lem_cutting` (Virasoro/Proofs/Sec7Cut.lean) |
-| Lemma 7.11 | `lem:regular-remainder` | `Stmt_lem_regular_remainder` | `Virasoro.lem_regular_remainder_of_cited` (Virasoro/Proofs/Sec7Remainder.lean) |
-| Lemma 7.12 | `lem:chain-expansion` | `Stmt_lem_chain_expansion` | `Virasoro.lem_chain_expansion` (Virasoro/Proofs/Sec7Expansion.lean) |
+| Lemma 7.11 | `lem:regular-remainder` | `Stmt_lem_regular_remainder` | `Virasoro.lem_regular_remainder_of_cited` (Virasoro/Proofs/Sec7RemainderReg2.lean) |
+| Lemma 7.12 | `lem:chain-expansion` | `Stmt_lem_chain_expansion` | `Virasoro.lem_chain_expansion_of_cited` (Virasoro/Proofs/Sec7Expansion.lean) |
 | Lemma 7.13 | `lem:chain-regular` | `Stmt_lem_chain_regular` | `Virasoro.lem_chain_regular_of_cited` (Virasoro/Proofs/Sec7FixedCharge.lean) |
 | Theorem 7.14 | `thm:fixed-charge` | `Stmt_thm_fixed_charge` | `Virasoro.thm_fixed_charge_of_cited` (Virasoro/Proofs/Sec7FixedCharge.lean) |
 | Corollary 7.15 | `cor:fixed-charge-generic` | `Stmt_cor_fixed_charge_generic` | `Virasoro.cor_fixed_charge_generic_of_cited` (Virasoro/Proofs/Sec7Generic.lean) |

@@ -387,20 +387,86 @@ theorem moment_expansion (hbs : bs ≠ 0) {N : ℕ} (_hN : 1 ≤ N) (lam : K) (k
   rw [hid]
   exact hc J
 
+/-- `δ^j/j!` has `t`-order at least `j` when `δ` has order at least `1`. -/
+theorem ordGE_pow_div_factorial {x : K⸨X⸩} (hx : OrdGE x 1) (j : ℕ) :
+    OrdGE (x ^ j / (j.factorial : K⸨X⸩)) j := by
+  have h1 := (hx.pow j).mul (ordGE_C ((j.factorial : K)⁻¹))
+  have heq : x ^ j / (j.factorial : K⸨X⸩) = x ^ j * HahnSeries.C ((j.factorial : K)⁻¹) := by
+    rw [map_inv₀, map_natCast, div_eq_mul_inv]
+  rw [heq]
+  simpa using h1
+
+/-- The finite-chain estimate for the tails: `ord_t T_j ≥ j + c` with `c` independent of `j`. -/
+theorem chainTail_ord (hbs : bs ≠ 0) : ∀ (D : ℕ) (ν : K) (y : K⸨X⸩),
+    ∃ c : ℤ, ∀ j : ℕ, OrdGE (chainTail bs d j D ν y) ((j : ℤ) + c) := by
+  intro D
+  induction D using Nat.strong_induction_on with
+  | _ D ih =>
+  intro ν y
+  have hE : ∀ g ∈ labelsAt bs D ν, ∃ c : ℤ, ∀ j : ℕ, OrdGE
+      (if g.lvl = D then delG bs g ^ j / (j.factorial : K⸨X⸩)
+        else chainTail bs d j (D - g.lvl) (ν + (g.lvl : K)) (delG bs g)) ((j : ℤ) + c) := by
+    intro g hg
+    have hpos := lvl_pos_of_mem_labels ((mem_labelsAt bs).1 hg).1
+    have hle := lvl_le_of_mem_labels ((mem_labelsAt bs).1 hg).1
+    by_cases hD : g.lvl = D
+    · refine ⟨0, fun j => ?_⟩
+      rw [if_pos hD, add_zero]
+      exact ordGE_pow_div_factorial (ordGE_deltaG_one hbs g) j
+    · obtain ⟨c, hc⟩ := ih (D - g.lvl) (by omega) (ν + (g.lvl : K)) (delG bs g)
+      exact ⟨c, fun j => by rw [if_neg hD]; exact hc j⟩
+  obtain ⟨c, hc⟩ := sum_err (fun g => RG bs d g / (y - delG bs g)) _ hE
+  exact ⟨c, fun j => by rw [chainTail_eq]; exact hc j⟩
+
+/-- The finite-chain estimate (proof of Lemma 7.12):
+`ord_t c^{(k)}_{λ→λ+D,j} ≥ j + c` with `c` independent of `j`. -/
+theorem chainFn_ord (hbs : bs ≠ 0) (lam : K) (D k : ℕ) :
+    ∃ c : ℤ, ∀ j : ℕ, OrdGE (chainFn bs d lam D k j) ((j : ℤ) + c) := by
+  have hE : ∀ a ∈ labelsAt bs D lam, ∃ c : ℤ, ∀ j : ℕ, OrdGE
+      (if a.lvl = D then delG bs a ^ j / (j.factorial : K⸨X⸩)
+        else chainTail bs d j (D - a.lvl) (lam + (a.lvl : K)) (delG bs a)) ((j : ℤ) + c) := by
+    intro a _
+    by_cases hD : a.lvl = D
+    · refine ⟨0, fun j => ?_⟩
+      rw [if_pos hD, add_zero]
+      exact ordGE_pow_div_factorial (ordGE_deltaG_one hbs a) j
+    · obtain ⟨c, hc⟩ := chainTail_ord bs d hbs (D - a.lvl) (lam + (a.lvl : K)) (delG bs a)
+      exact ⟨c, fun j => by rw [if_neg hD]; exact hc j⟩
+  obtain ⟨c, hc⟩ := sum_err (fun a => RG bs d a * delG bs a ^ (k - 1)) _ hE
+  exact ⟨c, fun j => by unfold chainFn; exact hc j⟩
+
 end General
 
-/-- Lemma 7.12.  The expansion is an identity of germs; it uses no cited input.
+/-- Lemma 7.12 from the generic recursion in its uniform form (used through the regularity of
+the `φ_j`, Lemma 7.11, for the convergence of the series over `j` at each end point). -/
+theorem lem_chain_expansion_of (hrec : GenericRecursionUniform) : Stmt_lem_chain_expansion := by
+  intro b hb N hN lam _ k _
+  have hbs : bsC b ≠ 0 := by simpa [bsC] using hb
+  refine ⟨fun n hn m => ?_, fun m => ?_⟩
+  · have hn' := Finset.mem_Ioo.1 hn
+    obtain ⟨c, hc⟩ := chainFn_ord (bsC b) dvar hbs (pt lam) n k
+    refine ⟨(m - c).toNat, fun J₁ J₂ hJ => ?_⟩
+    have h : OrdGE (∑ j ∈ Finset.Ico J₁ J₂,
+        chainFnC b lam n k j * phiRemC b (N - n) (lam + n) j) m := by
+      refine OrdGE.sum fun j hj => ?_
+      have hj1 := (Finset.mem_Ico.1 hj).1
+      have h2 := (phiRem_regular hbs dvar (M := N - n) (by omega)
+        (fun M' h1 _ => germ_recursion hrec (bsC b) dvar M' h1) (pt (lam + n)) j).1
+      refine ((hc j).mul h2).mono ?_
+      push_cast
+      omega
+    exact h
+  · obtain ⟨c, hc⟩ := moment_expansion (bsC b) dvar hbs hN (pt lam) k
+    refine ⟨(m - c).toNat, fun J hJ => ?_⟩
+    have h := (hc J).mono (show m ≤ (J : ℤ) + c by omega)
+    simp only [chainFnC, phiRemC, fullMomentC, pt_add_natCast]
+    exact h
+
+/-- Lemma 7.12, from the two cited results (through Proposition 6.4).
 
 Paper label: lem:chain-expansion -/
-theorem lem_chain_expansion : Stmt_lem_chain_expansion := by
-  intro b hb N hN lam _ k _ m
-  have hbs : bsC b ≠ 0 := by simpa [bsC] using hb
-  obtain ⟨c, hc⟩ := moment_expansion (bsC b) dvar hbs hN (pt lam) k
-  refine ⟨(m - c + 1).toNat, fun J' hJ' => ?_⟩
-  have hlt : m < (J' : ℤ) + c := by omega
-  have h0 := (hc J').coeff_eq_zero hlt
-  rw [HahnSeries.coeff_sub, sub_eq_zero] at h0
-  simp only [chainFnC, phiRemC, fullMomentC, pt_add_natCast]
-  exact h0
+theorem lem_chain_expansion_of_cited (hK : Cited_KacDeterminant)
+    (hH : Cited_HJSNormalizations) : Stmt_lem_chain_expansion :=
+  lem_chain_expansion_of (genericRecursionUniform hK hH)
 
 end Virasoro

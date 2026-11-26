@@ -117,6 +117,10 @@ theorem thm_fixed_charge_of (hrec : GenericRecursionUniform) : Stmt_thm_fixed_ch
   have hpf := thm_general_partial_fractions_of_recursion hrec
   refine ⟨fun lam hlam k hk => ?_, ((hpf b hb).2.1 N hN).2.2.1,
     fun lam D k j hD hk => by simpa [OrdGE] using hreg lam D k j hD hk⟩
+  refine ⟨fun n _ => ?_, ?_⟩
+  · obtain ⟨c, hc⟩ := chainFn_ord (bsC b) dvar hbs (pt lam) n k
+    refine ⟨(1 - c).toNat, fun j hj => ?_⟩
+    exact (hc j).coeff_eq_zero (by omega)
   obtain ⟨c, hc⟩ := moment_expansion (bsC b) dvar hbs hN (pt lam) k
   refine ⟨(1 - c).toNat, fun J hJ => ?_⟩
   have hlt : (0 : ℤ) < (J : ℤ) + c := by omega
