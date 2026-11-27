@@ -25,11 +25,15 @@ through Lemma 7.13 (`lem_node_leading_of_cited`), Proposition 8.6 from the same 
 `fVal`, `(-1)^{D-1} ∑_γ ℓ(γ) π_{x₁}^{D-1-j} π_{x_n}^j` with `ℓ = ellC`);
 Theorem 8.8 from the same two (`thm_diagonal_of_cited`: (8.2) in every model, the comparison
 of the models (2,3), (2,5), (3,4) at h_{1,1}, the sums of `κ̂` in closed form, induction on `D`);
+Corollary 8.9 from `Cited_KacDeterminant`, `Cited_HJSNormalizations`, `Cited_VermaHomInjective`
+and `Cited_SingularUnique` (`cor_diagonal_lambda_of_cited`: Theorem 8.8 at `λ`;
+`Top(λ→μ^±_L) = 𝒩^±_L/γ^±_L` by (7.8) and Theorem 8.2 at `N = min, max ℓ^±_L`; `γ^±_2` by
+Proposition 8.6 at `θ = μ^+_1` and the factorization of `τ^±_2`);
 Proofs/Sec8Diag{Jets,Nodes,Labels,Labels3,BridgeAux,Bridge,Poles,Lead,Chains,LeadSums,Leading,
-Top,Values,Ell,Moments,Rec,Kappa,Thm}.lean, including the identification of `chainFnC` with the
-sum over node chains; axioms [propext, Classical.choice, Quot.sound] (`../runs/ribault/ax_85.log`,
-`ax_86.log`, `ax_87.log`, `ax_88.log`); awaiting review.  Corollary 8.9 and Section 8.2 in
-progress.
+Top,Values,Ell,Moments,Rec,Kappa,Thm,Lambda,Cor}.lean, including the identification of `chainFnC`
+with the sum over node chains; axioms [propext, Classical.choice, Quot.sound]
+(`../runs/ribault/ax_85.log` to `ax_89.log`); awaiting review.  Section 8.2 (Lemma 8.10,
+Theorem 8.11) in progress.
 
 Paper: `paper.tex` at commit 9aa415f ("Exact algebraic confluence for torus one-point
 Virasoro-block recursions"). Toolchain `leanprover/lean4:v4.33.0`, Mathlib `v4.33.0`.

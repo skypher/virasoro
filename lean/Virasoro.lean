@@ -230,3 +230,4 @@ import Virasoro.Proofs.Sec8DiagRec
 import Virasoro.Proofs.Sec8DiagKappa
 import Virasoro.Proofs.Sec8DiagThm
 import Virasoro.Proofs.Sec8DiagLambda
+import Virasoro.Proofs.Sec8DiagCor
