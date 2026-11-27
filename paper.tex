@@ -238,13 +238,19 @@ coefficients of the torus block at internal weight \(\Delta\), for \(N\geq1\):
  \bigl(h_a(t)-\lambda\bigr)^{k-1}.
  \end{aligned}
 \end{equation}
-Here \(\operatorname{Kac}_N(b_\star)\) consists of the Kac weights with
-\(rs\leq N\), and \({\mathcal C}^\star_{\lambda,N}\) contains the labels
-attaining \(\lambda\).  For \(a=(r,s)\), set \(t=b-b_\star\),
-\(h_a(t)=h_{r,s}(b_\star+t)\) and \(\ell_a=rs\).  \(R_a\) is the generic
-residue, \(S_{a,M}\) the shifted Laurent block, \(\CT_t\) the constant term,
-and only finitely many terms are nonzero.  Theorem~\ref{thm:confluence} gives
-the same formula for the sphere coefficients.
+Here \(\operatorname{Kac}_N(b_\star)\) consists of the Kac weights
+\(h_{r,s}(b_\star)\) with \(rs\leq N\), and \({\mathcal C}^\star_{\lambda,N}\)
+is the set of labels \(a=(r,s)\) with \(rs\leq N\) and
+\(h_{r,s}(b_\star)=\lambda\).  For such a label put \(t=b-b_\star\),
+\(h_a(t)=h_{r,s}(b_\star+t)\) and \(\ell_a=rs\).  At generic \(b\), the
+residue of \(H_N\) at \(\Delta=h_a\) is a multiplier \(R_a(t)\), a ratio of
+explicit products, times the lower coefficient \(H_{N-\ell_a}\) at the weight
+\(h_a(t)+\ell_a\) of the singular vector of label \(a\).  The shifted
+Laurent block \(S_{a,M}(t)\) is this lower coefficient \(H_M\), taken at the
+moving charge \(c(b_\star+t)\) and expanded as a Laurent series in \(t\), and
+\(\CT_t\) takes the coefficient of \(t^0\).  Only finitely many terms are
+nonzero.  Theorem~\ref{thm:confluence} gives the same formula for the sphere
+coefficients.
 
 In the generic recursion each label \(a\) contributes a simple pole at
 \(h_a(b)\).  As \(b\to b_\star\) the poles of the labels in
@@ -280,7 +286,10 @@ combinations of the values and \(\Delta\)-derivatives, at shifted weights, of
 the coefficients \(H_M(c_\star,\cdot)\) with \(M<N\), each with its principal
 part at that weight removed.  For \(b_\star^2\notin\mathbb Q\) it is
 Poghossian's recursion at \(b=b_\star\)
-(Corollary~\ref{cor:fixed-charge-generic}).
+(Corollary~\ref{cor:fixed-charge-generic}).  Derivatives of blocks in the internal
+weight are also the building blocks of logarithmic conformal field theory at
+generic central charge~\cite{NivesvivatRibault2021}; Section~\ref{sec:scope}
+comments on the relation.
 
 At a minimal-model charge and an interior Kac weight \(\lambda\), the
 Feigin--Fuchs embedding diagram describes the Jantzen filtration
@@ -309,12 +318,19 @@ and~\ref{thm:top-layer-sph} give the same bound and the same formula, with
 the torus matrix element of \(w^\pm_k\) replaced by the product of its two
 three-point factors.
 
-For the torus block, below the top pole, the values
-\(c^{(k)}_{\lambda\to\mu,j}(b_\star)\) with \(k+j\) equal to the layer distance of
-\(\mu\) are the top coefficient of \(\mu\) times the \(j\)-th power of the ratio of
-the signed Coulomb momenta of \(\mu\) and \(\lambda\) times a universal rational
-number, a coefficient of a terminating hypergeometric polynomial
-(Theorem~\ref{thm:diagonal}, Corollary~\ref{cor:diagonal-lambda}).  At the
+Below the top pole, the recursion of Theorem~\ref{thm:fixed-charge} for the
+torus block uses the numbers \(c^{(k)}_{\lambda\to\mu,j}(b_\star)\): the
+coefficient with which the \(j\)-th \(\Delta\)-derivative of a lower coefficient
+at the weight \(\mu\) enters the coefficient of \((\Delta-\lambda)^{-k}\).  At an
+interior weight \(\lambda\) only the weights \(\mu=\lambda+\ell^\pm_L\) of the
+embedding diagram occur, and the number vanishes when \(k+j>L\).  On the line
+\(k+j=L\) it is explicit (Theorem~\ref{thm:diagonal},
+Corollary~\ref{cor:diagonal-lambda}): the top coefficient
+\(\langle w^\pm_L|V_d(1)|w^\pm_L\rangle/\gamma^\pm_L\) of~\eqref{eq:intro-top}, times
+\((\pm m^\pm_L/n_0)^j\), times a rational number that depends only on \(L\) and
+\(j\), a coefficient of a terminating hypergeometric polynomial.  Here \(n_0\)
+and \(m^\pm_L\) are the Coulomb momenta of \(\lambda\) and \(\mu\), the integers
+\(x\) with weight \((x^2-(p'-p)^2)/(4pp')\).  At the
 boundary weights of Class \(R^+\) (momentum divisible by exactly one of
 \(p,p'\)), where the embedding diagram is a single chain, the pole order over
 the rational functions of \(d\) is the number of submodules that have reached
@@ -470,7 +486,7 @@ of the \(L_{-n}\), \(n\geq1\), call \(\{L_{-Y}\lvert\Delta\rangle\}\) the PBW
 (Poincar\'e--Birkhoff--Witt) basis, and \(\ord_x\) is the order at \(x=0\).
 \end{remark}
 
-\begin{table}[ht]
+\begin{table}[p]
 \centering
 \small
 \renewcommand{\arraystretch}{1.15}
@@ -498,7 +514,7 @@ Symbol & Meaning (where defined)\\
 \(\kappa\), \(\hat\kappa\), \(f_j\) & ratios of top coefficients and diagonal factors (Proposition~\ref{prop:top-ratios}, Lemma~\ref{lem:diagonal-values}, Theorem~\ref{thm:diagonal})\\
 \(x_0\), \(\epsilon\), \(\mu_k\), \(\pi_k\), \(\tilde m_k\), \(m_k\) & momentum of a boundary weight \(\lambda=d_{x_0}\); \(\epsilon=\pm1\) as \(p\) or \(p'\) divides \(x_0\); its nodes, their positions, signed and absolute momenta (Section~\ref{sec:boundary})\\
 \(\varpi\) & odd prime dividing \(p'\) in Section~\ref{sec:sharpness} and Appendix~\ref{app:h13}\\
-\(t\) & \(t=b-b_\star\) in Sections~\ref{sec:all-order} and~\ref{sec:confluence}; \(t=b^2\) in Proposition~\ref{prop:h13-nonvanishing} and Appendix~\ref{app:h13}\\
+\(t\) & \(t=b-b_\star\) in Sections~\ref{sec:all-order}, \ref{sec:mm-layers} and~\ref{sec:confluence}; \(t=b^2\) in Section~\ref{sec:sharpness} and Appendix~\ref{app:h13}\\
 \(\tau\) & modular parameter of the torus, \(q=e^{2\pi i\tau}\) (Section~\ref{sec:blocks})\\
 \(\mathcal B_N\), \(H_N\) (Part~II) & cross-ratio and elliptic coefficients of the sphere block (Definitions~\ref{def:sphere-block}, \ref{def:H-series})\\
 \hline
@@ -1233,7 +1249,7 @@ Theorem~\ref{thm:top-layer} gives the same coefficient as
 factorization of the layer norms after Theorem~\ref{thm:top-layer} with
 \(j=1\) gives \(\mathcal N^-_2={\mathcal N}_{1,1}{\mathcal N}_{1,4}\), and
 Proposition~\ref{prop:layer-coefficients}, with \(c_2=-1\) and
-\(\varrho=-\tfrac12\), gives \(\gamma^-_2=-[d^2]\mathcal N^-_2/\varrho^2=-11200/3\).
+\(\vartheta=-\tfrac12\), gives \(\gamma^-_2=-[d^2]\mathcal N^-_2/\vartheta^2=-11200/3\).
 A script listed under Code availability checks each step in exact arithmetic.
 Ribault found the double pole of the sphere block at this level from the same
 two pairs of labels, \((1,1)\) with \((1,4)\) and \((1,2)\) with
@@ -1854,8 +1870,17 @@ subsection computes, for any two nodes $a,\mu$ of the diagram, all values
 $c^{(k)}_{a\to\mu,j}(b_\star)$ with $k+j$ equal to the layer distance
 (Theorem~\ref{thm:diagonal}); at $a=\lambda$ they are the top coefficient times
 a power of a momentum ratio times a universal rational number
-(Corollary~\ref{cor:diagonal-lambda}).  In~\eqref{eq:fixed-charge} they are the
-terms with $j=L_\mu-k$.
+(Corollary~\ref{cor:diagonal-lambda}).  Beyond the diagonal the values vanish:
+for nodes $a,\mu$ at layer distance $D$, each chain term of
+$c^{(k)}_{a\to\mu,j}$ is of order $t^{k+j-D}$ (Lemma~\ref{lem:node-leading}(i)
+below), so $c^{(k)}_{a\to\mu,j}(b_\star)=0$ for $k+j>D$.  On the diagonal the
+values come from the leading coefficients in $t$ of the residues $R_g$ and of
+the shifts $\delta_g$ alone; below it, for $k+j<D$, they also involve higher
+Taylor coefficients.  In~\eqref{eq:fixed-charge},
+for the coefficient of $(\Delta-\lambda)^{-k}$, the diagonal terms are those
+with the highest derivative order $j=L_\mu-k$ at each node $\mu$.
+Corollary~\ref{cor:chain-values} determines all values from data at $c_\star$;
+on the diagonal this subsection gives them in closed form.
 
 Keep the setting of this section and put $N_0=2pp'$.  The \emph{nodes} are
 $\lambda$, of layer $0$, and the weights $\mu^\pm_k=\lambda+\ell^\pm_k$ of
@@ -2448,8 +2473,10 @@ term drops out, and the two terms have to be compared.
 The proof below uses the external weights \(d_1=h_{1,3}(b_\star)\) and
 \(d_2=h_{1,-3}(b_\star)\) instead, where the size of each shifted block at an
 odd prime \(\varpi\) dividing \(p'\) is known.  At these weights the generic
-recursion keeps only the labels \((u,1)\).  After its denominators are
-cleared, \(H_M\) becomes a polynomial in \(t=b^2\) and \(Y=\Delta t^2\) with
+recursion keeps only the labels \((u,1)\).  In this section and in
+Appendix~\ref{app:h13} we write \(t=b^2\) (in Sections~\ref{sec:all-order}
+and~\ref{sec:mm-layers}, \(t\) was \(b-b_\star\)).  After its denominators are
+cleared, \(H_M\) becomes a polynomial in \(t\) and \(Y=\Delta t^2\) with
 coefficients in \(\mathbb Z[\frac12]\) and constant term \(4^M\)
 (Proposition~\ref{prop:h13-nonvanishing}(i)).  At \(b=b_\star\) and
 \(\Delta=\mu\) both \(t\) and \(Y\) are divisible by \(\varpi\), so this
@@ -2501,9 +2528,9 @@ as~\eqref{eq:h13-valuation} gives with \(a=1\), so the sum
 \label{prop:layer-coefficients}
 In the setting of Theorem~\ref{thm:top-layer}, let \(m^\pm_k\) be the
 Coulomb momentum of \(\lambda+\ell^\pm_k\) (Section~\ref{sec:mm-layers}),
-\(\varrho=-n_0/(2(p'-p))\), and
+\(\vartheta=-n_0/(2(p'-p))\), and
 \(c_k=(-1)^{\lfloor k/2\rfloor}\binom{k-1}{\lfloor(k-1)/2\rfloor}\).  Then
-\(\mathcal N^\pm_k/\gamma^\pm_k=c_k(\pm\varrho)^kd^k+O(d^{k+1})\); in particular
+\(\mathcal N^\pm_k/\gamma^\pm_k=c_k(\pm\vartheta)^kd^k+O(d^{k+1})\); in particular
 \(\mathcal N^\pm_k\) vanishes to order exactly \(k\) at \(d=0\).
 \end{proposition}
 
@@ -2516,51 +2543,51 @@ part of \(H_N\), whose behaviour at large slope \(\zeta\) gives
 \([d^k](\mathcal N^\pm_k/\gamma^\pm_k)\) (Step~3).  Steps~4 and~5 list the colliding
 chains and evaluate the resulting moments.
 
-Put \(\nu=b^2\), \(\nu_\star=-p'/p\), \(N_0=2pp'\); dots denote \(d/d\nu\) at
-\(\nu_\star\).  As in the proof of Lemma~\ref{lem:d-derivatives}, write
-\(\varphi(x,y)=xb+yb^{-1}\), which vanishes at \(\nu_\star\) iff
+Put \(t=b^2\), \(t_\star=-p'/p\), \(N_0=2pp'\); dots denote \(d/dt\) at
+\(t_\star\).  As in the proof of Lemma~\ref{lem:d-derivatives}, write
+\(\varphi(x,y)=xb+yb^{-1}\), which vanishes at \(t_\star\) iff
 \((x,y)\in\mathbb Z(p,p')\), and put \(B_g=[1-u,u]\times[1-v,v]\) for a label
 \(g=(u,v)\).
 
 \emph{Step 1: the multipliers along a blow-up.}  By the proof of
 Lemma~\ref{lem:d-derivatives}, the factors of \({\mathcal N}_g(b,d)\) vanishing
-at \((\nu,d)=(\nu_\star,0)\) are \(-d\) and the factors whose restrictions to
+at \((t,d)=(t_\star,0)\) are \(-d\) and the factors whose restrictions to
 \(d=0\) are \(\frac14\varphi(2jp,2jp')\varphi(2-2jp,2-2jp')\) with \(j\neq0\)
-and \((jp,jp')\in B_g\).  At \(d=0\) their \(\nu\)-derivatives are
+and \((jp,jp')\in B_g\).  At \(d=0\) their \(t\)-derivatives are
 \(j\kappa_0\), where \(\kappa_0=p(p'-p)/p'\).  The pole of \({\mathcal A}_g\)
 has order at most their number minus one, with equality when
-\(\varrho_g:=\partial_d{\mathcal R}_g|_{d=0}=-(p'u-pv)/(2(p'-p))\)
+\(\vartheta_g:=\partial_d{\mathcal R}_g|_{d=0}=-(p'u-pv)/(2(p'-p))\)
 (Lemma~\ref{lem:d-derivatives}) is nonzero.  So along the curve
 \[
- (\nu,\Delta,d)=(\nu_\star+\varepsilon,\ \lambda+\varepsilon\zeta,\ \varepsilon y)
+ (t,\Delta,d)=(t_\star+\varepsilon,\ \lambda+\varepsilon\zeta,\ \varepsilon y)
  \qquad(\varepsilon\to0)
 \]
 with \(\zeta\) and \(y\) fixed,
 \[
- \frac{{\mathcal R}_g}{\varepsilon}\to\varrho_g\,y\prod_j\Bigl(1-\frac{y}{j\kappa_0}\Bigr).
+ \frac{{\mathcal R}_g}{\varepsilon}\to\vartheta_g\,y\prod_j\Bigl(1-\frac{y}{j\kappa_0}\Bigr).
 \]
 
 \emph{Step 2: the limit along the curve.}  Expand \(H_N\) by
 Proposition~\ref{prop:generic-recursion} into chains \(g_1,\dots,g_n\) with
 denominators \(z_{i-1}-h_{g_i}\), where \(z_0=\Delta\) and
 \(z_i=h_{g_i}+\ell_{g_i}\).  For generic \(\zeta,y\), such a denominator is of
-order \(\varepsilon\) if \(h_{g_i}(\nu_\star)=z_{i-1}(\nu_\star)\), and a unit
+order \(\varepsilon\) if \(h_{g_i}(t_\star)=z_{i-1}(t_\star)\), and a unit
 otherwise; consecutive slopes differ, as Step~4 shows.  Only the chains whose
 denominators are all of order \(\varepsilon\) contribute to the limit, and \(H_N\)
 tends to
 \[
  T_N(\zeta,y)=\sum_{\text{colliding chains}}\ \prod_i
- \frac{\varrho_{g_i}\,y\prod_j(1-y/(j\kappa_0))}{\zeta_{i-1}-\dot h_{g_i}},
+ \frac{\vartheta_{g_i}\,y\prod_j(1-y/(j\kappa_0))}{\zeta_{i-1}-\dot h_{g_i}},
  \qquad \zeta_0=\zeta,\quad\zeta_i=\dot h_{g_i}.
 \]
 
 \emph{Step 3: reduction to a limit in \(\zeta\).}  The denominator of
-\(H_N\) is a product of powers of the factors \(\Delta-h_g(\nu)\).  Near
-\((\nu_\star,\lambda)\) such a factor is a unit if
-\(h_g(\nu_\star)\neq\lambda\), and otherwise its lowest homogeneous part in
-\((\nu-\nu_\star,\Delta-\lambda)\) is \(\Delta-\lambda-\dot h_g(\nu-\nu_\star)\).
+\(H_N\) is a product of powers of the factors \(\Delta-h_g(t)\).  Near
+\((t_\star,\lambda)\) such a factor is a unit if
+\(h_g(t_\star)\neq\lambda\), and otherwise its lowest homogeneous part in
+\((t-t_\star,\Delta-\lambda)\) is \(\Delta-\lambda-\dot h_g(t-t_\star)\).
 Let \(\Phi(a,e,y)\) be the lowest homogeneous part of \(H_N\) in
-\((a,e,y)=(\nu-\nu_\star,\Delta-\lambda,d)\); its denominator is a nonzero
+\((a,e,y)=(t-t_\star,\Delta-\lambda,d)\); its denominator is a nonzero
 constant times a product of linear forms \(e-\dot h_ga\).  Along the curve of
 Step~1, \(H_N=\varepsilon^{\deg\Phi}(\Phi(1,\zeta,y)+O(\varepsilon))\).  The
 limit is \(T_N(\zeta,y)\), which is not identically zero because its
@@ -2612,7 +2639,7 @@ chains from \(\lambda\) are the sequences \(n_0=x_0,x_1,\dots\) with
 \]
 Then
 \[
- \varrho_{g_i}=-\frac{\epsilon_ix_{i-1}}{2(p'-p)},\qquad
+ \vartheta_{g_i}=-\frac{\epsilon_ix_{i-1}}{2(p'-p)},\qquad
  4p'^2\dot h_{g_i}=p'^2-p^2-x_{i-1}x_i,
 \]
 so \(4p'^2(\dot h_{g_{i-1}}-\dot h_{g_i})=x_{i-1}(x_i-x_{i-2})\neq0\), and
@@ -2653,13 +2680,13 @@ product of Step~2 alone.  For \(k=2j+1\) take \(\theta_0\) the endpoint,
 \((r+jp,s+jp')\) or
 \(((j+1)p-r,(j+1)p'-s)\), whose box meets \(\mathbb Z(p,p')\) for
 \(|j'|\leq j\) (as \(0<r<p\), \(0<s<p'\)).  Then
-\(C_{\theta_0}=\pm\varrho(-1)^j/(j!^2\kappa_0^{2j})\), the product is
-\((n_0N_0/4p'^2)^{2j}(2j)!\), and \(n_0N_0/(4p'^2\kappa_0)=-\varrho\).  For
+\(C_{\theta_0}=\pm\vartheta(-1)^j/(j!^2\kappa_0^{2j})\), the product is
+\((n_0N_0/4p'^2)^{2j}(2j)!\), and \(n_0N_0/(4p'^2\kappa_0)=-\vartheta\).  For
 \(k=2j\) take \(\theta_0=n_1+(j-1)N_0\) and then the step \(g\) to the endpoint,
 \((r+(2j-1)p,p'-s)\) or \((p-r,s+(2j-1)p')\), whose box meets
 \(\mathbb Z(p,p')\) only at \(0\).  Then
-\(\varrho_g/(\dot h_{\theta_0}-\dot h_g)=-2p'^2/((p'-p)jN_0)\), and the product is
-\(-(n_0N_0/4p'^2)^{2j-1}(2j-1)!\).  Both cases give \(c_k(\pm\varrho)^k\).
+\(\vartheta_g/(\dot h_{\theta_0}-\dot h_g)=-2p'^2/((p'-p)jN_0)\), and the product is
+\(-(n_0N_0/4p'^2)^{2j-1}(2j-1)!\).  Both cases give \(c_k(\pm\vartheta)^k\).
 \end{proof}
 
 \begin{proposition}[Integrality, valuation, and level polynomiality at \(d=h_{1,\pm3}(b)\)]
@@ -2673,7 +2700,7 @@ H_M(c(b),\Delta,d_\nu)|_{\Delta=Y/t^2}\).
 \(P_M^{(\nu)}(t,Y)\in\mathbb Z[\tfrac12][t,Y]\),
 \(P_M^{(2)}(0,Y)=P_M^{(1)}(0,Y)\), and \(P_M^{(\nu)}(0,0)=4^M\).
 \item[(ii)] For every \(i,j\geq0\) and \(\nu\in\{1,2\}\),
-\(c_{i,j}^{(\nu)}(M):=[t^iY^j](P_M^{(\nu)}(t,Y)/4^M)\) is a polynomial in
+\(\xi_{i,j}^{(\nu)}(M):=[t^iY^j](P_M^{(\nu)}(t,Y)/4^M)\) is a polynomial in
 \(M\) of degree at most \(2i+2j\), valid for all integers \(M\geq0\).
 \item[(iii)] Let \(p,p'\geq2\) be coprime, \(b_\star^2=-p'/p\), and let
 \(\varpi\mid p'\) be an odd prime with \(a=v_\varpi(p')\geq1\).  If
@@ -2721,18 +2748,18 @@ factor, so \(b\mapsto b^{-1}\) gives \(H_M(c_\star,\mu,d)\not\equiv0\) in
 general.
 
 (iv) Fix \(\nu\in\{1,2\}\).  By~(i)
-and~(ii), each \(c_{i,j}^{(\nu)}(M)\) has degree \(D\leq2i+2j\) and lies in
+and~(ii), each \(\xi_{i,j}^{(\nu)}(M)\) has degree \(n\leq2i+2j\) and lies in
 \(\mathbb Z[\tfrac12]\) for all \(M\geq0\), so
-\(c_{i,j}^{(\nu)}(M)=\sum_{u=0}^D\beta_u\binom{M}{u}\)
-(\(\beta_u\in\mathbb Z[\tfrac12]\)).  For \(D=0\),
-\(c_{i,j}^{(\nu)}(M_1)=c_{i,j}^{(\nu)}(M_2)\).  For \(i+j\geq1\) and
-\(1\leq u\leq D\), \((M_1-M_2)\mid u!(\binom{M_1}{u}-\binom{M_2}{u})\), so
-\(v_\varpi(\binom{M_1}{u}-\binom{M_2}{u})\geq e-v_\varpi(D!)\); since \(\varpi\geq3\),
-Legendre's formula gives \(v_\varpi(D!)\leq(D-1)/(\varpi-1)\leq(D-1)/2\), hence
-\(v_\varpi(D!)\leq i+j-1\).  Since \(v_\varpi(t_0)\geq a\) and
+\(\xi_{i,j}^{(\nu)}(M)=\sum_{u=0}^n\beta_u\binom{M}{u}\)
+(\(\beta_u\in\mathbb Z[\tfrac12]\)).  For \(n=0\),
+\(\xi_{i,j}^{(\nu)}(M_1)=\xi_{i,j}^{(\nu)}(M_2)\).  For \(i+j\geq1\) and
+\(1\leq u\leq n\), \((M_1-M_2)\mid u!(\binom{M_1}{u}-\binom{M_2}{u})\), so
+\(v_\varpi(\binom{M_1}{u}-\binom{M_2}{u})\geq e-v_\varpi(n!)\); since \(\varpi\geq3\),
+Legendre's formula gives \(v_\varpi(n!)\leq(n-1)/(\varpi-1)\leq(n-1)/2\), hence
+\(v_\varpi(n!)\leq i+j-1\).  Since \(v_\varpi(t_0)\geq a\) and
 \(v_\varpi(Y_1)\geq a+1\), each term with \(i+j\geq1\) in
 \(P_{M_1}^{(\nu)}(t_0,Y_1)/4^{M_1}-P_{M_2}^{(\nu)}(t_0,Y_1)/4^{M_2}
-=\sum_{i+j\geq1}(c_{i,j}^{(\nu)}(M_1)-c_{i,j}^{(\nu)}(M_2))t_0^iY_1^j\)
+=\sum_{i+j\geq1}(\xi_{i,j}^{(\nu)}(M_1)-\xi_{i,j}^{(\nu)}(M_2))t_0^iY_1^j\)
 has valuation at least \(e-(i+j-1)+ia+j(a+1)=e+(i+j)(a-1)+j+1\geq e+a\).
 As \(P_{M_2}^{(\nu)}(t_0,Y)/4^{M_2}\in\mathbb Z_\varpi[Y]\),
 \(v_\varpi(P_{M_2}^{(\nu)}(t_0,Y_1)/4^{M_2}-P_{M_2}^{(\nu)}(t_0,Y_2)/4^{M_2})
@@ -2804,7 +2831,7 @@ is nonzero by Proposition~\ref{prop:h13-nonvanishing}(iii).
 
 \emph{Case 2: \(2\leq s\leq p'-2\) and \(s\not\equiv\pm1\pmod\varpi\).}  Now
 \(e_+=e_-=k\).  By Proposition~\ref{prop:layer-coefficients},
-\(\gamma^\pm_k=[d^k]\mathcal N^\pm_k/(c_k(\pm\varrho)^k)\).  We have
+\(\gamma^\pm_k=[d^k]\mathcal N^\pm_k/(c_k(\pm\vartheta)^k)\).  We have
 \begin{align*}
  [(d-d_1)^k]\mathcal N^\pm_k&=(4pp')^{k-2\ell^\pm_k}\prod_{x\neq x_1}(x_1^2-x^2)^{o^\pm_k(x)},\\
  [d^k]\mathcal N^\pm_k&=(4pp')^{k-2\ell^\pm_k}\prod_{x\neq x_0}(x_0^2-x^2)^{o^\pm_k(x)}.
@@ -3042,7 +3069,7 @@ second-layer levels \(7\), \(10\) and \(11\).  At those levels~\eqref{eq:top-lay
 with \(M=0\). The factors of \(\mathcal N\) are given by the factorization
 after Theorem~\ref{thm:top-layer} with \(j=1\).
 Proposition~\ref{prop:layer-coefficients} with \(c_2=-1\) gives
-\(\gamma=-[d^2]\mathcal N/\varrho^2\), where \(\varrho=-n_0/2\).
+\(\gamma=-[d^2]\mathcal N/\vartheta^2\), where \(\vartheta=-n_0/2\).
 \end{proof}
 
 The ancillary scripts compare the norms \(\gamma\) at \(N=7\) and \(N=10\)
@@ -3683,12 +3710,12 @@ hypergeometric BPZ equation~\cite[(5.2), (5.17), (5.19)]{BPZ1984}
  +\frac{\Delta_1}{z^2}+\frac{\Delta_3}{(z-1)^2}
  +\frac{\Delta_1+\Delta_2+\Delta_3-\Delta_4}{z(1-z)}\right)\mathcal F(z)=0.
 \]
-Hence \(\mathcal B_m=[z^m]\bigl((1-z)^\kappa\,{}_2F_1(A,B;C;z)\bigr)\) as an
+Hence \(\mathcal B_m=[z^m]\bigl((1-z)^E\,{}_2F_1(A,B;C;z)\bigr)\) as an
 identity of rational functions of \((b,\Lambda_\mu,\Lambda_3,\Lambda_4)\)
 for every \(m\geq0\), with
 \begin{align*}
  C&=1+b^2+b\Lambda_\mu,&
- \kappa&=\frac{1+b^2+b\Lambda_3}{2},\\
+ E&=\frac{1+b^2+b\Lambda_3}{2},\\
  A&=\frac{1+b^2+b(\Lambda_\mu+\Lambda_3-\Lambda_4)}{2},&
  B&=\frac{1+b^2+b(\Lambda_\mu+\Lambda_3+\Lambda_4)}{2}.
 \end{align*}
@@ -3712,10 +3739,10 @@ At our specialization \(\Delta_2=h_{2,1}(b_\star)\),
 \item Substitution gives
   \(B=\frac12(1-\frac{p'+m^{\mathrm{small}}_k}{p}+\frac{m^{\mathrm{small}}_k+p'-p}{p})=0\),
   so the hypergeometric factor is \(1\) through degree \(M\).
-\item \(\kappa=\frac12(1-\frac{p'}{p}+\frac{kpp'-p}{p})=\frac{(kp-1)p'}{2p}\).
-  Since \(\gcd(p,(kp-1)p')=1\) and \(p\geq2\), \(\kappa\notin\mathbb Z\).
+\item \(E=\frac12(1-\frac{p'}{p}+\frac{kpp'-p}{p})=\frac{(kp-1)p'}{2p}\).
+  Since \(\gcd(p,(kp-1)p')=1\) and \(p\geq2\), \(E\notin\mathbb Z\).
 \end{enumerate}
-Therefore \(\mathcal B_M=(-1)^M\binom{\kappa}{M}\neq0\), so the
+Therefore \(\mathcal B_M=(-1)^M\binom{E}{M}\neq0\), so the
 right-hand side of~\eqref{eq:top-B} is nonzero.
 \end{proof}
 
@@ -3930,6 +3957,21 @@ pairings in the specialized module, like Theorems~\ref{thm:top-layer}
 and~\ref{thm:top-layer-sph} for the top one, is not known.  Irreducible minimal-model sphere
 blocks are not treated here; for the torus, the irreducible traces are
 treated in~\cite{PolzerTraces2026}.
+
+The recursion of Theorem~\ref{thm:fixed-charge} expresses the principal parts
+through \(\Delta\)-derivatives of lower coefficients at shifted weights.
+Derivatives of blocks with respect to the internal weight also build the
+blocks of logarithmic conformal field theory: at generic central charge,
+Nivesvivat and Ribault obtain the non-chiral four-point blocks of logarithmic
+representations as combinations of Verma-module blocks and their first and
+second derivatives in the conformal
+dimension~\cite[\S\S2--3]{NivesvivatRibault2021}, show that these blocks
+appear in limits of Liouville four-point
+functions~\cite[\S3.3]{NivesvivatRibault2021}, and ask how their constructions
+apply at rational \(b^2\)~\cite[\S6]{NivesvivatRibault2021}.  Whether the
+terms of the confluence formulas at rational \(b^2\), where derivatives of
+order higher than two occur at deep layers, can be grouped into blocks of
+logarithmic representations is not addressed here.
 
 \appendix
 \section{Proof of Proposition~\ref{prop:h13-nonvanishing}(i)--(ii)}\label{app:h13}
@@ -4361,7 +4403,7 @@ Lecture Notes in Physics \textbf{94}, Springer (1979) 441--445,
 \href{https://doi.org/10.1007/3-540-09238-2_102}%
 {doi:\allowbreak 10.1007/3-540-09238-2\_102}.
 
-\bibitem[NR21]{NemkovRibault2021}
+\bibitem[NR21a]{NemkovRibault2021}
 N.~Nemkov and S.~Ribault,
 \emph{Analytic conformal bootstrap and Virasoro primary fields in the
 Ashkin--Teller model},
@@ -4369,6 +4411,15 @@ SciPost Phys.\ \textbf{11} (2021) 089,
 \href{https://doi.org/10.21468/SciPostPhys.11.5.089}%
 {doi:\allowbreak 10.21468/SciPostPhys.11.5.089},
 \href{https://arxiv.org/abs/2106.15132v2}{arXiv:2106.15132v2}.
+
+\bibitem[NR21b]{NivesvivatRibault2021}
+R.~Nivesvivat and S.~Ribault,
+\emph{Logarithmic {CFT} at generic central charge: from {L}iouville theory to
+the {$Q$}-state {P}otts model},
+SciPost Phys.\ \textbf{10} (2021) 021,
+\href{https://doi.org/10.21468/SciPostPhys.10.1.021}%
+{doi:\allowbreak 10.21468/SciPostPhys.10.1.021},
+\href{https://arxiv.org/abs/2007.04190v6}{arXiv:2007.04190v6}.
 
 \bibitem[Pog09]{Poghossian2009}
 R.~Poghossian,

@@ -22,7 +22,10 @@ now `h⋆_g` and the colliding group `G^{(M)}_μ` is `𝒢^{(M)}_μ`; Lemma 7.5:
 Section 8.1: the signed momenta `S_ν` are `m̃_ν`, the chain weights `w_γ` are `ρ_γ`, `ℓ(γ)` is `ρ̂_γ`,
 and the layer differences `Δ` of Lemmas 8.3 to 8.7 and 8.10 are `D(ν,ν')`; Section 8.2: `T_k` is `m̃_k`, `M_k`
 is `m_k`, `Δ_m = μ_{i+m} - μ_i` in Theorem 8.11(iii) is `ℓ_m`, and `τ₀` is `α₀`; Proposition 9.3,
-Case 3: the ratio `T_k` is `X_k`.
+Case 3: the ratio `T_k` is `X_k`.  Later the same day: in Proposition 9.1 the variable `ν = b²` is `t`
+(and `ν⋆` is `t⋆`), and `ϱ`, `ϱ_g` are `ϑ`, `ϑ_g` (also in the Section 7 example, Proposition 9.3 and
+Section 10); in Proposition 9.2 the coefficients `c^{(ν)}_{i,j}(M)` are `ξ^{(ν)}_{i,j}(M)` and the
+degree `D` in the proof of (iv) is `n`; in the proof of Theorem 13.4 the exponent `κ` is `E`.
 
 ## sphere/paper.tex (large-weight limit)
 

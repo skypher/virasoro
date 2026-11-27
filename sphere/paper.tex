@@ -775,17 +775,58 @@ circle \(|x|=r\).}
 \end{lemma}
 
 \begin{proof}
-(i) Set \(s_1=\sqrt{1-p}\), \(s_2=\sqrt{1-y}\) and \(s_3=\sqrt{1-x}\).
-Substituting~\eqref{eq:AB-gf}, the \(\sigma^0\), \(\sigma^1\) and \(\sigma^2\)
-components of the order-\(\omega^0\) PDE become the following identities of
-rational functions in \((s_1,s_2,s_3)\):
+(i) The order-\(\omega^0\) part of~\eqref{eq:S-pde} is
+\[
+ i\partial_{\sigma_k}S+\sum_nn\sigma_n(\partial_{\sigma_{n+k}}S-\partial_{\sigma_n}S)
+ -\frac14\sum_{n=1}^{k-1}\partial_{\sigma_n}S\,\partial_{\sigma_{k-n}}S-1=0.
+\]
+For \(S=S^{(0)}\) take its coefficients of \(1\), \(\sigma_j\) and
+\(\sigma_j\sigma_l\) (symmetrized in \(j,l\)), multiply them by \(p^k\),
+\(p^ky^j\) and \(p^ky^jx^l\), and sum over \(k,j,l\geq1\).  With
+\(\sum_{k\geq1}p^k=p/(1-p)\) and, for a series \(a(p)=\sum_{m\geq1}a_mp^m\),
+\(\sum_{k,j\geq1}a_{j+k}p^ky^j=(pa(y)-ya(p))/(y-p)\), the three components
+become
 \begin{align*}
  iA(p)-\tfrac14 A(p)^2-\frac{p}{1-p}&=0,\\
- (2i-A(p))B(p,y)+y\partial_y\Bigl(\frac{pA(y)-yA(p)}{y-p}-\frac{p}{1-p}A(y)\Bigr)&=0,\\
- y\partial_y\Bigl(\frac{pB(y,x)-yB(p,x)}{y-p}-\frac{p}{1-p}B(y,x)\Bigr)\qquad\qquad&\\
- +x\partial_x\Bigl(\frac{pB(y,x)-xB(p,y)}{x-p}-\frac{p}{1-p}B(y,x)\Bigr)
- -B(p,y)B(p,x)&=0.
+ (2i-A(p))B(p,y)+y\partial_yT_1(p,y)&=0,\\
+ y\partial_yT_2(p;y,x)+x\partial_xT_2(p;x,y)-B(p,y)B(p,x)&=0,
 \end{align*}
+where
+\begin{align*}
+ T_1(p,y)&=\frac{pA(y)-yA(p)}{y-p}-\frac{p}{1-p}A(y),\\
+ T_2(p;y,x)&=\frac{pB(y,x)-yB(p,x)}{y-p}-\frac{p}{1-p}B(y,x).
+\end{align*}
+Set \(s_1=\sqrt{1-p}\), \(s_2=\sqrt{1-y}\) and \(s_3=\sqrt{1-x}\), so that
+\(A(p)=-2i(s_1^{-1}-1)\), \(B(p,y)=-py/(2s_1s_2(s_1+s_2)^2)\) and
+\(y\partial_y=-\frac{y}{2s_2}\partial_{s_2}\).  The first identity holds
+because \(iA-\frac14A^2=(s_1^{-1}-1)(s_1^{-1}+1)=s_1^{-2}-1\).  In the second,
+\(2i-A(p)=2i/s_1\), so
+\((2i-A(p))B(p,y)=-ipy/(s_1^2s_2(s_1+s_2)^2)\); and
+\[
+ T_1(p,y)=\frac{2i(1-s_1)(1-s_2)}{s_1^2(s_1+s_2)},\qquad
+ \partial_{s_2}T_1=-\frac{2ip}{s_1^2(s_1+s_2)^2},
+\]
+so \(y\partial_yT_1=ipy/(s_1^2s_2(s_1+s_2)^2)\).  In the third,
+\[
+ T_2(p;y,x)=\frac{pxy\,(s_3^2-s_1s_2)}{2s_1^2s_3(s_1+s_2)(s_1+s_3)^2(s_2+s_3)^2},
+\]
+and differentiating gives
+\[
+ y\partial_yT_2(p;y,x)=-\frac{pxy\,\Upsilon(s_1,s_2,s_3)}
+ {4s_1^2s_2s_3(s_1+s_2)^2(s_1+s_3)^2(s_2+s_3)^3}
+\]
+with
+\begin{multline*}
+ \Upsilon(s_1,s_2,s_3)=s_1^2\bigl(s_2^3+3s_2^2s_3+s_2-s_3\bigr)
+ +2s_1\bigl(s_2^3s_3+s_2^2-s_2s_3^3-s_3^2\bigr)\\
+ +\bigl(s_2^3s_3^2-s_2^2s_3^3-3s_2s_3^2-s_3^3\bigr).
+\end{multline*}
+The term \(x\partial_xT_2(p;x,y)\) is the same expression with \(s_2\) and
+\(s_3\) exchanged.  In \(\Upsilon(s_1,s_2,s_3)+\Upsilon(s_1,s_3,s_2)\) the
+coefficient of \(s_1\) cancels and those of \(s_1^2\) and \(s_1^0\) are
+\((s_2+s_3)^3\) and \(-(s_2+s_3)^3\), so the sum is \(-p(s_2+s_3)^3\), and the
+two derivative terms add up to
+\(p^2xy/(4s_1^2s_2s_3(s_1+s_2)^2(s_1+s_3)^2)=B(p,y)B(p,x)\).
 On the diagonal, \(-\frac12 B(p,p)=\frac{p^2}{16(1-p)^2}
 =\sum_{k=2}^\infty\frac{k-1}{16}p^k\).
 
@@ -1078,10 +1119,22 @@ equivalent to \(L_k^{(0)}g(1)=-\frac{k}{2}(1-g(1))\) and
   \(-\frac{p}{2(1-p)^2}=\sum_{k\geq1}(-\frac{k}{2})p^k\) for \(g(1)\) and
   \(+\frac{p}{2(1-p)}=\sum_{k\geq1}(+\frac12)p^k\) for \(g(-1)\).
 \item The \(\sigma^1\)-part generating function is
-  \(y\partial_y(\frac{pC_\pm(y)-yC_\pm(p)}{y-p}-\frac{p}{1-p}C_\pm(y))-B(p,y)C_\pm(p)\),
-  which, as a rational function of \((s_1,s_2)\), equals
-  \(+\frac{p}{2(1-p)^2}C_+(y)\) for \(g(1)\) and
-  \(-\frac{p}{2(1-p)}C_-(y)\) for \(g(-1)\).
+  \(y\partial_yT_\pm(p,y)-B(p,y)C_\pm(p)\) with
+  \(T_\pm(p,y)=\frac{pC_\pm(y)-yC_\pm(p)}{y-p}-\frac{p}{1-p}C_\pm(y)\), and it
+  has to equal \(+\frac{p}{2(1-p)^2}C_+(y)=\frac{ipy}{4s_1^4s_2^3}\) for \(g(1)\)
+  and \(-\frac{p}{2(1-p)}C_-(y)=\frac{ipy}{4s_1^2s_2}\) for \(g(-1)\).  With
+  \(y\partial_y=-\frac{y}{2s_2}\partial_{s_2}\),
+  \begin{align*}
+   T_+&=\frac{ipy}{2s_1^3s_2(s_1+s_2)},&
+   y\partial_yT_+&=\frac{ipy\,(s_1s_2^2+s_1+2s_2)}{4s_1^3s_2^3(s_1+s_2)^2},\\
+   T_-&=\frac{ipy}{2s_1^2(s_1+s_2)},&
+   y\partial_yT_-&=\frac{ipy\,(2s_1s_2+s_2^2+1)}{4s_1^2s_2(s_1+s_2)^2},\\
+   B(p,y)C_+(p)&=-\frac{ip^2y}{4s_1^4s_2(s_1+s_2)^2},&
+   B(p,y)C_-(p)&=\frac{ip^2y}{4s_1^2s_2(s_1+s_2)^2},
+  \end{align*}
+  and the two differences are as claimed, because
+  \(s_1(s_1s_2^2+s_1+2s_2)+(1-s_1^2)s_2^2=(s_1+s_2)^2\) and
+  \(2s_1s_2+s_2^2+1-(1-s_1^2)=(s_1+s_2)^2\).
 \end{itemize}
 By uniqueness of \(S^{(2)}_1,S^{(2)}_2\) (Lemma~\ref{lem:lambda-expansion}),
 \(S^{(2)}_2=2\log(1-g(1))\) and \(S^{(2)}_1=2\log(1-g(-1))\).  Evaluating
