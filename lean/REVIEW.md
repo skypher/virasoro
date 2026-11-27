@@ -1802,4 +1802,6 @@ Fixed: `Stmt_thm_diagonal` gets the second clause `∑_i f_{2i}(l,D) xⁱ = hyp2
 the new clause: packet 57 (at 583e921): yang2 Item 1 PASS (2026-11-27T01:53:51Z) with one FIX,
 the PAPER_MAP row of Theorem 8.8 pointed to `prod_neg_shift` because the new lemmas had been
 inserted between the `Paper label` docstring and `thm_diagonal_of_cited`; fixed by moving the
-docstring back (row restored to `Virasoro.thm_diagonal_of_cited`).  Jander Item 2: awaiting.
+docstring back (row restored to `Virasoro.thm_diagonal_of_cited`, 7805fc1).  Jander Item 2 PASS
+(2026-11-27T02:01:12Z, source audit of `diag_hyp`, `prod_neg_shift`) with the same PAPER_MAP FIX,
+applied at 7805fc1.
