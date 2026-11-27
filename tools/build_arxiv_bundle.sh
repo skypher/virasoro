@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
+# Usage: tools/build_arxiv_bundle.sh   Build dist/virasoro-arxiv-v1.tar.gz (paper.tex and the
+# ancillary audit sources listed in AUDIT_MANIFEST.md under anc/) and list its contents.
 set -euo pipefail
+case "${1:-}" in -h|--help) sed -n '2,3p' "$0"; exit 0;; esac
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 output_dir="$repo_root/dist"

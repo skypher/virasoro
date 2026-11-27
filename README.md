@@ -74,6 +74,8 @@ make audit
 make audit-deep
 ```
 
+(`make check` and `make check-long`, the names used in the paper, run the same two suites.)
+
 Traces paper:
 
 ```sh

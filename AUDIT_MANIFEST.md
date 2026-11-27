@@ -15,6 +15,8 @@ The direct level-ten reconstruction is added with
 make audit-deep
 ```
 
+(`make check` and `make check-long`, the names used in the paper, run the same two suites.)
+
 The examples of `irreducible/paper.tex` (irreducible traces) are replayed with
 
 ```sh
@@ -138,7 +140,7 @@ worker batch.
 The hashes below identify the submitted audit sources.
 
 ```text
-f4cab7aabcd437593b8fa5bbc48cd7193ae56c938b25a968fe2958d493c99865  Makefile
+7f0a728fbea288b069d2d150b5b5167444cd1a04930484320ab7ead6d348fcf9  Makefile
 8347daed02ebf7b3c3cfa494e97049b7e0ab15b9af00a5addd843ed44381a64a  requirements-audit.txt
 701649d93a313c2853a9ecd4d3106ff1957a97c2ff802e4e57612e9ed6e4c84c  tools/audit_confluent_recursion.py
 240545d5e84d292f360bf8d55d18de0e4dbe28ccbf3526f551fd8db4a1a81f9e  tools/audit_direct_principal_parts.py

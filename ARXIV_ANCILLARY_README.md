@@ -21,6 +21,8 @@ The deeper direct level-ten reconstruction is:
 make audit-deep
 ```
 
+(`make check` and `make check-long`, the names used in the paper, run the same two suites.)
+
 The examples of the traces paper are replayed by:
 
 ```sh
