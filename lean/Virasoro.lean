@@ -223,3 +223,4 @@ import Virasoro.Proofs.Sec8DiagChains
 import Virasoro.Proofs.Sec8DiagLeadSums
 import Virasoro.Proofs.Sec8DiagLeading
 import Virasoro.Proofs.Sec8DiagTop
+import Virasoro.Proofs.Sec8DiagValues
