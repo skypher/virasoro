@@ -225,3 +225,4 @@ import Virasoro.Proofs.Sec8DiagLeading
 import Virasoro.Proofs.Sec8DiagTop
 import Virasoro.Proofs.Sec8DiagValues
 import Virasoro.Proofs.Sec8DiagEll
+import Virasoro.Proofs.Sec8DiagMoments

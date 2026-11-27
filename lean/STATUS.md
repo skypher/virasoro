@@ -21,10 +21,12 @@ Classical.choice, Quot.sound]); awaiting review.  Section 8.1: statements frozen
 `lem_node_poles`), Lemma 8.5 proved from `Cited_KacDeterminant` and `Cited_HJSNormalizations`
 through Lemma 7.13 (`lem_node_leading_of_cited`), Proposition 8.6 from the same two
 (`prop_top_ratios_of_cited`; the coefficient for even distance is `kappaEven`, through the node
-`(+, L_a + 1)`); Proofs/Sec8Diag{Jets,Nodes,Labels,Labels3,BridgeAux,Bridge,Poles,Lead,Chains,
-LeadSums,Leading,Top}.lean, including the identification of `chainFnC` with the sum over node
+`(+, L_a + 1)`), Lemma 8.7 from the same two (`lem_diagonal_values_of_cited`; `f_j(a,μ)` is
+`fVal`, `(-1)^{D-1} ∑_γ ℓ(γ) π_{x₁}^{D-1-j} π_{x_n}^j` with `ℓ = ellC`);
+Proofs/Sec8Diag{Jets,Nodes,Labels,Labels3,BridgeAux,Bridge,Poles,Lead,Chains,LeadSums,Leading,
+Top,Values,Ell,Moments}.lean, including the identification of `chainFnC` with the sum over node
 chains; axioms [propext, Classical.choice, Quot.sound] (`../runs/ribault/ax_85.log`,
-`ax_86.log`); awaiting review.  Lemma 8.7, Theorem 8.8, Corollary 8.9 and Section 8.2 in
+`ax_86.log`, `ax_87.log`); awaiting review.  Theorem 8.8, Corollary 8.9 and Section 8.2 in
 progress.
 
 Paper: `paper.tex` at commit 9aa415f ("Exact algebraic confluence for torus one-point
