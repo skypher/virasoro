@@ -586,12 +586,13 @@ $N=\min(\ell^+_L,\ell^-_L)$ and $N=\max(\ell^+_L,\ell^-_L)$.
 \begin{remark}
 For $L=2$ the corollary is Proposition~\ref{prop:second-layer}.  For $L=3,4,5$
 the factors $f_j(0,L)/j!$ are $(1,0,-\frac14)$, $(1,1,-\frac16,-\frac1{18})$,
-$(1,0,-\frac12,0,\frac1{144})$.  Author checks: the formula for $f_j(l,D)$
+$(1,0,-\frac12,0,\frac1{144})$.  Author checks (scripts in
+\texttt{tools/fixed\_charge/}): the formula for $f_j(l,D)$
 against the cutting recursion in exact rationals, 1350 cases with $l\le7$,
-$D\le9$ (\texttt{probes/fbase\_check.py}); against the chain functions of the
-engine of \texttt{fixed\_charge\_recursion.py}, all 189 coefficients with bases
+$D\le9$ (\texttt{fbase\_check.py}); against the chain functions of the engine
+\texttt{fixed\_charge\_recursion.py}, all 189 coefficients with bases
 of layer $\le1$, end layers $\le4$ and levels $\le40$ at the interior weights of
-the six models with $pp'\le20$ (\texttt{probes/check\_kjL.py}, $d=\frac37$;
+the six models with $pp'\le20$ (\texttt{check\_kjL.py}, $d=\frac37$;
 for $(2,7)$, $d=\frac15$, since at $d=\frac37$ a factor of $\mathcal N_g$ with
 $(k,l)=(1,7)$ vanishes and both sides are $0$).
 \end{remark}
@@ -732,11 +733,11 @@ $c^{(1)}_{\lambda\to\mu_2,1}(b_\star)=\frac{14}2\cdot\frac{2+10}{14+10}
 \operatorname{Top}(\lambda\to\mu_2)=\frac72\operatorname{Top}(\lambda\to\mu_2)$.
 Author check: (i) (with the pole order of $R_g$) and (ii) for $a=\lambda,\mu_1$
 against the engine at all boundary weights of $(2,3)$, $(2,5)$, $(3,4)$ up to
-level $30$, 79 of 79 (\texttt{probes/check\_boundary.py}); (iii) and (i) against
+level $30$, 79 of 79 (\texttt{tools/fixed\_charge/check\_boundary.py}); (iii) and (i) against
 direct inversion of the Shapovalov matrix at $c_\star$: at $c=0$, $\lambda=d_2$
 ($N\le8$) and $\lambda=d_3$ ($\epsilon=-1$, $N\le9$), the pole order is $D$ at
 every level and the top coefficient at $N=\ell_1,\ell_2$ is the value (i)
-(\texttt{probes/check\_boundary\_gram.py}).
+(\texttt{tools/fixed\_charge/check\_boundary\_gram.py}).
 \end{remark}
 
 \section{The lower coefficients as data at $c_\star$}
@@ -809,8 +810,8 @@ polynomial quotient $c^{(1)}_{0\to5,0}(b_\star)/c^{(2)}_{0\to5,0}(b_\star)$
 would be a constant; but it equals $\frac{83478061}{11476080}$ at $d=\frac37$ and
 $\frac{11152201}{1263780}$ at $d=\frac15$.  Author check of~\eqref{eq:inversion} with the Laurent coefficients
 computed by direct inversion of the Shapovalov matrix at $c_\star$
-(\texttt{gram\_laurent} in \texttt{layer2\_recursion.py}): $(2,3)$, $\lambda=0$,
+(\texttt{gram\_laurent} in \texttt{tools/fixed\_charge/layer2\_recursion.py}): $(2,3)$, $\lambda=0$,
 all nodes of level at most $7$, every $k\le D$, $d=\frac37,\frac15$: 12 of 12;
-$(2,5)$, $\lambda=h_{1,1}$, the same range: 8 of 8 (\texttt{probes/check\_lower.py}).
+$(2,5)$, $\lambda=h_{1,1}$, the same range: 8 of 8 (\texttt{tools/fixed\_charge/check\_lower.py}).
 
 \end{document}

@@ -2,7 +2,7 @@
        python3 -u check_kjL.py -h | --help
 
 Exact check of the theorem on the coefficients with k + j = D in notes/ribault/subleading.tex against
-the chain-function engine of notes/ribault/fixed_charge_recursion.py: for every interior weight, every
+the chain-function engine of tools/fixed_charge/fixed_charge_recursion.py: for every interior weight, every
 base node a of layer <= 1 and end node mu (D = layer(mu) - layer(a) >= 1, level <= cap),
    c^(D-j)_{a->mu,j}(b*) = f_j(l_a, D)/j! (S_mu/S_a)^j c^(D)_{a->mu,0}(b*),
    f_{2i}(l,D) = (-1)^i C(n,i) C(l+n,i)/C(l+D-1,i), n = floor((D-1)/2),
@@ -19,7 +19,7 @@ import time
 from fractions import Fraction as Fr
 from math import comb, factorial
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fixed_charge_recursion import ChainFunctions  # noqa: E402
 from layer2_recursion import Model  # noqa: E402
 

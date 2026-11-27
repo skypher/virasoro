@@ -355,7 +355,7 @@ def candidate(model, lam, N, report):
 # ------------------------------------------------------------------ gram
 
 def gram_laurent(p, pp, d, lam, nmax, kmax=0):
-    sys.path.insert(0, __import__("os").path.join(__import__("os").path.dirname(__import__("os").path.abspath(__file__)), "..", "..", "tools"))
+    sys.path.insert(0, __import__("os").path.join(__import__("os").path.dirname(__import__("os").path.abspath(__file__)), ".."))
     import direct_reconstruction as dr
     nu0 = Fr(-pp, p)
     dr.C_CHARGE = 13 + 6 * nu0 + 6 / nu0

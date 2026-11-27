@@ -29,6 +29,7 @@ from fractions import Fraction as Fr
 from math import factorial
 
 sys.path.insert(0, __import__("os").path.dirname(__import__("os").path.abspath(__file__)))
+sys.path.insert(0, __import__("os").path.join(__import__("os").path.dirname(__import__("os").path.abspath(__file__)), "..", "..", "tools", "fixed_charge"))
 from layer2_recursion import (Model, Ser, ser_add, ser_const, ser_inv,  # noqa: E402
                               ser_mul, ser_sub, ct, log)
 

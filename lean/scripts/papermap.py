@@ -69,7 +69,15 @@ HEAD = ["# Paper results and their Lean statements (papers as of 2026-11-26)", "
         "Rev20261126.lean, traces paper: BGG weight as a Gamma quotient) or is new, and is proved from",
         "the earlier form.  Every listed theorem depends only on [propext, Classical.choice,",
         "Quot.sound] (`../runs/lean2/checkMAP.log`); cited inputs (`Cited_*`) are hypotheses, as in the",
-        "papers.", ""]
+        "papers.", "",
+        'Notation (2026-11-27): `paper.tex` renamed some symbols; no statement, definition or number',
+        'changed, and the Lean docstrings keep the old names.  Section 7.2: the label weight `w_g = h_g(b⋆)` is',
+        'now `h⋆_g` and the colliding group `G^{(M)}_μ` is `𝒢^{(M)}_μ`; Lemma 7.5: the pole order `π_g` is `e_g`;',
+        'Section 8.1: the signed momenta `S_ν` are `m̃_ν`, the chain weights `w_γ` are `ρ_γ`, `ℓ(γ)` is `ρ̂_γ`,',
+        "and the layer differences `Δ` of Lemmas 8.3 to 8.7 are `D(ν,ν')`; Section 8.2: `T_k` is `m̃_k`, `M_k`",
+        'is `m_k`, `Δ_m = μ_{i+m} - μ_i` in Theorem 8.11(iii) is `ℓ_m`, and `τ₀` is `α₀`; Proposition 9.3,',
+        'Case 3: the ratio `T_k` is `X_k`.',
+        ""]
 
 SPHERE_IN_B = {'def:sphere-block', 'def:H-series', 'def:sphere-residues', 'lem:3pt-factor', 'prop:imported',
                'prop:generic-recursion-sph', 'def:confluence', 'thm:confluence', 'thm:jantzen-bound',

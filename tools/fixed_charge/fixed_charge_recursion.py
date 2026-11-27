@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Fixed-charge recursion at a fixed b* (any b*^2, rational or not).
 
-Implements the recursion of notes/ribault/fixed_charge_recursion.tex:
+Implements the recursion of paper.tex, Section 7.2 (first written up in
+notes/ribault/fixed_charge_recursion.tex):
 
   A_{lam,k,N} = sum_{mu} sum_{j>=0} c^{(k)}_{lam->mu,j}(b*) *
                 d^j/dDelta^j [ H_{N-(mu-lam)}(c*,Delta) - PP_mu H_{N-(mu-lam)}(c*,.) ] at Delta=mu,

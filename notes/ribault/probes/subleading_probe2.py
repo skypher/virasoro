@@ -17,6 +17,7 @@ import time
 from fractions import Fraction as Fr
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+sys.path.insert(0, __import__("os").path.join(__import__("os").path.dirname(__import__("os").path.abspath(__file__)), "..", "..", "..", "tools", "fixed_charge"))
 from fixed_charge_recursion import ChainFunctions  # noqa: E402
 from layer2_recursion import Model  # noqa: E402
 

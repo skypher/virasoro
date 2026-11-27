@@ -13,7 +13,7 @@ import os
 import sys
 from fractions import Fraction as Fr
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from layer2_recursion import Model, gram_laurent, ser_sub, ser_const  # noqa: E402
 
 

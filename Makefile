@@ -1,6 +1,12 @@
 PYTHON ?= python3 -u
 
-.PHONY: audit audit-deep audit-irreducible pdf arxiv-bundle
+.PHONY: check check-long audit audit-deep audit-irreducible pdf arxiv-bundle
+
+# check and check-long are the names used in paper.tex (Code availability);
+# audit and audit-deep are the older names of the same runs.
+check: audit
+
+check-long: audit-deep
 
 audit:
 	$(PYTHON) tools/audit_first_resonances.py

@@ -5,7 +5,7 @@ Exact check of Proposition (Second layer) in notes/ribault/subleading.tex: for e
 weight and both branches,
   c^{(2)}_{lambda->mu^pm_2,0}(b*) = -+ (n0/n1) R_{r,s}(b*) R_{p+-r, p'-+s}(b*),
   c^{(1)}_{lambda->mu^pm_2,1}(b*) = +- (m^pm_2/n0) c^{(2)}_{lambda->mu^pm_2,0}(b*),
-with the chain functions from the reviewed engine of notes/ribault/fixed_charge_recursion.py.
+with the chain functions from the reviewed engine of tools/fixed_charge/fixed_charge_recursion.py.
 """
 # py-rules-ok: case a, six small models at levels <= 2pp', the engine took about 1 s per model
 # stop-when: all checks are printed
@@ -14,7 +14,7 @@ import os
 import sys
 from fractions import Fraction as Fr
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fixed_charge_recursion import ChainFunctions  # noqa: E402
 from layer2_recursion import Model  # noqa: E402
 

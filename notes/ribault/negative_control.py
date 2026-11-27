@@ -10,6 +10,7 @@ import sys
 from fractions import Fraction as Fr
 
 sys.path.insert(0, __import__("os").path.dirname(__import__("os").path.abspath(__file__)))
+sys.path.insert(0, __import__("os").path.join(__import__("os").path.dirname(__import__("os").path.abspath(__file__)), "..", "..", "tools", "fixed_charge"))
 from layer2_recursion import Model, Ser, ser_mul, ser_add, ser_const, log  # noqa: E402
 from jet_expansion import Jets  # noqa: E402
 
