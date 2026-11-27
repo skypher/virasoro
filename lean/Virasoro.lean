@@ -221,6 +221,8 @@ import Virasoro.Proofs.Sec8BLead
 import Virasoro.Proofs.Sec8BTop
 import Virasoro.Proofs.Sec8BVals
 import Virasoro.Proofs.Sec8BEll
+import Virasoro.Proofs.Sec8BMoments
+import Virasoro.Proofs.Sec8BRec
 import Virasoro.Proofs.Sec8DiagJets
 import Virasoro.Proofs.Sec8DiagNodes
 import Virasoro.Proofs.Sec8DiagLabels
