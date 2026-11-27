@@ -1799,4 +1799,7 @@ Fixed: `Stmt_thm_diagonal` gets the second clause `∑_i f_{2i}(l,D) xⁱ = hyp2
 (1-D-l) n` (`hyp2F1Poly`, the terminating series with explicit Pochhammer products, in
 `Statements/Sec8Diagonal.lean`), proved by `diag_hyp` (`prod_neg_shift`) in
 `Proofs/Sec8DiagThm.lean`; axioms unchanged (`runs/ribault/ax_88b.log`, `ax_89b.log`).  Recheck of
-the new clause: packet 57.
+the new clause: packet 57 (at 583e921): yang2 Item 1 PASS (2026-11-27T01:53:51Z) with one FIX,
+the PAPER_MAP row of Theorem 8.8 pointed to `prod_neg_shift` because the new lemmas had been
+inserted between the `Paper label` docstring and `thm_diagonal_of_cited`; fixed by moving the
+docstring back (row restored to `Virasoro.thm_diagonal_of_cited`).  Jander Item 2: awaiting.

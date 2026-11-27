@@ -330,10 +330,7 @@ theorem fVal_eq : ∀ D : ℕ, ∀ a μ : Node, μ.2 - a.2 = D → a.2 < μ.2 �
 
 end Cases
 
-/-- Theorem 8.8 (`thm:diagonal`), from the two cited results (through Lemma 8.7 and
-Proposition 8.6).
-
-Paper label: thm:diagonal -/
+/-- `(-c)_i = (-1)^i c!/(c-i)!`. -/
 theorem prod_neg_shift (c i : ℕ) (h : i ≤ c) :
     ∏ m ∈ Finset.range i, (-(c : ℚ) + m) = (-1) ^ i * (c.factorial : ℚ) / (c - i).factorial := by
   induction i with
@@ -376,6 +373,10 @@ theorem diag_hyp (l D : ℕ) (hD : 1 ≤ D) :
   have h8 : ((-1 : ℚ) ^ i) ≠ 0 := pow_ne_zero _ (by norm_num)
   field_simp
 
+/-- Theorem 8.8 (`thm:diagonal`), from the two cited results (through Lemma 8.7 and
+Proposition 8.6).
+
+Paper label: thm:diagonal -/
 theorem thm_diagonal_of_cited (hK : Cited_KacDeterminant) (hH : Cited_HJSNormalizations) :
     Stmt_thm_diagonal := by
   refine ⟨fun p p' r s b hset a μ haμ j hj => ?_, fun l D hD => diag_hyp l D hD⟩
