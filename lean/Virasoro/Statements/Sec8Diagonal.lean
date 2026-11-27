@@ -262,15 +262,28 @@ def Stmt_lem_diagonal_values : Prop :=
             (nodeChain p p' r s b a μ (μ.2 - a.2 - j) j).coeff 0 =
           (F a μ j : Kd) * nodeTop p p' r s b a μ
 
+/-- The terminating hypergeometric polynomial
+`₂F₁(a, b; c; x) = ∑_{i ≤ n} (a)_i (b)_i/((c)_i i!) xⁱ`, `(a)_i = a(a+1)⋯(a+i-1)`. -/
+noncomputable def hyp2F1Poly (a b c : ℚ) (n : ℕ) : ℚ[X] :=
+  ∑ i ∈ Finset.range (n + 1),
+    Polynomial.C ((∏ m ∈ Finset.range i, (a + m)) * (∏ m ∈ Finset.range i, (b + m)) /
+      ((∏ m ∈ Finset.range i, (c + m)) * i.factorial)) * Polynomial.X ^ i
+
 /-- Theorem 8.8 (`thm:diagonal`).  For nodes `a, μ` with `D = D(a,μ) ≥ 1` and `0 ≤ j ≤ D-1`,
-`c^{(D-j)}_{a→μ,j}(b⋆) = f_j(L_a,D)/j! (S_μ/S_a)^j Top(a→μ)` with the closed form `fDiag`. -/
+`c^{(D-j)}_{a→μ,j}(b⋆) = f_j(L_a,D)/j! (S_μ/S_a)^j Top(a→μ)` with the closed form `fDiag`; that
+is, with `n = ⌊(D-1)/2⌋`, `∑_i f_{2i}(l,D) xⁱ = ₂F₁(-n, -n-l; 1-D-l; x)` (both sides terminate at
+`i = n`: `f_{2i}(l,D) = 0` and `(-n)_i = 0` for `i > n`). -/
 def Stmt_thm_diagonal : Prop :=
-  ∀ (p p' r s : ℕ) (b : ℂ), MinimalSetting p p' r s b →
+  (∀ (p p' r s : ℕ) (b : ℂ), MinimalSetting p p' r s b →
     ∀ a μ : Node, a.2 < μ.2 → ∀ j : ℕ, j < μ.2 - a.2 →
       (nodeChain p p' r s b a μ (μ.2 - a.2 - j) j).coeff 0 =
         ((fDiag a.2 (μ.2 - a.2) j / j.factorial *
             ((nodeS p p' r s μ : ℚ) / nodeS p p' r s a) ^ j : ℚ) : Kd) *
-          nodeTop p p' r s b a μ
+          nodeTop p p' r s b a μ) ∧
+  ∀ l D : ℕ, 1 ≤ D →
+    ∑ i ∈ Finset.range ((D - 1) / 2 + 1), Polynomial.C (fDiag l D (2 * i)) * Polynomial.X ^ i =
+      hyp2F1Poly (-(((D - 1) / 2 : ℕ) : ℚ)) (-(((D - 1) / 2 : ℕ) : ℚ) - l) (1 - (D : ℚ) - l)
+        ((D - 1) / 2)
 
 /-- Corollary 8.9 (`cor:diagonal-lambda`).  In the setting of Theorem 8.2, for `L ≥ 1`,
 `0 ≤ j ≤ L - 1` and each sign: `c^{(L-j)}_{λ→μ^±_L,j}(b⋆) = f_j(0,L)/j! (±m^±_L/n₀)^j N^±_L/γ^±_L`

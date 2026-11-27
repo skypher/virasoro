@@ -1792,4 +1792,11 @@ Corollary 7.16 and 8.5–8.8 take `Cited_KacDeterminant` and `Cited_HJSNormaliza
 adds `Cited_VermaHomInjective` and `Cited_SingularUnique`.  Checked by the main session: each
 module builds; axiom audits `runs/ribault/ax_83.log`, `ax_c716.log`, `ax_85.log`–`ax_89.log` give
 [propext, Classical.choice, Quot.sound]; no sorry.  Packet 56 (at 991fa96, 2026-11-27T01:34:53Z):
-yang2 Item 1 (statement fidelity), Jander Item 2 (source audit of the proofs); awaiting replies.
+yang2 Item 1 PASS (statement fidelity, 2026-11-27T01:36:21Z), Jander Item 2 PASS (source audit,
+proof routing and declared inputs), both with one scope note: the paper's Theorem 8.8 also displays
+the equivalent terminating `₂F₁(-n, -n-l; 1-D-l; x)` form, which `Stmt_thm_diagonal` did not state.
+Fixed: `Stmt_thm_diagonal` gets the second clause `∑_i f_{2i}(l,D) xⁱ = hyp2F1Poly (-n) (-n-l)
+(1-D-l) n` (`hyp2F1Poly`, the terminating series with explicit Pochhammer products, in
+`Statements/Sec8Diagonal.lean`), proved by `diag_hyp` (`prod_neg_shift`) in
+`Proofs/Sec8DiagThm.lean`; axioms unchanged (`runs/ribault/ax_88b.log`, `ax_89b.log`).  Recheck of
+the new clause: packet 57.

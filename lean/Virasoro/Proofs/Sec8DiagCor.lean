@@ -200,7 +200,7 @@ theorem cor_diag_i (hK : Cited_KacDeterminant) (hH : Cited_HJSNormalizations)
           ((nodeS p p' r s (ε, L) : ℚ) / nodeS p p' r s (true, 0)) ^ j : ℚ) : Kd) *
         (algebraMap ℂ[X] Kd (torusPolyForm (kacC b) (kacH r s b) x) *
           RatFunc.C (jform (kacC b) (kacH r s b) (ellOrb p p' r s ε L) L x x)⁻¹) := by
-  have h := thm_diagonal_of_cited hK hH p p' r s b hset (true, 0) (ε, L)
+  have h := (thm_diagonal_of_cited hK hH).1 p p' r s b hset (true, 0) (ε, L)
     (show (true, 0).2 < (ε, L).2 by show 0 < L; omega) j
     (show j < (ε, L).2 - (true, 0).2 by show j < L - 0; omega)
   simp only [Nat.sub_zero] at h

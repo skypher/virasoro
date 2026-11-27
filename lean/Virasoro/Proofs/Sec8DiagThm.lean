@@ -334,9 +334,51 @@ end Cases
 Proposition 8.6).
 
 Paper label: thm:diagonal -/
+theorem prod_neg_shift (c i : ℕ) (h : i ≤ c) :
+    ∏ m ∈ Finset.range i, (-(c : ℚ) + m) = (-1) ^ i * (c.factorial : ℚ) / (c - i).factorial := by
+  induction i with
+  | zero => simp [div_self (show (c.factorial : ℚ) ≠ 0 by positivity)]
+  | succ i ih =>
+    rw [Finset.prod_range_succ, ih (by omega), show c - i = (c - (i + 1)) + 1 by omega,
+      Nat.factorial_succ]
+    have h1 : ((c - (i + 1)).factorial : ℚ) ≠ 0 := by positivity
+    have h2 : (c : ℚ) - i ≠ 0 := by
+      have : (i : ℚ) < c := by exact_mod_cast (show i < c by omega)
+      linarith
+    have hu : ((c : ℚ) - i) * ((c : ℚ) - i)⁻¹ = 1 := mul_inv_cancel₀ h2
+    push_cast [Nat.cast_sub (show i + 1 ≤ c from h)]
+    field_simp
+    linear_combination (-(-1 : ℚ) ^ i) * hu
+
+/-- `∑_i f_{2i}(l,D) xⁱ = ₂F₁(-n, -n-l; 1-D-l; x)`, `n = ⌊(D-1)/2⌋`. -/
+theorem diag_hyp (l D : ℕ) (hD : 1 ≤ D) :
+    ∑ i ∈ Finset.range ((D - 1) / 2 + 1), Polynomial.C (fDiag l D (2 * i)) * Polynomial.X ^ i =
+      hyp2F1Poly (-(((D - 1) / 2 : ℕ) : ℚ)) (-(((D - 1) / 2 : ℕ) : ℚ) - l) (1 - (D : ℚ) - l)
+        ((D - 1) / 2) := by
+  unfold hyp2F1Poly
+  refine Finset.sum_congr rfl fun i hi => ?_
+  have hi' : i ≤ (D - 1) / 2 := by have := Finset.mem_range.1 hi; omega
+  congr 2
+  rw [fDiag_eval l D (2 * i) (by omega), show 2 * i / 2 = i by omega,
+    show (-(((D - 1) / 2 : ℕ) : ℚ) - l) = -((((D - 1) / 2 + l) : ℕ) : ℚ) by push_cast; ring,
+    show (1 - (D : ℚ) - l) = -(((D + l - 1) : ℕ) : ℚ) by push_cast [Nat.cast_sub (show 1 ≤ D + l by omega)]; ring,
+    prod_neg_shift _ i hi', prod_neg_shift _ i (by omega), prod_neg_shift _ i (by omega),
+    show l + (D - 1) / 2 = (D - 1) / 2 + l by ring, show l + D - 1 = D + l - 1 by omega,
+    Nat.cast_choose ℚ hi', Nat.cast_choose ℚ (show i ≤ (D - 1) / 2 + l by omega),
+    Nat.cast_choose ℚ (show i ≤ D + l - 1 by omega)]
+  have h1 : ((((D - 1) / 2) - i).factorial : ℚ) ≠ 0 := by positivity
+  have h2 : (((D - 1) / 2 + l - i).factorial : ℚ) ≠ 0 := by positivity
+  have h3 : ((D + l - 1 - i).factorial : ℚ) ≠ 0 := by positivity
+  have h4 : (((D + l - 1)).factorial : ℚ) ≠ 0 := by positivity
+  have h5 : ((i).factorial : ℚ) ≠ 0 := by positivity
+  have h6 : ((((D - 1) / 2)).factorial : ℚ) ≠ 0 := by positivity
+  have h7 : ((((D - 1) / 2 + l)).factorial : ℚ) ≠ 0 := by positivity
+  have h8 : ((-1 : ℚ) ^ i) ≠ 0 := pow_ne_zero _ (by norm_num)
+  field_simp
+
 theorem thm_diagonal_of_cited (hK : Cited_KacDeterminant) (hH : Cited_HJSNormalizations) :
     Stmt_thm_diagonal := by
-  intro p p' r s b hset a μ haμ j hj
+  refine ⟨fun p p' r s b hset a μ haμ j hj => ?_, fun l D hD => diag_hyp l D hD⟩
   rw [chain_val hK hH hset haμ j hj, cv, fVal_eq hK hH (μ.2 - a.2) a μ rfl haμ j hj]
 
 end Virasoro
