@@ -1816,5 +1816,8 @@ Lemma 8.10 takes no cited input; Theorem 8.11 takes `Cited_KacDeterminant` and
 `Cited_HJSNormalizations` (through Theorem 7.14, Lemma 7.13, Corollary 7.16 and Proposition 9.2).
 Checked by the main session: each module builds; full build exit 0
 (`runs/ribault/lean_full_811.log`, 4218 jobs); axiom audits `runs/ribault/ax_810.log`,
-`ax_811.log` give [propext, Classical.choice, Quot.sound]; no sorry; PAPER_MAP 83 rows.
-Author-side check, not a reviewer PASS.
+`ax_811.log` give [propext, Classical.choice, Quot.sound]; no sorry; PAPER_MAP 83 rows; the audit
+of all 83 rows (`runs/ribault/checkmap_811.log`) gives [propext, Classical.choice, Quot.sound] for
+each.  Packet 58 (at 2e100ed, 2026-11-27T03:06:10Z): yang2 Item 1 PASS (statement fidelity,
+2026-11-27T03:07:01Z; sign and index check at `(p,p',x₀) = (2,3,2)`, `i = 0`, `k = 2`, `j = 1`
+gives the paper's factor 7/2).
