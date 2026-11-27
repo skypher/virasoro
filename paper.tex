@@ -320,15 +320,17 @@ three-point factors.
 
 Below the top pole, the recursion of Theorem~\ref{thm:fixed-charge} for the
 torus block uses the numbers \(c^{(k)}_{\lambda\to\mu,j}(b_\star)\): the
-coefficient with which the \(j\)-th \(\Delta\)-derivative of a lower coefficient
-at the weight \(\mu\) enters the coefficient of \((\Delta-\lambda)^{-k}\).  At an
+coefficient with which the \(j\)-th \(\Delta\)-derivative at \(\mu\) of a lower
+coefficient, after its principal part at \(\mu\) has been removed, enters the
+coefficient of \((\Delta-\lambda)^{-k}\).  At an
 interior weight \(\lambda\) only the weights \(\mu=\lambda+\ell^\pm_L\) of the
 embedding diagram occur, and the number vanishes when \(k+j>L\).  On the line
 \(k+j=L\) it is explicit (Theorem~\ref{thm:diagonal},
 Corollary~\ref{cor:diagonal-lambda}): the top coefficient
 \(\langle w^\pm_L|V_d(1)|w^\pm_L\rangle/\gamma^\pm_L\) of~\eqref{eq:intro-top}, times
-\((\pm m^\pm_L/n_0)^j\), times a rational number that depends only on \(L\) and
-\(j\), a coefficient of a terminating hypergeometric polynomial.  Here \(n_0\)
+\((\pm m^\pm_L/n_0)^j\), times a rational number \(f_j(0,L)/j!\) that depends
+only on \(L\) and \(j\) and is obtained from the coefficients of a terminating
+hypergeometric polynomial.  Here \(n_0\)
 and \(m^\pm_L\) are the Coulomb momenta of \(\lambda\) and \(\mu\), the integers
 \(x\) with weight \((x^2-(p'-p)^2)/(4pp')\).  At the
 boundary weights of Class \(R^+\) (momentum divisible by exactly one of
@@ -1875,10 +1877,12 @@ for nodes $a,\mu$ at layer distance $D$, each chain term of
 $c^{(k)}_{a\to\mu,j}$ is of order $t^{k+j-D}$ (Lemma~\ref{lem:node-leading}(i)
 below), so $c^{(k)}_{a\to\mu,j}(b_\star)=0$ for $k+j>D$.  On the diagonal the
 values come from the leading coefficients in $t$ of the residues $R_g$ and of
-the shifts $\delta_g$ alone; below it, for $k+j<D$, they also involve higher
-Taylor coefficients.  In~\eqref{eq:fixed-charge},
-for the coefficient of $(\Delta-\lambda)^{-k}$, the diagonal terms are those
-with the highest derivative order $j=L_\mu-k$ at each node $\mu$.
+the shifts $\delta_g$ alone; below it, for $k+j<D$, they can also depend on
+higher Taylor coefficients.  In~\eqref{eq:fixed-charge}, for the coefficient of
+$(\Delta-\lambda)^{-k}$, the diagonal terms are those with the highest
+derivative order allowed by the layer bound, $j=L_\mu-k$, at the nodes $\mu$
+with $L_\mu\geq k$; their coefficients can still vanish (for instance
+$f_1(0,3)=0$ in Theorem~\ref{thm:diagonal}).
 Corollary~\ref{cor:chain-values} determines all values from data at $c_\star$;
 on the diagonal this subsection gives them in closed form.
 
@@ -3965,7 +3969,7 @@ blocks of logarithmic conformal field theory: at generic central charge,
 Nivesvivat and Ribault obtain the non-chiral four-point blocks of logarithmic
 representations as combinations of Verma-module blocks and their first and
 second derivatives in the conformal
-dimension~\cite[\S\S2--3]{NivesvivatRibault2021}, show that these blocks
+dimension~\cite[\S2 and \S3.2]{NivesvivatRibault2021}, show that these blocks
 appear in limits of Liouville four-point
 functions~\cite[\S3.3]{NivesvivatRibault2021}, and ask how their constructions
 apply at rational \(b^2\)~\cite[\S6]{NivesvivatRibault2021}.  Whether the
