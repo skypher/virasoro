@@ -17,9 +17,9 @@ Sections 8.1-8.2 (diagonal coefficients, boundary weights; Lemma 8.3 to Theorem 
 Corollary 7.16: statement `Statements/Sec7ChainValues.lean`, proof `Proofs/Sec7ChainValues.lean`
 (`cor_chain_values_of_cited`, from Theorem 7.14 and Lemma 7.10; axioms [propext,
 Classical.choice, Quot.sound]); awaiting review.  Section 8.1: statements frozen in
-`Statements/Sec8Diagonal.lean`; Lemma 8.3 proved (`lem_node_labels`, Proofs/Sec8Diag{Jets,Nodes,
+`Statements/Sec8Diagonal.lean`; Lemmas 8.3 and 8.4 proved (`lem_node_labels`, `lem_node_poles`; Proofs/Sec8Diag{Jets,Nodes,Poles,
 Labels,Labels3,BridgeAux,Bridge}.lean, including the identification of `chainFnC` with the sum over
-node chains); Lemmas 8.4-8.7, Theorem 8.8, Corollary 8.9 and Section 8.2 in progress.
+node chains); Lemmas 8.5-8.7, Theorem 8.8, Corollary 8.9 and Section 8.2 in progress.
 
 Paper: `paper.tex` at commit 9aa415f ("Exact algebraic confluence for torus one-point
 Virasoro-block recursions"). Toolchain `leanprover/lean4:v4.33.0`, Mathlib `v4.33.0`.
