@@ -82,7 +82,7 @@ papers.
 | Theorem 8.8 | `thm:diagonal` | `Stmt_thm_diagonal` | `Virasoro.thm_diagonal_of_cited` (Virasoro/Proofs/Sec8DiagThm.lean) |
 | Corollary 8.9 | `cor:diagonal-lambda` | `Stmt_cor_diagonal_lambda` | `Virasoro.cor_diagonal_lambda_of_cited` (Virasoro/Proofs/Sec8DiagCor.lean) |
 | Lemma 8.10 | `lem:boundary-labels` | `Stmt_lem_boundary_labels` | `Virasoro.lem_boundary_labels` (Virasoro/Proofs/Sec8BLabels3.lean) |
-| Theorem 8.11 | `thm:boundary` | `Stmt_thm_boundary` |  |
+| Theorem 8.11 | `thm:boundary` | `Stmt_thm_boundary` | `Virasoro.thm_boundary_of_cited` (Virasoro/Proofs/Sec8BPole.lean) |
 | Proposition 9.1 | `prop:layer-coefficients` | `Stmt_prop_layer_coefficients` | `Virasoro.prop_layer_coefficients_of_cited` (Virasoro/Proofs/Sec6LayerFinal.lean) |
 | Proposition 9.2 | `prop:h13-nonvanishing` | `Stmt_prop_h13_nonvanishing` | `Virasoro.prop_h13_nonvanishing_of_cited` (Virasoro/Proofs/Sec6H13Label.lean) |
 | Proposition 9.3 | `prop:two-term-criteria` | `Stmt_prop_two_term_criteria` | `Virasoro.prop_two_term_criteria_of_cited` (Virasoro/Proofs/Sec6TTLabel.lean) |

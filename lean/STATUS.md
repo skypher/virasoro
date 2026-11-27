@@ -16,7 +16,7 @@ On 2026-11-27 `paper.tex` gained Corollary 7.16 (chain values from data at the f
 Sections 8.1-8.2 (diagonal coefficients, boundary weights; Lemma 8.3 to Theorem 8.11).
 Corollary 7.16: statement `Statements/Sec7ChainValues.lean`, proof `Proofs/Sec7ChainValues.lean`
 (`cor_chain_values_of_cited`, from Theorem 7.14 and Lemma 7.10; axioms [propext,
-Classical.choice, Quot.sound]); awaiting review.  Section 8.1: statements frozen in
+Classical.choice, Quot.sound]); reviewer PASS (packet 56).  Section 8.1: statements frozen in
 `Statements/Sec8Diagonal.lean`; Lemmas 8.3 and 8.4 proved with no cited input (`lem_node_labels`,
 `lem_node_poles`), Lemma 8.5 proved from `Cited_KacDeterminant` and `Cited_HJSNormalizations`
 through Lemma 7.13 (`lem_node_leading_of_cited`), Proposition 8.6 from the same two
@@ -32,8 +32,21 @@ Proposition 8.6 at `θ = μ^+_1` and the factorization of `τ^±_2`);
 Proofs/Sec8Diag{Jets,Nodes,Labels,Labels3,BridgeAux,Bridge,Poles,Lead,Chains,LeadSums,Leading,
 Top,Values,Ell,Moments,Rec,Kappa,Thm,Lambda,Cor}.lean, including the identification of `chainFnC`
 with the sum over node chains; axioms [propext, Classical.choice, Quot.sound]
-(`../runs/ribault/ax_85.log` to `ax_89.log`); awaiting review.  Section 8.2 (Lemma 8.10,
-Theorem 8.11) in progress.
+(`../runs/ribault/ax_85.log` to `ax_89.log`); reviewer PASS (packets 56, 57; REVIEW.md).
+Section 8.2: statements frozen in `Statements/Sec8Boundary.lean`; Lemma 8.10 proved with no cited
+input (`lem_boundary_labels`); Theorem 8.11 from `Cited_KacDeterminant` and
+`Cited_HJSNormalizations` (`thm_boundary_of_cited`): (i) Lemma 8.5(ii) for the one-label chain
+with `h_{aμ} - h_{aμ_m} = ε ς N₀ T_i (π_k - π_m)`; (ii) Proposition 8.6 and Lemma 8.7 at the
+boundary (`b_top_identity`, `b_values_i`, `b_values_ii`, `ℓ(γ) = bEll`), the recursion
+`f_j T_k = f_{j-1} T_i - κ̂ f_{j-1}(ν,μ) T_ν` in each model (`b_rec`), the two boundary weights
+`x₀ = 2, 4` of `(2,3)` (`b_rec_pi`), induction on `j` (`fValB_closed`); (iii) (7.8) at `μ_i`
+(`b_fc_rhs`), `H_M(c⋆,·)` regular at `μ_{i+D}` (`b_reg_lcoeff`), its value a nonzero polynomial in
+`d` by Proposition 9.2(iii) at the momentum `M_{i+D}` (`b_val_ne`, `HpolyD_ne_zero_mom`), and at a
+specialized `d₀` the Laurent coefficients of `H_N(c⋆,·,d₀)` are the values at `d₀` of the
+polynomials of `ChainLim.ppCoeff_HN` (`ChainLim.ppCoeff_Hrat`);
+Proofs/Sec8B{Nodes,Labels,Labels2,Labels3,Bridge,Lead,Top,Vals,Ell,Moments,Rec,Spec,Pole}.lean;
+axioms [propext, Classical.choice, Quot.sound] (`../runs/ribault/ax_810.log`, `ax_811.log`);
+awaiting review.
 
 Paper: `paper.tex` at commit 9aa415f ("Exact algebraic confluence for torus one-point
 Virasoro-block recursions"). Toolchain `leanprover/lean4:v4.33.0`, Mathlib `v4.33.0`.

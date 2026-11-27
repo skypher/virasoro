@@ -1805,3 +1805,16 @@ inserted between the `Paper label` docstring and `thm_diagonal_of_cited`; fixed 
 docstring back (row restored to `Virasoro.thm_diagonal_of_cited`, 7805fc1).  Jander Item 2 PASS
 (2026-11-27T02:01:12Z, source audit of `diag_hyp`, `prod_neg_shift`) with the same PAPER_MAP FIX,
 applied at 7805fc1.
+
+## 2026-11-27: colliding-poles paper Section 8.2, boundary weights (main session)
+
+New `Statements/Sec8Boundary.lean` (the setting, `ε`, `π_k`, `T_k`, `M_k`, `μ_k`, the levels, the
+label from `μ_i` to `μ_k`, the chain values, `Top`, `R_g`, `ρ_g`, `h_{aθ}`;
+`Stmt_lem_boundary_labels`, `Stmt_thm_boundary`), proofs
+`Proofs/Sec8B{Nodes,Labels,Labels2,Labels3,Bridge,Lead,Top,Vals,Ell,Moments,Rec,Spec,Pole}.lean`.
+Lemma 8.10 takes no cited input; Theorem 8.11 takes `Cited_KacDeterminant` and
+`Cited_HJSNormalizations` (through Theorem 7.14, Lemma 7.13, Corollary 7.16 and Proposition 9.2).
+Checked by the main session: each module builds; full build exit 0
+(`runs/ribault/lean_full_811.log`, 4218 jobs); axiom audits `runs/ribault/ax_810.log`,
+`ax_811.log` give [propext, Classical.choice, Quot.sound]; no sorry; PAPER_MAP 83 rows.
+Author-side check, not a reviewer PASS.
