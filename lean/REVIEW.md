@@ -1820,4 +1820,7 @@ Checked by the main session: each module builds; full build exit 0
 of all 83 rows (`runs/ribault/checkmap_811.log`) gives [propext, Classical.choice, Quot.sound] for
 each.  Packet 58 (at 2e100ed, 2026-11-27T03:06:10Z): yang2 Item 1 PASS (statement fidelity,
 2026-11-27T03:07:01Z; sign and index check at `(p,p',x₀) = (2,3,2)`, `i = 0`, `k = 2`, `j = 1`
-gives the paper's factor 7/2).
+gives the paper's factor 7/2), Jander Item 2 PASS (source audit of proof routing and cited
+inputs, 2026-11-27T03:13:37Z, relayed by yang2 03:14:08Z; no Lean statement change needed).  The
+paper sentence for the specialized-`d` clause of Theorem 8.11(iii) (3091372; wording FIX applied
+507074c) has yang2 PASS (packets 59, 60); statements unchanged.

@@ -46,7 +46,7 @@ specialized `d₀` the Laurent coefficients of `H_N(c⋆,·,d₀)` are the value
 polynomials of `ChainLim.ppCoeff_HN` (`ChainLim.ppCoeff_Hrat`);
 Proofs/Sec8B{Nodes,Labels,Labels2,Labels3,Bridge,Lead,Top,Vals,Ell,Moments,Rec,Spec,Pole}.lean;
 axioms [propext, Classical.choice, Quot.sound] (`../runs/ribault/ax_810.log`, `ax_811.log`);
-awaiting review.
+reviewer PASS (packet 58: yang2 statements, Jander proofs; REVIEW.md).
 
 Paper: `paper.tex` at commit 9aa415f ("Exact algebraic confluence for torus one-point
 Virasoro-block recursions"). Toolchain `leanprover/lean4:v4.33.0`, Mathlib `v4.33.0`.
