@@ -219,3 +219,4 @@ import Virasoro.Proofs.Sec8DiagBridgeAux
 import Virasoro.Proofs.Sec8DiagBridge
 import Virasoro.Proofs.Sec8DiagPoles
 import Virasoro.Proofs.Sec8DiagLead
+import Virasoro.Proofs.Sec8DiagChains
