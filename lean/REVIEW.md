@@ -1778,3 +1778,18 @@ Packet 47 (at a6f7403): yang2 Item 1 PASS (statement re-check of 7.11, 7.12, 7.1
 2026-11-26T11:55:24Z; prose note on the reading conventions applied at 0e37fcc); Jander Item 2
 PASS (source audit of the three changed proofs, 2026-11-26T12:03:58Z).  Build and axioms are the
 main session's check.
+
+## 2026-11-27: colliding-poles paper Corollary 7.16 and Section 8.1, coefficients on the diagonal (main session)
+
+New `Statements/Sec7ChainValues.lean` (`Stmt_cor_chain_values`) and `Statements/Sec8Diagonal.lean`
+(nodes, signed momenta, positions, node labels, first steps, node chains, chain products and
+weights; `Stmt_lem_node_labels`, `Stmt_lem_node_poles`, `Stmt_lem_node_leading`,
+`Stmt_prop_top_ratios`, `Stmt_lem_diagonal_values`, `Stmt_thm_diagonal`,
+`Stmt_cor_diagonal_lambda`), proofs `Proofs/Sec7ChainValues.lean` and
+`Proofs/Sec8Diag{Jets,Nodes,Labels,Labels3,BridgeAux,Bridge,Poles,Lead,Chains,LeadSums,Leading,
+Top,Values,Ell,Moments,Rec,Kappa,Thm,Lambda,Cor}.lean`.  Lemmas 8.3 and 8.4 take no cited input;
+Corollary 7.16 and 8.5–8.8 take `Cited_KacDeterminant` and `Cited_HJSNormalizations`; Corollary 8.9
+adds `Cited_VermaHomInjective` and `Cited_SingularUnique`.  Checked by the main session: each
+module builds; axiom audits `runs/ribault/ax_83.log`, `ax_c716.log`, `ax_85.log`–`ax_89.log` give
+[propext, Classical.choice, Quot.sound]; no sorry.  Packet 56 (at 991fa96, 2026-11-27T01:34:53Z):
+yang2 Item 1 (statement fidelity), Jander Item 2 (source audit of the proofs); awaiting replies.
