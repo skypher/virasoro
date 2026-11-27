@@ -77,7 +77,7 @@ papers.
 | Lemma 8.3 | `lem:node-labels` | `Stmt_lem_node_labels` | `Virasoro.lem_node_labels` (Virasoro/Proofs/Sec8DiagBridge.lean) |
 | Lemma 8.4 | `lem:node-poles` | `Stmt_lem_node_poles` | `Virasoro.lem_node_poles` (Virasoro/Proofs/Sec8DiagPoles.lean) |
 | Lemma 8.5 | `lem:node-leading` | `Stmt_lem_node_leading` | `Virasoro.lem_node_leading_of_cited` (Virasoro/Proofs/Sec8DiagLeading.lean) |
-| Proposition 8.6 | `prop:top-ratios` | `Stmt_prop_top_ratios` |  |
+| Proposition 8.6 | `prop:top-ratios` | `Stmt_prop_top_ratios` | `Virasoro.prop_top_ratios_of_cited` (Virasoro/Proofs/Sec8DiagTop.lean) |
 | Lemma 8.7 | `lem:diagonal-values` | `Stmt_lem_diagonal_values` |  |
 | Theorem 8.8 | `thm:diagonal` | `Stmt_thm_diagonal` |  |
 | Corollary 8.9 | `cor:diagonal-lambda` | `Stmt_cor_diagonal_lambda` |  |

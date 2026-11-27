@@ -19,11 +19,13 @@ Corollary 7.16: statement `Statements/Sec7ChainValues.lean`, proof `Proofs/Sec7C
 Classical.choice, Quot.sound]); awaiting review.  Section 8.1: statements frozen in
 `Statements/Sec8Diagonal.lean`; Lemmas 8.3 and 8.4 proved with no cited input (`lem_node_labels`,
 `lem_node_poles`), Lemma 8.5 proved from `Cited_KacDeterminant` and `Cited_HJSNormalizations`
-through Lemma 7.13 (`lem_node_leading_of_cited`); Proofs/Sec8Diag{Jets,Nodes,Labels,Labels3,
-BridgeAux,Bridge,Poles,Lead,Chains,LeadSums,Leading}.lean, including the identification of
-`chainFnC` with the sum over node chains; axioms [propext, Classical.choice, Quot.sound]
-(`../runs/ribault/ax_85.log`); awaiting review.  Proposition 8.6, Lemma 8.7, Theorem 8.8,
-Corollary 8.9 and Section 8.2 in progress.
+through Lemma 7.13 (`lem_node_leading_of_cited`), Proposition 8.6 from the same two
+(`prop_top_ratios_of_cited`; the coefficient for even distance is `kappaEven`, through the node
+`(+, L_a + 1)`); Proofs/Sec8Diag{Jets,Nodes,Labels,Labels3,BridgeAux,Bridge,Poles,Lead,Chains,
+LeadSums,Leading,Top}.lean, including the identification of `chainFnC` with the sum over node
+chains; axioms [propext, Classical.choice, Quot.sound] (`../runs/ribault/ax_85.log`,
+`ax_86.log`); awaiting review.  Lemma 8.7, Theorem 8.8, Corollary 8.9 and Section 8.2 in
+progress.
 
 Paper: `paper.tex` at commit 9aa415f ("Exact algebraic confluence for torus one-point
 Virasoro-block recursions"). Toolchain `leanprover/lean4:v4.33.0`, Mathlib `v4.33.0`.
