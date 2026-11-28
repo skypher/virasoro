@@ -145,16 +145,18 @@ singular in \(b\), so the recursions cannot in general be evaluated term by
 term.  For both blocks and every fixed \(b_\star\ne0\), we give the principal
 part of each block coefficient at each Kac weight as a sum of constant terms
 of finite Laurent expansions in \(b-b_\star\) of the generic residue data, and
-turn this into a recursion at the fixed central charge whose finite
-coefficients do not depend on the level.  At an interior Kac weight of a
+turn this into a recursion at fixed central charge with level-independent
+finite coefficients.  At an interior Kac weight of a
 minimal model, the pole order of the level-\(N\) coefficient is at most the
-number of layers of the embedding diagram of the Verma module that begin at
+number of layers of the Verma module's embedding diagram that begin at
 level \(N\) or below, with equality for indeterminate external weights.  When
 this number is positive, the coefficient at that order is a sum of blocks at
 shifted weights, weighted by matrix elements of singular vectors divided by
-their Jantzen norms.  For the torus block we also give in closed form the
-recursion coefficients of the highest derivatives at interior weights, and
-the pole order and top coefficient at the boundary weights.  In the Ising
+their Jantzen norms.  For the torus block we give in closed form, at
+interior weights, the recursion coefficients of the highest derivative order
+allowed at each pole order, and, at the boundary weights of Class \(R^+\),
+the exact pole order for indeterminate external weight and the top
+coefficient.  In the Ising
 model the first double poles at the energy, spin and identity weights occur
 at levels 7, 10 and 11.
 
@@ -408,11 +410,12 @@ blocks~\cite{Zamolodchikov1984,Zamolodchikov1987}.  Cho, Collier and Yin give
 central-charge recursions in the plumbing frame at arbitrary genus and
 internal-weight recursions in the sphere linear and torus necklace
 channels~\cite{ChoCollierYin2017}.  Alday, Gaiotto and Tachikawa conjectured
-an expansion of the sphere four-point and torus one-point blocks as sums over
-pairs of Young diagrams~\cite[\S\S3.2--3.3]{AldayGaiottoTachikawa2010}, and
-Alba, Fateev, Litvinov and Tarnopolskiy derived the sphere expansion from an
-orthogonal basis of the highest-weight representations of the Virasoro
-algebra tensored with a Heisenberg algebra~\cite[Proposition~2.1
+that, after an explicit \(U(1)\) factor is separated, the sphere four-point
+and torus one-point blocks are sums over pairs of Young
+diagrams~\cite[\S\S3.2--3.3]{AldayGaiottoTachikawa2010}, and Alba, Fateev,
+Litvinov and Tarnopolskiy derived the sphere expansion from an orthogonal
+basis of the highest-weight representations of the Virasoro algebra tensored
+with a Heisenberg algebra~\cite[Proposition~2.1, (1.9)
 and~(1.11)--(1.12)]{AlbaFateevLitvinovTarnopolskiy2011}; we do not use these
 expansions.  At rational \(b^2\), Javerzat,
 Santachiara and Foda regularize sphere
@@ -2013,16 +2016,15 @@ enter them: the leading coefficients of the residues and the derivatives
 $h'_g(b_\star)$ of the Kac weights.  By Lemma~\ref{lem:node-labels}(i),(ii)
 below, the derivative for the label from a node $\nu$ to a node $\nu'$ is an
 affine function of $\tilde m_\nu\tilde m_{\nu'}$ with coefficients that are
-the same for all labels.  In the chain sums, two derivatives are only ever
-subtracted when their labels share a node $\nu$ and their other nodes are of
-one class; the difference is then a constant times $\tilde m_\nu$ times a
-difference of momenta of one class, that is, $N_0$ times a difference of
-positions.  The
-chain sums are ratios of products of these differences, the residues enter
-only through the top coefficients (Proposition~\ref{prop:top-ratios}), and
-the vanishing of the sums below the diagonal
-(Lemma~\ref{lem:node-leading}(i)) leaves only the terms of top degree in the
-positions (proof of Lemma~\ref{lem:diagonal-values}).
+the same for all labels.  Every derivative difference in the denominators
+used in this calculation comes from two labels that share a node $\nu$ and
+whose other nodes are of one class, so it is a constant times $\tilde m_\nu$
+times a difference of momenta of one class, that is, $N_0$ times a difference
+of positions.  After the residue factors are expressed through the top
+coefficients (Proposition~\ref{prop:top-ratios}), the remaining denominator
+factors are these differences, and the vanishing of the sums below the
+diagonal (Lemma~\ref{lem:node-leading}(i)) leaves only the terms of top
+degree in the positions (proof of Lemma~\ref{lem:diagonal-values}).
 
 \begin{lemma}[Labels between nodes]\label{lem:node-labels}
 \begin{enumerate}
@@ -3015,8 +3017,9 @@ two summands can have the same valuation at \(d_1\), and the proof compares
 \(v_\varpi(X_k-1)\leq v_\varpi(k)+a-1\).  The corresponding ratio
 \(H_{\mathrm{rat}}\) of shifted blocks satisfies
 \(v_\varpi(H_{\mathrm{rat}}-1)\geq v_\varpi(k)+a\), so
-\(X_kH_{\mathrm{rat}}\neq1\).  If the summands cancelled at both points, the
-Jantzen norms would drop out of the ratio and give \(X_kH_{\mathrm{rat}}=1\).
+\(X_kH_{\mathrm{rat}}\neq1\).  If the two summands cancelled at both points,
+taking the ratio of the two cancellation equations would eliminate the
+factors \(\gamma^\pm_k\) and give \(X_kH_{\mathrm{rat}}=1\).
 Solving
 \(|p'a'\pm pl|=p'+3p\) in odd positive \((a',l)\) yields \((1,3)\),
 \((1+2ip,2ip'-3)\) and \((2ip-1,2ip'+3)\) (\(i\geq1\)); counting on
