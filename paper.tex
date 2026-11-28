@@ -156,9 +156,7 @@ their Jantzen norms.  For the torus block we give in closed form, at
 interior weights, the recursion coefficients of the highest derivative order
 allowed at each pole order, and, at the boundary weights of Class \(R^+\),
 the exact pole order for indeterminate external weight and the top
-coefficient.  In the Ising
-model the first double poles at the energy, spin and identity weights occur
-at levels 7, 10 and 11.
+coefficient.
 
 \vskip5pt
 \noindent\textbf{Keywords.}\enspace Virasoro algebra; conformal blocks;
@@ -2403,11 +2401,49 @@ polynomials in $d$ gives $\gamma^\pm_2$.
 \end{proof}
 
 For $L=3,4,5$ the factors $f_j(0,L)/j!$ are $(1,0,-\frac14)$,
-$(1,1,-\frac16,-\frac1{18})$ and $(1,0,-\frac12,0,\frac1{144})$.  At $c=0$,
-$\lambda=0$ ($n_0=1$, $n_1=5$) the corollary gives
+$(1,1,-\frac16,-\frac1{18})$ and $(1,0,-\frac12,0,\frac1{144})$.
+
+\begin{example*}[The two chains from $0$ to $5$ at $c=0$]
+Take $(p,p')=(2,3)$ and $\lambda=h_{1,1}(b_\star)=0$, so that $n_0=1$,
+$n_1=5$, $N_0=12$ and $K=5$.  The nodes of layers $0$, $1$ and $2$ are
+$\lambda=0$, $\mu^+_1=1$, $\mu^-_1=2$, $\mu^-_2=5$ and $\mu^+_2=7$, with signed
+momenta $1$, $5$, $-7$, $-11$ and $13$.  From $\lambda$ to $\mu^-_2$ ($D=2$)
+there are two chains: $(0,1,5)$, with the labels $(1,1)$ and $(1,4)$, and
+$(0,2,5)$, with the labels $(1,2)$ and $(3,1)$.  They are the two pairs of
+labels of the example after Theorem~\ref{thm:general-confluence}.  By
+Lemma~\ref{lem:node-labels}(i),(ii) the slopes
+$h'_g(b_\star)=\varsigma(K-\tilde m_\nu\tilde m_{\nu'})$ of the four labels are
+$0$, $60\varsigma$, $12\varsigma$ and $-72\varsigma$.  Every link has layer
+distance $1$, so by Lemma~\ref{lem:node-poles} every residue is regular at
+$b_\star$, and $\rho_g$ is the value ${\mathcal R}_{r,s}={\mathcal R}_{r,s}(b_\star,d)$
+for $g=(r,s)$.  With the denominators $h_0-h_1$,
+\[
+ \rho_{(0,1,5)}=\frac{{\mathcal R}_{1,1}{\mathcal R}_{1,4}}{-60\varsigma},\qquad
+ \rho_{(0,2,5)}=\frac{{\mathcal R}_{1,2}{\mathcal R}_{3,1}}{84\varsigma}.
+\]
+Lemma~\ref{lem:node-leading}(i) with $(k,j)=(1,0)$ says that these two numbers
+add up to zero, which is the cancellation
+${\mathcal R}_{1,1}{\mathcal R}_{1,4}/5={\mathcal R}_{1,2}{\mathcal R}_{3,1}/7$
+of that example.  On the diagonal $k+j=2$ the same lemma weights each chain by
+its first slope for $(k,j)=(2,0)$ and by its last slope for $(k,j)=(1,1)$:
+\begin{align*}
+ \operatorname{Top}(0\to5)&=12\varsigma\,\rho_{(0,2,5)}
+ =\frac{{\mathcal R}_{1,2}{\mathcal R}_{3,1}}7,\\
+ c^{(1)}_{0\to5,1}(b_\star)&=60\varsigma\,\rho_{(0,1,5)}-72\varsigma\,\rho_{(0,2,5)}
+ =-11\operatorname{Top}(0\to5).
+\end{align*}
+Corollary~\ref{cor:diagonal-lambda} gives the second value as
+$f_1(0,2)\,(-m^-_2/n_0)\operatorname{Top}(0\to5)$ with $f_1(0,2)=1$ and
+$m^-_2/n_0=11$, and it gives
 $\gamma^-_2=5/({\mathcal A}_{1,1}{\mathcal A}_{1,4}(b_\star))
-=5/(\frac12\cdot(-\frac3{1120}))=-\frac{11200}3$, the value in the example
-after Theorem~\ref{thm:general-confluence}.
+=5/(\frac12\cdot(-\frac3{1120}))=-\frac{11200}3$, the value found in that
+example.  In~\eqref{eq:fixed-charge} with $k=1$ and $N\geq6$, the value
+$c^{(1)}_{0\to5,1}(b_\star)$ multiplies the $\Delta$-derivative at $\Delta=5$
+of $H_{N-5}(0,\Delta,d)-\PP_{\Delta=5}H_{N-5}(0,\Delta,d)$.  So the residue
+of $H_N$ at $\Delta=0$ contains the derivative of a lower coefficient; at
+generic $b$ only values of lower coefficients occur
+(Corollary~\ref{cor:fixed-charge-generic}).
+\end{example*}
 
 \subsection{Boundary weights}\label{sec:boundary}
 
