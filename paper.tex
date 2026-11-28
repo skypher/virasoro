@@ -139,9 +139,10 @@ rational central charge}
 \begin{abstract}
 Zamolodchikov's recursion for sphere four-point blocks and Poghossian's
 recursion for torus one-point blocks compute Virasoro conformal blocks level
-by level from their simple poles in the internal weight.  At rational \(b^2\)
-these poles collide, individual residues have poles in \(b\), and the
-recursions cannot in general be evaluated term by term.  For both blocks, and for every
+by level from their simple poles in the internal weight at generic \(b\).  At
+rational \(b^2\), Kac poles can collide and individual residues can be
+singular in \(b\), so the recursions cannot in general be evaluated term by
+term.  For both blocks, and for every
 fixed \(b_\star\ne0\), we give the principal part of each block coefficient
 at each Kac weight as a sum of constant terms of finite Laurent expansions in
 \(b-b_\star\) of the generic residue data.  Grouping the iterated recursion
@@ -347,7 +348,8 @@ Let \(b_\star^2=-p'/p\) and let \(\lambda\) be an interior Kac weight.
 \begin{enumerate}\setlength{\itemsep}{1pt}\setlength{\topsep}{3pt}
 \item[(i)] For every \(N\geq1\), \(H_N(c_\star,\Delta,d)\) has a pole of
   order at most \(j_N(\lambda)\) at \(\Delta=\lambda\), and for indeterminate
-  \(d\) the order is exactly \(j_N(\lambda)\).
+  \(d\) the order is exactly \(j_N(\lambda)\); order zero means that
+  \(H_N\) is regular there.
 \item[(ii)] If \(k\geq1\) and \(\ell_k\leq N<\ell_{k+1}\), then
   \begin{equation}\label{eq:intro-top}
    \lim_{\Delta\to\lambda}(\Delta-\lambda)^kH_N(c_\star,\Delta,d)
@@ -392,8 +394,9 @@ factors (Theorem~\ref{thm:boundary}).  All values \(c^{(k)}_{\lambda\to\mu,j}(b_
 are determined by the Shapovalov and torus forms at \(c_\star\)
 (Corollary~\ref{cor:chain-values}).
 
-The equality in Theorem~\ref{thm:intro-top}(i) needs the external weights to
-stay indeterminate.  At specialized external weights the pole can disappear:
+The equality in Theorem~\ref{thm:intro-top}(i) is guaranteed for
+indeterminate external weights.  At specialized external weights the pole can
+disappear:
 for the torus block at \(d=0\), \(H_N=0\) for \(N\geq1\).  In the Ising model the first double poles at the energy, spin and
 identity weights occur at levels \(7\), \(10\) and \(11\), in both blocks
 (Propositions~\ref{prop:ising-double-poles} and~\ref{prop:ising-example}).
@@ -1686,11 +1689,17 @@ Theorem~\ref{thm:fixed-charge}).
 \begin{remark*}[What the recursion uses]
 At level \(N\), the recursion~\eqref{eq:fixed-charge} has, for each
 \(\lambda\in\operatorname{Kac}_N(b_\star)\) and each \(k\) up to the pole
-order at \(\lambda\), one term for each pair \((\mu,j)\) with a nonzero chain
-value.  Each term is a chain value times a \(\Delta\)-derivative at \(\mu\)
-of a lower coefficient with its principal part at \(\mu\) removed, and the
-partial fractions of \(H_{N-(\mu-\lambda)}(c_\star,\cdot)\), computed at the
-earlier levels, give that derivative in closed form.  No matrix of size
+order at \(\lambda\), the endpoint term
+\(c^{(k)}_{\lambda\to\lambda+N,0}(b_\star)\), which is the chain value times
+\(H_0=1\), and one term for each of the finitely many pairs \((\mu,j)\) with
+\(0<\mu-\lambda<N\) and a nonzero chain value
+(Theorem~\ref{thm:fixed-charge}).  Such a term is a chain value times a
+\(\Delta\)-derivative at \(\mu\) of \(H_M(c_\star,\cdot)\), \(M=N-(\mu-\lambda)\geq1\),
+with its principal part at \(\mu\) removed.  By
+Theorem~\ref{thm:general-confluence}, \(H_M(c_\star,\cdot)\) is the sum of its
+principal parts, computed at the earlier levels, and a term
+\(A/(\Delta-\nu)^s\) with \(\nu\neq\mu\) has \(j\)-th derivative
+\(A(-1)^j(s)_j/(\mu-\nu)^{s+j}\) at \(\mu\).  No matrix of size
 \(p(N)\) is formed or inverted, and the chain values, which do not depend on
 \(N\), are computed once for all levels.  Run from \(H_0=1\) at \(c=0\) and
 \(d=\frac37\), the implementation listed under Code availability, in exact
@@ -2374,8 +2383,9 @@ Theorems~\ref{thm:jantzen-smith} and~\ref{thm:top-layer} and
 Section~\ref{sec:diagonal} treat the interior weights, whose embedding diagram
 is braided.  At the boundary weights of Class~\(R^+\) the embedding diagram is
 a single chain of submodules, one in each layer, and this subsection gives
-there the top chain values, the chain values on the diagonal and the exact
-pole order with its top coefficient (Theorem~\ref{thm:boundary}).
+there the top chain values, the chain values on the diagonal, and the exact
+pole order for indeterminate \(d\) with its top coefficient
+(Theorem~\ref{thm:boundary}).
 
 Let $\lambda=d_{x_0}$, where $x_0$ is a positive multiple of exactly one of
 $p,p'$ and $x_0<pp'$.  Put $\epsilon=1$ if $p\mid x_0$ and $\epsilon=-1$ if
