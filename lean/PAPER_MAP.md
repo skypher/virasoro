@@ -29,7 +29,7 @@ degree `D` in the proof of (iv) is `n`; in the proof of Theorem 13.4 the exponen
 On 2026-11-28: Section 8.1 writes the class centres `c_ν`, `c_1`, `c_2`, `c_A`, `c_B` as `𝔠_ν`, `𝔠_1`,
 `𝔠_2`, `𝔠_A`, `𝔠_B`, and the half-integer `ω = (l+k)/2` in the proof of Theorem 8.8 as `υ`.
 Theorems A, B and C of the introduction of `paper.tex` restate Theorems 7.3 and 12.6, Theorem 7.14
-with Corollary 7.15, and Theorems 8.1, 8.2, 13.1 to 13.5 with Corollary 9.4; their Lean
+with Corollary 7.15, and Theorems 8.1, 8.2, 13.1, 13.3 to 13.5 with Corollary 9.4; their Lean
 statements are those of the restated results, listed below.
 
 ## sphere/paper.tex (large-weight limit)
