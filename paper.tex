@@ -50,6 +50,8 @@
    \thmnote{ {\normalfont\itshape(\ignorespaces#3\unskip)}}}
 \theoremstyle{slbody}
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{introtheorem}{Theorem}
+\renewcommand{\theintrotheorem}{\Alph{introtheorem}}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
@@ -135,9 +137,11 @@ rational central charge}
 \maketitle
 
 \begin{abstract}
-At rational \(b^2\) the poles of the residue recursions for Virasoro
-conformal blocks collide, and individual residues have poles in \(b\).  For
-the torus one-point block and the sphere four-point block, and for every
+Zamolodchikov's recursion for sphere four-point blocks and Poghossian's
+recursion for torus one-point blocks compute Virasoro conformal blocks level
+by level from their simple poles in the internal weight.  At rational \(b^2\)
+these poles collide, individual residues have poles in \(b\), and the
+recursions cannot in general be evaluated term by term.  For both blocks, and for every
 fixed \(b_\star\ne0\), we give the principal part of each block coefficient
 at each Kac weight as a sum of constant terms of finite Laurent expansions in
 \(b-b_\star\) of the generic residue data.  Grouping the iterated recursion
@@ -222,9 +226,24 @@ bootstrap computations use Zamolodchikov's recursions to compute sphere
 blocks to high order~\cite[\S4.3]{Ribault2026}.
 
 By \emph{confluence} we mean passing to the limit \(b\to b_\star\) in the
-generic recursion after grouping the terms whose poles collide.  At every
-fixed \(b_\star\neq0\), Theorem~\ref{thm:general-confluence} gives the
-coefficients of the torus block at internal weight \(\Delta\), for \(N\geq1\):
+generic recursion after grouping the terms whose poles collide.  Fix
+\(b_\star\neq0\), put \(c_\star=c(b_\star)\) and \(t=b-b_\star\), and let
+\(\operatorname{Kac}_N(b_\star)\) be the set of Kac weights
+\(h_{r,s}(b_\star)\) with \(rs\leq N\).  For
+\(\lambda\in\operatorname{Kac}_N(b_\star)\), the \emph{collision class}
+\({\mathcal C}^\star_{\lambda,N}\) is the set of labels \(a=(r,s)\) with
+\(rs\leq N\) and \(h_{r,s}(b_\star)=\lambda\); for such a label put
+\(h_a(t)=h_{r,s}(b_\star+t)\) and \(\ell_a=rs\).  At generic \(b\), the
+residue of \(H_N\) at \(\Delta=h_a\) is a multiplier \(R_a(t)\), a ratio of
+explicit products, times the lower coefficient \(H_{N-\ell_a}\) at the weight
+\(h_a(t)+\ell_a\) of the singular vector of label \(a\).  The \emph{shifted
+Laurent block} \(S_{a,M}(t)\) is this lower coefficient \(H_M\), taken at the
+moving charge \(c(b_\star+t)\) and expanded as a Laurent series in \(t\), and
+\(\CT_t\) takes the coefficient of \(t^0\).
+
+\begin{introtheorem}[Confluence; Theorems~\ref{thm:general-confluence}
+and~\ref{thm:confluence}]\label{thm:intro-confluence}
+Let \(b_\star\in\mathbb C^\times\) and \(N\geq1\).  Then
 \begin{equation}\label{eq:intro-main}
  \begin{aligned}
  H_N(c_\star,\Delta,d)
@@ -235,22 +254,14 @@ coefficients of the torus block at internal weight \(\Delta\), for \(N\geq1\):
  &=\CT_t
  \sum_{a\in{\mathcal C}^\star_{\lambda,N}}
  R_a(t)\,S_{a,N-\ell_a}(t)\,
- \bigl(h_a(t)-\lambda\bigr)^{k-1}.
+ \bigl(h_a(t)-\lambda\bigr)^{k-1},
  \end{aligned}
 \end{equation}
-Here \(\operatorname{Kac}_N(b_\star)\) consists of the Kac weights
-\(h_{r,s}(b_\star)\) with \(rs\leq N\), and \({\mathcal C}^\star_{\lambda,N}\)
-is the set of labels \(a=(r,s)\) with \(rs\leq N\) and
-\(h_{r,s}(b_\star)=\lambda\).  For such a label put \(t=b-b_\star\),
-\(h_a(t)=h_{r,s}(b_\star+t)\) and \(\ell_a=rs\).  At generic \(b\), the
-residue of \(H_N\) at \(\Delta=h_a\) is a multiplier \(R_a(t)\), a ratio of
-explicit products, times the lower coefficient \(H_{N-\ell_a}\) at the weight
-\(h_a(t)+\ell_a\) of the singular vector of label \(a\).  The shifted
-Laurent block \(S_{a,M}(t)\) is this lower coefficient \(H_M\), taken at the
-moving charge \(c(b_\star+t)\) and expanded as a Laurent series in \(t\), and
-\(\CT_t\) takes the coefficient of \(t^0\).  Only finitely many terms are
-nonzero.  Theorem~\ref{thm:confluence} gives the same formula for the sphere
-coefficients.
+and only finitely many of the coefficients \(A^\star_{\lambda,k,N}\) are
+nonzero.  The same formula, with the residues and lower coefficients of the
+sphere block, gives the elliptic coefficients \(H_N\) of the sphere
+four-point block.
+\end{introtheorem}
 
 In the generic recursion each label \(a\) contributes a simple pole at
 \(h_a(b)\).  As \(b\to b_\star\) the poles of the labels in
@@ -271,55 +282,94 @@ the first moment, and the second moment, which gives the double pole in
 \(\Delta\), is the coefficient of \(t^{-1}\) in one of them times the
 \(t\)-derivative of its Kac weight.
 
-Theorem~\ref{thm:general-confluence} still uses the coefficients of lower
+Theorem~\ref{thm:intro-confluence} still uses the coefficients of lower
 level at the moving charge \(c(b_\star+t)\), expanded in \(t\).  To remove
 them we iterate the generic recursion along chains of labels whose poles
 collide at every step, and sum over the chains with the same end point.  A
-single chain can have a pole in \(t\), but each such sum is a rational
-function of \(b\) that is regular at \(b_\star\)
+single chain can have a pole in \(t\), but each such sum, a \emph{chain
+function} \(c^{(k)}_{\lambda\to\mu,j}\) (Definition~\ref{def:chains}), is a
+rational function of \(b\) that is regular at \(b_\star\)
 (Lemma~\ref{lem:chain-regular}).  The proof is an induction on the level of
 the chains, in which an identity that cuts a chain at one link
 (Lemma~\ref{lem:cutting}) reduces everything to the moments of
-Theorem~\ref{thm:general-confluence}.  Theorem~\ref{thm:fixed-charge} is the
-resulting recursion: the principal parts of \(H_N(c_\star,\cdot)\) are finite
-combinations of the values and \(\Delta\)-derivatives, at shifted weights, of
-the coefficients \(H_M(c_\star,\cdot)\) with \(M<N\), each with its principal
-part at that weight removed.  For \(b_\star^2\notin\mathbb Q\) it is
-Poghossian's recursion at \(b=b_\star\)
-(Corollary~\ref{cor:fixed-charge-generic}).  Derivatives of blocks in the internal
+Theorem~\ref{thm:intro-confluence}.  Write \(\PP_{\Delta=\mu}\) for the
+principal part at \(\Delta=\mu\).
+
+\begin{introtheorem}[Recursion at the fixed charge;
+Theorem~\ref{thm:fixed-charge} and Corollary~\ref{cor:fixed-charge-generic}]
+\label{thm:intro-fixed-charge}
+Let \(b_\star\in\mathbb C^\times\), \(N\geq1\),
+\(\lambda\in\operatorname{Kac}_N(b_\star)\) and \(k\geq1\).  Then
+\begin{multline*}
+ A^\star_{\lambda,k,N}=c^{(k)}_{\lambda\to\lambda+N,0}(b_\star)\\
+ +\sum_{0<\mu-\lambda<N}\ \sum_{j\geq0}c^{(k)}_{\lambda\to\mu,j}(b_\star)\,
+ \partial_\Delta^{\,j}\Bigl(H_{N-(\mu-\lambda)}(c_\star,\Delta,d)
+ -\PP_{\Delta=\mu}H_{N-(\mu-\lambda)}(c_\star,\Delta,d)\Bigr)\Big|_{\Delta=\mu},
+\end{multline*}
+with finitely many nonzero terms.  The chain values
+\(c^{(k)}_{\lambda\to\mu,j}(b_\star)\) are built from the closed forms of the
+residue multipliers and the Kac weights and do not depend on \(N\).  For
+\(b_\star^2\notin\mathbb Q\) the identity is Poghossian's recursion at
+\(b=b_\star\).
+\end{introtheorem}
+
+Together with Theorem~\ref{thm:intro-confluence}, this computes
+\(H_N(c_\star,\cdot)\) from \(H_0,\dots,H_{N-1}\) at the same central charge:
+the principal parts of \(H_N(c_\star,\cdot)\) are finite combinations of the
+values and \(\Delta\)-derivatives, at shifted weights, of the coefficients
+\(H_M(c_\star,\cdot)\) with \(M<N\), each with its principal part at that
+weight removed.  Derivatives of blocks in the internal
 weight are also the building blocks of logarithmic conformal field theory at
 generic central charge~\cite{NivesvivatRibault2021}; Section~\ref{sec:scope}
 comments on the relation.
 
-At a minimal-model charge and an interior Kac weight \(\lambda\), the
-Feigin--Fuchs embedding diagram describes the Jantzen filtration
-\(J^\bullet\) of the specialized Verma module
-(Theorem~\ref{thm:jantzen-smith} and Figure~\ref{fig:braided}).  Its dimensions
-determine the multiplicities of the local Smith exponents \(e_j\) of the
-Shapovalov matrix: \(\dim J^i_N=\#\{j:e_j\geq i\}\).  Thus the pole order of
-\(H_N\) at \(\lambda\) is at most the Jantzen depth \(j_N(\lambda)\), the
-number of layers that have reached level \(N\).  A pole of order \(m\) at
-\(\lambda\) allows principal-part terms from \((\Delta-\lambda)^{-1}\) through
+At a minimal-model charge \(b_\star^2=-p'/p\), with \(p,p'\geq2\) coprime, and
+an interior Kac weight \(\lambda=h_{r,s}(b_\star)\), with \(0<r<p\) and
+\(0<s<p'\), the Feigin--Fuchs
+embedding diagram describes the Jantzen filtration \(J^\bullet\) of the
+specialized Verma module (Theorem~\ref{thm:jantzen-smith} and
+Figure~\ref{fig:braided}).  Its dimensions determine the multiplicities of
+the local Smith exponents \(e_j\) of the Shapovalov matrix:
+\(\dim J^i_N=\#\{j:e_j\geq i\}\).  A pole of order \(m\) at \(\lambda\)
+allows principal-part terms from \((\Delta-\lambda)^{-1}\) through
 \((\Delta-\lambda)^{-m}\); at generic \(b\) all poles are simple.  Let
 \(w^\pm_k\) be the \(k\)-th layer's singular vectors, at levels
-\(\ell^\pm_k\), and put \(\ell_k=\min(\ell^+_k,\ell^-_k)\).  For \(k\geq1\)
-and \(\ell_k\leq N<\ell_{k+1}\), Theorem~\ref{thm:top-layer} gives
-\begin{equation}\label{eq:intro-top}
- \lim_{\Delta\to\lambda}(\Delta-\lambda)^kH_N(c_\star,\Delta,d)
- =\sum_{\pm:\ \ell^\pm_k\leq N}
- \frac{\langle w^\pm_k|V_d(1)|w^\pm_k\rangle}{\gamma^\pm_k}\,
- H_{N-\ell^\pm_k}\bigl(c_\star,\lambda+\ell^\pm_k,d\bigr),
-\end{equation}
-where \(\gamma^\pm_k\), nonzero for each sign in the sum, is the \(k\)-th
-Jantzen norm of \(w^\pm_k\).  This is a fixed-\(c\) analogue of
-Zamolodchikov's residue formula for the coefficient at the Jantzen bound.
-For the sphere block, Theorems~\ref{thm:jantzen-bound}
-and~\ref{thm:top-layer-sph} give the same bound and the same formula, with
-the torus matrix element of \(w^\pm_k\) replaced by the product of its two
-three-point factors.
+\(\ell^\pm_k\), put \(\ell_k=\min(\ell^+_k,\ell^-_k)\), and let the
+\emph{Jantzen depth} \(j_N(\lambda)\) be the number of layers that have
+reached level \(N\), that is, the number of \(k\geq1\) with
+\(\ell_k\leq N\).
 
-Below the top pole, the recursion of Theorem~\ref{thm:fixed-charge} for the
-torus block uses the numbers \(c^{(k)}_{\lambda\to\mu,j}(b_\star)\): the
+\begin{introtheorem}[Pole order and top coefficient;
+Theorems~\ref{thm:jantzen-smith}, \ref{thm:top-layer},
+\ref{thm:jantzen-bound}--\ref{thm:sharp-H} and
+Corollary~\ref{cor:top-layer-sharp}]\label{thm:intro-top}
+Let \(b_\star^2=-p'/p\) and let \(\lambda\) be an interior Kac weight.
+\begin{enumerate}\setlength{\itemsep}{1pt}\setlength{\topsep}{3pt}
+\item[(i)] For every \(N\geq1\), \(H_N(c_\star,\Delta,d)\) has a pole of
+  order at most \(j_N(\lambda)\) at \(\Delta=\lambda\), and for indeterminate
+  \(d\) the order is exactly \(j_N(\lambda)\).
+\item[(ii)] If \(k\geq1\) and \(\ell_k\leq N<\ell_{k+1}\), then
+  \begin{equation}\label{eq:intro-top}
+   \lim_{\Delta\to\lambda}(\Delta-\lambda)^kH_N(c_\star,\Delta,d)
+   =\sum_{\pm:\ \ell^\pm_k\leq N}
+   \frac{\langle w^\pm_k|V_d(1)|w^\pm_k\rangle}{\gamma^\pm_k}\,
+   H_{N-\ell^\pm_k}\bigl(c_\star,\lambda+\ell^\pm_k,d\bigr),
+  \end{equation}
+  where \(\gamma^\pm_k\), nonzero for each sign in the sum, is the \(k\)-th
+  Jantzen norm of \(w^\pm_k\).
+\item[(iii)] Parts~(i) and~(ii) hold for the cross-ratio coefficients and
+  for the elliptic coefficients of the sphere four-point block, with
+  indeterminate external weights in~(i) and, in~(ii), coefficients of the
+  same kind on both sides and the torus matrix element of \(w^\pm_k\)
+  replaced by the product of its two three-point factors.
+\end{enumerate}
+\end{introtheorem}
+
+Part~(ii) is a fixed-\(c\) analogue of Zamolodchikov's residue formula for
+the coefficient at the Jantzen bound.
+
+Below the top pole, the recursion of Theorem~\ref{thm:intro-fixed-charge}
+for the torus block uses the numbers \(c^{(k)}_{\lambda\to\mu,j}(b_\star)\): the
 coefficient with which the \(j\)-th \(\Delta\)-derivative at \(\mu\) of a lower
 coefficient, after its principal part at \(\mu\) has been removed, enters the
 coefficient of \((\Delta-\lambda)^{-k}\).  At an
@@ -342,12 +392,9 @@ factors (Theorem~\ref{thm:boundary}).  All values \(c^{(k)}_{\lambda\to\mu,j}(b_
 are determined by the Shapovalov and torus forms at \(c_\star\)
 (Corollary~\ref{cor:chain-values}).
 
-For indeterminate external weights the bound \(j_N(\lambda)\) is attained at
-every interior weight and every \(N\geq1\): Corollary~\ref{cor:top-layer-sharp}
-proves this for the torus block, and Theorems~\ref{thm:sharp-B}
-and~\ref{thm:sharp-H} for the sphere block.  At specialized external weights
-the pole can disappear: for the torus block at \(d=0\), \(H_N=0\) for
-\(N\geq1\).  In the Ising model the first double poles at the energy, spin and
+The equality in Theorem~\ref{thm:intro-top}(i) needs the external weights to
+stay indeterminate.  At specialized external weights the pole can disappear:
+for the torus block at \(d=0\), \(H_N=0\) for \(N\geq1\).  In the Ising model the first double poles at the energy, spin and
 identity weights occur at levels \(7\), \(10\) and \(11\), in both blocks
 (Propositions~\ref{prop:ising-double-poles} and~\ref{prop:ising-example}).
 
@@ -509,7 +556,7 @@ Symbol & Meaning (where defined)\\
 \(n_0,n_1\), \(\ell^\pm_k\), \(j_N(\lambda)\) & momenta, layer levels and Jantzen depth at an interior weight (Section~\ref{sec:mm-layers})\\
 \(w^\pm_k\), \(\mathcal N^\pm_k\), \(\gamma^\pm_k\) & layer singular vectors, their torus norms and Jantzen norms (Theorems~\ref{thm:jantzen-smith}, \ref{thm:top-layer})\\
 \(N_0=2pp'\), \(L_\nu\), \(D(a,\mu)\) & layer of a node of the embedding diagram, layer distance (Section~\ref{sec:diagonal})\\
-\(\tilde m_\nu\), \(\pi_\nu\), \(\alpha\), \(\beta\) & signed momentum and position of a node, class centres (Section~\ref{sec:diagonal})\\
+\(\tilde m_\nu\), \(\pi_\nu\), \(\alpha\), \(\beta\), \(\mathfrak c_\nu\) & signed momentum and position of a node, class centres, centre of the class of \(\nu\) (Section~\ref{sec:diagonal})\\
 \(x_g\), \(y_g\), \(\varsigma\), \(K\) & momenta of a label; \(\varsigma=b_\star/(2p'^2)\), \(K=p'^2-p^2\) (Section~\ref{sec:diagonal})\\
 \(\rho_g\), \(\rho_\gamma\), \(\hat\rho_\gamma\) & leading coefficients of a residue and of a chain, normalized chain coefficient (Lemmas~\ref{lem:node-poles}, \ref{lem:diagonal-values})\\
 \(\operatorname{Top}(a\to\mu)\), \(\mathrm{FS}(a\to\mu)\) & top chain value, possible first steps of a chain (Section~\ref{sec:diagonal})\\
@@ -1636,6 +1683,22 @@ $c^{(k)}_{a\to\nu,j}(b_\star)=0$ for large $j$ (proof of
 Theorem~\ref{thm:fixed-charge}).
 \end{proof}
 
+\begin{remark*}[What the recursion uses]
+At level \(N\), the recursion~\eqref{eq:fixed-charge} has, for each
+\(\lambda\in\operatorname{Kac}_N(b_\star)\) and each \(k\) up to the pole
+order at \(\lambda\), one term for each pair \((\mu,j)\) with a nonzero chain
+value.  Each term is a chain value times a \(\Delta\)-derivative at \(\mu\)
+of a lower coefficient with its principal part at \(\mu\) removed, and the
+partial fractions of \(H_{N-(\mu-\lambda)}(c_\star,\cdot)\), computed at the
+earlier levels, give that derivative in closed form.  No matrix of size
+\(p(N)\) is formed or inverted, and the chain values, which do not depend on
+\(N\), are computed once for all levels.  Run from \(H_0=1\) at \(c=0\) and
+\(d=\frac37\), the implementation listed under Code availability, in exact
+rational arithmetic on one processor core, computes all principal parts of
+\(H_1,\dots,H_{12}\) in about fifteen seconds; the Shapovalov matrix at
+level~\(12\) has \(p(12)=77\) rows.
+\end{remark*}
+
 \begin{remark*}[What the chain values mean]
 By Corollary~\ref{cor:chain-values}, $c^{(k)}_{a\to\mu,0}(b_\star)$ is the
 endpoint coefficient in the recursion~\eqref{eq:fixed-charge} at the level
@@ -1918,8 +1981,8 @@ results below have the matching form: a top coefficient times a power of a
 ratio of signed momenta times a rational number that depends only on
 positions.  For nodes $x,y$ of the same
 class, $\tilde m_x-\tilde m_y=N_0(\pi_x-\pi_y)$.  Since $|n_0|<n_1<pp'$, we have
-$|\alpha|,|\beta|<\frac12$, so $|\tilde m_\nu|=N_0\bigl(|\pi_\nu|+\operatorname{sgn}(\pi_\nu)c_\nu\bigr)$
-for $\nu\neq\lambda$, where $c_\nu\in\{\alpha,\beta\}$ is the centre of the
+$|\alpha|,|\beta|<\frac12$, so $|\tilde m_\nu|=N_0\bigl(|\pi_\nu|+\operatorname{sgn}(\pi_\nu)\mathfrak c_\nu\bigr)$
+for $\nu\neq\lambda$, where $\mathfrak c_\nu\in\{\alpha,\beta\}$ is the centre of the
 class of $\nu$.
 
 \begin{lemma}[Labels between nodes]\label{lem:node-labels}
@@ -2125,8 +2188,8 @@ difference of positions.  So
 with a rational number $\hat\rho_\gamma$ determined by the positions of the
 nodes of $\gamma$.
 
-\emph{Step 2: vanishing moments.}  Write $\tilde m_{x_1}=N_0(c_1+\pi_{x_1})$
-and $\tilde m_{x_n}=N_0(c_2+\pi_{x_n})$, with $c_1,c_2\in\{\alpha,\beta\}$
+\emph{Step 2: vanishing moments.}  Write $\tilde m_{x_1}=N_0(\mathfrak c_1+\pi_{x_1})$
+and $\tilde m_{x_n}=N_0(\mathfrak c_2+\pi_{x_n})$, with $\mathfrak c_1,\mathfrak c_2\in\{\alpha,\beta\}$
 fixed by the classes of $a$ and $\mu$.  By Lemma~\ref{lem:node-leading}(i),
 \[
  \sum_\gamma\hat\rho_\gamma\,(K-\tilde m_a\tilde m_{x_1})^{k-1}
@@ -2189,23 +2252,23 @@ the models $(p,p')=(2,3),(2,5),(3,4)$ these are $(\frac1{12},-\frac1{12})$,
 $(\frac3{20},-\frac3{20})$ and $(\frac1{24},-\frac5{24})$, three affinely
 independent points, and an affine function of two variables that vanishes at
 three affinely independent points is zero.  So we may compare
-in~\eqref{eq:diagonal-rec} the coefficients of the class centre $c_A$ of the
-class of $a$, of the centre $c_B$ of the other class, and the constant terms.
+in~\eqref{eq:diagonal-rec} the coefficients of the class centre $\mathfrak c_A$ of the
+class of $a$, of the centre $\mathfrak c_B$ of the other class, and the constant terms.
 
 \emph{Induction.}  We argue by induction on $D$, for all bases at once; $D=1$
 is $f_0=1$.  Write $l=L_a$.
 
 \emph{$D$ odd, $j$ odd.}  Then $\mu$ is of class $B$ and the nodes $\nu$ ($k$
-even) of class $A$; the $c_B$-coefficient of~\eqref{eq:diagonal-rec} is
+even) of class $A$; the $\mathfrak c_B$-coefficient of~\eqref{eq:diagonal-rec} is
 $f_j(a,\mu)=0$.
 
 \emph{$D$ even, $j$ odd.}  Now $\mu$ is of class $A$ and $\nu$ of class $B$;
-the $c_A$-coefficient gives $f_j(a,\mu)=f_{j-1}(a,\mu)$, and then the constant
+the $\mathfrak c_A$-coefficient gives $f_j(a,\mu)=f_{j-1}(a,\mu)$, and then the constant
 term gives
 $f_j(a,\mu)(\pi_\mu-\pi_a)=-f_{j-1}(l+k,j)\sum_\theta\hat\kappa(a,\theta,\mu)\pi_\theta$,
 where $f_{j-1}(\theta,\mu)=f_{j-1}(l+k,j)$ by induction, as $D(\theta,\mu)=j<D$.
 
-\emph{$D$ odd, $j$ even, $j\geq2$.}  The $c_B$-coefficient gives
+\emph{$D$ odd, $j$ even, $j\geq2$.}  The $\mathfrak c_B$-coefficient gives
 $f_j(a,\mu)=-f_{j-1}(l+k,j)\sum_\theta\hat\kappa(a,\theta,\mu)$.
 
 These determine every $f_j(a,\mu)$ from $f_0=1$ and the values at smaller $D$
@@ -2213,14 +2276,14 @@ These determine every $f_j(a,\mu)$ from $f_0=1$ and the values at smaller $D$
 
 \emph{The two sums.}  It remains to evaluate $\sum_\theta\hat\kappa$ and
 $\sum_\theta\hat\kappa\,\pi_\theta$.  Let $\theta_\pm$ be the nodes of layer
-$l+k$ ($k$ odd), at positions $\pm\omega$ with $\omega=\frac{l+k}2$, and note
+$l+k$ ($k$ odd), at positions $\pm\upsilon$ with $\upsilon=\frac{l+k}2$, and note
 $|\pi_a|=\frac l2$.  The nodes of $\mathrm{FS}(\theta\to\mu)$ of class $A$
 other than $\mu$ come in pairs $\pm\frac m2$ over the layers $m=l+k+1+2e$
 ($e\geq0$), each pair contributing
 $\pi_a^2-\frac{m^2}4=-(\frac{k+1}2+e)(l+\frac{k+1}2+e)$.  The set
 $\mathrm{FS}(a\to\mu)\setminus\mathrm{FS}(a\to\theta_\epsilon)$ consists of
 $\theta_{-\epsilon}$, the pairs over the layers $m'=l+k+2e'$ ($e'\geq1$) of
-class $B$, contributing $-(\frac{m'^2}4-\omega^2)=-e'(l+k+e')$, and $\mu$ if
+class $B$, contributing $-(\frac{m'^2}4-\upsilon^2)=-e'(l+k+e')$, and $\mu$ if
 $D$ is odd.  Put
 \[
  \Xi=\binom ni\frac{(l+n)!\,(l+2n-2i+1)!}{(l+n-i)!\,(l+2n-i+1)!}.
@@ -2231,10 +2294,10 @@ of class $A$ and $i-1$ of class $B$, and
 \[
  \hat\kappa(a,\theta_\epsilon,\mu)=
  \frac{(-1)^i\frac{n!}{(n-i)!}\frac{(l+n)!}{(l+n-i)!}}
- {(-2\epsilon\omega)\,(-1)^{i-1}(i-1)!\,(l+k+1)_{i-1}\,(\pi_\mu-\epsilon\omega)} .
+ {(-2\epsilon\upsilon)\,(-1)^{i-1}(i-1)!\,(l+k+1)_{i-1}\,(\pi_\mu-\epsilon\upsilon)} .
 \]
-Since $\sum_\epsilon\frac1{-2\epsilon\omega(\pi_\mu-\epsilon\omega)}=-\frac1{\pi_\mu^2-\omega^2}$
-and $\pi_\mu^2-\omega^2=i(l+k+i)$, $\sum_\theta\hat\kappa=\Xi$.  With
+Since $\sum_\epsilon\frac1{-2\epsilon\upsilon(\pi_\mu-\epsilon\upsilon)}=-\frac1{\pi_\mu^2-\upsilon^2}$
+and $\pi_\mu^2-\upsilon^2=i(l+k+i)$, $\sum_\theta\hat\kappa=\Xi$.  With
 $f_{2i-1}(l+k,2i)=(-1)^{i-1}\binom{l+k+i-1}{i-1}/\binom{l+k+2i-1}{i-1}$
 (induction) this gives
 \[
@@ -2247,7 +2310,7 @@ node $\mu$ in $\mathrm{FS}(\theta\to\mu)$, and $i$ pairs of class $B$:
 \[
  \hat\kappa(a,\theta_\epsilon,\mu)=
  \frac{(-1)^i\frac{n!}{(n-i)!}\frac{(l+n)!}{(l+n-i)!}\,(\pi_\mu-\pi_a)}
- {(-2\epsilon\omega)\,(-1)^i\,i!\,(l+k+1)_i},
+ {(-2\epsilon\upsilon)\,(-1)^i\,i!\,(l+k+1)_i},
 \]
 so $\sum_\theta\hat\kappa\,\pi_\theta=-\Xi(\pi_\mu-\pi_a)$, and with
 $f_{2i}(l+k,2i+1)=(-1)^i\binom{l+k+i}i/\binom{l+k+2i}i$ (induction),
@@ -2306,6 +2369,13 @@ $\gamma^-_2=5/({\mathcal A}_{1,1}{\mathcal A}_{1,4}(b_\star))
 after Theorem~\ref{thm:general-confluence}.
 
 \subsection{Boundary weights}\label{sec:boundary}
+
+Theorems~\ref{thm:jantzen-smith} and~\ref{thm:top-layer} and
+Section~\ref{sec:diagonal} treat the interior weights, whose embedding diagram
+is braided.  At the boundary weights of Class~\(R^+\) the embedding diagram is
+a single chain of submodules, one in each layer, and this subsection gives
+there the top chain values, the chain values on the diagonal and the exact
+pole order with its top coefficient (Theorem~\ref{thm:boundary}).
 
 Let $\lambda=d_{x_0}$, where $x_0$ is a positive multiple of exactly one of
 $p,p'$ and $x_0<pp'$.  Put $\epsilon=1$ if $p\mid x_0$ and $\epsilon=-1$ if
