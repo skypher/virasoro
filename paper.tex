@@ -142,24 +142,21 @@ recursion for torus one-point blocks compute Virasoro conformal blocks level
 by level from their simple poles in the internal weight at generic \(b\).  At
 rational \(b^2\), Kac poles can collide and individual residues can be
 singular in \(b\), so the recursions cannot in general be evaluated term by
-term.  For both blocks, and for every
-fixed \(b_\star\ne0\), we give the principal part of each block coefficient
-at each Kac weight as a sum of constant terms of finite Laurent expansions in
-\(b-b_\star\) of the generic residue data.  Grouping the iterated recursion
-along chains of colliding labels turns this into a recursion at the fixed
-central charge, with finite coefficients that do not depend on the level.
-At an interior Kac weight
-\(\lambda\) of a minimal model, the pole order of the level-\(N\)
-coefficient at \(\lambda\) is at most the number of Jantzen layers of the
-Verma module that have reached level \(N\).  When this number is positive,
-the coefficient at that order is a sum of blocks at shifted weights,
-weighted by matrix elements of singular vectors divided by their Jantzen
-norms.  For indeterminate external weights the bound is attained at every
-interior weight and every \(N\geq1\).  For the torus block we give the
-coefficients on the diagonal of the recursion at interior weights in closed
-form, and an explicit pole order and top coefficient at the boundary weights of
-Class \(R^+\).  In the Ising model the first double
-poles at the energy, spin and identity weights occur at levels 7, 10 and 11.
+term.  For both blocks and every fixed \(b_\star\ne0\), we give the principal
+part of each block coefficient at each Kac weight as a sum of constant terms
+of finite Laurent expansions in \(b-b_\star\) of the generic residue data, and
+turn this into a recursion at the fixed central charge whose finite
+coefficients do not depend on the level.  At an interior Kac weight of a
+minimal model, the pole order of the level-\(N\) coefficient is at most the
+number of layers of the embedding diagram of the Verma module that begin at
+level \(N\) or below, with equality for indeterminate external weights.  When
+this number is positive, the coefficient at that order is a sum of blocks at
+shifted weights, weighted by matrix elements of singular vectors divided by
+their Jantzen norms.  For the torus block we also give in closed form the
+recursion coefficients of the highest derivatives at interior weights, and
+the pole order and top coefficient at the boundary weights.  In the Ising
+model the first double poles at the energy, spin and identity weights occur
+at levels 7, 10 and 11.
 
 \vskip5pt
 \noindent\textbf{Keywords.}\enspace Virasoro algebra; conformal blocks;
@@ -227,7 +224,12 @@ bootstrap computations use Zamolodchikov's recursions to compute sphere
 blocks to high order~\cite[\S4.3]{Ribault2026}.
 
 By \emph{confluence} we mean passing to the limit \(b\to b_\star\) in the
-generic recursion after grouping the terms whose poles collide.  Fix
+generic recursion after grouping the terms whose poles collide.
+Theorem~\ref{thm:intro-confluence} says that each coefficient of the
+principal part of \(H_N\) at \(b_\star\) comes from one such group: expand a
+weighted sum of its terms in powers of \(b-b_\star\) and keep the constant
+term.  The
+following definitions make the groups and the expansion precise.  Fix
 \(b_\star\neq0\), put \(c_\star=c(b_\star)\) and \(t=b-b_\star\), and let
 \(\operatorname{Kac}_N(b_\star)\) be the set of Kac weights
 \(h_{r,s}(b_\star)\) with \(rs\leq N\).  For
@@ -405,7 +407,14 @@ Zamolodchikov introduced residue recursions for sphere four-point
 blocks~\cite{Zamolodchikov1984,Zamolodchikov1987}.  Cho, Collier and Yin give
 central-charge recursions in the plumbing frame at arbitrary genus and
 internal-weight recursions in the sphere linear and torus necklace
-channels~\cite{ChoCollierYin2017}.  At rational \(b^2\), Javerzat,
+channels~\cite{ChoCollierYin2017}.  Alday, Gaiotto and Tachikawa conjectured
+an expansion of the sphere four-point and torus one-point blocks as sums over
+pairs of Young diagrams~\cite[\S\S3.2--3.3]{AldayGaiottoTachikawa2010}, and
+Alba, Fateev, Litvinov and Tarnopolskiy derived the sphere expansion from an
+orthogonal basis of the highest-weight representations of the Virasoro
+algebra tensored with a Heisenberg algebra~\cite[Proposition~2.1
+and~(1.11)--(1.12)]{AlbaFateevLitvinovTarnopolskiy2011}; we do not use these
+expansions.  At rational \(b^2\), Javerzat,
 Santachiara and Foda regularize sphere
 examples~\cite[\S\S3.4--3.6]{JaverzatSantachiaraFoda2018},\footnote{Equations (32)--(34) of~\cite{JaverzatSantachiaraFoda2018}.}
 and analyze the cancellation of the colliding poles of the torus block in
@@ -734,6 +743,10 @@ admitting a polynomial family \(v(x)\) with \(v(0)=v\) and
 For \(c\neq1,25\), this fixed-charge filtration agrees with the Jantzen
 filtration of~\cite[\S5.5, (5.49)]{IoharaKoga2011}, and it is a Jantzen
 filtration along a curve in the sense of~\cite[\S4 and \S5.2]{Astashkevich1997}.
+The filtration by the order of vanishing of a contravariant form, and the
+identity \(\sum_{i\geq1}\dim J^i_N=\ord_x\det G_N\) of the next lemma, go
+back to Jantzen~\cite[\S2, Lemma~3]{Jantzen1977}, who used them for induced
+representations of semisimple Lie algebras.
 
 \begin{lemma}[Smith exponents and the Jantzen filtration]
 \label{lem:jantzen-smith}
@@ -1302,7 +1315,8 @@ factorization of the layer norms after Theorem~\ref{thm:top-layer} with
 \(j=1\) gives \(\mathcal N^-_2={\mathcal N}_{1,1}{\mathcal N}_{1,4}\), and
 Proposition~\ref{prop:layer-coefficients}, with \(c_2=-1\) and
 \(\vartheta=-\tfrac12\), gives \(\gamma^-_2=-[d^2]\mathcal N^-_2/\vartheta^2=-11200/3\).
-A script listed under Code availability checks each step in exact arithmetic.
+Each step of this example is also checked in exact arithmetic (see Code
+availability).
 Ribault found the double pole of the sphere block at this level from the same
 two pairs of labels, \((1,1)\) with \((1,4)\) and \((1,2)\) with
 \((3,1)\)~\cite[\S3.2, (3.19) and (3.24)]{Ribault2019}.
@@ -1993,6 +2007,22 @@ class, $\tilde m_x-\tilde m_y=N_0(\pi_x-\pi_y)$.  Since $|n_0|<n_1<pp'$, we have
 $|\alpha|,|\beta|<\frac12$, so $|\tilde m_\nu|=N_0\bigl(|\pi_\nu|+\operatorname{sgn}(\pi_\nu)\mathfrak c_\nu\bigr)$
 for $\nu\neq\lambda$, where $\mathfrak c_\nu\in\{\alpha,\beta\}$ is the centre of the
 class of $\nu$.
+
+The diagonal values take this form because only leading coefficients in $t$
+enter them: the leading coefficients of the residues and the derivatives
+$h'_g(b_\star)$ of the Kac weights.  By Lemma~\ref{lem:node-labels}(i),(ii)
+below, the derivative for the label from a node $\nu$ to a node $\nu'$ is an
+affine function of $\tilde m_\nu\tilde m_{\nu'}$ with coefficients that are
+the same for all labels.  In the chain sums, two derivatives are only ever
+subtracted when their labels share a node $\nu$ and their other nodes are of
+one class; the difference is then a constant times $\tilde m_\nu$ times a
+difference of momenta of one class, that is, $N_0$ times a difference of
+positions.  The
+chain sums are ratios of products of these differences, the residues enter
+only through the top coefficients (Proposition~\ref{prop:top-ratios}), and
+the vanishing of the sums below the diagonal
+(Lemma~\ref{lem:node-leading}(i)) leaves only the terms of top degree in the
+positions (proof of Lemma~\ref{lem:diagonal-values}).
 
 \begin{lemma}[Labels between nodes]\label{lem:node-labels}
 \begin{enumerate}
@@ -2977,7 +3007,17 @@ which is nonzero because \(M^+\neq M^-\), \(a\geq1\) and \(v_\varpi(M!)\) does n
 decrease with \(M\).  Two numbers of different \(\varpi\)-adic valuation do not
 cancel, so \([(d-d_1)^k]P_N(d)\neq0\).
 
-\emph{Case 3: \(2\leq s\leq p'-2\) and \(s\equiv\pm1\pmod\varpi\).}  Solving
+\emph{Case 3: \(2\leq s\leq p'-2\) and \(s\equiv\pm1\pmod\varpi\).}  Here the
+two summands can have the same valuation at \(d_1\), and the proof compares
+\(d_1\) with \(d_2\) in four steps.  Both norms vanish to order \(k\) at
+\(d_2\) as well.  The ratio \(X_k\) of the two norm ratios, at \(d_1\) and at
+\(d_2\), has a closed form, from which \(v_\varpi(X_k)\neq0\) or
+\(v_\varpi(X_k-1)\leq v_\varpi(k)+a-1\).  The corresponding ratio
+\(H_{\mathrm{rat}}\) of shifted blocks satisfies
+\(v_\varpi(H_{\mathrm{rat}}-1)\geq v_\varpi(k)+a\), so
+\(X_kH_{\mathrm{rat}}\neq1\).  If the summands cancelled at both points, the
+Jantzen norms would drop out of the ratio and give \(X_kH_{\mathrm{rat}}=1\).
+Solving
 \(|p'a'\pm pl|=p'+3p\) in odd positive \((a',l)\) yields \((1,3)\),
 \((1+2ip,2ip'-3)\) and \((2ip-1,2ip'+3)\) (\(i\geq1\)); counting on
 \(\mathcal N^\pm_k\) as in Case~1 gives
@@ -3141,19 +3181,29 @@ vector that starts the second Jantzen layer.
 \end{proposition}
 
 \begin{proof}
-For \(rs\leq6\), the only repeated values of \(|4r-3s|\) are \(1,2,5\), giving
-the three classes in the table. Consider a
-weight with a single label \(a\) of level \(\ell_a\leq N\).  The injective
-singular embedding \cite[the paragraph preceding Corollary~5.2]{IoharaKoga2011}
-puts \(p(N-\ell_a)\) independent vectors in the radical.  This number is the
-valuation of the Kac determinant, so all positive Smith exponents are \(1\)
-(Lemma~\ref{lem:smith}).  At the three interior weights,
-Theorem~\ref{thm:jantzen-smith} gives \(j_N(\lambda)\leq1\) below the
-second-layer levels \(7\), \(10\) and \(11\).  At those levels~\eqref{eq:top-layer} has the single term \(\mathcal N/\gamma\),
-with \(M=0\). The factors of \(\mathcal N\) are given by the factorization
-after Theorem~\ref{thm:top-layer} with \(j=1\).
-Proposition~\ref{prop:layer-coefficients} with \(c_2=-1\) gives
-\(\gamma=-[d^2]\mathcal N/\vartheta^2\), where \(\vartheta=-n_0/2\).
+For \(rs\leq6\), the values of \(|4r-3s|\) taken by more than one label are
+\(1,2,5\), which give the three classes in the table; every other Kac weight
+with \(rs\leq6\) has a single label.  At a weight with a single label \(a\)
+of level \(\ell_a\leq N\), the embedding of \(M(c_\star,h_a+\ell_a)\) through
+the singular vector of label \(a\) is injective \cite[the paragraph preceding
+Corollary~5.2]{IoharaKoga2011}, so the radical of the Shapovalov form at
+level \(N\) has dimension at least \(p(N-\ell_a)\).  This number is the order
+of vanishing of the Kac determinant there, so by Lemma~\ref{lem:smith} every
+positive Smith exponent is \(1\) and \(G_N^{-1}\) has at most a simple pole.
+The same holds at every level below \(N\), so the pole of \(H_N\) there is
+at most simple.  At the three interior weights,
+Theorem~\ref{thm:jantzen-smith} bounds the pole order of \(H_N\) by the
+Jantzen depth \(j_N(\lambda)\), the number of \(k\geq1\) with
+\(\ell_k\leq N\), and by the table \(j_N(\lambda)\leq1\) below the
+second-layer levels \(\ell_2=7\), \(10\) and \(11\).  At \(N=\ell_2\) one
+has \(N<\max(\ell^+_2,\ell^-_2)\) and \(N<\ell_3\), so~\eqref{eq:top-layer}
+with \(k=2\) has the single term of the singular vector at level \(\ell_2\),
+whose shifted block is \(H_0=1\); the coefficient of \((\Delta-\lambda)^{-2}\)
+is \(\mathcal N/\gamma\).  The factorization after
+Theorem~\ref{thm:top-layer}, for \(k=2\), gives \(\mathcal N\) as the product
+of two generic norms in the table.  Proposition~\ref{prop:layer-coefficients}
+for \(k=2\) gives \(\mathcal N/\gamma=-\vartheta^2d^2+O(d^3)\) with
+\(\vartheta=-n_0/(2(p'-p))=-n_0/2\), so \(\gamma=-[d^2]\mathcal N/\vartheta^2\).
 \end{proof}
 
 The ancillary scripts compare the norms \(\gamma\) at \(N=7\) and \(N=10\)
@@ -3517,10 +3567,9 @@ pole of \(H_5\) at \(\Delta=0\) has order at most \(j_5(0)=2\)
 \]
 with \(\varphi=P_{1,1}P_{1,4}\), because \(\mathcal A_{1,1}=\tfrac12\) and
 \(\mathcal A_{1,4}(b_\star)=-\tfrac3{1120}\).  Proposition~\ref{prop:c0-example}
-obtains the same coefficient from the top Jantzen layer.  A script listed
-under Code availability checks each step in exact arithmetic and compares both
-moments with a direct Gram-matrix computation of \(H_5\) at sample external
-weights.
+obtains the same coefficient from the top Jantzen layer.  Each step is also
+checked in exact arithmetic, and both moments agree with a direct Gram-matrix
+computation of \(H_5\) at sample external weights (see Code availability).
 \end{example*}
 
 \begin{remark}[Recursion at the fixed charge for the sphere block]
@@ -4423,6 +4472,23 @@ ancillary files of the arXiv version; the others are in the repository only.
 \setlength{\itemsep}{0pt plus 0.5pt}
 \setlength{\parskip}{0pt}
 
+\bibitem[AFLT11]{AlbaFateevLitvinovTarnopolskiy2011}
+V.~A. Alba, V.~A. Fateev, A.~V. Litvinov and G.~M. Tarnopolskiy,
+\emph{On combinatorial expansion of the conformal blocks arising from AGT
+conjecture},
+Lett.\ Math.\ Phys. \textbf{98} (2011) 33--64,
+\href{https://doi.org/10.1007/s11005-011-0503-z}%
+{doi:\allowbreak 10.1007/s11005-011-0503-z},
+\href{https://arxiv.org/abs/1012.1312}{arXiv:1012.1312}.
+
+\bibitem[AGT10]{AldayGaiottoTachikawa2010}
+L.~F. Alday, D.~Gaiotto and Y.~Tachikawa,
+\emph{Liouville correlation functions from four-dimensional gauge theories},
+Lett.\ Math.\ Phys. \textbf{91} (2010) 167--197,
+\href{https://doi.org/10.1007/s11005-010-0369-5}%
+{doi:\allowbreak 10.1007/s11005-010-0369-5},
+\href{https://arxiv.org/abs/0906.3219}{arXiv:0906.3219}.
+
 \bibitem[Ast97]{Astashkevich1997}
 A.~Astashkevich,
 \emph{On the structure of Verma modules over Virasoro and
@@ -4468,6 +4534,14 @@ K.~Iohara and Y.~Koga,
 Springer Monographs in Mathematics, Springer (2011),
 \href{https://doi.org/10.1007/978-0-85729-160-8}%
 {doi:\allowbreak 10.1007/978-0-85729-160-8}.
+
+\bibitem[Jan77]{Jantzen1977}
+J.~C. Jantzen,
+\emph{Kontravariante Formen auf induzierten Darstellungen halbeinfacher
+Lie-Algebren},
+Math.\ Ann. \textbf{226} (1977) 53--65,
+\href{https://doi.org/10.1007/BF01391218}%
+{doi:\allowbreak 10.1007/BF01391218}.
 
 \bibitem[JSF18]{JaverzatSantachiaraFoda2018}
 N.~Javerzat, R.~Santachiara and O.~Foda,
